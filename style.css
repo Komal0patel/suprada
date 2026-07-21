@@ -1,0 +1,321 @@
+/* =========================================
+   CSS Variables & Theme Tokens
+   ========================================= */
+:root {
+    --bg-primary: #F9F7F2;     /* Soft warm cream */
+    --bg-secondary: #EBE6DC;   /* Slightly deeper beige */
+    --text-primary: #2C3A32;   /* Deep elegant forest green */
+    --text-secondary: #5A695F; /* Muted text */
+    --accent: #B89C72;         /* Soft elegant gold/sand */
+    --accent-hover: #A0855B;   
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Outfit', sans-serif;
+
+    --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-fast: 0.3s ease;
+}
+
+/* =========================================
+   Reset & Base Styles
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================================
+   Typography & Utilities
+   ========================================= */
+.subtitle {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+/* =========================================
+   Buttons
+   ========================================= */
+.btn-primary {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    padding: 0.875rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-primary);
+    padding: 0.875rem 2rem;
+    border: 1px solid var(--text-primary);
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.btn-secondary:hover {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+/* =========================================
+   Navigation (Glassmorphism)
+   ========================================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1.5rem 0;
+    background: rgba(249, 247, 242, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(44, 58, 50, 0.05);
+    transition: var(--transition-fast);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    position: relative;
+    transition: var(--transition-fast);
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--text-primary);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--accent);
+    transition: var(--transition-fast);
+}
+
+.nav-links a:hover::after, .nav-links a.active::after {
+    width: 100%;
+}
+
+/* =========================================
+   Hero Section
+   ========================================= */
+.hero {
+    min-height: 100vh;
+    padding: 10rem 4rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero .title {
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+}
+
+.hero .title em {
+    color: var(--accent);
+    font-style: italic;
+}
+
+.hero .description {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    max-width: 90%;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.hero-visual {
+    position: relative;
+    height: 600px;
+}
+
+.image-wrapper {
+    position: absolute;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.img-1 {
+    width: 350px;
+    height: 450px;
+    top: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.img-2 {
+    width: 300px;
+    height: 400px;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.placeholder-img {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--bg-secondary), #DCD6CD);
+}
+
+/* =========================================
+   Animations
+   ========================================= */
+.slide-up {
+    animation: slideUp 1s var(--transition-slow) forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.slide-up-delay {
+    animation: slideUp 1s var(--transition-slow) 0.2s forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.fade-in {
+    animation: fadeIn 1.5s var(--transition-slow) 0.4s forwards;
+    opacity: 0;
+}
+
+.fade-in-delay {
+    animation: fadeIn 1.5s var(--transition-slow) 0.6s forwards;
+    opacity: 0;
+}
+
+.reveal-left {
+    animation: revealLeft 1.2s var(--transition-slow) 0.5s forwards;
+    opacity: 0;
+    transform: translateX(-40px);
+}
+
+.reveal-right {
+    animation: revealRight 1.2s var(--transition-slow) 0.3s forwards;
+    opacity: 0;
+    transform: translateX(40px);
+}
+
+@keyframes slideUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes revealLeft {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes revealRight {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* =========================================
+   Responsive
+   ========================================= */
+@media (max-width: 1024px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 8rem;
+    }
+    
+    .hero-content {
+        margin: 0 auto;
+    }
+    
+    .hero .description {
+        margin: 0 auto 3rem;
+    }
+    
+    .hero-actions {
+        justify-content: center;
+    }
+    
+    .hero-visual {
+        display: none; /* Simplify for now */
+    }
+    
+    .nav-links, .nav-btn {
+        display: none; /* Hide nav on mobile for now */
+    }
+}

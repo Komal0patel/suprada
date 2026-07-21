@@ -9,7 +9,7 @@ try {
   const pdfPath = 'c:\\Supradha\\Refer_folder\\Suprada_Branding_231122_182733.pdf';
   const outputDir = 'c:\\Supradha\\public\\assets\\extracted';
   const spaDir = 'c:\\Supradha\\public\\assets\\spa';
-  
+
   if (!fs.existsSync(spaDir)) {
     fs.mkdirSync(spaDir, { recursive: true });
   }
@@ -62,20 +62,20 @@ try {
     if (!fs.existsSync(outputDir)) {
       fs.mkdirSync(outputDir, { recursive: true });
     }
-    
+
     const existing = fs.readdirSync(outputDir);
     if (existing.length === 0) {
       const buffer = fs.readFileSync(pdfPath);
       let index = 0;
       let count = 0;
-      
+
       while (true) {
         const start = buffer.indexOf(Buffer.from([0xff, 0xd8, 0xff]), index);
         if (start === -1) break;
-        
+
         const end = buffer.indexOf(Buffer.from([0xff, 0xd9]), start);
         if (end === -1) break;
-        
+
         const jpegBuffer = buffer.subarray(start, end + 2);
         if (jpegBuffer.length > 30000) {
           fs.writeFileSync(path.join(outputDir, `extracted_${count}.jpg`), jpegBuffer);
@@ -93,6 +93,7 @@ try {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: 'suprada',
   server: {
     // SPA fallback: serve index.html for all unknown paths so React Router handles routing
     historyApiFallback: true,

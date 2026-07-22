@@ -93,11 +93,7 @@ try {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-<<<<<<< HEAD
-  base: 'suprada',
-=======
-   base: 'suprada',
->>>>>>> 755b1d6f938d70f73c79f22a3faedb46d3da5272
+  base: '/',
   server: {
     // SPA fallback: serve index.html for all unknown paths so React Router handles routing
     historyApiFallback: true,

@@ -4,6 +4,8 @@ import fs from 'fs'
 import path from 'path'
 import https from 'https'
 
+import { cloudflare } from "@cloudflare/vite-plugin";
+
 // Extract branding images from PDF & download curated spa images
 try {
   const pdfPath = 'c:\\Supradha\\Refer_folder\\Suprada_Branding_231122_182733.pdf';
@@ -92,7 +94,7 @@ try {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), cloudflare()],
   base: '/',
   server: {
     // SPA fallback: serve index.html for all unknown paths so React Router handles routing

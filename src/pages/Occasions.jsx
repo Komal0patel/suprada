@@ -148,28 +148,20 @@ export default function Occasions({ onNavigate }) {
 
     let animationFrameId;
     let lastTime = performance.now();
-    let accumulatedScroll = 0;
-    const scrollSpeed = 35; // Speed in pixels per second
+    const scrollSpeed = 24; // Silky smooth speed in pixels per second
 
     const step = (time) => {
       const delta = (time - lastTime) / 1000;
       lastTime = time;
 
-      if (!isHoveredServiceTrackRef.current) {
-        accumulatedScroll += scrollSpeed * delta;
-        if (accumulatedScroll >= 1) {
-          const scrollPixels = Math.floor(accumulatedScroll);
-          accumulatedScroll -= scrollPixels;
+      if (!isHoveredServiceTrackRef.current && delta < 0.1) {
+        container.style.scrollBehavior = 'auto';
+        container.scrollLeft += scrollSpeed * delta;
 
-          const maxScroll = container.scrollWidth - container.clientWidth;
-          if (container.scrollLeft >= maxScroll - 1) {
-            container.scrollLeft = 0;
-          } else {
-            container.scrollLeft += scrollPixels;
-          }
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        if (maxScroll > 0 && container.scrollLeft >= maxScroll - 2) {
+          container.scrollLeft = 0;
         }
-      } else {
-        accumulatedScroll = 0;
       }
 
       animationFrameId = requestAnimationFrame(step);
@@ -248,8 +240,7 @@ export default function Occasions({ onNavigate }) {
 
     let animationFrameId;
     let lastTime = performance.now();
-    let accumulatedScroll = 0;
-    const scrollSpeed = 50; // Speed in pixels per second
+    const scrollSpeed = 26; // Silky smooth speed in pixels per second
 
     const step = (time) => {
       const delta = (time - lastTime) / 1000;
@@ -257,22 +248,14 @@ export default function Occasions({ onNavigate }) {
 
       const isPaused = isDraggingRef.current || isHoveredTrackRef.current || (hoveredCardIdx !== null);
 
-      if (!isPaused) {
-        accumulatedScroll += scrollSpeed * delta;
-        if (accumulatedScroll >= 1) {
-          const scrollPixels = Math.floor(accumulatedScroll);
-          accumulatedScroll -= scrollPixels;
+      if (!isPaused && delta < 0.1) {
+        container.style.scrollBehavior = 'auto';
+        container.scrollLeft += scrollSpeed * delta;
 
-          // Check if we hit the end
-          const maxScroll = container.scrollWidth - container.clientWidth;
-          if (container.scrollLeft >= maxScroll - 1) {
-            container.scrollLeft = 0;
-          } else {
-            container.scrollLeft += scrollPixels;
-          }
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        if (maxScroll > 0 && container.scrollLeft >= maxScroll - 2) {
+          container.scrollLeft = 0;
         }
-      } else {
-        accumulatedScroll = 0;
       }
 
       animationFrameId = requestAnimationFrame(step);
@@ -996,7 +979,6 @@ export default function Occasions({ onNavigate }) {
               style={{
                 overflowX: 'auto',
                 padding: '1rem 0.5rem',
-                scrollBehavior: 'smooth',
                 cursor: 'grab'
               }}
               onMouseEnter={() => { isHoveredTrackRef.current = true; }}
@@ -1445,8 +1427,7 @@ export default function Occasions({ onNavigate }) {
                   overflowX: 'auto',
                   display: 'flex',
                   gap: '1rem',
-                  padding: '0.8rem 0.2rem',
-                  scrollBehavior: 'smooth'
+                  padding: '0.8rem 0.2rem'
                 }}
                 onMouseEnter={() => { isHoveredServiceTrackRef.current = true; }}
                 onMouseLeave={() => { isHoveredServiceTrackRef.current = false; }}

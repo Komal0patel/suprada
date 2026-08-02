@@ -299,9 +299,10 @@ export default function Contact({ onNavigate }) {
 
       {/* ── HERO: Split Layout with Typewriter Left & River Image Right ── */}
       <section
+        className="mobile-hero-compact"
         style={{
           position: 'relative',
-          minHeight: '88vh',
+          minHeight: '100vh',
           display: 'flex',
           alignItems: 'center',
           overflow: 'hidden'
@@ -342,7 +343,7 @@ export default function Contact({ onNavigate }) {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          padding: '8rem 8% 6rem 8%',
+          padding: '6rem 8% 2.25rem 8%',
           maxWidth: '680px'
         }}>
           {/* Leaf SVG Watermark Overlay */}
@@ -528,7 +529,7 @@ export default function Contact({ onNavigate }) {
       </section>
 
       {/* Main Content: Bento Grid Layout */}
-      <section id="contact-bento" style={{ padding: '2rem 8% 6rem 8%' }}>
+      <section id="contact-bento" style={{ padding: '2.25rem 8% 2.25rem 8%' }}>
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -901,7 +902,7 @@ export default function Contact({ onNavigate }) {
       </section>
 
       {/* Google Maps Embed Full-Width Row */}
-      <section id="contact-map" style={{ padding: '0 8% 6rem 8%' }}>
+      <section id="contact-map" style={{ padding: '2.25rem 8% 4.5rem 8%' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{
             position: 'relative', width: '100%', height: '420px',

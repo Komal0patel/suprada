@@ -193,57 +193,6 @@ export default function Gallery({ onNavigate }) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const galleryTitle = "Our Gallery";
-  const galleryDesc = "Discover the serene beauty and transformative experiences that await you at Suprada Wellness. Explore our retreat spaces, therapeutic treatments, nutritious cuisine, and peaceful architecture.";
-
-  const [typedTitle, setTypedTitle] = useState("");
-  const [typedDesc, setTypedDesc] = useState("");
-  const [typingPhase, setTypingPhase] = useState("typing-title"); // "typing-title", "typing-desc", "waiting", "deleting"
-  const [isTypewriterPaused, setIsTypewriterPaused] = useState(false);
-
-  useEffect(() => {
-    if (isTypewriterPaused) return;
-
-    let timer;
-    if (typingPhase === "typing-title") {
-      if (typedTitle.length < galleryTitle.length) {
-        timer = setTimeout(() => {
-          setTypedTitle(galleryTitle.slice(0, typedTitle.length + 2));
-        }, 8);
-      } else {
-        setTypingPhase("typing-desc");
-      }
-    } else if (typingPhase === "typing-desc") {
-      if (typedDesc.length < galleryDesc.length) {
-        timer = setTimeout(() => {
-          setTypedDesc(galleryDesc.slice(0, typedDesc.length + 8));
-        }, 8);
-      } else {
-        setTypingPhase("waiting");
-      }
-    } else if (typingPhase === "waiting") {
-      timer = setTimeout(() => {
-        setTypingPhase("deleting");
-      }, 4000);
-    } else if (typingPhase === "deleting") {
-      if (typedDesc.length > 0) {
-        timer = setTimeout(() => {
-          setTypedDesc((prev) => prev.slice(0, -15));
-        }, 8);
-      } else if (typedTitle.length > 0) {
-        timer = setTimeout(() => {
-          setTypedTitle((prev) => prev.slice(0, -3));
-        }, 8);
-      } else {
-        setTypedTitle("");
-        setTypedDesc("");
-        setTypingPhase("typing-title");
-      }
-    }
-
-    return () => clearTimeout(timer);
-  }, [typingPhase, typedTitle, typedDesc, isTypewriterPaused]);
-
   const categories = ['All', 'Retreat', 'Therapies', 'Nutrition', 'Architecture', 'Activities'];
 
   // Exact gallery items mapped from reference website source
@@ -297,7 +246,8 @@ export default function Gallery({ onNavigate }) {
 
   const isMobile = width < 768;
 
-  const numCols = width >= 1024 ? 3 : (width >= 768 ? 2 : 1);
+  // 3 columns on laptop/desktop, 2 columns on mobile
+  const numCols = width >= 768 ? 3 : 2;
   const cols = Array.from({ length: numCols }, (_, colIdx) => {
     const offsetItems = [];
     const len = filteredWithIndex.length;
@@ -319,10 +269,10 @@ export default function Gallery({ onNavigate }) {
   };
 
   // Handle active items for layout pagination
-  const displayItems = isMobile ? filteredWithIndex : filteredWithIndex.slice(0, 8);
+  const displayItems = filteredWithIndex;
 
   // Distribute items into columns for dynamic masonry layout (mobile fallback)
-  const numColumns = width > 640 ? 2 : 1;
+  const numColumns = width >= 768 ? 3 : 2;
   const masonryColumns = Array.from({ length: numColumns }, () => []);
   filteredWithIndex.forEach((item) => {
     const shortestColIdx = masonryColumns
@@ -373,16 +323,17 @@ export default function Gallery({ onNavigate }) {
 
   return (
     <div style={{ backgroundColor: 'var(--isabelline)', minHeight: '100vh', paddingTop: 0, position: 'relative', overflowX: 'hidden' }}>
-      
+
       {/* Botanical Leaf Vector Watermarks */}
       <Pattern24 style={{ position: 'absolute', top: '25%', left: '-80px', width: '340px', height: 'auto', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
       <Pattern25 style={{ position: 'absolute', top: '60%', right: '-80px', width: '340px', height: 'auto', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
 
       {/* Unified Typewriter Hero Section */}
-      <section 
+      <section
+        className="mobile-hero-compact"
         style={{
           boxSizing: 'border-box',
-          padding: '8rem 8% 6rem 8%',
+          padding: '8rem 8% 2rem 8%',
           background: 'linear-gradient(135deg, #c5cc9f 0%, #b3ba8e 60%, #9ea776 100%)',
           color: 'var(--wine)',
           textAlign: 'center',
@@ -400,76 +351,53 @@ export default function Gallery({ onNavigate }) {
         <Pattern24 style={{ position: 'absolute', top: '-20px', left: '-40px', width: '280px', opacity: 0.12, color: 'var(--wine)', pointerEvents: 'none' }} />
         <Pattern25 style={{ position: 'absolute', bottom: '-20px', right: '-40px', width: '280px', opacity: 0.12, color: 'var(--wine)', pointerEvents: 'none' }} />
 
-        {/* CSS style tag for blinking cursor */}
-        <style dangerouslySetInnerHTML={{__html: `
-          @keyframes blinkCursor {
-            50% { opacity: 0; }
-          }
-          .typewriter-cursor {
-            display: inline-block;
-            width: 3px;
-            height: 1em;
-            background-color: var(--redwood);
-            margin-left: 4px;
-            animation: blinkCursor 0.8s infinite;
-            vertical-align: middle;
-          }
-        `}} />
-
-        {/* Ambient Golden & Green Bokeh Glows */}
-        <div style={{ position: 'absolute', top: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.18) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(70px)', zIndex: 0, pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(184,94,76,0.12) 0%, rgba(184,94,76,0) 70%)', filter: 'blur(80px)', zIndex: 0, pointerEvents: 'none' }} />
-
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', width: '100%' }}>
-          {/* Active tag indicator */}
-          <span style={{ 
-            color: 'var(--redwood)', 
-            textTransform: 'uppercase', 
-            letterSpacing: '0.3em', 
-            fontSize: '0.8rem', 
-            fontWeight: 800, 
-            display: 'block', 
-            marginBottom: '1rem'
-          }}>
+        {/* ── BOTANICAL BLOOM (FINAL CHOSEN ANIMATION) ── */}
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', width: '100%', textAlign: 'center' }}>
+          <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.8rem', fontWeight: 800, display: 'block', marginBottom: '1.2rem' }}>
             Moments
           </span>
-
-          {/* Blinking indicator/typing title */}
-          <h1 style={{ 
-            fontFamily: 'var(--font-heading)', 
-            fontSize: 'clamp(2.5rem, 5.2vw, 4.2rem)', 
-            color: 'var(--wine)', 
-            fontWeight: 500, 
-            lineHeight: 1.15, 
-            margin: 0,
-            minHeight: '5.5rem',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}>
-            <span>{typedTitle}</span>
-            {typingPhase === "typing-title" && <span className="typewriter-cursor" />}
-          </h1>
-
-          {/* Blinking indicator/typing description */}
-          <p style={{ 
-            color: 'var(--raisin-black)', 
-            opacity: 0.85, 
-            maxWidth: '700px', 
-            margin: '1.8rem auto 0 auto', 
-            fontSize: '1.08rem', 
-            lineHeight: 1.8, 
-            fontWeight: 300,
-            minHeight: '5.5rem'
-          }}>
-            <span>{typedDesc}</span>
-            {(typingPhase === "typing-desc" || typingPhase === "waiting") && <span className="typewriter-cursor" />}
-          </p>
+          <motion.h1
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.2 } }
+            }}
+            initial="hidden"
+            animate="visible"
+            style={{
+              fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.5rem, 5.2vw, 4.2rem)', color: 'var(--wine)',
+              fontWeight: 500, lineHeight: 1.15, margin: 0, display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap'
+            }}
+          >
+            {["Our", "Gallery"].map((word, idx) => (
+              <motion.span
+                key={idx}
+                variants={{
+                  hidden: { scale: 0.4, rotate: -15, opacity: 0, filter: 'blur(8px)' },
+                  visible: { scale: [0.4, 1.05, 1], rotate: 0, opacity: 1, filter: 'blur(0px)', transition: { duration: 0.8, ease: 'easeOut' } }
+                }}
+                animate={{
+                  scale: [1, 1.015, 1],
+                  transition: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: idx * 0.5 + 1.2 }
+                }}
+                style={{ display: 'inline-block', transformOrigin: 'center bottom' }}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 0.85, scale: 1 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            style={{ color: 'var(--raisin-black)', maxWidth: '700px', margin: '1.8rem auto 0 auto', fontSize: '1.08rem', lineHeight: 1.85, fontWeight: 300 }}
+          >
+            Discover the serene beauty and transformative experiences that await you at Suprada Wellness. Explore our retreat spaces, therapeutic treatments, nutritious cuisine, and peaceful architecture.
+          </motion.p>
         </div>
       </section>
 
       {/* Filter Tabs */}
-      <section style={{ padding: '0 5% 3.5rem 5%' }}>
+      <section style={{ padding: '1.5rem 5% 1.5rem 5%' }}>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '0.8rem', flexWrap: 'wrap', maxWidth: '800px', margin: '0 auto', position: 'relative' }}>
           {categories.map((cat, idx) => {
             const isActive = activeTab === cat;
@@ -529,7 +457,7 @@ export default function Gallery({ onNavigate }) {
       </section>
 
       {/* Main Grid Area */}
-      <section style={{ padding: '0 8% 9rem 8%', position: 'relative' }}>
+      <section style={{ padding: '0 8% 3rem 8%', position: 'relative' }}>
         <style dangerouslySetInnerHTML={{
           __html: `
           @keyframes scroll-up-aesthetic {
@@ -541,10 +469,10 @@ export default function Gallery({ onNavigate }) {
             100% { transform: translateY(0); }
           }
           .scroll-col-up {
-            animation: scroll-up-aesthetic 56s linear infinite;
+            animation: scroll-up-aesthetic 130s linear infinite;
           }
           .scroll-col-down {
-            animation: scroll-down-aesthetic 56s linear infinite;
+            animation: scroll-down-aesthetic 130s linear infinite;
           }
           .scroll-col-up:hover, .scroll-col-down:hover {
             animation-play-state: paused;
@@ -553,17 +481,17 @@ export default function Gallery({ onNavigate }) {
 
         <div style={{
           display: 'flex',
-          gap: '1.8rem',
-          height: '680px',
+          gap: isMobile ? '0.45rem' : '0.55rem',
+          height: isMobile ? '520px' : '680px',
           overflow: 'hidden',
           position: 'relative',
           maxWidth: '1200px',
           margin: '0 auto',
-          padding: '1.2rem',
+          padding: '0.5rem',
           borderRadius: '24px',
-          backgroundColor: 'rgba(94, 39, 53, 0.01)',
-          border: '1px solid rgba(94, 39, 53, 0.04)',
-          boxShadow: 'inset 0 0 20px rgba(94, 39, 53, 0.01)'
+          backgroundColor: 'rgba(94, 39, 53, 0.015)',
+          border: '3px solid var(--harvest-gold)',
+          boxShadow: '0 20px 50px rgba(94, 39, 53, 0.12), inset 0 0 20px rgba(220, 160, 50, 0.05)'
         }}>
           {cols.map((colItems, colIdx) => {
             const isUp = colIdx % 2 === 0;
@@ -577,7 +505,7 @@ export default function Gallery({ onNavigate }) {
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '1.8rem',
+                  gap: isMobile ? '0.45rem' : '0.55rem',
                   flex: 1,
                   height: 'max-content'
                 }}
@@ -588,12 +516,12 @@ export default function Gallery({ onNavigate }) {
                     onClick={() => setSelectedIdx(item.filteredIdx)}
                     style={{
                       width: '100%',
-                      height: '280px',
+                      height: isMobile ? '165px' : '265px',
                       backgroundColor: '#ffffff',
                       borderRadius: '16px',
                       overflow: 'hidden',
-                      boxShadow: '0 12px 30px rgba(94, 39, 53, 0.03)',
-                      border: '1px solid rgba(94, 39, 53, 0.05)',
+                      boxShadow: '0 8px 24px rgba(94, 39, 53, 0.04)',
+                      border: '2px solid rgba(220, 160, 50, 0.25)',
                       cursor: 'pointer',
                       flexShrink: 0
                     }}
@@ -610,7 +538,7 @@ export default function Gallery({ onNavigate }) {
       </section>
 
       {/* Experience CTA */}
-      <section style={{ backgroundColor: 'var(--wine)', color: 'var(--isabelline)', padding: '6rem 5%', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ backgroundColor: 'var(--wine)', color: 'var(--isabelline)', padding: '4rem 5%', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'radial-gradient(circle, rgba(220,160,50,0.03) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none' }} />
         <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', color: 'var(--tan)', marginBottom: '1rem', fontWeight: 600 }}>
           Experience Suprada in Person
@@ -655,6 +583,26 @@ export default function Gallery({ onNavigate }) {
               }}
             >
               <div style={{ height: '420px', overflow: 'hidden', backgroundColor: '#000000', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                {/* Slide Count Indicator */}
+                <div style={{
+                  position: 'absolute',
+                  top: '1.2rem',
+                  right: '1.2rem',
+                  backgroundColor: 'rgba(25, 23, 24, 0.65)',
+                  backdropFilter: 'blur(8px)',
+                  border: '1.5px solid rgba(220, 160, 50, 0.25)',
+                  padding: '0.4rem 0.8rem',
+                  borderRadius: '30px',
+                  color: 'var(--harvest-gold)',
+                  fontSize: '0.78rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.08em',
+                  pointerEvents: 'none',
+                  zIndex: 10
+                }}>
+                  {selectedIdx + 1} / {filteredItems.length}
+                </div>
+
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={selectedIdx}

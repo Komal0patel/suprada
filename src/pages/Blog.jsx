@@ -410,9 +410,10 @@ export default function Blog({ onNavigate }) {
           >
             {/* Unified Luxury Hero Section */}
             <section 
+              className="mobile-hero-compact"
               style={{
                 boxSizing: 'border-box',
-                padding: '8rem 8% 5rem 8%',
+                padding: '6rem 8% 2.25rem 8%',
                 background: 'linear-gradient(135deg, #ded2bf 0%, #d5c6b0 60%, #c8b79e 100%)',
                 color: 'var(--wine)',
                 textAlign: 'center',
@@ -433,21 +434,47 @@ export default function Blog({ onNavigate }) {
               <div style={{ position: 'absolute', top: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.18) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(70px)', zIndex: 0, pointerEvents: 'none' }} />
               <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(184,94,76,0.12) 0%, rgba(184,94,76,0) 70%)', filter: 'blur(80px)', zIndex: 0, pointerEvents: 'none' }} />
 
-              <motion.div initial="hidden" animate="visible" variants={blurFadeIn} style={{ position: 'relative', zIndex: 1, maxWidth: '800px' }}>
-                <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.8rem', fontWeight: 800, display: 'block', marginBottom: '1rem' }}>
+              <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', width: '100%', textAlign: 'center' }}>
+                <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.8rem', fontWeight: 800, display: 'block', marginBottom: '1.2rem' }}>
                   Readings &amp; Articles
                 </span>
-                <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.8rem, 5.5vw, 4.5rem)', color: 'var(--wine)', fontWeight: 500, lineHeight: 1.15, margin: 0 }}>
-                  Wellness <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 'inherit' }}>Journal</em>
-                </h1>
+                <motion.h1
+                  variants={{
+                    hidden: {},
+                    visible: { transition: { staggerChildren: 0.2 } }
+                  }}
+                  initial="hidden"
+                  animate="visible"
+                  style={{
+                    fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.8rem, 5.5vw, 4.5rem)', color: 'var(--wine)',
+                    fontWeight: 500, lineHeight: 1.15, margin: 0, display: 'flex', justifyContent: 'center', gap: '0.8rem', flexWrap: 'wrap'
+                  }}
+                >
+                  {["Wellness", "Journal"].map((word, idx) => (
+                    <motion.span
+                      key={idx}
+                      variants={{
+                        hidden: { scale: 0.4, rotate: -15, opacity: 0, filter: 'blur(8px)' },
+                        visible: { scale: [0.4, 1.05, 1], rotate: 0, opacity: 1, filter: 'blur(0px)', transition: { duration: 0.8, ease: 'easeOut' } }
+                      }}
+                      animate={{
+                        scale: [1, 1.015, 1],
+                        transition: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: idx * 0.5 + 1.2 }
+                      }}
+                      style={{ display: 'inline-block', transformOrigin: 'center bottom' }}
+                    >
+                      {word}
+                    </motion.span>
+                  ))}
+                </motion.h1>
                 <p style={{ color: 'var(--raisin-black)', opacity: 0.85, maxWidth: '680px', margin: '1.5rem auto 0 auto', fontSize: '1.08rem', lineHeight: 1.8, fontWeight: 300 }}>
                   Insights, clinical perspectives, and ancient wisdom on drugless healing, satwik nutrition, and holistic lifestyle.
                 </p>
-              </motion.div>
+              </div>
             </section>
 
             {/* Category Filter Pills */}
-            <section style={{ padding: '2.5rem 8% 1.5rem 8%' }}>
+            <section style={{ padding: '2.25rem 8% 1.5rem 8%' }}>
               <div style={{ display: 'flex', justifyContent: 'center', gap: '0.8rem', flexWrap: 'wrap', maxWidth: '900px', margin: '0 auto', position: 'relative' }}>
                 {categories.map((cat) => {
                   const isActive = activeCategory === cat;
@@ -503,8 +530,22 @@ export default function Blog({ onNavigate }) {
             </section>
 
             {/* Articles Grid */}
-            <section style={{ padding: '2rem 8% 8rem 8%' }}>
+            <section style={{ padding: '0 8% 4.5rem 8%' }}>
+              <style dangerouslySetInnerHTML={{__html: `
+                @media (min-width: 640px) {
+                  .grid-4-laptop {
+                    grid-template-columns: repeat(4, 1fr) !important;
+                    gap: 1.5rem !important;
+                  }
+                }
+                @media (max-width: 639px) {
+                  .grid-4-laptop {
+                    grid-template-columns: 1fr !important;
+                  }
+                }
+              `}} />
               <motion.div 
+                className="grid-4-laptop"
                 variants={cardContainerVariants}
                 initial="hidden"
                 animate="visible"
@@ -535,7 +576,7 @@ export default function Blog({ onNavigate }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -25 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            style={{ maxWidth: '850px', margin: '0 auto', padding: '6rem 5% 8rem 5%', position: 'relative', zIndex: 1 }}
+            style={{ maxWidth: '850px', margin: '0 auto', padding: '4.5rem 5% 4.5rem 5%', position: 'relative', zIndex: 1 }}
           >
             {/* Back Button */}
             <motion.button

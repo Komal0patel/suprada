@@ -706,10 +706,10 @@ export default function Home({ onNavigate }) {
             <motion.button 
               variants={blurFadeIn} 
               onClick={() => onNavigate('stay')}
-              className="btn-luxury" 
+              className="btn-primary" 
               style={{ padding: '1rem 2.8rem', fontSize: '0.85rem' }}
             >
-              Book Your Stay
+              ✦ Book Your Stay
             </motion.button>
           </motion.div>
         </div>
@@ -721,7 +721,7 @@ export default function Home({ onNavigate }) {
         <motion.div
           animate={{ y: [0, -8, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          style={{ position: 'absolute', top: 0, left: 0, width: '250px', zIndex: 1, pointerEvents: 'none' }}
+          style={{ position: 'absolute', bottom: 0, left: 0, width: '250px', zIndex: 1, pointerEvents: 'none' }}
         >
           <Pattern28 style={{ width: '100%', color: 'var(--tan)', opacity: 0.06 }} />
         </motion.div>
@@ -801,21 +801,29 @@ export default function Home({ onNavigate }) {
             <motion.div 
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              whileHover={{ scale: 1.06, rotate: 12, boxShadow: '0 20px 40px rgba(220,160,50,0.4)' }}
-              className="founders-badge-icon"
+              whileHover={{ scale: 1.08 }}
               style={{
-                width: '100px', height: '100px', backgroundColor: 'var(--harvest-gold)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                clipPath: 'polygon(50% 0%, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0% 50%, 15% 15%)',
-                cursor: 'pointer', marginBottom: '1rem', border: '2px solid rgba(255,255,255,0.2)',
-                transition: 'box-shadow 0.3s ease'
+                cursor: 'pointer',
+                marginBottom: '1rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
               }}
             >
-              <img src="/assets/logo.svg" alt="Suprada Logo" style={{ width: '55px', height: '55px', objectFit: 'contain' }} />
+              <img 
+                src="/assets/logo.svg" 
+                alt="Suprada Logo" 
+                style={{ 
+                  width: '120px', 
+                  height: '120px', 
+                  objectFit: 'contain',
+                  filter: 'drop-shadow(0 6px 20px rgba(220, 160, 50, 0.35))' 
+                }} 
+              />
             </motion.div>
-            <div style={{ textAlign: 'left' }}>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem', color: 'var(--tan)', letterSpacing: '0.1em', margin: 0, fontWeight: 700 }}>Suprada</h3>
-              <span style={{ color: 'var(--isabelline)', opacity: 0.65, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginTop: '0.1rem', display: 'block' }}>Est. 2026</span>
+            <div style={{ textAlign: 'center' }}>
+              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.9rem', color: 'var(--tan)', letterSpacing: '0.1em', margin: 0, fontWeight: 700 }}>Suprada</h3>
+              <span style={{ color: 'var(--isabelline)', opacity: 0.65, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginTop: '0.15rem', display: 'block' }}>Est. 2026</span>
             </div>
           </motion.div>
 
@@ -838,20 +846,17 @@ export default function Home({ onNavigate }) {
             </motion.div>
             
             <motion.h2 
-              variants={foundersMaskRevealParent}
+              variants={foundersMistFadeVariant}
               className="gold-foil-text" 
-              style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem, 3.8vw, 3rem)', lineHeight: 1.18, display: 'flex', flexWrap: 'wrap', gap: '0.4rem 0.6rem', margin: 0, fontWeight: 700 }}
+              style={{ 
+                fontFamily: 'var(--font-heading)', 
+                fontSize: 'clamp(2.2rem, 3.8vw, 3.2rem)', 
+                lineHeight: 1.18, 
+                margin: 0, 
+                fontWeight: 700 
+              }}
             >
-              {"The Spirit of Suprada".split(" ").map((word, idx) => (
-                <span key={idx} style={{ display: 'inline-block', overflow: 'hidden', paddingBottom: '0.1rem' }}>
-                  <motion.span 
-                    variants={foundersMaskRevealChild} 
-                    style={{ display: 'inline-block' }}
-                  >
-                    {word}
-                  </motion.span>
-                </span>
-              ))}
+              The Spirit of Suprada
             </motion.h2>
             
             <motion.h4 variants={foundersMistFadeVariant} style={{ color: 'var(--tan)', fontSize: '1.1rem', fontWeight: 600, fontFamily: 'var(--font-heading)', letterSpacing: '0.02em', margin: 0 }}>
@@ -1739,24 +1744,7 @@ export default function Home({ onNavigate }) {
                       whileHover={{ scale: 1.04, boxShadow: '0 12px 30px rgba(220, 160, 50, 0.55)' }}
                       whileTap={{ scale: 0.97 }}
                       onClick={() => onNavigate('programmes')}
-                      style={{
-                        background: 'linear-gradient(135deg, #dca032 0%, #f7d070 50%, #b5801c 100%)',
-                        color: 'var(--wine)',
-                        border: 'none',
-                        borderRadius: '30px',
-                        padding: '0.75rem 2rem',
-                        fontSize: '0.78rem',
-                        fontWeight: 800,
-                        letterSpacing: '0.14em',
-                        textTransform: 'uppercase',
-                        cursor: 'pointer',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '0.6rem',
-                        boxShadow: '0 8px 22px rgba(220, 160, 50, 0.35)',
-                        transition: 'all 0.3s ease',
-                        width: 'fit-content'
-                      }}
+                      className="btn-luxury"
                     >
                       <span>Explore {activePillarData.title}</span>
                       <span style={{ fontSize: '1rem', fontWeight: 800 }}>&rarr;</span>
@@ -2112,20 +2100,7 @@ export default function Home({ onNavigate }) {
                 <button 
                   key={fIdx}
                   onClick={() => setActiveProgFilter(filter)}
-                  style={{
-                    padding: '0.45rem 1.1rem',
-                    borderRadius: '25px',
-                    border: activeProgFilter === filter ? '1.5px solid rgba(255, 255, 255, 0.85)' : '1px solid rgba(220, 160, 50, 0.3)',
-                    background: activeProgFilter === filter ? 'linear-gradient(135deg, rgba(255, 238, 130, 0.95) 0%, rgba(234, 167, 40, 0.92) 50%, rgba(200, 130, 0, 0.95) 100%)' : 'transparent',
-                    color: activeProgFilter === filter ? '#2B1219' : 'var(--tan)',
-                    fontWeight: 800,
-                    fontSize: '0.76rem',
-                    cursor: 'pointer',
-                    backdropFilter: 'blur(12px)',
-                    WebkitBackdropFilter: 'blur(12px)',
-                    boxShadow: activeProgFilter === filter ? '0 5px 15px rgba(234, 167, 40, 0.45), inset 0 1.5px 1.5px rgba(255, 255, 255, 0.9)' : 'none',
-                    transition: 'all 0.3s ease'
-                  }}
+                  className={`pill-luxury ${activeProgFilter === filter ? 'active' : ''}`}
                 >
                   {filter}
                 </button>
@@ -2133,8 +2108,8 @@ export default function Home({ onNavigate }) {
             </div>
           </div>
 
-          {/* Fixed Non-Shifting 5-Card Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(215px, 1fr))', gap: '1.1rem', minHeight: '300px' }}>
+          {/* Unified Responsive Flex Container */}
+          <div className="retreats-flex-container">
             {[
               { days: '2/3 DAYS', title: 'Weekend Reset Sanctuary', tagline: 'Doctor consultation, 2 daily naturopathy cleanses & sound bath.', filterCat: '2/3 Days' },
               { days: '5 DAYS', title: 'Rejuvenation & Vitality', tagline: 'Iris diagnosis, Shirodhara therapy & Satwik organic dining.', filterCat: '5 Days' },
@@ -2142,12 +2117,15 @@ export default function Home({ onNavigate }) {
               { days: '14 DAYS', title: 'Deep Cellular Detox', tagline: 'Toxin evaluation, mud therapy packs, therapeutic fasting & juices.', filterCat: '14 Days' },
               { days: '21 DAYS', title: 'Advanced Cellular Healing', tagline: 'Doctor-led clinical protocol, daily vitals & colon hydrotherapy.', filterCat: '21 Days' }
             ].map((prog, idx) => {
-              const isMatch = activeProgFilter === 'All Retreats' || prog.filterCat === activeProgFilter || prog.days.includes(activeProgFilter);
+              const isSpecificFilter = activeProgFilter !== 'All Retreats';
+              const isMatch = !isSpecificFilter || prog.filterCat === activeProgFilter || prog.days.includes(activeProgFilter);
               return (
                 <motion.div 
                   key={idx}
+                  layout
+                  className={`retreat-card-item ${isSpecificFilter && isMatch ? 'filter-active-match' : ''}`}
                   animate={{
-                    opacity: isMatch ? 1 : 0.3,
+                    opacity: isMatch ? 1 : 0.35,
                     scale: isMatch ? 1 : 0.97,
                     filter: isMatch ? 'blur(0px)' : 'blur(1px)'
                   }}
@@ -2157,10 +2135,10 @@ export default function Home({ onNavigate }) {
                     backgroundColor: isMatch ? 'rgba(255, 255, 255, 0.07)' : 'rgba(255, 255, 255, 0.02)',
                     border: isMatch ? '1.5px solid rgba(220, 160, 50, 0.6)' : '1px solid rgba(220, 160, 50, 0.15)',
                     borderRadius: '16px',
-                    padding: '1.3rem 1.4rem',
+                    padding: '1.4rem 1.5rem',
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '0.65rem',
+                    gap: '0.7rem',
                     backdropFilter: 'blur(12px)',
                     cursor: 'pointer',
                     boxShadow: isMatch ? '0 8px 25px rgba(0, 0, 0, 0.15)' : 'none'
@@ -2170,7 +2148,7 @@ export default function Home({ onNavigate }) {
                     onNavigate('programmes');
                   }}
                 >
-                  <div className="flex-stack-mobile" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <span style={{ fontSize: '0.68rem', color: isMatch ? 'var(--harvest-gold)' : 'var(--tan)', fontWeight: 800, letterSpacing: '0.1em', opacity: isMatch ? 1 : 0.6 }}>
                       ✦ {prog.days}
                     </span>
@@ -2180,10 +2158,10 @@ export default function Home({ onNavigate }) {
                       </span>
                     )}
                   </div>
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', color: 'var(--tan)', fontWeight: 600, margin: 0, lineHeight: 1.2, opacity: isMatch ? 1 : 0.7 }}>
+                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--tan)', fontWeight: 600, margin: 0, lineHeight: 1.2, opacity: isMatch ? 1 : 0.7 }}>
                     {prog.title}
                   </h3>
-                  <p style={{ fontSize: '0.81rem', color: 'var(--isabelline)', opacity: isMatch ? 0.88 : 0.5, lineHeight: 1.45, margin: 0 }}>
+                  <p style={{ fontSize: '0.84rem', color: 'var(--isabelline)', opacity: isMatch ? 0.88 : 0.5, lineHeight: 1.5, margin: 0 }}>
                     {prog.tagline}
                   </p>
                   <button className="btn-luxury" style={{ alignSelf: 'flex-start', padding: '0.45rem 1.1rem', fontSize: '0.68rem', marginTop: 'auto', opacity: isMatch ? 1 : 0.5 }}>
@@ -2417,6 +2395,7 @@ export default function Home({ onNavigate }) {
                 <div 
                   key={idx}
                   onClick={() => setExpandedPillar(idx)}
+                  onMouseEnter={() => setExpandedPillar(idx)}
                   className={`spatial-monolith-slab ${isActive ? 'active' : ''}`}
                   style={{
                     padding: '1.8rem',
@@ -2552,20 +2531,7 @@ export default function Home({ onNavigate }) {
                 <button 
                   key={gIdx}
                   onClick={() => setActiveExpert(gIdx)}
-                  style={{
-                    padding: '0.45rem 1.15rem',
-                    borderRadius: '20px',
-                    border: (activeExpert % 4) === gIdx ? '1.5px solid rgba(255, 255, 255, 0.85)' : '1px solid rgba(220, 160, 50, 0.3)',
-                    background: (activeExpert % 4) === gIdx ? 'linear-gradient(135deg, rgba(255, 238, 130, 0.95) 0%, rgba(234, 167, 40, 0.92) 50%, rgba(200, 130, 0, 0.95) 100%)' : 'transparent',
-                    color: (activeExpert % 4) === gIdx ? '#2B1219' : 'var(--tan)',
-                    fontSize: '0.75rem',
-                    fontWeight: 800,
-                    cursor: 'pointer',
-                    backdropFilter: 'blur(12px)',
-                    WebkitBackdropFilter: 'blur(12px)',
-                    boxShadow: (activeExpert % 4) === gIdx ? '0 6px 20px rgba(234, 167, 40, 0.5), inset 0 1.5px 1.5px rgba(255, 255, 255, 0.9)' : 'none',
-                    transition: 'all 0.3s ease'
-                  }}
+                  className={`pill-luxury ${(activeExpert % 4) === gIdx ? 'active' : ''}`}
                 >
                   {guest}
                 </button>

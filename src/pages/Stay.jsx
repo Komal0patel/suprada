@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Pattern24, Pattern27 } from '../AnimatedPatterns';
 import TwinklingLights from '../components/TwinklingLights';
+import DecorativeSVG from '../components/DecorativeSVG';
 
 // --- Sub-Component: Ambient Gold Ember Dust Particles ---
 function GoldEmberParticles({ count = 25 }) {
@@ -596,6 +597,8 @@ export default function Stay({ onNavigate }) {
           opacity: 0.8,
           pointerEvents: 'none'
         }} />
+        {/* Mandala decorative SVG */}
+        <DecorativeSVG src="/assets/logo-mandala.svg" style={{ position: 'absolute', top: '10%', right: '5%', width: '200px', opacity: 0.12, pointerEvents: 'none', zIndex: 0 }} />
 
         {/* Clean Center Content Box */}
         <div style={{
@@ -608,54 +611,18 @@ export default function Stay({ onNavigate }) {
           alignItems: 'center'
         }}>
           
-          {/* Animated SVG Line Drawing Ornament */}
+          {/* Official Suprada Emblem Logo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: 'easeOut' }}
-            style={{ marginBottom: '1.2rem' }}
+            style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}
           >
-            <svg width="110" height="110" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              {/* Outer Decorative Ring */}
-              <motion.circle
-                cx="50" cy="50" r="44"
-                stroke="var(--harvest-gold)"
-                strokeWidth="1.2"
-                strokeDasharray="280"
-                initial={{ strokeDashoffset: 280 }}
-                animate={{ strokeDashoffset: 0 }}
-                transition={{ duration: 2.2, ease: 'easeInOut' }}
-              />
-
-              {/* Inner Sacred Mandala Petals */}
-              <motion.path
-                d="M50 14 C32 34 32 66 50 86 C68 66 68 34 50 14 Z"
-                stroke="var(--wine)"
-                strokeWidth="1.5"
-                strokeDasharray="180"
-                initial={{ strokeDashoffset: 180 }}
-                animate={{ strokeDashoffset: 0 }}
-                transition={{ duration: 2.5, delay: 0.4, ease: 'easeInOut' }}
-              />
-              <motion.path
-                d="M14 50 C34 32 66 32 86 50 C66 68 34 68 14 50 Z"
-                stroke="var(--wine)"
-                strokeWidth="1.5"
-                strokeDasharray="180"
-                initial={{ strokeDashoffset: 180 }}
-                animate={{ strokeDashoffset: 0 }}
-                transition={{ duration: 2.5, delay: 0.7, ease: 'easeInOut' }}
-              />
-
-              {/* Center Dot */}
-              <motion.circle
-                cx="50" cy="50" r="5"
-                fill="var(--harvest-gold)"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.6, delay: 1.8 }}
-              />
-            </svg>
+            <img 
+              src="/assets/logo.svg" 
+              alt="Suprada Official Emblem Logo" 
+              style={{ height: '90px', width: 'auto', filter: 'drop-shadow(0 4px 12px rgba(94, 39, 53, 0.15))' }} 
+            />
           </motion.div>
 
           <motion.div
@@ -736,7 +703,7 @@ export default function Stay({ onNavigate }) {
       </section>
 
       {/* --- OVERVIEW PHILOSOPHY SECTION --- */}
-      <section style={{ padding: '6rem 8%', backgroundColor: 'var(--brand-bg)', color: 'var(--wine)' }}>
+      <section style={{ padding: '6rem 8%', backgroundColor: 'var(--brand-bg)', color: 'var(--wine)', position: 'relative' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem', padding: '0.4rem 1.2rem', backgroundColor: 'rgba(94, 39, 53, 0.08)', borderRadius: '50px', marginBottom: '1.2rem' }}>
             <span style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.2em', fontWeight: 800, color: 'var(--wine)' }}>
@@ -750,53 +717,46 @@ export default function Stay({ onNavigate }) {
             Our accommodations are designed to be an extension of your therapy. Built with natural materials and positioned to maximize natural light and ventilation, each room offers a serene environment for deep relaxation and healing.
           </p>
         </div>
+        {/* Logo decorative SVG */}
+        <DecorativeSVG src="/assets/suprada-logo.svg" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '300px', opacity: 0.1, pointerEvents: 'none', zIndex: -1 }} />
       </section>
 
       {/* ========================================================================= */}
       {/* --- GUHANTARA-INSPIRED ASYMMETRIC STAGGERED ROOM SHOWCASE --- */}
       {/* ========================================================================= */}
-      <section style={{ padding: '7rem 5%', backgroundColor: '#f4f1e9', color: 'var(--raisin-black)' }}>
+      <section style={{ padding: '3.5rem 5%', backgroundColor: '#f4f1e9', color: 'var(--raisin-black)' }}>
         <div style={{ maxWidth: '1450px', margin: '0 auto' }}>
           
           {/* Section Header */}
-          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.78rem', fontWeight: 800, display: 'block', marginBottom: '0.6rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.78rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
               ✦ Sanctuary Portfolio ✦
             </span>
             <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.6rem, 4.8vw, 4.2rem)', color: 'var(--wine)', fontWeight: 600 }}>
               Distinctive Living Spaces
             </h2>
-            <p style={{ opacity: 0.8, maxWidth: '650px', margin: '0.8rem auto 0 auto', fontSize: '1.05rem', lineHeight: 1.7, fontWeight: 300 }}>
+            <p style={{ opacity: 0.8, maxWidth: '650px', margin: '0.5rem auto 0 auto', fontSize: '1.05rem', lineHeight: 1.7, fontWeight: 300 }}>
               Filter by estate campus location and explore our 9 handcrafted sanctuaries designed with organic eco-lime, warm timber, and private sit-out verandas.
             </p>
           </div>
 
           {/* Campus Filter Pills */}
-          <div style={{ display: 'flex', gap: '0.8rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '5rem' }}>
+          <div style={{ position: 'relative', display: 'flex', gap: '0.8rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
+            {/* Filter pills watermark */}
+            <DecorativeSVG src="/assets/logo-mandala.svg" style={{ position: 'absolute', top: '-20px', left: '50%', transform: 'translateX(-50%)', width: '250px', opacity: 0.08, pointerEvents: 'none', zIndex: -1 }} />
             {campusZones.map((z) => (
               <button
                 key={z.id}
                 onClick={() => setSelectedZone(z.id)}
-                style={{
-                  padding: '0.85rem 2rem',
-                  borderRadius: '50px',
-                  border: selectedZone === z.id ? '2px solid var(--wine)' : '1px solid rgba(94, 39, 53, 0.2)',
-                  backgroundColor: selectedZone === z.id ? 'var(--wine)' : '#ffffff',
-                  color: selectedZone === z.id ? '#ffffff' : 'var(--wine)',
-                  fontWeight: selectedZone === z.id ? 700 : 500,
-                  fontSize: '0.84rem',
-                  cursor: 'pointer',
-                  boxShadow: selectedZone === z.id ? '0 10px 25px rgba(94, 39, 53, 0.25)' : '0 4px 12px rgba(0,0,0,0.03)',
-                  transition: 'all 0.3s ease'
-                }}
+                className={`btn-luxury-pill ${selectedZone === z.id ? 'active' : ''}`}
               >
-                {z.name}
+                {selectedZone === z.id && <span>✦</span>} {z.name}
               </button>
             ))}
           </div>
 
           {/* Alternating Staggered Guhantara Room Stack */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '100px' }}>
+          <div className="room-stack-container" style={{ display: 'flex', flexDirection: 'column', gap: '100px' }}>
             <AnimatePresence>
               {filteredBlocks.map((cottage, idx) => {
                 const isEven = idx % 2 === 0;
@@ -816,20 +776,23 @@ export default function Stay({ onNavigate }) {
                       alignItems: 'center',
                       position: 'relative',
                       width: '100%',
-                      minHeight: '560px'
+                      minHeight: '490px'
                     }}
                     className="room-row-responsive"
                   >
-                    {/* Large Visual Canvas (58% width) with Interactive In-Card Photo Carousel */}
-                    <div style={{
-                      flex: '0 0 58%',
-                      height: '560px',
-                      position: 'relative',
-                      borderRadius: '36px',
-                      overflow: 'hidden',
-                      boxShadow: '0 25px 55px rgba(0, 0, 0, 0.12)',
-                      zIndex: 1
-                    }}>
+                    {/* Large Visual Canvas (58% width) */}
+                    <div 
+                      className="room-visual-canvas"
+                      style={{
+                        flex: '0 0 58%',
+                        height: '490px',
+                        position: 'relative',
+                        borderRadius: '36px',
+                        overflow: 'hidden',
+                        boxShadow: '0 25px 55px rgba(0, 0, 0, 0.12)',
+                        zIndex: 1
+                      }}
+                    >
                       {(() => {
                         const activePhotoIdx = cardPhotoMap[cottage.id] || 0;
                         const photoList = cottage.gallery && cottage.gallery.length > 0 ? cottage.gallery : [cottage.img];
@@ -853,9 +816,10 @@ export default function Stay({ onNavigate }) {
                             {/* Left Prev Arrow Button */}
                             <button
                               onClick={(e) => handlePrevCardPhoto(e, cottage)}
+                              className="room-arrow-btn-left"
                               style={{
                                 position: 'absolute',
-                                left: '1.2rem',
+                                left: isEven ? '1.2rem' : '3.8rem',
                                 top: '50%',
                                 transform: 'translateY(-50%)',
                                 zIndex: 6,
@@ -881,9 +845,10 @@ export default function Stay({ onNavigate }) {
                             {/* Right Next Arrow Button */}
                             <button
                               onClick={(e) => handleNextCardPhoto(e, cottage)}
+                              className="room-arrow-btn-right"
                               style={{
                                 position: 'absolute',
-                                right: '1.2rem',
+                                right: isEven ? '3.8rem' : '1.2rem',
                                 top: '50%',
                                 transform: 'translateY(-50%)',
                                 zIndex: 6,
@@ -906,11 +871,12 @@ export default function Stay({ onNavigate }) {
                               ›
                             </button>
 
-                            {/* Dynamic Photo Count Badge */}
-                            <div style={{
+                            {/* Dynamic Photo Count Badge — always opposite side from category badge */}
+                            <div className="room-photo-badge" style={{
                               position: 'absolute',
                               top: '1.4rem',
-                              right: '1.4rem',
+                              left: isEven ? 'auto' : '3.8rem',
+                              right: isEven ? '3.8rem' : 'auto',
                               backgroundColor: 'rgba(0,0,0,0.7)',
                               backdropFilter: 'blur(12px)',
                               color: 'var(--harvest-gold)',
@@ -968,8 +934,14 @@ export default function Stay({ onNavigate }) {
                         pointerEvents: 'none'
                       }} />
 
-                      {/* Category Badge */}
-                      <div style={{ position: 'absolute', top: '1.4rem', left: '1.4rem', zIndex: 5 }}>
+                      {/* Category Badge — safe side away from glass card */}
+                      <div className="room-category-badge" style={{
+                        position: 'absolute',
+                        top: '1.4rem',
+                        left: isEven ? '1.4rem' : 'auto',
+                        right: isEven ? 'auto' : '1.4rem',
+                        zIndex: 5
+                      }}>
                         <span style={{ 
                           backgroundColor: 'rgba(94, 39, 53, 0.92)', 
                           color: '#ffffff', 
@@ -1011,76 +983,94 @@ export default function Stay({ onNavigate }) {
                         </div>
                       ))}
 
-                      <div style={{ position: 'absolute', bottom: '3.5rem', left: '2rem', right: '2rem', zIndex: 5, pointerEvents: 'none' }}>
+                      <div className="room-tagline-text" style={{
+                        position: 'absolute',
+                        bottom: '3.5rem',
+                        left: isEven ? '2rem' : 'auto',
+                        right: isEven ? 'auto' : '2rem',
+                        zIndex: 5,
+                        pointerEvents: 'none',
+                        maxWidth: '55%',
+                        textAlign: isEven ? 'left' : 'right'
+                      }}>
                         <span style={{ color: 'var(--tan)', fontSize: '0.92rem', fontStyle: 'italic' }}>
                           "{cottage.tagline}"
                         </span>
                       </div>
                     </div>
 
-                    {/* Floating Overlapping Content Card (45% width) */}
-                    <div style={{
-                      flex: '0 0 46%',
-                      backgroundColor: '#ffffff',
-                      padding: '3.2rem 3.5rem',
-                      borderRadius: '28px',
-                      boxShadow: '0 25px 60px rgba(94, 39, 53, 0.12)',
-                      position: 'relative',
-                      zIndex: 2,
-                      marginLeft: isEven ? '-8%' : '0',
-                      marginRight: isEven ? '0' : '-8%'
-                    }}>
-                      <div style={{ fontSize: '0.78rem', color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 800 }}>
+                    {/* Floating Glass Content Card (46% width) */}
+                    <div 
+                      className="room-content-card"
+                      style={{
+                        flex: '0 0 46%',
+                        background: 'rgba(255, 252, 248, 0.22)',
+                        backdropFilter: 'blur(28px)',
+                        WebkitBackdropFilter: 'blur(28px)',
+                        border: '1px solid rgba(255, 255, 255, 0.4)',
+                        padding: '1.8rem 2.2rem',
+                        borderRadius: '28px',
+                        boxShadow: '0 25px 60px rgba(94, 39, 53, 0.18), inset 0 1px 0 rgba(255,255,255,0.6)',
+                        position: 'relative',
+                        zIndex: 2,
+                        marginLeft: isEven ? '-4%' : '0',
+                        marginRight: isEven ? '0' : '-4%'
+                      }}
+                    >
+                      <div style={{ fontSize: '0.75rem', color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 800 }}>
                         {cottage.roman} • {cottage.zone}
                       </div>
 
-                      <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.4rem', color: 'var(--wine)', fontWeight: 600, marginTop: '0.2rem', marginBottom: '0.8rem' }}>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', color: 'var(--wine)', fontWeight: 600, marginTop: '0.1rem', marginBottom: '0.5rem' }}>
                         {cottage.name}
                       </h3>
 
-                      <p style={{ fontSize: '0.95rem', opacity: 0.85, lineHeight: 1.75, color: 'var(--raisin-black)', marginBottom: '1.5rem', fontWeight: 300 }}>
+                      <p style={{ fontSize: '0.88rem', opacity: 0.85, lineHeight: 1.6, color: 'var(--raisin-black)', marginBottom: '1rem', fontWeight: 300 }}>
                         {cottage.desc}
                       </p>
 
                       {/* Room Specification Grid */}
-                      <div className="hero-grid-split" style={{
+                      <div className="hero-grid-split room-spec-grid" style={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(2, 1fr)',
-                        gap: '0.8rem',
-                        padding: '1.2rem 1.4rem',
-                        backgroundColor: 'var(--isabelline)',
+                        gap: '0.6rem',
+                        padding: '0.8rem 1rem',
+                        background: 'rgba(245, 235, 217, 0.3)',
+                        backdropFilter: 'blur(10px)',
+                        WebkitBackdropFilter: 'blur(10px)',
+                        border: '1px solid rgba(255, 255, 255, 0.35)',
                         borderRadius: '16px',
-                        fontSize: '0.82rem',
-                        marginBottom: '1.8rem'
+                        fontSize: '0.8rem',
+                        marginBottom: '1rem'
                       }}>
                         <div>
-                          <span style={{ opacity: 0.6, display: 'block', fontSize: '0.68rem', textTransform: 'uppercase' }}>Primary View</span>
+                          <span style={{ opacity: 0.6, display: 'block', fontSize: '0.65rem', textTransform: 'uppercase' }}>🌿 Primary View</span>
                           <strong style={{ color: 'var(--wine)' }}>{cottage.viewType}</strong>
                         </div>
                         <div>
-                          <span style={{ opacity: 0.6, display: 'block', fontSize: '0.68rem', textTransform: 'uppercase' }}>Room Area</span>
+                          <span style={{ opacity: 0.6, display: 'block', fontSize: '0.65rem', textTransform: 'uppercase' }}>📐 Room Area</span>
                           <strong style={{ color: 'var(--wine)' }}>{cottage.areaSqFt} Sq.Ft</strong>
                         </div>
                         <div>
-                          <span style={{ opacity: 0.6, display: 'block', fontSize: '0.68rem', textTransform: 'uppercase' }}>Privacy Rating</span>
+                          <span style={{ opacity: 0.6, display: 'block', fontSize: '0.65rem', textTransform: 'uppercase' }}>★ Privacy Rating</span>
                           <strong style={{ color: '#b5801c' }}>{'★'.repeat(Math.floor(cottage.privacyScore))} ({cottage.privacyScore}/5)</strong>
                         </div>
                         <div>
-                          <span style={{ opacity: 0.6, display: 'block', fontSize: '0.68rem', textTransform: 'uppercase' }}>Materials</span>
+                          <span style={{ opacity: 0.6, display: 'block', fontSize: '0.65rem', textTransform: 'uppercase' }}>🏛️ Materials</span>
                           <strong style={{ color: 'var(--wine)' }}>{cottage.material.split('&')[0]}</strong>
                         </div>
                       </div>
 
                       {/* Amenities Micro Badges */}
-                      <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
-                        {cottage.features.map((f, fidx) => (
+                      <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', marginBottom: '1.2rem' }}>
+                        {cottage.features.slice(0, 3).map((f, fidx) => (
                           <span 
                             key={fidx}
                             style={{ 
-                              fontSize: '0.72rem', 
-                              backgroundColor: 'rgba(94, 39, 53, 0.06)', 
+                              fontSize: '0.7rem', 
+                              backgroundColor: 'rgba(94, 39, 53, 0.07)', 
                               color: 'var(--wine)', 
-                              padding: '0.35rem 0.85rem', 
+                              padding: '0.3rem 0.75rem', 
                               borderRadius: '50px',
                               fontWeight: 600
                             }}
@@ -1091,48 +1081,26 @@ export default function Stay({ onNavigate }) {
                       </div>
 
                       {/* Action Triggers */}
-                      <div className="action-triggers-responsive" style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
+                      <div className="action-triggers-responsive" style={{ display: 'flex', gap: '0.8rem', alignItems: 'center', flexWrap: 'wrap' }}>
                         <button
                           onClick={() => setActiveBookingModal(cottage)}
-                          className="btn-luxury"
-                          style={{
-                            padding: '1rem 2rem',
-                            backgroundColor: 'var(--wine)',
-                            color: '#ffffff',
-                            borderRadius: '10px',
-                            fontSize: '0.82rem',
-                            letterSpacing: '0.1em'
-                          }}
+                          className="btn-primary room-btn-primary"
                         >
                           Book Room Now
                         </button>
 
                         <button
                           onClick={() => setActiveModal(cottage)}
-                          style={{
-                            padding: '1rem 1.6rem',
-                            backgroundColor: 'transparent',
-                            border: '1.5px solid rgba(94, 39, 53, 0.25)',
-                            color: 'var(--wine)',
-                            borderRadius: '10px',
-                            fontSize: '0.82rem',
-                            fontWeight: 600,
-                            cursor: 'pointer'
-                          }}
+                          className="btn-secondary room-btn-secondary"
                         >
                           Full Specs
                         </button>
 
                         <button
                           onClick={() => toggleCompare(cottage)}
+                          className="btn-luxury-text room-btn-tertiary"
                           style={{
-                            padding: '0.5rem 0.8rem',
-                            background: 'none',
-                            border: 'none',
-                            color: isCompared ? 'var(--harvest-gold)' : 'rgba(0,0,0,0.5)',
-                            fontSize: '0.78rem',
-                            fontWeight: 700,
-                            cursor: 'pointer'
+                            color: isCompared ? 'var(--harvest-gold)' : 'var(--wine)'
                           }}
                         >
                           {isCompared ? '✓ Compared' : '+ Compare'}
@@ -1149,145 +1117,215 @@ export default function Stay({ onNavigate }) {
         </div>
       </section>
 
-      {/* --- THOUGHTFUL AMENITIES SECTION (Bento Grid Redesign) --- */}
-      <section style={{ padding: '4rem 6%', backgroundColor: '#0f0709', color: 'var(--isabelline)', position: 'relative', overflow: 'hidden' }}>
+      {/* --- THOUGHTFUL AMENITIES SECTION (Sage Green & Ivory Palette Redesign) --- */}
+      <section style={{ padding: '7.5rem 6% 5.5rem 6%', background: 'linear-gradient(135deg, #c8ceaa 0%, #b3ba8e 60%, #a3aa7e 100%)', color: 'var(--wine)', position: 'relative', overflow: 'hidden' }}>
         {/* Subtle decorative gradient orbs */}
-        <div style={{ position: 'absolute', top: '-120px', right: '-80px', maxWidth: '400px', width: '100%', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(94,39,53,0.25) 0%, transparent 70%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: '-100px', left: '-60px', maxWidth: '350px', width: '100%', height: '350px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', top: '-120px', right: '-80px', maxWidth: '400px', width: '100%', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-100px', left: '-60px', maxWidth: '350px', width: '100%', height: '350px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(94,39,53,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
         <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           
-          {/* Section Header — left-aligned for editorial feel */}
-          <div className="flex-stack-mobile" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2.2rem', flexWrap: 'wrap', gap: '1rem' }}>
+          {/* Section Header — left-aligned with ample indent to clear fixed top-left logo pill */}
+          <div className="amenities-header-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2.5rem', flexWrap: 'wrap', gap: '1rem', paddingLeft: 'clamp(0px, 14vw, 220px)', paddingTop: '0.5rem' }}>
             <div>
-              <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.65rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
+              <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem', opacity: 0.85 }}>
                 ✦ Curated Comforts
               </span>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', color: 'var(--tan)', fontWeight: 500, lineHeight: 1.15, margin: 0 }}>
+              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem, 3.8vw, 2.8rem)', color: 'var(--wine)', fontWeight: 600, lineHeight: 1.15, margin: 0 }}>
                 Thoughtful<br />Amenities
               </h2>
             </div>
-            <p style={{ color: 'rgba(255,255,255,0.55)', maxWidth: '340px', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>
+            <p style={{ color: 'var(--wine)', opacity: 0.85, maxWidth: '360px', fontSize: '0.88rem', lineHeight: 1.65, margin: 0, fontWeight: 400 }}>
               Every detail is intentional — from the water you drink to the air you breathe. Wellness woven into every comfort.
             </p>
           </div>
 
-          {/* Bento Grid Layout */}
+          {/* MOBILE 2-COLUMN GRID (Shown only on Mobile Devices < 769px) */}
+          <div className="amenities-mobile-grid">
+            {amenitiesList.map((item, idx) => (
+              <div
+                key={idx}
+                style={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.94)',
+                  border: '1px solid rgba(94, 39, 53, 0.18)',
+                  borderRadius: '16px',
+                  padding: '1rem 0.9rem',
+                  boxShadow: '0 8px 25px rgba(94, 39, 53, 0.08)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  gap: '0.6rem',
+                  boxSizing: 'border-box'
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+                  <div style={{
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '50%',
+                    backgroundColor: 'rgba(94, 39, 53, 0.08)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '1.1rem'
+                  }}>
+                    {item.icon}
+                  </div>
+                  <span style={{
+                    fontSize: '0.56rem',
+                    textTransform: 'uppercase',
+                    color: '#b5801c',
+                    backgroundColor: 'rgba(181, 128, 28, 0.12)',
+                    padding: '0.2rem 0.55rem',
+                    borderRadius: '50px',
+                    fontWeight: 800,
+                    letterSpacing: '0.05em'
+                  }}>
+                    {item.tag}
+                  </span>
+                </div>
+                <div>
+                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.96rem', color: 'var(--wine)', fontWeight: 600, margin: '0 0 0.25rem 0', lineHeight: 1.25 }}>
+                    {item.name}
+                  </h4>
+                  <p style={{ fontSize: '0.74rem', color: 'var(--wine)', opacity: 0.85, lineHeight: 1.45, margin: 0, fontWeight: 400 }}>
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* DESKTOP BENTO GRID LAYOUT (Shown on Desktop >= 769px) */}
           <div className="bento-grid-responsive" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(12, 1fr)',
             gridTemplateRows: 'auto auto',
-            gap: '1rem'
+            gap: '1.2rem'
           }}>
 
             {/* HERO CARD — spans 7 columns, row 1 */}
             <motion.div
-              whileHover={{ scale: 1.01 }}
+              whileHover={{ scale: 1.01, boxShadow: '0 25px 55px rgba(90, 100, 60, 0.18), inset 0 1px 0 rgba(255, 255, 255, 1), 0 0 45px rgba(255, 255, 255, 0.65)' }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               style={{
                 gridColumn: '1 / 8',
                 gridRow: '1 / 2',
-                background: 'linear-gradient(135deg, #5e2735 0%, #3a1520 60%, #1a0a10 100%)',
+                background: 'rgba(255, 255, 255, 0.42)',
+                backdropFilter: 'blur(22px)',
+                WebkitBackdropFilter: 'blur(22px)',
                 borderRadius: '24px',
-                padding: '2rem 2.2rem',
+                padding: '2.2rem 2.4rem',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 minHeight: '220px',
                 position: 'relative',
                 overflow: 'hidden',
-                border: '1px solid rgba(220, 160, 50, 0.15)'
+                border: '1px solid rgba(255, 255, 255, 0.75)',
+                boxShadow: '0 20px 45px rgba(90, 100, 60, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.35)'
               }}
             >
+              {/* Corner ornament */}
+              <DecorativeSVG src="/assets/logo-mandala.svg" style={{ position: 'absolute', top: 0, left: 0, width: '80px', opacity: 0.07, pointerEvents: 'none', zIndex: -1 }} />
+              
               {/* Decorative pattern */}
-              <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '200px', height: '200px', borderRadius: '50%', border: '1px solid rgba(220,160,50,0.08)', pointerEvents: 'none' }} />
-              <div style={{ position: 'absolute', top: '0', right: '0', width: '140px', height: '140px', borderRadius: '50%', border: '1px solid rgba(220,160,50,0.05)', pointerEvents: 'none' }} />
+              <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '200px', height: '200px', borderRadius: '50%', border: '1px solid rgba(255, 255, 255, 0.5)', pointerEvents: 'none' }} />
+              <div style={{ position: 'absolute', top: '0', right: '0', width: '140px', height: '140px', borderRadius: '50%', border: '1px solid rgba(255, 255, 255, 0.3)', pointerEvents: 'none' }} />
               
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '0.8rem' }}>
-                  <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'linear-gradient(135deg, rgba(220,160,50,0.25), rgba(220,160,50,0.08))', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.3rem', border: '1px solid rgba(220,160,50,0.2)' }}>
+                <div className="amenities-card-toprow" style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '0.8rem' }}>
+                  <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(255, 255, 255, 0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.3rem', border: '1px solid rgba(255, 255, 255, 0.8)', boxShadow: '0 4px 15px rgba(255, 255, 255, 0.4)' }}>
                     {amenitiesList[0].icon}
                   </div>
-                  <span style={{ fontSize: '0.68rem', textTransform: 'uppercase', color: 'var(--harvest-gold)', backgroundColor: 'rgba(220,160,50,0.12)', padding: '0.35rem 1rem', borderRadius: '50px', fontWeight: 800, letterSpacing: '0.12em', border: '1px solid rgba(220,160,50,0.2)' }}>
+                  <span style={{ fontSize: '0.68rem', textTransform: 'uppercase', color: 'var(--wine)', backgroundColor: 'rgba(255, 255, 255, 0.65)', padding: '0.35rem 1rem', borderRadius: '50px', fontWeight: 800, letterSpacing: '0.12em', border: '1px solid rgba(255, 255, 255, 0.85)' }}>
                     {amenitiesList[0].tag}
                   </span>
                 </div>
-                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', color: 'var(--tan)', fontWeight: 500, marginBottom: '0.4rem' }}>
+                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.65rem', color: 'var(--wine)', fontWeight: 600, marginBottom: '0.4rem' }}>
                   {amenitiesList[0].name}
                 </h3>
-                <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, maxWidth: '380px' }}>
+                <p style={{ fontSize: '0.88rem', color: 'var(--wine)', opacity: 0.85, lineHeight: 1.6, maxWidth: '380px' }}>
                   {amenitiesList[0].desc}
                 </p>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginTop: '0.8rem' }}>
-                <div style={{ width: '36px', height: '2px', backgroundColor: 'var(--harvest-gold)', borderRadius: '2px' }} />
-                <span style={{ fontSize: '0.72rem', color: 'var(--harvest-gold)', fontWeight: 600, letterSpacing: '0.08em' }}>Featured Amenity</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginTop: '1rem' }}>
+                <div style={{ width: '36px', height: '2px', backgroundColor: 'var(--wine)', borderRadius: '2px' }} />
+                <span style={{ fontSize: '0.72rem', color: 'var(--wine)', fontWeight: 700, letterSpacing: '0.08em' }}>Featured Amenity</span>
               </div>
             </motion.div>
 
-            {/* ACCENT CARD — spans 5 columns, row 1. Tall vertical card with gold accent */}
+            {/* ACCENT CARD — spans 5 columns, row 1 */}
             <motion.div
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.02, boxShadow: '0 25px 55px rgba(90, 100, 60, 0.18), inset 0 1px 0 rgba(255, 255, 255, 1), 0 0 45px rgba(255, 255, 255, 0.65)' }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               style={{
                 gridColumn: '8 / 13',
                 gridRow: '1 / 2',
-                background: 'linear-gradient(160deg, rgba(220,160,50,0.12) 0%, rgba(220,160,50,0.03) 100%)',
+                background: 'rgba(255, 255, 255, 0.42)',
+                backdropFilter: 'blur(22px)',
+                WebkitBackdropFilter: 'blur(22px)',
                 borderRadius: '24px',
                 padding: '1.8rem 2rem',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 gap: '1.4rem',
-                border: '1px solid rgba(220, 160, 50, 0.18)',
+                border: '1px solid rgba(255, 255, 255, 0.75)',
+                boxShadow: '0 20px 45px rgba(90, 100, 60, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.35)',
                 minHeight: '220px',
                 position: 'relative',
                 overflow: 'hidden'
               }}
             >
+              {/* Corner ornament */}
+              <DecorativeSVG src="/assets/logo-mandala.svg" style={{ position: 'absolute', top: 0, left: 0, width: '80px', opacity: 0.07, pointerEvents: 'none', zIndex: -1 }} />
               {[amenitiesList[1], amenitiesList[2]].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: '1.2rem', alignItems: 'flex-start' }}>
                   <div style={{
                     width: '40px', height: '40px', borderRadius: '10px', flexShrink: 0,
-                    background: i === 0 ? 'rgba(94,39,53,0.6)' : 'rgba(220,160,50,0.15)',
+                    background: 'rgba(255, 255, 255, 0.65)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem',
-                    border: `1px solid ${i === 0 ? 'rgba(94,39,53,0.3)' : 'rgba(220,160,50,0.25)'}`
+                    border: '1px solid rgba(255, 255, 255, 0.85)',
+                    boxShadow: '0 4px 12px rgba(255, 255, 255, 0.4)'
                   }}>
                     {item.icon}
                   </div>
                   <div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.4rem' }}>
-                      <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', color: 'var(--tan)', fontWeight: 500, margin: 0 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.3rem' }}>
+                      <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', color: 'var(--wine)', fontWeight: 600, margin: 0 }}>
                         {item.name}
                       </h4>
-                      <span style={{ fontSize: '0.6rem', textTransform: 'uppercase', color: 'var(--harvest-gold)', opacity: 0.7, fontWeight: 700, letterSpacing: '0.1em' }}>
+                      <span style={{ fontSize: '0.6rem', textTransform: 'uppercase', color: '#b5801c', fontWeight: 800, letterSpacing: '0.1em' }}>
                         {item.tag}
                       </span>
                     </div>
-                    <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.55, margin: 0 }}>
+                    <p style={{ fontSize: '0.8rem', color: 'var(--wine)', opacity: 0.82, lineHeight: 1.55, margin: 0 }}>
                       {item.desc}
                     </p>
                   </div>
                 </div>
               ))}
               {/* Divider between the two items */}
-              <div style={{ position: 'absolute', left: '2.5rem', right: '2.5rem', top: '50%', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(220,160,50,0.15), transparent)', pointerEvents: 'none' }} />
+              <div style={{ position: 'absolute', left: '2.5rem', right: '2.5rem', top: '50%', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent)', pointerEvents: 'none' }} />
             </motion.div>
 
             {/* BOTTOM ROW — 3 equal cards spanning 4 columns each */}
             {amenitiesList.slice(3).map((item, idx) => (
               <motion.div
                 key={idx + 3}
-                whileHover={{ y: -8, borderColor: 'rgba(220, 160, 50, 0.35)' }}
+                whileHover={{ y: -6, borderColor: 'rgba(255, 255, 255, 1)', boxShadow: '0 25px 50px rgba(90, 100, 60, 0.18), inset 0 1px 0 rgba(255, 255, 255, 1), 0 0 40px rgba(255, 255, 255, 0.6)' }}
                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                 style={{
                   gridColumn: `${(idx * 4) + 1} / ${(idx * 4) + 5}`,
                   gridRow: '2 / 3',
-                  backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                  background: 'rgba(255, 255, 255, 0.42)',
+                  backdropFilter: 'blur(22px)',
+                  WebkitBackdropFilter: 'blur(22px)',
                   borderRadius: '20px',
                   padding: '1.6rem 1.5rem',
-                  border: '1px solid rgba(255, 255, 255, 0.07)',
-                  backdropFilter: 'blur(12px)',
+                  border: '1px solid rgba(255, 255, 255, 0.75)',
+                  boxShadow: '0 15px 35px rgba(90, 100, 60, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 0 25px rgba(255, 255, 255, 0.35)',
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '0.8rem',
@@ -1296,27 +1334,31 @@ export default function Stay({ onNavigate }) {
                   cursor: 'default'
                 }}
               >
-                {/* Subtle corner accent */}
-                <div style={{ position: 'absolute', top: 0, right: 0, width: '80px', height: '80px', background: `radial-gradient(circle at top right, ${idx === 0 ? 'rgba(100,160,220,0.08)' : idx === 1 ? 'rgba(220,120,80,0.08)' : 'rgba(160,200,100,0.08)'} 0%, transparent 70%)`, pointerEvents: 'none' }} />
+                {/* Corner ornament */}
+                <DecorativeSVG src="/assets/logo-mandala.svg" style={{ position: 'absolute', top: 0, left: 0, width: '80px', opacity: 0.07, pointerEvents: 'none', zIndex: -1 }} />
                 
-                <div className="flex-stack-mobile" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                {/* Subtle corner accent */}
+                <div style={{ position: 'absolute', top: 0, right: 0, width: '80px', height: '80px', background: `radial-gradient(circle at top right, ${idx === 0 ? 'rgba(100,160,220,0.18)' : idx === 1 ? 'rgba(220,120,80,0.18)' : 'rgba(160,200,100,0.18)'} 0%, transparent 70%)`, pointerEvents: 'none' }} />
+                
+                <div className="amenities-card-toprow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                   <div style={{
                     width: '40px', height: '40px', borderRadius: '50%',
-                    background: idx === 0 ? 'linear-gradient(135deg, rgba(100,160,220,0.2), rgba(100,160,220,0.05))' : idx === 1 ? 'linear-gradient(135deg, rgba(220,120,80,0.2), rgba(220,120,80,0.05))' : 'linear-gradient(135deg, rgba(160,200,100,0.2), rgba(160,200,100,0.05))',
+                    background: 'rgba(255, 255, 255, 0.65)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.1rem',
-                    border: `1px solid ${idx === 0 ? 'rgba(100,160,220,0.2)' : idx === 1 ? 'rgba(220,120,80,0.2)' : 'rgba(160,200,100,0.2)'}`
+                    border: '1px solid rgba(255, 255, 255, 0.85)',
+                    boxShadow: '0 4px 12px rgba(255, 255, 255, 0.4)'
                   }}>
                     {item.icon}
                   </div>
-                  <span style={{ fontSize: '0.62rem', textTransform: 'uppercase', color: 'var(--harvest-gold)', backgroundColor: 'rgba(220,160,50,0.08)', padding: '0.3rem 0.8rem', borderRadius: '50px', fontWeight: 700, letterSpacing: '0.1em', border: '1px solid rgba(220,160,50,0.12)' }}>
+                  <span style={{ fontSize: '0.62rem', textTransform: 'uppercase', color: '#b5801c', backgroundColor: 'rgba(255, 255, 255, 0.65)', padding: '0.3rem 0.8rem', borderRadius: '50px', fontWeight: 800, letterSpacing: '0.1em', border: '1px solid rgba(255, 255, 255, 0.85)' }}>
                     {item.tag}
                   </span>
                 </div>
 
-                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', color: 'var(--tan)', fontWeight: 500, margin: 0 }}>
+                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', color: 'var(--wine)', fontWeight: 600, margin: 0 }}>
                   {item.name}
                 </h3>
-                <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.55, margin: 0 }}>
+                <p style={{ fontSize: '0.8rem', color: 'var(--wine)', opacity: 0.82, lineHeight: 1.55, margin: 0 }}>
                   {item.desc}
                 </p>
               </motion.div>
@@ -1327,7 +1369,9 @@ export default function Stay({ onNavigate }) {
       </section>
 
       {/* --- EARTH ARCHITECTURE BANNER --- */}
-      <section style={{ backgroundColor: 'var(--wine)', padding: '6.5rem 8%', color: 'var(--isabelline)', textAlign: 'center', position: 'relative' }}>
+      <section style={{ backgroundColor: 'var(--wine)', padding: '6.5rem 8%', color: 'var(--isabelline)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+        {/* Background logo SVG */}
+        <DecorativeSVG src="/assets/suprada-logo.svg" style={{ position: 'absolute', top: '30%', left: '50%', transform: 'translateX(-50%)', width: '350px', opacity: 0.09, pointerEvents: 'none', zIndex: -1 }} />
         <div style={{ maxWidth: '850px', margin: '0 auto' }}>
           <span style={{ color: 'var(--harvest-gold)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.22em', fontWeight: 800, display: 'block', marginBottom: '1rem' }}>
             Built with Earth in Mind
@@ -1337,8 +1381,6 @@ export default function Stay({ onNavigate }) {
           </h2>
         </div>
       </section>
-
-
 
       {/* --- DIRECT ROOM BOOKING MODAL --- */}
       <AnimatePresence>
@@ -1395,7 +1437,7 @@ export default function Stay({ onNavigate }) {
                 Reserve {activeBookingModal.name}
               </h2>
 
-              <div style={{ borderRadius: '12px', overflow: 'hidden', height: '180px', marginBottom: '1.5rem' }}>
+              <div style={{ borderRadius: '12px', overflow: 'hidden', height: '180px', marginBottom: '1.5rem', backgroundColor: 'var(--isabelline)' }}>
                 <img src={activeBookingModal.img} alt={activeBookingModal.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
 
@@ -1412,34 +1454,50 @@ export default function Stay({ onNavigate }) {
                     style={{
                       width: '100%',
                       padding: '0.85rem 1rem',
-                      borderRadius: '8px',
+                      borderRadius: '10px',
                       border: '1px solid rgba(94, 39, 53, 0.2)',
                       fontSize: '0.9rem',
-                      outline: 'none'
+                      outline: 'none',
+                      boxSizing: 'border-box'
                     }}
                   />
                 </div>
 
                 <div>
-                  <label style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--wine)', display: 'block', marginBottom: '0.4rem' }}>
+                  <label style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--wine)', display: 'block', marginBottom: '0.5rem' }}>
                     Number of Guests:
                   </label>
-                  <select
-                    value={bookingGuests}
-                    onChange={(e) => setBookingGuests(e.target.value)}
-                    style={{
-                      width: '100%',
-                      padding: '0.85rem 1rem',
-                      borderRadius: '8px',
-                      border: '1px solid rgba(94, 39, 53, 0.2)',
-                      fontSize: '0.9rem',
-                      outline: 'none'
-                    }}
-                  >
-                    <option value="1 Guest">1 Guest (Single Wellness Stay)</option>
-                    <option value="2 Guests">2 Guests (Double Retreat Couple)</option>
-                    <option value="3 Guests">3 Guests (Family Suite)</option>
-                  </select>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.6rem', width: '100%', boxSizing: 'border-box' }}>
+                    {[
+                      { value: '1 Guest', label: '1 Guest', sub: 'Single Stay' },
+                      { value: '2 Guests', label: '2 Guests', sub: 'Double Retreat' },
+                      { value: '3 Guests', label: '3 Guests', sub: 'Family Suite' }
+                    ].map((gOpt) => {
+                      const isSelected = bookingGuests === gOpt.value;
+                      return (
+                        <button
+                          key={gOpt.value}
+                          type="button"
+                          onClick={() => setBookingGuests(gOpt.value)}
+                          style={{
+                            padding: '0.75rem 0.3rem',
+                            borderRadius: '12px',
+                            border: isSelected ? '2px solid var(--wine)' : '1px solid rgba(94, 39, 53, 0.2)',
+                            backgroundColor: isSelected ? 'var(--wine)' : 'rgba(245, 235, 217, 0.35)',
+                            color: isSelected ? '#ffffff' : 'var(--wine)',
+                            cursor: 'pointer',
+                            textAlign: 'center',
+                            transition: 'all 0.25s ease',
+                            boxShadow: isSelected ? '0 4px 14px rgba(94, 39, 53, 0.25)' : 'none',
+                            boxSizing: 'border-box'
+                          }}
+                        >
+                          <div style={{ fontWeight: 800, fontSize: '0.85rem' }}>{gOpt.label}</div>
+                          <div style={{ fontSize: '0.65rem', opacity: isSelected ? 0.9 : 0.75, marginTop: '0.15rem' }}>{gOpt.sub}</div>
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
 
@@ -1449,10 +1507,10 @@ export default function Stay({ onNavigate }) {
                   setActiveBookingModal(null);
                   onNavigate('contact');
                 }}
-                className="btn-luxury"
+                className="btn-primary"
                 style={{ width: '100%', padding: '1.1rem', fontSize: '0.88rem', letterSpacing: '0.12em', textAlign: 'center' }}
               >
-                Confirm &amp; Proceed to Contact Concierge
+                ✦ Confirm &amp; Proceed to Contact Concierge
               </button>
             </motion.div>
           </motion.div>

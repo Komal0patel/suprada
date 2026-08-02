@@ -1,3 +1,4 @@
+// Suprada Wellness Sanctuary - About Us Page
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView, useScroll, useTransform } from 'framer-motion';
 import { Pattern24, Pattern25, Pattern27, Pattern28 } from '../AnimatedPatterns';
@@ -69,6 +70,61 @@ function TiltCard({ children, style, className }) {
     </motion.div>
   );
 }
+
+const wordRevealContainer = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.15, delayChildren: 0.25 }
+  }
+};
+
+const wordVariant = {
+  hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  }
+};
+
+const AnimatedParagraph = ({ text, style, delay = 0 }) => {
+  const words = text.split(" ");
+  const container = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.02, delayChildren: delay }
+    }
+  };
+  const item = {
+    hidden: { opacity: 0, y: 15, filter: "blur(4px)" },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] }
+    }
+  };
+  return (
+    <motion.span
+      variants={container}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, margin: "-10%" }}
+      style={{ display: 'inline-flex', flexWrap: 'wrap', ...style }}
+    >
+      {words.map((word, idx) => (
+        <motion.span
+          key={idx}
+          variants={item}
+          style={{ display: 'inline-block', marginRight: '0.25em' }}
+        >
+          {word}
+        </motion.span>
+      ))}
+    </motion.span>
+  );
+};
 
 // Floating Petals Particle Animation
 function FloatingPetals({ count = 8, color = 'var(--sage)' }) {
@@ -201,297 +257,186 @@ export default function About({ onNavigate }) {
     <div ref={scrollRef} style={{ backgroundColor: 'var(--antique-white)', minHeight: '100vh', overflowX: 'hidden' }}>
       
       {/* =========================================================================
-          CHAPTER I: Full-Viewport Cinematic Hero — Antique White → Deep Wine
+          CHAPTER I: Centered Occasions-Inspired Luxury Hero (Fitted to Screen Height)
           ========================================================================= */}
       <section style={{
+        boxSizing: 'border-box',
+        padding: '5rem 6% 2.5rem 6%',
+        background: 'linear-gradient(135deg, var(--wine) 0%, #2a0e18 60%, #1e0910 100%)',
+        color: 'var(--tan)',
+        textAlign: 'center',
         position: 'relative',
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
         overflow: 'hidden',
-        backgroundColor: 'var(--antique-white)',
-        marginTop: 0,
-        paddingTop: '80px',
-        paddingBottom: '80px'
+        minHeight: '100dvh',
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
       }}>
+        {/* Botanical Leaf SVG Watermarks */}
+        <Pattern24 style={{ position: 'absolute', top: '-20px', left: '-40px', width: '300px', opacity: 0.12, color: 'var(--harvest-gold)', pointerEvents: 'none' }} />
+        <Pattern25 style={{ position: 'absolute', bottom: '-20px', right: '-40px', width: '300px', opacity: 0.12, color: 'var(--harvest-gold)', pointerEvents: 'none' }} />
 
-        {/* ── Left half: Deep wine panel ── */}
-        <div style={{
-          position: 'absolute',
-          top: 0, left: 0,
-          width: '52%', height: '100%',
-          background: 'linear-gradient(160deg, var(--wine) 0%, #2a0e18 100%)',
-          clipPath: 'polygon(0 0, 100% 0, 88% 100%, 0 100%)',
-          zIndex: 1
-        }} />
+        {/* Ambient Golden Bokeh Glow Effects */}
+        <div style={{ position: 'absolute', top: '-10%', left: '15%', maxWidth: '450px', width: '100%', height: '450px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.18) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(70px)', zIndex: 0, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-15%', right: '15%', maxWidth: '500px', width: '100%', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.12) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(80px)', zIndex: 0, pointerEvents: 'none' }} />
 
-        {/* ── Parallax rotating mandala centred on dividing line ── */}
+        {/* Background Mandala Watermark */}
         <motion.div
           style={{
             position: 'absolute',
-            top: '50%', left: '44%',
+            top: '50%', left: '50%',
             x: '-50%', y: '-50%',
-            maxWidth: '680px', width: '100%', height: '680px',
-            opacity: 0.07,
+            width: '600px', height: '600px',
+            opacity: 0.04,
             scale: heroMandalaScale,
             rotate: heroMandalaRotate,
             pointerEvents: 'none',
-            zIndex: 2
+            zIndex: 0
           }}
         >
           <Pattern27 style={{ width: '100%', height: '100%', color: 'var(--harvest-gold)' }} />
         </motion.div>
 
-        {/* ── Sage color blob — bottom right ── */}
-        <div style={{
-          position: 'absolute', bottom: '-80px', right: '-80px',
-          maxWidth: '420px', width: '100%', height: '420px', borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(179,186,142,0.25) 0%, transparent 70%)',
-          pointerEvents: 'none', zIndex: 1
-        }} />
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={wordRevealContainer}
+          style={{ position: 'relative', zIndex: 2, maxWidth: '820px', width: '100%', margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+        >
+          {/* Official Suprada Emblem Logo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: 'easeOut' }}
+            style={{ marginBottom: '1.2rem', display: 'flex', justifyContent: 'center' }}
+          >
+            <img 
+              src="/assets/logo.svg" 
+              alt="Suprada Official Emblem Logo" 
+              style={{ height: '85px', width: 'auto', filter: 'drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25))' }} 
+            />
+          </motion.div>
 
-        {/* ── Harvest gold glow — top left (inside wine panel) ── */}
-        <div style={{
-          position: 'absolute', top: '-60px', left: '-60px',
-          maxWidth: '340px', width: '100%', height: '340px', borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(220,160,50,0.12) 0%, transparent 70%)',
-          pointerEvents: 'none', zIndex: 2
-        }} />
+          {/* Centered Pill Badge */}
+          <motion.div 
+            initial={{ letterSpacing: '0.1em', opacity: 0, y: -10 }}
+            animate={{ letterSpacing: '0.22em', opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
+              backgroundColor: 'rgba(220, 160, 50, 0.12)',
+              padding: '0.3rem 1.2rem', borderRadius: '30px',
+              border: '1px solid rgba(220, 160, 50, 0.3)',
+              marginBottom: '1rem'
+            }}
+          >
+            <span style={{ color: 'var(--harvest-gold)', fontSize: '0.75rem' }}>✦</span>
+            <span style={{ color: 'var(--tan)', textTransform: 'uppercase', fontSize: '0.7rem', fontWeight: 700 }}>
+              Our Story &amp; Philosophy
+            </span>
+          </motion.div>
 
-        {/* ── Floating petals ── */}
-        <FloatingPetals count={6} color="rgba(220,160,50,0.5)" />
-
-        {/* ── Main content grid ── */}
-        <div className="hero-grid-split" style={{
-          maxWidth: '1280px', width: '100%',
-          margin: '0 auto', padding: '0 8%',
-          display: 'grid',
-          gridTemplateColumns: '1.1fr 0.9fr',
-          gap: '5rem',
-          alignItems: 'center',
-          position: 'relative', zIndex: 3
-        }}>
-
-          {/* ── LEFT: Dark-side narrative ── */}
-          <div style={{ color: 'var(--isabelline)', paddingTop: '3rem' }}>
-            {/* Chapter pill */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
-                backgroundColor: 'rgba(220,160,50,0.15)',
-                padding: '0.25rem 1.3rem 0.15rem 1.3rem', borderRadius: '30px',
-                border: '1px solid rgba(220,160,50,0.35)',
-                marginBottom: '1rem'
-              }}
-            >
-              <span style={{ color: 'var(--harvest-gold)', fontSize: '0.78rem', lineHeight: 1 }}>✦</span>
-              <span style={{ color: 'var(--tan)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.7rem', fontWeight: 800, lineHeight: 1, position: 'relative', top: '1px' }}>
-                Our Story • The Sanctuary
-              </span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: 'clamp(3.2rem, 5.8vw, 5.8rem)',
-                color: 'var(--tan)',
-                fontWeight: 400,
-                lineHeight: 1.05,
-                margin: '0 0 1.6rem 0',
-                letterSpacing: '-0.01em'
-              }}
-            >
-              Where Science<br />
-              <em style={{ fontStyle: 'italic', color: 'var(--harvest-gold)', fontWeight: 300 }}>Meets Heritage</em>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              style={{
-                color: 'var(--isabelline)', opacity: 0.82,
-                fontSize: '1.1rem', lineHeight: 1.85, fontWeight: 300,
-                marginBottom: '2.2rem', maxWidth: '540px'
-              }}
-            >
-              Bridging advanced clinical science with ancient Indian wisdom, Suprada is a riverfront sanctuary on Kanakapura Road — dedicated to the drugless restoration of body, mind, and spirit.
-            </motion.p>
-
-            {/* Stat pills row */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap', marginBottom: '2.4rem' }}
-            >
-              {[
-                { num: '54', unit: 'Acres', desc: 'Riverfront Estate' },
-                { num: '30+', unit: 'Years', desc: 'Clinical Heritage' },
-                { num: '9', unit: 'Cottages', desc: 'Private Sanctuaries' },
-                { num: '5', unit: 'Pillars', desc: 'of Wellness' }
-              ].map((s, i) => (
-                <motion.div
-                  key={i}
-                  whileHover={{ y: -3, borderColor: 'rgba(220,160,50,0.45)' }}
-                  transition={{ duration: 0.25 }}
-                  style={{
-                    display: 'flex', flexDirection: 'column', alignItems: 'center',
-                    padding: '0.8rem 1.1rem', borderRadius: '14px',
-                    backgroundColor: 'rgba(220,160,50,0.08)',
-                    border: '1px solid rgba(220,160,50,0.2)',
-                    minWidth: '86px', cursor: 'default'
-                  }}
-                >
-                  <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', color: 'var(--harvest-gold)', fontWeight: 600, lineHeight: 1 }}>{s.num}</span>
-                  <span style={{ fontSize: '0.58rem', color: 'var(--tan)', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 800, opacity: 0.75 }}>{s.unit}</span>
-                  <span style={{ fontSize: '0.6rem', color: 'rgba(220,195,175,0.6)', marginTop: '0.25rem', textAlign: 'center', lineHeight: 1.3 }}>{s.desc}</span>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.8 }}
-              style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}
-            >
-              <button
-                onClick={() => onNavigate('spaces')}
-                className="btn-luxury"
-                style={{ padding: '1rem 2.4rem', fontSize: '0.84rem', letterSpacing: '0.1em' }}
+          {/* Word-by-Word Revealed Main Headline */}
+          <h1 style={{ 
+            fontFamily: 'var(--font-heading)', 
+            fontSize: 'clamp(2.6rem, 5.2vw, 4.6rem)', 
+            color: 'var(--tan)', 
+            fontWeight: 400, 
+            margin: '0 0 0.9rem 0', 
+            lineHeight: 1.1, 
+            display: 'flex', 
+            justifyContent: 'center', 
+            gap: '0.7rem', 
+            flexWrap: 'wrap' 
+          }}>
+            {["Where", "Science"].map((w, idx) => (
+              <motion.span
+                key={idx}
+                variants={wordVariant}
+                style={{ display: 'inline-block' }}
               >
-                Explore Sanctuary →
-              </button>
-              <button
-                onClick={() => onNavigate('programmes')}
-                style={{
-                  background: 'none', border: '1.5px solid rgba(220,195,175,0.3)',
-                  color: 'rgba(220,195,175,0.75)', cursor: 'pointer',
-                  padding: '1rem 2rem', fontSize: '0.82rem',
-                  letterSpacing: '0.08em', fontWeight: 500, borderRadius: '8px',
-                  transition: 'all 0.3s ease'
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(220,160,50,0.55)'; e.currentTarget.style.color = 'var(--tan)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(220,195,175,0.3)'; e.currentTarget.style.color = 'rgba(220,195,175,0.75)'; }}
-              >
-                View Programs
-              </button>
-            </motion.div>
-          </div>
-
-          {/* ── RIGHT: Layered image mosaic (light side) ── */}
-          <div style={{ position: 'relative' }}>
-
-            {/* Decorative quote card — floating above-left */}
-            <motion.div
-              initial={{ opacity: 0, x: -30, y: -10 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.7 }}
-              style={{
-                position: 'absolute',
-                top: '-2.5rem', left: '-2.5rem',
-                zIndex: 5,
-                backgroundColor: 'var(--wine)',
-                color: 'var(--tan)',
-                borderRadius: '16px',
-                padding: '1rem 1.4rem',
-                maxWidth: '220px',
-                boxShadow: '0 12px 35px rgba(94,39,53,0.4)',
-                border: '1px solid rgba(220,160,50,0.25)'
-              }}
+                {w}
+              </motion.span>
+            ))}
+            <motion.span
+              variants={wordVariant}
+              style={{ display: 'inline-block', fontStyle: 'italic', color: 'var(--harvest-gold)' }}
             >
-              <div style={{ fontSize: '1.5rem', color: 'var(--harvest-gold)', lineHeight: 1, marginBottom: '0.4rem' }}>"</div>
-              <p style={{ fontFamily: 'var(--font-heading)', fontStyle: 'italic', fontSize: '0.85rem', lineHeight: 1.5, margin: 0, color: 'var(--tan)' }}>
-                Healing begins where nature and science meet in silence.
-              </p>
-              <span style={{ fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'var(--harvest-gold)', fontWeight: 800, display: 'block', marginTop: '0.6rem' }}>Dr. Sunil Jayaraj</span>
-            </motion.div>
+              Meets Heritage
+            </motion.span>
+          </h1>
 
-            {/* Main arched hero image */}
-            <TiltCard style={{ width: '100%', height: '420px' }}>
-              <div style={{
-                width: '100%', height: '100%',
-                borderRadius: '180px 180px 24px 24px',
-                overflow: 'hidden', position: 'relative',
-                boxShadow: '0 30px 70px rgba(94,39,53,0.25)',
-                border: '4px solid rgba(220, 160, 50, 0.35)'
-              }}>
-                <img
-                  src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1000&q=80"
-                  alt="Suprada Sanctuary Estate"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(58,21,32,0.75) 0%, transparent 55%)' }} />
-                <div style={{ position: 'absolute', bottom: '1.8rem', left: '1.5rem', right: '1.5rem', textAlign: 'center' }}>
-                  <span style={{ color: 'var(--harvest-gold)', fontSize: '0.65rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.2em', display: 'block', marginBottom: '0.2rem' }}>Suvarnamukhi Riverfront</span>
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.45rem', color: 'var(--tan)', fontWeight: 400, margin: 0 }}>54-Acre Healing Estate</h3>
-                </div>
-              </div>
-            </TiltCard>
+          {/* Word-by-Word Revealed Paragraph */}
+          <AnimatedParagraph 
+            text="Bridging advanced clinical science with ancient Indian wisdom — Suprada is a 54-acre riverfront sanctuary on Kanakapura Road, dedicated to the drugless cellular restoration of body, mind, and spirit."
+            style={{ 
+              color: 'rgba(245, 235, 217, 0.92)', 
+              maxWidth: '680px', 
+              margin: '0 auto 1.4rem auto', 
+              fontSize: '1.02rem', 
+              lineHeight: 1.7, 
+              fontWeight: 300, 
+              justifyContent: 'center' 
+            }}
+            delay={0.4}
+          />
 
-            {/* Two bottom accent images */}
-            <div className="hero-grid-split" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.8rem', marginTop: '0.9rem' }}>
-              {[
-                { src: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80', label: 'Clinical Healing', accent: 'var(--redwood)' },
-                { src: 'https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?auto=format&fit=crop&w=600&q=80', label: 'Nature Therapy', accent: 'var(--sage)' }
-              ].map((img, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: 0.6 + i * 0.15 }}
-                  whileHover={{ scale: 1.03 }}
-                  style={{
-                    borderRadius: '16px', overflow: 'hidden', height: '110px',
-                    position: 'relative',
-                    border: `2px solid ${img.accent}44`,
-                    boxShadow: '0 8px 24px rgba(94,39,53,0.12)',
-                    cursor: 'pointer'
-                  }}
-                >
-                  <img src={img.src} alt={img.label} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(58,21,32,0.65) 0%, transparent 60%)' }} />
-                  <span style={{
-                    position: 'absolute', bottom: '0.6rem', left: '0.7rem',
-                    fontSize: '0.62rem', color: 'var(--tan)', fontWeight: 800,
-                    textTransform: 'uppercase', letterSpacing: '0.08em'
-                  }}>{img.label}</span>
-                </motion.div>
-              ))}
+          {/* Centered Key Feature Pills */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            style={{ display: 'flex', gap: '0.8rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '1.5rem' }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,160,50,0.25)', padding: '0.4rem 1.1rem', borderRadius: '24px', fontSize: '0.78rem', color: 'var(--tan)' }}>
+              <span>🌿</span> <span>54-Acre Riverfront Estate</span>
             </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,160,50,0.25)', padding: '0.4rem 1.1rem', borderRadius: '24px', fontSize: '0.78rem', color: 'var(--tan)' }}>
+              <span>🩺</span> <span>30+ Years Clinical Heritage</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,160,50,0.25)', padding: '0.4rem 1.1rem', borderRadius: '24px', fontSize: '0.78rem', color: 'var(--tan)' }}>
+              <span>🏛️</span> <span>9 Private Cottages</span>
+            </div>
+          </motion.div>
 
-            {/* Floating bottom-right badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 1 }}
-              style={{
-                position: 'absolute',
-                bottom: '-1.5rem', right: '-1.5rem',
-                zIndex: 5,
-                backgroundColor: 'var(--harvest-gold)',
-                color: 'var(--wine)',
-                borderRadius: '50%',
-                width: '90px', height: '90px',
-                display: 'flex', flexDirection: 'column',
-                alignItems: 'center', justifyContent: 'center',
-                boxShadow: '0 12px 30px rgba(220,160,50,0.35)',
-                textAlign: 'center'
-              }}
+          {/* Centered CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.75 }}
+            style={{ display: 'flex', gap: '1.2rem', justifyContent: 'center', flexWrap: 'wrap' }}
+          >
+            <button
+              onClick={() => onNavigate('spaces')}
+              className="btn-luxury"
+              style={{ padding: '0.85rem 2.3rem', fontSize: '0.82rem', letterSpacing: '0.12em' }}
             >
-              <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', fontWeight: 700, lineHeight: 1 }}>Est.</span>
-              <span style={{ fontSize: '0.7rem', fontWeight: 800, letterSpacing: '0.05em' }}>Bangalore</span>
-            </motion.div>
-          </div>
+              Explore Sanctuary &rarr;
+            </button>
+            <button
+              onClick={() => onNavigate('programmes')}
+              style={{
+                background: 'transparent',
+                border: '1.5px solid rgba(220,160,50,0.4)',
+                color: 'var(--tan)',
+                cursor: 'pointer',
+                padding: '0.85rem 2.1rem',
+                fontSize: '0.82rem',
+                letterSpacing: '0.08em',
+                fontWeight: 500,
+                borderRadius: '30px',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(220,160,50,0.15)'; e.currentTarget.style.borderColor = 'var(--harvest-gold)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.borderColor = 'rgba(220,160,50,0.4)'; }}
+            >
+              View Programmes
+            </button>
+          </motion.div>
 
-        </div>
+        </motion.div>
 
         {/* ── Scroll indicator ── */}
         <motion.div
@@ -499,48 +444,59 @@ export default function About({ onNavigate }) {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
           style={{
-            position: 'absolute', bottom: '2.5rem', left: '50%',
+            position: 'absolute', bottom: '1.2rem', left: '50%',
             transform: 'translateX(-50%)', zIndex: 4
           }}
         >
           <motion.div
-            animate={{ y: [0, 8, 0] }}
+            animate={{ y: [0, 6, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.3rem' }}
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.2rem' }}
           >
-            <span style={{ fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--wine)', opacity: 0.5, fontWeight: 700 }}>Scroll</span>
-            <div style={{ width: '1px', height: '36px', background: 'linear-gradient(to bottom, var(--wine), transparent)', opacity: 0.4 }} />
+            <span style={{ fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--harvest-gold)', opacity: 0.7, fontWeight: 700 }}>Scroll</span>
+            <div style={{ width: '1px', height: '24px', background: 'linear-gradient(to bottom, var(--harvest-gold), transparent)', opacity: 0.5 }} />
           </motion.div>
         </motion.div>
 
       </section>
 
       {/* =========================================================================
-          CHAPTER II: Interactive Founders Spotlight Stage
+          CHAPTER II: Interactive Founders Spotlight Stage (Responsive Fit)
           ========================================================================= */}
-      <section style={{ position: 'relative', overflow: 'hidden', backgroundColor: 'var(--isabelline)', padding: '5.5rem 8%' }}>
-        <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
+      <section className="visionaries-section" style={{
+        position: 'relative',
+        overflow: 'hidden',
+        backgroundColor: 'var(--isabelline)',
+        padding: '3.5rem 6%',
+        minHeight: '100dvh',
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        boxSizing: 'border-box'
+      }}>
+        <div style={{ maxWidth: '1240px', margin: '0 auto', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           
-          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.72rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '1.2rem' }}>
+            <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.28em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.25rem' }}>
               ✦ CHAPTER II • THE VISIONARIES
             </span>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)', color: 'var(--wine)', fontWeight: 600, margin: 0 }}>
+            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.8rem, 3.2vw, 2.6rem)', color: 'var(--wine)', fontWeight: 600, margin: 0 }}>
               Where Global Expertise <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Meets Indian Heritage</em>
             </h2>
 
             {/* Founder Tabs */}
-            <div style={{ display: 'inline-flex', gap: '0.6rem', backgroundColor: '#ffffff', padding: '0.4rem', borderRadius: '40px', border: '1.5px solid rgba(94, 39, 53, 0.15)', marginTop: '2rem', boxShadow: '0 8px 25px rgba(94, 39, 53, 0.05)' }}>
+            <div className="founder-tabs-wrapper" style={{ display: 'inline-flex', gap: '0.5rem', backgroundColor: '#ffffff', padding: '0.25rem', borderRadius: '40px', border: '1.5px solid rgba(94, 39, 53, 0.15)', marginTop: '0.8rem', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)', flexWrap: 'wrap', justifyContent: 'center' }}>
               <button
                 onClick={() => setActiveFounder('sunil')}
                 style={{
-                  padding: '0.7rem 1.8rem',
+                  padding: '0.5rem 1.4rem',
                   borderRadius: '30px',
                   border: 'none',
                   backgroundColor: activeFounder === 'sunil' ? 'var(--wine)' : 'transparent',
                   color: activeFounder === 'sunil' ? '#ffffff' : 'var(--wine)',
                   fontFamily: 'var(--font-heading)',
-                  fontSize: '0.9rem',
+                  fontSize: '0.82rem',
                   fontWeight: 600,
                   cursor: 'pointer',
                   transition: 'all 0.3s ease'
@@ -552,13 +508,13 @@ export default function About({ onNavigate }) {
               <button
                 onClick={() => setActiveFounder('premasudha')}
                 style={{
-                  padding: '0.7rem 1.8rem',
+                  padding: '0.5rem 1.4rem',
                   borderRadius: '30px',
                   border: 'none',
                   backgroundColor: activeFounder === 'premasudha' ? 'var(--wine)' : 'transparent',
                   color: activeFounder === 'premasudha' ? '#ffffff' : 'var(--wine)',
                   fontFamily: 'var(--font-heading)',
-                  fontSize: '0.9rem',
+                  fontSize: '0.82rem',
                   fontWeight: 600,
                   cursor: 'pointer',
                   transition: 'all 0.3s ease'
@@ -573,60 +529,51 @@ export default function About({ onNavigate }) {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeFounder}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              style={{
-                backgroundColor: '#ffffff',
-                borderRadius: '28px',
-                border: '1.5px solid rgba(94, 39, 53, 0.14)',
-                boxShadow: '0 20px 50px rgba(94, 39, 53, 0.08)',
-                overflow: 'hidden',
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                alignItems: 'center'
-              }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.4 }}
+              className="founder-card-grid"
             >
-              <div style={{ height: '440px', position: 'relative', overflow: 'hidden' }}>
+              <div className="founder-card-image-box">
                 <img
                   src={foundersData[activeFounder].image}
                   alt={foundersData[activeFounder].name}
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, transparent 50%, rgba(255,255,255,0.9) 100%)' }} />
-                <div style={{
-                  position: 'absolute', top: '1.5rem', left: '1.5rem',
-                  backgroundColor: activeFounder === 'sunil' ? 'linear-gradient(135deg, rgba(255, 238, 130, 0.95) 0%, rgba(234, 167, 40, 0.92) 50%, rgba(200, 130, 0, 0.95) 100%)' : 'var(--redwood)',
-                  background: activeFounder === 'sunil' ? 'linear-gradient(135deg, rgba(255, 238, 130, 0.95) 0%, rgba(234, 167, 40, 0.92) 50%, rgba(200, 130, 0, 0.95) 100%)' : 'var(--redwood)',
-                  color: activeFounder === 'sunil' ? '#2B1219' : '#ffffff',
-                  fontSize: '0.65rem', fontWeight: 800, textTransform: 'uppercase',
-                  letterSpacing: '0.18em', padding: '0.4rem 1.2rem', borderRadius: '20px'
-                }}>
+                <div 
+                  className={`pill-luxury ${activeFounder === 'sunil' ? 'active' : ''}`}
+                  style={{
+                    position: 'absolute', top: '1.2rem', left: '1.2rem',
+                    textTransform: 'uppercase', letterSpacing: '0.15em',
+                    fontSize: '0.65rem', padding: '0.3rem 0.8rem'
+                  }}
+                >
                   {foundersData[activeFounder].badge}
                 </div>
               </div>
 
-              <div style={{ padding: '3rem 3.5rem' }}>
-                <span style={{ color: 'var(--redwood)', fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', display: 'block', marginBottom: '0.4rem' }}>
+              <div className="founder-card-content">
+                <span style={{ color: 'var(--redwood)', fontSize: '0.7rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', display: 'block', marginBottom: '0.25rem' }}>
                   {foundersData[activeFounder].role}
                 </span>
 
-                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.4rem', color: 'var(--wine)', fontWeight: 600, margin: '0 0 1.2rem 0' }}>
+                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.85rem', color: 'var(--wine)', fontWeight: 600, margin: '0 0 0.6rem 0' }}>
                   {foundersData[activeFounder].name}
                 </h3>
 
-                <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', fontStyle: 'italic', color: 'var(--wine)', lineHeight: 1.5, margin: '0 0 1.2rem 0' }}>
+                <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.02rem', fontStyle: 'italic', color: 'var(--wine)', lineHeight: 1.45, margin: '0 0 0.8rem 0' }}>
                   "{foundersData[activeFounder].quote}"
                 </p>
 
-                <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.7, margin: '0 0 1.6rem 0' }}>
+                <p style={{ fontSize: '0.84rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.6, margin: '0 0 1.1rem 0' }}>
                   {foundersData[activeFounder].bio}
                 </p>
 
-                <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                   {foundersData[activeFounder].tags.map((t, idx) => (
-                    <span key={idx} style={{ backgroundColor: 'rgba(94, 39, 53, 0.08)', color: 'var(--wine)', fontSize: '0.68rem', fontWeight: 800, padding: '0.4rem 1rem', borderRadius: '20px' }}>
+                    <span key={idx} style={{ backgroundColor: 'rgba(94, 39, 53, 0.08)', color: 'var(--wine)', fontSize: '0.65rem', fontWeight: 800, padding: '0.3rem 0.85rem', borderRadius: '20px' }}>
                       {t}
                     </span>
                   ))}
@@ -639,33 +586,49 @@ export default function About({ onNavigate }) {
       </section>
 
       {/* =========================================================================
-          CHAPTER III: Sacred Shloka Sanctum (Compact Size)
+          CHAPTER III: Sacred Shloka Sanctum (Fitted to Screen Height)
           ========================================================================= */}
-      <section style={{ padding: '3.2rem 8%', background: 'linear-gradient(135deg, #141c13 0%, #2b1219 100%)', color: 'var(--isabelline)', position: 'relative', overflow: 'hidden' }}>
-        
+      <section style={{
+        boxSizing: 'border-box',
+        padding: '4rem 6%',
+        background: 'linear-gradient(135deg, #381420 0%, #220b13 60%, #15060b 100%)',
+        color: 'var(--isabelline)',
+        position: 'relative',
+        overflow: 'hidden',
+        minHeight: '100dvh',
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        {/* Ambient Golden Bokeh & Wine Radial Glows */}
+        <div style={{ position: 'absolute', top: '10%', left: '50%', transform: 'translateX(-50%)', maxWidth: '600px', width: '100%', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.16) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(90px)', pointerEvents: 'none', zIndex: 0 }} />
+
+        {/* Botanical Mandala Watermark */}
         <motion.div 
           style={{ 
             position: 'absolute', 
-            top: '5%', 
-            left: '5%', 
-            maxWidth: '400px', width: '100%', 
-            height: '400px', 
+            top: '50%', left: '50%',
+            x: '-50%', y: '-50%',
+            width: '650px', height: '650px',
             opacity: 0.05, 
             scale: shlokaMandalaScale,
             rotate: shlokaMandalaRotate,
-            pointerEvents: 'none' 
+            pointerEvents: 'none',
+            zIndex: 1
           }}
         >
-          <Pattern25 style={{ width: '100%', height: '100%', color: 'var(--tan)' }} />
+          <Pattern25 style={{ width: '100%', height: '100%', color: 'var(--harvest-gold)' }} />
         </motion.div>
 
-        <div style={{ maxWidth: '840px', margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 2 }}>
+        <div style={{ maxWidth: '860px', width: '100%', margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           
-          <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.28em', fontSize: '0.68rem', fontWeight: 800, display: 'block', marginBottom: '0.6rem' }}>
+          <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.28em', fontSize: '0.72rem', fontWeight: 800, display: 'block', marginBottom: '0.8rem' }}>
             ✦ CHAPTER III • THE ETERNAL HARMONY
           </span>
 
-          <div style={{ display: 'inline-flex', gap: '0.3rem', backgroundColor: 'rgba(255, 255, 255, 0.08)', padding: '0.25rem 0.35rem', borderRadius: '30px', marginBottom: '1.2rem', border: '1px solid rgba(220, 160, 50, 0.2)' }}>
+          <div style={{ display: 'inline-flex', gap: '0.4rem', backgroundColor: 'rgba(255, 255, 255, 0.06)', padding: '0.3rem 0.4rem', borderRadius: '30px', marginBottom: '1.6rem', border: '1px solid rgba(220, 160, 50, 0.25)', boxShadow: '0 8px 25px rgba(0,0,0,0.2)' }}>
             {[
               { id: 'sanskrit', label: 'Sanskrit Original' },
               { id: 'phonetics', label: 'Phonetics' },
@@ -675,12 +638,12 @@ export default function About({ onNavigate }) {
                 key={tab.id}
                 onClick={() => setShlokaTab(tab.id)}
                 style={{
-                  padding: '0.4rem 1.2rem',
-                  borderRadius: '20px',
+                  padding: '0.5rem 1.4rem',
+                  borderRadius: '24px',
                   border: 'none',
                   backgroundColor: shlokaTab === tab.id ? 'var(--harvest-gold)' : 'transparent',
-                  color: shlokaTab === tab.id ? '#2B1219' : 'var(--tan)',
-                  fontSize: '0.75rem',
+                  color: shlokaTab === tab.id ? '#250c14' : 'var(--tan)',
+                  fontSize: '0.78rem',
                   fontWeight: 700,
                   cursor: 'pointer',
                   transition: 'all 0.3s ease'
@@ -691,48 +654,48 @@ export default function About({ onNavigate }) {
             ))}
           </div>
 
-          <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.2rem, 2.5vw, 1.7rem)', fontWeight: 300, color: 'var(--tan)', lineHeight: 1.45, marginBottom: '1.4rem', letterSpacing: '0.01em' }}>
-            At Suprada, your journey is no longer a series of separate stops. It is <span style={{ color: '#ffffff', borderBottom: '1px solid var(--harvest-gold)', paddingBottom: '2px' }}>The One Healing Journey</span> where you finally become one.
+          <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 2.8vw, 1.85rem)', fontWeight: 300, color: 'var(--tan)', lineHeight: 1.5, marginBottom: '2rem', letterSpacing: '0.01em', maxWidth: '780px' }}>
+            At Suprada, your journey is no longer a series of separate stops. It is <span style={{ color: '#ffffff', borderBottom: '1.5px solid var(--harvest-gold)', paddingBottom: '3px' }}>The One Healing Journey</span> where you finally become one.
           </h3>
 
           <motion.div 
-            initial={{ scale: 0.96, opacity: 0 }}
+            initial={{ scale: 0.94, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             style={{ 
-              border: '1.5px solid var(--harvest-gold)', 
-              padding: '1.2rem 1rem', 
+              border: '2px solid var(--harvest-gold)', 
+              padding: '1.8rem 1.4rem', 
               borderRadius: '50%', 
               width: '100%', 
-              maxWidth: '260px', 
+              maxWidth: '300px', 
               aspectRatio: '1',
               display: 'flex', 
               flexDirection: 'column',
               alignItems: 'center', 
               justifyContent: 'center',
               margin: '0 auto',
-              backgroundColor: 'rgba(44, 25, 30, 0.75)',
-              backdropFilter: 'blur(14px)',
-              boxShadow: '0 15px 40px rgba(0,0,0,0.35)'
+              backgroundColor: 'rgba(32, 11, 19, 0.85)',
+              backdropFilter: 'blur(16px)',
+              boxShadow: '0 20px 60px rgba(0,0,0,0.45), inset 0 0 35px rgba(220,160,50,0.15)'
             }}
           >
-            <span style={{ color: 'var(--harvest-gold)', fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.15em', display: 'block', marginBottom: '0.4rem', fontWeight: 800 }}>Guiding Shloka</span>
+            <span style={{ color: 'var(--harvest-gold)', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.18em', display: 'block', marginBottom: '0.6rem', fontWeight: 800 }}>Guiding Shloka</span>
             
             {shlokaTab === 'sanskrit' && (
-              <p className="gold-foil-text" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', fontWeight: 600, letterSpacing: '0.01em', margin: 0, lineHeight: 1.35 }}>
+              <p className="gold-foil-text" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: 600, letterSpacing: '0.01em', margin: 0, lineHeight: 1.4, color: 'var(--harvest-gold)' }}>
                 शरीरेन्द्रिय सत्त्वात्म संयोगे धारी जीवितम् इति आयुः
               </p>
             )}
 
             {shlokaTab === 'phonetics' && (
-              <p style={{ fontFamily: 'var(--font-heading)', fontSize: '0.88rem', color: 'var(--tan)', fontStyle: 'italic', lineHeight: 1.35, margin: 0, maxWidth: '200px' }}>
+              <p style={{ fontFamily: 'var(--font-heading)', fontSize: '0.92rem', color: 'var(--tan)', fontStyle: 'italic', lineHeight: 1.4, margin: 0, maxWidth: '220px' }}>
                 "Sharirendriya satva atma samyoge dhari jivitam iti ayu"
               </p>
             )}
 
             {shlokaTab === 'meaning' && (
-              <p style={{ fontSize: '0.72rem', color: '#ffffff', opacity: 0.92, maxWidth: '200px', lineHeight: 1.4, margin: 0 }}>
+              <p style={{ fontSize: '0.78rem', color: '#ffffff', opacity: 0.95, maxWidth: '220px', lineHeight: 1.45, margin: 0 }}>
                 "Life is the continuous, harmonious union of body, senses, mind, and soul."
               </p>
             )}
@@ -1002,7 +965,7 @@ export default function About({ onNavigate }) {
             Rooted in Nature, <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Designed for Intimacy</em>
           </h2>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.8rem' }}>
+          <div className="intimacy-metrics-grid">
             {[
               { 
                 target: "50", 
@@ -1048,6 +1011,7 @@ export default function About({ onNavigate }) {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
                 whileHover={{ y: -8, boxShadow: '0 18px 45px rgba(94, 39, 53, 0.09)' }}
+                className="intimacy-metric-card"
                 style={{ 
                   backgroundColor: '#ffffff', 
                   borderRadius: '24px', 
@@ -1061,12 +1025,12 @@ export default function About({ onNavigate }) {
                 }}
               >
                 {/* Top Badge */}
-                <span style={{ fontSize: '0.66rem', color: stat.color, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '1.2rem' }}>
+                <span className="intimacy-metric-badge" style={{ fontSize: '0.66rem', color: stat.color, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '1.2rem' }}>
                   {stat.badge}
                 </span>
 
                 {/* Perfect Circular Medallion */}
-                <div style={{
+                <div className="intimacy-metric-circle" style={{
                   width: '115px',
                   height: '115px',
                   borderRadius: '50%',
@@ -1078,7 +1042,7 @@ export default function About({ onNavigate }) {
                   marginBottom: '1.4rem',
                   boxShadow: '0 8px 20px rgba(0,0,0,0.03)'
                 }}>
-                  <div style={{ 
+                  <div className="intimacy-metric-number" style={{ 
                     fontFamily: 'var(--font-heading)', 
                     fontSize: '2.8rem', 
                     color: stat.color, 
@@ -1092,11 +1056,11 @@ export default function About({ onNavigate }) {
                   </div>
                 </div>
                 
-                <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--wine)', fontWeight: 600, margin: '0 0 0.4rem 0' }}>
+                <h4 className="intimacy-metric-label" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--wine)', fontWeight: 600, margin: '0 0 0.4rem 0' }}>
                   {stat.label}
                 </h4>
                 
-                <p style={{ fontSize: '0.82rem', color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '190px', lineHeight: 1.45, margin: 0 }}>
+                <p className="intimacy-metric-sub" style={{ fontSize: '0.82rem', color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '190px', lineHeight: 1.45, margin: 0 }}>
                   {stat.sub}
                 </p>
               </motion.div>
@@ -1138,7 +1102,7 @@ export default function About({ onNavigate }) {
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem', minHeight: '340px' }}>
+          <div className="collective-team-grid">
             <AnimatePresence mode="popLayout">
               {filteredTeam.map((member, idx) => (
                 <motion.div 
@@ -1150,6 +1114,7 @@ export default function About({ onNavigate }) {
                   transition={{ duration: 0.35 }}
                   onMouseEnter={() => setHoveredMember(idx)}
                   onMouseLeave={() => setHoveredMember(null)}
+                  className="collective-member-card"
                   style={{
                     backgroundColor: '#ffffff', 
                     borderRadius: '20px', 
@@ -1174,6 +1139,7 @@ export default function About({ onNavigate }) {
                       color: hoveredMember === idx ? getOverlayTextColor(member.color) : 'var(--wine)'
                     }}
                     transition={{ duration: 0.3 }}
+                    className="collective-avatar-circle"
                     style={{ 
                       width: '76px', 
                       height: '76px', 
@@ -1190,10 +1156,10 @@ export default function About({ onNavigate }) {
                     {member.name.replace(/^(Dr\.|Prof\.|Mr\.|Mrs\.|Ms\.)\s+/, '').split(' ').map(n => n[0]).join('')}
                   </motion.div>
                   
-                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', color: 'var(--wine)', margin: 0, fontWeight: 600, textAlign: 'center' }}>
+                  <h4 className="collective-member-name" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', color: 'var(--wine)', margin: 0, fontWeight: 600, textAlign: 'center' }}>
                     {member.name}
                   </h4>
-                  <span style={{ fontSize: '0.72rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', textAlign: 'center' }}>
+                  <span className="collective-member-role" style={{ fontSize: '0.72rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', textAlign: 'center' }}>
                     {member.role}
                   </span>
 

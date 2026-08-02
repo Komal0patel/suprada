@@ -257,28 +257,31 @@ const jobOpenings = [
   }
 ];
 
+const DEPT_SHORT_LABELS = {
+  "Medical": "Medical",
+  "Hospitality": "Hospitality",
+  "Wellness": "Wellness",
+  "Integrative Therapies": "Integrative Therapies",
+  "Clinical / Therapy Services": "Clinical Services",
+  "Front Office / Administration": "Front Office & Admin",
+  "Wellness / Naturopathy / Diet & Nutrition": "Diet & Nutrition"
+};
+
 function JobOpeningCard({ job, onDetailClick, onApplyClick }) {
-  const [isHovered, setIsHovered] = useState(false);
-  
-  // Mouse position state for 3D Tilt
   const cardRef = useRef(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseMove = (e) => {
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    
-    // Calculate mouse position relative to card center (-0.5 to 0.5)
-    const mouseX = (e.clientX - rect.left) / width - 0.5;
-    const mouseY = (e.clientY - rect.top) / height - 0.5;
-
-    // Map to max tilt degrees (e.g. 12 degrees max tilt)
-    setTilt({
-      x: -mouseY * 12, // Rotate around X axis based on Y mouse movement
-      y: mouseX * 12   // Rotate around Y axis based on X mouse movement
-    });
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const xc = rect.width / 2;
+    const yc = rect.height / 2;
+    const tiltX = (yc - y) / 14;
+    const tiltY = (x - xc) / 14;
+    setTilt({ x: tiltX, y: tiltY });
   };
 
   const handleMouseLeave = () => {
@@ -286,25 +289,7 @@ function JobOpeningCard({ job, onDetailClick, onApplyClick }) {
     setTilt({ x: 0, y: 0 });
   };
 
-  // When NOT hovered, we apply a gentle floating/swaying animation.
-  // When hovered, we use the manual mouse coordinates tilt.
-  const animateState = isHovered 
-    ? { rotateX: tilt.x, rotateY: tilt.y, scale: 1.02 }
-    : { 
-        rotateX: [ -1.5, 1.5, -1.5 ], 
-        rotateY: [ -2, 2, -2 ], 
-        y: [ 0, -5, 0 ], 
-        scale: 1 
-      };
-
-  const transitionState = isHovered
-    ? { type: "spring", stiffness: 150, damping: 15 }
-    : {
-        rotateX: { repeat: Infinity, duration: 6, ease: "easeInOut" },
-        rotateY: { repeat: Infinity, duration: 6, ease: "easeInOut", delay: 1.5 },
-        y: { repeat: Infinity, duration: 5, ease: "easeInOut" },
-        scale: { type: "spring", stiffness: 100, damping: 15 }
-      };
+  const shortDept = DEPT_SHORT_LABELS[job.dept] || job.dept;
 
   return (
     <motion.div
@@ -312,30 +297,26 @@ function JobOpeningCard({ job, onDetailClick, onApplyClick }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      animate={animateState}
-      transition={transitionState}
+      whileHover={{ y: -6, scale: 1.015 }}
+      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
       style={{
         position: 'relative',
         overflow: 'hidden',
-        borderRadius: '16px',
-        backgroundColor: 'rgba(255, 255, 255, 0.75)',
-        backdropFilter: 'blur(12px)',
+        borderRadius: '20px',
+        backgroundColor: '#ffffff',
         border: isHovered 
-          ? '1px solid rgba(220,160,50,0.4)' 
-          : '1px solid rgba(94,39,53,0.08)',
+          ? '1.5px solid rgba(220,160,50,0.5)' 
+          : '1.5px solid rgba(94,39,53,0.1)',
         boxShadow: isHovered 
           ? '0 20px 40px rgba(94, 39, 53, 0.12)' 
           : '0 8px 30px rgba(94, 39, 53, 0.04)',
         display: 'flex',
         flexDirection: 'column',
-        padding: '2rem 1.8rem',
+        padding: '1.8rem 1.6rem',
         cursor: 'pointer',
-        transformStyle: 'preserve-3d',
-        perspective: 1000,
-        height: 'auto',
-        minHeight: '190px',
+        height: '100%',
         justifyContent: 'space-between',
-        transition: 'border-color 0.3s, box-shadow 0.3s'
+        transition: 'border-color 0.3s, box-shadow 0.3s, transform 0.3s'
       }}
     >
       {/* Glow Effect on Hover */}
@@ -343,143 +324,154 @@ function JobOpeningCard({ job, onDetailClick, onApplyClick }) {
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'radial-gradient(circle at 50% 50%, rgba(220,160,50,0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(circle at 50% 50%, rgba(220,160,50,0.06) 0%, transparent 70%)',
           pointerEvents: 'none'
         }} />
       )}
 
-      {/* Main card content */}
-      <motion.div layout="position">
-        {/* Header tags */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem' }}>
+      <div>
+        {/* Header tags row - Badge & Type */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          gap: '0.8rem',
+          marginBottom: '1rem',
+          flexWrap: 'nowrap'
+        }}>
           <span style={{
-            backgroundColor: 'rgba(94, 39, 53, 0.06)',
+            backgroundColor: 'rgba(94, 39, 53, 0.08)',
             color: 'var(--wine)',
-            padding: '0.35rem 0.8rem',
+            padding: '0.35rem 0.85rem',
             borderRadius: '20px',
-            fontSize: '0.7rem',
-            fontWeight: 700,
+            fontSize: '0.68rem',
+            fontWeight: 800,
             textTransform: 'uppercase',
-            letterSpacing: '0.05em'
-          }}>
-            {job.dept}
+            letterSpacing: '0.06em',
+            maxWidth: '75%',
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis'
+          }} title={job.dept}>
+            {shortDept}
           </span>
           <span style={{
-            color: '#666',
-            fontSize: '0.75rem',
-            fontWeight: 500,
+            color: '#666666',
+            fontSize: '0.74rem',
+            fontWeight: 600,
+            whiteSpace: 'nowrap',
+            flexShrink: 0,
             display: 'flex',
             alignItems: 'center',
-            gap: '0.2rem'
+            gap: '0.3rem'
           }}>
             🕒 {job.type}
           </span>
         </div>
 
-        {/* Title */}
+        {/* Job Title */}
         <h3 style={{
           fontFamily: 'var(--font-heading)',
           color: 'var(--wine)',
-          fontSize: '1.4rem',
+          fontSize: '1.42rem',
           fontWeight: 700,
-          margin: 0,
+          margin: '0 0 0.6rem 0',
           lineHeight: 1.3
         }}>
           {job.title}
         </h3>
-      </motion.div>
 
-      {/* Collapsible details section */}
-      <AnimatePresence>
-        {isHovered && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            style={{ overflow: 'hidden' }}
+        {/* Location & Meta info */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.6rem',
+          fontSize: '0.78rem',
+          color: '#666666',
+          marginBottom: '0.9rem',
+          fontWeight: 500
+        }}>
+          <span>📍 Suprada Estate, Bangalore</span>
+        </div>
+
+        {/* Short Job Overview Excerpt */}
+        <p style={{
+          fontSize: '0.86rem',
+          color: 'var(--raisin-black)',
+          opacity: 0.8,
+          lineHeight: 1.55,
+          margin: 0,
+          display: '-webkit-box',
+          WebkitLineClamp: 2,
+          WebkitBoxOrient: 'vertical',
+          overflow: 'hidden'
+        }}>
+          {job.overview}
+        </p>
+      </div>
+
+      {/* Footer Action Buttons */}
+      <div>
+        <div style={{ height: '1px', backgroundColor: 'rgba(94, 39, 53, 0.08)', margin: '1.2rem 0 1rem 0' }} />
+        <div style={{ display: 'flex', gap: '0.75rem' }}>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onDetailClick();
+            }}
+            style={{
+              flex: 1,
+              backgroundColor: 'transparent',
+              color: 'var(--wine)',
+              border: '1.5px solid var(--wine)',
+              borderRadius: '8px',
+              padding: '0.65rem 0',
+              fontSize: '0.78rem',
+              fontWeight: 700,
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+              textAlign: 'center'
+            }}
+            onMouseEnter={(e) => { e.target.style.backgroundColor = 'var(--wine)'; e.target.style.color = '#ffffff'; }}
+            onMouseLeave={(e) => { e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'var(--wine)'; }}
           >
-            {/* Divider line */}
-            <div style={{ height: '1px', backgroundColor: 'rgba(94, 39, 53, 0.08)', margin: '1.2rem 0' }} />
+            View Details
+          </button>
 
-            {/* Location */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8rem', color: '#666', marginBottom: '0.6rem', fontWeight: 500 }}>
-              📍 Suprada Wellness, Bangalore
-            </div>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onApplyClick();
+            }}
+            style={{
+              flex: 1,
+              backgroundColor: 'var(--wine)',
+              color: '#ffffff',
+              border: 'none',
+              borderRadius: '8px',
+              padding: '0.65rem 0',
+              fontSize: '0.78rem',
+              fontWeight: 700,
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+              textAlign: 'center',
+              boxShadow: '0 4px 12px rgba(94, 39, 53, 0.15)'
+            }}
+            onMouseEnter={(e) => { e.target.style.backgroundColor = 'var(--redwood)'; }}
+            onMouseLeave={(e) => { e.target.style.backgroundColor = 'var(--wine)'; }}
+          >
+            Apply Now
+          </button>
+        </div>
+      </div>
 
-            {/* Job Description Overview */}
-            <p style={{
-              fontSize: '0.88rem',
-              color: 'var(--raisin-black)',
-              opacity: 0.85,
-              lineHeight: 1.5,
-              margin: 0
-            }}>
-              {job.overview}
-            </p>
-
-            {/* Action buttons */}
-            <div style={{ display: 'flex', gap: '0.8rem', marginTop: '1.5rem' }}>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onDetailClick();
-                }}
-                style={{
-                  flex: 1,
-                  backgroundColor: 'transparent',
-                  color: 'var(--wine)',
-                  border: '1.5px solid var(--wine)',
-                  borderRadius: '8px',
-                  padding: '0.65rem 0',
-                  fontSize: '0.75rem',
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  transition: 'all 0.2s',
-                  textAlign: 'center'
-                }}
-                onMouseEnter={(e) => { e.target.style.backgroundColor = 'var(--wine)'; e.target.style.color = '#ffffff'; }}
-                onMouseLeave={(e) => { e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'var(--wine)'; }}
-              >
-                View Details
-              </button>
-              
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onApplyClick();
-                }}
-                style={{
-                  flex: 1,
-                  backgroundColor: 'var(--wine)',
-                  color: '#ffffff',
-                  border: 'none',
-                  borderRadius: '8px',
-                  padding: '0.65rem 0',
-                  fontSize: '0.75rem',
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  transition: 'all 0.2s',
-                  textAlign: 'center',
-                  boxShadow: '0 4px 10px rgba(94, 39, 53, 0.15)'
-                }}
-                onMouseEnter={(e) => { e.target.style.opacity = 0.9; }}
-                onMouseLeave={(e) => { e.target.style.opacity = 1; }}
-              >
-                Apply Now
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Decorative Gold Border Line at Bottom */}
+      {/* Decorative Accent Line on Hover */}
       <div style={{
         position: 'absolute',
         bottom: 0,
         left: 0,
         right: 0,
-        height: '3px',
+        height: '3.5px',
         background: 'linear-gradient(90deg, #b5801c, #f7d070, #b5801c)',
         opacity: isHovered ? 1 : 0,
         transition: 'opacity 0.3s'
@@ -534,11 +526,6 @@ export default function Careers({ onNavigate }) {
   ];
 
   const [activeSlideIdx, setActiveSlideIdx] = useState(0);
-  const [typedTitle, setTypedTitle] = useState("");
-  const [typedDesc, setTypedDesc] = useState("");
-  const [typingPhase, setTypingPhase] = useState("typing-title"); // "typing-title", "typing-desc", "waiting", "deleting"
-  const [isTypewriterPaused, setIsTypewriterPaused] = useState(false);
-
   const [activeCultureTab, setActiveCultureTab] = useState(0);
   const [cultureProgress, setCultureProgress] = useState(0);
 
@@ -550,52 +537,16 @@ export default function Careers({ onNavigate }) {
 
   const currentSlide = typewriterSlides[activeSlideIdx];
 
+  // Automatic slide rotation
   useEffect(() => {
-    if (isTypewriterPaused) return;
-
-    let timer;
-    if (typingPhase === "typing-title") {
-      if (typedTitle.length < currentSlide.title.length) {
-        timer = setTimeout(() => {
-          setTypedTitle(currentSlide.title.slice(0, typedTitle.length + 1));
-        }, 8);
-      } else {
-        setTypingPhase("typing-desc");
-      }
-    } else if (typingPhase === "typing-desc") {
-      if (typedDesc.length < currentSlide.desc.length) {
-        timer = setTimeout(() => {
-          setTypedDesc(currentSlide.desc.slice(0, typedDesc.length + 1));
-        }, 5);
-      } else {
-        setTypingPhase("waiting");
-      }
-    } else if (typingPhase === "waiting") {
-      timer = setTimeout(() => {
-        setTypingPhase("deleting");
-      }, 4000);
-    } else if (typingPhase === "deleting") {
-      if (typedDesc.length > 0) {
-        timer = setTimeout(() => {
-          setTypedDesc((prev) => prev.slice(0, -2));
-        }, 5);
-      } else if (typedTitle.length > 0) {
-        timer = setTimeout(() => {
-          setTypedTitle((prev) => prev.slice(0, -2));
-        }, 5);
-      } else {
-        setTypedTitle("");
-        setTypedDesc("");
-        setActiveSlideIdx((prev) => (prev + 1) % typewriterSlides.length);
-        setTypingPhase("typing-title");
-      }
-    }
-
-    return () => clearTimeout(timer);
-  }, [typingPhase, typedTitle, typedDesc, activeSlideIdx, isTypewriterPaused]);
+    const timer = setInterval(() => {
+      setActiveSlideIdx((prev) => (prev + 1) % typewriterSlides.length);
+    }, 8500);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
-    if (activeSlideIdx !== 1 || isTypewriterPaused) return;
+    if (activeSlideIdx !== 1) return;
 
     const interval = 30; // ms
     const duration = 4500; // ms
@@ -612,7 +563,7 @@ export default function Careers({ onNavigate }) {
     }, interval);
 
     return () => clearInterval(timer);
-  }, [activeSlideIdx, isTypewriterPaused]);
+  }, [activeSlideIdx]);
 
   return (
     <div style={{ backgroundColor: 'var(--isabelline)', minHeight: '100vh', paddingTop: 0, position: 'relative', overflowX: 'hidden' }}>
@@ -633,9 +584,10 @@ export default function Careers({ onNavigate }) {
           >
             {/* Unified Typewriter Hero Section */}
             <section 
+              className="mobile-hero-compact"
               style={{
                 boxSizing: 'border-box',
-                padding: '8rem 8% 6rem 8%',
+                padding: '7rem 8% 2.25rem 8%',
                 background: 'linear-gradient(135deg, #6b2e3e 0%, #5e2735 60%, #4a1d28 100%)',
                 color: '#ffffff',
                 textAlign: 'center',
@@ -652,71 +604,50 @@ export default function Careers({ onNavigate }) {
               <Pattern24 style={{ position: 'absolute', top: '-20px', left: '-40px', width: '280px', opacity: 0.16, color: '#ffffff', pointerEvents: 'none' }} />
               <Pattern25 style={{ position: 'absolute', bottom: '-20px', right: '-40px', width: '280px', opacity: 0.16, color: '#ffffff', pointerEvents: 'none' }} />
 
-              {/* CSS style tag for blinking cursor */}
-              <style dangerouslySetInnerHTML={{__html: `
-                @keyframes blinkCursor {
-                  50% { opacity: 0; }
-                }
-                .typewriter-cursor {
-                  display: inline-block;
-                  width: 3px;
-                  height: 1em;
-                  background-color: var(--harvest-gold);
-                  margin-left: 4px;
-                  animation: blinkCursor 0.8s infinite;
-                  vertical-align: middle;
-                }
-              `}} />
-
               {/* Ambient Golden & Green Bokeh Glows */}
               <div style={{ position: 'absolute', top: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.22) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(70px)', zIndex: 0, pointerEvents: 'none' }} />
               <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 70%)', filter: 'blur(80px)', zIndex: 0, pointerEvents: 'none' }} />
 
-              <motion.div layout style={{ position: 'relative', zIndex: 1, maxWidth: '800px', width: '100%' }}>
-                {/* Active tag indicator */}
-                <span style={{ 
-                  color: 'var(--harvest-gold)', 
-                  textTransform: 'uppercase', 
-                  letterSpacing: '0.3em', 
-                  fontSize: '0.8rem', 
-                  fontWeight: 800, 
-                  display: 'block', 
-                  marginBottom: '1rem'
-                }}>
-                  {currentSlide.tag}
-                </span>
-
-                {/* Blinking indicator/typing title */}
-                <h1 style={{ 
-                  fontFamily: 'var(--font-heading)', 
-                  fontSize: 'clamp(2.5rem, 5.2vw, 4.2rem)', 
-                  color: 'var(--tan)', 
-                  fontWeight: 500, 
-                  lineHeight: 1.15, 
-                  margin: 0,
-                  minHeight: '5.5rem',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center'
-                }}>
-                  <span>{typedTitle}</span>
-                  {typingPhase === "typing-title" && <span className="typewriter-cursor" />}
-                </h1>
-
-                {/* Blinking indicator/typing description */}
-                <p style={{ 
-                  color: 'var(--isabelline)', 
-                  opacity: 0.9, 
-                  maxWidth: '700px', 
-                  margin: '1.8rem auto 0 auto', 
-                  fontSize: '1.08rem', 
-                  lineHeight: 1.8, 
-                  fontWeight: 300,
-                  minHeight: '5.5rem'
-                }}>
-                  <span>{typedDesc}</span>
-                  {(typingPhase === "typing-desc" || typingPhase === "waiting") && <span className="typewriter-cursor" />}
-                </p>
+              {/* ── BOTANICAL BLOOM (FINAL CHOSEN ANIMATION) ── */}
+              <motion.div layout style={{ position: 'relative', zIndex: 1, maxWidth: '800px', width: '100%', paddingBottom: '4rem' }}>
+                <div key={activeSlideIdx} style={{ textAlign: 'center', width: '100%' }}>
+                  <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.8rem', fontWeight: 800, display: 'block', marginBottom: '1.2rem' }}>
+                    🌿 {currentSlide.tag} 🌿
+                  </span>
+                  <motion.h1
+                    variants={{
+                      hidden: {},
+                      visible: { transition: { staggerChildren: 0.15 } }
+                    }}
+                    initial="hidden"
+                    animate="visible"
+                    style={{
+                      fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.5rem, 5.2vw, 4.2rem)', color: 'var(--tan)',
+                      fontWeight: 500, lineHeight: 1.15, margin: 0, display: 'flex', justifyContent: 'center', gap: '0.8rem', flexWrap: 'wrap'
+                    }}
+                  >
+                    {currentSlide.title.split(" ").map((word, idx) => (
+                      <motion.span
+                        key={idx}
+                        variants={{
+                          hidden: { scale: 0.4, rotate: -12, opacity: 0, filter: 'blur(6px)' },
+                          visible: { scale: [0.4, 1.05, 1], rotate: 0, opacity: 1, filter: 'blur(0px)', transition: { duration: 0.8, ease: 'easeOut' } }
+                        }}
+                        style={{ display: 'inline-block', transformOrigin: 'center bottom' }}
+                      >
+                        {word}
+                      </motion.span>
+                    ))}
+                  </motion.h1>
+                  <motion.p
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    animate={{ opacity: 0.9, scale: 1 }}
+                    transition={{ delay: 0.6, duration: 0.8 }}
+                    style={{ color: 'var(--isabelline)', maxWidth: '700px', margin: '1.8rem auto 0 auto', fontSize: '1.08rem', lineHeight: 1.8, fontWeight: 300 }}
+                  >
+                    {currentSlide.desc}
+                  </motion.p>
+                </div>
 
                 {/* Interactive Culture Points Showcase (Visible only on slide 2) */}
                 <AnimatePresence>
@@ -851,8 +782,8 @@ export default function Careers({ onNavigate }) {
             </section>
 
             {/* Current Openings — Search, Filter & Interactive Cards */}
-            <section style={{ padding: '6rem 8%', backgroundColor: 'var(--isabelline)' }}>
-              <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+            <section style={{ padding: '2.25rem 5% 4.5rem 5%', backgroundColor: 'var(--isabelline)' }}>
+              <div style={{ maxWidth: '1320px', margin: '0 auto' }}>
 
                 {/* Section Header */}
                 <motion.div
@@ -931,67 +862,126 @@ export default function Careers({ onNavigate }) {
                   style={{
                     display: 'flex',
                     justifyContent: 'center',
+                    alignItems: 'center',
                     gap: '0.6rem',
                     flexWrap: 'wrap',
-                    marginBottom: '3rem'
+                    maxWidth: '960px',
+                    margin: '0 auto 2.5rem auto'
                   }}
                 >
                   {departments.map(dept => {
                     const active = selectedDept === dept;
+                    const label = DEPT_SHORT_LABELS[dept] || (dept === 'All' ? 'All Roles' : dept);
                     return (
                       <button
                         key={dept}
                         onClick={() => setSelectedDept(dept)}
                         style={{
-                          padding: '0.5rem 1.1rem',
+                          padding: '0.55rem 1.25rem',
                           borderRadius: '999px',
-                          border: active ? '1.5px solid var(--wine)' : '1.5px solid rgba(94, 39, 53, 0.15)',
-                          backgroundColor: active ? 'var(--wine)' : 'rgba(255,255,255,0.7)',
+                          border: active ? '1.5px solid var(--wine)' : '1.5px solid rgba(94, 39, 53, 0.14)',
+                          backgroundColor: active ? 'var(--wine)' : '#ffffff',
                           color: active ? '#ffffff' : 'var(--raisin-black)',
-                          fontSize: '0.8rem',
-                          fontWeight: 600,
+                          fontSize: '0.82rem',
+                          fontWeight: active ? 700 : 600,
                           cursor: 'pointer',
-                          backdropFilter: 'blur(8px)',
+                          boxShadow: active ? '0 4px 14px rgba(94,39,53,0.2)' : '0 2px 8px rgba(0,0,0,0.03)',
                           transition: 'all 0.25s ease',
-                          letterSpacing: '0.02em'
+                          letterSpacing: '0.02em',
+                          whiteSpace: 'nowrap'
                         }}
                       >
-                        {dept}
+                        {label}
                       </button>
                     );
                   })}
                 </motion.div>
 
-                {/* Job Cards Grid */}
+                {/* Job Cards Layout - Row 1: 4 Cards, Row 2: 3 Cards Centered (All cards 100% identical width) */}
+                <style dangerouslySetInnerHTML={{__html: `
+                  .careers-centered-row {
+                    display: flex;
+                    justify-content: center;
+                    align-items: stretch;
+                    gap: 1.25rem;
+                    width: 100%;
+                  }
+                  .careers-card-col {
+                    flex: 0 0 calc(25% - 0.95rem);
+                    max-width: calc(25% - 0.95rem);
+                    box-sizing: border-box;
+                    display: flex;
+                    flex-direction: column;
+                  }
+                  @media (max-width: 1120px) and (min-width: 681px) {
+                    .careers-centered-row {
+                      flex-wrap: wrap;
+                    }
+                    .careers-card-col {
+                      flex: 0 0 calc(50% - 0.65rem) !important;
+                      max-width: calc(50% - 0.65rem) !important;
+                    }
+                  }
+                  @media (max-width: 680px) {
+                    .careers-centered-row {
+                      flex-wrap: wrap;
+                    }
+                    .careers-card-col {
+                      flex: 0 0 100% !important;
+                      max-width: 100% !important;
+                    }
+                  }
+                `}} />
+
                 <AnimatePresence mode="popLayout">
                   {filteredJobs.length > 0 ? (
-                    <motion.div
-                      layout
-                      style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-                        gap: '2rem',
-                        alignItems: 'start'
-                      }}
-                    >
-                      {filteredJobs.map((job, i) => (
-                        <motion.div
-                          key={job.id}
-                          layout
-                          initial={{ opacity: 0, y: 35, scale: 0.97 }}
-                          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, scale: 0.95 }}
-                          viewport={{ once: false, margin: '-30px' }}
-                          transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
-                        >
-                          <JobOpeningCard
-                            job={job}
-                            onDetailClick={() => setDetailJobId(job.id)}
-                            onApplyClick={() => setSelectedJob(job)}
-                          />
-                        </motion.div>
-                      ))}
-                    </motion.div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', width: '100%' }}>
+                      {/* Row 1: First 4 Cards */}
+                      <div className="careers-centered-row">
+                        {filteredJobs.slice(0, 4).map((job, i) => (
+                          <motion.div
+                            key={job.id}
+                            className="careers-card-col"
+                            layout
+                            initial={{ opacity: 0, y: 35 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
+                            viewport={{ once: false, margin: '-30px' }}
+                            transition={{ duration: 0.5, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                          >
+                            <JobOpeningCard
+                              job={job}
+                              onDetailClick={() => setDetailJobId(job.id)}
+                              onApplyClick={() => setSelectedJob(job)}
+                            />
+                          </motion.div>
+                        ))}
+                      </div>
+
+                      {/* Row 2: Remaining Cards (Centered) */}
+                      {filteredJobs.length > 4 && (
+                        <div className="careers-centered-row">
+                          {filteredJobs.slice(4).map((job, i) => (
+                            <motion.div
+                              key={job.id}
+                              className="careers-card-col"
+                              layout
+                              initial={{ opacity: 0, y: 35 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, scale: 0.95 }}
+                              viewport={{ once: false, margin: '-30px' }}
+                              transition={{ duration: 0.5, delay: (i + 4) * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                            >
+                              <JobOpeningCard
+                                job={job}
+                                onDetailClick={() => setDetailJobId(job.id)}
+                                onApplyClick={() => setSelectedJob(job)}
+                              />
+                            </motion.div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   ) : (
                     <motion.div
                       key="no-results"
@@ -1018,7 +1008,7 @@ export default function Careers({ onNavigate }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.4 }}
-            style={{ maxWidth: '1100px', margin: '0 auto', padding: '4rem 8% 8rem 8%' }}
+            style={{ maxWidth: '1100px', margin: '0 auto', padding: '3rem 8% 5rem 8%' }}
           >
             {/* Back Button Link */}
             <div 

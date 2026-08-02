@@ -16,6 +16,7 @@ import Contact from './pages/Contact';
 
 // Import Global Components
 import Footer from './components/Footer';
+import StarfieldBackground from './components/StarfieldBackground';
 
 function App() {
   const navigate = useNavigate();
@@ -164,7 +165,8 @@ function App() {
 
   return (
     <>
-      <div className="app-container" style={{ backgroundColor: 'var(--isabelline)', minHeight: '100vh', color: 'var(--raisin-black)', fontFamily: 'var(--font-body)', overflowX: 'hidden' }}>
+      <StarfieldBackground />
+      <div className="app-container" style={{ backgroundColor: 'var(--isabelline)', minHeight: '100vh', color: 'var(--raisin-black)', fontFamily: 'var(--font-body)', overflowX: 'hidden', position: 'relative', zIndex: 1 }}>
         
         {/* ========================================================================= */}
         {/* --- UNIVERSAL FLOATING HAMBURGER & EXPANDABLE PILL NAVBAR (ALL PAGES) --- */}

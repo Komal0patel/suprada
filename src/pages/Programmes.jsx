@@ -262,48 +262,18 @@ export default function Programmes({ onNavigate }) {
         }}>
           
           {/* Animated SVG Line Drawing — Healing Mandala */}
+          {/* Official Suprada Emblem Logo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: 'easeOut' }}
-            style={{ marginBottom: '1.2rem' }}
+            style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}
           >
-            <svg width="110" height="110" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <motion.circle
-                cx="50" cy="50" r="44"
-                stroke="var(--harvest-gold)"
-                strokeWidth="1.2"
-                strokeDasharray="280"
-                initial={{ strokeDashoffset: 280 }}
-                animate={{ strokeDashoffset: 0 }}
-                transition={{ duration: 2.2, ease: 'easeInOut' }}
-              />
-              <motion.path
-                d="M50 10 C38 28 38 72 50 90 C62 72 62 28 50 10 Z"
-                stroke="var(--wine)"
-                strokeWidth="1.5"
-                strokeDasharray="200"
-                initial={{ strokeDashoffset: 200 }}
-                animate={{ strokeDashoffset: 0 }}
-                transition={{ duration: 2.5, delay: 0.4, ease: 'easeInOut' }}
-              />
-              <motion.path
-                d="M10 50 C28 38 72 38 90 50 C72 62 28 62 10 50 Z"
-                stroke="var(--wine)"
-                strokeWidth="1.5"
-                strokeDasharray="200"
-                initial={{ strokeDashoffset: 200 }}
-                animate={{ strokeDashoffset: 0 }}
-                transition={{ duration: 2.5, delay: 0.7, ease: 'easeInOut' }}
-              />
-              <motion.circle
-                cx="50" cy="50" r="5"
-                fill="var(--harvest-gold)"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.6, delay: 1.8 }}
-              />
-            </svg>
+            <img 
+              src="/assets/logo.svg" 
+              alt="Suprada Official Emblem Logo" 
+              style={{ height: '90px', width: 'auto', filter: 'drop-shadow(0 4px 12px rgba(94, 39, 53, 0.15))' }} 
+            />
           </motion.div>
 
           <motion.div

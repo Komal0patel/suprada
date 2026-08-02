@@ -136,6 +136,70 @@ export default function Occasions({ onNavigate }) {
   const [activeCeremonyIdx, setActiveCeremonyIdx] = useState(0);
   const isHoveredCeremonyCardRef = useRef(false);
   const [activeSpaceModal, setActiveSpaceModal] = useState(null);
+  
+  const serviceOfferingsRef = useRef(null);
+  const isHoveredServiceTrackRef = useRef(false);
+  const [expandedServiceIdx, setExpandedServiceIdx] = useState(0);
+
+  // Automatic smooth movement loop for Service Offerings
+  useEffect(() => {
+    const container = serviceOfferingsRef.current;
+    if (!container) return;
+
+    let animationFrameId;
+    let lastTime = performance.now();
+    let accumulatedScroll = 0;
+    const scrollSpeed = 35; // Speed in pixels per second
+
+    const step = (time) => {
+      const delta = (time - lastTime) / 1000;
+      lastTime = time;
+
+      if (!isHoveredServiceTrackRef.current) {
+        accumulatedScroll += scrollSpeed * delta;
+        if (accumulatedScroll >= 1) {
+          const scrollPixels = Math.floor(accumulatedScroll);
+          accumulatedScroll -= scrollPixels;
+
+          const maxScroll = container.scrollWidth - container.clientWidth;
+          if (container.scrollLeft >= maxScroll - 1) {
+            container.scrollLeft = 0;
+          } else {
+            container.scrollLeft += scrollPixels;
+          }
+        }
+      } else {
+        accumulatedScroll = 0;
+      }
+
+      animationFrameId = requestAnimationFrame(step);
+    };
+
+    animationFrameId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, []);
+
+  const handleServiceScroll = (dir) => {
+    const container = serviceOfferingsRef.current;
+    if (!container) return;
+    isHoveredServiceTrackRef.current = true;
+    setTimeout(() => {
+      isHoveredServiceTrackRef.current = false;
+    }, 3500);
+
+    const cardStride = 236; // 220px card width + 16px gap
+    const currentPosIndex = Math.round(container.scrollLeft / cardStride);
+    let targetIndex = dir === 'next' ? currentPosIndex + 1 : currentPosIndex - 1;
+    if (targetIndex >= 8) targetIndex = 0;
+    if (targetIndex < 0) targetIndex = 7;
+
+    setExpandedServiceIdx(targetIndex);
+
+    container.scrollTo({
+      left: targetIndex * cardStride,
+      behavior: 'smooth'
+    });
+  };
 
   useEffect(() => {
     const checkMobile = () => setIsMobileChart(window.innerWidth < 768);
@@ -185,7 +249,7 @@ export default function Occasions({ onNavigate }) {
     let animationFrameId;
     let lastTime = performance.now();
     let accumulatedScroll = 0;
-    const scrollSpeed = 25; // Speed in pixels per second
+    const scrollSpeed = 50; // Speed in pixels per second
 
     const step = (time) => {
       const delta = (time - lastTime) / 1000;
@@ -218,14 +282,34 @@ export default function Occasions({ onNavigate }) {
     return () => cancelAnimationFrame(animationFrameId);
   }, [hoveredCardIdx]);
 
+  const [celebrationCardIdx, setCelebrationCardIdx] = useState(0);
+
   const handleScroll = (dir) => {
-    if (scrollContainerRef.current) {
-      const scrollAmt = 372;
-      scrollContainerRef.current.scrollBy({
-        left: dir === 'next' ? scrollAmt : -scrollAmt,
-        behavior: 'smooth'
-      });
-    }
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    // Temporarily pause auto-scroll animation on manual arrow click
+    isHoveredTrackRef.current = true;
+    setTimeout(() => {
+      isHoveredTrackRef.current = false;
+    }, 3500);
+
+    const cardStride = 372; // 340px card width + 32px gap
+    const totalCards = 6;
+    
+    // Calculate current card index from scroll position
+    const currentPosIndex = Math.round(container.scrollLeft / cardStride);
+    
+    let targetIndex = dir === 'next' ? currentPosIndex + 1 : currentPosIndex - 1;
+    if (targetIndex >= totalCards) targetIndex = 0;
+    if (targetIndex < 0) targetIndex = totalCards - 1;
+
+    setCelebrationCardIdx(targetIndex);
+
+    container.scrollTo({
+      left: targetIndex * cardStride,
+      behavior: 'smooth'
+    });
   };
 
   const celebrationTypes = [
@@ -332,7 +416,7 @@ export default function Occasions({ onNavigate }) {
       <Pattern25 style={{ position: 'absolute', top: '55%', right: '-80px', maxWidth: '340px', width: '100%', height: 'auto', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
 
       {/* Top Header / Hero Section */}
-      <section style={{
+      <section className="mobile-hero-compact" style={{
         boxSizing: 'border-box',
         padding: '10rem 10% 6rem 10%',
         background: 'linear-gradient(135deg, #c46c59 0%, #b85e4c 60%, #a24d3c 100%)',
@@ -354,58 +438,54 @@ export default function Occasions({ onNavigate }) {
         <div style={{ position: 'absolute', top: '-10%', left: '-10%', maxWidth: '400px', width: '100%', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.22) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(65px)', zIndex: 0, pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', maxWidth: '500px', width: '100%', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%)', filter: 'blur(80px)', zIndex: 0, pointerEvents: 'none' }} />
 
-        <motion.div 
-          initial="hidden"
-          animate="visible"
-          variants={wordRevealContainer}
-          style={{ position: 'relative', zIndex: 1 }}
-        >
-          <motion.span 
-            initial={{ letterSpacing: '0.1em', opacity: 0 }}
-            animate={{ letterSpacing: '0.25em', opacity: 1 }}
-            transition={{ duration: 1.2, ease: 'easeOut' }}
-            style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', fontSize: '0.75rem', fontWeight: 800, display: 'block', marginBottom: '1.2rem' }}
+        {/* ── BOTANICAL BLOOM (FINAL CHOSEN ANIMATION) ── */}
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', width: '100%', textAlign: 'center' }}>
+          <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.8rem', fontWeight: 800, display: 'block', marginBottom: '1.2rem' }}>
+            ✦ Elevated Gatherings ✦
+          </span>
+          <motion.h1
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.2 } }
+            }}
+            initial="hidden"
+            animate="visible"
+            style={{
+              fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.5rem, 5.2vw, 4.2rem)', color: '#ffffff',
+              fontWeight: 500, lineHeight: 1.15, margin: 0, display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap'
+            }}
           >
-            Elevated Gatherings
-          </motion.span>
-
-          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(3rem, 6vw, 4.8rem)', color: '#ffffff', fontWeight: 500, margin: 0, lineHeight: 1.1, display: 'flex', justifyContent: 'center', gap: '0.8rem', flexWrap: 'wrap' }}>
-            {["Occasions", "at"].map((w, idx) => (
+            {["Occasions", "at", "Suprada"].map((word, idx) => (
               <motion.span
                 key={idx}
-                variants={wordVariant}
-                style={{ display: 'inline-block' }}
+                variants={{
+                  hidden: { scale: 0.4, rotate: -15, opacity: 0, filter: 'blur(8px)' },
+                  visible: { scale: [0.4, 1.05, 1], rotate: 0, opacity: 1, filter: 'blur(0px)', transition: { duration: 0.8, ease: 'easeOut' } }
+                }}
+                animate={{
+                  scale: [1, 1.015, 1],
+                  transition: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: idx * 0.5 + 1.2 }
+                }}
+                style={{ display: 'inline-block', transformOrigin: 'center bottom', color: word === 'Suprada' ? 'var(--harvest-gold)' : '#ffffff', fontStyle: word === 'Suprada' ? 'italic' : 'normal' }}
               >
-                {w}
+                {word}
               </motion.span>
             ))}
-            <motion.span
-              variants={wordVariant}
-              style={{ display: 'inline-block', fontStyle: 'italic', color: 'var(--harvest-gold)' }}
-            >
-              Suprada
-            </motion.span>
-          </h1>
-
-          <AnimatedParagraph 
-            text="From intimate moments to grand gatherings, we curate healthcations that infuse every occasion with transformative wellness experiences. Our versatile spaces accommodate groups from two to fifty guests."
-            style={{ color: '#f5ebd9', opacity: 0.95, maxWidth: '720px', margin: '1.8rem auto 0 auto', fontSize: '1.08rem', lineHeight: 1.8, fontWeight: 300, justifyContent: 'center' }}
-            delay={0.5}
-          />
-        </motion.div>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 0.95, scale: 1 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            style={{ color: '#f5ebd9', maxWidth: '720px', margin: '1.8rem auto 0 auto', fontSize: '1.08rem', lineHeight: 1.8, fontWeight: 300 }}
+          >
+            From intimate moments to grand gatherings, we curate healthcations that infuse every occasion with transformative wellness experiences. Our versatile spaces accommodate groups from two to fifty guests.
+          </motion.p>
+        </div>
       </section>
 
       {/* Why Wellness Centers Lead in Carbon-Free Events Section */}
-      <section style={{ padding: '7rem 10%', backgroundColor: 'var(--antique-white)', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ padding: '3.5rem 10%', backgroundColor: 'var(--antique-white)', position: 'relative', overflow: 'hidden' }}>
         <Pattern24 style={{ position: 'absolute', top: '5%', right: '-80px', maxWidth: '340px', width: '100%', height: 'auto', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
-        
-        {/* Background diagonal color strip from About page */}
-        <div style={{
-          position: 'absolute', top: 0, left: '-5%', right: '-5%', height: '48%',
-          background: 'linear-gradient(160deg, var(--tea-green) 0%, var(--sage) 100%)',
-          transform: 'skewY(-3deg)', transformOrigin: 'top left', zIndex: 0,
-          opacity: 0.7
-        }} />
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', margin: '0 auto 4rem auto', maxWidth: '800px' }}>
             <AnimatedParagraph
@@ -485,7 +565,7 @@ export default function Occasions({ onNavigate }) {
               </h2>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
               {pillarsList.map((item, idx) => {
                 const isActive = activePillar === idx;
                 return (
@@ -493,14 +573,15 @@ export default function Occasions({ onNavigate }) {
                     key={idx}
                     onClick={() => setActivePillar(idx)}
                     onMouseEnter={() => setActivePillar(idx)}
+                    layout
                     style={{
-                      display: 'flex', gap: '1.4rem', alignItems: 'flex-start',
-                      cursor: 'pointer', padding: '1.5rem', borderRadius: '12px',
+                      display: 'flex', gap: '1.2rem', alignItems: 'flex-start',
+                      cursor: 'pointer', padding: isActive ? '1.25rem 1.4rem' : '0.9rem 1.4rem', borderRadius: '12px',
                       border: '1.5px solid',
                       borderColor: isActive ? 'rgba(220, 160, 50, 0.4)' : 'rgba(94, 39, 53, 0.05)',
-                      backgroundColor: isActive ? 'rgba(255, 255, 255, 0.9)' : 'rgba(255, 255, 255, 0.3)',
-                      boxShadow: isActive ? '0 12px 30px rgba(94, 39, 53, 0.04)' : 'none',
-                      transition: 'all 0.3s ease',
+                      backgroundColor: isActive ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.35)',
+                      boxShadow: isActive ? '0 12px 30px rgba(94, 39, 53, 0.06)' : 'none',
+                      transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
                       position: 'relative',
                       overflow: 'hidden'
                     }}
@@ -510,7 +591,7 @@ export default function Occasions({ onNavigate }) {
                     )}
 
                     <div style={{
-                      width: '42px', height: '42px', borderRadius: '50%',
+                      width: '40px', height: '40px', borderRadius: '50%',
                       backgroundColor: isActive ? 'var(--wine)' : 'rgba(220, 160, 50, 0.12)',
                       color: isActive ? '#ffffff' : 'var(--harvest-gold)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -519,24 +600,36 @@ export default function Occasions({ onNavigate }) {
                       {item.icon}
                     </div>
                     
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', flexGrow: 1 }}>
-                      <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', color: 'var(--wine)', margin: 0, fontWeight: 600 }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, paddingTop: '0.2rem' }}>
+                      <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', color: 'var(--wine)', margin: 0, fontWeight: 600 }}>
                         {item.title}
                       </h4>
-                      <p style={{ margin: 0, fontSize: '0.88rem', color: 'var(--raisin-black)', opacity: 0.8, lineHeight: 1.6 }}>
-                        {item.desc}
-                      </p>
                       
-                      {isActive && (
-                        <div style={{ width: '100%', height: '2px', backgroundColor: 'rgba(94, 39, 53, 0.08)', marginTop: '0.8rem', borderRadius: '1px', overflow: 'hidden' }}>
+                      <AnimatePresence initial={false}>
+                        {isActive && (
                           <motion.div
-                            initial={{ scaleX: 0 }}
-                            animate={{ scaleX: 1 }}
-                            transition={{ duration: 5.5, ease: "linear" }}
-                            style={{ height: '100%', backgroundColor: 'var(--harvest-gold)', transformOrigin: '0%' }}
-                          />
-                        </div>
-                      )}
+                            key="accordion-content"
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                            style={{ overflow: 'hidden' }}
+                          >
+                            <p style={{ margin: '0.4rem 0 0 0', fontSize: '0.88rem', color: 'var(--raisin-black)', opacity: 0.8, lineHeight: 1.6 }}>
+                              {item.desc}
+                            </p>
+                            
+                            <div style={{ width: '100%', height: '2px', backgroundColor: 'rgba(94, 39, 53, 0.08)', marginTop: '0.8rem', borderRadius: '1px', overflow: 'hidden' }}>
+                              <motion.div
+                                initial={{ scaleX: 0 }}
+                                animate={{ scaleX: 1 }}
+                                transition={{ duration: 5.5, ease: "linear" }}
+                                style={{ height: '100%', backgroundColor: 'var(--harvest-gold)', transformOrigin: '0%' }}
+                              />
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
                   </motion.div>
                 );
@@ -547,207 +640,228 @@ export default function Occasions({ onNavigate }) {
         </div>
       </section>
 
-      {/* The Wellness Difference Section — 3-Orb Circular Motion Showcase */}
-      <section style={{ padding: '6rem 5%', backgroundColor: 'var(--antique-white)', borderTop: '1px solid rgba(94, 39, 53, 0.05)', position: 'relative', overflow: 'hidden' }}>
+      {/* The Wellness Difference Section — Single-Screen Compact Showcase */}
+      <section style={{ padding: '2.5rem 5%', backgroundColor: 'var(--antique-white)', borderTop: '1px solid rgba(94, 39, 53, 0.05)', position: 'relative', overflow: 'hidden' }}>
         <Pattern25 style={{ position: 'absolute', bottom: '5%', left: '-80px', maxWidth: '340px', width: '100%', height: 'auto', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
         <Pattern24 style={{ position: 'absolute', top: '5%', right: '-80px', maxWidth: '340px', width: '100%', height: 'auto', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
 
-        <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
           
           {/* Main Title Header */}
-          <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem', backgroundColor: 'rgba(220, 160, 50, 0.12)', border: '1px solid var(--harvest-gold)', padding: '0.4rem 1.2rem', borderRadius: '20px', marginBottom: '1rem' }}>
-              <span style={{ fontSize: '1.1rem' }}>💡</span>
-              <span style={{ textTransform: 'uppercase', letterSpacing: '0.18em', fontSize: '0.72rem', fontWeight: 800, color: 'var(--wine)' }}>Exclusive Insight</span>
+          <div style={{ textAlign: 'center', marginBottom: '1.2rem' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', backgroundColor: 'rgba(220, 160, 50, 0.12)', border: '1px solid var(--harvest-gold)', padding: '0.25rem 0.9rem', borderRadius: '20px', marginBottom: '0.5rem' }}>
+              <span style={{ fontSize: '0.9rem' }}>💡</span>
+              <span style={{ textTransform: 'uppercase', letterSpacing: '0.15em', fontSize: '0.68rem', fontWeight: 800, color: 'var(--wine)' }}>Exclusive Insight</span>
             </div>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.4rem, 4.5vw, 3.4rem)', color: 'var(--wine)', fontWeight: 500, margin: 0, lineHeight: 1.2 }}>
+            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.8rem, 3.2vw, 2.6rem)', color: 'var(--wine)', fontWeight: 500, margin: 0, lineHeight: 1.2 }}>
               The Wellness Difference
             </h2>
-            <p style={{ color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '680px', margin: '0.8rem auto 0 auto', fontSize: '1rem', lineHeight: 1.65 }}>
+            <p style={{ color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '620px', margin: '0.4rem auto 0 auto', fontSize: '0.92rem', lineHeight: 1.5 }}>
               How wellness-centered event hosting creates meaningful connections while lowering environmental impact.
             </p>
           </div>
 
-          {/* 3-Orb Circular Stage Layout */}
-          <div style={{
-            position: 'relative',
-            minHeight: isMobileChart ? '600px' : '720px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            margin: isMobileChart ? '2rem auto 0 auto' : '4rem auto 0 auto'
-          }}>
-            
-            {/* Background Orbital Dashed Motion Ring */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 55, repeat: Infinity, ease: 'linear' }}
-              style={{
-                position: 'absolute',
-                width: isMobileChart ? '350px' : '440px',
-                height: isMobileChart ? '350px' : '440px',
-                borderRadius: '50%',
-                border: '2px dashed rgba(220, 160, 50, 0.4)',
-                pointerEvents: 'none',
-                zIndex: 0
-              }}
-            />
+          {/* Desktop & Tablet Orbit Showcase */}
+          {!isMobileChart && (
+            <div style={{
+              position: 'relative',
+              height: '380px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              margin: '0 auto'
+            }}>
+              {/* Background Orbital Dashed Motion Ring */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
+                style={{
+                  position: 'absolute',
+                  width: '340px',
+                  height: '340px',
+                  borderRadius: '50%',
+                  border: '1.5px dashed rgba(220, 160, 50, 0.35)',
+                  pointerEvents: 'none',
+                  zIndex: 0
+                }}
+              />
 
-            {/* Small Central Hub */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              style={{
-                width: isMobileChart ? '130px' : '165px',
-                height: isMobileChart ? '130px' : '165px',
+              {/* Featured Center Card */}
+              <div style={{
+                position: 'relative',
+                width: '310px',
+                height: '310px',
                 borderRadius: '50%',
                 backgroundColor: 'var(--wine)',
-                color: 'var(--harvest-gold)',
+                color: 'var(--isabelline)',
                 border: '3px solid var(--harvest-gold)',
-                boxShadow: '0 20px 45px rgba(94, 39, 53, 0.3), 0 0 25px rgba(220, 160, 50, 0.25)',
+                boxShadow: '0 20px 45px rgba(94, 39, 53, 0.3), 0 0 30px rgba(220, 160, 50, 0.25)',
                 display: 'flex',
-                flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                padding: '1rem',
+                padding: '1.8rem',
                 textAlign: 'center',
                 zIndex: 10,
-                position: 'relative'
-              }}
-            >
-              <Pattern24 style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.15, color: 'var(--harvest-gold)', pointerEvents: 'none' }} />
-              <span style={{ fontSize: isMobileChart ? '1.4rem' : '1.8rem', marginBottom: '0.2rem' }}>✦</span>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: isMobileChart ? '0.85rem' : '1.05rem', color: 'var(--harvest-gold)', margin: 0, fontWeight: 700, lineHeight: 1.25 }}>
-                The Wellness Difference
-              </h3>
-            </motion.div>
-
-            {/* 3 Big Orbital Round Cards positioned around the center hub */}
-            {wellnessDiffList.map((item, idx) => {
-              const totalItems = 3;
-              // 3 Points angles: -90deg (Top), 30deg (Bottom-Right), 150deg (Bottom-Left)
-              const angleDeg = (360 / totalItems) * idx - 90;
-              const angleRad = (angleDeg * Math.PI) / 180;
-              
-              const radius = isMobileChart ? 175 : 220;
-              const xPos = Math.cos(angleRad) * radius;
-              const yPos = Math.sin(angleRad) * radius;
-
-              const isHovered = hoveredCardIdx === idx;
-
-              return (
-                <motion.div
-                  key={idx}
-                  onMouseEnter={() => setHoveredCardIdx(idx)}
-                  onMouseLeave={() => setHoveredCardIdx(null)}
-                  onClick={() => setHoveredCardIdx(isHovered ? null : idx)}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{
-                    opacity: 1,
-                    scale: isHovered ? 1.14 : 1,
-                    x: xPos,
-                    y: yPos
-                  }}
-                  transition={{ type: 'spring', stiffness: 200, damping: 22 }}
-                  style={{
-                    position: 'absolute',
-                    width: isMobileChart ? '200px' : '260px',
-                    height: isMobileChart ? '200px' : '260px',
-                    borderRadius: '50%',
-                    perspective: '1000px',
-                    cursor: 'pointer',
-                    zIndex: isHovered ? 30 : 15
-                  }}
-                >
+                overflow: 'hidden'
+              }}>
+                <Pattern24 style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.12, color: 'var(--harvest-gold)', pointerEvents: 'none' }} />
+                
+                <AnimatePresence mode="wait">
                   <motion.div
-                    animate={{ rotateY: isHovered ? 180 : 0 }}
-                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                    key={diffSlideIdx}
+                    initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.9, y: -10 }}
+                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     style={{
-                      width: '100%',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
                       height: '100%',
-                      borderRadius: '50%',
-                      position: 'relative',
-                      transformStyle: 'preserve-3d',
-                      boxShadow: isHovered
-                        ? '0 25px 50px rgba(94, 39, 53, 0.35), 0 0 30px rgba(220, 160, 50, 0.45)'
-                        : '0 12px 30px rgba(94, 39, 53, 0.1)'
+                      width: '100%'
                     }}
                   >
-                    {/* Front Face of Big Round Card */}
-                    <div style={{
-                      position: 'absolute',
-                      inset: 0,
-                      borderRadius: '50%',
-                      backgroundColor: 'var(--wine)',
-                      color: 'var(--isabelline)',
-                      border: '3px solid var(--harvest-gold)',
-                      backfaceVisibility: 'hidden',
-                      WebkitBackfaceVisibility: 'hidden',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      padding: isMobileChart ? '1rem' : '1.8rem',
-                      textAlign: 'center'
-                    }}>
-                      <Pattern25 style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.12, color: 'var(--harvest-gold)', pointerEvents: 'none' }} />
-                      <span style={{ fontSize: isMobileChart ? '1.8rem' : '2.4rem', marginBottom: '0.4rem', filter: 'drop-shadow(0 3px 6px rgba(0,0,0,0.3))' }}>
-                        {item.icon}
-                      </span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: isMobileChart ? '0.92rem' : '1.25rem', color: 'var(--harvest-gold)', margin: '0 0 0.4rem 0', fontWeight: 600, lineHeight: 1.25 }}>
-                        {item.title}
-                      </h3>
-                      <span style={{ fontSize: isMobileChart ? '0.65rem' : '0.72rem', color: 'var(--tan)', opacity: 0.85, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                        Hover to view description &rarr;
-                      </span>
-                    </div>
-
-                    {/* Back Face of Big Round Card — Glassmorphism Description inside Card */}
-                    <div style={{
-                      position: 'absolute',
-                      inset: 0,
-                      borderRadius: '50%',
-                      backgroundColor: 'rgba(25, 23, 24, 0.94)',
-                      backdropFilter: 'blur(16px)',
-                      WebkitBackdropFilter: 'blur(16px)',
-                      color: '#ffffff',
-                      border: '3px solid var(--harvest-gold)',
-                      transform: 'rotateY(180deg)',
-                      backfaceVisibility: 'hidden',
-                      WebkitBackfaceVisibility: 'hidden',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      padding: isMobileChart ? '1.1rem 0.9rem' : '1.8rem 1.5rem',
-                      textAlign: 'center'
-                    }}>
-                      <p style={{
-                        fontSize: isMobileChart ? '0.68rem' : '0.9rem',
-                        color: 'var(--isabelline)',
-                        opacity: 0.92,
-                        lineHeight: 1.45,
-                        margin: 0,
-                        fontWeight: 300,
-                        overflowY: 'auto'
-                      }}>
-                        {item.desc}
-                      </p>
-                    </div>
-
+                    <span style={{ fontSize: '1.8rem', marginBottom: '0.3rem' }}>
+                      {wellnessDiffList[diffSlideIdx].icon}
+                    </span>
+                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.12rem', color: 'var(--harvest-gold)', margin: '0 0 0.5rem 0', fontWeight: 600, lineHeight: 1.25 }}>
+                      {wellnessDiffList[diffSlideIdx].title}
+                    </h3>
+                    <p style={{ fontSize: '0.8rem', color: 'var(--isabelline)', opacity: 0.92, lineHeight: 1.5, margin: 0, fontWeight: 300 }}>
+                      {wellnessDiffList[diffSlideIdx].desc}
+                    </p>
                   </motion.div>
-                </motion.div>
-              );
-            })}
+                </AnimatePresence>
+              </div>
 
-          </div>
+              {/* 3 Satellite Orbs orbiting center */}
+              {wellnessDiffList.map((item, idx) => {
+                const totalItems = 3;
+                const angleDeg = (360 / totalItems) * idx - 90;
+                const angleRad = (angleDeg * Math.PI) / 180;
+                const radius = 170;
+                const xPos = Math.cos(angleRad) * radius;
+                const yPos = Math.sin(angleRad) * radius;
+                const isActive = diffSlideIdx === idx;
+
+                return (
+                  <motion.button
+                    key={idx}
+                    onClick={() => setDiffSlideIdx(idx)}
+                    onMouseEnter={() => setDiffSlideIdx(idx)}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{
+                      opacity: 1,
+                      scale: isActive ? 1.12 : 0.95,
+                      x: xPos,
+                      y: yPos
+                    }}
+                    transition={{ type: 'spring', stiffness: 220, damping: 22 }}
+                    style={{
+                      position: 'absolute',
+                      width: '95px',
+                      height: '95px',
+                      borderRadius: '50%',
+                      backgroundColor: isActive ? 'var(--wine)' : 'rgba(255, 255, 255, 0.92)',
+                      color: isActive ? 'var(--harvest-gold)' : 'var(--wine)',
+                      border: isActive ? '2.5px solid var(--harvest-gold)' : '1.5px solid rgba(94, 39, 53, 0.15)',
+                      boxShadow: isActive ? '0 10px 25px rgba(94, 39, 53, 0.25), 0 0 15px rgba(220, 160, 50, 0.3)' : '0 4px 15px rgba(0,0,0,0.06)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      padding: '0.4rem',
+                      textAlign: 'center',
+                      cursor: 'pointer',
+                      zIndex: isActive ? 20 : 12,
+                      transition: 'background-color 0.3s, border-color 0.3s, color 0.3s'
+                    }}
+                  >
+                    <span style={{ fontSize: '1.2rem', marginBottom: '0.1rem' }}>{item.icon}</span>
+                    <span style={{ fontSize: '0.58rem', fontWeight: 700, lineHeight: 1.15, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                      {item.title.split(' ')[0]}
+                    </span>
+                  </motion.button>
+                );
+              })}
+            </div>
+          )}
+
+          {/* Mobile Auto-Collapse View */}
+          {isMobileChart && (
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', marginTop: '1rem' }}>
+              {/* Tab Pills */}
+              <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+                {wellnessDiffList.map((item, idx) => {
+                  const isActive = diffSlideIdx === idx;
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => setDiffSlideIdx(idx)}
+                      style={{
+                        padding: '0.4rem 0.9rem',
+                        borderRadius: '20px',
+                        backgroundColor: isActive ? 'var(--wine)' : 'rgba(255, 255, 255, 0.8)',
+                        color: isActive ? 'var(--harvest-gold)' : 'var(--wine)',
+                        border: isActive ? '1.5px solid var(--harvest-gold)' : '1px solid rgba(94, 39, 53, 0.12)',
+                        fontSize: '0.75rem',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.3rem',
+                        transition: 'all 0.3s'
+                      }}
+                    >
+                      <span>{item.icon}</span>
+                      <span>{item.title.split(' ')[0]}</span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Mobile Card Display */}
+              <div style={{
+                width: '100%',
+                backgroundColor: 'var(--wine)',
+                color: 'var(--isabelline)',
+                border: '2px solid var(--harvest-gold)',
+                borderRadius: '20px',
+                padding: '1.5rem',
+                textAlign: 'center',
+                boxShadow: '0 12px 30px rgba(94, 39, 53, 0.2)'
+              }}>
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={diffSlideIdx}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <span style={{ fontSize: '1.8rem', display: 'block', marginBottom: '0.4rem' }}>
+                      {wellnessDiffList[diffSlideIdx].icon}
+                    </span>
+                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', color: 'var(--harvest-gold)', margin: '0 0 0.5rem 0', fontWeight: 600 }}>
+                      {wellnessDiffList[diffSlideIdx].title}
+                    </h3>
+                    <p style={{ fontSize: '0.85rem', color: 'var(--isabelline)', opacity: 0.9, lineHeight: 1.55, margin: 0, fontWeight: 300 }}>
+                      {wellnessDiffList[diffSlideIdx].desc}
+                    </p>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </div>
+          )}
 
         </div>
       </section>
 
       {/* Wellness-Themed Celebrations */}
-      <section style={{ padding: '9rem 10%', backgroundColor: 'var(--isabelline)', overflow: 'hidden', position: 'relative' }}>
+      <section className="celebrations-section-wrapper" style={{ backgroundColor: 'var(--isabelline)', overflow: 'hidden', position: 'relative' }}>
         <Pattern24 style={{ position: 'absolute', top: '15%', right: '-80px', maxWidth: '340px', width: '100%', height: 'auto', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
-        {/* Style injection to hide scrollbars natively */}
+        {/* Style injection for smooth responsive scrollbars and carousel card sizes */}
         <style dangerouslySetInnerHTML={{__html: `
           .no-scrollbar::-webkit-scrollbar {
             display: none !important;
@@ -756,90 +870,132 @@ export default function Occasions({ onNavigate }) {
             -ms-overflow-style: none !important;  /* IE and Edge */
             scrollbar-width: none !important;  /* Firefox */
           }
+          .celebrations-section-wrapper {
+            padding: 3.5rem 8%;
+          }
+          .celebrations-card-item {
+            width: 330px;
+            height: 400px;
+            flex-shrink: 0;
+          }
+          @media (max-width: 768px) {
+            .celebrations-section-wrapper {
+              padding: 2.5rem 1.2rem !important;
+            }
+            .celebrations-card-item {
+              width: 280px !important;
+              height: 350px !important;
+              padding: 1.8rem 1.4rem !important;
+            }
+            .celebrations-nav-btn {
+              display: none !important;
+            }
+          }
         `}} />
 
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           
-          {/* Header Row with Title and Arrow Navigators */}
-          <div className="flex-stack-mobile" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '4rem', flexWrap: 'wrap', gap: '2rem' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', maxWidth: '750px' }}>
+          {/* Header Row with Title */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2rem', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', maxWidth: '750px' }}>
               <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.75rem', fontWeight: 700, display: 'block' }}>Healthcations</span>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.8rem', color: 'var(--wine)', fontWeight: 500, margin: 0 }}>
+              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', color: 'var(--wine)', fontWeight: 500, margin: 0 }}>
                 Wellness-Themed Celebrations
               </h2>
               <AnimatedParagraph
                 text="Explore the different types of events we host, each custom-designed to match your intention and elevate your occasion with wellness at the core."
-                style={{ color: 'var(--raisin-black)', opacity: 0.75, fontSize: '0.96rem', lineHeight: 1.6, margin: 0 }}
+                style={{ color: 'var(--raisin-black)', opacity: 0.75, fontSize: '0.94rem', lineHeight: 1.55, margin: 0 }}
               />
-            </div>
-
-            {/* Slider Navigation Chevrons */}
-            <div style={{ display: 'flex', gap: '0.8rem', marginBottom: '0.5rem' }}>
-              <button
-                onClick={() => handleScroll('prev')}
-                style={{
-                  width: '46px',
-                  height: '46px',
-                  borderRadius: '50%',
-                  border: '1.5px solid rgba(94, 39, 53, 0.15)',
-                  backgroundColor: 'transparent',
-                  color: 'var(--wine)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  cursor: 'pointer',
-                  fontSize: '1.2rem',
-                  transition: 'all 0.3s'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--wine)';
-                  e.currentTarget.style.color = '#ffffff';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = 'var(--wine)';
-                }}
-              >
-                ‹
-              </button>
-              <button
-                onClick={() => handleScroll('next')}
-                style={{
-                  width: '46px',
-                  height: '46px',
-                  borderRadius: '50%',
-                  border: '1.5px solid rgba(94, 39, 53, 0.15)',
-                  backgroundColor: 'transparent',
-                  color: 'var(--wine)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  cursor: 'pointer',
-                  fontSize: '1.2rem',
-                  transition: 'all 0.3s'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--wine)';
-                  e.currentTarget.style.color = '#ffffff';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = 'var(--wine)';
-                }}
-              >
-                ›
-              </button>
             </div>
           </div>
 
-          {/* Draggable/Animated Carousel Track Container */}
+          {/* Draggable/Animated Carousel Track Container with Left and Right Controls */}
           <div style={{ position: 'relative', overflow: 'visible' }}>
+            
+            {/* Left Floating Scroller Arrow Button */}
+            <button
+              onClick={() => handleScroll('prev')}
+              className="celebrations-nav-btn"
+              aria-label="Previous Slide"
+              style={{
+                position: 'absolute',
+                left: '-22px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                zIndex: 25,
+                width: '46px',
+                height: '46px',
+                borderRadius: '50%',
+                backgroundColor: 'var(--wine)',
+                color: 'var(--harvest-gold)',
+                border: '2px solid var(--harvest-gold)',
+                boxShadow: '0 10px 25px rgba(94, 39, 53, 0.3)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                fontSize: '1.4rem',
+                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = 'var(--harvest-gold)';
+                e.currentTarget.style.color = 'var(--wine)';
+                e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'var(--wine)';
+                e.currentTarget.style.color = 'var(--harvest-gold)';
+                e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
+              }}
+            >
+              ‹
+            </button>
+
+            {/* Right Floating Scroller Arrow Button */}
+            <button
+              onClick={() => handleScroll('next')}
+              className="celebrations-nav-btn"
+              aria-label="Next Slide"
+              style={{
+                position: 'absolute',
+                right: '-22px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                zIndex: 25,
+                width: '46px',
+                height: '46px',
+                borderRadius: '50%',
+                backgroundColor: 'var(--wine)',
+                color: 'var(--harvest-gold)',
+                border: '2px solid var(--harvest-gold)',
+                boxShadow: '0 10px 25px rgba(94, 39, 53, 0.3)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                fontSize: '1.4rem',
+                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = 'var(--harvest-gold)';
+                e.currentTarget.style.color = 'var(--wine)';
+                e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'var(--wine)';
+                e.currentTarget.style.color = 'var(--harvest-gold)';
+                e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
+              }}
+            >
+              ›
+            </button>
+
             <div
               ref={scrollContainerRef}
               className="no-scrollbar"
               style={{
                 overflowX: 'auto',
-                padding: '1.5rem 0.5rem',
+                padding: '1rem 0.5rem',
                 scrollBehavior: 'smooth',
                 cursor: 'grab'
               }}
@@ -871,19 +1027,19 @@ export default function Occasions({ onNavigate }) {
                 window.addEventListener('mouseup', handleMouseUp);
               }}
             >
-              <div className="flex-stack-mobile" style={{ display: 'flex', gap: '2rem', width: 'max-content' }}>
+              <div style={{ display: 'flex', gap: '1.4rem', width: 'max-content' }}>
                 {celebrationTypes.map((item, idx) => {
                   const isHovered = hoveredCardIdx === idx;
                   const isAnyHovered = hoveredCardIdx !== null;
                   return (
                     <div
                       key={idx}
+                      className="celebrations-card-item"
                       onMouseEnter={() => setHoveredCardIdx(idx)}
                       onMouseLeave={() => setHoveredCardIdx(null)}
                       style={{
                         position: 'relative',
-                        maxWidth: '340px', width: '100%',
-                        height: '400px',
+                        scrollSnapAlign: 'start',
                         borderRadius: '16px',
                         overflow: 'hidden',
                         boxShadow: isHovered 
@@ -953,16 +1109,16 @@ export default function Occasions({ onNavigate }) {
       </section>
 
       {/* Traditional Hindu Ceremonies */}
-      <section style={{ padding: '9rem 10%', backgroundColor: 'var(--wine)', color: 'var(--isabelline)', position: 'relative', overflow: 'hidden' }}>
-        <Pattern25 style={{ position: 'absolute', top: '10%', left: '-80px', maxWidth: '340px', width: '100%', height: 'auto', opacity: 0.1, color: 'var(--tan)', pointerEvents: 'none', zIndex: 0 }} />
+      <section style={{ padding: '3.5rem 10%', background: 'linear-gradient(135deg, #c2d0ac 0%, #a8b891 100%)', color: 'var(--raisin-black)', position: 'relative', overflow: 'hidden' }}>
+        <Pattern25 style={{ position: 'absolute', top: '10%', left: '-80px', maxWidth: '340px', width: '100%', height: 'auto', opacity: 0.12, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.8rem', color: 'var(--tan)', fontWeight: 500 }}>
+          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.8rem', color: 'var(--wine)', fontWeight: 500 }}>
               Traditional Hindu Ceremonies
             </h2>
             <AnimatedParagraph
               text="We support families in celebrating sacred Hindu traditions with authenticity and care. From milestone birthdays to welcoming new beginnings, our team ensures every ritual is performed meaningfully and seamlessly. Our comprehensive services include venue decoration, pooja arrangements, priest coordination, catering, photography, guest management, and custom rituals based on your family traditions."
-              style={{ color: 'var(--isabelline)', opacity: 0.8, maxWidth: '780px', margin: '1rem auto 0 auto', fontSize: '0.98rem', lineHeight: 1.65, justifyContent: 'center' }}
+              style={{ color: 'var(--raisin-black)', opacity: 0.85, maxWidth: '780px', margin: '1rem auto 0 auto', fontSize: '0.98rem', lineHeight: 1.65, justifyContent: 'center' }}
             />
           </div>
 
@@ -978,7 +1134,7 @@ export default function Occasions({ onNavigate }) {
                 overflow-x: auto !important;
                 padding-bottom: 0.6rem !important;
                 border-right: none !important;
-                border-bottom: 1px solid rgba(244, 240, 236, 0.08) !important;
+                border-bottom: 1px solid rgba(94, 39, 53, 0.12) !important;
                 padding-right: 0 !important;
               }
               .ceremonies-tab-item {
@@ -988,26 +1144,9 @@ export default function Occasions({ onNavigate }) {
                 padding: 0.8rem 1rem !important;
               }
               .ceremonies-tab-item.active {
-                border-bottom-color: var(--harvest-gold) !important;
+                border-bottom-color: var(--wine) !important;
                 border-left-color: transparent !important;
               }
-            }
-            @keyframes tickerAnimation {
-              0% { transform: translate3d(0, 0, 0); }
-              100% { transform: translate3d(-50%, 0, 0); }
-            }
-            .ticker-wrap {
-              overflow: hidden;
-              width: 100%;
-              position: relative;
-            }
-            .ticker-track {
-              display: flex;
-              width: max-content;
-              animation: tickerAnimation 25s linear infinite;
-            }
-            .ticker-track:hover {
-              animation-play-state: paused;
             }
           `}} />
 
@@ -1021,7 +1160,7 @@ export default function Occasions({ onNavigate }) {
                 display: 'flex', 
                 flexDirection: 'column', 
                 gap: '0.4rem', 
-                borderRight: '1px solid rgba(244, 240, 236, 0.08)', 
+                borderRight: '1px solid rgba(94, 39, 53, 0.12)', 
                 paddingRight: '1.5rem',
                 maxHeight: '450px',
                 overflowY: 'auto'
@@ -1047,42 +1186,43 @@ export default function Occasions({ onNavigate }) {
                     className={`ceremonies-tab-item ${isActive ? 'active' : ''}`}
                     style={{
                       padding: '0.9rem 1.2rem',
-                      borderRadius: '8px',
+                      borderRadius: '10px',
                       cursor: 'pointer',
                       borderLeft: '3px solid transparent',
-                      borderLeftColor: isActive ? 'var(--harvest-gold)' : 'transparent',
-                      color: isActive ? 'var(--harvest-gold)' : 'var(--isabelline)',
-                      backgroundColor: isActive ? 'rgba(255, 255, 255, 0.04)' : 'transparent',
-                      fontWeight: isActive ? 600 : 400,
-                      opacity: isActive ? 1 : 0.65,
+                      borderLeftColor: isActive ? 'var(--wine)' : 'transparent',
+                      color: isActive ? 'var(--wine)' : '#3d3d32',
+                      backgroundColor: isActive ? 'rgba(255, 255, 255, 0.55)' : 'transparent',
+                      boxShadow: isActive ? '0 4px 15px rgba(0, 0, 0, 0.05)' : 'none',
+                      fontWeight: isActive ? 700 : 500,
+                      opacity: isActive ? 1 : 0.75,
                       fontSize: '0.9rem',
                       transition: 'all 0.3s ease'
                     }}
                     onMouseEnter={(e) => {
                       if (!isActive) {
                         e.currentTarget.style.opacity = '1';
-                        e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.015)';
-                        e.currentTarget.style.color = 'var(--tan)';
+                        e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.25)';
+                        e.currentTarget.style.color = 'var(--wine)';
                       }
                     }}
                     onMouseLeave={(e) => {
                       if (!isActive) {
-                        e.currentTarget.style.opacity = '0.65';
+                        e.currentTarget.style.opacity = '0.75';
                         e.currentTarget.style.backgroundColor = 'transparent';
-                        e.currentTarget.style.color = 'var(--isabelline)';
+                        e.currentTarget.style.color = '#3d3d32';
                       }
                     }}
                   >
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                       <span>{ceremony.name}</span>
-                      <span style={{ fontSize: '0.68rem', opacity: 0.6, marginTop: '0.1rem', fontWeight: 300 }}>{ceremony.subtitle}</span>
+                      <span style={{ fontSize: '0.68rem', opacity: 0.75, marginTop: '0.1rem', fontWeight: 400 }}>{ceremony.subtitle}</span>
                     </div>
                   </div>
                 );
               })}
             </div>
 
-            {/* Focused Animated Details Pane / Card - Deep Emerald Green */}
+            {/* Focused Animated Details Pane / Card - Glassmorphism style matching reference */}
             <div
               onMouseEnter={() => {
                 isHoveredCeremonyCardRef.current = true;
@@ -1091,11 +1231,13 @@ export default function Occasions({ onNavigate }) {
                 isHoveredCeremonyCardRef.current = false;
               }}
               style={{
-                border: 'none',
-                borderRadius: '20px',
+                border: '1.5px solid rgba(255, 255, 255, 0.75)',
+                borderRadius: '24px',
                 padding: '3rem 2.8rem',
-                background: 'linear-gradient(120deg, #193828 0%, #224935 52%, #a24937 100%)',
-                boxShadow: '0 20px 45px rgba(0, 0, 0, 0.25)',
+                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.35) 100%)',
+                backdropFilter: 'blur(16px)',
+                WebkitBackdropFilter: 'blur(16px)',
+                boxShadow: '0 20px 45px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.9)',
                 minHeight: '340px',
                 display: 'flex',
                 flexDirection: 'column',
@@ -1106,16 +1248,16 @@ export default function Occasions({ onNavigate }) {
               }}
             >
               {/* Background Leaf SVG Watermark Outlines matching reference */}
-              <Pattern25 style={{ position: 'absolute', top: '-40px', left: '-50px', width: '270px', opacity: 0.22, color: 'rgba(255, 255, 255, 0.25)', pointerEvents: 'none' }} />
-              <Pattern24 style={{ position: 'absolute', right: '-40px', bottom: '-40px', width: '280px', opacity: 0.22, color: 'rgba(220, 160, 50, 0.3)', pointerEvents: 'none' }} />
+              <Pattern25 style={{ position: 'absolute', top: '-40px', left: '-50px', width: '270px', opacity: 0.15, color: 'var(--wine)', pointerEvents: 'none' }} />
+              <Pattern24 style={{ position: 'absolute', right: '-40px', bottom: '-40px', width: '280px', opacity: 0.15, color: 'var(--wine)', pointerEvents: 'none' }} />
               {/* Autoplay timeline indicators/dots at the bottom edge */}
-              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '3px', backgroundColor: 'rgba(255,255,255,0.05)' }}>
+              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '3px', backgroundColor: 'rgba(94,39,53,0.1)' }}>
                 <motion.div 
                   key={activeCeremonyIdx}
                   initial={{ width: '0%' }}
                   animate={{ width: '100%' }}
                   transition={{ duration: 5.5, ease: 'linear' }}
-                  style={{ height: '100%', backgroundColor: 'var(--harvest-gold)' }}
+                  style={{ height: '100%', backgroundColor: 'var(--wine)' }}
                 />
               </div>
 
@@ -1147,7 +1289,7 @@ export default function Occasions({ onNavigate }) {
                             initial={{ scale: 0.9, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             transition={{ delay: 0.05, duration: 0.3 }}
-                            style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--harvest-gold)', fontWeight: 600 }}
+                            style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--redwood)', fontWeight: 700 }}
                           >
                             {activeCeremony.subtitle}
                           </motion.span>
@@ -1155,13 +1297,13 @@ export default function Occasions({ onNavigate }) {
                             initial={{ opacity: 0, x: 10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.1 }}
-                            style={{ fontSize: '0.68rem', backgroundColor: 'rgba(220,160,50,0.15)', color: 'var(--harvest-gold)', padding: '0.3rem 0.8rem', borderRadius: '20px', fontWeight: 600 }}
+                            style={{ fontSize: '0.68rem', backgroundColor: 'var(--wine)', color: 'var(--isabelline)', padding: '0.3rem 0.8rem', borderRadius: '20px', fontWeight: 600 }}
                           >
                             {activeCeremony.age}
                           </motion.span>
                         </div>
 
-                        <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.2rem', color: 'var(--tan)', margin: '0 0 1.2rem 0', fontWeight: 500, display: 'flex', flexWrap: 'wrap' }}>
+                        <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.2rem', color: 'var(--wine)', margin: '0 0 1.2rem 0', fontWeight: 600, display: 'flex', flexWrap: 'wrap' }}>
                           {activeCeremony.name.split("").map((char, index) => (
                             <motion.span
                               key={index}
@@ -1175,7 +1317,7 @@ export default function Occasions({ onNavigate }) {
                           ))}
                         </h3>
 
-                        <p style={{ fontSize: '1rem', color: 'var(--isabelline)', opacity: 0.85, lineHeight: 1.75, margin: 0, fontWeight: 300 }}>
+                        <p style={{ fontSize: '1rem', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.75, margin: 0, fontWeight: 400 }}>
                           {activeCeremony.desc.split(" ").map((word, index) => (
                             <motion.span
                               key={index}
@@ -1190,14 +1332,14 @@ export default function Occasions({ onNavigate }) {
                         </p>
                       </div>
 
-                      <div style={{ marginTop: '2.5rem', paddingTop: '1.2rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                      <div style={{ marginTop: '2.5rem', paddingTop: '1.2rem', borderTop: '1px solid rgba(94,39,53,0.15)' }}>
                         <span
                           onClick={() => {
                             document.getElementById('inquiry-form').scrollIntoView({ behavior: 'smooth' });
                             setFormData({ ...formData, type: 'hindu-ceremony', message: `Inquiry regarding: ${activeCeremony.name}` });
                             setFormStep(1);
                           }}
-                          style={{ color: 'var(--harvest-gold)', fontSize: '0.86rem', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '0.4rem', cursor: 'pointer' }}
+                          style={{ color: 'var(--wine)', fontSize: '0.86rem', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '0.4rem', cursor: 'pointer' }}
                         >
                           Plan Ritual &rarr;
                         </span>
@@ -1209,42 +1351,150 @@ export default function Occasions({ onNavigate }) {
             </div>
           </div>
 
-          <div style={{ borderTop: '1px solid rgba(244, 240, 236, 0.1)', marginTop: '4rem', paddingTop: '2.5rem', textAlign: 'center' }}>
-            <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', color: 'var(--tan)', marginBottom: '0.5rem', fontWeight: 500 }}>Our Service Offerings</h4>
-            <p style={{ fontSize: '0.85rem', color: 'var(--isabelline)', opacity: 0.8, marginBottom: '1.5rem' }}>We provide complete end-to-end support to make your sacred ceremony seamless and meaningful.</p>
-            <div 
-              className="ticker-wrap" 
-              style={{ 
-                width: '100%', 
-                overflow: 'hidden', 
-                padding: '1.5rem 0', 
-                maskImage: 'linear-gradient(to right, transparent, white 15%, white 85%, transparent)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent, white 15%, white 85%, transparent)' 
-              }}
-            >
-              <div className="ticker-track">
+          {/* Service Offerings Section with Glassmorphic Container & Glassy Pill Cards */}
+          <div style={{
+            marginTop: '3.5rem',
+            padding: '2.2rem 2rem',
+            position: 'relative',
+            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.22) 100%)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            border: '1.5px solid rgba(255, 255, 255, 0.65)',
+            borderRadius: '24px',
+            boxShadow: '0 12px 35px rgba(94, 39, 53, 0.08)'
+          }}>
+            
+            {/* Section Header */}
+            <div style={{ textAlign: 'center', marginBottom: '1.8rem' }}>
+              <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.65rem', color: 'var(--wine)', margin: 0, fontWeight: 600 }}>
+                Our Service Offerings
+              </h4>
+              <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black)', opacity: 0.85, margin: '0.4rem 0 0 0', fontWeight: 400 }}>
+                We provide complete end-to-end support to make your sacred ceremony seamless and meaningful.
+              </p>
+            </div>
+
+            {/* Slider Container with Side-Mounted Floating Arrow Buttons */}
+            <div style={{ position: 'relative', padding: '0 0.5rem' }}>
+              
+              {/* Left Arrow Button */}
+              <button
+                onClick={() => handleServiceScroll('prev')}
+                aria-label="Previous Service"
+                style={{
+                  position: 'absolute',
+                  left: '-18px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  zIndex: 25,
+                  width: '38px',
+                  height: '38px',
+                  borderRadius: '50%',
+                  backgroundColor: 'var(--wine)',
+                  border: '1.5px solid var(--harvest-gold)',
+                  color: 'var(--harvest-gold)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '1.2rem',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 6px 16px rgba(0,0,0,0.2)'
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--harvest-gold)'; e.currentTarget.style.color = 'var(--wine)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--wine)'; e.currentTarget.style.color = 'var(--harvest-gold)'; }}
+              >
+                ‹
+              </button>
+
+              {/* Right Arrow Button */}
+              <button
+                onClick={() => handleServiceScroll('next')}
+                aria-label="Next Service"
+                style={{
+                  position: 'absolute',
+                  right: '-18px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  zIndex: 25,
+                  width: '38px',
+                  height: '38px',
+                  borderRadius: '50%',
+                  backgroundColor: 'var(--wine)',
+                  border: '1.5px solid var(--harvest-gold)',
+                  color: 'var(--harvest-gold)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '1.2rem',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 6px 16px rgba(0,0,0,0.2)'
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--harvest-gold)'; e.currentTarget.style.color = 'var(--wine)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--wine)'; e.currentTarget.style.color = 'var(--harvest-gold)'; }}
+              >
+                ›
+              </button>
+
+              {/* Horizontal Track of Sleek Compact Pill Cards */}
+              <div
+                ref={serviceOfferingsRef}
+                className="no-scrollbar"
+                style={{
+                  overflowX: 'auto',
+                  display: 'flex',
+                  gap: '1rem',
+                  padding: '0.8rem 0.2rem',
+                  scrollBehavior: 'smooth'
+                }}
+                onMouseEnter={() => { isHoveredServiceTrackRef.current = true; }}
+                onMouseLeave={() => { isHoveredServiceTrackRef.current = false; }}
+              >
                 {[
-                  ...['Venue Decoration', 'Pooja Arrangements', 'Priest Coordination', 'Satwik Catering', 'Photography', 'Guest Management', 'Custom Rituals', 'Family Tradition Support'],
-                  ...['Venue Decoration', 'Pooja Arrangements', 'Priest Coordination', 'Satwik Catering', 'Photography', 'Guest Management', 'Custom Rituals', 'Family Tradition Support'],
-                  ...['Venue Decoration', 'Pooja Arrangements', 'Priest Coordination', 'Satwik Catering', 'Photography', 'Guest Management', 'Custom Rituals', 'Family Tradition Support']
-                ].map((service, i) => (
-                  <span 
-                    key={i} 
-                    style={{ 
-                      backgroundColor: 'rgba(255,255,255,0.06)', 
-                      border: '1px solid rgba(220,160,50,0.2)', 
-                      borderRadius: '20px', 
-                      padding: '0.45rem 1.2rem', 
-                      color: 'var(--isabelline)',
-                      fontSize: '0.85rem',
-                      marginRight: '2rem',
-                      display: 'inline-block',
-                      whiteSpace: 'nowrap'
-                    }}
-                  >
-                    {service}
-                  </span>
-                ))}
+                  'Venue Decoration',
+                  'Pooja Arrangements',
+                  'Priest Coordination',
+                  'Satwik Catering',
+                  'Photography & Film',
+                  'Guest Management',
+                  'Custom Rituals',
+                  'Family Tradition Support'
+                ].map((service, idx) => {
+                  const isHovered = expandedServiceIdx === idx;
+                  return (
+                    <motion.div
+                      key={idx}
+                      whileHover={{ translateY: -3, scale: 1.03 }}
+                      onMouseEnter={() => setExpandedServiceIdx(idx)}
+                      onMouseLeave={() => setExpandedServiceIdx(null)}
+                      style={{
+                        padding: '0.75rem 1.6rem',
+                        borderRadius: '30px',
+                        whiteSpace: 'nowrap',
+                        flexShrink: 0,
+                        cursor: 'pointer',
+                        background: isHovered
+                          ? 'var(--wine)'
+                          : 'rgba(255, 255, 255, 0.65)',
+                        backdropFilter: 'blur(8px)',
+                        WebkitBackdropFilter: 'blur(8px)',
+                        border: isHovered
+                          ? '1.5px solid var(--harvest-gold)'
+                          : '1px solid rgba(255, 255, 255, 0.85)',
+                        color: isHovered ? '#ffffff' : 'var(--wine)',
+                        fontSize: '0.88rem',
+                        fontWeight: isHovered ? 700 : 600,
+                        boxShadow: isHovered
+                          ? '0 8px 22px rgba(94, 39, 53, 0.25)'
+                          : '0 4px 14px rgba(94, 39, 53, 0.06)',
+                        transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
+                      }}
+                    >
+                      {service}
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -1252,7 +1502,7 @@ export default function Occasions({ onNavigate }) {
       </section>
 
       {/* Merged Corporate Wellness, Team Building & Retreat Activities Section */}
-      <section style={{ padding: '7rem 8%', backgroundColor: 'var(--antique-white)', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ padding: '3.5rem 8%', backgroundColor: 'var(--antique-white)', position: 'relative', overflow: 'hidden' }}>
         <Pattern24 style={{ position: 'absolute', top: '-40px', right: '-40px', maxWidth: '320px', width: '100%', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none' }} />
         <Pattern25 style={{ position: 'absolute', bottom: '-40px', left: '-40px', maxWidth: '320px', width: '100%', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none' }} />
 
@@ -1322,6 +1572,22 @@ export default function Occasions({ onNavigate }) {
             position: 'relative',
             overflow: 'hidden'
           }}>
+            <style dangerouslySetInnerHTML={{__html: `
+              .interventions-2col-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.4rem;
+              }
+              @media (max-width: 640px) {
+                .interventions-2col-grid {
+                  grid-template-columns: repeat(2, 1fr) !important;
+                  gap: 0.8rem !important;
+                }
+                .interventions-2col-card {
+                  padding: 1.1rem 0.85rem !important;
+                }
+              }
+            `}} />
             <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
               <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
                 INTERVENTIONS &amp; MODULES
@@ -1334,12 +1600,8 @@ export default function Occasions({ onNavigate }) {
               </p>
             </div>
 
-            {/* Static 4-Card Grid */}
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
-              gap: '1.4rem'
-            }}>
+            {/* Static 4-Card Grid - 2 Cards per row for both desktop & mobile */}
+            <div className="interventions-2col-grid">
               {[
                 { badge: 'Leadership', title: 'Strategy Workshops', desc: 'Facilitate focused vision setting in quiet nature pavilions.', accent: 'var(--wine)' },
                 { badge: 'Mindfulness', title: 'Stress Management', desc: 'Clinical biofeedback & breathwork to eliminate executive burnout.', accent: 'var(--redwood)' },
@@ -1348,6 +1610,7 @@ export default function Occasions({ onNavigate }) {
               ].map((box, idx) => (
                 <motion.div
                   key={idx}
+                  className="interventions-2col-card"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -1421,38 +1684,30 @@ export default function Occasions({ onNavigate }) {
             </p>
           </div>
 
-          {/* Responsive CSS for Compact 8-Card Bento Grid */}
+          {/* Responsive CSS for Equal 4-Column Bento Grid */}
           <style dangerouslySetInnerHTML={{__html: `
             .bento-spaces-8-grid {
               display: grid;
-              grid-template-columns: repeat(12, 1fr);
-              gap: 1.2rem;
-              grid-auto-rows: 240px;
+              grid-template-columns: repeat(4, 1fr);
+              gap: 1.25rem;
+              grid-auto-rows: 270px;
             }
-            .bento-c1 { grid-column: span 3; grid-row: span 1; }
-            .bento-c2 { grid-column: span 4; grid-row: span 1; }
-            .bento-c3 { grid-column: span 2; grid-row: span 1; }
-            .bento-c4 { grid-column: span 3; grid-row: span 1; }
+            .bento-c1, .bento-c2, .bento-c3, .bento-c4, .bento-c5, .bento-c6, .bento-c7, .bento-c8 {
+              grid-column: span 1 !important;
+              grid-row: span 1 !important;
+            }
 
-            .bento-c5 { grid-column: span 3; grid-row: span 1; }
-            .bento-c6 { grid-column: span 3; grid-row: span 1; }
-            .bento-c7 { grid-column: span 3; grid-row: span 1; }
-            .bento-c8 { grid-column: span 3; grid-row: span 1; }
-
-            @media (max-width: 1024px) {
+            @media (max-width: 1024px) and (min-width: 641px) {
               .bento-spaces-8-grid {
                 grid-template-columns: repeat(2, 1fr);
-                grid-auto-rows: 300px;
-              }
-              .bento-c1, .bento-c2, .bento-c3, .bento-c4, .bento-c5, .bento-c6, .bento-c7, .bento-c8 {
-                grid-column: span 1 !important;
-                grid-row: span 1 !important;
+                grid-auto-rows: 270px;
               }
             }
             @media (max-width: 640px) {
               .bento-spaces-8-grid {
-                grid-template-columns: 1fr;
-                grid-auto-rows: 280px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+                grid-auto-rows: 250px;
               }
             }
           `}} />
@@ -1565,7 +1820,6 @@ export default function Occasions({ onNavigate }) {
                 desc: 'Riverside & orchard candle-lit dining under stars.',
                 fullDesc: 'Exclusive private dining pop-ups created under starry night skies in our organic fruit orchard or along private sandy river banks. Features custom floral decorations, lantern lighting, personal chef service, and multi-course organic menus.',
                 features: ['Private riverside/orchard setup', 'Custom floral styling & ambient lanterns', 'Personal chef & butler service', 'Ayurvedic organic tasting menus'],
-                texturesAmbience: 'Flickering candlelight, soft organza tablecloths, and starry forest night air.',
                 sustainable: 'Biodegradable palm-leaf table styling and locally harvested seasonal flowers.',
                 capacity: 'Up to 15 Guests',
                 setting: 'Private Riverside / Orchard Setup',
@@ -1624,7 +1878,7 @@ export default function Occasions({ onNavigate }) {
 
                 {/* Visible Base Info */}
                 <div style={{
-                  position: 'absolute', bottom: '1rem', left: '1.2rem', right: '1.2rem',
+                  position: 'absolute', bottom: '1rem', left: '1rem', right: '1rem',
                   display: 'flex', flexDirection: 'column', gap: '0.2rem', color: '#ffffff',
                   zIndex: 2, pointerEvents: 'none'
                 }}>
@@ -1634,16 +1888,16 @@ export default function Occasions({ onNavigate }) {
                     backdropFilter: 'blur(6px)',
                     border: '1px solid rgba(220, 160, 50, 0.5)',
                     color: 'var(--harvest-gold)',
-                    padding: '0.2rem 0.65rem',
+                    padding: '0.18rem 0.55rem',
                     borderRadius: '20px',
-                    fontSize: '0.58rem',
+                    fontSize: '0.55rem',
                     fontWeight: 700,
                     textTransform: 'uppercase',
-                    letterSpacing: '0.1em'
+                    letterSpacing: '0.08em'
                   }}>
                     {venue.role}
                   </span>
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', color: '#ffffff', margin: 0, fontWeight: 500 }}>
+                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', color: '#ffffff', margin: 0, fontWeight: 600, lineHeight: 1.2 }}>
                     {venue.name}
                   </h3>
                 </div>
@@ -1656,46 +1910,50 @@ export default function Occasions({ onNavigate }) {
                   style={{
                     position: 'absolute',
                     inset: 0,
-                    backgroundColor: 'rgba(20, 16, 18, 0.92)',
+                    backgroundColor: 'rgba(20, 16, 18, 0.94)',
                     backdropFilter: 'blur(8px)',
-                    padding: '1.4rem 1.4rem',
+                    padding: '1.1rem 1.1rem',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
                     zIndex: 3
                   }}
                 >
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                    <div className="flex-stack-mobile" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.4rem' }}>
                       <span style={{
                         backgroundColor: 'var(--harvest-gold)',
                         color: 'var(--wine)',
-                        padding: '0.22rem 0.65rem',
+                        padding: '0.2rem 0.55rem',
                         borderRadius: '20px',
-                        fontSize: '0.58rem',
+                        fontSize: '0.55rem',
                         fontWeight: 800,
                         textTransform: 'uppercase',
-                        letterSpacing: '0.08em'
+                        letterSpacing: '0.06em',
+                        whiteSpace: 'nowrap'
                       }}>
                         {venue.role}
                       </span>
-                      <span style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '0.68rem', fontWeight: 600 }}>
+                      <span style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '0.65rem', fontWeight: 600, whiteSpace: 'nowrap' }}>
                         {venue.capacity}
                       </span>
                     </div>
 
-                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--tan)', margin: '0.2rem 0 0 0', fontWeight: 500 }}>
+                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', color: 'var(--tan)', margin: '0.15rem 0 0 0', fontWeight: 600, lineHeight: 1.25 }}>
                       {venue.name}
                     </h3>
 
-                    <p style={{ fontSize: '0.8rem', color: '#ffffff', opacity: 0.85, lineHeight: 1.5, margin: 0, fontWeight: 300 }}>
+                    <p style={{
+                      fontSize: '0.75rem', color: '#ffffff', opacity: 0.85, lineHeight: 1.4, margin: 0, fontWeight: 300,
+                      display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden'
+                    }}>
                       {venue.desc}
                     </p>
                   </div>
 
-                  <div className="flex-stack-mobile" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.6rem', borderTop: '1px solid rgba(220, 160, 50, 0.25)' }}>
-                    <span style={{ fontSize: '0.66rem', color: 'var(--harvest-gold)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                      Tap to view info
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.5rem', borderTop: '1px solid rgba(220, 160, 50, 0.25)', gap: '0.4rem' }}>
+                    <span style={{ fontSize: '0.58rem', color: 'var(--harvest-gold)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>
+                      Tap to view
                     </span>
 
                     <button
@@ -1707,14 +1965,15 @@ export default function Occasions({ onNavigate }) {
                         backgroundColor: 'var(--harvest-gold)',
                         color: 'var(--wine)',
                         border: 'none',
-                        padding: '0.45rem 1.1rem',
+                        padding: '0.35rem 0.85rem',
                         borderRadius: '25px',
                         fontWeight: 700,
-                        fontSize: '0.7rem',
+                        fontSize: '0.64rem',
                         textTransform: 'uppercase',
-                        letterSpacing: '0.08em',
+                        letterSpacing: '0.05em',
                         cursor: 'pointer',
-                        boxShadow: '0 4px 12px rgba(220, 160, 50, 0.35)'
+                        boxShadow: '0 4px 12px rgba(220, 160, 50, 0.35)',
+                        whiteSpace: 'nowrap'
                       }}
                     >
                       View Space &rarr;
@@ -1901,7 +2160,7 @@ export default function Occasions({ onNavigate }) {
                     </span>
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
+                  <div className="grid-4-laptop" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
                     {(activeSpaceModal.galleryImages || [activeSpaceModal.img]).map((gImg, gIdx) => (
                       <motion.div
                         key={gIdx}
@@ -2115,9 +2374,49 @@ export default function Occasions({ onNavigate }) {
       </section>
 
       {/* Why Suprada for Occasions Section - Luxury Round Cards */}
-      <section style={{ padding: '7rem 10%', backgroundColor: 'var(--isabelline)', borderTop: '1px solid rgba(220, 160, 50, 0.2)', position: 'relative', overflow: 'hidden' }}>
+      <section className="why-suprada-section" style={{ padding: '3.5rem 8%', backgroundColor: 'var(--isabelline)', borderTop: '1px solid rgba(220, 160, 50, 0.2)', position: 'relative', overflow: 'hidden' }}>
         <Pattern25 style={{ position: 'absolute', bottom: '-50px', left: '-50px', maxWidth: '380px', width: '100%', height: 'auto', opacity: 0.07, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
         <Pattern24 style={{ position: 'absolute', top: '-40px', right: '-40px', maxWidth: '320px', width: '100%', height: 'auto', opacity: 0.08, color: 'var(--harvest-gold)', pointerEvents: 'none', zIndex: 0 }} />
+        <style dangerouslySetInnerHTML={{__html: `
+          .why-suprada-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+            align-items: stretch;
+          }
+          @media (max-width: 768px) {
+            .why-suprada-section {
+              padding: 2.5rem 1.2rem !important;
+            }
+            .why-suprada-grid {
+              grid-template-columns: repeat(2, 1fr) !important;
+              gap: 0.75rem !important;
+            }
+            .why-suprada-card {
+              padding: 1.4rem 0.8rem 1.2rem 0.8rem !important;
+              gap: 0.8rem !important;
+              border-radius: 16px !important;
+            }
+            .why-suprada-card h4 {
+              font-size: 1.02rem !important;
+            }
+            .why-suprada-card p {
+              font-size: 0.78rem !important;
+              line-height: 1.45 !important;
+            }
+            .why-suprada-icon-circle {
+              width: 52px !important;
+              height: 52px !important;
+              font-size: 1.4rem !important;
+            }
+            .inquiry-section-wrapper {
+              padding: 4rem 1.2rem !important;
+            }
+            .inquiry-card-wrapper {
+              padding: 1.8rem 1.2rem !important;
+            }
+          }
+        `}} />
 
         <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <motion.div
@@ -2125,7 +2424,7 @@ export default function Occasions({ onNavigate }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            style={{ textAlign: 'center', marginBottom: '4.5rem' }}
+            style={{ textAlign: 'center', marginBottom: '3.5rem' }}
           >
             <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.78rem', fontWeight: 800, display: 'block', marginBottom: '0.8rem' }}>
               The Suprada Difference
@@ -2138,7 +2437,7 @@ export default function Occasions({ onNavigate }) {
             </p>
           </motion.div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', alignItems: 'stretch' }}>
+          <div className="why-suprada-grid">
             {[
               {
                 icon: '🍃',
@@ -2179,6 +2478,7 @@ export default function Occasions({ onNavigate }) {
             ].map((feat, idx) => (
               <motion.div
                 key={idx}
+                className="why-suprada-card"
                 initial={{ opacity: 0, y: 35, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
@@ -2195,8 +2495,8 @@ export default function Occasions({ onNavigate }) {
                 }}
                 style={{
                   background: feat.bgGradient,
-                  borderRadius: '32px',
-                  padding: '3rem 2rem 2.6rem 2rem',
+                  borderRadius: '24px',
+                  padding: '2.2rem 1.1rem 1.8rem 1.1rem',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
@@ -2222,6 +2522,7 @@ export default function Occasions({ onNavigate }) {
 
                 {/* Round Badge Icon Container */}
                 <motion.div
+                  className="why-suprada-icon-circle"
                   whileHover={{ rotate: [0, -10, 10, 0] }}
                   transition={{ duration: 0.4 }}
                   style={{
@@ -2282,9 +2583,9 @@ export default function Occasions({ onNavigate }) {
 
 
       {/* Inquiry Form with Multi-Step Stepper Layout */}
-      <section id="inquiry-form" style={{ padding: '9rem 10%', backgroundColor: 'var(--antique-white)' }}>
+      <section id="inquiry-form" className="inquiry-section-wrapper" style={{ padding: '6rem 8%', backgroundColor: 'var(--antique-white)' }}>
         <div style={{ maxWidth: '700px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.2em', fontSize: '0.75rem', fontWeight: 700, display: 'block', marginBottom: '0.8rem' }}>Inquiry</span>
             <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.4rem', color: 'var(--wine)', fontWeight: 500 }}>
               Start Planning Your Occasion
@@ -2314,10 +2615,10 @@ export default function Occasions({ onNavigate }) {
               </button>
             </motion.div>
           ) : (
-            <div style={{ backgroundColor: '#ffffff', borderRadius: '16px', padding: '3rem 2.5rem', border: '1px solid rgba(94,39,53,0.06)', boxShadow: '0 15px 35px rgba(94,39,53,0.02)' }}>
+            <div className="inquiry-card-wrapper" style={{ backgroundColor: '#ffffff', borderRadius: '16px', padding: '3rem 2.5rem', border: '1px solid rgba(94,39,53,0.06)', boxShadow: '0 15px 35px rgba(94,39,53,0.02)' }}>
 
               {/* Stepper Progress Bar */}
-              <div className="flex-stack-mobile" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2.5rem', position: 'relative' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2.5rem', position: 'relative' }}>
                 <div style={{ position: 'absolute', top: '15px', left: 0, right: 0, height: '2px', backgroundColor: 'rgba(94,39,53,0.06)', zIndex: 0 }} />
                 <div style={{ position: 'absolute', top: '15px', left: 0, width: `${(formStep - 1) * 50}%`, height: '2px', backgroundColor: 'var(--redwood)', zIndex: 0, transition: 'width 0.4s' }} />
                 {[
@@ -2336,7 +2637,7 @@ export default function Occasions({ onNavigate }) {
                     }}>
                       {step.num}
                     </div>
-                    <span style={{ fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: formStep >= step.num ? 'var(--wine)' : 'rgba(0,0,0,0.4)' }}>{step.label}</span>
+                    <span style={{ fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: formStep >= step.num ? 'var(--wine)' : 'rgba(0,0,0,0.4)', textAlign: 'center' }}>{step.label}</span>
                   </div>
                 ))}
               </div>

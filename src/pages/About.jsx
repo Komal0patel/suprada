@@ -205,7 +205,7 @@ export default function About({ onNavigate }) {
       tags: ["PhD Mechanical Engg.", "World Marathoner", "Chairman", "Systems Architect"]
     },
     premasudha: {
-      name: "Dr. Premasudha Ramadas",
+      name: "Dr. Prema Ramadas",
       role: "Co-Founder & Medical Director",
       badge: "US Board Certified MD",
       quote: "Precision clinical science and ancient Indian heritage are not opposites — they are partners in restorative healing.",
@@ -216,17 +216,18 @@ export default function About({ onNavigate }) {
   };
 
   const teamMembers = [
-    { name: 'Sunil Jayaraj', role: 'Founder & Chairman', category: 'leadership', quote: 'Bringing athletic endurance and analytical systems to our sanctuary.', color: 'var(--wine)' },
-    { name: 'Dr. Premasudha Ramdass', role: 'Co-Founder', category: 'leadership', quote: 'Merging US clinical protocols with alternative Vedic therapies.', color: 'var(--wine)' },
-    { name: 'Srinivas Ramdass', role: 'Managing Director', category: 'leadership', quote: 'Crafting the standard of luxury wellness operations.', color: 'var(--redwood)' },
-    { name: 'Dr. Lakshmi', role: 'Head, Naturopathy', category: 'clinical', quote: 'Reactivating the body’s innate chemistry via natural cures.', color: 'var(--sage)' },
-    { name: 'Dr. Arjun Rao', role: 'Senior Holistic Physician', category: 'clinical', quote: 'Synthesizing tailored herbal medicine with pulse diagnostics.', color: 'var(--sage)' },
-    { name: 'Priya Sharma', role: 'Yoga Master', category: 'mindfulness', quote: 'Reconnecting breath, flow, and energetic alignments.', color: 'var(--harvest-gold)' },
-    { name: 'Meera Patel', role: 'Wellness Consultant', category: 'mindfulness', quote: 'Mapping out personal trajectories of healing from arrival to departure.', color: 'var(--harvest-gold)' },
-    { name: 'Anil Deshmukh', role: 'Facilities Operations Lead', category: 'leadership', quote: 'Ensuring zero waste, solar conservation, and natural balance.', color: 'var(--redwood)' }
+    { name: 'Dr. Prema Ramadas', role: 'Co-Founder', company: 'Suprada Wellness', category: ['leadership', 'clinical'], quote: 'Merging US clinical protocols with alternative Vedic therapies.', color: 'var(--wine)', initials: 'PR' },
+    { name: 'Dr. Sunil Jayaraj', role: 'Founder', company: 'Suprada Wellness', category: 'leadership', quote: 'Bringing athletic endurance and analytical systems to our sanctuary.', color: 'var(--wine)', initials: 'SJ' },
+    { name: 'Srinivas Ramadas', role: 'Director Operations', company: 'Suprada Wellness', category: 'leadership', quote: 'Crafting the standard of luxury wellness operations.', color: 'var(--redwood)', initials: 'SR' },
+    { name: 'Nagaraju', role: 'Chairman', company: 'Suprada Wellness', category: 'leadership', quote: 'Guiding Suprada’s vision towards holistic living and community wellness.', color: 'var(--wine)', initials: 'N' },
+    { name: 'Dr. Vinaya, B.N.Y.S', role: 'Chief Medical Officer', company: 'Suprada Holistic Wellness', category: ['clinical', 'mindfulness'], quote: 'Pioneering natural healing and drugless integrative medical protocols.', color: 'var(--sage)', initials: 'V' }
   ];
 
-  const filteredTeam = teamMembers.filter(m => teamCategory === 'all' || m.category === teamCategory);
+  const filteredTeam = teamMembers.filter(m => 
+    teamCategory === 'all' || 
+    m.category === teamCategory || 
+    (Array.isArray(m.category) && m.category.includes(teamCategory))
+  );
 
   const hotspots = {
     solar: {
@@ -520,7 +521,7 @@ export default function About({ onNavigate }) {
                   transition: 'all 0.3s ease'
                 }}
               >
-                Dr. Premasudha Ramadas (Co-Founder)
+                Dr. Prema Ramadas (Co-Founder)
               </button>
             </div>
           </div>
@@ -1153,7 +1154,7 @@ export default function About({ onNavigate }) {
                       boxShadow: '0 4px 12px rgba(0,0,0,0.03)'
                     }}
                   >
-                    {member.name.replace(/^(Dr\.|Prof\.|Mr\.|Mrs\.|Ms\.)\s+/, '').split(' ').map(n => n[0]).join('')}
+                    {member.initials || member.name.replace(/^(Dr\.|Prof\.|Mr\.|Mrs\.|Ms\.)\s+/, '').replace(/,/g, '').split(' ').map(n => n[0]).join('')}
                   </motion.div>
                   
                   <h4 className="collective-member-name" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', color: 'var(--wine)', margin: 0, fontWeight: 600, textAlign: 'center' }}>
@@ -1162,6 +1163,11 @@ export default function About({ onNavigate }) {
                   <span className="collective-member-role" style={{ fontSize: '0.72rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', textAlign: 'center' }}>
                     {member.role}
                   </span>
+                  {member.company && (
+                    <span className="collective-member-company" style={{ fontSize: '0.68rem', color: 'var(--wine)', opacity: 0.75, fontWeight: 600, textAlign: 'center', marginTop: '-0.3rem' }}>
+                      {member.company}
+                    </span>
+                  )}
 
                   <AnimatePresence>
                     {hoveredMember === idx && (

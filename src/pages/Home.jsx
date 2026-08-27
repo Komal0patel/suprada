@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from 'framer-motion';
 import { Pattern24, Pattern25, Pattern27, Pattern28 } from '../AnimatedPatterns';
+import { Stethoscope } from 'lucide-react';
 import TwinklingLights from '../components/TwinklingLights';
 
 
@@ -690,7 +691,7 @@ export default function Home({ onNavigate }) {
               />
             </motion.div>
 
-            <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(3.5rem, 8vw, 7.5rem)', color: 'var(--isabelline)', lineHeight: 1.05, fontWeight: 700, margin: '0 0 1.5rem 0', textShadow: '0 4px 30px rgba(0,0,0,0.6)' }}>
+            <h1 className="hero-title" style={{color: 'var(--isabelline)', margin: '0 0 1.5rem 0', textShadow: '0 4px 30px rgba(0,0,0,0.6)'}}>
               <div style={{ overflow: 'hidden', paddingBottom: '0.1em' }}>
                 <motion.span initial={{ y: "110%" }} animate={{ y: 0 }} transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.1 }} style={{ display: 'block', fontWeight: 700 }}>Awaken your</motion.span>
               </div>
@@ -822,7 +823,7 @@ export default function Home({ onNavigate }) {
               />
             </motion.div>
             <div style={{ textAlign: 'center' }}>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.9rem', color: 'var(--tan)', letterSpacing: '0.1em', margin: 0, fontWeight: 700 }}>Suprada</h3>
+              <h3 style={{color: 'var(--tan)', letterSpacing: '0.1em', margin: 0,}}>Suprada</h3>
               <span style={{ color: 'var(--isabelline)', opacity: 0.65, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginTop: '0.15rem', display: 'block' }}>Est. 2026</span>
             </div>
           </motion.div>
@@ -848,18 +849,13 @@ export default function Home({ onNavigate }) {
             <motion.h2 
               variants={foundersMistFadeVariant}
               className="gold-foil-text" 
-              style={{ 
-                fontFamily: 'var(--font-heading)', 
-                fontSize: 'clamp(2.2rem, 3.8vw, 3.2rem)', 
-                lineHeight: 1.18, 
-                margin: 0, 
-                fontWeight: 700 
-              }}
+              style={{lineHeight: 1.18, 
+                margin: 0,}}
             >
               The Spirit of Suprada
             </motion.h2>
             
-            <motion.h4 variants={foundersMistFadeVariant} style={{ color: 'var(--tan)', fontSize: '1.1rem', fontWeight: 600, fontFamily: 'var(--font-heading)', letterSpacing: '0.02em', margin: 0 }}>
+            <motion.h4 variants={foundersMistFadeVariant} style={{color: 'var(--tan)', letterSpacing: '0.02em', margin: 0}}>
               Where Global Expertise Meets Indian Heritage
             </motion.h4>
             
@@ -984,9 +980,9 @@ export default function Home({ onNavigate }) {
             <div className="rituals-left-col">
               <div>
                 <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.7rem', fontWeight: 600, display: 'block', marginBottom: '0.5rem' }}>Exclusive Rituals</span>
-                <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.8rem, 3.8vw, 2.8rem)', color: 'var(--wine)', fontWeight: 400, lineHeight: 1.1 }}>
+                <h2 style={{color: 'var(--wine)', lineHeight: 1.1}}>
                   Unique Experiences <br />
-                  <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 300 }}>Only at Suprada</em>
+                  <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Only at Suprada</em>
                 </h2>
                 <p style={{ color: 'var(--raisin-black)', opacity: 0.72, fontSize: '0.85rem', lineHeight: 1.5, marginTop: '0.6rem', maxWidth: '380px' }}>
                   Sacred practices designed to calm your sensory experience, cleanse the aura, and ground the spirit.
@@ -1029,7 +1025,6 @@ export default function Home({ onNavigate }) {
                         color: isItemActive ? 'var(--wine)' : 'var(--raisin-black)',
                         opacity: isItemActive ? 1 : 0.5,
                         transition: 'all 0.3s ease',
-                        fontFamily: 'var(--font-body)',
                         letterSpacing: '0.12em',
                         textTransform: 'uppercase',
                         display: 'flex',
@@ -1039,8 +1034,7 @@ export default function Home({ onNavigate }) {
                           color: isItemActive ? 'var(--redwood)' : 'var(--harvest-gold)', 
                           marginRight: '0.8rem', 
                           fontWeight: 700,
-                          fontFamily: 'var(--font-body)'
-                        }}>
+                          }}>
                           0{idx + 1}
                         </span>
                         {menuTitle}
@@ -1213,13 +1207,8 @@ export default function Home({ onNavigate }) {
                             Ritual {currentIdx + 1} of 6
                           </span>
                           
-                          <h3 style={{
-                            fontFamily: 'var(--font-heading)',
-                            fontSize: '1.7rem',
-                            color: 'var(--wine)',
-                            fontWeight: 400,
-                            margin: '0.2rem 0'
-                          }}>
+                          <h3 style={{color: 'var(--wine)',
+                            margin: '0.2rem 0'}}>
                             {[
                               'Gograsa',
                               'Agnihotra',
@@ -1230,8 +1219,7 @@ export default function Home({ onNavigate }) {
                             ][currentIdx]}
                           </h3>
                           
-                          <p style={{
-                            fontSize: '0.8rem',
+                          <p className="small-text" style={{
                             color: 'var(--raisin-black)',
                             opacity: 0.8,
                             lineHeight: 1.5,
@@ -1439,7 +1427,7 @@ export default function Home({ onNavigate }) {
               <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.28em', fontSize: '0.75rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
                 08 Sanctuary Pillars
               </span>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', color: 'var(--wine)', lineHeight: 1.15, fontWeight: 700, margin: 0 }}>
+              <h2 style={{color: 'var(--wine)', lineHeight: 1.15, margin: 0}}>
                 Transformative Naturopathy <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>&amp; Holistic Wellness</em>
               </h2>
             </div>
@@ -1703,13 +1691,13 @@ export default function Home({ onNavigate }) {
                       <div style={{ height: '1px', width: '25px', backgroundColor: 'var(--harvest-gold)' }} />
                     </div>
 
-                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.9rem', color: 'var(--isabelline)', lineHeight: 1.1, margin: '0 0 0.3rem 0', fontWeight: 700 }}>
+                    <h3 style={{color: 'var(--isabelline)', lineHeight: 1.1, margin: '0 0 0.3rem 0',}}>
                       {activePillarData.title}
                     </h3>
                     
-                    <p style={{ color: 'var(--tan)', fontSize: '0.92rem', fontWeight: 600, margin: '0 0 0.6rem 0', fontFamily: 'var(--font-heading)' }}>
+                    <h4 style={{color: 'var(--tan)', margin: '0 0 0.6rem 0'}}>
                       {activePillarData.subtitle}
-                    </p>
+                    </h4>
 
                     <p style={{ color: 'var(--isabelline)', opacity: 0.9, fontSize: '0.85rem', lineHeight: 1.5, marginBottom: '1rem', maxWidth: '480px', fontWeight: 300 }}>
                       {activePillarData.desc}
@@ -1768,7 +1756,7 @@ export default function Home({ onNavigate }) {
                       >
                         <div className="haven-tile-num">0{idx + 1}</div>
                         <div style={{ flex: 1, minWidth: 0 }}>
-                          <h4 className="haven-tile-title" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{p.title}</h4>
+                          <h4 className="haven-tile-title" style={{whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>{p.title}</h4>
                           <div className="haven-tile-sub" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{p.subtitle}</div>
                         </div>
                         <div style={{ color: isActive ? 'var(--redwood)' : 'rgba(94, 39, 53, 0.3)', fontSize: '0.9rem', transition: 'all 0.3s' }}>
@@ -1837,7 +1825,7 @@ export default function Home({ onNavigate }) {
             >
               <div style={{ color: 'var(--redwood)', fontSize: '1.4rem', marginBottom: '0.8rem', textAlign: 'center' }}>✦</div>
               
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.65rem', color: 'var(--wine)', marginBottom: '0.8rem', lineHeight: 1.2, textAlign: 'center', fontWeight: 700 }}>
+              <h3 style={{color: 'var(--wine)', marginBottom: '0.8rem', lineHeight: 1.2, textAlign: 'center',}}>
                 Path To Transformation<br />
                 <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>Begins Within</em>
               </h3>
@@ -1851,9 +1839,9 @@ export default function Home({ onNavigate }) {
                 </p>
               </div>
 
-              <div style={{ marginTop: '1rem', fontFamily: 'var(--font-heading)', color: 'var(--wine)', fontSize: '1.05rem', letterSpacing: '0.08em', textAlign: 'center', fontWeight: 700 }}>
+              <h5 style={{marginTop: '1rem', color: 'var(--wine)', letterSpacing: '0.08em', textAlign: 'center',}}>
                 Suprada
-              </div>
+              </h5>
             </motion.div>
 
             {/* Card 3: Royal Wine Crest Card */}
@@ -1889,7 +1877,7 @@ export default function Home({ onNavigate }) {
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.8rem', backgroundColor: 'var(--harvest-gold)', color: 'var(--wine)', padding: '0.4rem 1.2rem', borderRadius: '4px', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>
             The Suprada Rhythm
           </div>
-          <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.2rem)', fontWeight: 600, color: 'var(--wine)', fontFamily: 'var(--font-heading)' }}>
+          <h2 style={{color: 'var(--wine)'}}>
             The Suprada <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Rhythm</em>
           </h2>
           <p style={{ color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '650px', margin: '1rem auto 0 auto', fontSize: '1rem', lineHeight: 1.7 }}>
@@ -2089,7 +2077,7 @@ export default function Home({ onNavigate }) {
               <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.7rem', fontWeight: 700, display: 'block', marginBottom: '0.15rem' }}>
                 ✦ Healing Retreats
               </span>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.1rem, 3.8vw, 3rem)', color: 'var(--tan)', fontWeight: 600, margin: 0, lineHeight: 1.1 }}>
+              <h2 style={{color: 'var(--tan)', margin: 0, lineHeight: 1.1}}>
                 The Sanctuary <em style={{ fontStyle: 'italic', color: 'var(--harvest-gold)' }}>Collection</em>
               </h2>
             </div>
@@ -2158,7 +2146,7 @@ export default function Home({ onNavigate }) {
                       </span>
                     )}
                   </div>
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--tan)', fontWeight: 600, margin: 0, lineHeight: 1.2, opacity: isMatch ? 1 : 0.7 }}>
+                  <h3 style={{color: 'var(--tan)', margin: 0, lineHeight: 1.2, opacity: isMatch ? 1 : 0.7}}>
                     {prog.title}
                   </h3>
                   <p style={{ fontSize: '0.84rem', color: 'var(--isabelline)', opacity: isMatch ? 0.88 : 0.5, lineHeight: 1.5, margin: 0 }}>
@@ -2183,7 +2171,7 @@ export default function Home({ onNavigate }) {
             <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.7rem', fontWeight: 700, display: 'block', marginBottom: '0.2rem' }}>
               ✦ Targeted Clinical Interventions
             </span>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.1rem, 3.8vw, 3rem)', color: 'var(--wine)', fontWeight: 600, margin: 0, lineHeight: 1.1 }}>
+            <h2 style={{color: 'var(--wine)', margin: 0, lineHeight: 1.1}}>
               Comprehensive <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Clinical Spectrum</em>
             </h2>
           </div>
@@ -2224,7 +2212,7 @@ export default function Home({ onNavigate }) {
                         <span style={{ fontSize: '0.65rem', color: isActive ? 'var(--harvest-gold)' : 'var(--redwood)', fontWeight: 800 }}>
                           ✦ 0{idx + 1}
                         </span>
-                        <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', fontWeight: 600, margin: 0 }}>
+                        <h3 style={{margin: 0}}>
                           {item.title}
                         </h3>
                       </div>
@@ -2272,7 +2260,7 @@ export default function Home({ onNavigate }) {
                   </span>
                 </div>
 
-                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', color: 'var(--wine)', fontWeight: 600, margin: '0 0 0.4rem 0', lineHeight: 1.25 }}>
+                <h3 style={{color: 'var(--wine)', margin: '0 0 0.4rem 0', lineHeight: 1.25}}>
                   {activeCareCategory === 'Nervous System' ? 'Neurological Rest & Shirodhara Rejuvenation' :
                    activeCareCategory === 'Joints & Vitality' ? 'Spinal Rehabilitation & Joint Hydro-Kinesiology' :
                    activeCareCategory === 'Cardiovascular Care' ? 'Vascular Pranayama & Metabolic Cleanse' :
@@ -2338,7 +2326,7 @@ export default function Home({ onNavigate }) {
             <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.72rem', fontWeight: 700, display: 'block', marginBottom: '0.2rem' }}>
               ✦ Clinical Authority
             </span>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', color: 'var(--tan)', fontWeight: 600, margin: 0 }}>
+            <h2 style={{color: 'var(--tan)', margin: 0}}>
               Guided by <em style={{ fontStyle: 'italic', color: 'var(--harvest-gold)' }}>Licensed Physicians</em>
             </h2>
           </div>
@@ -2356,7 +2344,7 @@ export default function Home({ onNavigate }) {
                   <span style={{ fontSize: '0.68rem', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase' }}>
                     {doc.creds}
                   </span>
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', color: '#ffffff', fontWeight: 600, margin: '0.1rem 0 0.2rem 0' }}>
+                  <h3 style={{color: '#ffffff', margin: '0.1rem 0 0.2rem 0'}}>
                     {doc.name}
                   </h3>
                   <span style={{ fontSize: '0.78rem', color: 'var(--tan)', opacity: 0.9 }}>
@@ -2378,7 +2366,7 @@ export default function Home({ onNavigate }) {
             <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.72rem', fontWeight: 700, display: 'block', marginBottom: '0.2rem' }}>
               ✦ Core Differentiators
             </span>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', color: 'var(--wine)', fontWeight: 600, margin: 0 }}>
+            <h2 style={{color: 'var(--wine)', margin: 0}}>
               The Suprada <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Distinction</em>
             </h2>
           </div>
@@ -2407,11 +2395,11 @@ export default function Home({ onNavigate }) {
                     transition: 'all 0.4s ease'
                   }}
                 >
-                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: '3.2rem', color: isActive ? 'var(--wine)' : 'var(--redwood)', fontWeight: 700, lineHeight: 1 }}>
+                  <div className="gold-foil-text" style={{ fontSize: '3.2rem', color: isActive ? 'var(--wine)' : 'var(--redwood)', fontWeight: 700, lineHeight: 1 }}>
                     {slab.num}
                   </div>
                   <div>
-                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', color: 'var(--wine)', fontWeight: 600, marginBottom: '0.4rem' }}>
+                    <h3 style={{color: 'var(--wine)', marginBottom: '0.4rem'}}>
                       {slab.title}
                     </h3>
                     <p style={{ fontSize: '0.82rem', color: 'var(--wine)', opacity: isActive ? 0.95 : 0.8, lineHeight: 1.5, margin: 0 }}>
@@ -2434,7 +2422,7 @@ export default function Home({ onNavigate }) {
             <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.75rem', fontWeight: 700, display: 'block', marginBottom: '0.3rem' }}>
               ✦ Instant Diagnostic Assessment
             </span>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.4rem, 4.2vw, 3.5rem)', color: 'var(--wine)', fontWeight: 600, margin: 0, lineHeight: 1.1 }}>
+            <h2 style={{color: 'var(--wine)', margin: 0, lineHeight: 1.1}}>
               Discover Your <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Wellness Path</em>
             </h2>
           </div>
@@ -2510,7 +2498,7 @@ export default function Home({ onNavigate }) {
             <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.72rem', fontWeight: 700, display: 'block', marginBottom: '0.2rem' }}>
               ✦ Verified Reflections
             </span>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', color: 'var(--wine)', fontWeight: 600, margin: 0 }}>
+            <h2 style={{color: 'var(--wine)', margin: 0}}>
               Guest <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Journals</em>
             </h2>
           </div>
@@ -2519,12 +2507,12 @@ export default function Home({ onNavigate }) {
           <div style={{ backgroundColor: 'var(--wine)', border: '1px solid var(--harvest-gold)', borderRadius: '20px', padding: '2.2rem', display: 'flex', flexDirection: 'column', gap: '1.2rem', alignItems: 'center', textAlign: 'center' }}>
             <div style={{ color: 'var(--harvest-gold)', fontSize: '1.2rem', letterSpacing: '0.2em' }}>★★★★★</div>
             
-            <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontStyle: 'italic', color: 'var(--tan)', lineHeight: 1.6, maxWidth: '800px', margin: 0 }}>
+            <h4 style={{fontStyle: 'italic', color: 'var(--tan)', lineHeight: 1.6, maxWidth: '800px', margin: 0}}>
               {activeExpert === 0 && "“A truly transformative experience. The combination of authentic holistic therapies and the serene river setting created a space for deep healing. I left feeling lighter, clearer, and fully restored.”"}
               {activeExpert === 1 && "“The doctors here are exceptional. They took the time to understand my lifestyle and created a practical plan I could follow effortlessly. The organic food was delicious and deeply restorative.”"}
               {activeExpert === 2 && "“Suprada is a hidden sanctuary. The sunrise yoga sessions by the river were pure magic. The therapists are highly skilled, and the entire team treated me like family.”"}
               {activeExpert === 3 && "“After my 21-day cellular detox, my energy levels returned to where they were ten years ago. A benchmark in genuine naturopathic care.”"}
-            </p>
+            </h4>
 
             <div style={{ display: 'flex', gap: '0.6rem', marginTop: '0.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
               {['Sarah Jenkins (London)', 'Rajesh Gupta (Mumbai)', 'Elena Rossi (Milan)', 'David Miller (New York)'].map((guest, gIdx) => (
@@ -2551,7 +2539,7 @@ export default function Home({ onNavigate }) {
             ✦ Your Transformation Awaits
           </span>
 
-          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.5rem, 5vw, 3.8rem)', color: 'var(--tan)', fontWeight: 600, lineHeight: 1.15, margin: 0 }}>
+          <h2 style={{color: 'var(--tan)', lineHeight: 1.15, margin: 0}}>
             The Sacred Sanctuary Gateway
           </h2>
 
@@ -2562,7 +2550,7 @@ export default function Home({ onNavigate }) {
           <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem' }}>🌿 100% Drugless Naturopathy</div>
             <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem' }}>🌊 54 Riverfront Acres</div>
-            <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem' }}>👩‍⚕️ 24/7 Resident Doctors</div>
+            <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}><Stethoscope size={14} style={{ color: 'var(--harvest-gold)' }} /> 24/7 Resident Doctors</div>
           </div>
 
           <div style={{ display: 'flex', gap: '1.2rem', flexWrap: 'wrap', justifyContent: 'center', marginTop: '0.5rem' }}>

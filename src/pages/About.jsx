@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView, useScroll, useTransform } from 'framer-motion';
 import { Pattern24, Pattern25, Pattern27, Pattern28 } from '../AnimatedPatterns';
+import { Leaf, Target, Sparkles, Stethoscope, Building, Sun, Droplet, Ban, Check } from 'lucide-react';
 
 // Animated Counter Component
 function AnimatedCounter({ value, duration = 1.8 }) {
@@ -333,18 +334,13 @@ export default function About({ onNavigate }) {
           </motion.div>
 
           {/* Word-by-Word Revealed Main Headline */}
-          <h1 style={{ 
-            fontFamily: 'var(--font-heading)', 
-            fontSize: 'clamp(2.6rem, 5.2vw, 4.6rem)', 
-            color: 'var(--tan)', 
-            fontWeight: 400, 
+          <h1 style={{color: 'var(--tan)', 
             margin: '0 0 0.9rem 0', 
             lineHeight: 1.1, 
             display: 'flex', 
             justifyContent: 'center', 
             gap: '0.7rem', 
-            flexWrap: 'wrap' 
-          }}>
+            flexWrap: 'wrap'}}>
             {["Where", "Science"].map((w, idx) => (
               <motion.span
                 key={idx}
@@ -385,13 +381,13 @@ export default function About({ onNavigate }) {
             style={{ display: 'flex', gap: '0.8rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '1.5rem' }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,160,50,0.25)', padding: '0.4rem 1.1rem', borderRadius: '24px', fontSize: '0.78rem', color: 'var(--tan)' }}>
-              <span>🌿</span> <span>54-Acre Riverfront Estate</span>
+              <span><Leaf size={14} style={{ color: 'var(--harvest-gold)' }} /></span> <span>54-Acre Riverfront Estate</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,160,50,0.25)', padding: '0.4rem 1.1rem', borderRadius: '24px', fontSize: '0.78rem', color: 'var(--tan)' }}>
-              <span>🩺</span> <span>30+ Years Clinical Heritage</span>
+              <span><Stethoscope size={14} style={{ color: 'var(--harvest-gold)' }} /></span> <span>30+ Years Clinical Heritage</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,160,50,0.25)', padding: '0.4rem 1.1rem', borderRadius: '24px', fontSize: '0.78rem', color: 'var(--tan)' }}>
-              <span>🏛️</span> <span>9 Private Cottages</span>
+              <span><Building size={14} style={{ color: 'var(--harvest-gold)' }} /></span> <span>9 Private Cottages</span>
             </div>
           </motion.div>
 
@@ -475,7 +471,7 @@ export default function About({ onNavigate }) {
             <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.28em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.25rem' }}>
               ✦ CHAPTER II • THE VISIONARIES
             </span>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.8rem, 3.2vw, 2.6rem)', color: 'var(--wine)', fontWeight: 600, margin: 0 }}>
+            <h2 style={{color: 'var(--wine)', margin: 0}}>
               Where Global Expertise <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Meets Indian Heritage</em>
             </h2>
 
@@ -489,7 +485,6 @@ export default function About({ onNavigate }) {
                   border: 'none',
                   backgroundColor: activeFounder === 'sunil' ? 'var(--wine)' : 'transparent',
                   color: activeFounder === 'sunil' ? '#ffffff' : 'var(--wine)',
-                  fontFamily: 'var(--font-heading)',
                   fontSize: '0.82rem',
                   fontWeight: 600,
                   cursor: 'pointer',
@@ -507,7 +502,6 @@ export default function About({ onNavigate }) {
                   border: 'none',
                   backgroundColor: activeFounder === 'premasudha' ? 'var(--wine)' : 'transparent',
                   color: activeFounder === 'premasudha' ? '#ffffff' : 'var(--wine)',
-                  fontFamily: 'var(--font-heading)',
                   fontSize: '0.82rem',
                   fontWeight: 600,
                   cursor: 'pointer',
@@ -553,13 +547,13 @@ export default function About({ onNavigate }) {
                   {foundersData[activeFounder].role}
                 </span>
 
-                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.85rem', color: 'var(--wine)', fontWeight: 600, margin: '0 0 0.6rem 0' }}>
+                <h3 style={{color: 'var(--wine)', margin: '0 0 0.6rem 0'}}>
                   {foundersData[activeFounder].name}
                 </h3>
 
-                <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.02rem', fontStyle: 'italic', color: 'var(--wine)', lineHeight: 1.45, margin: '0 0 0.8rem 0' }}>
+                <h4 style={{fontStyle: 'italic', color: 'var(--wine)', lineHeight: 1.45, margin: '0 0 0.8rem 0'}}>
                   "{foundersData[activeFounder].quote}"
-                </p>
+                </h4>
 
                 <p style={{ fontSize: '0.84rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.6, margin: '0 0 1.1rem 0' }}>
                   {foundersData[activeFounder].bio}
@@ -648,7 +642,7 @@ export default function About({ onNavigate }) {
             ))}
           </div>
 
-          <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 2.8vw, 1.85rem)', fontWeight: 300, color: 'var(--tan)', lineHeight: 1.5, marginBottom: '2rem', letterSpacing: '0.01em', maxWidth: '780px' }}>
+          <h3 style={{color: 'var(--tan)', lineHeight: 1.5, marginBottom: '2rem', letterSpacing: '0.01em', maxWidth: '780px'}}>
             At Suprada, your journey is no longer a series of separate stops. It is <span style={{ color: '#ffffff', borderBottom: '1.5px solid var(--harvest-gold)', paddingBottom: '3px' }}>The One Healing Journey</span> where you finally become one.
           </h3>
 
@@ -677,15 +671,15 @@ export default function About({ onNavigate }) {
             <span style={{ color: 'var(--harvest-gold)', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.18em', display: 'block', marginBottom: '0.6rem', fontWeight: 800 }}>Guiding Shloka</span>
             
             {shlokaTab === 'sanskrit' && (
-              <p className="gold-foil-text" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: 600, letterSpacing: '0.01em', margin: 0, lineHeight: 1.4, color: 'var(--harvest-gold)' }}>
+              <h4 className="gold-foil-text" style={{letterSpacing: '0.01em', margin: 0, lineHeight: 1.4, color: 'var(--harvest-gold)'}}>
                 शरीरेन्द्रिय सत्त्वात्म संयोगे धारी जीवितम् इति आयुः
-              </p>
+              </h4>
             )}
 
             {shlokaTab === 'phonetics' && (
-              <p style={{ fontFamily: 'var(--font-heading)', fontSize: '0.92rem', color: 'var(--tan)', fontStyle: 'italic', lineHeight: 1.4, margin: 0, maxWidth: '220px' }}>
+              <h5 style={{color: 'var(--tan)', fontStyle: 'italic', lineHeight: 1.4, margin: 0, maxWidth: '220px'}}>
                 "Sharirendriya satva atma samyoge dhari jivitam iti ayu"
-              </p>
+              </h5>
             )}
 
             {shlokaTab === 'meaning' && (
@@ -708,7 +702,7 @@ export default function About({ onNavigate }) {
             <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.26em', fontSize: '0.68rem', fontWeight: 800, display: 'block', marginBottom: '0.3rem' }}>
               ✦ CHAPTER IV • THE THREE PILLARS
             </span>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', color: 'var(--wine)', fontWeight: 600, margin: 0 }}>
+            <h2 style={{color: 'var(--wine)', margin: 0}}>
               The Pillars of <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Suprada</em>
             </h2>
           </div>
@@ -716,9 +710,9 @@ export default function About({ onNavigate }) {
           {/* 3-Tab Segmented Golden Pill Switcher Bar */}
           <div style={{ display: 'flex', justifyContent: 'center', gap: '0.8rem', flexWrap: 'wrap', marginBottom: '1.8rem' }}>
             {[
-              { id: 0, num: '01', title: 'Vision', icon: '🌿' },
-              { id: 1, num: '02', title: 'Mission', icon: '🎯' },
-              { id: 2, num: '03', title: 'Core Values', icon: '✨' }
+              { id: 0, num: '01', title: 'Vision', icon: <Leaf size={16} /> },
+              { id: 1, num: '02', title: 'Mission', icon: <Target size={16} /> },
+              { id: 2, num: '03', title: 'Core Values', icon: <Sparkles size={16} /> }
             ].map((tab) => {
               const isActive = activePillar === tab.id;
               return (
@@ -731,7 +725,6 @@ export default function About({ onNavigate }) {
                     border: isActive ? '2px solid var(--harvest-gold)' : '1.5px solid rgba(94, 39, 53, 0.2)',
                     padding: '0.55rem 1.4rem',
                     borderRadius: '30px',
-                    fontFamily: 'var(--font-heading)',
                     fontSize: '0.92rem',
                     fontWeight: 700,
                     cursor: 'pointer',
@@ -775,14 +768,14 @@ export default function About({ onNavigate }) {
                 {/* Left Showcase Column */}
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                    <div style={{ width: '50px', height: '50px', borderRadius: '50%', backgroundColor: '#ffffff', border: '1.5px solid var(--sage)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', boxShadow: '0 6px 15px rgba(0,0,0,0.04)' }}>
-                      🌿
+                    <div style={{ width: '50px', height: '50px', borderRadius: '50%', backgroundColor: '#ffffff', border: '1.5px solid var(--sage)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 6px 15px rgba(0,0,0,0.04)' }}>
+                      <Leaf size={22} style={{ color: 'var(--wine)' }} />
                     </div>
                     <div>
                       <span style={{ fontSize: '0.65rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.2em' }}>
                         PILLAR 01 • FOUNDATION
                       </span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.3rem', color: 'var(--wine)', fontWeight: 600, margin: 0 }}>
+                      <h3 style={{color: 'var(--wine)', margin: 0}}>
                         Vision
                       </h3>
                     </div>
@@ -796,9 +789,9 @@ export default function About({ onNavigate }) {
                 {/* Right Content Column */}
                 <div>
                   <div style={{ padding: '1rem 1.2rem', borderRadius: '16px', backgroundColor: '#ffffff', borderLeft: '3px solid var(--sage)', marginBottom: '1rem', boxShadow: '0 4px 14px rgba(0,0,0,0.03)' }}>
-                    <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', fontStyle: 'italic', color: 'var(--wine)', margin: 0, lineHeight: 1.45 }}>
+                    <h4 style={{fontStyle: 'italic', color: 'var(--wine)', margin: 0, lineHeight: 1.45}}>
                       "To guide individuals toward inner harmony, biological balance, and holistic well-being."
-                    </p>
+                    </h4>
                   </div>
 
                   <p style={{ fontSize: '0.88rem', color: 'var(--wine)', opacity: 0.9, lineHeight: 1.65, margin: '0 0 1rem 0' }}>
@@ -808,7 +801,7 @@ export default function About({ onNavigate }) {
                   <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
                     {['Cellular Fasting & Detox', 'Hydrotherapy Balancing', 'Restorative Sleep'].map((item, idx) => (
                       <span key={idx} style={{ backgroundColor: '#ffffff', color: 'var(--wine)', fontSize: '0.74rem', fontWeight: 700, padding: '0.4rem 1rem', borderRadius: '18px', border: '1px solid var(--sage)' }}>
-                        ✓ {item}
+                        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}><Check size={12} /> {item}</span>
                       </span>
                     ))}
                   </div>
@@ -839,14 +832,14 @@ export default function About({ onNavigate }) {
                 {/* Left Showcase Column */}
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                    <div style={{ width: '50px', height: '50px', borderRadius: '50%', backgroundColor: 'rgba(220, 160, 50, 0.2)', border: '1.5px solid var(--harvest-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', boxShadow: '0 6px 15px rgba(0,0,0,0.2)' }}>
-                      🎯
+                    <div style={{ width: '50px', height: '50px', borderRadius: '50%', backgroundColor: 'rgba(220, 160, 50, 0.2)', border: '1.5px solid var(--harvest-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 6px 15px rgba(0,0,0,0.2)' }}>
+                      <Target size={22} style={{ color: 'var(--harvest-gold)' }} />
                     </div>
                     <div>
                       <span style={{ color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.2em', fontSize: '0.65rem' }}>
                         PILLAR 02 • CLINICAL SYNERGY
                       </span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.3rem', color: 'var(--harvest-gold)', fontWeight: 600, margin: 0 }}>
+                      <h3 style={{color: 'var(--harvest-gold)', margin: 0}}>
                         Mission
                       </h3>
                     </div>
@@ -860,9 +853,9 @@ export default function About({ onNavigate }) {
                 {/* Right Content Column */}
                 <div>
                   <div style={{ padding: '1rem 1.2rem', borderRadius: '16px', backgroundColor: 'rgba(255, 255, 255, 0.08)', borderLeft: '3px solid var(--harvest-gold)', marginBottom: '1rem' }}>
-                    <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', fontStyle: 'italic', color: 'var(--harvest-gold)', margin: 0, lineHeight: 1.45 }}>
+                    <h4 style={{fontStyle: 'italic', color: 'var(--harvest-gold)', margin: 0, lineHeight: 1.45}}>
                       "Integrating traditional Indian healing sciences with modern evidence-based clinical diagnostics."
-                    </p>
+                    </h4>
                   </div>
 
                   <p style={{ fontSize: '0.88rem', color: 'var(--isabelline)', opacity: 0.92, lineHeight: 1.65, margin: '0 0 1rem 0', fontWeight: 300 }}>
@@ -872,7 +865,7 @@ export default function About({ onNavigate }) {
                   <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
                     {['US Board-Certified Oversight', 'Iris & Pulse Diagnostics', 'Biomarker Mapping'].map((item, idx) => (
                       <span key={idx} style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)', color: 'var(--isabelline)', fontSize: '0.74rem', fontWeight: 700, padding: '0.4rem 1rem', borderRadius: '18px', border: '1px solid rgba(220, 160, 50, 0.4)' }}>
-                        ✓ {item}
+                        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}><Check size={12} /> {item}</span>
                       </span>
                     ))}
                   </div>
@@ -902,14 +895,14 @@ export default function About({ onNavigate }) {
                 {/* Left Showcase Column */}
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                    <div style={{ width: '50px', height: '50px', borderRadius: '50%', backgroundColor: '#ffffff', border: '1.5px solid var(--harvest-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', boxShadow: '0 6px 15px rgba(0,0,0,0.04)' }}>
-                      ✨
+                    <div style={{ width: '50px', height: '50px', borderRadius: '50%', backgroundColor: '#ffffff', border: '1.5px solid var(--harvest-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 6px 15px rgba(0,0,0,0.04)' }}>
+                      <Sparkles size={22} style={{ color: 'var(--wine)' }} />
                     </div>
                     <div>
                       <span style={{ fontSize: '0.65rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.2em' }}>
                         PILLAR 03 • ETHOS
                       </span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.3rem', color: 'var(--wine)', fontWeight: 600, margin: 0 }}>
+                      <h3 style={{color: 'var(--wine)', margin: 0}}>
                         Core Values
                       </h3>
                     </div>
@@ -923,9 +916,9 @@ export default function About({ onNavigate }) {
                 {/* Right Content Column */}
                 <div>
                   <div style={{ padding: '1rem 1.2rem', borderRadius: '16px', backgroundColor: '#ffffff', borderLeft: '3px solid var(--harvest-gold)', marginBottom: '1rem', boxShadow: '0 4px 14px rgba(0,0,0,0.03)' }}>
-                    <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', fontStyle: 'italic', color: 'var(--wine)', margin: 0, lineHeight: 1.45 }}>
+                    <h4 style={{fontStyle: 'italic', color: 'var(--wine)', margin: 0, lineHeight: 1.45}}>
                       "Rooted in reverence for Mother Nature, scriptural integrity, and caregiver compassion."
-                    </p>
+                    </h4>
                   </div>
 
                   <p style={{ fontSize: '0.88rem', color: 'var(--wine)', opacity: 0.9, lineHeight: 1.65, margin: '0 0 1rem 0' }}>
@@ -935,7 +928,7 @@ export default function About({ onNavigate }) {
                   <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
                     {['Reverence for Mother Nature', 'Personalized Trajectories', 'Scriptural Integrity', 'Caregiver’s Heart'].map((item, idx) => (
                       <span key={idx} style={{ backgroundColor: '#ffffff', color: 'var(--wine)', fontSize: '0.74rem', fontWeight: 700, padding: '0.4rem 1rem', borderRadius: '18px', border: '1px solid var(--harvest-gold)' }}>
-                        ✓ {item}
+                        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}><Check size={12} /> {item}</span>
                       </span>
                     ))}
                   </div>
@@ -955,7 +948,7 @@ export default function About({ onNavigate }) {
           <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.72rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
             ✦ CHAPTER V • INTIMACY & SCALE
           </span>
-          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.1rem, 3.8vw, 3.2rem)', color: 'var(--wine)', marginBottom: '3.5rem', fontWeight: 600 }}>
+          <h2 style={{color: 'var(--wine)', marginBottom: '3.5rem',}}>
             Rooted in Nature, <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Designed for Intimacy</em>
           </h2>
 
@@ -1037,7 +1030,6 @@ export default function About({ onNavigate }) {
                   boxShadow: '0 8px 20px rgba(0,0,0,0.03)'
                 }}>
                   <div className="intimacy-metric-number" style={{ 
-                    fontFamily: 'var(--font-heading)', 
                     fontSize: '2.8rem', 
                     color: stat.color, 
                     fontWeight: 700,
@@ -1050,7 +1042,7 @@ export default function About({ onNavigate }) {
                   </div>
                 </div>
                 
-                <h4 className="intimacy-metric-label" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--wine)', fontWeight: 600, margin: '0 0 0.4rem 0' }}>
+                <h4 className="intimacy-metric-label" style={{color: 'var(--wine)', margin: '0 0 0.4rem 0'}}>
                   {stat.label}
                 </h4>
                 
@@ -1073,7 +1065,7 @@ export default function About({ onNavigate }) {
           
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.72rem', fontWeight: 700, display: 'block', marginBottom: '0.4rem' }}>CHAPTER VI • THE COLLECTIVE</span>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.2rem, 4vw, 3.4rem)', color: 'var(--wine)', fontWeight: 600 }}>
+            <h2 style={{color: 'var(--wine)',}}>
               The People Behind <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Suprada</em>
             </h2>
           </div>
@@ -1132,7 +1124,7 @@ export default function About({ onNavigate }) {
                     {member.initials || member.name.replace(/^(Dr\.|Prof\.|Mr\.|Mrs\.|Ms\.)\s+/, '').replace(/,/g, '').split(' ').map(n => n[0]).join('')}
                   </motion.div>
                   
-                  <h4 className="collective-member-name" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', color: 'var(--wine)', margin: 0, fontWeight: 600, textAlign: 'center' }}>
+                  <h4 className="collective-member-name" style={{color: 'var(--wine)', margin: 0, textAlign: 'center'}}>
                     {member.name}
                   </h4>
                   <span className="collective-member-role" style={{ fontSize: '0.72rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', textAlign: 'center' }}>
@@ -1168,10 +1160,10 @@ export default function About({ onNavigate }) {
                           zIndex: 3
                         }}
                       >
-                        <span style={{ color: getOverlayTextColor(member.color) === 'var(--wine)' ? 'var(--wine)' : 'var(--harvest-gold)', fontSize: '2rem', fontFamily: 'var(--font-heading)', lineHeight: 1, marginBottom: '0.5rem' }}>“</span>
-                        <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', fontStyle: 'italic', lineHeight: 1.4, margin: 0 }}>
+                        <span style={{ color: getOverlayTextColor(member.color) === 'var(--wine)' ? 'var(--wine)' : 'var(--harvest-gold)', fontSize: '2rem', lineHeight: 1, marginBottom: '0.5rem' }}>“</span>
+                        <h4 style={{fontStyle: 'italic', lineHeight: 1.4, margin: 0}}>
                           {member.quote}
-                        </p>
+                        </h4>
                         <span style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginTop: '0.8rem', opacity: 0.9, fontWeight: 700 }}>{member.name}</span>
                       </motion.div>
                     )}
@@ -1194,7 +1186,7 @@ export default function About({ onNavigate }) {
 
         <div style={{ padding: '5rem 8%', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '1.4rem', position: 'relative', zIndex: 2 }}>
           <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.72rem', fontWeight: 700 }}>✦ The Location</span>
-          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.1rem, 3.8vw, 3.2rem)', color: 'var(--tan)', lineHeight: 1.15, fontWeight: 600 }}>
+          <h2 style={{color: 'var(--tan)', lineHeight: 1.15,}}>
             Nestled in the Heart of Nature
           </h2>
           <p style={{ opacity: 0.88, fontSize: '0.95rem', lineHeight: 1.7, fontWeight: 300 }}>
@@ -1238,7 +1230,7 @@ export default function About({ onNavigate }) {
               <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.72rem', fontWeight: 700, display: 'block', marginBottom: '0.3rem' }}>
                 ✦ Sustainability
               </span>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.1rem, 3.8vw, 3rem)', color: 'var(--wine)', fontWeight: 600, lineHeight: 1.15 }}>
+              <h2 style={{color: 'var(--wine)', lineHeight: 1.15}}>
                 Giving Back In Our Own Way
               </h2>
             </div>
@@ -1260,8 +1252,8 @@ export default function About({ onNavigate }) {
                     transition: 'all 0.3s ease'
                   }}
                 >
-                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', color: 'var(--wine)', marginBottom: '0.3rem', display: 'flex', alignItems: 'center', gap: '0.6rem', fontWeight: 600 }}>
-                    <span>{key === 'solar' ? '☀️' : key === 'water' ? '💧' : '🚫'}</span>
+                  <h4 style={{color: 'var(--wine)', marginBottom: '0.3rem', display: 'flex', alignItems: 'center', gap: '0.6rem',}}>
+                    <span>{key === 'solar' ? <Sun size={18} style={{ color: 'var(--harvest-gold)', display: 'inline-block', verticalAlign: 'middle' }} /> : key === 'water' ? <Droplet size={18} style={{ color: 'var(--redwood)', display: 'inline-block', verticalAlign: 'middle' }} /> : <Ban size={18} style={{ color: 'var(--wine)', display: 'inline-block', verticalAlign: 'middle' }} />}</span>
                     {hotspots[key].title}
                   </h4>
                   <p style={{ fontSize: '0.82rem', color: 'var(--raisin-black)', opacity: 0.8, lineHeight: 1.5, margin: 0, fontWeight: 300 }}>
@@ -1357,7 +1349,7 @@ export default function About({ onNavigate }) {
                     transition={{ duration: 0.25 }}
                   >
                     <span style={{ fontSize: '0.65rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '0.15rem' }}>Eco Feature Active</span>
-                    <h5 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', color: 'var(--wine)', fontWeight: 600, margin: '0 0 0.25rem 0' }}>{hotspots[activeHotspot].title}</h5>
+                    <h5 style={{color: 'var(--wine)', margin: '0 0 0.25rem 0'}}>{hotspots[activeHotspot].title}</h5>
                     <p style={{ fontSize: '0.78rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.45, margin: 0 }}>{hotspots[activeHotspot].desc}</p>
                   </motion.div>
                 </AnimatePresence>

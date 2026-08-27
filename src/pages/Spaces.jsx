@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView, useScroll, useTransform } from 'framer-motion';
 import { Pattern24, Pattern25, Pattern27 } from '../AnimatedPatterns';
+import { Building, Leaf, Utensils, Heart, Sparkles, Trees, Home, Waves } from 'lucide-react';
 
 const wordRevealContainer = {
   hidden: {},
@@ -201,7 +202,7 @@ export default function Spaces({ onNavigate }) {
   const spacesCategories = [
     {
       title: 'Reception & Admin',
-      icon: '🏛️',
+      icon: <Building size={20} />,
       subtitle: 'Welcoming Gateways & Diagnostic Hubs',
       items: [
         { name: 'Sankalpa (Reception)', desc: 'The welcoming entry point where guests register, orient, and set their therapeutic intentions.' },
@@ -212,7 +213,7 @@ export default function Spaces({ onNavigate }) {
     },
     {
       title: 'Therapeutic Sanctuaries',
-      icon: '🌿',
+      icon: <Leaf size={20} />,
       subtitle: 'Gender-Dedicated Hydrotherapy & Detox Blocks',
       items: [
         { name: 'Prakruti (Female Treatment Block)', desc: 'A private therapeutic haven dedicated to women\'s care, cleansing, and rejuvenation.' },
@@ -223,7 +224,7 @@ export default function Spaces({ onNavigate }) {
     },
     {
       title: 'Nourishment & Dining',
-      icon: '🍽️',
+      icon: <Utensils size={20} />,
       subtitle: 'Organic Satwik Cuisine & Riverfront Elixirs',
       items: [
         { name: 'Sauhithya (Indoor Dining)', desc: 'Our primary dining hall serving customized satwik diets. Traditional floor-seating options available.' },
@@ -233,7 +234,7 @@ export default function Spaces({ onNavigate }) {
     },
     {
       title: 'Yoga & Movement',
-      icon: '🧘',
+      icon: <Heart size={20} />,
       subtitle: 'Pranayama Decks & Meditative Walking Tracks',
       items: [
         { name: 'Mahabilva (Indoor Yoga Hall)', desc: 'An elegant, peaceful sanctuary for group asanas, breathwork, and sound bathing.' },
@@ -244,7 +245,7 @@ export default function Spaces({ onNavigate }) {
     },
     {
       title: 'Nature & Sacred Spaces',
-      icon: '🕉️',
+      icon: <Sparkles size={20} />,
       subtitle: 'Stepped Kalyanis, Goshala & Amphitheaters',
       items: [
         { name: 'Antara Gange (Sacred Kalyani)', desc: 'A stepped water tank inspired by ancient architecture, featuring a Nandi idol for centering and reflection.' },
@@ -435,18 +436,13 @@ export default function Spaces({ onNavigate }) {
           </motion.div>
 
           {/* Word-by-Word Revealed Main Headline */}
-          <h1 style={{
-            fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(2.6rem, 5.2vw, 4.6rem)',
-            color: 'var(--wine)',
-            fontWeight: 400,
-            margin: '0 0 0.9rem 0',
-            lineHeight: 1.1,
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '0.7rem',
-            flexWrap: 'wrap'
-          }}>
+          <h1 style={{color: 'var(--tan)', 
+            margin: '0 0 0.9rem 0', 
+            lineHeight: 1.1, 
+            display: 'flex', 
+            justifyContent: 'center', 
+            gap: '0.7rem', 
+            flexWrap: 'wrap'}}>
             {['Where', 'Every'].map((w, idx) => (
               <motion.span
                 key={idx}
@@ -488,10 +484,10 @@ export default function Spaces({ onNavigate }) {
             style={{ display: 'flex', gap: '0.8rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '1.5rem' }}
           >
             {[
-              { icon: '🌲', label: '10-Acre Forest Estate' },
-              { icon: '🏡', label: '9 Cottage Clusters' },
-              { icon: '🌿', label: '5 Therapy Pavilions' },
-              { icon: '🌊', label: '1 Suvarnamukhi River' }
+              { icon: <Trees size={20} />, label: '10-Acre Forest Estate' },
+              { icon: <Home size={20} />, label: '9 Cottage Clusters' },
+              { icon: <Leaf size={20} />, label: '5 Therapy Pavilions' },
+              { icon: <Waves size={20} />, label: '1 Suvarnamukhi River' }
 
             ].map((pill, i) => (
               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(94,39,53,0.05)', border: '1px solid rgba(94,39,53,0.18)', padding: '0.4rem 1.1rem', borderRadius: '24px', fontSize: '0.78rem', color: 'var(--wine)' }}>
@@ -517,7 +513,6 @@ export default function Spaces({ onNavigate }) {
                 textDecoration: 'none',
                 textTransform: 'uppercase',
                 fontWeight: 600,
-                fontFamily: 'var(--font-body)',
                 backgroundColor: 'var(--wine)',
                 color: '#f5ebd9',
                 border: '1.5px solid var(--wine)',
@@ -595,7 +590,7 @@ export default function Spaces({ onNavigate }) {
               <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.68rem', fontWeight: 800, display: 'block', marginBottom: '0.3rem', opacity: 0.7 }}>
                 + CHAPTER I - ESTATE SCALE & PROPORTIONS
               </span>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.2rem', color: 'var(--wine)', margin: 0, fontWeight: 500 }}>
+              <h3 style={{color: 'var(--wine)', margin: 0,}}>
                 Architectural Metrics at a Glance
               </h3>
             </div>
@@ -624,7 +619,7 @@ export default function Spaces({ onNavigate }) {
                     boxShadow: '0 4px 16px rgba(100,110,70,0.1)'
                   }}
                 >
-                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', color: 'var(--wine)', fontWeight: 700, lineHeight: 1, marginBottom: '0.3rem' }}>
+                  <div className="gold-foil-text" style={{ fontSize: '2.5rem', color: 'var(--wine)', fontWeight: 700, lineHeight: 1, marginBottom: '0.3rem' }}>
                     <AnimatedCounter value={stat.value} />
                   </div>
                   <span style={{ fontSize: '0.65rem', color: 'var(--harvest-gold)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase' }}>
@@ -651,7 +646,7 @@ export default function Spaces({ onNavigate }) {
             <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.26em', fontSize: '0.68rem', fontWeight: 800, display: 'block', marginBottom: '0.3rem' }}>
               + CHAPTER II - THE SANCTUARY FLOW
             </span>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.1rem, 3.8vw, 3rem)', color: 'var(--wine)', fontWeight: 600, margin: 0 }}>
+            <h2 style={{color: 'var(--wine)', margin: 0}}>
               The 10-Stage Healing Trajectory
             </h2>
             <p style={{ color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '560px', margin: '0.6rem auto 0 auto', fontSize: '0.92rem' }}>
@@ -674,7 +669,6 @@ export default function Spaces({ onNavigate }) {
                     border: isActive ? '2px solid var(--harvest-gold)' : '1.5px solid rgba(94, 39, 53, 0.2)',
                     backgroundColor: isActive ? 'var(--wine)' : '#ffffff',
                     color: isActive ? 'var(--harvest-gold)' : 'var(--wine)',
-                    fontFamily: 'var(--font-heading)',
                     fontSize: '0.9rem',
                     fontWeight: 700,
                     cursor: 'pointer',
@@ -719,11 +713,11 @@ export default function Spaces({ onNavigate }) {
                     </span>
                   </div>
 
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.4rem', color: 'var(--wine)', fontWeight: 600, margin: '0 0 0.3rem 0' }}>
+                  <h3 style={{color: 'var(--wine)', margin: '0 0 0.3rem 0'}}>
                     {journeySteps[activeStep].title}
                   </h3>
 
-                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', color: 'var(--redwood)', fontWeight: 500, margin: '0 0 1rem 0' }}>
+                  <h4 style={{color: 'var(--redwood)', margin: '0 0 1rem 0'}}>
                     {journeySteps[activeStep].sub}
                   </h4>
 
@@ -787,7 +781,7 @@ export default function Spaces({ onNavigate }) {
             <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.26em', fontSize: '0.68rem', fontWeight: 800, display: 'block', marginBottom: '0.3rem' }}>
               + CHAPTER III - RESTING BLOCKS
             </span>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.2rem, 4vw, 3.4rem)', color: 'var(--wine)', fontWeight: 600, margin: 0 }}>
+            <h2 style={{color: 'var(--wine)', margin: 0}}>
               Suprada Residences & Cottages
             </h2>
             <p style={{ color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '600px', margin: '0.6rem auto 0 auto', fontSize: '0.95rem' }}>
@@ -833,7 +827,7 @@ export default function Spaces({ onNavigate }) {
                       {block.type}
                     </span>
 
-                    <h3 className="residence-card-title" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', color: 'var(--wine)', fontWeight: 600, margin: '0 0 0.6rem 0' }}>
+                    <h3 className="residence-card-title" style={{color: 'var(--wine)', margin: '0 0 0.6rem 0'}}>
                       {block.name}
                     </h3>
 
@@ -886,7 +880,7 @@ export default function Spaces({ onNavigate }) {
             <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.26em', fontSize: '0.65rem', fontWeight: 800, display: 'block', marginBottom: '0.25rem' }}>
               ✦ CHAPTER IV • THE SANCTUM ZONES
             </span>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.8rem, 3.2vw, 2.6rem)', color: 'var(--tan)', fontWeight: 500, margin: 0 }}>
+            <h2 style={{color: 'var(--tan)', margin: 0}}>
               The Spaces That Shape the Journey
             </h2>
             <p style={{ color: 'var(--isabelline)', opacity: 0.82, maxWidth: '560px', margin: '0.4rem auto 0 auto', fontSize: '0.86rem', fontWeight: 300 }}>
@@ -948,7 +942,7 @@ export default function Spaces({ onNavigate }) {
                     boxShadow: '0 8px 24px rgba(0,0,0,0.15)'
                   }}
                 >
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', color: 'var(--harvest-gold)', margin: 0, fontWeight: 500 }}>
+                  <h3 style={{color: 'var(--harvest-gold)', margin: 0,}}>
                     {item.name}
                   </h3>
                   <p style={{ fontSize: '0.82rem', color: 'var(--isabelline)', opacity: 0.88, lineHeight: 1.5, margin: 0, fontWeight: 300 }}>
@@ -970,7 +964,7 @@ export default function Spaces({ onNavigate }) {
           <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
             + SACRED SANCTUARY INVITE
           </span>
-          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.1rem, 3.8vw, 3.2rem)', color: 'var(--wine)', marginBottom: '1rem', fontWeight: 500 }}>
+          <h2 style={{color: 'var(--wine)', marginBottom: '1rem',}}>
             A Sanctuary Designed to Heal as One
           </h2>
           <p style={{ color: 'var(--raisin-black)', opacity: 0.85, margin: '0 auto 2.5rem auto', fontSize: '1rem', lineHeight: 1.7, fontWeight: 300 }}>

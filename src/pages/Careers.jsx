@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Pattern24, Pattern25 } from '../AnimatedPatterns';
+import { Briefcase, MapPin, Clock, X, Leaf, BookOpen, Heart } from 'lucide-react';
 
 const blurFadeIn = {
   hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
@@ -370,14 +371,9 @@ function JobOpeningCard({ job, onDetailClick, onApplyClick }) {
         </div>
 
         {/* Job Title */}
-        <h3 style={{
-          fontFamily: 'var(--font-heading)',
-          color: 'var(--wine)',
-          fontSize: '1.42rem',
-          fontWeight: 700,
+        <h3 style={{color: 'var(--wine)',
           margin: '0 0 0.6rem 0',
-          lineHeight: 1.3
-        }}>
+          lineHeight: 1.3}}>
           {job.title}
         </h3>
 
@@ -391,7 +387,7 @@ function JobOpeningCard({ job, onDetailClick, onApplyClick }) {
           marginBottom: '0.9rem',
           fontWeight: 500
         }}>
-          <span>📍 Suprada Estate, Bangalore</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}><MapPin size={12} style={{ color: 'var(--wine)' }} /> Suprada Estate, Bangalore</span>
         </div>
 
         {/* Short Job Overview Excerpt */}
@@ -530,9 +526,9 @@ export default function Careers({ onNavigate }) {
   const [cultureProgress, setCultureProgress] = useState(0);
 
   const culturePoints = [
-    { title: 'Holistic Environment', desc: 'Work amidst 10 acres of lush forest greenery, riverside silence, and clean organic gardens. A space that heals you while you heal others.', icon: '🍃' },
-    { title: 'Continuous Learning', desc: 'Gain deep medical and practical expertise in ancient Indian healing sciences, yogic diagnostics, and premium wellness hospitality standards.', icon: '📖' },
-    { title: 'Culture of Care', desc: 'We prioritize the physical and emotional well-being of our team members just as much as our guests. Healing starts within our own family.', icon: '💚' }
+    { title: 'Holistic Environment', desc: 'Work amidst 10 acres of lush forest greenery, riverside silence, and clean organic gardens. A space that heals you while you heal others.', icon: <Leaf size={14} /> },
+    { title: 'Continuous Learning', desc: 'Gain deep medical and practical expertise in ancient Indian healing sciences, yogic diagnostics, and premium wellness hospitality standards.', icon: <BookOpen size={14} /> },
+    { title: 'Culture of Care', desc: 'We prioritize the physical and emotional well-being of our team members just as much as our guests. Healing starts within our own family.', icon: <Heart size={14} /> }
   ];
 
   const currentSlide = typewriterSlides[activeSlideIdx];
@@ -612,7 +608,7 @@ export default function Careers({ onNavigate }) {
               <motion.div layout style={{ position: 'relative', zIndex: 1, maxWidth: '800px', width: '100%', paddingBottom: '4rem' }}>
                 <div key={activeSlideIdx} style={{ textAlign: 'center', width: '100%' }}>
                   <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.8rem', fontWeight: 800, display: 'block', marginBottom: '1.2rem' }}>
-                    🌿 {currentSlide.tag} 🌿
+                    ✦ {currentSlide.tag} ✦
                   </span>
                   <motion.h1
                     variants={{
@@ -621,10 +617,8 @@ export default function Careers({ onNavigate }) {
                     }}
                     initial="hidden"
                     animate="visible"
-                    style={{
-                      fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.5rem, 5.2vw, 4.2rem)', color: 'var(--tan)',
-                      fontWeight: 500, lineHeight: 1.15, margin: 0, display: 'flex', justifyContent: 'center', gap: '0.8rem', flexWrap: 'wrap'
-                    }}
+                    style={{color: 'var(--tan)',
+                      lineHeight: 1.15, margin: 0, display: 'flex', justifyContent: 'center', gap: '0.8rem', flexWrap: 'wrap'}}
                   >
                     {currentSlide.title.split(" ").map((word, idx) => (
                       <motion.span
@@ -796,7 +790,7 @@ export default function Careers({ onNavigate }) {
                   <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.75rem', fontWeight: 700, display: 'block', marginBottom: '0.8rem' }}>
                     Join the Movement
                   </span>
-                  <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.3rem', color: 'var(--wine)', fontWeight: 700, margin: 0 }}>
+                  <h2 style={{color: 'var(--wine)', margin: 0}}>
                     Current Openings
                   </h2>
                   <p style={{ color: 'var(--raisin-black)', opacity: 0.7, maxWidth: '520px', margin: '1rem auto 0 auto', fontSize: '0.95rem', lineHeight: 1.6 }}>
@@ -991,7 +985,7 @@ export default function Careers({ onNavigate }) {
                       style={{ textAlign: 'center', padding: '4rem 0', color: 'var(--raisin-black)', opacity: 0.5 }}
                     >
                       <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🔍</div>
-                      <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem' }}>No openings match your search.</p>
+                      <p style={{ fontSize: '1.2rem' }}>No openings match your search.</p>
                       <p style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>Try a different keyword or department filter.</p>
                     </motion.div>
                   )}
@@ -1027,11 +1021,11 @@ export default function Careers({ onNavigate }) {
                 <span style={{ color: 'var(--raisin-black)', opacity: 0.5 }}>•</span>
                 <span style={{ color: 'var(--raisin-black)', opacity: 0.6 }}>{detailJob.type}</span>
               </div>
-              <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--wine)', fontWeight: 700, margin: '0.5rem 0' }}>
+              <h1 style={{color: 'var(--wine)', margin: '0.5rem 0'}}>
                 {detailJob.title}
               </h1>
               <div style={{ fontSize: '0.95rem', color: '#666', fontWeight: 500 }}>
-                📍 Suprada Wellness, Bangalore &nbsp; | &nbsp; Reports to: {detailJob.reportsTo}
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', verticalAlign: 'middle' }}><MapPin size={14} style={{ color: 'var(--wine)' }} /> Suprada Wellness, Bangalore</span> &nbsp; | &nbsp; Reports to: {detailJob.reportsTo}
               </div>
             </div>
 
@@ -1042,7 +1036,7 @@ export default function Careers({ onNavigate }) {
                 
                 {/* Overview */}
                 <div>
-                  <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', color: 'var(--wine)', fontWeight: 700, borderBottom: '1px solid rgba(94,39,53,0.1)', paddingBottom: '0.5rem', marginBottom: '1rem' }}>
+                  <h2 style={{color: 'var(--wine)', borderBottom: '1px solid rgba(94,39,53,0.1)', paddingBottom: '0.5rem', marginBottom: '1rem'}}>
                     Role Overview
                   </h2>
                   <p style={{ fontSize: '0.95rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.7, margin: 0 }}>
@@ -1052,7 +1046,7 @@ export default function Careers({ onNavigate }) {
 
                 {/* Key Responsibilities */}
                 <div>
-                  <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', color: 'var(--wine)', fontWeight: 700, borderBottom: '1px solid rgba(94,39,53,0.1)', paddingBottom: '0.5rem', marginBottom: '1.2rem' }}>
+                  <h2 style={{color: 'var(--wine)', borderBottom: '1px solid rgba(94,39,53,0.1)', paddingBottom: '0.5rem', marginBottom: '1.2rem'}}>
                     Key Responsibilities
                   </h2>
                   <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', paddingLeft: '1.2rem', margin: 0, fontSize: '0.92rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.6 }}>
@@ -1065,7 +1059,7 @@ export default function Careers({ onNavigate }) {
                 {/* Skills */}
                 {detailJob.skills.length > 0 && (
                   <div>
-                    <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', color: 'var(--wine)', fontWeight: 700, borderBottom: '1px solid rgba(94,39,53,0.1)', paddingBottom: '0.5rem', marginBottom: '1.2rem' }}>
+                    <h2 style={{color: 'var(--wine)', borderBottom: '1px solid rgba(94,39,53,0.1)', paddingBottom: '0.5rem', marginBottom: '1.2rem'}}>
                       Skills & Competencies
                     </h2>
                     <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', paddingLeft: '1.2rem', margin: 0, fontSize: '0.92rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.6 }}>
@@ -1092,21 +1086,21 @@ export default function Careers({ onNavigate }) {
                 top: '7rem'
               }} className="bento-box-12-tablet">
                 <div>
-                  <h3 style={{ fontSize: '0.8rem', color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 700, margin: '0 0 0.4rem 0' }}>Qualifications</h3>
+                  <h3 style={{color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 0.4rem 0'}}>Qualifications</h3>
                   <p style={{ fontSize: '0.9rem', margin: 0, color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.5 }}>
                     {detailJob.qualifications}
                   </p>
                 </div>
 
                 <div>
-                  <h3 style={{ fontSize: '0.8rem', color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 700, margin: '0 0 0.4rem 0' }}>Experience Required</h3>
+                  <h3 style={{color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 0.4rem 0'}}>Experience Required</h3>
                   <p style={{ fontSize: '0.9rem', margin: 0, color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.5 }}>
                     {detailJob.experience || "Freshers and experienced candidates can apply."}
                   </p>
                 </div>
 
                 <div>
-                  <h3 style={{ fontSize: '0.8rem', color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 700, margin: '0 0 0.4rem 0' }}>Benefits & Pay</h3>
+                  <h3 style={{color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 0.4rem 0'}}>Benefits & Pay</h3>
                   <p style={{ fontSize: '0.9rem', margin: 0, color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.5 }}>
                     Best in the industry, commensurate with experience and skill sets.
                   </p>
@@ -1124,7 +1118,7 @@ export default function Careers({ onNavigate }) {
 
             {/* Explore Other Openings */}
             <div style={{ marginTop: '7rem', borderTop: '1px solid rgba(94,39,53,0.1)', paddingTop: '4rem' }}>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', color: 'var(--wine)', fontWeight: 700, marginBottom: '2.5rem', textAlign: 'center' }}>
+              <h2 style={{color: 'var(--wine)', marginBottom: '2.5rem', textAlign: 'center'}}>
                 Explore Other Openings
               </h2>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2rem' }}>
@@ -1148,8 +1142,8 @@ export default function Careers({ onNavigate }) {
                     onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}
                   >
                     <span style={{ fontSize: '0.65rem', color: 'var(--redwood)', fontWeight: 700, textTransform: 'uppercase' }}>{job.dept}</span>
-                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', color: 'var(--wine)', fontWeight: 700, margin: 0 }}>{job.title}</h3>
-                    <div style={{ fontSize: '0.8rem', color: '#666' }}>📍 Bangalore &nbsp;•&nbsp; {job.type}</div>
+                    <h3 style={{color: 'var(--wine)', margin: 0}}>{job.title}</h3>
+                    <div style={{ fontSize: '0.8rem', color: '#666', display: 'flex', alignItems: 'center', gap: '0.3rem' }}><MapPin size={12} style={{ color: 'var(--wine)' }} /> Bangalore &nbsp;•&nbsp; {job.type}</div>
                   </div>
                 ))}
               </div>
@@ -1193,8 +1187,8 @@ export default function Careers({ onNavigate }) {
                     animate={{ opacity: 1, y: 0 }}
                     style={{ textAlign: 'center', margin: 'auto 0' }}
                   >
-                    <div style={{ fontSize: '3.5rem', marginBottom: '1.2rem' }}>🌿</div>
-                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', color: 'var(--wine)', marginBottom: '0.8rem', fontWeight: 700 }}>Application Received</h3>
+                    <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.2rem' }}><Leaf size={48} style={{ color: 'var(--harvest-gold)' }} /></div>
+                    <h3 style={{color: 'var(--wine)', marginBottom: '0.8rem',}}>Application Received</h3>
                     <p style={{ fontSize: '0.95rem', opacity: 0.85, lineHeight: 1.6, maxWidth: '360px', margin: '0 auto' }}>
                       Thank you for applying. Your credentials have been registered and our HR director will connect with you via email shortly.
                     </p>
@@ -1211,13 +1205,13 @@ export default function Careers({ onNavigate }) {
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                       <div>
                         <span style={{ fontSize: '0.72rem', color: 'var(--redwood)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>{selectedJob.dept}</span>
-                        <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem', color: 'var(--wine)', margin: '0.2rem 0 0 0', fontWeight: 700 }}>{selectedJob.title}</h2>
+                        <h2 style={{color: 'var(--wine)', margin: '0.2rem 0 0 0',}}>{selectedJob.title}</h2>
                       </div>
                       <button 
                         onClick={() => setSelectedJob(null)}
-                        style={{ border: 'none', background: 'none', fontSize: '1.5rem', cursor: 'pointer', color: 'var(--wine)', opacity: 0.6 }}
+                        style={{ border: 'none', background: 'none', cursor: 'pointer', color: 'var(--wine)', opacity: 0.6, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                       >
-                        ✕
+                        <X size={20} />
                       </button>
                     </div>
 
@@ -1264,7 +1258,7 @@ export default function Careers({ onNavigate }) {
                         <textarea 
                           id="app-msg" name="message" rows="4" placeholder="Tell us why you would love to work by the riverbanks..."
                           value={applyData.message} onChange={handleInputChange}
-                          style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.12)', fontSize: '0.9rem', outline: 'none', fontFamily: 'inherit' }}
+                          style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.12)', fontSize: '0.9rem', outline: 'none', }}
                         />
                       </div>
 

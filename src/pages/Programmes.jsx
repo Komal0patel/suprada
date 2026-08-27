@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import TwinklingLights from '../components/TwinklingLights';
+import { Sunrise, Leaf, Activity, Droplet, Dna, Stethoscope, Soup, Globe, Flame, Brain, ClipboardList, Check } from 'lucide-react';
 
 // --- Sub-Component: Ambient Gold Ember Dust Particles ---
 function GoldEmberParticles({ count = 20 }) {
@@ -64,7 +65,7 @@ export default function Programmes({ onNavigate }) {
       intensityLevel: 2,
       focus: 'Quick Wellness Reset',
       ideal: 'Busy professionals, Weekend wellness seekers',
-      icon: '🌅',
+      icon: <Sunrise size={20} />,
       // Wine-based gradient
       gradient: 'linear-gradient(135deg, #5e2735 0%, #3a1520 60%, #2a0e18 100%)',
       accentColor: 'var(--harvest-gold)',
@@ -86,7 +87,7 @@ export default function Programmes({ onNavigate }) {
       intensityLevel: 3,
       focus: 'Restoration & Vitality',
       ideal: 'First-time guests, Stress relief, Energy restoration',
-      icon: '🌿',
+      icon: <Leaf size={20} />,
       // Sage-based gradient
       gradient: 'linear-gradient(135deg, #6b7a52 0%, #4a5538 60%, #2e3422 100%)',
       accentColor: 'var(--harvest-gold)',
@@ -109,7 +110,7 @@ export default function Programmes({ onNavigate }) {
       intensityLevel: 4,
       focus: 'Comprehensive Wellness Reset',
       ideal: 'Overall wellness seekers, Lifestyle reset, Chronic fatigue',
-      icon: '🧘',
+      icon: <Activity size={20} />,
       // Redwood / terracotta gradient
       gradient: 'linear-gradient(135deg, #b85e4c 0%, #7a3a2e 60%, #4a2218 100%)',
       accentColor: 'var(--tan)',
@@ -132,7 +133,7 @@ export default function Programmes({ onNavigate }) {
       intensityLevel: 5,
       focus: 'Deep Cleansing & Purification',
       ideal: 'Metabolic concerns, Chronic toxicity, Weight issues',
-      icon: '💧',
+      icon: <Droplet size={20} />,
       // Deep wine + sage teal gradient
       gradient: 'linear-gradient(135deg, #3a4a3a 0%, #2a3628 60%, #1a2218 100%)',
       accentColor: 'var(--harvest-gold)',
@@ -155,7 +156,7 @@ export default function Programmes({ onNavigate }) {
       intensityLevel: 6,
       focus: 'Chronic Ailment Management',
       ideal: 'Chronic conditions, Medical concerns, Rehabilitation',
-      icon: '🔬',
+      icon: <Dna size={20} />,
       // Wine deep + harvest gold undertones
       gradient: 'linear-gradient(135deg, #7a3a2e 0%, #5e2735 60%, #2a0e18 100%)',
       accentColor: 'var(--harvest-gold)',
@@ -172,15 +173,15 @@ export default function Programmes({ onNavigate }) {
   ];
 
   const whatIsIncluded = [
-    { title: 'Doctor Consultations', desc: 'Detailed pulse diagnosis, iris evaluation, and custom health profiling.', icon: '🩺' },
-    { title: 'Personalized Diets', desc: 'Sattvik, organic farm-to-table nutrition tailored to your wellness type.', icon: '🥗' },
-    { title: 'Daily Yoga & Meditation', desc: 'Breathwork, asanas, and guided mindfulness sessions every morning.', icon: '🧘' },
-    { title: 'Aquatic Therapies', desc: 'Water jet massages, spinal sprays, and hip baths to soothe nerves.', icon: '💧' },
-    { title: 'Therapeutic Massages', desc: 'Aromatic, herbal, and traditional full-body oil flow treatments.', icon: '🌿' },
-    { title: 'Nature Baths', desc: 'Mud packs, sun baths, and local herbal applications for skin purification.', icon: '🌏' },
-    { title: 'Steam & Sauna Detox', desc: 'Sweat-inducing heat chambers to eliminate deep tissue toxins.', icon: '♨️' },
-    { title: 'Mindfulness Coaching', desc: 'Private emotional counseling and stress release workshops.', icon: '🧠' },
-    { title: 'Post-Retreat Guidance', desc: 'Exit blueprint and remote expert follow-ups for home integration.', icon: '📋' }
+    { title: 'Doctor Consultations', desc: 'Detailed pulse diagnosis, iris evaluation, and custom health profiling.', icon: <Stethoscope size={20} /> },
+    { title: 'Personalized Diets', desc: 'Sattvik, organic farm-to-table nutrition tailored to your wellness type.', icon: <Soup size={20} /> },
+    { title: 'Daily Yoga & Meditation', desc: 'Breathwork, asanas, and guided mindfulness sessions every morning.', icon: <Activity size={20} /> },
+    { title: 'Aquatic Therapies', desc: 'Water jet massages, spinal sprays, and hip baths to soothe nerves.', icon: <Droplet size={20} /> },
+    { title: 'Therapeutic Massages', desc: 'Aromatic, herbal, and traditional full-body oil flow treatments.', icon: <Leaf size={20} /> },
+    { title: 'Nature Baths', desc: 'Mud packs, sun baths, and local herbal applications for skin purification.', icon: <Globe size={20} /> },
+    { title: 'Steam & Sauna Detox', desc: 'Sweat-inducing heat chambers to eliminate deep tissue toxins.', icon: <Flame size={20} /> },
+    { title: 'Mindfulness Coaching', desc: 'Private emotional counseling and stress release workshops.', icon: <Brain size={20} /> },
+    { title: 'Post-Retreat Guidance', desc: 'Exit blueprint and remote expert follow-ups for home integration.', icon: <ClipboardList size={20} /> }
   ];
 
   const advantages = [
@@ -293,16 +294,13 @@ export default function Programmes({ onNavigate }) {
               ✦ Healing Journeys ✦
             </span>
 
-            <h1 style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(3.2rem, 5.8vw, 5.2rem)',
-              fontWeight: 600,
-              lineHeight: 1.08,
-              color: 'var(--wine)',
-              marginBottom: '1.5rem',
-              letterSpacing: '-0.01em'
-            }}>
-              Programs &amp; <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Packages</em>
+            <h1 style={{color: 'var(--tan)', 
+            margin: '0 0 0.9rem 0', 
+            lineHeight: 1.1, 
+            display: 'flex', 
+            justifyContent: 'center', 
+            gap: '0.7rem', 
+            flexWrap: 'wrap'}}>    Programs &amp; <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Packages</em>
             </h1>
 
             <p style={{
@@ -381,7 +379,7 @@ export default function Programmes({ onNavigate }) {
             <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.8rem' }}>
               ✦ Our Philosophy
             </span>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', color: 'var(--wine)', fontWeight: 500, lineHeight: 1.2, margin: 0 }}>
+            <h2 style={{color: 'var(--wine)', lineHeight: 1.2, margin: 0}}>
               Rooted in Nature.<br />Guided by Tradition.
             </h2>
             <p style={{ marginTop: '1.2rem', fontSize: '0.95rem', color: 'var(--raisin-black)', lineHeight: 1.85, opacity: 0.75, fontWeight: 300 }}>
@@ -419,7 +417,7 @@ export default function Programmes({ onNavigate }) {
               <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.6rem' }}>
                 ✦ Signature Journeys
               </span>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', color: 'var(--wine)', fontWeight: 500, lineHeight: 1.15, margin: 0 }}>
+              <h2 style={{color: 'var(--wine)', lineHeight: 1.15, margin: 0}}>
                 On-Site Programs
               </h2>
             </div>
@@ -504,7 +502,7 @@ export default function Programmes({ onNavigate }) {
                           </span>
                         </div>
 
-                        <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', color: 'var(--tan)', fontWeight: 500, marginBottom: '0.6rem' }}>
+                        <h3 style={{color: 'var(--tan)', marginBottom: '0.6rem'}}>
                           {prog.title}
                         </h3>
 
@@ -557,13 +555,13 @@ export default function Programmes({ onNavigate }) {
 
                         {/* Inclusions — palette-accented */}
                         <div style={{ borderTop: '1px solid rgba(94,39,53,0.1)', paddingTop: '1.2rem' }}>
-                          <h4 style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--wine)', marginBottom: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                          <h4 style={{color: 'var(--wine)', marginBottom: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.08em'}}>
                             What's Included:
                           </h4>
                           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem 1.5rem' }}>
                             {prog.inclusions.map((inc, iidx) => (
                               <div key={iidx} style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', fontSize: '0.82rem', lineHeight: 1.5 }}>
-                                <span style={{ color: 'var(--harvest-gold)', flexShrink: 0, marginTop: '1px' }}>✓</span>
+                                <span style={{ color: 'var(--harvest-gold)', flexShrink: 0, display: 'inline-flex', alignItems: 'center' }}><Check size={14} /></span>
                                 <span style={{ opacity: 0.8 }}>{inc}</span>
                               </div>
                             ))}
@@ -617,7 +615,7 @@ export default function Programmes({ onNavigate }) {
             <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.6rem' }}>
               ✦ Compare
             </span>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', color: 'var(--tan)', fontWeight: 500 }}>
+            <h2 style={{color: 'var(--tan)',}}>
               Programs at a Glance
             </h2>
           </div>
@@ -693,7 +691,7 @@ export default function Programmes({ onNavigate }) {
               <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.5rem' }}>
                 ✦ The Checklist
               </span>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', color: 'var(--wine)', fontWeight: 500, lineHeight: 1.15, margin: 0 }}>
+              <h2 style={{color: 'var(--wine)', lineHeight: 1.15, margin: 0}}>
                 Included in<br />Every Program
               </h2>
             </div>
@@ -737,7 +735,7 @@ export default function Programmes({ onNavigate }) {
                   Core Service
                 </span>
               </div>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', color: 'var(--tan)', fontWeight: 500, marginBottom: '0.3rem' }}>
+              <h3 style={{color: 'var(--tan)', marginBottom: '0.3rem'}}>
                 {whatIsIncluded[0].title}
               </h3>
               <p style={{ fontSize: '0.85rem', color: 'rgba(220,195,175,0.7)', lineHeight: 1.6, maxWidth: '400px' }}>
@@ -777,7 +775,7 @@ export default function Programmes({ onNavigate }) {
                     {item.icon}
                   </div>
                   <div>
-                    <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.95rem', color: 'var(--wine)', fontWeight: 500, margin: '0 0 0.2rem 0' }}>
+                    <h4 style={{color: 'var(--wine)', margin: '0 0 0.2rem 0'}}>
                       {item.title}
                     </h4>
                     <p style={{ fontSize: '0.72rem', color: 'var(--raisin-black)', opacity: 0.6, lineHeight: 1.5, margin: 0 }}>
@@ -817,7 +815,7 @@ export default function Programmes({ onNavigate }) {
                     {item.icon}
                   </div>
                 </div>
-                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', color: 'var(--wine)', fontWeight: 500, margin: 0 }}>
+                <h3 style={{color: 'var(--wine)', margin: 0}}>
                   {item.title}
                 </h3>
                 <p style={{ fontSize: '0.75rem', color: 'var(--raisin-black)', opacity: 0.65, lineHeight: 1.55, margin: 0 }}>
@@ -841,7 +839,7 @@ export default function Programmes({ onNavigate }) {
             <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.6rem' }}>
               ✦ The Advantage
             </span>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', color: 'var(--wine)', fontWeight: 500 }}>
+            <h2 style={{color: 'var(--wine)',}}>
               The Suprada Advantage
             </h2>
           </div>
@@ -887,7 +885,7 @@ export default function Programmes({ onNavigate }) {
                   {String(idx + 1).padStart(2, '0')}
                 </div>
 
-                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--wine)', fontWeight: 500, margin: 0 }}>
+                <h3 style={{color: 'var(--wine)', margin: 0}}>
                   {adv.title}
                 </h3>
                 <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black)', opacity: 0.65, lineHeight: 1.7, margin: 0 }}>
@@ -925,7 +923,7 @@ export default function Programmes({ onNavigate }) {
           <span style={{ color: 'var(--harvest-gold)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.35em', fontWeight: 800, display: 'block', marginBottom: '1.2rem' }}>
             ✦ Begin Your Journey ✦
           </span>
-          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: 'var(--tan)', marginBottom: '1rem', fontWeight: 500 }}>
+          <h2 style={{color: 'var(--tan)', marginBottom: '1rem',}}>
             Ready to Begin Your Healing Journey?
           </h2>
           <p style={{ color: 'rgba(220,195,175,0.7)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '2.5rem' }}>

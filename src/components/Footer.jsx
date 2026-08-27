@@ -13,7 +13,7 @@ export default function Footer({ onNavigate }) {
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', cursor: 'pointer' }} onClick={() => onNavigate('home')}>
               <img src="/assets/logo.svg" alt="Suprada Logo" style={{ height: '38px' }} />
               <div>
-                <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.7rem', color: 'var(--wine)', fontWeight: 600, display: 'block', lineHeight: 1 }}>
+                <span style={{ fontSize: '1.7rem', color: 'var(--wine)', fontWeight: 600, display: 'block', lineHeight: 1 }}>
                   Suprada
                 </span>
                 <span style={{ fontSize: '0.68rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--redwood)', opacity: 0.9, fontWeight: 500 }}>

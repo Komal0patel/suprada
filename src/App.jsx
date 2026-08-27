@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { X } from 'lucide-react';
 
 // Import Pages
 import Home from './pages/Home';
@@ -246,7 +247,7 @@ function App() {
                           cursor: 'pointer',
                           color: currentPage === item.id ? 'var(--harvest-gold)' : '#ffffff',
                           fontWeight: currentPage === item.id ? 800 : 400,
-                          fontSize: '0.84rem',
+                          fontSize: '0.96rem',
                           letterSpacing: '0.04em',
                           transition: 'all 0.3s ease',
                           whiteSpace: 'nowrap'
@@ -272,13 +273,11 @@ function App() {
                       alignItems: 'center',
                       justifyContent: 'center',
                       cursor: 'pointer',
-                      fontSize: '1.2rem',
-                      fontWeight: 700,
                       boxShadow: '0 12px 30px rgba(0,0,0,0.5)',
                       backdropFilter: 'blur(20px)'
                     }}
                   >
-                    ✕
+                    <X size={18} />
                   </button>
                 </motion.div>
               ) : (
@@ -342,9 +341,12 @@ function App() {
                 style={{
                   position: 'absolute', top: '25px', right: '30px',
                   background: 'none', border: 'none', color: 'var(--harvest-gold)',
-                  fontSize: '2rem', cursor: 'pointer', zIndex: 1000
+                  cursor: 'pointer', zIndex: 1000,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center'
                 }}
-              >✕</button>
+              >
+                <X size={28} />
+              </button>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'center', fontSize: '1.3rem', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 500 }}>
                 {menuItems.map((item) => (
                   <motion.li

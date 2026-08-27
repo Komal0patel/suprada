@@ -55,7 +55,7 @@ export default function InteractiveBrandShowcase() {
                 <div className="flip-card-inner">
                   <div className="flip-card-front" style={{ backgroundColor: 'var(--wine)' }}>
                     <div style={{ fontSize: '0.75rem', opacity: 0.8, letterSpacing: '0.05em', color: 'var(--tan)' }}>Kanakapura, Karnataka</div>
-                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2.4rem', color: 'var(--harvest-gold)', letterSpacing: '0.12em', fontWeight: 400 }}>Suprada</div>
+                    <div style={{ fontSize: '2.4rem', color: 'var(--harvest-gold)', letterSpacing: '0.12em', fontWeight: 400 }}>Suprada</div>
                   </div>
                   <div className="flip-card-back" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <div style={{ textAlign: 'center' }}>
@@ -86,7 +86,7 @@ export default function InteractiveBrandShowcase() {
                     </div>
                     
                     <div style={{ textAlign: 'left', marginTop: '1rem' }}>
-                      <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.45rem', fontWeight: 600, color: 'var(--wine)' }}>
+                      <h4 style={{color: 'var(--wine)'}}>
                         Sreeram Kayanadath
                       </h4>
                       <p style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'var(--redwood)', marginTop: '0.15rem', fontWeight: 600 }}>
@@ -132,13 +132,13 @@ export default function InteractiveBrandShowcase() {
                 <div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', borderBottom: '1px solid rgba(94,39,53,0.1)', paddingBottom: '1.5rem', marginBottom: '2.5rem' }}>
                     <div>
-                      <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.9rem', color: 'var(--wine)', letterSpacing: '0.05em', fontWeight: 600 }}>Suprada</h4>
+                      <h4 style={{color: 'var(--wine)', letterSpacing: '0.05em',}}>Suprada</h4>
                       <p style={{ fontSize: '0.7rem', opacity: 0.6, color: 'var(--raisin-black)' }}>Kanakapura, Bengaluru Rural</p>
                     </div>
                     <span style={{ fontSize: '0.75rem', opacity: 0.6, color: 'var(--wine)', fontWeight: 500 }}>www.suprada.in</span>
                   </div>
 
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.9rem', color: 'var(--wine)', marginBottom: '1.5rem', fontWeight: 500 }}>
+                  <h3 style={{color: 'var(--wine)', marginBottom: '1.5rem',}}>
                     Let Nature Guide The Way
                   </h3>
                   
@@ -153,7 +153,7 @@ export default function InteractiveBrandShowcase() {
                 </div>
 
                 <div style={{ borderTop: '1px solid rgba(94,39,53,0.06)', paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ fontFamily: 'var(--font-heading)', fontStyle: 'italic', fontSize: '1.25rem', color: 'var(--wine)', fontWeight: 500 }}>Suprada Wellness</span>
+                  <span style={{ fontStyle: 'italic', fontSize: '1.25rem', color: 'var(--wine)', fontWeight: 500 }}>Suprada Wellness</span>
                   <span style={{ fontSize: '0.7rem', opacity: 0.5 }}>Official Stationery</span>
                 </div>
 
@@ -172,7 +172,7 @@ export default function InteractiveBrandShowcase() {
                 <span style={{ color: 'var(--redwood)', fontSize: '0.8rem', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase' }}>Stationery Leaflet</span>
                 
                 <div style={{ marginTop: '2rem' }}>
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.4rem', color: 'var(--wine)', lineHeight: 1.25 }}>
+                  <h3 style={{color: 'var(--wine)', lineHeight: 1.25}}>
                     Disconnect With<br />The World,<br />Reconnect Within.
                   </h3>
                   <div style={{ width: '40px', height: '2px', backgroundColor: 'var(--redwood)', margin: '1.5rem 0' }}></div>
@@ -208,7 +208,7 @@ export default function InteractiveBrandShowcase() {
                     <path d="M50 15 C62 30 75 38 85 50 C75 62 62 70 50 85 C38 70 25 62 15 50 C25 38 38 30 50 15 Z" />
                   </svg>
                 </div>
-                <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', color: 'var(--wine)', fontWeight: 500, letterSpacing: '0.05em' }}>Suprada Wellness</h4>
+                <h4 style={{color: 'var(--wine)', letterSpacing: '0.05em'}}>Suprada Wellness</h4>
               </div>
 
               {/* Body Wash */}
@@ -216,7 +216,7 @@ export default function InteractiveBrandShowcase() {
                 <span style={{ fontSize: '0.7rem', color: 'var(--wine)', opacity: 0.5, textTransform: 'uppercase', letterSpacing: '0.1em' }}>// Wall Dispenser</span>
                 
                 <div style={{ margin: '1rem 0' }}>
-                  <h5 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.75rem', color: 'var(--wine)', fontWeight: 400 }}>Body Wash</h5>
+                  <h5 style={{color: 'var(--wine)',}}>Body Wash</h5>
                   <p style={{ fontSize: '0.75rem', opacity: 0.7, color: 'var(--redwood)', letterSpacing: '0.05em', fontWeight: 500 }}>Sandalwood &amp; Neem</p>
                 </div>
                 
@@ -231,7 +231,7 @@ export default function InteractiveBrandShowcase() {
                 <span style={{ fontSize: '0.7rem', color: 'var(--wine)', opacity: 0.5, textTransform: 'uppercase', letterSpacing: '0.1em' }}>// Wall Dispenser</span>
                 
                 <div style={{ margin: '1rem 0' }}>
-                  <h5 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.75rem', color: 'var(--wine)', fontWeight: 400 }}>Shampoo</h5>
+                  <h5 style={{color: 'var(--wine)',}}>Shampoo</h5>
                   <p style={{ fontSize: '0.75rem', opacity: 0.7, color: 'var(--redwood)', letterSpacing: '0.05em', fontWeight: 500 }}>Bhringraj &amp; Shikakai</p>
                 </div>
 
@@ -260,7 +260,7 @@ export default function InteractiveBrandShowcase() {
                 <div style={{ position: 'absolute', top: 0, right: 0, width: '40%', height: '100%', backgroundColor: 'rgba(255,255,255,0.02)', borderLeft: '1px solid rgba(255,255,255,0.05)' }}></div>
                 <span style={{ color: 'var(--tan)', fontSize: '0.8rem', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase' }}>// Brand Folder</span>
                 
-                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.8rem', color: 'var(--isabelline)', lineHeight: 1.15, fontWeight: 400 }}>
+                <h3 style={{color: 'var(--isabelline)', lineHeight: 1.15,}}>
                   DO NOT<br />DISTURB
                 </h3>
 
@@ -284,7 +284,7 @@ export default function InteractiveBrandShowcase() {
                       <path d="M50 15 C62 30 75 38 85 50 C75 62 62 70 50 85 C38 70 25 62 15 50 C25 38 38 30 50 15 Z" />
                     </svg>
                   </div>
-                  <span style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', color: 'var(--wine)', letterSpacing: '0.05em' }}>Suprada</span>
+                  <span style={{ fontSize: '2rem', color: 'var(--wine)', letterSpacing: '0.05em' }}>Suprada</span>
                 </div>
 
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--wine)', opacity: 0.8, borderTop: '1px solid rgba(94, 39, 53, 0.15)', paddingTop: '1.2rem', fontWeight: 500 }}>

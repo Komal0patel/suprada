@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Pattern24, Pattern25 } from '../AnimatedPatterns';
+import { X } from 'lucide-react';
 
 // Premium camera lens focus reveal variant
 const focusEntrance = {
@@ -172,7 +173,7 @@ function CardInner({ item, idx }) {
             {item.cat}
           </span>
           <h3
-            style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', color: '#ffffff', margin: 0, fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
+            style={{color: '#ffffff', margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}
           >
             {item.title.split(' – ')[1] || item.title}
           </h3>
@@ -363,10 +364,13 @@ export default function Gallery({ onNavigate }) {
             }}
             initial="hidden"
             animate="visible"
-            style={{
-              fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.5rem, 5.2vw, 4.2rem)', color: 'var(--wine)',
-              fontWeight: 500, lineHeight: 1.15, margin: 0, display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap'
-            }}
+            style={{color: 'var(--wine)', 
+            margin: '0 0 0.9rem 0', 
+            lineHeight: 1.1, 
+            display: 'flex', 
+            justifyContent: 'center', 
+            gap: '0.7rem', 
+            flexWrap: 'wrap'}}
           >
             {["Our", "Gallery"].map((word, idx) => (
               <motion.span
@@ -540,7 +544,7 @@ export default function Gallery({ onNavigate }) {
       {/* Experience CTA */}
       <section style={{ backgroundColor: 'var(--wine)', color: 'var(--isabelline)', padding: '4rem 5%', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'radial-gradient(circle, rgba(220,160,50,0.03) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none' }} />
-        <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', color: 'var(--tan)', marginBottom: '1rem', fontWeight: 600 }}>
+        <h2 style={{color: 'var(--tan)', marginBottom: '1rem',}}>
           Experience Suprada in Person
         </h2>
         <p style={{ opacity: 0.8, maxWidth: '550px', margin: '0 auto 2.5rem auto', fontSize: '1rem', lineHeight: 1.6 }}>
@@ -653,7 +657,7 @@ export default function Gallery({ onNavigate }) {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
                   <div>
                     <span style={{ fontSize: '0.65rem', color: 'var(--redwood)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '0.2rem' }}>{filteredItems[selectedIdx].cat}</span>
-                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', color: 'var(--wine)', margin: 0, fontWeight: 600 }}>
+                    <h3 style={{color: 'var(--wine)', margin: 0,}}>
                       {filteredItems[selectedIdx].title.split(' – ')[1] || filteredItems[selectedIdx].title}
                     </h3>
                   </div>
@@ -662,11 +666,11 @@ export default function Gallery({ onNavigate }) {
                     style={{
                       border: 'none', background: 'var(--wine)', color: '#ffffff',
                       width: '36px', height: '36px', borderRadius: '50%', cursor: 'pointer',
-                      fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
                       flexShrink: 0, transition: 'all 0.2s'
                     }}
                   >
-                    ✕
+                    <X size={16} />
                   </button>
                 </div>
                 <p style={{ fontSize: '0.92rem', color: 'var(--raisin-black)', opacity: 0.8, lineHeight: 1.6, margin: 0, fontWeight: 300 }}>

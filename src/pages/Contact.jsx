@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Pattern24, Pattern25 } from '../AnimatedPatterns';
+import { Car, Train, Plane, Calendar, MapPin, Mail, Star } from 'lucide-react';
 
 const blurFadeIn = {
   hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
@@ -153,7 +154,7 @@ function HinduCalendarWidget() {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
       {/* Header */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.2rem' }}>
-        <span style={{ fontSize: '1.4rem' }}>📅</span>
+        <Calendar size={22} style={{ color: 'var(--wine)' }} />
         <div>
           <div style={{ fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--redwood)' }}>Current Date &amp; Time</div>
           <div style={{ fontSize: '0.78rem', color: 'var(--raisin-black)', opacity: 0.7 }}>{cal.gregorian} &nbsp;·&nbsp; {cal.time}</div>
@@ -182,7 +183,7 @@ function HinduCalendarWidget() {
         />
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.1rem' }}>
           <div style={{ fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--redwood)' }}>Current Weather · Suprada</div>
-          <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--wine)', fontFamily: 'var(--font-heading)' }}>24°C &nbsp;·&nbsp; Gentle Breeze</div>
+          <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--wine)', }}>24°C &nbsp;·&nbsp; Gentle Breeze</div>
           <div style={{ fontSize: '0.75rem', color: 'var(--raisin-black)', opacity: 0.75 }}>Perfect for outdoor Yoga &amp; river walks</div>
         </div>
       </div>
@@ -225,7 +226,7 @@ function FeedbackCardTypewriter() {
   }, [subText, isDeleting, index]);
 
   return (
-    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', color: 'var(--wine)', fontWeight: 700, margin: '0 0 0.4rem 0', minHeight: '2.4rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <h3 style={{color: 'var(--wine)', margin: '0 0 0.4rem 0', minHeight: '2.4rem', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
       Share <span style={{ color: 'var(--harvest-gold)', marginLeft: '0.48rem', position: 'relative', display: 'inline-flex', alignItems: 'center' }}>{subText}<span className="typewriter-cursor" style={{ height: '0.9em', marginLeft: '3px' }} /></span>
     </h3>
   );
@@ -350,29 +351,19 @@ export default function Contact({ onNavigate }) {
           <Pattern24 style={{ position: 'absolute', top: '1rem', left: '-20px', width: '260px', opacity: 0.12, color: 'var(--wine)', pointerEvents: 'none' }} />
 
           {/* "Get in Touch" — typewriter title */}
-          <h1 style={{
-            fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(3rem, 5vw, 4.8rem)',
-            color: 'var(--wine)',
-            fontWeight: 700,
+          <h1 style={{color: 'var(--wine)',
             lineHeight: 1.1,
             margin: '0 0 0.5rem 0',
-            minHeight: '5.5rem'
-          }}>
+            minHeight: '5.5rem'}}>
             {typedTitle}
             {phase === "title" && <span className="typewriter-cursor" />}
           </h1>
 
           {/* "A Sanctuary by the River" — typewriter subtitle */}
-          <h2 style={{
-            fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(1.4rem, 2.5vw, 2rem)',
-            color: 'var(--redwood)',
-            fontWeight: 600,
+          <h2 style={{color: 'var(--redwood)',
             fontStyle: 'italic',
             margin: '0 0 2rem 0',
-            minHeight: '2.5rem'
-          }}>
+            minHeight: '2.5rem'}}>
             {typedSubtitle}
             {phase === "subtitle" && <span className="typewriter-cursor" />}
           </h2>
@@ -488,12 +479,10 @@ export default function Contact({ onNavigate }) {
         >
           <div style={{
             width: '40px', height: '40px', borderRadius: '50%',
-            background: 'var(--harvest-gold)', display: 'flex', alignItems: 'center',
-            justifyContent: 'center', fontSize: '1.1rem', flexShrink: 0
-          }}>📍</div>
+            background: 'var(--harvest-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><MapPin size={18} style={{ color: 'var(--wine)' }} /></div>
           <div>
             <div style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Location</div>
-            <div style={{ fontSize: '0.88rem', color: '#ffffff', fontWeight: 600, fontFamily: 'var(--font-heading)' }}>Kanakapura Road, Bengaluru</div>
+            <div style={{ fontSize: '0.88rem', color: '#ffffff', fontWeight: 600, }}>Kanakapura Road, Bengaluru</div>
           </div>
         </motion.div>
 
@@ -596,14 +585,9 @@ export default function Contact({ onNavigate }) {
                     letterSpacing: '0.22em', color: 'var(--harvest-gold)', marginBottom: '0.9rem'
                   }}>Your Transformation Awaits</div>
 
-                  <h2 style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: 'clamp(1.6rem, 3vw, 2.4rem)',
-                    fontWeight: 700,
-                    lineHeight: 1.2,
+                  <h2 style={{lineHeight: 1.2,
                     margin: '0 0 1rem 0',
-                    color: '#ffffff'
-                  }}>Begin Your Healing Journey</h2>
+                    color: '#ffffff'}}>Begin Your Healing Journey</h2>
 
                   {/* Ornament divider */}
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.7rem', marginBottom: '1rem' }}>
@@ -642,19 +626,19 @@ export default function Contact({ onNavigate }) {
 
               {/* How to Reach */}
               <div>
-                <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', color: 'var(--wine)', fontWeight: 700, margin: '0 0 1.2rem 0' }}>
+                <h2 style={{color: 'var(--wine)', margin: '0 0 1.2rem 0'}}>
                   How to Reach Us
                 </h2>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   {[
-                    { icon: '🚗', title: 'By Road', desc: '45-min scenic drive from South Bengaluru via Kanakapura Road.' },
-                    { icon: '🚇', title: 'By Metro', desc: '20 min from Silk Institute Metro (Green Line). Shuttle taxis available.' },
-                    { icon: '✈️', title: 'From Airport', desc: '75 min from Kempegowda International Airport via NICE Road.' }
+                    { icon: <Car size={20} />, title: 'By Road', desc: '45-min scenic drive from South Bengaluru via Kanakapura Road.' },
+                    { icon: <Train size={20} />, title: 'By Metro', desc: '20 min from Silk Institute Metro (Green Line). Shuttle taxis available.' },
+                    { icon: <Plane size={20} />, title: 'From Airport', desc: '75 min from Kempegowda International Airport via NICE Road.' }
                   ].map((item, i) => (
                     <div key={i} style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start' }}>
-                      <span style={{ fontSize: '1.4rem', lineHeight: 1, flexShrink: 0 }}>{item.icon}</span>
+                      <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px' }}>{item.icon}</span>
                       <div>
-                        <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--wine)', marginBottom: '0.15rem' }}>{item.title}</div>
+                        <h4 style={{ color: 'var(--wine)', marginBottom: '0.15rem', fontSize: '1.05rem', fontWeight: 600 }}>{item.title}</h4>
                         <div style={{ fontSize: '0.82rem', color: 'var(--raisin-black)', opacity: 0.8, lineHeight: 1.5 }}>{item.desc}</div>
                       </div>
                     </div>
@@ -672,7 +656,7 @@ export default function Contact({ onNavigate }) {
 
           {/* ── Section Title: Normal Heading ── */}
           <motion.div variants={itemVariants} style={{ gridColumn: 'span 12', marginTop: '2.5rem', marginBottom: '1rem', textAlign: 'center' }}>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem, 3.8vw, 2.8rem)', color: 'var(--wine)', fontWeight: 700, margin: 0 }}>
+            <h2 style={{color: 'var(--wine)', margin: 0}}>
               Share Your Feedback <span style={{ color: 'var(--harvest-gold)' }}>&amp; Follow Our Journey</span>
             </h2>
           </motion.div>
@@ -730,7 +714,7 @@ export default function Contact({ onNavigate }) {
                 style={{ padding: '2rem 0' }}
               >
                 <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>🙏</div>
-                <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', color: 'var(--wine)', margin: '0 0 0.5rem 0' }}>Thank You!</h4>
+                <h4 style={{color: 'var(--wine)', margin: '0 0 0.5rem 0'}}>Thank You!</h4>
                 <p style={{ fontSize: '0.88rem', opacity: 0.8, margin: '0 0 1.2rem 0' }}>Your feedback has been submitted successfully.</p>
                 <button onClick={() => { setFeedbackSent(false); setStarRating(0); }} className="btn-luxury" style={{ padding: '0.6rem 1.6rem', fontSize: '0.75rem' }}>
                   Send Another
@@ -773,7 +757,7 @@ export default function Contact({ onNavigate }) {
                       width: '100%', padding: '0.85rem 1rem', borderRadius: '12px',
                       border: '1px solid rgba(94, 39, 53, 0.15)',
                       backgroundColor: '#ffffff', fontSize: '0.9rem', outline: 'none', color: 'var(--wine)',
-                      fontFamily: 'inherit', resize: 'vertical', boxSizing: 'border-box'
+                      resize: 'vertical', boxSizing: 'border-box'
                     }}
                   />
                 </div>
@@ -789,7 +773,7 @@ export default function Contact({ onNavigate }) {
                   onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-2px)'}
                   onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
                 >
-                  ✉ Send Feedback to Email
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.48rem' }}><Mail size={16} /> Send Feedback to Email</span>
                 </button>
 
                 <button
@@ -798,13 +782,13 @@ export default function Contact({ onNavigate }) {
                   style={{
                     backgroundColor: 'var(--redwood)', color: '#ffffff', border: 'none',
                     padding: '0.95rem', borderRadius: '12px', fontWeight: 700, fontSize: '0.9rem',
-                    cursor: 'pointer', textAlign: 'center',
+                    cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
                     boxShadow: '0 4px 15px rgba(158,71,56,0.25)', transition: 'transform 0.2s'
                   }}
                   onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-2px)'}
                   onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
                 >
-                  ★ Leave a Google Review
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.48rem' }}><Star size={16} /> Leave a Google Review</span>
                 </button>
               </form>
             )}
@@ -828,7 +812,7 @@ export default function Contact({ onNavigate }) {
             }}
             className="bento-box-12-tablet"
           >
-            <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', color: 'var(--wine)', fontWeight: 700, margin: '0 0 2.5rem 0' }}>
+            <h3 style={{color: 'var(--wine)', margin: '0 0 2.5rem 0'}}>
               Follow <span style={{ color: 'var(--harvest-gold)' }}>Our Journey</span>
             </h3>
 
@@ -855,7 +839,7 @@ export default function Contact({ onNavigate }) {
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
                   </svg>
                 </div>
-                <span style={{ color: '#dc2743', fontWeight: 700, fontSize: '1.05rem', fontFamily: 'var(--font-heading)' }}>Instagram</span>
+                <span style={{ color: '#dc2743', fontWeight: 700, fontSize: '1.05rem', }}>Instagram</span>
               </motion.a>
 
               {/* YouTube */}
@@ -874,7 +858,7 @@ export default function Contact({ onNavigate }) {
                     <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                   </svg>
                 </div>
-                <span style={{ color: '#ff0000', fontWeight: 700, fontSize: '1.05rem', fontFamily: 'var(--font-heading)' }}>YouTube</span>
+                <span style={{ color: '#ff0000', fontWeight: 700, fontSize: '1.05rem', }}>YouTube</span>
               </motion.a>
 
               {/* Facebook */}
@@ -893,7 +877,7 @@ export default function Contact({ onNavigate }) {
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                   </svg>
                 </div>
-                <span style={{ color: '#1877f2', fontWeight: 700, fontSize: '1.05rem', fontFamily: 'var(--font-heading)' }}>Facebook</span>
+                <span style={{ color: '#1877f2', fontWeight: 700, fontSize: '1.05rem', }}>Facebook</span>
               </motion.a>
             </div>
           </motion.div>

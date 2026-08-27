@@ -164,7 +164,7 @@ function BlogCard({ art, colors, imageUrl, onSelect }) {
           <span>{art.readTime}</span>
         </div>
 
-        <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--wine)', fontWeight: 700, margin: '0.2rem 0', lineHeight: 1.35 }}>
+        <h3 style={{color: 'var(--wine)', margin: '0.2rem 0', lineHeight: 1.35}}>
           {art.title}
         </h3>
 
@@ -208,7 +208,7 @@ function BlogCard({ art, colors, imageUrl, onSelect }) {
                 <span style={{ fontSize: '0.7rem', opacity: 0.7, color: 'var(--tan)' }}>{art.readTime}</span>
               </div>
 
-              <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', color: 'var(--tan)', fontWeight: 700, margin: '0 0 0.8rem 0', lineHeight: 1.3 }}>
+              <h4 style={{color: 'var(--tan)', margin: '0 0 0.8rem 0', lineHeight: 1.3}}>
                 {art.title}
               </h4>
 
@@ -347,7 +347,7 @@ export default function Blog({ onNavigate }) {
         if (isHeading) {
           const Tag = block.style; // h2, h3
           return (
-            <Tag key={i} style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine)', marginTop: '2.5rem', marginBottom: '1rem', fontWeight: 700, fontSize: '1.6rem' }}>
+            <Tag key={i} style={{ color: 'var(--wine)', marginTop: '2.5rem', marginBottom: '1rem', fontWeight: 700, fontSize: '1.6rem' }}>
               {text}
             </Tag>
           );
@@ -445,10 +445,8 @@ export default function Blog({ onNavigate }) {
                   }}
                   initial="hidden"
                   animate="visible"
-                  style={{
-                    fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.8rem, 5.5vw, 4.5rem)', color: 'var(--wine)',
-                    fontWeight: 500, lineHeight: 1.15, margin: 0, display: 'flex', justifyContent: 'center', gap: '0.8rem', flexWrap: 'wrap'
-                  }}
+                  style={{color: 'var(--wine)',
+                    lineHeight: 1.15, margin: 0, display: 'flex', justifyContent: 'center', gap: '0.8rem', flexWrap: 'wrap'}}
                 >
                   {["Wellness", "Journal"].map((word, idx) => (
                     <motion.span
@@ -609,7 +607,7 @@ export default function Blog({ onNavigate }) {
                 <span style={{ fontSize: '0.78rem', color: 'var(--raisin-black)', opacity: 0.6, fontWeight: 500 }}>{selectedArticle.readTime}</span>
               </div>
               
-              <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem, 5vw, 3.2rem)', color: 'var(--wine)', lineHeight: 1.25, margin: '0.5rem 0 0 0', fontWeight: 700 }}>
+              <h1 style={{color: 'var(--wine)', lineHeight: 1.25, margin: '0.5rem 0 0 0',}}>
                 {selectedArticle.title}
               </h1>
               
@@ -656,7 +654,6 @@ export default function Blog({ onNavigate }) {
                       <p key={pidx} style={{ position: 'relative' }}>
                         <span style={{
                           float: 'left',
-                          fontFamily: 'var(--font-heading)',
                           fontSize: '4.2rem',
                           lineHeight: '3.5rem',
                           paddingTop: '4px',
@@ -679,7 +676,7 @@ export default function Blog({ onNavigate }) {
             {/* Related Posts Drawer Section */}
             {relatedArticles.length > 0 && (
               <div style={{ marginTop: '5rem', paddingTop: '3.5rem', borderTop: '1px solid rgba(94, 39, 53, 0.08)' }}>
-                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', color: 'var(--wine)', marginBottom: '2rem', fontWeight: 700 }}>Related Articles</h3>
+                <h3 style={{color: 'var(--wine)', marginBottom: '2rem',}}>Related Articles</h3>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
                   {relatedArticles.map((art) => {
                     const relatedImg = art.isSanityPost ? urlForSanityImage(art.imgRef) : art.img;
@@ -699,7 +696,7 @@ export default function Blog({ onNavigate }) {
                         </div>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
                           <span style={{ fontSize: '0.65rem', color: 'var(--redwood)', fontWeight: 700, textTransform: 'uppercase' }}>{art.category}</span>
-                          <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', color: 'var(--wine)', margin: 0, fontWeight: 700, lineHeight: 1.3 }}>{art.title}</h4>
+                          <h4 style={{color: 'var(--wine)', margin: 0, lineHeight: 1.3}}>{art.title}</h4>
                         </div>
                       </div>
                     );
@@ -711,7 +708,7 @@ export default function Blog({ onNavigate }) {
             {/* Final CTA in post */}
             <div style={{ border: '1px solid rgba(220,160,50,0.3)', borderRadius: '12px', padding: '3rem 2.5rem', backgroundColor: 'var(--antique-white)', marginTop: '4.5rem', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'radial-gradient(circle, rgba(220,160,50,0.03) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none' }} />
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', color: 'var(--wine)', marginBottom: '0.8rem', fontWeight: 700, position: 'relative', zIndex: 1 }}>Inspired by this article?</h3>
+              <h3 style={{color: 'var(--wine)', marginBottom: '0.8rem', position: 'relative', zIndex: 1}}>Inspired by this article?</h3>
               <p style={{ fontSize: '0.92rem', opacity: 0.8, lineHeight: 1.6, maxWidth: '500px', margin: '0 auto 2rem auto', position: 'relative', zIndex: 1 }}>
                 Join our retreats to experience these therapies firsthand, custom-prescribed for your body type.
               </p>

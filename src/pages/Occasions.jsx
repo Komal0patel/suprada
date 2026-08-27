@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Pattern24, Pattern25 } from '../AnimatedPatterns';
+import { Sun, Sprout, Leaf, Heart, Home, Users, Sparkles, Utensils, Droplet, Award, Handshake, Building, Crown, Check } from 'lucide-react';
 
 const blurFadeIn = {
   hidden: { opacity: 0, y: 35, filter: "blur(8px)" },
@@ -95,7 +96,7 @@ export default function Occasions({ onNavigate }) {
 
   const pillarsList = [
     {
-      icon: '☀️',
+      icon: <Sun size={20} />,
       title: 'Natural Energy Sources',
       desc: 'Our infrastructure prioritizes renewable energy, natural lighting, and minimal environmental impact — reducing carbon footprint by up to 70% compared to conventional event venues.',
       stat: '70% CO2 Reduction',
@@ -103,7 +104,7 @@ export default function Occasions({ onNavigate }) {
       img: '/assets/retreat.png'
     },
     {
-      icon: '🌱',
+      icon: <Sprout size={20} />,
       title: 'Zero-Waste Philosophy',
       desc: 'Events at Suprada follow our zero-waste principles — locally sourced, plant-based meals, biodegradable materials, and practices that regenerate rather than deplete natural resources.',
       stat: '100% Biodegradable',
@@ -111,7 +112,7 @@ export default function Occasions({ onNavigate }) {
       img: '/assets/nutrition.png'
     },
     {
-      icon: '🍃',
+      icon: <Leaf size={20} />,
       title: 'Nature-Integrated Design',
       desc: 'Unlike commercial resorts focused on consumption, our spaces are designed to integrate with nature — outdoor pavilions, open-air courtyards, and natural ventilation eliminate the need for excessive energy use.',
       stat: 'Zero HVAC Dependency',
@@ -211,17 +212,17 @@ export default function Occasions({ onNavigate }) {
 
   const wellnessDiffList = [
     {
-      icon: '🍃',
+      icon: <Leaf size={20} />,
       title: 'Wellness Over Consumption',
       desc: 'Events prioritize transformation and healing over material consumption. Activities center around yoga, meditation, nature walks, and therapeutic sessions — inherently low-carbon experiences that enrich rather than exhaust.'
     },
     {
-      icon: '💖',
+      icon: <Heart size={20} />,
       title: 'Authentic Connection',
       desc: 'Unlike commercial venues designed for transactions, wellness centers foster genuine connections with nature, self, and community. This authenticity reduces the need for excessive decoration, entertainment, and resources.'
     },
     {
-      icon: '🏡',
+      icon: <Home size={20} />,
       title: 'Built-in Sustainability',
       desc: 'Our architecture uses natural materials — mud plaster, recycled stone, lime — which have minimal carbon footprint. The spaces breathe with nature, requiring less artificial climate control and energy consumption.'
     }
@@ -296,12 +297,12 @@ export default function Occasions({ onNavigate }) {
   };
 
   const celebrationTypes = [
-    { title: 'Anniversaries', desc: 'Intimate wellness retreats designed for couples to reconnect and rejuvenate together.', icon: '❤️', img: '/assets/occasions.png' },
-    { title: 'Family Gatherings', desc: 'Reconnect in nature with tailored group wellness programs for extended families.', icon: '👥', img: '/assets/events.jpg' },
-    { title: 'Wedding Celebrations', desc: 'Pre-wedding wellness sessions, Haldi ceremonies, and post-wedding rejuvenation packages.', icon: '✨', img: '/assets/private-courtyard.webp' },
-    { title: 'Private Dinners & Celebrations', desc: 'Exclusive dining experiences across serene natural settings with curated wellness menus.', icon: '🍽️', img: '/assets/occasions.png' },
-    { title: 'Group Wellness Sessions', desc: 'Private yoga, meditation, aqua therapy, and sound healing sessions for groups.', icon: '💧', img: '/assets/yoga-meditation.jpg' },
-    { title: 'Special Occasions', desc: 'Birthdays, milestones, reunions — redefined the Suprada way with wellness at the core.', icon: '🎗️', img: '/assets/spa-interior.jpg' }
+    { title: 'Anniversaries', desc: 'Intimate wellness retreats designed for couples to reconnect and rejuvenate together.', icon: <Heart size={20} />, img: '/assets/occasions.png' },
+    { title: 'Family Gatherings', desc: 'Reconnect in nature with tailored group wellness programs for extended families.', icon: <Users size={20} />, img: '/assets/events.jpg' },
+    { title: 'Wedding Celebrations', desc: 'Pre-wedding wellness sessions, Haldi ceremonies, and post-wedding rejuvenation packages.', icon: <Sparkles size={20} />, img: '/assets/private-courtyard.webp' },
+    { title: 'Private Dinners & Celebrations', desc: 'Exclusive dining experiences across serene natural settings with curated wellness menus.', icon: <Utensils size={20} />, img: '/assets/occasions.png' },
+    { title: 'Group Wellness Sessions', desc: 'Private yoga, meditation, aqua therapy, and sound healing sessions for groups.', icon: <Droplet size={20} />, img: '/assets/yoga-meditation.jpg' },
+    { title: 'Special Occasions', desc: 'Birthdays, milestones, reunions — redefined the Suprada way with wellness at the core.', icon: <Award size={20} />, img: '/assets/spa-interior.jpg' }
   ];
 
   const hinduCeremonies = [
@@ -433,10 +434,8 @@ export default function Occasions({ onNavigate }) {
             }}
             initial="hidden"
             animate="visible"
-            style={{
-              fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.5rem, 5.2vw, 4.2rem)', color: '#ffffff',
-              fontWeight: 500, lineHeight: 1.15, margin: 0, display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap'
-            }}
+            style={{color: '#ffffff',
+              lineHeight: 1.15, margin: 0, display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap'}}
           >
             {["Occasions", "at", "Suprada"].map((word, idx) => (
               <motion.span
@@ -530,7 +529,7 @@ export default function Occasions({ onNavigate }) {
                     initial={{ y: 15, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.3, type: 'spring', stiffness: 100 }}
-                    style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem', color: 'var(--tan)', margin: 0, fontWeight: 500 }}
+                    style={{color: 'var(--tan)', margin: 0,}}
                   >
                     {pillarsList[activePillar].stat}
                   </motion.h3>
@@ -543,7 +542,7 @@ export default function Occasions({ onNavigate }) {
           <div className="flex-stack-mobile" style={{ display: 'flex', flexDirection: 'column', gap: '2.2rem' }}>
             <div>
               <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.2em', fontSize: '0.78rem', fontWeight: 700, display: 'block', marginBottom: '0.6rem' }}>Event Innovation</span>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.4rem', color: 'var(--wine)', fontWeight: 500, lineHeight: 1.2, margin: 0 }}>
+              <h2 style={{color: 'var(--wine)', lineHeight: 1.2, margin: 0}}>
                 Why Wellness Centers Lead in Carbon-Free Events
               </h2>
             </div>
@@ -584,7 +583,7 @@ export default function Occasions({ onNavigate }) {
                     </div>
                     
                     <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, paddingTop: '0.2rem' }}>
-                      <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', color: 'var(--wine)', margin: 0, fontWeight: 600 }}>
+                      <h4 style={{color: 'var(--wine)', margin: 0,}}>
                         {item.title}
                       </h4>
                       
@@ -636,7 +635,7 @@ export default function Occasions({ onNavigate }) {
               <span style={{ fontSize: '0.9rem' }}>💡</span>
               <span style={{ textTransform: 'uppercase', letterSpacing: '0.15em', fontSize: '0.68rem', fontWeight: 800, color: 'var(--wine)' }}>Exclusive Insight</span>
             </div>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.8rem, 3.2vw, 2.6rem)', color: 'var(--wine)', fontWeight: 500, margin: 0, lineHeight: 1.2 }}>
+            <h2 style={{color: 'var(--wine)', margin: 0, lineHeight: 1.2}}>
               The Wellness Difference
             </h2>
             <p style={{ color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '620px', margin: '0.4rem auto 0 auto', fontSize: '0.92rem', lineHeight: 1.5 }}>
@@ -708,7 +707,7 @@ export default function Occasions({ onNavigate }) {
                     <span style={{ fontSize: '1.8rem', marginBottom: '0.3rem' }}>
                       {wellnessDiffList[diffSlideIdx].icon}
                     </span>
-                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.12rem', color: 'var(--harvest-gold)', margin: '0 0 0.5rem 0', fontWeight: 600, lineHeight: 1.25 }}>
+                    <h3 style={{color: 'var(--harvest-gold)', margin: '0 0 0.5rem 0', lineHeight: 1.25}}>
                       {wellnessDiffList[diffSlideIdx].title}
                     </h3>
                     <p style={{ fontSize: '0.8rem', color: 'var(--isabelline)', opacity: 0.92, lineHeight: 1.5, margin: 0, fontWeight: 300 }}>
@@ -826,7 +825,7 @@ export default function Occasions({ onNavigate }) {
                     <span style={{ fontSize: '1.8rem', display: 'block', marginBottom: '0.4rem' }}>
                       {wellnessDiffList[diffSlideIdx].icon}
                     </span>
-                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', color: 'var(--harvest-gold)', margin: '0 0 0.5rem 0', fontWeight: 600 }}>
+                    <h3 style={{color: 'var(--harvest-gold)', margin: '0 0 0.5rem 0',}}>
                       {wellnessDiffList[diffSlideIdx].title}
                     </h3>
                     <p style={{ fontSize: '0.85rem', color: 'var(--isabelline)', opacity: 0.9, lineHeight: 1.55, margin: 0, fontWeight: 300 }}>
@@ -882,7 +881,7 @@ export default function Occasions({ onNavigate }) {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2rem', flexWrap: 'wrap', gap: '1.5rem' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', maxWidth: '750px' }}>
               <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.75rem', fontWeight: 700, display: 'block' }}>Healthcations</span>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', color: 'var(--wine)', fontWeight: 500, margin: 0 }}>
+              <h2 style={{color: 'var(--wine)', margin: 0}}>
                 Wellness-Themed Celebrations
               </h2>
               <AnimatedParagraph
@@ -1062,7 +1061,7 @@ export default function Occasions({ onNavigate }) {
 
                       {/* Content */}
                       <div style={{ position: 'relative', zIndex: 2, color: '#ffffff', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                        <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', color: 'var(--tan)', margin: 0, fontWeight: 500 }}>
+                        <h3 style={{color: 'var(--tan)', margin: 0,}}>
                           {item.title}
                         </h3>
                         <p style={{
@@ -1095,7 +1094,7 @@ export default function Occasions({ onNavigate }) {
         <Pattern25 style={{ position: 'absolute', top: '10%', left: '-80px', maxWidth: '340px', width: '100%', height: 'auto', opacity: 0.12, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.8rem', color: 'var(--wine)', fontWeight: 500 }}>
+            <h2 style={{color: 'var(--wine)',}}>
               Traditional Hindu Ceremonies
             </h2>
             <AnimatedParagraph
@@ -1285,7 +1284,7 @@ export default function Occasions({ onNavigate }) {
                           </motion.span>
                         </div>
 
-                        <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.2rem', color: 'var(--wine)', margin: '0 0 1.2rem 0', fontWeight: 600, display: 'flex', flexWrap: 'wrap' }}>
+                        <h3 style={{color: 'var(--wine)', margin: '0 0 1.2rem 0', display: 'flex', flexWrap: 'wrap'}}>
                           {activeCeremony.name.split("").map((char, index) => (
                             <motion.span
                               key={index}
@@ -1348,7 +1347,7 @@ export default function Occasions({ onNavigate }) {
             
             {/* Section Header */}
             <div style={{ textAlign: 'center', marginBottom: '1.8rem' }}>
-              <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.65rem', color: 'var(--wine)', margin: 0, fontWeight: 600 }}>
+              <h4 style={{color: 'var(--wine)', margin: 0,}}>
                 Our Service Offerings
               </h4>
               <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black)', opacity: 0.85, margin: '0.4rem 0 0 0', fontWeight: 400 }}>
@@ -1494,7 +1493,7 @@ export default function Occasions({ onNavigate }) {
               <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.75rem', fontWeight: 800, display: 'block', marginBottom: '0.6rem' }}>
                 EXECUTIVE RECOVERY &amp; VITALITY
               </span>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', color: 'var(--wine)', fontWeight: 500, lineHeight: 1.25 }}>
+              <h2 style={{color: 'var(--wine)', lineHeight: 1.25}}>
                 Corporate Wellness, Team Building &amp; Retreats
               </h2>
               <p style={{ fontSize: '0.98rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.75, marginTop: '1.2rem', marginBottom: '1.8rem' }}>
@@ -1536,7 +1535,7 @@ export default function Occasions({ onNavigate }) {
                 <span style={{ backgroundColor: 'var(--harvest-gold)', color: 'var(--wine)', padding: '0.3rem 0.8rem', borderRadius: '20px', fontSize: '0.62rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
                   Estate Infrastructure
                 </span>
-                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', color: '#ffffff', margin: '0.4rem 0 0 0', fontWeight: 500 }}>
+                <h3 style={{color: '#ffffff', margin: '0.4rem 0 0 0',}}>
                   High-Ceiling Conference Sanctuary
                 </h3>
               </div>
@@ -1573,7 +1572,7 @@ export default function Occasions({ onNavigate }) {
               <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
                 INTERVENTIONS &amp; MODULES
               </span>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', color: 'var(--wine)', fontWeight: 600, margin: 0 }}>
+              <h3 style={{color: 'var(--wine)', margin: 0}}>
                 Corporate Retreat Activities
               </h3>
               <p style={{ fontSize: '0.92rem', color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '600px', margin: '0.5rem auto 0 auto', lineHeight: 1.6 }}>
@@ -1633,7 +1632,7 @@ export default function Occasions({ onNavigate }) {
                     {box.badge}
                   </span>
 
-                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', color: 'var(--wine)', margin: '0 0 0.5rem 0', fontWeight: 600, lineHeight: 1.3 }}>
+                  <h4 style={{color: 'var(--wine)', margin: '0 0 0.5rem 0', lineHeight: 1.3}}>
                     {box.title}
                   </h4>
 
@@ -1657,7 +1656,7 @@ export default function Occasions({ onNavigate }) {
             <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.72rem', fontWeight: 700, display: 'block', marginBottom: '0.6rem' }}>
               SANCTUARY ARCHITECTURE
             </span>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.2rem, 4.5vw, 3.2rem)', color: 'var(--wine)', fontWeight: 500, margin: 0 }}>
+            <h2 style={{color: 'var(--wine)', margin: 0}}>
               Spaces to Celebrate
             </h2>
             <p style={{ color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '680px', margin: '0.8rem auto 0 auto', fontSize: '0.96rem', lineHeight: 1.65 }}>
@@ -1878,7 +1877,7 @@ export default function Occasions({ onNavigate }) {
                   }}>
                     {venue.role}
                   </span>
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', color: '#ffffff', margin: 0, fontWeight: 600, lineHeight: 1.2 }}>
+                  <h3 style={{color: '#ffffff', margin: 0, lineHeight: 1.2}}>
                     {venue.name}
                   </h3>
                 </div>
@@ -1920,7 +1919,7 @@ export default function Occasions({ onNavigate }) {
                       </span>
                     </div>
 
-                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', color: 'var(--tan)', margin: '0.15rem 0 0 0', fontWeight: 600, lineHeight: 1.25 }}>
+                    <h3 style={{color: 'var(--tan)', margin: '0.15rem 0 0 0', lineHeight: 1.25}}>
                       {venue.name}
                     </h3>
 
@@ -2116,11 +2115,11 @@ export default function Occasions({ onNavigate }) {
                   }}>
                     {activeSpaceModal.role}
                   </span>
-                  <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.8rem, 5.5vw, 4.2rem)', color: '#ffffff', margin: 0, fontWeight: 500, lineHeight: 1.1 }}>
+                  <h1 style={{color: '#ffffff', margin: 0, lineHeight: 1.1}}>
                     {activeSpaceModal.name}
                   </h1>
                   {activeSpaceModal.tagline && (
-                    <p style={{ color: 'var(--tan)', fontSize: '1.35rem', margin: '0.6rem 0 0 0', fontFamily: 'var(--font-heading)', fontStyle: 'italic' }}>
+                    <p style={{ color: 'var(--tan)', fontSize: '1.35rem', margin: '0.6rem 0 0 0', fontStyle: 'italic' }}>
                       {activeSpaceModal.tagline}
                     </p>
                   )}
@@ -2189,13 +2188,13 @@ export default function Occasions({ onNavigate }) {
                     {/* Purpose-Built Features */}
                     {activeSpaceModal.features && (
                       <div style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '2.5rem', border: '1px solid rgba(94, 39, 53, 0.08)', boxShadow: '0 8px 25px rgba(94, 39, 53, 0.03)' }}>
-                        <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', color: 'var(--wine)', marginTop: 0, marginBottom: '1.4rem', fontWeight: 600 }}>
+                        <h3 style={{color: 'var(--wine)', marginTop: 0, marginBottom: '1.4rem',}}>
                           Purpose-Built Features
                         </h3>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.2rem' }}>
                           {activeSpaceModal.features.map((feat, fIdx) => (
                             <div key={fIdx} style={{ display: 'flex', alignItems: 'center', gap: '0.9rem', fontSize: '0.98rem', color: 'var(--raisin-black)', opacity: 0.9 }}>
-                              <span style={{ width: '24px', height: '24px', borderRadius: '50%', backgroundColor: 'var(--wine)', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', fontWeight: 800, flexShrink: 0 }}>✓</span>
+                              <span style={{ width: '24px', height: '24px', borderRadius: '50%', backgroundColor: 'var(--wine)', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><Check size={12} /></span>
                               <span style={{ lineHeight: 1.4 }}>{feat}</span>
                             </div>
                           ))}
@@ -2243,7 +2242,7 @@ export default function Occasions({ onNavigate }) {
                       flexDirection: 'column',
                       gap: '1.5rem'
                     }}>
-                      <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', color: 'var(--wine)', margin: 0, fontWeight: 700, borderBottom: '1px solid rgba(94,39,53,0.15)', paddingBottom: '0.8rem' }}>
+                      <h4 style={{color: 'var(--wine)', margin: 0, borderBottom: '1px solid rgba(94,39,53,0.15)', paddingBottom: '0.8rem'}}>
                         Sanctuary Specifications
                       </h4>
 
@@ -2251,7 +2250,7 @@ export default function Occasions({ onNavigate }) {
                         <span style={{ fontSize: '0.75rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '0.3rem' }}>
                           Guest Capacity
                         </span>
-                        <strong style={{ fontSize: '1.3rem', color: 'var(--wine)', fontFamily: 'var(--font-heading)' }}>
+                        <strong style={{ fontSize: '1.3rem', color: 'var(--wine)', }}>
                           {activeSpaceModal.capacity}
                         </strong>
                       </div>
@@ -2260,7 +2259,7 @@ export default function Occasions({ onNavigate }) {
                         <span style={{ fontSize: '0.75rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '0.3rem' }}>
                           Architectural Setting
                         </span>
-                        <strong style={{ fontSize: '1.2rem', color: 'var(--wine)', fontFamily: 'var(--font-heading)' }}>
+                        <strong style={{ fontSize: '1.2rem', color: 'var(--wine)', }}>
                           {activeSpaceModal.setting}
                         </strong>
                       </div>
@@ -2269,7 +2268,7 @@ export default function Occasions({ onNavigate }) {
                         <span style={{ fontSize: '0.75rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '0.3rem' }}>
                           Estate Location
                         </span>
-                        <strong style={{ fontSize: '1.2rem', color: 'var(--wine)', fontFamily: 'var(--font-heading)' }}>
+                        <strong style={{ fontSize: '1.2rem', color: 'var(--wine)', }}>
                           Suprada 10-Acres Forest Estate
                         </strong>
                       </div>
@@ -2410,7 +2409,7 @@ export default function Occasions({ onNavigate }) {
             <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.78rem', fontWeight: 800, display: 'block', marginBottom: '0.8rem' }}>
               The Suprada Difference
             </span>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.4rem, 4vw, 3.2rem)', color: 'var(--wine)', fontWeight: 500, margin: 0 }}>
+            <h2 style={{color: 'var(--wine)', margin: 0}}>
               Why Suprada for Occasions
             </h2>
             <p style={{ color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '620px', margin: '1.2rem auto 0 auto', fontSize: '1rem', lineHeight: 1.7, fontWeight: 300 }}>
@@ -2421,7 +2420,7 @@ export default function Occasions({ onNavigate }) {
           <div className="why-suprada-grid">
             {[
               {
-                icon: '🍃',
+                icon: <Leaf size={20} />,
                 title: 'Nature-based healing',
                 desc: 'Experience wellness in harmony with serene natural surroundings.',
                 badgeColor: '#2E5A36',
@@ -2430,7 +2429,7 @@ export default function Occasions({ onNavigate }) {
                 accentGlow: 'rgba(46, 90, 54, 0.15)'
               },
               {
-                icon: '🤝',
+                icon: <Handshake size={20} />,
                 title: 'Exclusive wellness integrations',
                 desc: 'Every celebration includes custom therapeutic session plans.',
                 badgeColor: 'var(--redwood)',
@@ -2439,7 +2438,7 @@ export default function Occasions({ onNavigate }) {
                 accentGlow: 'rgba(184, 94, 76, 0.15)'
               },
               {
-                icon: '🏛️',
+                icon: <Building size={20} />,
                 title: 'Private & customizable spaces',
                 desc: 'Versatile hybrid indoor-outdoor venues tailored to your vision.',
                 badgeColor: '#B57E1E',
@@ -2448,7 +2447,7 @@ export default function Occasions({ onNavigate }) {
                 accentGlow: 'rgba(220, 160, 50, 0.2)'
               },
               {
-                icon: '👑',
+                icon: <Crown size={20} />,
                 title: 'Expert team and hospitality',
                 desc: 'Dedicated wellness concierge team ensuring flawless execution.',
                 badgeColor: 'var(--wine)',
@@ -2524,14 +2523,9 @@ export default function Occasions({ onNavigate }) {
                 </motion.div>
 
                 {/* Card Title & Description */}
-                <h4 style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '1.3rem',
-                  color: 'var(--wine)',
+                <h4 style={{color: 'var(--wine)',
                   margin: 0,
-                  fontWeight: 600,
-                  lineHeight: 1.3
-                }}>
+                  lineHeight: 1.3}}>
                   {feat.title}
                 </h4>
 
@@ -2568,7 +2562,7 @@ export default function Occasions({ onNavigate }) {
         <div style={{ maxWidth: '700px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.2em', fontSize: '0.75rem', fontWeight: 700, display: 'block', marginBottom: '0.8rem' }}>Inquiry</span>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.4rem', color: 'var(--wine)', fontWeight: 500 }}>
+            <h2 style={{color: 'var(--wine)',}}>
               Start Planning Your Occasion
             </h2>
             <p style={{ color: 'var(--raisin-black)', opacity: 0.8, fontSize: '0.92rem', marginTop: '0.5rem' }}>
@@ -2583,7 +2577,7 @@ export default function Occasions({ onNavigate }) {
               style={{ backgroundColor: '#ffffff', border: '1px solid rgba(94, 39, 53, 0.1)', padding: '3.5rem', borderRadius: '16px', textAlign: 'center', boxShadow: '0 15px 40px rgba(94, 39, 53, 0.05)' }}
             >
               <div style={{ fontSize: '3rem', marginBottom: '1.2rem' }}>🌿</div>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem', color: 'var(--wine)', marginBottom: '0.8rem', fontWeight: 600 }}>Thank You</h3>
+              <h3 style={{color: 'var(--wine)', marginBottom: '0.8rem',}}>Thank You</h3>
               <p style={{ fontSize: '0.92rem', opacity: 0.85, lineHeight: 1.6, maxWidth: '400px', margin: '0 auto' }}>
                 Your inquiry has been received. Our event coordinator and medical officers will connect with you within 24 hours to schedule a consultation call.
               </p>
@@ -2759,7 +2753,7 @@ export default function Occasions({ onNavigate }) {
         <div style={{ position: 'absolute', top: '-20%', left: '30%', maxWidth: '600px', width: '100%', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.08) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(70px)', zIndex: 0 }} />
 
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center' }}>
-          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', color: 'var(--tan)', fontWeight: 500, margin: 0 }}>
+          <h2 style={{color: 'var(--tan)', margin: 0}}>
             Let's Craft Your Wellness-Themed Occasion
           </h2>
           <p style={{ opacity: 0.85, fontSize: '1rem', lineHeight: 1.6, maxWidth: '600px', margin: 0 }}>

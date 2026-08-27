@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Pattern24, Pattern27 } from '../AnimatedPatterns';
+import { Wifi, Wind, Coffee, Droplet, Sparkles, Leaf, Waves, Trees, Sunrise, MapPin, Check, X } from 'lucide-react';
 import TwinklingLights from '../components/TwinklingLights';
 import DecorativeSVG from '../components/DecorativeSVG';
 
@@ -439,12 +440,12 @@ export default function Stay({ onNavigate }) {
 
   // Scraped Amenities
   const amenitiesList = [
-    { name: 'Digital Balance', desc: 'High-speed WiFi in rooms, digital-free zones elsewhere.', icon: '📶', tag: 'Mental Detox' },
-    { name: 'Climate Control', desc: 'Eco-friendly air conditioning and natural cross-ventilation.', icon: '🍃', tag: 'Fresh Air' },
-    { name: 'Herbal Station', desc: 'In-room herbal teas and infusions for daily detox.', icon: '🍵', tag: 'Organic Infusions' },
-    { name: 'Pure Water', desc: 'Mineral-rich, filtered drinking water provided daily.', icon: '💧', tag: 'Mineral Hydration' },
-    { name: 'Eco Toiletries', desc: 'Handcrafted, chemical-free soaps and shampoos.', icon: '🧼', tag: 'Chemical-Free' },
-    { name: 'Daily Housekeeping', desc: 'Mindful cleaning service with eco-safe products.', icon: '🧹', tag: 'Mindful Care' }
+    { name: 'Digital Balance', desc: 'High-speed WiFi in rooms, digital-free zones elsewhere.', icon: <Wifi size={20} />, tag: 'Mental Detox' },
+    { name: 'Climate Control', desc: 'Eco-friendly air conditioning and natural cross-ventilation.', icon: <Wind size={20} />, tag: 'Fresh Air' },
+    { name: 'Herbal Station', desc: 'In-room herbal teas and infusions for daily detox.', icon: <Coffee size={20} />, tag: 'Organic Infusions' },
+    { name: 'Pure Water', desc: 'Mineral-rich, filtered drinking water provided daily.', icon: <Droplet size={20} />, tag: 'Mineral Hydration' },
+    { name: 'Eco Toiletries', desc: 'Handcrafted, chemical-free soaps and shampoos.', icon: <Sparkles size={20} />, tag: 'Chemical-Free' },
+    { name: 'Daily Housekeeping', desc: 'Mindful cleaning service with eco-safe products.', icon: <Sparkles size={20} />, tag: 'Mindful Care' }
   ];
 
   // Configurator Addons & Diets
@@ -524,11 +525,11 @@ export default function Stay({ onNavigate }) {
 
   // Campus Zones
   const campusZones = [
-    { id: 'All', name: 'All Estate Zones' },
-    { id: 'North Garden Quad', name: '🌿 North Garden Quad' },
-    { id: 'Riverfront Bend', name: '🌊 Riverfront Bend' },
-    { id: 'Forest Seclusion', name: '🌲 Deep Forest Seclusion' },
-    { id: 'Canopy Ridge', name: '🌄 Canopy Ridge' }
+    { id: 'All', name: 'All Estate Zones', icon: null },
+    { id: 'North Garden Quad', name: 'North Garden Quad', icon: <Leaf size={14} /> },
+    { id: 'Riverfront Bend', name: 'Riverfront Bend', icon: <Waves size={14} /> },
+    { id: 'Forest Seclusion', name: 'Deep Forest Seclusion', icon: <Trees size={14} /> },
+    { id: 'Canopy Ridge', name: 'Canopy Ridge', icon: <Sunrise size={14} /> }
   ];
 
   const [cardPhotoMap, setCardPhotoMap] = useState({});
@@ -642,15 +643,10 @@ export default function Stay({ onNavigate }) {
               ✦ Sanctuary Living ✦
             </span>
 
-            <h1 style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(3.2rem, 5.8vw, 5.2rem)',
-              fontWeight: 600,
-              lineHeight: 1.08,
+            <h1 style={{lineHeight: 1.08,
               color: 'var(--wine)',
               marginBottom: '1.5rem',
-              letterSpacing: '-0.01em'
-            }}>
+              letterSpacing: '-0.01em'}}>
               A Sanctuary for Mindful Living
             </h1>
 
@@ -710,7 +706,7 @@ export default function Stay({ onNavigate }) {
               Sanctuary
             </span>
           </div>
-          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)', fontWeight: 600, color: 'var(--wine)', marginBottom: '1.2rem' }}>
+          <h2 style={{color: 'var(--wine)', marginBottom: '1.2rem'}}>
             Your Personal <span style={{ color: 'var(--harvest-gold)' }}>Sanctuary</span>
           </h2>
           <p style={{ fontSize: '1.1rem', lineHeight: 1.8, opacity: 0.85, maxWidth: '800px', margin: '0 auto', fontWeight: 300 }}>
@@ -732,7 +728,7 @@ export default function Stay({ onNavigate }) {
             <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.78rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
               ✦ Sanctuary Portfolio ✦
             </span>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.6rem, 4.8vw, 4.2rem)', color: 'var(--wine)', fontWeight: 600 }}>
+            <h2 style={{color: 'var(--wine)',}}>
               Distinctive Living Spaces
             </h2>
             <p style={{ opacity: 0.8, maxWidth: '650px', margin: '0.5rem auto 0 auto', fontSize: '1.05rem', lineHeight: 1.7, fontWeight: 300 }}>
@@ -749,8 +745,11 @@ export default function Stay({ onNavigate }) {
                 key={z.id}
                 onClick={() => setSelectedZone(z.id)}
                 className={`btn-luxury-pill ${selectedZone === z.id ? 'active' : ''}`}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.48rem' }}
               >
-                {selectedZone === z.id && <span>✦</span>} {z.name}
+                {selectedZone === z.id && <span>✦</span>}
+                {z.icon}
+                <span>{z.name}</span>
               </button>
             ))}
           </div>
@@ -1021,7 +1020,7 @@ export default function Stay({ onNavigate }) {
                         {cottage.roman} • {cottage.zone}
                       </div>
 
-                      <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', color: 'var(--wine)', fontWeight: 600, marginTop: '0.1rem', marginBottom: '0.5rem' }}>
+                      <h3 style={{color: 'var(--wine)', marginTop: '0.1rem', marginBottom: '0.5rem'}}>
                         {cottage.name}
                       </h3>
 
@@ -1103,7 +1102,7 @@ export default function Stay({ onNavigate }) {
                             color: isCompared ? 'var(--harvest-gold)' : 'var(--wine)'
                           }}
                         >
-                          {isCompared ? '✓ Compared' : '+ Compare'}
+                          {isCompared ? <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}><Check size={14} /> Compared</span> : '+ Compare'}
                         </button>
                       </div>
 
@@ -1131,7 +1130,7 @@ export default function Stay({ onNavigate }) {
               <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem', opacity: 0.85 }}>
                 ✦ Curated Comforts
               </span>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem, 3.8vw, 2.8rem)', color: 'var(--wine)', fontWeight: 600, lineHeight: 1.15, margin: 0 }}>
+              <h2 style={{color: 'var(--wine)', lineHeight: 1.15, margin: 0}}>
                 Thoughtful<br />Amenities
               </h2>
             </div>
@@ -1185,7 +1184,7 @@ export default function Stay({ onNavigate }) {
                   </span>
                 </div>
                 <div>
-                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.96rem', color: 'var(--wine)', fontWeight: 600, margin: '0 0 0.25rem 0', lineHeight: 1.25 }}>
+                  <h4 style={{color: 'var(--wine)', margin: '0 0 0.25rem 0', lineHeight: 1.25}}>
                     {item.name}
                   </h4>
                   <p style={{ fontSize: '0.74rem', color: 'var(--wine)', opacity: 0.85, lineHeight: 1.45, margin: 0, fontWeight: 400 }}>
@@ -1242,7 +1241,7 @@ export default function Stay({ onNavigate }) {
                     {amenitiesList[0].tag}
                   </span>
                 </div>
-                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.65rem', color: 'var(--wine)', fontWeight: 600, marginBottom: '0.4rem' }}>
+                <h3 style={{color: 'var(--wine)', marginBottom: '0.4rem'}}>
                   {amenitiesList[0].name}
                 </h3>
                 <p style={{ fontSize: '0.88rem', color: 'var(--wine)', opacity: 0.85, lineHeight: 1.6, maxWidth: '380px' }}>
@@ -1293,7 +1292,7 @@ export default function Stay({ onNavigate }) {
                   </div>
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.3rem' }}>
-                      <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', color: 'var(--wine)', fontWeight: 600, margin: 0 }}>
+                      <h4 style={{color: 'var(--wine)', margin: 0}}>
                         {item.name}
                       </h4>
                       <span style={{ fontSize: '0.6rem', textTransform: 'uppercase', color: '#b5801c', fontWeight: 800, letterSpacing: '0.1em' }}>
@@ -1355,7 +1354,7 @@ export default function Stay({ onNavigate }) {
                   </span>
                 </div>
 
-                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', color: 'var(--wine)', fontWeight: 600, margin: 0 }}>
+                <h3 style={{color: 'var(--wine)', margin: 0}}>
                   {item.name}
                 </h3>
                 <p style={{ fontSize: '0.8rem', color: 'var(--wine)', opacity: 0.82, lineHeight: 1.55, margin: 0 }}>
@@ -1376,7 +1375,7 @@ export default function Stay({ onNavigate }) {
           <span style={{ color: 'var(--harvest-gold)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.22em', fontWeight: 800, display: 'block', marginBottom: '1rem' }}>
             Built with Earth in Mind
           </span>
-          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.2rem, 4vw, 3.4rem)', color: 'var(--tan)', fontWeight: 500, lineHeight: 1.25 }}>
+          <h2 style={{color: 'var(--tan)', lineHeight: 1.25}}>
             "Our structures are built using locally sourced stone, lime plaster, and reclaimed wood. We honor the land so that the land may heal you."
           </h2>
         </div>
@@ -1425,15 +1424,15 @@ export default function Stay({ onNavigate }) {
             >
               <button
                 onClick={() => setActiveBookingModal(null)}
-                style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', border: 'none', background: 'none', fontSize: '1.4rem', cursor: 'pointer' }}
+                style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', border: 'none', background: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
               >
-                ✕
+                <X size={20} />
               </button>
 
               <span style={{ color: 'var(--redwood)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 800 }}>
                 Direct Reservation
               </span>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.2rem', color: 'var(--wine)', marginTop: '0.2rem', marginBottom: '1rem' }}>
+              <h2 style={{color: 'var(--wine)', marginTop: '0.2rem', marginBottom: '1rem'}}>
                 Reserve {activeBookingModal.name}
               </h2>
 
@@ -1559,12 +1558,12 @@ export default function Stay({ onNavigate }) {
             >
               <button
                 onClick={() => setSelectedHotspot(null)}
-                style={{ position: 'absolute', top: '1rem', right: '1rem', border: 'none', background: 'none', fontSize: '1.2rem', cursor: 'pointer' }}
+                style={{ position: 'absolute', top: '1rem', right: '1rem', border: 'none', background: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
               >
-                ✕
+                <X size={20} />
               </button>
-              <span style={{ fontSize: '2.2rem', display: 'block', marginBottom: '0.5rem' }}>📍</span>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', color: 'var(--wine)', marginBottom: '0.5rem' }}>
+              <MapPin size={32} style={{ color: 'var(--wine)', display: 'block', marginBottom: '0.5rem' }} />
+              <h3 style={{color: 'var(--wine)', marginBottom: '0.5rem'}}>
                 {selectedHotspot.title}
               </h3>
               <p style={{ fontSize: '0.9rem', opacity: 0.8, lineHeight: 1.6 }}>
@@ -1617,9 +1616,9 @@ export default function Stay({ onNavigate }) {
             >
               <button
                 onClick={() => setActiveModal(null)}
-                style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', border: 'none', background: 'none', fontSize: '1.4rem', cursor: 'pointer' }}
+                style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', border: 'none', background: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
               >
-                ✕
+                <X size={20} />
               </button>
 
               {/* Multi-Image Gallery Strip in Modal */}
@@ -1634,7 +1633,7 @@ export default function Stay({ onNavigate }) {
               <span style={{ color: 'var(--redwood)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 800 }}>
                 {activeModal.category}
               </span>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.2rem', color: 'var(--wine)', marginTop: '0.2rem' }}>
+              <h2 style={{color: 'var(--wine)', marginTop: '0.2rem'}}>
                 {activeModal.name}
               </h2>
               <p style={{ fontSize: '0.94rem', opacity: 0.8, lineHeight: 1.7, marginTop: '0.8rem' }}>
@@ -1642,7 +1641,7 @@ export default function Stay({ onNavigate }) {
               </p>
 
               <div style={{ backgroundColor: 'var(--isabelline)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
-                <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', color: 'var(--wine)', marginBottom: '0.8rem' }}>
+                <h4 style={{color: 'var(--wine)', marginBottom: '0.8rem'}}>
                   Architectural Highlights
                 </h4>
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.88rem' }}>
@@ -1719,9 +1718,9 @@ export default function Stay({ onNavigate }) {
 
             <button
               onClick={() => setComparedBlocks([])}
-              style={{ background: 'none', border: 'none', color: '#ffffff', opacity: 0.6, cursor: 'pointer' }}
+              style={{ background: 'none', border: 'none', color: '#ffffff', opacity: 0.6, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             >
-              ✕
+              <X size={16} />
             </button>
           </motion.div>
         )}
@@ -1769,12 +1768,12 @@ export default function Stay({ onNavigate }) {
             >
               <button
                 onClick={() => setShowCompareDrawer(false)}
-                style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', border: 'none', background: 'none', fontSize: '1.4rem', cursor: 'pointer' }}
+                style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', border: 'none', background: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
               >
-                ✕
+                <X size={20} />
               </button>
 
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.2rem', color: 'var(--wine)', marginBottom: '0.4rem' }}>
+              <h2 style={{color: 'var(--wine)', marginBottom: '0.4rem'}}>
                 Sanctuary Comparison Matrix
               </h2>
               <p style={{ fontSize: '0.88rem', opacity: 0.7, marginBottom: '2rem' }}>
@@ -1787,7 +1786,7 @@ export default function Stay({ onNavigate }) {
                     <tr style={{ borderBottom: '2px solid var(--wine)' }}>
                       <th style={{ padding: '1rem', width: '25%' }}>Attribute</th>
                       {comparedBlocks.map(b => (
-                        <th key={b.id} style={{ padding: '1rem', color: 'var(--wine)', fontFamily: 'var(--font-heading)', fontSize: '1.3rem' }}>
+                        <th key={b.id} style={{ padding: '1rem', color: 'var(--wine)', fontSize: '1.3rem' }}>
                           {b.name}
                         </th>
                       ))}

@@ -216,10 +216,10 @@ export default function About({ onNavigate }) {
   };
 
   const teamMembers = [
-    { name: 'Dr. Prema Ramadas', role: 'Co-Founder', company: 'Suprada Wellness', category: ['leadership', 'clinical'], quote: 'Merging US clinical protocols with alternative Vedic therapies.', color: 'var(--wine)', initials: 'PR' },
     { name: 'Dr. Sunil Jayaraj', role: 'Founder', company: 'Suprada Wellness', category: 'leadership', quote: 'Bringing athletic endurance and analytical systems to our sanctuary.', color: 'var(--wine)', initials: 'SJ' },
-    { name: 'Srinivas Ramadas', role: 'Director Operations', company: 'Suprada Wellness', category: 'leadership', quote: 'Crafting the standard of luxury wellness operations.', color: 'var(--redwood)', initials: 'SR' },
+    { name: 'Dr. Prema Ramadas', role: 'Co-Founder', company: 'Suprada Wellness', category: ['leadership', 'clinical'], quote: 'Merging US clinical protocols with alternative Vedic therapies.', color: 'var(--wine)', initials: 'PR' },
     { name: 'Nagaraju', role: 'Chairman', company: 'Suprada Wellness', category: 'leadership', quote: 'Guiding Suprada’s vision towards holistic living and community wellness.', color: 'var(--wine)', initials: 'N' },
+    { name: 'Srinivas Ramadas', role: 'Director Operations', company: 'Suprada Wellness', category: 'leadership', quote: 'Crafting the standard of luxury wellness operations.', color: 'var(--redwood)', initials: 'SR' },
     { name: 'Dr. Vinaya, B.N.Y.S', role: 'Chief Medical Officer', company: 'Suprada Holistic Wellness', category: ['clinical', 'mindfulness'], quote: 'Pioneering natural healing and drugless integrative medical protocols.', color: 'var(--sage)', initials: 'V' }
   ];
 

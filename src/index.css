@@ -2462,18 +2462,37 @@ html, body {
 
 /* Chapter VI (The Collective) Team Grid Responsiveness */
 .collective-team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5rem;
   min-height: 340px;
+  width: 100%;
+}
+
+.collective-member-card {
+  width: calc((100% - 3rem) / 3);
+  flex: 0 0 calc((100% - 3rem) / 3);
+  box-sizing: border-box;
+}
+
+@media (max-width: 899px) {
+  .collective-team-grid {
+    gap: 1rem !important;
+  }
+  .collective-member-card {
+    width: calc((100% - 1rem) / 2) !important;
+    flex: 0 0 calc((100% - 1rem) / 2) !important;
+  }
 }
 
 @media (max-width: 600px) {
   .collective-team-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
     gap: 0.7rem !important;
   }
   .collective-member-card {
+    width: calc((100% - 0.7rem) / 2) !important;
+    flex: 0 0 calc((100% - 0.7rem) / 2) !important;
     padding: 1.4rem 0.5rem !important;
     border-radius: 16px !important;
     min-height: 180px !important;
@@ -2491,6 +2510,9 @@ html, body {
   .collective-member-role {
     font-size: 0.6rem !important;
     letter-spacing: 0.04em !important;
+  }
+  .collective-member-company {
+    font-size: 0.56rem !important;
   }
 }
 

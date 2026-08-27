@@ -181,7 +181,6 @@ export default function About({ onNavigate }) {
   const [activeFounder, setActiveFounder] = useState('sunil');
   const [activePillar, setActivePillar] = useState(0);
   const [shlokaTab, setShlokaTab] = useState('sanskrit');
-  const [teamCategory, setTeamCategory] = useState('all');
   const [hoveredMember, setHoveredMember] = useState(null);
   const [activeHotspot, setActiveHotspot] = useState('solar');
   const scrollRef = useRef(null);
@@ -222,12 +221,6 @@ export default function About({ onNavigate }) {
     { name: 'Srinivas Ramadas', role: 'Director Operations', company: 'Suprada Wellness', category: 'leadership', quote: 'Crafting the standard of luxury wellness operations.', color: 'var(--redwood)', initials: 'SR' },
     { name: 'Dr. Vinaya, B.N.Y.S', role: 'Chief Medical Officer', company: 'Suprada Holistic Wellness', category: ['clinical', 'mindfulness'], quote: 'Pioneering natural healing and drugless integrative medical protocols.', color: 'var(--sage)', initials: 'V' }
   ];
-
-  const filteredTeam = teamMembers.filter(m => 
-    teamCategory === 'all' || 
-    m.category === teamCategory || 
-    (Array.isArray(m.category) && m.category.includes(teamCategory))
-  );
 
   const hotspots = {
     solar: {
@@ -1083,29 +1076,11 @@ export default function About({ onNavigate }) {
             <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.2rem, 4vw, 3.4rem)', color: 'var(--wine)', fontWeight: 600 }}>
               The People Behind <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Suprada</em>
             </h2>
-
-            <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center', flexWrap: 'wrap', marginTop: '1.8rem' }}>
-              {[
-                { id: 'all', label: 'All Collective' },
-                { id: 'leadership', label: 'Leadership' },
-                { id: 'clinical', label: 'Clinical & Naturopathy' },
-                { id: 'mindfulness', label: 'Mindfulness & Care' }
-              ].map(cat => (
-                <button
-                  key={cat.id}
-                  onClick={() => setTeamCategory(cat.id)}
-                  className={`quiz-option-chip ${teamCategory === cat.id ? 'selected' : ''}`}
-                  style={{ padding: '0.55rem 1.4rem', fontSize: '0.8rem' }}
-                >
-                  {cat.label}
-                </button>
-              ))}
-            </div>
           </div>
 
           <div className="collective-team-grid">
             <AnimatePresence mode="popLayout">
-              {filteredTeam.map((member, idx) => (
+              {teamMembers.map((member, idx) => (
                 <motion.div 
                   key={member.name}
                   layout

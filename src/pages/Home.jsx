@@ -1494,52 +1494,73 @@ export default function Home({ onNavigate }) {
           `}</style>
 
           {(() => {
-            const therapiesData = [
-              {
+            const sanctuaryPillars = [
+              { 
+                category: 'DRUGLESS HEALING',
+                title: 'Naturopathy', 
+                subtitle: 'Drugless Healing & Detox',
+                fullDesc: 'Drug-free treatments to detoxify, restore, and rejuvenate using mud, water, sun, fasting, and botanical therapies.',
+                benefits: ['Hydrotherapy & Mud Baths', 'Helio Therapy (Sun Healing)', 'Therapeutic Fasting', 'Botanical Cleanses'],
+                image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80'
+              },
+              { 
+                category: 'MIND-BODY HARMONY',
+                title: 'Yoga & Meditation', 
+                subtitle: 'Mind-Body Synchronization',
+                fullDesc: 'Authentic mind-body alignment using Asanas, Pranayama, guided meditation, and mindfulness techniques.',
+                benefits: ['Classical Asana Flow', 'Pranayama Breathwork', 'Yoga Nidra Deep Rest', 'Chakra Alignment'],
+                image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80'
+              },
+              { 
                 category: 'PRECISION THERAPY',
-                title: 'Acupuncture',
-                subtitle: 'Meridian Balance & Reflexology',
-                fullDesc: 'Acupuncture is a form of Alternative Medicine and a component of Traditional Chinese Medicine (TCM) in which thin needles are inserted into specific meridian points in the body. It helps to relieve chronic pain such as arthritis, back pain, neck pain, or muscle pain and also helps in treating headaches, migraines, menstrual cramps, anxiety, insomnia, and nerve discomfort.',
-                image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80'
+                title: 'Holistic Therapies', 
+                subtitle: 'Acupuncture & Steam Suites',
+                fullDesc: 'Acupuncture, acupressure, energy balancing, sauna & steam suites, and bespoke therapeutic treatments.',
+                benefits: ['Acupuncture & Reflexology', 'Infrared & Herbal Sauna', 'Aromatic Steam Suites', 'Pranic Energy Work'],
+                image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1200&q=80'
               },
-              {
-                category: 'NUTRITION THERAPY',
-                title: 'Diet & Fasting Therapy',
-                subtitle: 'Gut Microbiome Reset',
-                fullDesc: 'Doctor-supervised fasting protocols, therapeutic cold-pressed juices, and customized Satwik organic meals restore gut microbiome integrity, flush metabolic waste, and re-ignite digestive vitality.',
-                image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80'
+              { 
+                category: 'SATTWIK NUTRITION',
+                title: 'Nutrition & Lifestyle', 
+                subtitle: 'Sattvik & Gut Health',
+                fullDesc: 'Personalized nutrition plans, organic sattvik meals, gut health support, and mindful lifestyle coaching.',
+                benefits: ['Organic Sattvik Cuisine', 'Microbiome Restoration', 'Cold-Pressed Juicing', 'Mindful Eating Habits'],
+                image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80'
               },
-              {
-                category: 'WATER THERAPY',
-                title: 'Hydrotherapy',
-                subtitle: 'Jet & Temperature Contrast',
-                fullDesc: 'Hydrotherapy utilizes underwater pressure jets, spinal baths, and contrast water temperatures to stimulate lymphatic drainage, enhance peripheral blood circulation, and relieve deep somatic stress.',
-                image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80'
+              { 
+                category: 'EMOTIONAL BALANCE',
+                title: 'Mental & Emotional', 
+                subtitle: 'Resilience & Stress Relief',
+                fullDesc: 'Counselling, stress management, restorative breathwork, and emotional resilience tools.',
+                benefits: ['Emotional Release Therapy', 'Stress Diagnostics', 'Mindfulness Coaching', 'Deep Restorative Sleep'],
+                image: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=1200&q=80'
               },
-              {
-                category: 'TOUCH THERAPY',
-                title: 'Massage Therapy',
-                subtitle: 'Myofascial & Tissue Release',
-                fullDesc: 'Therapeutic neuromuscular bodywork and medicated herbal oil applications dissolve chronic muscle knots, improve spinal flexibility, and balance the central nervous system.',
-                image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80'
+              { 
+                category: 'CELLULAR PURIFICATION',
+                title: 'Detox & Cleansing', 
+                subtitle: 'Cellular Purification',
+                fullDesc: 'Comprehensive purification using therapeutic fasting, custom therapies, and natural cleansing protocols.',
+                benefits: ['Cellular Regeneration', 'Colon Hydrotherapy', 'Liver & Kidney Flush', 'Lymphatic Drainage'],
+                image: 'https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&w=1200&q=80'
               },
-              {
-                category: 'EARTH THERAPY',
-                title: 'Mud Therapy',
-                subtitle: 'Mineral & Thermal Cleansing',
-                fullDesc: 'Purified volcanic earth and medicinal clay packs absorb internal metabolic toxins, cool abdominal inflammation, improve dermal micro-circulation, and induce profound somatic relaxation.',
-                image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80'
+              { 
+                category: 'PHYSICAL RECOVERY',
+                title: 'Physiotherapy', 
+                subtitle: 'Mobility & Muscle Recovery',
+                fullDesc: 'Evidence-based physical rehabilitation to improve mobility, relieve pain, and accelerate muscular recovery.',
+                benefits: ['Spinal & Joint Alignment', 'Myofascial Release', 'Posture Correction', 'Targeted Rehabilitation'],
+                image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=80'
               }
             ];
 
-            const activeTherapy = therapiesData[activeTherapyIndex % therapiesData.length];
+            const activePillar = sanctuaryPillars[activeTherapyIndex % sanctuaryPillars.length];
 
             return (
               <div className="naturopathy-bento-layout">
-                {/* LEFT: 2x3 Grid of Compact Photo Cards */}
+                {/* LEFT: 2x4 Grid of Compact Photo Cards */}
                 <div className="naturopathy-tile-grid">
-                  {therapiesData.map((item, idx) => {
-                    const isActive = (activeTherapyIndex % therapiesData.length) === idx;
+                  {sanctuaryPillars.map((item, idx) => {
+                    const isActive = (activeTherapyIndex % sanctuaryPillars.length) === idx;
                     return (
                       <motion.div
                         key={idx}
@@ -1559,11 +1580,11 @@ export default function Home({ onNavigate }) {
                           position: 'absolute', top: '8px', left: '8px',
                           backgroundColor: 'rgba(0, 0, 0, 0.45)',
                           color: '#ffffff',
-                          fontSize: '0.58rem',
+                          fontSize: '0.55rem',
                           fontWeight: 800,
                           letterSpacing: '0.08em',
-                          padding: '0.2rem 0.55rem',
-                          borderRadius: '8px',
+                          padding: '0.18rem 0.5rem',
+                          borderRadius: '6px',
                           backdropFilter: 'blur(4px)',
                           zIndex: 2
                         }}>
@@ -1574,7 +1595,7 @@ export default function Home({ onNavigate }) {
                         <span style={{
                           position: 'absolute', bottom: '8px', left: '10px', right: '10px',
                           color: '#ffffff',
-                          fontSize: '0.86rem',
+                          fontSize: '0.84rem',
                           fontWeight: 700,
                           lineHeight: 1.2,
                           textShadow: '0 2px 4px rgba(0,0,0,0.7)',
@@ -1586,7 +1607,7 @@ export default function Home({ onNavigate }) {
                     );
                   })}
 
-                  {/* 6th Card: Solid Explore All Card */}
+                  {/* 8th Card: Solid Brand Explore All Card */}
                   <motion.div
                     className="naturopathy-explore-tile"
                     onClick={() => onNavigate('programmes')}
@@ -1596,20 +1617,20 @@ export default function Home({ onNavigate }) {
                       width: '28px', height: '28px', borderRadius: '50%',
                       border: '1.5px solid var(--harvest-gold)', color: 'var(--harvest-gold)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: '1rem', fontWeight: 700, marginBottom: '0.3rem'
+                      fontSize: '1rem', fontWeight: 700, marginBottom: '0.2rem'
                     }}>
                       +
                     </div>
-                    <span style={{ fontSize: '0.62rem', letterSpacing: '0.14em', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase' }}>
+                    <span style={{ fontSize: '0.6rem', letterSpacing: '0.14em', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase' }}>
                       EXPLORE ALL
                     </span>
-                    <strong style={{ fontSize: '0.92rem', color: '#ffffff', marginTop: '0.1rem' }}>
-                      8+ Therapies
+                    <strong style={{ fontSize: '0.88rem', color: '#ffffff', marginTop: '0.1rem' }}>
+                      8+ Pillars
                     </strong>
                   </motion.div>
                 </div>
 
-                {/* RIGHT: Featured Active Therapy Card */}
+                {/* RIGHT: Featured Active Pillar Card */}
                 <div style={{
                   backgroundColor: '#ffffff',
                   borderRadius: '18px',
@@ -1624,9 +1645,9 @@ export default function Home({ onNavigate }) {
                   <div style={{ height: '210px', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
                     <AnimatePresence mode="wait">
                       <motion.img 
-                        key={activeTherapy.image}
-                        src={activeTherapy.image} 
-                        alt={activeTherapy.title}
+                        key={activePillar.image}
+                        src={activePillar.image} 
+                        alt={activePillar.title}
                         initial={{ opacity: 0, scale: 1.05 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.98 }}
@@ -1639,7 +1660,7 @@ export default function Home({ onNavigate }) {
                       position: 'absolute',
                       top: '12px',
                       left: '12px',
-                      backgroundColor: 'rgba(255, 255, 255, 0.85)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.9)',
                       color: 'var(--wine)',
                       fontSize: '0.68rem',
                       fontWeight: 800,
@@ -1649,21 +1670,48 @@ export default function Home({ onNavigate }) {
                       backdropFilter: 'blur(6px)',
                       boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
                     }}>
-                      {activeTherapy.category}
+                      {activePillar.category}
                     </span>
                   </div>
 
                   {/* Content Body */}
                   <div style={{ padding: '1.5rem 1.8rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: 1 }}>
                     <div>
-                      <h3 style={{ color: 'var(--wine)', fontSize: '1.45rem', fontWeight: 700, margin: '0 0 0.4rem 0', lineHeight: 1.2 }}>
-                        {activeTherapy.title}
+                      <h3 style={{ color: 'var(--wine)', fontSize: '1.45rem', fontWeight: 700, margin: '0 0 0.2rem 0', lineHeight: 1.2 }}>
+                        {activePillar.title}
                       </h3>
+                      <div style={{ fontSize: '0.82rem', color: 'var(--redwood)', fontWeight: 700, marginBottom: '0.6rem' }}>
+                        {activePillar.subtitle}
+                      </div>
                       <div style={{ width: '38px', height: '2.5px', backgroundColor: 'var(--harvest-gold)', marginBottom: '0.9rem' }} />
                       
-                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black)', opacity: 0.88, lineHeight: 1.65, margin: 0 }}>
-                        {activeTherapy.fullDesc}
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black)', opacity: 0.88, lineHeight: 1.6, margin: '0 0 1.2rem 0' }}>
+                        {activePillar.fullDesc}
                       </p>
+
+                      {/* Benefits Tag Chips */}
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem', marginBottom: '1rem' }}>
+                        {activePillar.benefits.map((b, bIdx) => (
+                          <span 
+                            key={bIdx}
+                            style={{
+                              backgroundColor: 'rgba(94, 39, 53, 0.06)',
+                              border: '1px solid rgba(94, 39, 53, 0.18)',
+                              padding: '0.3rem 0.75rem',
+                              borderRadius: '20px',
+                              fontSize: '0.76rem',
+                              color: 'var(--wine)',
+                              fontWeight: 700,
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '0.35rem'
+                            }}
+                          >
+                            <span style={{ color: 'var(--harvest-gold)', fontSize: '0.75rem' }}>✦</span>
+                            <span>{b}</span>
+                          </span>
+                        ))}
+                      </div>
                     </div>
 
                     <div 
@@ -1677,12 +1725,12 @@ export default function Home({ onNavigate }) {
                         display: 'inline-flex', 
                         alignItems: 'center', 
                         gap: '0.4rem',
-                        marginTop: '1.4rem',
+                        marginTop: '1rem',
                         paddingTop: '0.8rem',
                         borderTop: '1px solid rgba(94,39,53,0.08)'
                       }}
                     >
-                      <span>EXPLORE THERAPY</span>
+                      <span>EXPLORE {activePillar.title.toUpperCase()}</span>
                       <ArrowRight size={14} />
                     </div>
                   </div>

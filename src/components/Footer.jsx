@@ -16,13 +16,13 @@ export default function Footer({ onNavigate }) {
                 <span style={{ fontSize: '1.7rem', color: 'var(--wine)', fontWeight: 600, display: 'block', lineHeight: 1 }}>
                   Suprada
                 </span>
-                <span style={{ fontSize: '0.68rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--redwood)', opacity: 0.9, fontWeight: 500 }}>
+                <span style={{ fontSize: '0.82rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--redwood)', opacity: 0.9, fontWeight: 500 }}>
                   Naturopathy &amp; Yoga Sanctuary
                 </span>
               </div>
             </div>
 
-            <p style={{ fontSize: '0.86rem', color: 'rgba(94, 39, 53, 0.82)', lineHeight: 1.65, margin: 0 }}>
+            <p style={{ fontSize: '1.02rem', color: 'rgba(94, 39, 53, 0.82)', lineHeight: 1.65, margin: 0 }}>
               Ancient wisdom for modern wellness by the sacred Suvarnamukhi River. Experience true cellular healing through doctor-guided Naturopathy, classical Yoga, and organic living.
             </p>
 
@@ -113,7 +113,7 @@ export default function Footer({ onNavigate }) {
           {/* Column 4: Get in Touch */}
           <div>
             <h4 className="footer-normal-title">Get in Touch</h4>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.9rem', fontSize: '0.86rem', color: 'rgba(94, 39, 53, 0.85)', lineHeight: 1.6 }}>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.9rem', fontSize: '1.02rem', color: 'rgba(94, 39, 53, 0.85)', lineHeight: 1.6 }}>
               <li style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start' }}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--redwood)" strokeWidth="2" style={{ flexShrink: 0, marginTop: '3px' }}>
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
@@ -134,7 +134,7 @@ export default function Footer({ onNavigate }) {
                 </svg>
                 <span>admissions@supradawellness.com</span>
               </li>
-              <li style={{ display: 'flex', gap: '0.6rem', alignItems: 'center', opacity: 0.8, fontSize: '0.8rem' }}>
+              <li style={{ display: 'flex', gap: '0.6rem', alignItems: 'center', opacity: 0.8, fontSize: '0.95rem' }}>
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--wine)" strokeWidth="2" style={{ flexShrink: 0 }}>
                   <circle cx="12" cy="12" r="10"/>
                   <polyline points="12 6 12 12 16 14"/>
@@ -153,9 +153,9 @@ export default function Footer({ onNavigate }) {
           </div>
 
           <div style={{ display: 'flex', gap: '1.5rem' }}>
-            <span onClick={() => onNavigate('contact')} className="footer-normal-link" style={{ fontSize: '0.8rem' }}>Privacy Policy</span>
-            <span onClick={() => onNavigate('contact')} className="footer-normal-link" style={{ fontSize: '0.8rem' }}>Terms of Service</span>
-            <span onClick={() => onNavigate('contact')} className="footer-normal-link" style={{ fontSize: '0.8rem' }}>Medical Disclaimer</span>
+            <span onClick={() => onNavigate('contact')} className="footer-normal-link" style={{ fontSize: '0.95rem' }}>Privacy Policy</span>
+            <span onClick={() => onNavigate('contact')} className="footer-normal-link" style={{ fontSize: '0.95rem' }}>Terms of Service</span>
+            <span onClick={() => onNavigate('contact')} className="footer-normal-link" style={{ fontSize: '0.95rem' }}>Medical Disclaimer</span>
           </div>
 
           <div>

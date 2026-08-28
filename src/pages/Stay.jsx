@@ -633,7 +633,7 @@ export default function Stay({ onNavigate }) {
           >
             <span style={{
               color: 'var(--harvest-gold)',
-              fontSize: '0.78rem',
+              fontSize: '0.92rem',
               textTransform: 'uppercase',
               letterSpacing: '0.35em',
               fontWeight: 800,
@@ -652,7 +652,7 @@ export default function Stay({ onNavigate }) {
 
             {/* Thoughtful Words & Reflections */}
             <p style={{
-              fontSize: '1.15rem',
+              fontSize: '1.28rem',
               opacity: 0.9,
               lineHeight: 1.85,
               fontWeight: 300,
@@ -664,7 +664,7 @@ export default function Stay({ onNavigate }) {
             </p>
 
             <p style={{
-              fontSize: '0.96rem',
+              fontSize: '1.12rem',
               color: 'var(--redwood)',
               fontStyle: 'italic',
               marginBottom: '2.8rem',
@@ -679,7 +679,7 @@ export default function Stay({ onNavigate }) {
               className="btn-luxury"
               style={{
                 padding: '1.1rem 3rem',
-                fontSize: '0.88rem',
+                fontSize: '1.02rem',
                 letterSpacing: '0.15em',
                 textDecoration: 'none',
                 display: 'inline-flex',
@@ -702,14 +702,14 @@ export default function Stay({ onNavigate }) {
       <section style={{ padding: '6rem 8%', backgroundColor: 'var(--brand-bg)', color: 'var(--wine)', position: 'relative' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem', padding: '0.4rem 1.2rem', backgroundColor: 'rgba(94, 39, 53, 0.08)', borderRadius: '50px', marginBottom: '1.2rem' }}>
-            <span style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.2em', fontWeight: 800, color: 'var(--wine)' }}>
+            <span style={{ fontSize: '0.86rem', textTransform: 'uppercase', letterSpacing: '0.2em', fontWeight: 800, color: 'var(--wine)' }}>
               Sanctuary
             </span>
           </div>
           <h2 style={{color: 'var(--wine)', marginBottom: '1.2rem'}}>
             Your Personal <span style={{ color: 'var(--harvest-gold)' }}>Sanctuary</span>
           </h2>
-          <p style={{ fontSize: '1.1rem', lineHeight: 1.8, opacity: 0.85, maxWidth: '800px', margin: '0 auto', fontWeight: 300 }}>
+          <p style={{ fontSize: '1.28rem', lineHeight: 1.8, opacity: 0.85, maxWidth: '800px', margin: '0 auto', fontWeight: 300 }}>
             Our accommodations are designed to be an extension of your therapy. Built with natural materials and positioned to maximize natural light and ventilation, each room offers a serene environment for deep relaxation and healing.
           </p>
         </div>
@@ -725,13 +725,13 @@ export default function Stay({ onNavigate }) {
           
           {/* Section Header */}
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-            <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.78rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
+            <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.92rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
               ✦ Sanctuary Portfolio ✦
             </span>
             <h2 style={{color: 'var(--wine)',}}>
               Distinctive Living Spaces
             </h2>
-            <p style={{ opacity: 0.8, maxWidth: '650px', margin: '0.5rem auto 0 auto', fontSize: '1.05rem', lineHeight: 1.7, fontWeight: 300 }}>
+            <p style={{ opacity: 0.8, maxWidth: '650px', margin: '0.5rem auto 0 auto', fontSize: '1.22rem', lineHeight: 1.7, fontWeight: 300 }}>
               Filter by estate campus location and explore our 9 handcrafted sanctuaries designed with organic eco-lime, warm timber, and private sit-out verandas.
             </p>
           </div>
@@ -992,7 +992,7 @@ export default function Stay({ onNavigate }) {
                         maxWidth: '55%',
                         textAlign: isEven ? 'left' : 'right'
                       }}>
-                        <span style={{ color: 'var(--tan)', fontSize: '0.92rem', fontStyle: 'italic' }}>
+                        <span style={{ color: 'var(--tan)', fontSize: '1.08rem', fontStyle: 'italic' }}>
                           "{cottage.tagline}"
                         </span>
                       </div>
@@ -1016,7 +1016,7 @@ export default function Stay({ onNavigate }) {
                         marginRight: isEven ? '0' : '-4%'
                       }}
                     >
-                      <div style={{ fontSize: '0.75rem', color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 800 }}>
+                      <div style={{ fontSize: '0.88rem', color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 800 }}>
                         {cottage.roman} • {cottage.zone}
                       </div>
 
@@ -1024,7 +1024,7 @@ export default function Stay({ onNavigate }) {
                         {cottage.name}
                       </h3>
 
-                      <p style={{ fontSize: '0.88rem', opacity: 0.85, lineHeight: 1.6, color: 'var(--raisin-black)', marginBottom: '1rem', fontWeight: 300 }}>
+                      <p style={{ fontSize: '1.04rem', opacity: 0.85, lineHeight: 1.6, color: 'var(--raisin-black)', marginBottom: '1rem', fontWeight: 300 }}>
                         {cottage.desc}
                       </p>
 
@@ -1039,23 +1039,23 @@ export default function Stay({ onNavigate }) {
                         WebkitBackdropFilter: 'blur(10px)',
                         border: '1px solid rgba(255, 255, 255, 0.35)',
                         borderRadius: '16px',
-                        fontSize: '0.8rem',
+                        fontSize: '0.95rem',
                         marginBottom: '1rem'
                       }}>
                         <div>
-                          <span style={{ opacity: 0.6, display: 'block', fontSize: '0.65rem', textTransform: 'uppercase' }}>🌿 Primary View</span>
+                          <span style={{ opacity: 0.6, display: 'block', fontSize: '0.78rem', textTransform: 'uppercase' }}>🌿 Primary View</span>
                           <strong style={{ color: 'var(--wine)' }}>{cottage.viewType}</strong>
                         </div>
                         <div>
-                          <span style={{ opacity: 0.6, display: 'block', fontSize: '0.65rem', textTransform: 'uppercase' }}>📐 Room Area</span>
+                          <span style={{ opacity: 0.6, display: 'block', fontSize: '0.78rem', textTransform: 'uppercase' }}>📐 Room Area</span>
                           <strong style={{ color: 'var(--wine)' }}>{cottage.areaSqFt} Sq.Ft</strong>
                         </div>
                         <div>
-                          <span style={{ opacity: 0.6, display: 'block', fontSize: '0.65rem', textTransform: 'uppercase' }}>★ Privacy Rating</span>
+                          <span style={{ opacity: 0.6, display: 'block', fontSize: '0.78rem', textTransform: 'uppercase' }}>★ Privacy Rating</span>
                           <strong style={{ color: '#b5801c' }}>{'★'.repeat(Math.floor(cottage.privacyScore))} ({cottage.privacyScore}/5)</strong>
                         </div>
                         <div>
-                          <span style={{ opacity: 0.6, display: 'block', fontSize: '0.65rem', textTransform: 'uppercase' }}>🏛️ Materials</span>
+                          <span style={{ opacity: 0.6, display: 'block', fontSize: '0.78rem', textTransform: 'uppercase' }}>🏛️ Materials</span>
                           <strong style={{ color: 'var(--wine)' }}>{cottage.material.split('&')[0]}</strong>
                         </div>
                       </div>
@@ -1066,7 +1066,7 @@ export default function Stay({ onNavigate }) {
                           <span 
                             key={fidx}
                             style={{ 
-                              fontSize: '0.7rem', 
+                              fontSize: '0.84rem', 
                               backgroundColor: 'rgba(94, 39, 53, 0.07)', 
                               color: 'var(--wine)', 
                               padding: '0.3rem 0.75rem', 
@@ -1127,14 +1127,14 @@ export default function Stay({ onNavigate }) {
           {/* Section Header — left-aligned with ample indent to clear fixed top-left logo pill */}
           <div className="amenities-header-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2.5rem', flexWrap: 'wrap', gap: '1rem', paddingLeft: 'clamp(0px, 14vw, 220px)', paddingTop: '0.5rem' }}>
             <div>
-              <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem', opacity: 0.85 }}>
+              <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.84rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem', opacity: 0.85 }}>
                 ✦ Curated Comforts
               </span>
               <h2 style={{color: 'var(--wine)', lineHeight: 1.15, margin: 0}}>
                 Thoughtful<br />Amenities
               </h2>
             </div>
-            <p style={{ color: 'var(--wine)', opacity: 0.85, maxWidth: '360px', fontSize: '0.88rem', lineHeight: 1.65, margin: 0, fontWeight: 400 }}>
+            <p style={{ color: 'var(--wine)', opacity: 0.85, maxWidth: '360px', fontSize: '1.04rem', lineHeight: 1.65, margin: 0, fontWeight: 400 }}>
               Every detail is intentional — from the water you drink to the air you breathe. Wellness woven into every comfort.
             </p>
           </div>
@@ -1171,7 +1171,7 @@ export default function Stay({ onNavigate }) {
                     {item.icon}
                   </div>
                   <span style={{
-                    fontSize: '0.56rem',
+                    fontSize: '0.72rem',
                     textTransform: 'uppercase',
                     color: '#b5801c',
                     backgroundColor: 'rgba(181, 128, 28, 0.12)',
@@ -1187,7 +1187,7 @@ export default function Stay({ onNavigate }) {
                   <h4 style={{color: 'var(--wine)', margin: '0 0 0.25rem 0', lineHeight: 1.25}}>
                     {item.name}
                   </h4>
-                  <p style={{ fontSize: '0.74rem', color: 'var(--wine)', opacity: 0.85, lineHeight: 1.45, margin: 0, fontWeight: 400 }}>
+                  <p style={{ fontSize: '0.88rem', color: 'var(--wine)', opacity: 0.85, lineHeight: 1.45, margin: 0, fontWeight: 400 }}>
                     {item.desc}
                   </p>
                 </div>
@@ -1237,20 +1237,20 @@ export default function Stay({ onNavigate }) {
                   <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(255, 255, 255, 0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.3rem', border: '1px solid rgba(255, 255, 255, 0.8)', boxShadow: '0 4px 15px rgba(255, 255, 255, 0.4)' }}>
                     {amenitiesList[0].icon}
                   </div>
-                  <span style={{ fontSize: '0.68rem', textTransform: 'uppercase', color: 'var(--wine)', backgroundColor: 'rgba(255, 255, 255, 0.65)', padding: '0.35rem 1rem', borderRadius: '50px', fontWeight: 800, letterSpacing: '0.12em', border: '1px solid rgba(255, 255, 255, 0.85)' }}>
+                  <span style={{ fontSize: '0.82rem', textTransform: 'uppercase', color: 'var(--wine)', backgroundColor: 'rgba(255, 255, 255, 0.65)', padding: '0.35rem 1rem', borderRadius: '50px', fontWeight: 800, letterSpacing: '0.12em', border: '1px solid rgba(255, 255, 255, 0.85)' }}>
                     {amenitiesList[0].tag}
                   </span>
                 </div>
                 <h3 style={{color: 'var(--wine)', marginBottom: '0.4rem'}}>
                   {amenitiesList[0].name}
                 </h3>
-                <p style={{ fontSize: '0.88rem', color: 'var(--wine)', opacity: 0.85, lineHeight: 1.6, maxWidth: '380px' }}>
+                <p style={{ fontSize: '1.04rem', color: 'var(--wine)', opacity: 0.85, lineHeight: 1.6, maxWidth: '380px' }}>
                   {amenitiesList[0].desc}
                 </p>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginTop: '1rem' }}>
                 <div style={{ width: '36px', height: '2px', backgroundColor: 'var(--wine)', borderRadius: '2px' }} />
-                <span style={{ fontSize: '0.72rem', color: 'var(--wine)', fontWeight: 700, letterSpacing: '0.08em' }}>Featured Amenity</span>
+                <span style={{ fontSize: '0.86rem', color: 'var(--wine)', fontWeight: 700, letterSpacing: '0.08em' }}>Featured Amenity</span>
               </div>
             </motion.div>
 
@@ -1295,11 +1295,11 @@ export default function Stay({ onNavigate }) {
                       <h4 style={{color: 'var(--wine)', margin: 0}}>
                         {item.name}
                       </h4>
-                      <span style={{ fontSize: '0.6rem', textTransform: 'uppercase', color: '#b5801c', fontWeight: 800, letterSpacing: '0.1em' }}>
+                      <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: '#b5801c', fontWeight: 800, letterSpacing: '0.1em' }}>
                         {item.tag}
                       </span>
                     </div>
-                    <p style={{ fontSize: '0.8rem', color: 'var(--wine)', opacity: 0.82, lineHeight: 1.55, margin: 0 }}>
+                    <p style={{ fontSize: '0.95rem', color: 'var(--wine)', opacity: 0.82, lineHeight: 1.55, margin: 0 }}>
                       {item.desc}
                     </p>
                   </div>
@@ -1349,7 +1349,7 @@ export default function Stay({ onNavigate }) {
                   }}>
                     {item.icon}
                   </div>
-                  <span style={{ fontSize: '0.62rem', textTransform: 'uppercase', color: '#b5801c', backgroundColor: 'rgba(255, 255, 255, 0.65)', padding: '0.3rem 0.8rem', borderRadius: '50px', fontWeight: 800, letterSpacing: '0.1em', border: '1px solid rgba(255, 255, 255, 0.85)' }}>
+                  <span style={{ fontSize: '0.76rem', textTransform: 'uppercase', color: '#b5801c', backgroundColor: 'rgba(255, 255, 255, 0.65)', padding: '0.3rem 0.8rem', borderRadius: '50px', fontWeight: 800, letterSpacing: '0.1em', border: '1px solid rgba(255, 255, 255, 0.85)' }}>
                     {item.tag}
                   </span>
                 </div>
@@ -1357,7 +1357,7 @@ export default function Stay({ onNavigate }) {
                 <h3 style={{color: 'var(--wine)', margin: 0}}>
                   {item.name}
                 </h3>
-                <p style={{ fontSize: '0.8rem', color: 'var(--wine)', opacity: 0.82, lineHeight: 1.55, margin: 0 }}>
+                <p style={{ fontSize: '0.95rem', color: 'var(--wine)', opacity: 0.82, lineHeight: 1.55, margin: 0 }}>
                   {item.desc}
                 </p>
               </motion.div>
@@ -1372,7 +1372,7 @@ export default function Stay({ onNavigate }) {
         {/* Background logo SVG */}
         <DecorativeSVG src="/assets/suprada-logo.svg" style={{ position: 'absolute', top: '30%', left: '50%', transform: 'translateX(-50%)', width: '350px', opacity: 0.09, pointerEvents: 'none', zIndex: -1 }} />
         <div style={{ maxWidth: '850px', margin: '0 auto' }}>
-          <span style={{ color: 'var(--harvest-gold)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.22em', fontWeight: 800, display: 'block', marginBottom: '1rem' }}>
+          <span style={{ color: 'var(--harvest-gold)', fontSize: '0.92rem', textTransform: 'uppercase', letterSpacing: '0.22em', fontWeight: 800, display: 'block', marginBottom: '1rem' }}>
             Built with Earth in Mind
           </span>
           <h2 style={{color: 'var(--tan)', lineHeight: 1.25}}>
@@ -1429,7 +1429,7 @@ export default function Stay({ onNavigate }) {
                 <X size={20} />
               </button>
 
-              <span style={{ color: 'var(--redwood)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 800 }}>
+              <span style={{ color: 'var(--redwood)', fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 800 }}>
                 Direct Reservation
               </span>
               <h2 style={{color: 'var(--wine)', marginTop: '0.2rem', marginBottom: '1rem'}}>
@@ -1443,7 +1443,7 @@ export default function Stay({ onNavigate }) {
               {/* Booking Form Options */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', marginBottom: '2rem' }}>
                 <div>
-                  <label style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--wine)', display: 'block', marginBottom: '0.4rem' }}>
+                  <label style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--wine)', display: 'block', marginBottom: '0.4rem' }}>
                     Preferred Check-in Date:
                   </label>
                   <input 
@@ -1455,7 +1455,7 @@ export default function Stay({ onNavigate }) {
                       padding: '0.85rem 1rem',
                       borderRadius: '10px',
                       border: '1px solid rgba(94, 39, 53, 0.2)',
-                      fontSize: '0.9rem',
+                      fontSize: '1.05rem',
                       outline: 'none',
                       boxSizing: 'border-box'
                     }}
@@ -1463,7 +1463,7 @@ export default function Stay({ onNavigate }) {
                 </div>
 
                 <div>
-                  <label style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--wine)', display: 'block', marginBottom: '0.5rem' }}>
+                  <label style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--wine)', display: 'block', marginBottom: '0.5rem' }}>
                     Number of Guests:
                   </label>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.6rem', width: '100%', boxSizing: 'border-box' }}>
@@ -1491,8 +1491,8 @@ export default function Stay({ onNavigate }) {
                             boxSizing: 'border-box'
                           }}
                         >
-                          <div style={{ fontWeight: 800, fontSize: '0.85rem' }}>{gOpt.label}</div>
-                          <div style={{ fontSize: '0.65rem', opacity: isSelected ? 0.9 : 0.75, marginTop: '0.15rem' }}>{gOpt.sub}</div>
+                          <div style={{ fontWeight: 800, fontSize: '0.98rem' }}>{gOpt.label}</div>
+                          <div style={{ fontSize: '0.78rem', opacity: isSelected ? 0.9 : 0.75, marginTop: '0.15rem' }}>{gOpt.sub}</div>
                         </button>
                       );
                     })}
@@ -1507,7 +1507,7 @@ export default function Stay({ onNavigate }) {
                   onNavigate('contact');
                 }}
                 className="btn-primary"
-                style={{ width: '100%', padding: '1.1rem', fontSize: '0.88rem', letterSpacing: '0.12em', textAlign: 'center' }}
+                style={{ width: '100%', padding: '1.1rem', fontSize: '1.02rem', letterSpacing: '0.12em', textAlign: 'center' }}
               >
                 ✦ Confirm &amp; Proceed to Contact Concierge
               </button>
@@ -1566,7 +1566,7 @@ export default function Stay({ onNavigate }) {
               <h3 style={{color: 'var(--wine)', marginBottom: '0.5rem'}}>
                 {selectedHotspot.title}
               </h3>
-              <p style={{ fontSize: '0.9rem', opacity: 0.8, lineHeight: 1.6 }}>
+              <p style={{ fontSize: '1.05rem', opacity: 0.8, lineHeight: 1.6 }}>
                 {selectedHotspot.desc}
               </p>
             </motion.div>
@@ -1630,13 +1630,13 @@ export default function Stay({ onNavigate }) {
                 ))}
               </div>
 
-              <span style={{ color: 'var(--redwood)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 800 }}>
+              <span style={{ color: 'var(--redwood)', fontSize: '0.92rem', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 800 }}>
                 {activeModal.category}
               </span>
               <h2 style={{color: 'var(--wine)', marginTop: '0.2rem'}}>
                 {activeModal.name}
               </h2>
-              <p style={{ fontSize: '0.94rem', opacity: 0.8, lineHeight: 1.7, marginTop: '0.8rem' }}>
+              <p style={{ fontSize: '1.1rem', opacity: 0.8, lineHeight: 1.7, marginTop: '0.8rem' }}>
                 {activeModal.desc}
               </p>
 
@@ -1644,7 +1644,7 @@ export default function Stay({ onNavigate }) {
                 <h4 style={{color: 'var(--wine)', marginBottom: '0.8rem'}}>
                   Architectural Highlights
                 </h4>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.88rem' }}>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '1.02rem' }}>
                   {activeModal.highlights.map((h, i) => (
                     <li key={i} style={{ display: 'flex', gap: '0.6rem' }}>
                       <span style={{ color: 'var(--harvest-gold)', fontWeight: 700 }}>✦</span>
@@ -1662,7 +1662,7 @@ export default function Stay({ onNavigate }) {
                     setActiveBookingModal(sel);
                   }}
                   className="btn-luxury"
-                  style={{ flexGrow: 1, padding: '1rem', fontSize: '0.85rem' }}
+                  style={{ flexGrow: 1, padding: '1rem', fontSize: '0.98rem' }}
                 >
                   Book {activeModal.name} Now
                 </button>
@@ -1696,7 +1696,7 @@ export default function Stay({ onNavigate }) {
               border: '1.5px solid var(--harvest-gold)'
             }}
           >
-            <span style={{ fontSize: '0.85rem' }}>
+            <span style={{ fontSize: '0.98rem' }}>
               <strong style={{ color: 'var(--harvest-gold)' }}>{comparedBlocks.length}</strong> Blocks Selected
             </span>
 
@@ -1708,7 +1708,7 @@ export default function Stay({ onNavigate }) {
                 border: 'none',
                 padding: '0.55rem 1.3rem',
                 borderRadius: '50px',
-                fontSize: '0.78rem',
+                fontSize: '0.92rem',
                 fontWeight: 800,
                 cursor: 'pointer'
               }}
@@ -1776,12 +1776,12 @@ export default function Stay({ onNavigate }) {
               <h2 style={{color: 'var(--wine)', marginBottom: '0.4rem'}}>
                 Sanctuary Comparison Matrix
               </h2>
-              <p style={{ fontSize: '0.88rem', opacity: 0.7, marginBottom: '2rem' }}>
+              <p style={{ fontSize: '1.04rem', opacity: 0.7, marginBottom: '2rem' }}>
                 Compare specs, materials, views, and privacy across your chosen blocks.
               </p>
 
               <div style={{ overflowX: 'auto' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.88rem' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '1.04rem' }}>
                   <thead>
                     <tr style={{ borderBottom: '2px solid var(--wine)' }}>
                       <th style={{ padding: '1rem', width: '25%' }}>Attribute</th>

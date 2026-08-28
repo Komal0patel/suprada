@@ -634,13 +634,13 @@ export default function Home({ onNavigate }) {
           />
         </AnimatePresence>
 
-        {/* Directional Side Shadow Gradient Overlay — Deep Dark Wine on Left, Clear & Visible Image on Right */}
+        {/* Directional Side Shadow Gradient Overlay — Lightened for a softer, warmer feel */}
         <div 
           className="hero-side-overlay"
           style={{ 
             position: 'absolute', 
             top: 0, left: 0, width: '100%', height: '100%', 
-            background: 'linear-gradient(to right, rgba(18, 7, 12, 0.94) 0%, rgba(18, 7, 12, 0.82) 35%, rgba(18, 7, 12, 0.45) 65%, rgba(18, 7, 12, 0.1) 100%)', 
+            background: 'linear-gradient(to right, rgba(18, 7, 12, 0.72) 0%, rgba(18, 7, 12, 0.52) 38%, rgba(18, 7, 12, 0.2) 68%, transparent 100%)', 
             zIndex: 2 
           }} 
         />
@@ -654,12 +654,12 @@ export default function Home({ onNavigate }) {
             style={{ maxWidth: '680px', textAlign: 'left' }}
           >
             {/* Top Sub-Heading Badge */}
-            <motion.div variants={blurFadeIn} style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1.2rem' }}>
+            <motion.div variants={blurFadeIn} style={{ display: 'flex', alignItems: 'center', gap: '0.7rem', marginBottom: '1rem' }}>
               <motion.div 
                 animate={{ scaleX: [0.9, 1.1, 0.9], opacity: [0.7, 1, 0.7] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 className="shiny-gold-line" 
-                style={{ height: '2px', width: '45px' }}
+                style={{ height: '2px', width: '40px' }}
               />
               <span 
                 className="shiny-gold-text"
@@ -667,7 +667,7 @@ export default function Home({ onNavigate }) {
                   textTransform: 'uppercase', 
                   letterSpacing: '0.35em', 
                   fontWeight: 800, 
-                  fontSize: 'clamp(0.82rem, 1.5vw, 1.05rem)',
+                  fontSize: '0.85rem',
                   display: 'inline-block'
                 }}
               >
@@ -676,33 +676,43 @@ export default function Home({ onNavigate }) {
               <motion.span 
                 animate={{ opacity: [0.4, 1, 0.4], scale: [0.8, 1.2, 0.8] }}
                 transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-                style={{ color: '#f7d070', fontSize: '0.9rem', textShadow: '0 0 12px rgba(247, 208, 112, 0.9)' }}
+                style={{ color: '#f7d070', fontSize: '0.85rem', textShadow: '0 0 12px rgba(247, 208, 112, 0.9)' }}
               >
                 ✦
               </motion.span>
             </motion.div>
 
-            {/* Left-Aligned Headline */}
-            <h1 className="hero-title" style={{ color: 'var(--isabelline)', margin: '0 0 1.2rem 0', textShadow: '0 4px 30px rgba(0,0,0,0.7)', textAlign: 'left', lineHeight: 1.1 }}>
-              <div style={{ overflow: 'hidden', paddingBottom: '0.1em' }}>
-                <motion.span initial={{ y: "110%" }} animate={{ y: 0 }} transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.1 }} style={{ display: 'block', fontWeight: 700 }}>Awaken your</motion.span>
-              </div>
-              <div style={{ overflow: 'hidden', paddingBottom: '0.1em' }}>
-                <motion.span initial={{ y: "110%" }} animate={{ y: 0 }} transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.3 }} style={{ display: 'block', fontStyle: 'italic', fontWeight: 700, color: 'var(--tan)', textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>inner bliss.</motion.span>
-              </div>
+            {/* Left-Aligned Even Headline */}
+            <h1 className="hero-title" style={{ color: 'var(--isabelline)', margin: '0 0 1.2rem 0', textShadow: '0 4px 24px rgba(0,0,0,0.5)', textAlign: 'left', lineHeight: 1.15, fontWeight: 700, letterSpacing: '-0.01em' }}>
+              <motion.span 
+                initial={{ opacity: 0, y: 20 }} 
+                animate={{ opacity: 1, y: 0 }} 
+                transition={{ duration: 0.9, delay: 0.1 }}
+                style={{ display: 'block' }}
+              >
+                Awaken your
+              </motion.span>
+              <motion.span 
+                initial={{ opacity: 0, y: 20 }} 
+                animate={{ opacity: 1, y: 0 }} 
+                transition={{ duration: 0.9, delay: 0.25 }}
+                style={{ display: 'block', fontStyle: 'italic', color: 'var(--tan)', fontWeight: 600, textShadow: '0 4px 18px rgba(0,0,0,0.4)' }}
+              >
+                inner bliss.
+              </motion.span>
             </h1>
             
             {/* Left-Aligned Subtitle Paragraph */}
-            <motion.p variants={blurFadeIn} style={{ color: 'var(--isabelline)', fontSize: 'clamp(1rem, 2vw, 1.22rem)', opacity: 0.92, maxWidth: '580px', margin: '0 0 2rem 0', fontWeight: 300, lineHeight: 1.75, textShadow: '0 2px 10px rgba(0,0,0,0.3)', textAlign: 'left' }}>
+            <motion.p variants={blurFadeIn} style={{ color: 'var(--isabelline)', fontSize: 'clamp(0.98rem, 1.6vw, 1.18rem)', opacity: 0.94, maxWidth: '560px', margin: '0 0 2rem 0', fontWeight: 400, lineHeight: 1.7, textShadow: '0 2px 10px rgba(0,0,0,0.3)', textAlign: 'left', letterSpacing: '0.01em' }}>
               Experience the ancient healing intelligence of Naturopathy &amp; Yogic Science. Nestled on the banks of the holy Suvarnamukhi River.
             </motion.p>
 
             {/* Left-Aligned Dual CTA Action Buttons */}
-            <motion.div variants={blurFadeIn} style={{ display: 'flex', alignItems: 'center', gap: '1.2rem', flexWrap: 'wrap' }}>
+            <motion.div variants={blurFadeIn} style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
               <button 
                 onClick={() => onNavigate('stay')}
                 className="btn-primary" 
-                style={{ padding: '1rem 2.6rem', fontSize: '0.86rem', letterSpacing: '0.12em' }}
+                style={{ padding: '0.95rem 2.5rem', fontSize: '0.85rem', letterSpacing: '0.1em' }}
               >
                 ✦ Book Your Stay
               </button>
@@ -710,11 +720,11 @@ export default function Home({ onNavigate }) {
               <button 
                 onClick={() => onNavigate('programmes')}
                 style={{
-                  padding: '0.95rem 2.2rem',
-                  fontSize: '0.86rem',
-                  letterSpacing: '0.1em',
+                  padding: '0.92rem 2.1rem',
+                  fontSize: '0.85rem',
+                  letterSpacing: '0.08em',
                   color: 'var(--isabelline)',
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.12)',
                   border: '1.5px solid rgba(255, 255, 255, 0.35)',
                   borderRadius: '50px',
                   fontWeight: 700,

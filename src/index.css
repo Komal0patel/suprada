@@ -861,10 +861,10 @@ h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
 .transformation-card-photo {
   background: var(--isabelline);
   border: 1px solid rgba(94, 39, 53, 0.08);
-  padding: 0.75rem;
+  padding: 0.6rem;
   display: flex;
   align-items: stretch;
-  min-height: 420px;
+  min-height: 280px;
 }
 
 .transformation-card-photo img {
@@ -878,7 +878,7 @@ h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
 .transformation-card-text {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(248, 243, 235, 0.92) 100%);
   border: 1.5px solid rgba(220, 160, 50, 0.3);
-  padding: 2.2rem 1.6rem;
+  padding: 1.4rem 1.4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -889,14 +889,14 @@ h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
 .transformation-card-crest {
   background: linear-gradient(135deg, var(--wine) 0%, #3a1520 100%);
   border: 1.5px solid rgba(220, 160, 50, 0.35);
-  padding: 2.2rem 1.6rem;
+  padding: 1.4rem 1.4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
   color: var(--isabelline);
-  min-height: 420px;
+  min-height: 280px;
   box-shadow: 0 20px 45px rgba(94, 39, 53, 0.3);
 }
 

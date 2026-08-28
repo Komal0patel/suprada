@@ -1764,7 +1764,7 @@ export default function Home({ onNavigate }) {
       {/* Floating Solid Cards Section (Slide 12: Path To Transformation Begins Within) */}
       <section style={{ 
         background: 'linear-gradient(135deg, var(--antique-white) 0%, var(--isabelline) 50%, var(--tan) 100%)', 
-        padding: '3.5rem 5% 3.5rem 5%', 
+        padding: '2rem 5% 2rem 5%', 
         position: 'relative', 
         overflow: 'hidden' 
       }} className="dot-grid">
@@ -1785,7 +1785,7 @@ export default function Home({ onNavigate }) {
         <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', maxWidth: '420px', width: '100%', height: '420px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220, 160, 50, 0.18) 0%, rgba(220, 160, 50, 0) 70%)', pointerEvents: 'none', filter: 'blur(30px)', zIndex: 1 }}></div>
         <div style={{ position: 'absolute', right: '15%', bottom: '20%', maxWidth: '380px', width: '100%', height: '380px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(94, 39, 53, 0.22) 0%, rgba(94, 39, 53, 0) 70%)', pointerEvents: 'none', filter: 'blur(30px)', zIndex: 1 }}></div>
         
-        <div style={{ maxWidth: '1100px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+        <div style={{ maxWidth: '1050px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <div className="transformation-grid">
             
             {/* Card 1: Photo Card */}
@@ -1793,7 +1793,7 @@ export default function Home({ onNavigate }) {
               initial={{ opacity: 0, y: 50, filter: "blur(5px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true, margin: "-80px" }}
-              whileHover={{ y: -10, scale: 1.015, boxShadow: '0 30px 60px -15px rgba(94, 39, 53, 0.18)' }}
+              whileHover={{ y: -6, scale: 1.015, boxShadow: '0 20px 45px -15px rgba(94, 39, 53, 0.18)' }}
               transition={{ default: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } }}
               className="transformation-card transformation-card-photo"
             >
@@ -1808,27 +1808,22 @@ export default function Home({ onNavigate }) {
               initial={{ opacity: 0, y: 50, filter: "blur(5px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true, margin: "-80px" }}
-              whileHover={{ y: -10, scale: 1.015, boxShadow: '0 30px 60px -15px rgba(94, 39, 53, 0.18)' }}
+              whileHover={{ y: -6, scale: 1.015, boxShadow: '0 20px 45px -15px rgba(94, 39, 53, 0.18)' }}
               transition={{ default: { duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.15 } }}
               className="transformation-card transformation-card-text"
             >
-              <div style={{ color: 'var(--redwood)', fontSize: '1.4rem', marginBottom: '0.8rem', textAlign: 'center' }}>✦</div>
+              <div style={{ color: 'var(--redwood)', fontSize: '1.2rem', marginBottom: '0.35rem', textAlign: 'center' }}>✦</div>
               
-              <h3 style={{color: 'var(--wine)', marginBottom: '0.8rem', lineHeight: 1.2, textAlign: 'center',}}>
+              <h3 style={{ color: 'var(--wine)', marginBottom: '0.45rem', lineHeight: 1.2, textAlign: 'center', fontSize: '1.35rem' }}>
                 Path To Transformation<br />
                 <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>Begins Within</em>
               </h3>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.82rem', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.6, textAlign: 'center' }}>
-                <p>
-                  At Suprada, wellness is a transformative journey that nourishes your mind, body, and soul. Nestled in the serene embrace of nature, our retreat offers a sanctuary where you can escape the stresses of daily life and embark on a path of rejuvenation. Through carefully curated programs and holistic practices, we guide you towards inner harmony and restored balance.
-                </p>
-                <p>
-                  Experience the power of mindfulness, meditation, and yoga as you reconnect with your inner self. Our expert practitioners provide personalized guidance, helping you unlock your full potential and embrace a state of profound well-being.
-                </p>
-              </div>
+              <p style={{ fontSize: '0.84rem', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.55, textAlign: 'center', margin: '0 0 0.4rem 0' }}>
+                At Suprada, wellness is a transformative journey that nourishes your mind, body, and soul. Nestled in nature's embrace, our retreat offers a sanctuary to decompress, restore balance, and reconnect with your inner self through personalized holistic practices.
+              </p>
 
-              <h5 style={{marginTop: '1rem', color: 'var(--wine)', letterSpacing: '0.08em', textAlign: 'center',}}>
+              <h5 style={{ marginTop: '0.35rem', color: 'var(--wine)', letterSpacing: '0.08em', textAlign: 'center', fontSize: '0.85rem' }}>
                 Suprada
               </h5>
             </motion.div>

@@ -609,8 +609,8 @@ export default function Home({ onNavigate }) {
 
   return (
     <div>
-      {/* Hero Section */}
-      <section style={{ height: '100vh', minHeight: '100vh', width: '100%', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      {/* Hero Section — Side-Shifted Left Layout with Side Shadow Overlay */}
+      <section style={{ height: '100vh', minHeight: '100dvh', width: '100%', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
         <AnimatePresence mode="sync">
           <motion.div
             key={currentImage}
@@ -628,37 +628,46 @@ export default function Home({ onNavigate }) {
               top: 0, left: 0, width: '100%', height: '100%',
               backgroundImage: `url(${heroImages[currentImage]})`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              backgroundPosition: 'center right',
               zIndex: 1
             }}
           />
         </AnimatePresence>
 
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to bottom, rgba(94, 39, 53, 0.25) 0%, rgba(229, 215, 198, 0.15) 50%, rgba(94, 39, 53, 0.25) 100%)', zIndex: 2 }}></div>
+        {/* Directional Side Shadow Gradient Overlay — Deep Dark Wine on Left, Clear & Visible Image on Right */}
+        <div 
+          className="hero-side-overlay"
+          style={{ 
+            position: 'absolute', 
+            top: 0, left: 0, width: '100%', height: '100%', 
+            background: 'linear-gradient(to right, rgba(18, 7, 12, 0.94) 0%, rgba(18, 7, 12, 0.82) 35%, rgba(18, 7, 12, 0.45) 65%, rgba(18, 7, 12, 0.1) 100%)', 
+            zIndex: 2 
+          }} 
+        />
 
-        <div style={{ relative: 'relative', zIndex: 10, padding: '0 5%', width: '100%', maxWidth: '1200px', textAlign: 'center' }}>
-          <motion.div variants={staggerContainer} initial="hidden" animate="visible">
-            <motion.div variants={blurFadeIn} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.9rem', marginBottom: '1.5rem' }}>
+        {/* Left-Shifted Content Container */}
+        <div style={{ position: 'relative', zIndex: 10, padding: '0 6%', width: '100%', maxWidth: '1350px', margin: '0 auto' }}>
+          <motion.div 
+            variants={staggerContainer} 
+            initial="hidden" 
+            animate="visible"
+            style={{ maxWidth: '680px', textAlign: 'left' }}
+          >
+            {/* Top Sub-Heading Badge */}
+            <motion.div variants={blurFadeIn} style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1.2rem' }}>
               <motion.div 
                 animate={{ scaleX: [0.9, 1.1, 0.9], opacity: [0.7, 1, 0.7] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 className="shiny-gold-line" 
-                style={{ height: '2px', width: '50px' }}
+                style={{ height: '2px', width: '45px' }}
               />
-              <motion.span 
-                animate={{ opacity: [0.4, 1, 0.4], scale: [0.8, 1.2, 0.8] }}
-                transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-                style={{ color: '#f7d070', fontSize: '1rem', textShadow: '0 0 12px rgba(247, 208, 112, 0.9)' }}
-              >
-                ✦
-              </motion.span>
               <span 
                 className="shiny-gold-text"
                 style={{ 
                   textTransform: 'uppercase', 
-                  letterSpacing: '0.38em', 
+                  letterSpacing: '0.35em', 
                   fontWeight: 800, 
-                  fontSize: 'clamp(1.15rem, 2.5vw, 1.55rem)',
+                  fontSize: 'clamp(0.82rem, 1.5vw, 1.05rem)',
                   display: 'inline-block'
                 }}
               >
@@ -666,20 +675,15 @@ export default function Home({ onNavigate }) {
               </span>
               <motion.span 
                 animate={{ opacity: [0.4, 1, 0.4], scale: [0.8, 1.2, 0.8] }}
-                transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
-                style={{ color: '#f7d070', fontSize: '1rem', textShadow: '0 0 12px rgba(247, 208, 112, 0.9)' }}
+                transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+                style={{ color: '#f7d070', fontSize: '0.9rem', textShadow: '0 0 12px rgba(247, 208, 112, 0.9)' }}
               >
                 ✦
               </motion.span>
-              <motion.div 
-                animate={{ scaleX: [0.9, 1.1, 0.9], opacity: [0.7, 1, 0.7] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="shiny-gold-line" 
-                style={{ height: '2px', width: '50px' }}
-              />
             </motion.div>
 
-            <h1 className="hero-title" style={{color: 'var(--isabelline)', margin: '0 0 1.5rem 0', textShadow: '0 4px 30px rgba(0,0,0,0.6)'}}>
+            {/* Left-Aligned Headline */}
+            <h1 className="hero-title" style={{ color: 'var(--isabelline)', margin: '0 0 1.2rem 0', textShadow: '0 4px 30px rgba(0,0,0,0.7)', textAlign: 'left', lineHeight: 1.1 }}>
               <div style={{ overflow: 'hidden', paddingBottom: '0.1em' }}>
                 <motion.span initial={{ y: "110%" }} animate={{ y: 0 }} transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.1 }} style={{ display: 'block', fontWeight: 700 }}>Awaken your</motion.span>
               </div>
@@ -688,18 +692,60 @@ export default function Home({ onNavigate }) {
               </div>
             </h1>
             
-            <motion.p variants={blurFadeIn} style={{ color: 'var(--isabelline)', fontSize: 'clamp(1rem, 3vw, 1.25rem)', opacity: 0.9, maxWidth: '700px', margin: '0 auto 2.5rem auto', fontWeight: 300, lineHeight: 1.8, textShadow: '0 2px 10px rgba(0,0,0,0.2)' }}>
-              Experience the ancient healing intelligence of Naturopathy & Yogic Science. Nestled on the banks of the holy Suvarnamukhi River.
+            {/* Left-Aligned Subtitle Paragraph */}
+            <motion.p variants={blurFadeIn} style={{ color: 'var(--isabelline)', fontSize: 'clamp(1rem, 2vw, 1.22rem)', opacity: 0.92, maxWidth: '580px', margin: '0 0 2rem 0', fontWeight: 300, lineHeight: 1.75, textShadow: '0 2px 10px rgba(0,0,0,0.3)', textAlign: 'left' }}>
+              Experience the ancient healing intelligence of Naturopathy &amp; Yogic Science. Nestled on the banks of the holy Suvarnamukhi River.
             </motion.p>
 
-            <motion.button 
-              variants={blurFadeIn} 
-              onClick={() => onNavigate('stay')}
-              className="btn-primary" 
-              style={{ padding: '1rem 2.8rem', fontSize: '0.85rem' }}
-            >
-              ✦ Book Your Stay
-            </motion.button>
+            {/* Left-Aligned Dual CTA Action Buttons */}
+            <motion.div variants={blurFadeIn} style={{ display: 'flex', alignItems: 'center', gap: '1.2rem', flexWrap: 'wrap' }}>
+              <button 
+                onClick={() => onNavigate('stay')}
+                className="btn-primary" 
+                style={{ padding: '1rem 2.6rem', fontSize: '0.86rem', letterSpacing: '0.12em' }}
+              >
+                ✦ Book Your Stay
+              </button>
+
+              <button 
+                onClick={() => onNavigate('programmes')}
+                style={{
+                  padding: '0.95rem 2.2rem',
+                  fontSize: '0.86rem',
+                  letterSpacing: '0.1em',
+                  color: 'var(--isabelline)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  border: '1.5px solid rgba(255, 255, 255, 0.35)',
+                  borderRadius: '50px',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  backdropFilter: 'blur(10px)',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                Explore Programmes →
+              </button>
+            </motion.div>
+
+            {/* Left-Aligned Interactive Slide Dots */}
+            <motion.div variants={blurFadeIn} style={{ display: 'flex', gap: '0.6rem', marginTop: '2.5rem', alignItems: 'center' }}>
+              {heroImages.map((_, dotIdx) => (
+                <button
+                  key={dotIdx}
+                  onClick={() => setCurrentImage(dotIdx)}
+                  style={{
+                    width: currentImage === dotIdx ? '28px' : '9px',
+                    height: '9px',
+                    borderRadius: '50px',
+                    backgroundColor: currentImage === dotIdx ? 'var(--harvest-gold)' : 'rgba(255, 255, 255, 0.35)',
+                    border: 'none',
+                    cursor: 'pointer',
+                    transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
+                  }}
+                  aria-label={`Go to slide ${dotIdx + 1}`}
+                />
+              ))}
+            </motion.div>
           </motion.div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from 'framer-motion';
 import { Pattern24, Pattern25, Pattern27, Pattern28 } from '../AnimatedPatterns';
-import { Stethoscope } from 'lucide-react';
+import { Stethoscope, Star, Leaf, Globe } from 'lucide-react';
 import TwinklingLights from '../components/TwinklingLights';
 
 

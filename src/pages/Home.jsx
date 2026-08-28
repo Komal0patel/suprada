@@ -2203,7 +2203,7 @@ export default function Home({ onNavigate }) {
           </div>
 
           {/* Unified Responsive Flex Container */}
-          <div className="retreats-flex-container">
+          <div className="retreats-flex-container retreats-carousel-mobile">
             {[
               { days: '2/3 DAYS', title: 'Weekend Reset Sanctuary', tagline: 'Doctor consultation, 2 daily naturopathy cleanses & sound bath.', filterCat: '2/3 Days' },
               { days: '5 DAYS', title: 'Rejuvenation & Vitality', tagline: 'Iris diagnosis, Shirodhara therapy & Satwik organic dining.', filterCat: '5 Days' },
@@ -2283,10 +2283,10 @@ export default function Home({ onNavigate }) {
           </div>
 
           {/* 2-Column Split Interactive Stage */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))', gap: '1.3rem', alignItems: 'stretch' }}>
+          <div className="clinical-stage-container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))', gap: '1.3rem', alignItems: 'stretch' }}>
             
             {/* Left Interactive Category Selector */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem', height: '100%' }}>
+            <div className="clinical-categories-selector" style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem', height: '100%' }}>
               {[
                 { id: 'Internal & Metabolic', title: 'Internal & Metabolic Health', count: '6 Therapies', desc: 'Cellular detox, diabetes reversal & metabolic restoration.' },
                 { id: 'Nervous System', title: 'Nervous System & Mind', count: '5 Therapies', desc: 'Shirodhara, insomnia recovery & neurological stress reset.' },
@@ -2438,7 +2438,7 @@ export default function Home({ onNavigate }) {
             </h2>
           </div>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.5rem', width: '100%' }}>
+          <div className="experts-carousel-mobile" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.5rem', width: '100%' }}>
             {[
               { name: 'Dr. Sunil Jayaraj', role: 'Founder', creds: 'Suprada Wellness', img: '/assets/sunil_jayaraj.jpg' },
               { name: 'Dr. Prema Ramadas', role: 'Co-founder', creds: 'Suprada Wellness', img: '/assets/prema_ramadas.jpg' },

@@ -173,9 +173,10 @@ function App() {
         {/* --- UNIVERSAL FLOATING HAMBURGER & EXPANDABLE PILL NAVBAR (ALL PAGES) --- */}
         {/* ========================================================================= */}
         <>
-          {/* Top Left Floating Brand Icon */}
+          {/* Top Left Floating Pill Logo */}
           <div 
-            onClick={() => handlePageChange('home')} 
+            onClick={() => handlePageChange('home')}
+            className="top-left-logo-pill"
             style={{ 
               position: 'fixed', 
               top: '15px', 
@@ -184,16 +185,17 @@ function App() {
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
+              justifyContent: 'center',
               gap: '0.8rem',
               backgroundColor: '#1c1410',
-              padding: '0.55rem 1.4rem 0.55rem 0.9rem',
               borderRadius: '50px',
               border: '1.5px solid rgba(220, 160, 50, 0.4)',
               boxShadow: '0 12px 30px rgba(0,0,0,0.5)',
-              backdropFilter: 'blur(20px)'
+              backdropFilter: 'blur(20px)',
+              padding: '0.55rem 1.4rem 0.55rem 0.9rem'
             }}
           >
-            <img src="/assets/logo.svg" alt="Suprada Icon" style={{ height: '34px' }} />
+            <img src="/assets/logo.svg" alt="Suprada Icon" style={{ height: '32px' }} />
             <img src="/assets/suprada-wellness.svg" alt="Suprada Wellness" className="hide-mobile" style={{ height: '22px', filter: 'brightness(0) invert(1)' }} />
           </div>
 

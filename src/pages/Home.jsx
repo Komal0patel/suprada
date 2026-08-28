@@ -705,7 +705,7 @@ export default function Home({ onNavigate }) {
             </h1>
             
             {/* Left-Aligned Slightly Smaller Subtitle Paragraph */}
-            <motion.p variants={blurFadeIn} style={{ color: 'var(--isabelline)', fontSize: '0.94rem', opacity: 0.92, maxWidth: '500px', margin: '0 0 1.8rem 0', fontWeight: 400, lineHeight: 1.65, textShadow: '0 2px 10px rgba(0,0,0,0.5)', textAlign: 'left', letterSpacing: '0.01em' }}>
+            <motion.p variants={blurFadeIn} className="hero-subtitle-mobile" style={{ color: 'var(--isabelline)', fontSize: '0.94rem', opacity: 0.92, maxWidth: '500px', margin: '0 0 1.8rem 0', fontWeight: 400, lineHeight: 1.65, textShadow: '0 2px 10px rgba(0,0,0,0.5)', textAlign: 'left', letterSpacing: '0.01em' }}>
               Experience the ancient healing intelligence of Naturopathy &amp; Yogic Science. Nestled on the banks of the holy Suvarnamukhi River.
             </motion.p>
 
@@ -721,6 +721,7 @@ export default function Home({ onNavigate }) {
 
               <button 
                 onClick={() => onNavigate('programmes')}
+                className="hero-btn-secondary"
                 style={{
                   padding: '0.72rem 1.6rem',
                   fontSize: '0.78rem',

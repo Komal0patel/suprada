@@ -2108,6 +2108,29 @@ html, body {
     width: 900px; /* Let it scroll horizontally still, but narrower */
   }
 
+  .top-left-logo-pill {
+    padding: 0.5rem 0.55rem !important;
+    left: 15px !important;
+    top: 15px !important;
+  }
+
+  .hero-title {
+    font-size: clamp(2.35rem, 9.5vw, 3.2rem) !important;
+    line-height: 1.12 !important;
+    margin-bottom: 0.9rem !important;
+  }
+
+  .hero-subtitle-mobile {
+    font-size: 0.84rem !important;
+    line-height: 1.52 !important;
+    margin-bottom: 1.4rem !important;
+  }
+
+  .hero-btn-secondary {
+    padding: 0.72rem 1.5rem !important;
+    font-size: 0.76rem !important;
+  }
+
   .hero-side-overlay {
     background: linear-gradient(to top, rgba(14, 5, 9, 0.9) 0%, rgba(14, 5, 9, 0.65) 60%, rgba(14, 5, 9, 0.25) 100%) !important;
   }

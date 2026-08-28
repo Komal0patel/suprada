@@ -262,8 +262,8 @@ const renderRhythmIcon = (iconType) => {
       );
     case 'lotus':
       return (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-          <path d="M12 21c4-4 8-7.5 8-12 0-3-2-5-5-5-2.2 0-3.8 1.5-5 3-1.2-1.5-2.8-3-5-3-3 0-5 2-5 5 0 4.5 4 8 8 12z" />
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" style={{ overflow: 'visible' }}>
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
         </svg>
       );
     case 'footprint':
@@ -2024,7 +2024,7 @@ export default function Home({ onNavigate }) {
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
           >
-            <div className="timeline-container" style={{ maxWidth: '5600px', width: '100%', minWidth: '5600px', height: '560px' }}>
+            <div className="timeline-container" style={{ maxWidth: '5600px', width: '100%', minWidth: '5600px', height: '480px' }}>
               {/* Horizontal Wavy Sine Curve SVG Path (Dynamic for 15 steps) */}
               <div className="timeline-svg-wrapper" style={{ maxWidth: '5600px', width: '100%', height: '420px' }}>
                 <svg viewBox="0 0 5600 420" fill="none" style={{ width: '100%', height: '100%', overflow: 'visible' }}>
@@ -2091,7 +2091,7 @@ export default function Home({ onNavigate }) {
                         position: 'absolute', 
                         left: `${cardLeft}px`, 
                         top: isEven ? `${nodeY}px` : 'auto', 
-                        bottom: isEven ? 'auto' : `${560 - nodeY}px`, 
+                        bottom: isEven ? 'auto' : `${480 - nodeY}px`, 
                         width: '290px', 
                         zIndex: 5 
                       }} 

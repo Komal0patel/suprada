@@ -2368,10 +2368,10 @@ html, body {
   }
 }
 
-/* Mobile View: Selected filter card glides upward to top */
+/* Mobile View: Cards sort dynamically and auto-scroll to position 0 */
 @media (max-width: 768px) {
   .retreat-card-item.filter-active-match {
-    order: -1 !important;
+    scroll-snap-align: start !important;
   }
 }
 
@@ -2825,6 +2825,22 @@ html, body {
   }
   .naturopathy-right-card-banner {
     height: 180px !important;
+  }
+
+  /* 6. Suprada Rhythm Timeline Mobile Navigation Arrows (Placed BELOW Cards) */
+  .rhythm-arrow-btn {
+    top: auto !important;
+    bottom: -58px !important;
+    transform: none !important;
+    width: 44px !important;
+    height: 44px !important;
+    box-shadow: 0 4px 14px rgba(94, 39, 53, 0.25) !important;
+  }
+  .rhythm-arrow-left {
+    left: 15px !important;
+  }
+  .rhythm-arrow-right {
+    right: 15px !important;
   }
 }
 

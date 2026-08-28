@@ -463,12 +463,39 @@ export default function Home({ onNavigate }) {
   // Timeline variables
   const timelineRef = useRef(null);
   const scrollContainerRef = useRef(null);
+  const retreatsContainerRef = useRef(null);
   const speedRef = useRef(0);
   const targetSpeedRef = useRef(0);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [scrollPercentage, setScrollPercentage] = useState(0);
   const [activeProgFilter, setActiveProgFilter] = useState('All Retreats');
+
+  const sanctuaryRetreatsList = React.useMemo(() => [
+    { days: '2/3 DAYS', title: 'Weekend Reset Sanctuary', tagline: 'Doctor consultation, 2 daily naturopathy cleanses & sound bath.', filterCat: '2/3 Days' },
+    { days: '5 DAYS', title: 'Rejuvenation & Vitality', tagline: 'Iris diagnosis, Shirodhara therapy & Satwik organic dining.', filterCat: '5 Days' },
+    { days: '7 DAYS', title: 'Holistic Transformation', tagline: 'Body mapping, hydrotherapy & vibrational sound sessions.', filterCat: '7 Days', popular: true },
+    { days: '14 DAYS', title: 'Deep Cellular Detox', tagline: 'Toxin evaluation, mud therapy packs, therapeutic fasting & juices.', filterCat: '14 Days' },
+    { days: '21 DAYS', title: 'Advanced Cellular Healing', tagline: 'Doctor-led clinical protocol, daily vitals & colon hydrotherapy.', filterCat: '21 Days' }
+  ], []);
+
+  const sortedRetreats = React.useMemo(() => {
+    if (activeProgFilter === 'All Retreats') return sanctuaryRetreatsList;
+    return [...sanctuaryRetreatsList].sort((a, b) => {
+      const aMatch = a.filterCat === activeProgFilter || a.days.includes(activeProgFilter);
+      const bMatch = b.filterCat === activeProgFilter || b.days.includes(activeProgFilter);
+      if (aMatch && !bMatch) return -1;
+      if (!aMatch && bMatch) return 1;
+      return 0;
+    });
+  }, [activeProgFilter, sanctuaryRetreatsList]);
+
+  const handleRetreatFilterClick = (filter) => {
+    setActiveProgFilter(filter);
+    if (retreatsContainerRef.current) {
+      retreatsContainerRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+    }
+  };
   const [activeExpert, setActiveExpert] = useState(0);
   const [activeCareCategory, setActiveCareCategory] = useState('All Interventions');
   const [expandedPillar, setExpandedPillar] = useState(0);
@@ -2016,6 +2043,7 @@ export default function Home({ onNavigate }) {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -10 }}
                   onClick={(e) => { e.stopPropagation(); stepScroll('left'); }}
+                  className="rhythm-arrow-btn rhythm-arrow-left"
                   style={{
                     position: 'absolute', left: '1.2rem', top: '220px', transform: 'translateY(-50%)',
                     width: '52px', height: '52px', borderRadius: '50%',
@@ -2044,6 +2072,7 @@ export default function Home({ onNavigate }) {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 10 }}
                   onClick={(e) => { e.stopPropagation(); stepScroll('right'); }}
+                  className="rhythm-arrow-btn rhythm-arrow-right"
                   style={{
                     position: 'absolute', right: '1.2rem', top: '220px', transform: 'translateY(-50%)',
                     width: '52px', height: '52px', borderRadius: '50%',
@@ -2207,7 +2236,7 @@ export default function Home({ onNavigate }) {
               {['All Retreats', '2/3 Days', '5 Days', '7 Days', '14 Days', '21 Days'].map((filter, fIdx) => (
                 <button 
                   key={fIdx}
-                  onClick={() => setActiveProgFilter(filter)}
+                  onClick={() => handleRetreatFilterClick(filter)}
                   className={`pill-luxury ${activeProgFilter === filter ? 'active' : ''}`}
                 >
                   {filter}
@@ -2217,14 +2246,8 @@ export default function Home({ onNavigate }) {
           </div>
 
           {/* Unified Responsive Flex Container */}
-          <div className="retreats-flex-container retreats-carousel-mobile">
-            {[
-              { days: '2/3 DAYS', title: 'Weekend Reset Sanctuary', tagline: 'Doctor consultation, 2 daily naturopathy cleanses & sound bath.', filterCat: '2/3 Days' },
-              { days: '5 DAYS', title: 'Rejuvenation & Vitality', tagline: 'Iris diagnosis, Shirodhara therapy & Satwik organic dining.', filterCat: '5 Days' },
-              { days: '7 DAYS', title: 'Holistic Transformation', tagline: 'Body mapping, hydrotherapy & vibrational sound sessions.', filterCat: '7 Days', popular: true },
-              { days: '14 DAYS', title: 'Deep Cellular Detox', tagline: 'Toxin evaluation, mud therapy packs, therapeutic fasting & juices.', filterCat: '14 Days' },
-              { days: '21 DAYS', title: 'Advanced Cellular Healing', tagline: 'Doctor-led clinical protocol, daily vitals & colon hydrotherapy.', filterCat: '21 Days' }
-            ].map((prog, idx) => {
+          <div ref={retreatsContainerRef} className="retreats-flex-container retreats-carousel-mobile">
+            {sortedRetreats.map((prog, idx) => {
               const isSpecificFilter = activeProgFilter !== 'All Retreats';
               const isMatch = !isSpecificFilter || prog.filterCat === activeProgFilter || prog.days.includes(activeProgFilter);
               return (

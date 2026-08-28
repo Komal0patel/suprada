@@ -174,25 +174,53 @@ function App() {
         {/* ========================================================================= */}
         <>
           {/* Top Left Floating Pill Logo */}
-          <div 
-            onClick={() => handlePageChange('home')}
-            className="top-left-logo-pill"
-            style={{ 
-              position: 'fixed', 
-              top: '15px', 
-              left: '50%', 
-              transform: 'translateX(-50%)',
-              zIndex: 999999, 
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.8rem'
-            }}
-          >
-            <img src="/assets/logo.svg" alt="Suprada Icon" style={{ height: '32px' }} />
-            <img src="/assets/suprada-wellness.svg" alt="Suprada Wellness" className="hide-mobile" style={{ height: '22px', filter: 'brightness(0) invert(1)' }} />
-          </div>
+          {(() => {
+            const isHeroLogo = scrollYPos < 100 && (currentPage === 'home' || currentPage === 'stay');
+            return (
+              <div 
+                onClick={() => handlePageChange('home')}
+                className="top-left-logo-pill"
+                style={{ 
+                  position: 'fixed', 
+                  top: '15px', 
+                  left: isHeroLogo ? '50%' : '25px', 
+                  transform: isHeroLogo ? 'translateX(-50%)' : 'none',
+                  zIndex: 999999, 
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.8rem',
+                  transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
+                  backgroundColor: isHeroLogo ? 'transparent' : '#1c1410',
+                  borderRadius: isHeroLogo ? '0px' : '50px',
+                  border: isHeroLogo ? '1.5px solid transparent' : '1.5px solid rgba(220, 160, 50, 0.4)',
+                  boxShadow: isHeroLogo ? 'none' : '0 12px 30px rgba(0,0,0,0.5)',
+                  backdropFilter: isHeroLogo ? 'none' : 'blur(20px)',
+                  padding: isHeroLogo ? '0px' : '0.55rem 1.4rem 0.55rem 0.9rem'
+                }}
+              >
+                <img 
+                  src="/assets/logo.svg" 
+                  alt="Suprada Icon" 
+                  style={{ 
+                    height: isHeroLogo ? '42px' : '32px', 
+                    transition: 'height 0.5s cubic-bezier(0.16, 1, 0.3, 1)' 
+                  }} 
+                />
+                <img 
+                  src="/assets/suprada-wellness.svg" 
+                  alt="Suprada Wellness" 
+                  className="hide-mobile" 
+                  style={{ 
+                    height: isHeroLogo ? '28px' : '22px', 
+                    filter: 'brightness(0) invert(1)',
+                    transition: 'height 0.5s cubic-bezier(0.16, 1, 0.3, 1)' 
+                  }} 
+                />
+              </div>
+            );
+          })()}
 
           {/* Top Right Floating Staggered 3-Line Hamburger & Expandable Pill */}
           <div style={{

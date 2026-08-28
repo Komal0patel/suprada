@@ -2087,7 +2087,14 @@ export default function Home({ onNavigate }) {
                     {/* Step Card */}
                     <motion.div 
                       className={`timeline-card-wrapper timeline-card-${index + 1}`} 
-                      style={{ position: 'absolute', left: `${cardLeft}px`, top: `${cardY}px`, width: '290px', zIndex: 5 }} 
+                      style={{ 
+                        position: 'absolute', 
+                        left: `${cardLeft}px`, 
+                        top: isEven ? `${nodeY}px` : 'auto', 
+                        bottom: isEven ? 'auto' : `${560 - nodeY}px`, 
+                        width: '290px', 
+                        zIndex: 5 
+                      }} 
                       initial={{ opacity: 0, y: isEven ? 25 : -25, filter: "blur(4px)" }} 
                       whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }} 
                       viewport={{ once: true }} 

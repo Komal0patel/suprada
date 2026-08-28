@@ -433,15 +433,15 @@ export default function Programmes({ onNavigate }) {
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
                 style={{
-                  padding: '0.85rem 2.2rem',
+                  padding: '0.7rem 1.8rem',
                   borderRadius: '50px',
-                  border: activeFilter === filter ? '2.5px solid var(--wine)' : '1.5px solid var(--wine)',
+                  border: activeFilter === filter ? '2px solid var(--wine)' : '1.5px solid var(--wine)',
                   backgroundColor: activeFilter === filter ? 'var(--wine)' : '#ffffff',
                   color: activeFilter === filter ? '#ffffff' : 'var(--wine)',
                   fontWeight: 700,
-                  fontSize: '0.98rem',
+                  fontSize: '0.88rem',
                   cursor: 'pointer',
-                  boxShadow: activeFilter === filter ? '0 10px 25px rgba(94, 39, 53, 0.25)' : '0 4px 14px rgba(0,0,0,0.06)',
+                  boxShadow: activeFilter === filter ? '0 8px 20px rgba(94, 39, 53, 0.2)' : '0 4px 12px rgba(0,0,0,0.04)',
                   transition: 'all 0.3s ease'
                 }}
               >
@@ -477,7 +477,7 @@ export default function Programmes({ onNavigate }) {
                     <div className="flex-stack-mobile" style={{
                       flex: '0 0 42%',
                       background: prog.gradient,
-                      padding: '3rem 2.5rem',
+                      padding: '2.8rem 2.2rem',
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'space-between',
@@ -491,32 +491,32 @@ export default function Programmes({ onNavigate }) {
                       <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(rgba(220,160,50,0.04) 1px, transparent 0)', backgroundSize: '18px 18px', pointerEvents: 'none' }} />
 
                       <div style={{ position: 'relative', zIndex: 2 }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1.5rem' }}>
-                          <span style={{ fontSize: '2.5rem' }}>{prog.icon}</span>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1.2rem' }}>
+                          <span style={{ fontSize: '2.2rem' }}>{prog.icon}</span>
                           <span style={{
-                            fontSize: '0.88rem', textTransform: 'uppercase', color: '#ffffff',
-                            backgroundColor: 'rgba(220,160,50,0.35)', padding: '0.4rem 1.1rem', borderRadius: '50px',
+                            fontSize: '0.8rem', textTransform: 'uppercase', color: '#ffffff',
+                            backgroundColor: 'rgba(220,160,50,0.35)', padding: '0.35rem 1rem', borderRadius: '50px',
                             fontWeight: 800, letterSpacing: '0.12em', border: '1.5px solid var(--harvest-gold)'
                           }}>
                             {prog.days}
                           </span>
                         </div>
 
-                        <h3 style={{color: 'var(--tan)', marginBottom: '0.6rem'}}>
+                        <h3 style={{color: 'var(--tan)', marginBottom: '0.5rem'}}>
                           {prog.title}
                         </h3>
 
-                        <p style={{ fontSize: '1.05rem', color: '#ffffff', opacity: 0.95, lineHeight: 1.7, maxWidth: '350px', fontWeight: 400 }}>
+                        <p style={{ fontSize: '0.96rem', color: '#ffffff', opacity: 0.95, lineHeight: 1.65, maxWidth: '340px', fontWeight: 400 }}>
                           {prog.desc}
                         </p>
                       </div>
 
                       {/* Intensity Meter */}
-                      <div style={{ marginTop: '1.5rem', position: 'relative', zIndex: 2 }}>
-                        <span style={{ fontSize: '0.88rem', textTransform: 'uppercase', color: 'var(--harvest-gold)', letterSpacing: '0.12em', fontWeight: 800 }}>
+                      <div style={{ marginTop: '1.2rem', position: 'relative', zIndex: 2 }}>
+                        <span style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--harvest-gold)', letterSpacing: '0.12em', fontWeight: 800 }}>
                           Intensity: {prog.intensity}
                         </span>
-                        <div style={{ display: 'flex', gap: '4px', marginTop: '0.5rem' }}>
+                        <div style={{ display: 'flex', gap: '4px', marginTop: '0.4rem' }}>
                           {Array.from({ length: 6 }).map((_, i) => (
                             <div key={i} style={{
                               width: '28px', height: '4px', borderRadius: '2px',
@@ -531,37 +531,37 @@ export default function Programmes({ onNavigate }) {
                     <div className="flex-stack-mobile" style={{
                       flex: '0 0 58%',
                       backgroundColor: 'var(--isabelline)',
-                      padding: '2.8rem 3rem',
+                      padding: '2.5rem 2.6rem',
                       color: 'var(--raisin-black)',
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'space-between'
                     }}>
                       <div>
-                        <div style={{ display: 'flex', gap: '0.8rem', marginBottom: '1.2rem', flexWrap: 'wrap' }}>
+                        <div style={{ display: 'flex', gap: '0.8rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
                           <span style={{
-                            fontSize: '0.9rem', fontWeight: 800, color: 'var(--wine)',
-                            backgroundColor: 'rgba(94,39,53,0.12)', padding: '0.45rem 1.2rem', borderRadius: '50px',
-                            border: '1.5px solid rgba(94,39,53,0.25)'
+                            fontSize: '0.82rem', fontWeight: 800, color: 'var(--wine)',
+                            backgroundColor: 'rgba(94,39,53,0.1)', padding: '0.35rem 1rem', borderRadius: '50px',
+                            border: '1.5px solid rgba(94,39,53,0.2)'
                           }}>
                             Focus: {prog.focus}
                           </span>
                         </div>
 
-                        <div style={{ marginBottom: '1.2rem' }}>
-                          <span style={{ fontSize: '0.88rem', color: 'var(--redwood)', fontWeight: 800, display: 'block', marginBottom: '0.3rem', textTransform: 'uppercase', letterSpacing: '0.12em' }}>Ideal for:</span>
-                          <span style={{ fontSize: '1.05rem', color: 'var(--raisin-black)', fontWeight: 600, lineHeight: 1.6 }}>{prog.ideal}</span>
+                        <div style={{ marginBottom: '1rem' }}>
+                          <span style={{ fontSize: '0.8rem', color: 'var(--redwood)', fontWeight: 800, display: 'block', marginBottom: '0.2rem', textTransform: 'uppercase', letterSpacing: '0.12em' }}>Ideal for:</span>
+                          <span style={{ fontSize: '0.95rem', color: 'var(--raisin-black)', fontWeight: 600, lineHeight: 1.5 }}>{prog.ideal}</span>
                         </div>
 
                         {/* Inclusions — palette-accented */}
-                        <div style={{ borderTop: '1px solid rgba(94,39,53,0.1)', paddingTop: '1.2rem' }}>
-                          <h4 style={{color: 'var(--wine)', marginBottom: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 800, fontSize: '1.05rem'}}>
+                        <div style={{ borderTop: '1px solid rgba(94,39,53,0.1)', paddingTop: '1rem' }}>
+                          <h4 style={{color: 'var(--wine)', marginBottom: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 800, fontSize: '0.94rem'}}>
                             What's Included:
                           </h4>
-                          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem 1.5rem' }}>
+                          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem 1.2rem' }}>
                             {prog.inclusions.map((inc, iidx) => (
-                              <div key={iidx} style={{ display: 'flex', gap: '0.6rem', alignItems: 'center', fontSize: '0.98rem', lineHeight: 1.6 }}>
-                                <span style={{ color: 'var(--harvest-gold)', flexShrink: 0, display: 'inline-flex', alignItems: 'center' }}><Check size={16} strokeWidth={3} /></span>
+                              <div key={iidx} style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', fontSize: '0.9rem', lineHeight: 1.5 }}>
+                                <span style={{ color: 'var(--harvest-gold)', flexShrink: 0, display: 'inline-flex', alignItems: 'center' }}><Check size={15} strokeWidth={3} /></span>
                                 <span style={{ color: 'var(--raisin-black)', fontWeight: 500 }}>{inc}</span>
                               </div>
                             ))}
@@ -570,18 +570,18 @@ export default function Programmes({ onNavigate }) {
                       </div>
 
                       {/* Action Buttons */}
-                      <div style={{ display: 'flex', gap: '1rem', marginTop: '1.8rem' }}>
+                      <div style={{ display: 'flex', gap: '0.8rem', marginTop: '1.5rem' }}>
                         <button
                           onClick={() => onNavigate('contact')}
                           className="btn-luxury"
-                          style={{ padding: '0.95rem 2.2rem', fontSize: '0.92rem', letterSpacing: '0.12em', fontWeight: 800 }}
+                          style={{ padding: '0.82rem 1.8rem', fontSize: '0.84rem', letterSpacing: '0.1em', fontWeight: 700 }}
                         >
                           Book Programme
                         </button>
                         <button
                           onClick={() => onNavigate('contact')}
                           className="btn-secondary"
-                          style={{ padding: '0.95rem 1.8rem', fontSize: '0.92rem', letterSpacing: '0.1em', fontWeight: 700 }}
+                          style={{ padding: '0.82rem 1.5rem', fontSize: '0.84rem', letterSpacing: '0.08em', fontWeight: 700 }}
                         >
                           Speak to Doctor
                         </button>

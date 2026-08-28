@@ -778,13 +778,13 @@ export default function Spaces({ onNavigate }) {
         <div style={{ maxWidth: '1220px', margin: '0 auto' }}>
           
           <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-            <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.26em', fontSize: '0.84rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
+            <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.26em', fontSize: '0.78rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
               + CHAPTER III - RESTING BLOCKS
             </span>
             <h2 style={{color: 'var(--wine)', margin: 0}}>
               Suprada Residences & Cottages
             </h2>
-            <p style={{ color: 'var(--raisin-black)', opacity: 0.95, maxWidth: '640px', margin: '0.8rem auto 0 auto', fontSize: '1.05rem', lineHeight: 1.7, fontWeight: 400 }}>
+            <p style={{ color: 'var(--raisin-black)', opacity: 0.95, maxWidth: '640px', margin: '0.8rem auto 0 auto', fontSize: '0.98rem', lineHeight: 1.65, fontWeight: 400 }}>
               8 distinct lodging blocks crafted with mud plaster, local granite, and reclaimed teakwood to support deep nervous system recovery.
             </p>
           </div>
@@ -818,12 +818,12 @@ export default function Spaces({ onNavigate }) {
                         alt={block.name} 
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       />
-                      <span className="residence-card-tag" style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'rgba(58, 21, 32, 0.9)', color: 'var(--harvest-gold)', fontSize: '0.78rem', fontWeight: 800, padding: '0.4rem 1rem', borderRadius: '15px', backdropFilter: 'blur(4px)' }}>
+                      <span className="residence-card-tag" style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'rgba(58, 21, 32, 0.9)', color: 'var(--harvest-gold)', fontSize: '0.72rem', fontWeight: 800, padding: '0.35rem 0.85rem', borderRadius: '15px', backdropFilter: 'blur(4px)' }}>
                         {block.tag}
                       </span>
                     </div>
 
-                    <span className="residence-card-type" style={{ fontSize: '0.82rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>
+                    <span className="residence-card-type" style={{ fontSize: '0.75rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>
                       {block.type}
                     </span>
 
@@ -831,12 +831,12 @@ export default function Spaces({ onNavigate }) {
                       {block.name}
                     </h3>
 
-                    <p className="residence-card-desc" style={{ fontSize: '0.98rem', color: 'var(--raisin-black)', opacity: 0.95, lineHeight: 1.65, margin: '0 0 1.2rem 0', fontWeight: 400 }}>
+                    <p className="residence-card-desc" style={{ fontSize: '0.9rem', color: 'var(--raisin-black)', opacity: 0.95, lineHeight: 1.6, margin: '0 0 1.2rem 0', fontWeight: 400 }}>
                       {block.desc}
                     </p>
                   </div>
 
-                  <div className="residence-card-config" style={{ paddingTop: '1rem', borderTop: `1px dashed ${block.borderColor}`, fontSize: '0.88rem', color: 'var(--wine)', fontWeight: 700 }}>
+                  <div className="residence-card-config" style={{ paddingTop: '1rem', borderTop: `1px dashed ${block.borderColor}`, fontSize: '0.82rem', color: 'var(--wine)', fontWeight: 700 }}>
                     <span style={{ color: 'var(--redwood)', fontWeight: 800 }}>Config: </span>{block.config}
                   </div>
                 </motion.div>
@@ -848,7 +848,7 @@ export default function Spaces({ onNavigate }) {
             <button 
               onClick={() => onNavigate('stay')}
               className="btn-luxury" 
-              style={{ padding: '1rem 2.8rem', fontSize: '0.92rem', fontWeight: 800 }}
+              style={{ padding: '0.85rem 2.2rem', fontSize: '0.84rem', fontWeight: 700 }}
             >
               Explore Cottage Amenities &amp; Book Stay
             </button>

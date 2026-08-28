@@ -25,8 +25,8 @@
   --fs-h3: clamp(1.35rem, 2.2vw, 1.75rem);       /* Card / Feature Block Headings */
   --fs-h4: clamp(1.1rem, 1.8vw, 1.35rem);        /* Sub-card / Small Labels */
   --fs-h5: clamp(0.95rem, 1.5vw, 1.12rem);       /* Micro Details */
-  --fs-body: clamp(1.15rem, 1.5vw, 1.32rem);     /* Standard Paragraph Text - Increased size & clarity */
-  --fs-small: clamp(0.92rem, 1.2vw, 1.02rem);   /* Captions / Small Helper Text - High visibility */
+  --fs-body: clamp(1.02rem, 1.3vw, 1.12rem);     /* Standard Paragraph Text - Balanced & clear */
+  --fs-small: clamp(0.82rem, 1.05vw, 0.9rem);    /* Captions / Helper Text - Refined & visible */
 }
 
 * {

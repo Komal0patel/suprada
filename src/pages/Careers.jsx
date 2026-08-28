@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Pattern24, Pattern25 } from '../AnimatedPatterns';
-import { Briefcase, MapPin, Clock, X, Leaf, BookOpen, Heart } from 'lucide-react';
+import { Briefcase, MapPin, Clock, X, Leaf, BookOpen, Heart, Search } from 'lucide-react';
 
 const blurFadeIn = {
   hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
@@ -366,7 +366,7 @@ function JobOpeningCard({ job, onDetailClick, onApplyClick }) {
             alignItems: 'center',
             gap: '0.3rem'
           }}>
-            🕒 {job.type}
+            <Clock size={13} style={{ color: 'var(--wine)' }} /> {job.type}
           </span>
         </div>
 
@@ -814,8 +814,9 @@ export default function Careers({ onNavigate }) {
                     <span style={{
                       position: 'absolute', left: '1.2rem', top: '50%',
                       transform: 'translateY(-50%)',
-                      fontSize: '1.1rem', pointerEvents: 'none', opacity: 0.5
-                    }}>🔍</span>
+                      fontSize: '1.1rem', pointerEvents: 'none', opacity: 0.5,
+                      display: 'flex', alignItems: 'center'
+                    }}><Search size={18} style={{ color: 'var(--wine)' }} /></span>
                     <input
                       type="text"
                       placeholder="Search by role, skill or department…"
@@ -984,7 +985,7 @@ export default function Careers({ onNavigate }) {
                       exit={{ opacity: 0 }}
                       style={{ textAlign: 'center', padding: '4rem 0', color: 'var(--raisin-black)', opacity: 0.5 }}
                     >
-                      <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🔍</div>
+                      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}><Search size={48} style={{ color: 'var(--wine)' }} /></div>
                       <p style={{ fontSize: '1.2rem' }}>No openings match your search.</p>
                       <p style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>Try a different keyword or department filter.</p>
                     </motion.div>

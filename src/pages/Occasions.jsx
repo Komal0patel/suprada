@@ -632,7 +632,7 @@ export default function Occasions({ onNavigate }) {
           {/* Main Title Header */}
           <div style={{ textAlign: 'center', marginBottom: '1.2rem' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', backgroundColor: 'rgba(220, 160, 50, 0.12)', border: '1px solid var(--harvest-gold)', padding: '0.25rem 0.9rem', borderRadius: '20px', marginBottom: '0.5rem' }}>
-              <span style={{ fontSize: '0.9rem' }}>💡</span>
+              <span style={{ fontSize: '0.75rem', color: 'var(--wine)' }}>✦</span>
               <span style={{ textTransform: 'uppercase', letterSpacing: '0.15em', fontSize: '0.68rem', fontWeight: 800, color: 'var(--wine)' }}>Exclusive Insight</span>
             </div>
             <h2 style={{color: 'var(--wine)', margin: 0, lineHeight: 1.2}}>
@@ -2576,7 +2576,7 @@ export default function Occasions({ onNavigate }) {
               animate={{ opacity: 1, scale: 1 }}
               style={{ backgroundColor: '#ffffff', border: '1px solid rgba(94, 39, 53, 0.1)', padding: '3.5rem', borderRadius: '16px', textAlign: 'center', boxShadow: '0 15px 40px rgba(94, 39, 53, 0.05)' }}
             >
-              <div style={{ fontSize: '3rem', marginBottom: '1.2rem' }}>🌿</div>
+              <div style={{ color: 'var(--harvest-gold)', fontSize: '1.8rem', marginBottom: '1.2rem' }}>✦</div>
               <h3 style={{color: 'var(--wine)', marginBottom: '0.8rem',}}>Thank You</h3>
               <p style={{ fontSize: '0.92rem', opacity: 0.85, lineHeight: 1.6, maxWidth: '400px', margin: '0 auto' }}>
                 Your inquiry has been received. Our event coordinator and medical officers will connect with you within 24 hours to schedule a consultation call.

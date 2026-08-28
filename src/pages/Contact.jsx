@@ -711,9 +711,9 @@ export default function Contact({ onNavigate }) {
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                style={{ padding: '2rem 0' }}
+                style={{ padding: '2rem 0', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
               >
-                <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>🙏</div>
+                <div style={{ color: 'var(--harvest-gold)', fontSize: '1.5rem', marginBottom: '0.5rem' }}>✦</div>
                 <h4 style={{color: 'var(--wine)', margin: '0 0 0.5rem 0'}}>Thank You!</h4>
                 <p style={{ fontSize: '0.88rem', opacity: 0.8, margin: '0 0 1.2rem 0' }}>Your feedback has been submitted successfully.</p>
                 <button onClick={() => { setFeedbackSent(false); setStarRating(0); }} className="btn-luxury" style={{ padding: '0.6rem 1.6rem', fontSize: '0.75rem' }}>

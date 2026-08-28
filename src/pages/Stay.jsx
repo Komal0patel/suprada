@@ -870,13 +870,12 @@ export default function Stay({ onNavigate }) {
                               ›
                             </button>
 
-                            {/* Dynamic Photo Count Badge — always opposite side from category badge */}
-                            <div className="room-photo-badge" style={{
+                            {/* Dynamic Photo Count Badge */}
+                            <div style={{
                               position: 'absolute',
                               top: '1.4rem',
-                              left: isEven ? 'auto' : '3.8rem',
-                              right: isEven ? '3.8rem' : 'auto',
-                              backgroundColor: 'rgba(0,0,0,0.7)',
+                              right: '1.4rem',
+                              backgroundColor: 'rgba(58, 21, 32, 0.85)',
                               backdropFilter: 'blur(12px)',
                               color: 'var(--harvest-gold)',
                               padding: '0.4rem 0.9rem',
@@ -886,7 +885,7 @@ export default function Stay({ onNavigate }) {
                               zIndex: 6,
                               boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
                             }}>
-                              📷 Photo {activePhotoIdx + 1} of {photoList.length}
+                              Photo {activePhotoIdx + 1} of {photoList.length}
                             </div>
 
                             {/* Interactive Dot Pagination Bar */}
@@ -1043,11 +1042,11 @@ export default function Stay({ onNavigate }) {
                         marginBottom: '1rem'
                       }}>
                         <div>
-                          <span style={{ color: 'var(--redwood)', fontWeight: 800, opacity: 0.95, display: 'block', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>🌿 Primary View</span>
+                          <span style={{ color: 'var(--redwood)', fontWeight: 800, opacity: 0.95, display: 'block', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Primary View</span>
                           <strong style={{ color: 'var(--wine)' }}>{cottage.viewType}</strong>
                         </div>
                         <div>
-                          <span style={{ color: 'var(--redwood)', fontWeight: 800, opacity: 0.95, display: 'block', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>📐 Room Area</span>
+                          <span style={{ color: 'var(--redwood)', fontWeight: 800, opacity: 0.95, display: 'block', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Room Area</span>
                           <strong style={{ color: 'var(--wine)' }}>{cottage.areaSqFt} Sq.Ft</strong>
                         </div>
                         <div>
@@ -1055,7 +1054,7 @@ export default function Stay({ onNavigate }) {
                           <strong style={{ color: '#b5801c' }}>{'★'.repeat(Math.floor(cottage.privacyScore))} ({cottage.privacyScore}/5)</strong>
                         </div>
                         <div>
-                          <span style={{ color: 'var(--redwood)', fontWeight: 800, opacity: 0.95, display: 'block', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>🏛️ Materials</span>
+                          <span style={{ color: 'var(--redwood)', fontWeight: 800, opacity: 0.95, display: 'block', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Materials</span>
                           <strong style={{ color: 'var(--wine)' }}>{cottage.material.split('&')[0]}</strong>
                         </div>
                       </div>

@@ -2253,10 +2253,10 @@ export default function Home({ onNavigate }) {
               <div>
                 <div className="flex-stack-mobile" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.7rem' }}>
                   <span style={{ fontSize: '0.68rem', color: 'var(--redwood)', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-                    ✦ Active Clinical Protocol
+                    <Star size={10} style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Active Clinical Protocol
                   </span>
                   <span style={{ fontSize: '0.65rem', backgroundColor: 'rgba(94, 39, 53, 0.08)', color: 'var(--wine)', padding: '0.25rem 0.7rem', borderRadius: '12px', fontWeight: 800 }}>
-                    ⏱ 7 to 21 Days Protocol
+                    7 to 21 Days Protocol
                   </span>
                 </div>
 
@@ -2290,7 +2290,7 @@ export default function Home({ onNavigate }) {
                         fontWeight: 700
                       }}
                     >
-                      🌿 {m}
+                      ✦ {m}
                     </span>
                   ))}
                 </div>
@@ -2324,7 +2324,7 @@ export default function Home({ onNavigate }) {
           
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
             <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.72rem', fontWeight: 700, display: 'block', marginBottom: '0.2rem' }}>
-              ✦ Clinical Authority
+              <Star size={12} style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Clinical Authority
             </span>
             <h2 style={{color: 'var(--tan)', margin: 0}}>
               Guided by <em style={{ fontStyle: 'italic', color: 'var(--harvest-gold)' }}>Licensed Physicians</em>
@@ -2548,8 +2548,8 @@ export default function Home({ onNavigate }) {
           </p>
 
           <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem' }}>🌿 100% Drugless Naturopathy</div>
-            <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem' }}>🌊 54 Riverfront Acres</div>
+            <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem' }}>✦ 100% Drugless Naturopathy</div>
+            <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem' }}>✦ 54 Riverfront Acres</div>
             <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}><Stethoscope size={14} style={{ color: 'var(--harvest-gold)' }} /> 24/7 Resident Doctors</div>
           </div>
 

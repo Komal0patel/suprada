@@ -1513,7 +1513,7 @@ export default function Home({ onNavigate }) {
             }
             .naturopathy-bento-layout {
               display: grid;
-              grid-template-columns: 1.1fr 0.9fr;
+              grid-template-columns: 0.9fr 1.1fr;
               gap: 2rem;
               align-items: stretch;
             }

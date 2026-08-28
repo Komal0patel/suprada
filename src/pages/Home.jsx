@@ -453,6 +453,9 @@ export default function Home({ onNavigate }) {
     };
   }, [activeRitualIndex]);
 
+  // Active Therapy Selection State for Naturopathy Bento Layout
+  const [activeTherapyIndex, setActiveTherapyIndex] = useState(0);
+
   // Scroll link mandalas rotations
   const rotateValueSlow = useTransform(scrollY, [0, 5000], [0, 180]);
   const rotateValueFast = useTransform(scrollY, [0, 5000], [0, -360]);
@@ -1400,18 +1403,18 @@ export default function Home({ onNavigate }) {
         </div>
       </section>
 
-      {/* Transformative Naturopathy & Holistic Wellness Section - Compact Horizontal Bento Layout */}
-      <section style={{ backgroundColor: 'var(--tea-green)', padding: '3.2rem 6%', position: 'relative', overflow: 'hidden', color: 'var(--raisin-black)' }} className="luxury-clay">
+      {/* Transformative Naturopathy & Holistic Wellness Section - Reference Bento Layout */}
+      <section style={{ backgroundColor: 'var(--tea-green)', padding: '2.5rem 5%', position: 'relative', overflow: 'hidden', color: 'var(--raisin-black)' }} className="luxury-clay">
         <Pattern28 style={{ position: 'absolute', top: '-40px', left: '-40px', width: '250px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
         <Pattern25 style={{ position: 'absolute', bottom: '-40px', right: '-40px', width: '250px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
         
-        <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+        <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           {/* Header */}
-          <div style={{ textAlign: 'center', maxWidth: '680px', margin: '0 auto 2.2rem auto' }}>
+          <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 1.8rem auto' }}>
             <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.75rem', fontWeight: 800, display: 'block', marginBottom: '0.3rem' }}>
               ✦ CORE MEDICAL MODALITIES
             </span>
-            <h2 style={{ color: 'var(--wine)', lineHeight: 1.18, margin: '0 0 0.5rem 0' }}>
+            <h2 style={{ color: 'var(--wine)', lineHeight: 1.18, margin: '0 0 0.4rem 0' }}>
               Transformative Naturopathy <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>&amp; Holistic Wellness</em>
             </h2>
             <p style={{ color: 'var(--raisin-black)', opacity: 0.88, fontSize: '0.9rem', lineHeight: 1.55, fontWeight: 400, margin: 0 }}>
@@ -1419,127 +1422,274 @@ export default function Home({ onNavigate }) {
             </p>
           </div>
 
-          {/* Compact 2x2 Horizontal Cards Grid */}
+          {/* Reference Split Layout: Left 2x3 Grid, Right Spotlight Card */}
           <style>{`
-            .naturopathy-compact-grid {
+            .naturopathy-bento-layout {
               display: grid;
-              grid-template-columns: repeat(2, 1fr);
-              gap: 1.2rem;
+              grid-template-columns: 1fr 1.05fr;
+              gap: 1.5rem;
+              align-items: stretch;
             }
-            @media (max-width: 860px) {
-              .naturopathy-compact-grid {
+            @media (max-width: 960px) {
+              .naturopathy-bento-layout {
                 grid-template-columns: 1fr;
               }
             }
-            .naturopathy-compact-card {
-              background: #ffffff;
-              border-radius: 18px;
-              border: 1.5px solid rgba(94, 39, 53, 0.12);
-              box-shadow: 0 8px 24px rgba(94, 39, 53, 0.04);
+            .naturopathy-tile-grid {
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+              gap: 0.75rem;
+            }
+            .naturopathy-photo-tile {
+              position: relative;
+              height: 118px;
+              border-radius: 14px;
+              overflow: hidden;
+              cursor: pointer;
+              box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+              transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+              border: 2px solid transparent;
+            }
+            .naturopathy-photo-tile:hover {
+              transform: translateY(-3px);
+              box-shadow: 0 10px 25px rgba(94,39,53,0.15);
+            }
+            .naturopathy-photo-tile.active {
+              border-color: var(--wine);
+              box-shadow: 0 10px 25px rgba(94, 39, 53, 0.22);
+            }
+            .naturopathy-tile-bg {
+              position: absolute;
+              inset: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              transition: transform 0.5s ease;
+            }
+            .naturopathy-tile-overlay {
+              position: absolute;
+              inset: 0;
+              background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.7) 100%);
+            }
+            .naturopathy-explore-tile {
+              background: linear-gradient(135deg, #1b3b2b 0%, #0f241a 100%);
+              border-radius: 14px;
               padding: 1rem;
               display: flex;
-              gap: 1.1rem;
+              flex-direction: column;
               align-items: center;
+              justify-content: center;
               cursor: pointer;
-              transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+              text-align: center;
+              color: #ffffff;
+              box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+              transition: all 0.3s ease;
+              border: 1px solid rgba(220,160,50,0.25);
             }
-            .naturopathy-compact-card:hover {
-              transform: translateY(-4px);
-              box-shadow: 0 14px 32px rgba(94, 39, 53, 0.1);
-              border-color: rgba(94, 39, 53, 0.28);
-            }
-            .naturopathy-compact-img {
-              width: 125px;
-              height: 125px;
-              border-radius: 14px;
-              object-fit: cover;
-              flex-shrink: 0;
-            }
-            @media (max-width: 480px) {
-              .naturopathy-compact-card {
-                flex-direction: column;
-                align-items: flex-start;
-              }
-              .naturopathy-compact-img {
-                width: 100%;
-                height: 140px;
-              }
+            .naturopathy-explore-tile:hover {
+              transform: translateY(-3px);
+              box-shadow: 0 12px 28px rgba(15, 36, 26, 0.3);
+              background: linear-gradient(135deg, var(--wine) 0%, #401822 100%);
             }
           `}</style>
 
-          <div className="naturopathy-compact-grid">
-            {[
+          {(() => {
+            const therapiesData = [
               {
-                badge: 'DRUGLESS DETOX',
-                title: 'Naturopathy & Bio-Cleansing',
-                desc: 'Hydrotherapy, mud healing, fasting, and sun therapy to eliminate cellular toxins.',
-                image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80'
+                category: 'PRECISION THERAPY',
+                title: 'Acupuncture',
+                subtitle: 'Meridian Balance & Reflexology',
+                fullDesc: 'Acupuncture is a form of Alternative Medicine and a component of Traditional Chinese Medicine (TCM) in which thin needles are inserted into specific meridian points in the body. It helps to relieve chronic pain such as arthritis, back pain, neck pain, or muscle pain and also helps in treating headaches, migraines, menstrual cramps, anxiety, insomnia, and nerve discomfort.',
+                image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80'
               },
               {
-                badge: 'MIND-BODY HARMONY',
-                title: 'Yogic Science & Meditation',
-                desc: 'Authentic breathwork, Pranayama, and Yoga Nidra to recalibrate nervous system tone.',
-                image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80'
+                category: 'NUTRITION THERAPY',
+                title: 'Diet & Fasting Therapy',
+                subtitle: 'Gut Microbiome Reset',
+                fullDesc: 'Doctor-supervised fasting protocols, therapeutic cold-pressed juices, and customized Satwik organic meals restore gut microbiome integrity, flush metabolic waste, and re-ignite digestive vitality.',
+                image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80'
               },
               {
-                badge: 'THERAPEUTIC RECOVERY',
-                title: 'Holistic & Thermal Therapies',
-                desc: 'Acupuncture, reflexology, herbal steam chambers, and pranic energy flow work.',
-                image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=600&q=80'
+                category: 'WATER THERAPY',
+                title: 'Hydrotherapy',
+                subtitle: 'Jet & Temperature Contrast',
+                fullDesc: 'Hydrotherapy utilizes underwater pressure jets, spinal baths, and contrast water temperatures to stimulate lymphatic drainage, enhance peripheral blood circulation, and relieve deep somatic stress.',
+                image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80'
               },
               {
-                badge: 'SATTWIK NUTRITION',
-                title: 'Organic Satwik Cuisine',
-                desc: 'Doctor-prescribed organic meals and cold-pressed juices to restore gut microbiome.',
-                image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=600&q=80'
+                category: 'TOUCH THERAPY',
+                title: 'Massage Therapy',
+                subtitle: 'Myofascial & Tissue Release',
+                fullDesc: 'Therapeutic neuromuscular bodywork and medicated herbal oil applications dissolve chronic muscle knots, improve spinal flexibility, and balance the central nervous system.',
+                image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80'
+              },
+              {
+                category: 'EARTH THERAPY',
+                title: 'Mud Therapy',
+                subtitle: 'Mineral & Thermal Cleansing',
+                fullDesc: 'Purified volcanic earth and medicinal clay packs absorb internal metabolic toxins, cool abdominal inflammation, improve dermal micro-circulation, and induce profound somatic relaxation.',
+                image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80'
               }
-            ].map((item, idx) => (
-              <motion.div
-                key={idx}
-                className="naturopathy-compact-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-30px' }}
-                transition={{ duration: 0.4, delay: idx * 0.08 }}
-                onClick={() => onNavigate('programmes')}
-              >
-                <img 
-                  src={item.image} 
-                  alt={item.title}
-                  className="naturopathy-compact-img"
-                />
-                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', flex: 1, minWidth: 0 }}>
-                  <span style={{ color: 'var(--redwood)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.25rem' }}>
-                    {item.badge}
-                  </span>
-                  <h3 style={{ color: 'var(--wine)', fontSize: '1.05rem', margin: '0 0 0.35rem 0', fontWeight: 700, lineHeight: 1.25 }}>
-                    {item.title}
-                  </h3>
-                  <p style={{ color: 'var(--raisin-black)', opacity: 0.82, fontSize: '0.84rem', lineHeight: 1.5, margin: '0 0 0.6rem 0' }}>
-                    {item.desc}
-                  </p>
-                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', color: 'var(--wine)', fontSize: '0.8rem', fontWeight: 700 }}>
-                    <span>Explore Modality</span>
-                    <ArrowRight size={13} />
+            ];
+
+            const activeTherapy = therapiesData[activeTherapyIndex % therapiesData.length];
+
+            return (
+              <div className="naturopathy-bento-layout">
+                {/* LEFT: 2x3 Grid of Compact Photo Cards */}
+                <div className="naturopathy-tile-grid">
+                  {therapiesData.map((item, idx) => {
+                    const isActive = (activeTherapyIndex % therapiesData.length) === idx;
+                    return (
+                      <motion.div
+                        key={idx}
+                        className={`naturopathy-photo-tile ${isActive ? 'active' : ''}`}
+                        onClick={() => setActiveTherapyIndex(idx)}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <img 
+                          src={item.image} 
+                          alt={item.title}
+                          className="naturopathy-tile-bg"
+                        />
+                        <div className="naturopathy-tile-overlay" />
+                        
+                        {/* Category Badge */}
+                        <span style={{
+                          position: 'absolute', top: '8px', left: '8px',
+                          backgroundColor: 'rgba(0, 0, 0, 0.45)',
+                          color: '#ffffff',
+                          fontSize: '0.58rem',
+                          fontWeight: 800,
+                          letterSpacing: '0.08em',
+                          padding: '0.2rem 0.55rem',
+                          borderRadius: '8px',
+                          backdropFilter: 'blur(4px)',
+                          zIndex: 2
+                        }}>
+                          {item.category}
+                        </span>
+
+                        {/* Title */}
+                        <span style={{
+                          position: 'absolute', bottom: '8px', left: '10px', right: '10px',
+                          color: '#ffffff',
+                          fontSize: '0.86rem',
+                          fontWeight: 700,
+                          lineHeight: 1.2,
+                          textShadow: '0 2px 4px rgba(0,0,0,0.7)',
+                          zIndex: 2
+                        }}>
+                          {item.title}
+                        </span>
+                      </motion.div>
+                    );
+                  })}
+
+                  {/* 6th Card: Solid Explore All Card */}
+                  <motion.div
+                    className="naturopathy-explore-tile"
+                    onClick={() => onNavigate('programmes')}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <div style={{
+                      width: '28px', height: '28px', borderRadius: '50%',
+                      border: '1.5px solid var(--harvest-gold)', color: 'var(--harvest-gold)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      fontSize: '1rem', fontWeight: 700, marginBottom: '0.3rem'
+                    }}>
+                      +
+                    </div>
+                    <span style={{ fontSize: '0.62rem', letterSpacing: '0.14em', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase' }}>
+                      EXPLORE ALL
+                    </span>
+                    <strong style={{ fontSize: '0.92rem', color: '#ffffff', marginTop: '0.1rem' }}>
+                      8+ Therapies
+                    </strong>
+                  </motion.div>
+                </div>
+
+                {/* RIGHT: Featured Active Therapy Card */}
+                <div style={{
+                  backgroundColor: '#ffffff',
+                  borderRadius: '18px',
+                  border: '1.5px solid rgba(94, 39, 53, 0.14)',
+                  boxShadow: '0 12px 35px rgba(94, 39, 53, 0.06)',
+                  overflow: 'hidden',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  height: '100%'
+                }}>
+                  {/* Top Image Banner */}
+                  <div style={{ height: '210px', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+                    <AnimatePresence mode="wait">
+                      <motion.img 
+                        key={activeTherapy.image}
+                        src={activeTherapy.image} 
+                        alt={activeTherapy.title}
+                        initial={{ opacity: 0, scale: 1.05 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.98 }}
+                        transition={{ duration: 0.4 }}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    </AnimatePresence>
+                    
+                    <span style={{
+                      position: 'absolute',
+                      top: '12px',
+                      left: '12px',
+                      backgroundColor: 'rgba(255, 255, 255, 0.85)',
+                      color: 'var(--wine)',
+                      fontSize: '0.68rem',
+                      fontWeight: 800,
+                      letterSpacing: '0.1em',
+                      padding: '0.35rem 0.85rem',
+                      borderRadius: '12px',
+                      backdropFilter: 'blur(6px)',
+                      boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+                    }}>
+                      {activeTherapy.category}
+                    </span>
+                  </div>
+
+                  {/* Content Body */}
+                  <div style={{ padding: '1.5rem 1.8rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: 1 }}>
+                    <div>
+                      <h3 style={{ color: 'var(--wine)', fontSize: '1.45rem', fontWeight: 700, margin: '0 0 0.4rem 0', lineHeight: 1.2 }}>
+                        {activeTherapy.title}
+                      </h3>
+                      <div style={{ width: '38px', height: '2.5px', backgroundColor: 'var(--harvest-gold)', marginBottom: '0.9rem' }} />
+                      
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black)', opacity: 0.88, lineHeight: 1.65, margin: 0 }}>
+                        {activeTherapy.fullDesc}
+                      </p>
+                    </div>
+
+                    <div 
+                      onClick={() => onNavigate('programmes')}
+                      style={{ 
+                        color: 'var(--wine)', 
+                        fontWeight: 800, 
+                        fontSize: '0.82rem', 
+                        letterSpacing: '0.08em', 
+                        cursor: 'pointer', 
+                        display: 'inline-flex', 
+                        alignItems: 'center', 
+                        gap: '0.4rem',
+                        marginTop: '1.4rem',
+                        paddingTop: '0.8rem',
+                        borderTop: '1px solid rgba(94,39,53,0.08)'
+                      }}
+                    >
+                      <span>EXPLORE THERAPY</span>
+                      <ArrowRight size={14} />
+                    </div>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Section Bottom View More Button */}
-          <div style={{ textAlign: 'center', marginTop: '2.4rem' }}>
-            <motion.button
-              whileHover={{ scale: 1.03, boxShadow: '0 10px 25px rgba(94, 39, 53, 0.2)' }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => onNavigate('programmes')}
-              className="btn-luxury"
-              style={{ padding: '0.8rem 2.2rem', fontSize: '0.84rem', fontWeight: 800 }}
-            >
-              <span>View All Modalities &amp; Retreat Programmes</span>
-              <ArrowRight size={15} />
-            </motion.button>
-          </div>
+              </div>
+            );
+          })()}
         </div>
       </section>
 

@@ -1576,8 +1576,10 @@ export default function Home({ onNavigate }) {
               .naturopathy-section-container {
                 min-height: auto !important;
                 height: auto !important;
+                max-height: none !important;
                 padding: 2.2rem 4% 3rem 4% !important;
                 overflow-x: hidden !important;
+                overflow-y: visible !important;
               }
               .naturopathy-bento-layout {
                 grid-template-columns: 1fr !important;
@@ -1585,23 +1587,29 @@ export default function Home({ onNavigate }) {
                 width: 100% !important;
                 max-width: 100% !important;
                 min-width: 0 !important;
+                height: auto !important;
+                max-height: none !important;
+                overflow: visible !important;
               }
               .naturopathy-left-column {
                 min-width: 0 !important;
                 width: 100% !important;
                 max-width: 100% !important;
-                overflow: hidden !important;
+                height: auto !important;
+                max-height: none !important;
+                overflow: visible !important;
               }
               .naturopathy-tile-grid {
                 display: flex !important;
                 flex-direction: row !important;
                 flex-wrap: nowrap !important;
                 overflow-x: auto !important;
+                overflow-y: hidden !important;
                 scroll-snap-type: x mandatory !important;
                 gap: 0.7rem !important;
                 padding: 0.2rem 0.2rem 0.6rem 0.2rem !important;
                 -webkit-overflow-scrolling: touch;
-                touch-action: pan-x pan-y !important;
+                touch-action: pan-x !important;
                 width: 100% !important;
                 max-width: 100% !important;
                 min-width: 0 !important;
@@ -1618,10 +1626,12 @@ export default function Home({ onNavigate }) {
               .naturopathy-right-card {
                 height: auto !important;
                 min-height: auto !important;
+                max-height: none !important;
                 width: 100% !important;
                 max-width: 100% !important;
                 box-sizing: border-box !important;
                 flex: none !important;
+                overflow: visible !important;
               }
               .naturopathy-right-card-banner {
                 height: 190px !important;

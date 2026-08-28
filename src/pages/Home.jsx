@@ -1605,11 +1605,11 @@ export default function Home({ onNavigate }) {
                 flex-wrap: nowrap !important;
                 overflow-x: auto !important;
                 overflow-y: hidden !important;
-                scroll-snap-type: x mandatory !important;
+                scroll-snap-type: none !important;
                 gap: 0.7rem !important;
                 padding: 0.2rem 0.2rem 0.6rem 0.2rem !important;
                 -webkit-overflow-scrolling: touch;
-                touch-action: pan-x !important;
+                touch-action: auto !important;
                 width: 100% !important;
                 max-width: 100% !important;
                 min-width: 0 !important;
@@ -1621,7 +1621,7 @@ export default function Home({ onNavigate }) {
                 width: 155px !important;
                 min-width: 155px !important;
                 height: 115px !important;
-                scroll-snap-align: start !important;
+                scroll-snap-align: none !important;
               }
               .naturopathy-right-card {
                 height: auto !important;
@@ -1780,11 +1780,10 @@ export default function Home({ onNavigate }) {
                     {sanctuaryPillars.map((item, idx) => {
                       const isActive = (activeTherapyIndex % sanctuaryPillars.length) === idx;
                       return (
-                        <motion.div
+                        <div
                           key={idx}
                           className={`naturopathy-photo-tile ${isActive ? 'active' : ''}`}
                           onClick={() => setActiveTherapyIndex(idx)}
-                          whileTap={{ scale: 0.98 }}
                         >
                           <img 
                             src={item.image} 
@@ -1821,15 +1820,14 @@ export default function Home({ onNavigate }) {
                           }}>
                             {item.title}
                           </span>
-                        </motion.div>
+                        </div>
                       );
                     })}
 
                     {/* 6th Card: Solid Brand Explore All Card */}
-                    <motion.div
+                    <div
                       className="naturopathy-explore-tile"
                       onClick={() => onNavigate('programmes')}
-                      whileTap={{ scale: 0.98 }}
                     >
                       <div style={{
                         width: '28px', height: '28px', borderRadius: '50%',
@@ -1845,7 +1843,7 @@ export default function Home({ onNavigate }) {
                       <strong style={{ fontSize: '0.9rem', color: '#ffffff', marginTop: '0.05rem' }}>
                         8+ Pillars
                       </strong>
-                    </motion.div>
+                    </div>
                   </div>
                 </div>
 

@@ -1938,12 +1938,12 @@ html, body {
     overflow-y: auto;
   }
 
-  /* Fluid Typography */
-  h1 { font-size: clamp(2rem, 8vw, 3.5rem) !important; }
-  h2 { font-size: clamp(1.8rem, 6vw, 2.5rem) !important; }
-  h3 { font-size: clamp(1.4rem, 5vw, 2rem) !important; }
-  h4 { font-size: clamp(1.2rem, 4vw, 1.5rem) !important; }
-  p { font-size: 1.18rem !important; }
+  /* Fluid Typography - Scaled elegantly for mobile devices (referencing Hero Section scale) */
+  h1 { font-size: clamp(1.85rem, 7vw, 2.4rem) !important; }
+  h2 { font-size: clamp(1.45rem, 5vw, 1.85rem) !important; }
+  h3 { font-size: clamp(1.15rem, 3.8vw, 1.45rem) !important; }
+  h4 { font-size: clamp(0.92rem, 3vw, 1.1rem) !important; }
+  p { font-size: 0.88rem !important; line-height: 1.58 !important; }
 
   /* Stack layout */
   .flex-stack-mobile {

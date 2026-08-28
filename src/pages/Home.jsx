@@ -826,27 +826,58 @@ export default function Home({ onNavigate }) {
           }
           @media (max-width: 900px) {
             .founders-section {
-              padding: 2.8rem 5% !important;
+              padding: 2.5rem 5% !important;
+              min-height: auto !important;
             }
             .founders-grid {
               grid-template-columns: 1fr;
-              gap: 1.5rem;
+              gap: 1.25rem;
             }
             .founders-badge-col {
               flex-direction: row !important;
               justify-content: flex-start !important;
-              gap: 1rem !important;
-              padding-bottom: 0.8rem;
+              align-items: center !important;
+              gap: 0.75rem !important;
+              padding-bottom: 0.75rem;
               border-bottom: 1px solid rgba(220, 160, 50, 0.2);
             }
             .founders-badge-icon {
-              width: 54px !important;
-              height: 54px !important;
+              width: 44px !important;
+              height: 44px !important;
               margin-bottom: 0 !important;
             }
-            .founders-badge-icon img {
-              width: 32px !important;
-              height: 32px !important;
+            .founders-badge-icon img,
+            .founders-badge-img {
+              width: 44px !important;
+              height: 44px !important;
+            }
+            .founders-badge-text {
+              text-align: left !important;
+            }
+            .founders-badge-text h3 {
+              font-size: 1.1rem !important;
+              letter-spacing: 0.08em !important;
+              text-align: left !important;
+            }
+            .founders-badge-text span {
+              font-size: 0.68rem !important;
+              text-align: left !important;
+              margin-top: 0 !important;
+            }
+            .founders-title {
+              font-size: clamp(1.5rem, 5.5vw, 1.95rem) !important;
+              line-height: 1.2 !important;
+            }
+            .founders-subtitle {
+              font-size: clamp(0.88rem, 3.2vw, 1.02rem) !important;
+            }
+            .founders-body {
+              font-size: 0.88rem !important;
+              line-height: 1.58 !important;
+            }
+            .founders-quote {
+              font-size: 0.88rem !important;
+              line-height: 1.55 !important;
             }
           }
         `}</style>
@@ -868,6 +899,7 @@ export default function Home({ onNavigate }) {
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               whileHover={{ scale: 1.08 }}
+              className="founders-badge-icon"
               style={{
                 cursor: 'pointer',
                 marginBottom: '1rem',
@@ -879,6 +911,7 @@ export default function Home({ onNavigate }) {
               <img 
                 src="/assets/logo.svg" 
                 alt="Suprada Logo" 
+                className="founders-badge-img"
                 style={{ 
                   width: '120px', 
                   height: '120px', 
@@ -887,7 +920,7 @@ export default function Home({ onNavigate }) {
                 }} 
               />
             </motion.div>
-            <div style={{ textAlign: 'center' }}>
+            <div style={{ textAlign: 'center' }} className="founders-badge-text">
               <h3 style={{color: 'var(--tan)', letterSpacing: '0.1em', margin: 0,}}>Suprada</h3>
               <span style={{ color: 'var(--isabelline)', opacity: 0.65, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginTop: '0.15rem', display: 'block' }}>Est. 2026</span>
             </div>
@@ -913,26 +946,26 @@ export default function Home({ onNavigate }) {
             
             <motion.h2 
               variants={foundersMistFadeVariant}
-              className="gold-foil-text" 
+              className="gold-foil-text founders-title" 
               style={{lineHeight: 1.18, 
                 margin: 0,}}
             >
               The Spirit of Suprada
             </motion.h2>
             
-            <motion.h4 variants={foundersMistFadeVariant} style={{color: 'var(--tan)', letterSpacing: '0.02em', margin: 0}}>
+            <motion.h4 variants={foundersMistFadeVariant} className="founders-subtitle" style={{color: 'var(--tan)', letterSpacing: '0.02em', margin: 0}}>
               Where Global Expertise Meets Indian Heritage
             </motion.h4>
             
-            <motion.p variants={foundersMistFadeVariant} style={{ color: 'var(--isabelline)', fontSize: '0.95rem', opacity: 0.9, lineHeight: 1.55, fontWeight: 300, margin: 0 }}>
+            <motion.p variants={foundersMistFadeVariant} className="founders-body" style={{ color: 'var(--isabelline)', fontSize: '0.95rem', opacity: 0.9, lineHeight: 1.55, fontWeight: 300, margin: 0 }}>
               Suprada is the realization of a vision shared by <strong>Sunil Jayaraj</strong> and <strong>Dr. Premasudha Ramadas</strong>. After spending 16 years in the United States, they returned to India with a singular purpose: to bridge the gap between advanced science and ancient Indian wisdom.
             </motion.p>
             
-            <motion.p variants={foundersMistFadeVariant} style={{ color: 'var(--isabelline)', fontSize: '0.95rem', opacity: 0.9, lineHeight: 1.55, fontWeight: 300, margin: 0 }}>
+            <motion.p variants={foundersMistFadeVariant} className="founders-body" style={{ color: 'var(--isabelline)', fontSize: '0.95rem', opacity: 0.9, lineHeight: 1.55, fontWeight: 300, margin: 0 }}>
               Sunil, known as a "Blue Planet Runner," brings the endurance and discipline of an elite athlete, while Dr. Premasudha, a US Board-certified physician, ensures our holistic integration is grounded in authenticity and clinical evidence.
             </motion.p>
             
-            <motion.p variants={foundersMistFadeVariant} style={{ color: 'var(--tan)', fontSize: '0.95rem', opacity: 0.95, lineHeight: 1.5, fontStyle: 'italic', marginTop: '0.2rem', margin: 0, fontWeight: 500 }}>
+            <motion.p variants={foundersMistFadeVariant} className="founders-quote" style={{ color: 'var(--tan)', fontSize: '0.95rem', opacity: 0.95, lineHeight: 1.5, fontStyle: 'italic', marginTop: '0.2rem', margin: 0, fontWeight: 500 }}>
               "In today's world, healing is often scattered—one place for the body, another for the mind. We created Suprada to bring these fragments together into one cohesive journey of restoration."
             </motion.p>
             

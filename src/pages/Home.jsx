@@ -2408,6 +2408,7 @@ export default function Home({ onNavigate }) {
               { name: 'Dr. Sunil Jayaraj', role: 'Founder', creds: 'Suprada Wellness', img: '/assets/sunil_jayaraj.jpg' },
               { name: 'Dr. Prema Ramadas', role: 'Co-founder', creds: 'Suprada Wellness', img: '/assets/prema_ramadas.jpg' },
               { name: 'Srinivas Ramadas', role: 'Director Operations', creds: 'Suprada Wellness', img: '/assets/srinivas_ramadas.jpg' },
+              { name: 'Nagaraju', role: 'Chairman', creds: 'Suprada Wellness', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80' },
               { name: 'Dr. Vinaya, B.N.Y.S', role: 'Chief Medical Officer', creds: 'Suprada Wellness', img: '/assets/vinaya.jpg' }
             ].map((doc, idx) => (
               <div key={idx} className="editorial-master-card" style={{ height: '320px' }}>
@@ -2638,7 +2639,7 @@ export default function Home({ onNavigate }) {
             </button>
             <button 
               onClick={() => onNavigate('contact')}
-              style={{ background: 'none', border: '1.5px solid var(--tan)', color: 'var(--tan)', cursor: 'pointer', padding: '0.95rem 2.6rem', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 600, borderRadius: '4px', transition: 'all 0.3s ease' }}
+              style={{ background: 'none', border: '1.5px solid var(--tan)', color: 'var(--tan)', cursor: 'pointer', padding: '0.95rem 2.6rem', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 600, borderRadius: '50px', transition: 'all 0.3s ease' }}
               className="hover-tan"
             >
               Schedule Medical Consultation

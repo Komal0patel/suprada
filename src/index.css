@@ -2110,12 +2110,32 @@ html, body {
 
   /* Spacing */
   section {
-    padding-left: 1.5rem !important;
-    padding-right: 1.5rem !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
   }
   
   .transformation-card, .rhythm-card, .bento-tile {
     width: 100% !important;
+  }
+
+  /* Room Card Mobile Stacking */
+  .room-row-responsive {
+    flex-direction: column !important;
+    min-height: auto !important;
+  }
+  .room-visual-canvas {
+    height: 300px !important;
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    border-radius: 24px !important;
+  }
+  .room-info-panel {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    margin: -30px 0 0 0 !important;
+    border-radius: 24px !important;
+    padding: 1.8rem 1.5rem !important;
+    box-sizing: border-box !important;
   }
 }
 
@@ -2123,6 +2143,10 @@ html, body {
   /* Mobile Portrait */
   .timeline-container {
     width: 800px;
+  }
+  
+  .room-visual-canvas {
+    height: 240px !important;
   }
 }
 

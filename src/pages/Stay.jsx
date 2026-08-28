@@ -479,6 +479,17 @@ export default function Stay({ onNavigate }) {
   const [configAddon, setConfigAddon] = useState('steam');
   const [configDiet, setConfigDiet] = useState('satwik');
 
+  // Mobile Responsiveness States
+  const [isMobile, setIsMobile] = useState(false);
+  const [mobileCottageLimit, setMobileCottageLimit] = useState(4);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   // Booking Form State inside Booking Modal
   const [bookingDate, setBookingDate] = useState('2026-08-01');
   const [bookingGuests, setBookingGuests] = useState('2 Guests');
@@ -757,7 +768,7 @@ export default function Stay({ onNavigate }) {
           {/* Alternating Staggered Guhantara Room Stack */}
           <div className="room-stack-container" style={{ display: 'flex', flexDirection: 'column', gap: '100px' }}>
             <AnimatePresence>
-              {filteredBlocks.map((cottage, idx) => {
+              {(isMobile ? filteredBlocks.slice(0, mobileCottageLimit) : filteredBlocks).map((cottage, idx) => {
                 const isEven = idx % 2 === 0;
                 const isCompared = comparedBlocks.some(cb => cb.id === cottage.id);
 
@@ -1110,6 +1121,38 @@ export default function Stay({ onNavigate }) {
                 );
               })}
             </AnimatePresence>
+
+            {/* Mobile View Explore More / Show Less Toggle Button */}
+            {isMobile && filteredBlocks.length > mobileCottageLimit && (
+              <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+                <button
+                  onClick={() => setMobileCottageLimit(filteredBlocks.length)}
+                  className="btn-primary"
+                  style={{ padding: '0.9rem 2.2rem', fontSize: '0.9rem', letterSpacing: '0.1em' }}
+                >
+                  ✦ Explore All Sanctuaries ({filteredBlocks.length - mobileCottageLimit} More)
+                </button>
+              </div>
+            )}
+            {isMobile && mobileCottageLimit >= filteredBlocks.length && filteredBlocks.length > 4 && (
+              <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+                <button
+                  onClick={() => setMobileCottageLimit(4)}
+                  style={{
+                    backgroundColor: 'transparent',
+                    border: '1.5px solid var(--wine)',
+                    color: 'var(--wine)',
+                    padding: '0.75rem 1.8rem',
+                    borderRadius: '50px',
+                    fontWeight: 700,
+                    fontSize: '0.85rem',
+                    cursor: 'pointer'
+                  }}
+                >
+                  Show Fewer Sanctuaries ↑
+                </button>
+              </div>
+            )}
           </div>
 
         </div>

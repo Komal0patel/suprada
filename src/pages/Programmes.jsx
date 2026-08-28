@@ -54,6 +54,18 @@ export default function Programmes({ onNavigate }) {
   const [activeFilter, setActiveFilter] = useState('All');
   const [expandedProgram, setExpandedProgram] = useState(null);
 
+  // Mobile Responsiveness States
+  const [isMobile, setIsMobile] = useState(false);
+  const [mobileProgLimit, setMobileProgLimit] = useState(3);
+  const [mobileInclusionLimit, setMobileInclusionLimit] = useState(4);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   // Program gradients now use proper palette colors
   const programsList = [
     {
@@ -453,7 +465,7 @@ export default function Programmes({ onNavigate }) {
           {/* Alternating Program Cards */}
           <div className="flex-stack-mobile" style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
             <AnimatePresence>
-              {filteredPrograms.map((prog, idx) => {
+              {(isMobile ? filteredPrograms.slice(0, mobileProgLimit) : filteredPrograms).map((prog, idx) => {
                 const isEven = idx % 2 === 0;
                 return (
                   <motion.div
@@ -591,6 +603,38 @@ export default function Programmes({ onNavigate }) {
                 );
               })}
             </AnimatePresence>
+
+            {/* Mobile View Explore More / Show Less Toggle Button */}
+            {isMobile && filteredPrograms.length > mobileProgLimit && (
+              <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+                <button
+                  onClick={() => setMobileProgLimit(filteredPrograms.length)}
+                  className="btn-primary"
+                  style={{ padding: '0.9rem 2.2rem', fontSize: '0.9rem', letterSpacing: '0.1em' }}
+                >
+                  ✦ Explore All Programmes ({filteredPrograms.length - mobileProgLimit} More)
+                </button>
+              </div>
+            )}
+            {isMobile && mobileProgLimit >= filteredPrograms.length && filteredPrograms.length > 3 && (
+              <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+                <button
+                  onClick={() => setMobileProgLimit(3)}
+                  style={{
+                    backgroundColor: 'transparent',
+                    border: '1.5px solid var(--wine)',
+                    color: 'var(--wine)',
+                    padding: '0.75rem 1.8rem',
+                    borderRadius: '50px',
+                    fontWeight: 700,
+                    fontSize: '0.85rem',
+                    cursor: 'pointer'
+                  }}
+                >
+                  Show Fewer Programmes ↑
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -696,130 +740,127 @@ export default function Programmes({ onNavigate }) {
             </p>
           </div>
 
-          {/* Bento Grid */}
-          <div className="bento-grid-responsive" style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(12, 1fr)',
-            gridTemplateRows: 'auto auto auto',
-            gap: '1rem'
-          }}>
-            {/* Hero Card — spans 8 columns, row 1 — Wine gradient with Tan text */}
-            <motion.div
-              whileHover={{ scale: 1.01 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              style={{
-                gridColumn: '1 / 9',
-                gridRow: '1 / 2',
-                background: 'linear-gradient(135deg, var(--wine) 0%, #3a1520 60%, #2a0e18 100%)',
-                borderRadius: '20px',
-                padding: '2rem 2.2rem',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                minHeight: '180px',
-                position: 'relative',
-                overflow: 'hidden',
-                border: '1px solid rgba(220,160,50,0.14)'
-              }}
-            >
-              <div style={{ position: 'absolute', top: '-30px', right: '-30px', width: '150px', height: '150px', borderRadius: '50%', border: '1px solid rgba(220,160,50,0.08)', pointerEvents: 'none' }} />
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '0.8rem' }}>
-                <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'linear-gradient(135deg, rgba(220,160,50,0.3), rgba(220,160,50,0.08))', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.3rem', border: '1px solid rgba(220,160,50,0.25)' }}>
-                  {whatIsIncluded[0].icon}
-                </div>
-                <span style={{ fontSize: '0.78rem', textTransform: 'uppercase', color: 'var(--harvest-gold)', backgroundColor: 'rgba(220,160,50,0.18)', padding: '0.35rem 1rem', borderRadius: '50px', fontWeight: 800, letterSpacing: '0.1em', border: '1px solid rgba(220,160,50,0.3)' }}>
-                  Core Service
-                </span>
-              </div>
-              <h3 style={{color: 'var(--tan)', marginBottom: '0.3rem'}}>
-                {whatIsIncluded[0].title}
-              </h3>
-              <p style={{ fontSize: '0.98rem', color: 'rgba(244,240,236,0.92)', lineHeight: 1.6, maxWidth: '440px', fontWeight: 400 }}>
-                {whatIsIncluded[0].desc}
-              </p>
-            </motion.div>
+          {/* Unified Responsive 3x3 Grid Layout */}
+          <style>{`
+            .inclusions-unified-grid {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 1.25rem;
+              width: 100%;
+            }
+            @media (max-width: 960px) {
+              .inclusions-unified-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+              }
+            }
+            @media (max-width: 580px) {
+              .inclusions-unified-grid {
+                grid-template-columns: 1fr;
+                gap: 0.85rem;
+              }
+            }
+            .inclusion-card-item {
+              background: #ffffff;
+              border: 1.5px solid rgba(94, 39, 53, 0.12);
+              border-radius: 18px;
+              padding: 1.5rem;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              min-height: 150px;
+              box-shadow: 0 8px 24px rgba(94, 39, 53, 0.05);
+              transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+              box-sizing: border-box;
+            }
+            .inclusion-card-item:hover {
+              transform: translateY(-4px);
+              box-shadow: 0 16px 36px rgba(94, 39, 53, 0.12);
+              border-color: rgba(94, 39, 53, 0.3);
+            }
+          `}</style>
 
-            {/* Accent Card — 4 columns, row 1 — Isabelline with Sage & Wine accents */}
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.4 }}
-              style={{
-                gridColumn: '9 / 13',
-                gridRow: '1 / 2',
-                background: 'linear-gradient(160deg, rgba(179,186,142,0.25) 0%, rgba(179,186,142,0.06) 100%)',
-                borderRadius: '20px',
-                padding: '1.8rem 1.6rem',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                gap: '1.2rem',
-                border: '1px solid rgba(179,186,142,0.3)',
-                minHeight: '180px',
-                position: 'relative',
-                overflow: 'hidden',
-                backgroundColor: 'var(--isabelline)'
-              }}
-            >
-              {[whatIsIncluded[1], whatIsIncluded[2]].map((item, i) => (
-                <div key={i} style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start' }}>
-                  <div style={{
-                    width: '36px', height: '36px', borderRadius: '10px', flexShrink: 0,
-                    background: i === 0 ? 'rgba(94,39,53,0.12)' : 'rgba(179,186,142,0.25)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem',
-                    border: `1px solid ${i === 0 ? 'rgba(94,39,53,0.2)' : 'rgba(179,186,142,0.4)'}`
-                  }}>
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h4 style={{color: 'var(--wine)', margin: '0 0 0.2rem 0'}}>
-                      {item.title}
-                    </h4>
-                    <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.5, margin: 0, fontWeight: 500 }}>
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-
-            {/* Bottom rows — remaining items in 4-col cards, isabelline bg with wine/sage accents */}
-            {whatIsIncluded.slice(3).map((item, idx) => (
+          <div className="inclusions-unified-grid">
+            {(isMobile ? whatIsIncluded.slice(0, mobileInclusionLimit) : whatIsIncluded).map((item, idx) => (
               <motion.div
-                key={idx + 3}
-                whileHover={{ y: -5, borderColor: 'rgba(94,39,53,0.25)' }}
-                transition={{ duration: 0.3 }}
-                style={{
-                  gridColumn: `span 4`,
-                  backgroundColor: idx % 3 === 1 ? 'var(--pale-dogwood)' : idx % 3 === 2 ? '#e8ede0' : 'var(--isabelline)',
-                  borderRadius: '16px',
-                  padding: '1.4rem 1.3rem',
-                  border: '1px solid rgba(94,39,53,0.1)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '0.6rem',
-                  cursor: 'default',
-                  transition: 'all 0.3s ease'
-                }}
+                key={idx}
+                className="inclusion-card-item"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
               >
-                <div className="flex-stack-mobile" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.9rem', width: '100%' }}>
                   <div style={{
-                    width: '36px', height: '36px', borderRadius: '50%',
-                    background: 'rgba(94,39,53,0.1)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem',
-                    border: '1px solid rgba(94,39,53,0.15)'
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: '12px',
+                    backgroundColor: 'rgba(94, 39, 53, 0.08)',
+                    color: 'var(--wine)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0
                   }}>
                     {item.icon}
                   </div>
+                  <span style={{
+                    fontSize: '0.68rem',
+                    textTransform: 'uppercase',
+                    color: 'var(--wine)',
+                    backgroundColor: 'rgba(94, 39, 53, 0.08)',
+                    padding: '0.25rem 0.65rem',
+                    borderRadius: '50px',
+                    fontWeight: 800,
+                    letterSpacing: '0.06em'
+                  }}>
+                    ✦ Included
+                  </span>
                 </div>
-                <h3 style={{color: 'var(--wine)', margin: 0}}>
-                  {item.title}
-                </h3>
-                <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.55, margin: 0, fontWeight: 500 }}>
-                  {item.desc}
-                </p>
+
+                <div>
+                  <h3 style={{ color: 'var(--wine)', fontSize: '1.15rem', fontWeight: 700, margin: '0 0 0.35rem 0', lineHeight: 1.25 }}>
+                    {item.title}
+                  </h3>
+                  <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.5, margin: 0, fontWeight: 400 }}>
+                    {item.desc}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
+
+          {/* Mobile View Explore More / Show Less Toggle Button */}
+          {isMobile && whatIsIncluded.length > mobileInclusionLimit && (
+            <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+              <button
+                onClick={() => setMobileInclusionLimit(whatIsIncluded.length)}
+                className="btn-primary"
+                style={{ padding: '0.9rem 2.2rem', fontSize: '0.9rem', letterSpacing: '0.1em' }}
+              >
+                ✦ Explore All Inclusions ({whatIsIncluded.length - mobileInclusionLimit} More)
+              </button>
+            </div>
+          )}
+          {isMobile && mobileInclusionLimit >= whatIsIncluded.length && whatIsIncluded.length > 4 && (
+            <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+              <button
+                onClick={() => setMobileInclusionLimit(4)}
+                style={{
+                  backgroundColor: 'transparent',
+                  border: '1.5px solid var(--wine)',
+                  color: 'var(--wine)',
+                  padding: '0.75rem 1.8rem',
+                  borderRadius: '50px',
+                  fontWeight: 700,
+                  fontSize: '0.85rem',
+                  cursor: 'pointer'
+                }}
+              >
+                Show Fewer Inclusions ↑
+              </button>
+            </div>
+          )}
         </div>
       </section>
 

@@ -653,14 +653,21 @@ export default function Home({ onNavigate }) {
             animate="visible"
             style={{ maxWidth: '640px', textAlign: 'left' }}
           >
-            {/* Top Sub-Heading Badge with Top Gap & Fixed Alignment */}
-            <motion.div variants={blurFadeIn} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.2rem', marginTop: '1.8rem' }}>
+            {/* Top Sub-Heading Badge — Symmetrical Gold Line + Star Accents on Both Sides */}
+            <motion.div variants={blurFadeIn} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.2rem', marginTop: '1.8rem', flexWrap: 'nowrap' }}>
               <motion.div 
                 animate={{ scaleX: [0.9, 1.1, 0.9], opacity: [0.7, 1, 0.7] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 className="shiny-gold-line" 
-                style={{ height: '1.5px', width: '42px', backgroundColor: 'var(--harvest-gold)', display: 'inline-block' }}
+                style={{ height: '1.5px', width: '36px', backgroundColor: 'var(--harvest-gold)', display: 'inline-block' }}
               />
+              <motion.span 
+                animate={{ opacity: [0.4, 1, 0.4], scale: [0.8, 1.2, 0.8] }}
+                transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+                style={{ color: '#f7d070', fontSize: '0.8rem', textShadow: '0 0 12px rgba(247, 208, 112, 0.9)', display: 'inline-flex', alignItems: 'center' }}
+              >
+                ✦
+              </motion.span>
               <span 
                 className="shiny-gold-text"
                 style={{ 
@@ -670,18 +677,25 @@ export default function Home({ onNavigate }) {
                   fontSize: '0.8rem',
                   color: 'var(--harvest-gold)',
                   display: 'inline-flex',
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  margin: '0 0.1rem'
                 }}
               >
                 Suprada Wellness
               </span>
               <motion.span 
                 animate={{ opacity: [0.4, 1, 0.4], scale: [0.8, 1.2, 0.8] }}
-                transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
                 style={{ color: '#f7d070', fontSize: '0.8rem', textShadow: '0 0 12px rgba(247, 208, 112, 0.9)', display: 'inline-flex', alignItems: 'center' }}
               >
                 ✦
               </motion.span>
+              <motion.div 
+                animate={{ scaleX: [0.9, 1.1, 0.9], opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="shiny-gold-line" 
+                style={{ height: '1.5px', width: '36px', backgroundColor: 'var(--harvest-gold)', display: 'inline-block' }}
+              />
             </motion.div>
 
             {/* Left-Aligned Even Headline */}

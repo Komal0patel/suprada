@@ -1400,200 +1400,144 @@ export default function Home({ onNavigate }) {
         </div>
       </section>
 
-      {/* Transformative Naturopathy & Holistic Wellness Section - Clean 4 Pillars Layout */}
-      <section style={{ backgroundColor: 'var(--tea-green)', padding: '3.5rem 6%', position: 'relative', overflow: 'hidden', color: 'var(--raisin-black)' }} className="luxury-clay">
+      {/* Transformative Naturopathy & Holistic Wellness Section - Compact Horizontal Bento Layout */}
+      <section style={{ backgroundColor: 'var(--tea-green)', padding: '3.2rem 6%', position: 'relative', overflow: 'hidden', color: 'var(--raisin-black)' }} className="luxury-clay">
         <Pattern28 style={{ position: 'absolute', top: '-40px', left: '-40px', width: '250px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
         <Pattern25 style={{ position: 'absolute', bottom: '-40px', right: '-40px', width: '250px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
         
-        <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           {/* Header */}
-          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 2.8rem auto' }}>
-            <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.78rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
+          <div style={{ textAlign: 'center', maxWidth: '680px', margin: '0 auto 2.2rem auto' }}>
+            <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.75rem', fontWeight: 800, display: 'block', marginBottom: '0.3rem' }}>
               ✦ CORE MEDICAL MODALITIES
             </span>
-            <h2 style={{ color: 'var(--wine)', lineHeight: 1.18, margin: '0 0 0.6rem 0' }}>
+            <h2 style={{ color: 'var(--wine)', lineHeight: 1.18, margin: '0 0 0.5rem 0' }}>
               Transformative Naturopathy <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>&amp; Holistic Wellness</em>
             </h2>
-            <p style={{ color: 'var(--raisin-black)', opacity: 0.88, fontSize: '0.94rem', lineHeight: 1.6, fontWeight: 400, margin: 0 }}>
+            <p style={{ color: 'var(--raisin-black)', opacity: 0.88, fontSize: '0.9rem', lineHeight: 1.55, fontWeight: 400, margin: 0 }}>
               At Suprada Wellness, we help you unlock your body's innate capacity to heal through doctor-guided drugless therapies, ancient wisdom, and bio-cleansing protocols.
             </p>
           </div>
 
-          {/* 4 Pillars Grid (Responsive 4-col desktop, 2-col tablet, 1-col mobile) */}
+          {/* Compact 2x2 Horizontal Cards Grid */}
           <style>{`
-            .naturopathy-pillars-grid {
+            .naturopathy-compact-grid {
               display: grid;
-              grid-template-columns: repeat(4, 1fr);
-              gap: 1.4rem;
+              grid-template-columns: repeat(2, 1fr);
+              gap: 1.2rem;
             }
-            @media (max-width: 1080px) {
-              .naturopathy-pillars-grid {
-                grid-template-columns: repeat(2, 1fr);
-              }
-            }
-            @media (max-width: 600px) {
-              .naturopathy-pillars-grid {
+            @media (max-width: 860px) {
+              .naturopathy-compact-grid {
                 grid-template-columns: 1fr;
               }
             }
-            .naturopathy-pillar-card {
+            .naturopathy-compact-card {
               background: #ffffff;
-              border-radius: 20px;
+              border-radius: 18px;
               border: 1.5px solid rgba(94, 39, 53, 0.12);
-              box-shadow: 0 10px 30px rgba(94, 39, 53, 0.05);
-              overflow: hidden;
+              box-shadow: 0 8px 24px rgba(94, 39, 53, 0.04);
+              padding: 1rem;
               display: flex;
-              flex-direction: column;
-              justify-content: space-between;
-              transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+              gap: 1.1rem;
+              align-items: center;
+              cursor: pointer;
+              transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             }
-            .naturopathy-pillar-card:hover {
-              transform: translateY(-6px);
-              box-shadow: 0 16px 40px rgba(94, 39, 53, 0.12);
-              border-color: rgba(94, 39, 53, 0.3);
+            .naturopathy-compact-card:hover {
+              transform: translateY(-4px);
+              box-shadow: 0 14px 32px rgba(94, 39, 53, 0.1);
+              border-color: rgba(94, 39, 53, 0.28);
+            }
+            .naturopathy-compact-img {
+              width: 125px;
+              height: 125px;
+              border-radius: 14px;
+              object-fit: cover;
+              flex-shrink: 0;
+            }
+            @media (max-width: 480px) {
+              .naturopathy-compact-card {
+                flex-direction: column;
+                align-items: flex-start;
+              }
+              .naturopathy-compact-img {
+                width: 100%;
+                height: 140px;
+              }
             }
           `}</style>
 
-          <div className="naturopathy-pillars-grid">
+          <div className="naturopathy-compact-grid">
             {[
               {
                 badge: 'DRUGLESS DETOX',
                 title: 'Naturopathy & Bio-Cleansing',
-                subtitle: 'Hydrotherapy & Mud Healing',
-                desc: 'Doctor-supervised treatments designed to eliminate cellular toxins using water, therapeutic earth, fasting, and sun healing.',
-                inclusions: ['Hydrotherapy Cleansing', 'Therapeutic Mud Packs', 'Bio-Fasting Protocols'],
-                image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80'
+                desc: 'Hydrotherapy, mud healing, fasting, and sun therapy to eliminate cellular toxins.',
+                image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80'
               },
               {
                 badge: 'MIND-BODY HARMONY',
                 title: 'Yogic Science & Meditation',
-                subtitle: 'Asanas & Pranayama Rest',
-                desc: 'Authentic breathwork and circadian alignment techniques to quiet the mind, restore nervous system tone, and enhance sleep.',
-                inclusions: ['Pranayama Breathwork', 'Yoga Nidra Deep Rest', 'Chakra Alignment'],
-                image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80'
+                desc: 'Authentic breathwork, Pranayama, and Yoga Nidra to recalibrate nervous system tone.',
+                image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80'
               },
               {
                 badge: 'THERAPEUTIC RECOVERY',
                 title: 'Holistic & Thermal Therapies',
-                subtitle: 'Acupuncture & Steam Suites',
-                desc: 'Targeted acupuncture, reflexology, herbal steam chambers, and energy flow work to release muscular and joint tension.',
-                inclusions: ['Acupuncture & Reflexology', 'Herbal Sauna Suites', 'Pranic Energy Balancing'],
-                image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80'
+                desc: 'Acupuncture, reflexology, herbal steam chambers, and pranic energy flow work.',
+                image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=600&q=80'
               },
               {
                 badge: 'SATTWIK NUTRITION',
                 title: 'Organic Satwik Cuisine',
-                subtitle: 'Gut Microbiome & Juicing',
-                desc: 'Prescribed organic farm-to-table meals and digestive reset juices tailored precisely to your unique biological constitution.',
-                inclusions: ['Organic Sattvik Cuisine', 'Gut Restoration Meals', 'Cold-Pressed Juices'],
-                image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80'
+                desc: 'Doctor-prescribed organic meals and cold-pressed juices to restore gut microbiome.',
+                image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=600&q=80'
               }
-            ].map((pillar, idx) => (
+            ].map((item, idx) => (
               <motion.div
                 key={idx}
-                className="naturopathy-pillar-card"
-                initial={{ opacity: 0, y: 25 }}
+                className="naturopathy-compact-card"
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                viewport={{ once: true, margin: '-30px' }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                onClick={() => onNavigate('programmes')}
               >
-                <div>
-                  {/* Top Image Banner */}
-                  <div style={{ height: '170px', overflow: 'hidden', position: 'relative' }}>
-                    <img 
-                      src={pillar.image} 
-                      alt={pillar.title}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
-                    />
-                    <span style={{
-                      position: 'absolute',
-                      top: '12px',
-                      left: '12px',
-                      backgroundColor: 'rgba(94, 39, 53, 0.88)',
-                      color: 'var(--isabelline)',
-                      fontSize: '0.68rem',
-                      fontWeight: 800,
-                      letterSpacing: '0.1em',
-                      padding: '0.3rem 0.8rem',
-                      borderRadius: '20px',
-                      backdropFilter: 'blur(4px)'
-                    }}>
-                      {pillar.badge}
-                    </span>
-                  </div>
-
-                  {/* Content Body */}
-                  <div style={{ padding: '1.4rem 1.3rem 1rem 1.3rem' }}>
-                    <h3 style={{ color: 'var(--wine)', fontSize: '1.15rem', margin: '0 0 0.3rem 0', lineHeight: 1.25 }}>
-                      {pillar.title}
-                    </h3>
-                    <div style={{ fontSize: '0.8rem', color: 'var(--redwood)', fontWeight: 700, marginBottom: '0.6rem' }}>
-                      {pillar.subtitle}
-                    </div>
-                    <p style={{ fontSize: '0.86rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>
-                      {pillar.desc}
-                    </p>
-
-                    {/* Inclusion Bullets */}
-                    <div style={{ borderTop: '1px solid rgba(94, 39, 53, 0.08)', paddingTop: '0.8rem', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                      {pillar.inclusions.map((inc, iidx) => (
-                        <div key={iidx} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.82rem', color: 'var(--raisin-black)' }}>
-                          <span style={{ color: 'var(--wine)', display: 'inline-flex', alignItems: 'center' }}><Check size={14} strokeWidth={2.5} /></span>
-                          <span style={{ fontWeight: 500 }}>{inc}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card Action Link */}
-                <div style={{ padding: '0.9rem 1.3rem 1.3rem 1.3rem' }}>
-                  <button
-                    onClick={() => onNavigate('programmes')}
-                    style={{
-                      width: '100%',
-                      padding: '0.65rem 1rem',
-                      borderRadius: '12px',
-                      border: '1.5px solid rgba(94, 39, 53, 0.2)',
-                      backgroundColor: 'rgba(94, 39, 53, 0.04)',
-                      color: 'var(--wine)',
-                      fontSize: '0.8rem',
-                      fontWeight: 700,
-                      cursor: 'pointer',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '0.4rem',
-                      transition: 'all 0.25s ease'
-                    }}
-                    onMouseEnter={e => {
-                      e.currentTarget.style.backgroundColor = 'var(--wine)';
-                      e.currentTarget.style.color = '#ffffff';
-                    }}
-                    onMouseLeave={e => {
-                      e.currentTarget.style.backgroundColor = 'rgba(94, 39, 53, 0.04)';
-                      e.currentTarget.style.color = 'var(--wine)';
-                    }}
-                  >
+                <img 
+                  src={item.image} 
+                  alt={item.title}
+                  className="naturopathy-compact-img"
+                />
+                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', flex: 1, minWidth: 0 }}>
+                  <span style={{ color: 'var(--redwood)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.25rem' }}>
+                    {item.badge}
+                  </span>
+                  <h3 style={{ color: 'var(--wine)', fontSize: '1.05rem', margin: '0 0 0.35rem 0', fontWeight: 700, lineHeight: 1.25 }}>
+                    {item.title}
+                  </h3>
+                  <p style={{ color: 'var(--raisin-black)', opacity: 0.82, fontSize: '0.84rem', lineHeight: 1.5, margin: '0 0 0.6rem 0' }}>
+                    {item.desc}
+                  </p>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', color: 'var(--wine)', fontSize: '0.8rem', fontWeight: 700 }}>
                     <span>Explore Modality</span>
-                    <ArrowRight size={14} />
-                  </button>
+                    <ArrowRight size={13} />
+                  </div>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          {/* Section Bottom View More CTA */}
-          <div style={{ textAlign: 'center', marginTop: '2.8rem' }}>
+          {/* Section Bottom View More Button */}
+          <div style={{ textAlign: 'center', marginTop: '2.4rem' }}>
             <motion.button
               whileHover={{ scale: 1.03, boxShadow: '0 10px 25px rgba(94, 39, 53, 0.2)' }}
               whileTap={{ scale: 0.98 }}
               onClick={() => onNavigate('programmes')}
               className="btn-luxury"
-              style={{ padding: '0.85rem 2.4rem', fontSize: '0.85rem', fontWeight: 800 }}
+              style={{ padding: '0.8rem 2.2rem', fontSize: '0.84rem', fontWeight: 800 }}
             >
               <span>View All Modalities &amp; Retreat Programmes</span>
-              <ArrowRight size={16} />
+              <ArrowRight size={15} />
             </motion.button>
           </div>
         </div>

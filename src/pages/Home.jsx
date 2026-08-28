@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from 'framer-motion';
 import { Pattern24, Pattern25, Pattern27, Pattern28 } from '../AnimatedPatterns';
-import { Stethoscope, Star, Leaf, Globe } from 'lucide-react';
+import { Stethoscope, Star, Leaf, Globe, Check, ArrowRight } from 'lucide-react';
 import TwinklingLights from '../components/TwinklingLights';
 
 
@@ -452,21 +452,6 @@ export default function Home({ onNavigate }) {
       }
     };
   }, [activeRitualIndex]);
-
-  // Pillars Interactive State
-  const [activePillarIndex, setActivePillarIndex] = useState(0);
-  const [hoveredPillarIndex, setHoveredPillarIndex] = useState(null);
-
-  // Auto-cycle activePillarIndex every 4.5 seconds when not hovered
-  useEffect(() => {
-    if (hoveredPillarIndex !== null) return;
-    
-    const interval = setInterval(() => {
-      setActivePillarIndex(prev => (prev + 1) % 8);
-    }, 4500);
-    
-    return () => clearInterval(interval);
-  }, [hoveredPillarIndex]);
 
   // Scroll link mandalas rotations
   const rotateValueSlow = useTransform(scrollY, [0, 5000], [0, 180]);
@@ -1415,360 +1400,202 @@ export default function Home({ onNavigate }) {
         </div>
       </section>
 
-      {/* Your Haven for Naturopathy (Pillars) - Compact & Color-Harmonized Layout */}
-      <section style={{ backgroundColor: 'var(--tea-green)', padding: '3.2rem 6%', position: 'relative', overflow: 'hidden', color: 'var(--raisin-black)' }} className="luxury-clay">
+      {/* Transformative Naturopathy & Holistic Wellness Section - Clean 4 Pillars Layout */}
+      <section style={{ backgroundColor: 'var(--tea-green)', padding: '3.5rem 6%', position: 'relative', overflow: 'hidden', color: 'var(--raisin-black)' }} className="luxury-clay">
         <Pattern28 style={{ position: 'absolute', top: '-40px', left: '-40px', width: '250px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
         <Pattern25 style={{ position: 'absolute', bottom: '-40px', right: '-40px', width: '250px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
         
         <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           {/* Header */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', alignItems: 'flex-end', marginBottom: '1.8rem' }}>
-            <div>
-              <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.28em', fontSize: '0.75rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
-                08 Sanctuary Pillars
-              </span>
-              <h2 style={{color: 'var(--wine)', lineHeight: 1.15, margin: 0}}>
-                Transformative Naturopathy <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>&amp; Holistic Wellness</em>
-              </h2>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', alignItems: 'flex-start' }}>
-              <p style={{ color: 'var(--raisin-black)', opacity: 0.85, fontSize: '0.92rem', lineHeight: 1.6, fontWeight: 400, margin: 0 }}>
-                At Suprada Wellness, we help you unlock the body's innate ability to heal. Through drugless natural therapies, ancient sciences, and mindful practices, we guide you toward vitality.
-              </p>
-              <motion.button 
-                whileHover={{ scale: 1.03, boxShadow: '0 8px 20px rgba(94, 39, 53, 0.18)' }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => onNavigate('programmes')}
-                style={{
-                  background: 'linear-gradient(135deg, var(--wine) 0%, #733142 100%)',
-                  color: 'var(--isabelline)',
-                  border: '1.5px solid var(--harvest-gold)',
-                  borderRadius: '25px',
-                  padding: '0.7rem 1.8rem',
-                  fontSize: '0.75rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  cursor: 'pointer',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.6rem',
-                  boxShadow: '0 5px 15px rgba(94, 39, 53, 0.12)',
-                  transition: 'all 0.3s ease'
-                }}
-              >
-                <span>Explore Retreat Programmes</span>
-                <span style={{ color: 'var(--harvest-gold)', fontSize: '0.9rem' }}>&rarr;</span>
-              </motion.button>
-            </div>
+          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 2.8rem auto' }}>
+            <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.78rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
+              ✦ CORE MEDICAL MODALITIES
+            </span>
+            <h2 style={{ color: 'var(--wine)', lineHeight: 1.18, margin: '0 0 0.6rem 0' }}>
+              Transformative Naturopathy <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>&amp; Holistic Wellness</em>
+            </h2>
+            <p style={{ color: 'var(--raisin-black)', opacity: 0.88, fontSize: '0.94rem', lineHeight: 1.6, fontWeight: 400, margin: 0 }}>
+              At Suprada Wellness, we help you unlock your body's innate capacity to heal through doctor-guided drugless therapies, ancient wisdom, and bio-cleansing protocols.
+            </p>
           </div>
 
-          {/* Ultra-Aesthetic Spotlight & Tiles CSS */}
+          {/* 4 Pillars Grid (Responsive 4-col desktop, 2-col tablet, 1-col mobile) */}
           <style>{`
-            .haven-spotlight-layout {
+            .naturopathy-pillars-grid {
               display: grid;
-              grid-template-columns: 1.1fr 1fr;
-              gap: 1.5rem;
-              align-items: stretch;
+              grid-template-columns: repeat(4, 1fr);
+              gap: 1.4rem;
             }
-            @media (max-width: 991px) {
-              .haven-spotlight-layout {
+            @media (max-width: 1080px) {
+              .naturopathy-pillars-grid {
+                grid-template-columns: repeat(2, 1fr);
+              }
+            }
+            @media (max-width: 600px) {
+              .naturopathy-pillars-grid {
                 grid-template-columns: 1fr;
               }
             }
-            @media (max-width: 768px) {
-              .haven-spotlight-card {
-                height: auto !important;
-                min-height: 340px !important;
-                padding: 1.4rem !important;
-              }
-            }
-            .haven-spotlight-card {
-              position: relative;
-              height: 380px;
-              border-radius: 18px;
+            .naturopathy-pillar-card {
+              background: #ffffff;
+              border-radius: 20px;
+              border: 1.5px solid rgba(94, 39, 53, 0.12);
+              box-shadow: 0 10px 30px rgba(94, 39, 53, 0.05);
               overflow: hidden;
-              box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
-              border: 1.5px solid rgba(220, 160, 50, 0.3);
               display: flex;
               flex-direction: column;
-              justify-content: flex-end;
-              padding: 1.8rem;
-            }
-            .haven-spotlight-bg {
-              position: absolute;
-              top: 0; left: 0; right: 0; bottom: 0;
-              background-size: cover;
-              background-position: center;
-              transition: all 0.6s ease-in-out;
-            }
-            .haven-spotlight-overlay {
-              position: absolute;
-              top: 0; left: 0; right: 0; bottom: 0;
-              background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.45) 50%, rgba(15, 15, 15, 0.94) 100%);
-              z-index: 1;
-            }
-            .haven-spotlight-content {
-              position: relative;
-              z-index: 2;
-              color: var(--isabelline);
-            }
-            .haven-tiles-grid {
-              display: grid;
-              grid-template-columns: repeat(2, 1fr);
-              gap: 0.75rem;
-            }
-            @media (max-width: 576px) {
-              .haven-tiles-grid {
-                grid-template-columns: 1fr;
-              }
-            }
-            .haven-tile {
-              background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 243, 235, 0.88) 100%);
-              backdrop-filter: blur(12px);
-              -webkit-backdrop-filter: blur(12px);
-              border: 1px solid rgba(220, 160, 50, 0.25);
-              border-radius: 14px;
-              padding: 0.85rem 1rem;
-              cursor: pointer;
+              justify-content: space-between;
               transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-              display: flex;
-              align-items: center;
-              gap: 0.85rem;
-              box-shadow: 0 6px 16px rgba(94, 39, 53, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9);
-              position: relative;
-              overflow: hidden;
             }
-            .haven-tile::before {
-              content: '';
-              position: absolute;
-              top: 0; left: 0; width: 3.5px; height: 100%;
-              background: var(--harvest-gold);
-              opacity: 0;
-              transition: opacity 0.3s ease;
-            }
-            .haven-tile:hover {
-              background: #ffffff;
-              border-color: rgba(220, 160, 50, 0.5);
-              box-shadow: 0 10px 25px rgba(94, 39, 53, 0.08), inset 0 1px 0 rgba(255, 255, 255, 1);
-              transform: translateY(-3px);
-            }
-            .haven-tile.active {
-              background: #ffffff;
-              border: 1.5px solid var(--harvest-gold);
-              box-shadow: 0 12px 28px rgba(94, 39, 53, 0.12), 0 0 18px rgba(220, 160, 50, 0.22);
-              transform: translateY(-3px);
-            }
-            .haven-tile.active::before {
-              opacity: 1;
-            }
-            .haven-tile-num {
-              font-family: var(--font-heading);
-              font-weight: 700;
-              font-size: 1.05rem;
-              color: var(--harvest-gold);
-              background: rgba(220, 160, 50, 0.12);
-              min-width: 32px;
-              height: 32px;
-              border-radius: 50%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              border: 1px solid rgba(220, 160, 50, 0.3);
-              transition: all 0.3s ease;
-            }
-            .haven-tile.active .haven-tile-num {
-              background: var(--harvest-gold);
-              color: var(--wine);
-              box-shadow: 0 0 10px rgba(220, 160, 50, 0.4);
-            }
-            .haven-tile-title {
-              font-family: var(--font-heading);
-              font-size: 1.08rem;
-              color: var(--wine);
-              font-weight: 700;
-              margin: 0;
-              line-height: 1.15;
-            }
-            .haven-tile.active .haven-tile-title {
-              color: var(--wine);
-            }
-            .haven-tile-sub {
-              font-size: 0.72rem;
-              color: var(--raisin-black);
-              opacity: 0.75;
-              margin-top: 0.15rem;
-              font-weight: 500;
+            .naturopathy-pillar-card:hover {
+              transform: translateY(-6px);
+              box-shadow: 0 16px 40px rgba(94, 39, 53, 0.12);
+              border-color: rgba(94, 39, 53, 0.3);
             }
           `}</style>
 
-          {/* Pillars Data */}
-          {(() => {
-            const sanctuaryPillars = [
-              { 
-                title: 'Naturopathy', 
-                subtitle: 'Drugless Healing & Detox',
-                desc: 'Drug-free treatments to detoxify, restore, and rejuvenate using mud, water, sun, fasting, and botanical therapies.',
-                benefits: ['Hydrotherapy & Mud Baths', 'Helio Therapy (Sun Healing)', 'Therapeutic Fasting', 'Botanical Cleanses'],
-                image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80'
+          <div className="naturopathy-pillars-grid">
+            {[
+              {
+                badge: 'DRUGLESS DETOX',
+                title: 'Naturopathy & Bio-Cleansing',
+                subtitle: 'Hydrotherapy & Mud Healing',
+                desc: 'Doctor-supervised treatments designed to eliminate cellular toxins using water, therapeutic earth, fasting, and sun healing.',
+                inclusions: ['Hydrotherapy Cleansing', 'Therapeutic Mud Packs', 'Bio-Fasting Protocols'],
+                image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80'
               },
-              { 
-                title: 'Yoga & Meditation', 
-                subtitle: 'Mind-Body Synchronization',
-                desc: 'Authentic mind-body alignment using Asanas, Pranayama, guided meditation, and mindfulness techniques.',
-                benefits: ['Classical Asana Flow', 'Pranayama Breathwork', 'Yoga Nidra Deep Rest', 'Chakra Alignment'],
-                image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80'
+              {
+                badge: 'MIND-BODY HARMONY',
+                title: 'Yogic Science & Meditation',
+                subtitle: 'Asanas & Pranayama Rest',
+                desc: 'Authentic breathwork and circadian alignment techniques to quiet the mind, restore nervous system tone, and enhance sleep.',
+                inclusions: ['Pranayama Breathwork', 'Yoga Nidra Deep Rest', 'Chakra Alignment'],
+                image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80'
               },
-              { 
-                title: 'Holistic Therapies', 
+              {
+                badge: 'THERAPEUTIC RECOVERY',
+                title: 'Holistic & Thermal Therapies',
                 subtitle: 'Acupuncture & Steam Suites',
-                desc: 'Acupuncture, acupressure, energy balancing, sauna & steam suites, and bespoke therapeutic treatments.',
-                benefits: ['Acupuncture & Reflexology', 'Infrared & Herbal Sauna', 'Aromatic Steam Suites', 'Pranic Energy Work'],
-                image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1200&q=80'
+                desc: 'Targeted acupuncture, reflexology, herbal steam chambers, and energy flow work to release muscular and joint tension.',
+                inclusions: ['Acupuncture & Reflexology', 'Herbal Sauna Suites', 'Pranic Energy Balancing'],
+                image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80'
               },
-              { 
-                title: 'Nutrition & Lifestyle', 
-                subtitle: 'Sattvik & Gut Health',
-                desc: 'Personalized nutrition plans, organic sattvik meals, gut health support, and mindful lifestyle coaching.',
-                benefits: ['Organic Sattvik Cuisine', 'Microbiome Restoration', 'Cold-Pressed Juicing', 'Mindful Eating Habits'],
-                image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80'
-              },
-              { 
-                title: 'Mental & Emotional', 
-                subtitle: 'Resilience & Stress Relief',
-                desc: 'Counselling, stress management, restorative breathwork, and emotional resilience tools.',
-                benefits: ['Emotional Release Therapy', 'Stress Diagnostics', 'Mindfulness Coaching', 'Deep Restorative Sleep'],
-                image: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=1200&q=80'
-              },
-              { 
-                title: 'Detox & Cleansing', 
-                subtitle: 'Cellular Purification',
-                desc: 'Comprehensive purification using therapeutic fasting, custom therapies, and natural cleansing protocols.',
-                benefits: ['Cellular Regeneration', 'Colon Hydrotherapy', 'Liver & Kidney Flush', 'Lymphatic Drainage'],
-                image: 'https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&w=1200&q=80'
-              },
-              { 
-                title: 'Physiotherapy', 
-                subtitle: 'Mobility & Muscle Recovery',
-                desc: 'Evidence-based physical rehabilitation to improve mobility, relieve pain, and accelerate muscular recovery.',
-                benefits: ['Spinal & Joint Alignment', 'Myofascial Release', 'Posture Correction', 'Targeted Rehabilitation'],
-                image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=80'
-              },
-              { 
-                title: 'Ayurveda', 
-                subtitle: 'Dosha Balancing & Shirodhara',
-                desc: 'Traditional treatments (herbal oils, massages, Shirodhara) tailored to align your unique biological constitution.',
-                benefits: ['Abhyanga Oil Massage', 'Shirodhara Medicated Flow', 'Panchakarma Consultation', 'Herbal Diagnostics'],
-                image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1200&q=80'
+              {
+                badge: 'SATTWIK NUTRITION',
+                title: 'Organic Satwik Cuisine',
+                subtitle: 'Gut Microbiome & Juicing',
+                desc: 'Prescribed organic farm-to-table meals and digestive reset juices tailored precisely to your unique biological constitution.',
+                inclusions: ['Organic Sattvik Cuisine', 'Gut Restoration Meals', 'Cold-Pressed Juices'],
+                image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80'
               }
-            ];
-
-            const activePillarData = sanctuaryPillars[activePillarIndex % 8];
-
-            return (
-              <div className="haven-spotlight-layout">
-                {/* LEFT: Featured Spotlight Card */}
-                <div className="haven-spotlight-card">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={activePillarIndex}
-                      initial={{ opacity: 0, scale: 1.04 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.96 }}
-                      transition={{ duration: 0.5, ease: "easeInOut" }}
-                      className="haven-spotlight-bg"
-                      style={{ backgroundImage: `url(${activePillarData.image})` }}
+            ].map((pillar, idx) => (
+              <motion.div
+                key={idx}
+                className="naturopathy-pillar-card"
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+              >
+                <div>
+                  {/* Top Image Banner */}
+                  <div style={{ height: '170px', overflow: 'hidden', position: 'relative' }}>
+                    <img 
+                      src={pillar.image} 
+                      alt={pillar.title}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
                     />
-                  </AnimatePresence>
-                  
-                  <div className="haven-spotlight-overlay" />
+                    <span style={{
+                      position: 'absolute',
+                      top: '12px',
+                      left: '12px',
+                      backgroundColor: 'rgba(94, 39, 53, 0.88)',
+                      color: 'var(--isabelline)',
+                      fontSize: '0.68rem',
+                      fontWeight: 800,
+                      letterSpacing: '0.1em',
+                      padding: '0.3rem 0.8rem',
+                      borderRadius: '20px',
+                      backdropFilter: 'blur(4px)'
+                    }}>
+                      {pillar.badge}
+                    </span>
+                  </div>
 
-                  <div className="haven-spotlight-content">
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.4rem' }}>
-                      <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.2em', fontSize: '0.72rem', fontWeight: 700 }}>
-                        Pillar 0{(activePillarIndex % 8) + 1} of 08
-                      </span>
-                      <div style={{ height: '1px', width: '25px', backgroundColor: 'var(--harvest-gold)' }} />
-                    </div>
-
-                    <h3 style={{color: 'var(--isabelline)', lineHeight: 1.1, margin: '0 0 0.3rem 0',}}>
-                      {activePillarData.title}
+                  {/* Content Body */}
+                  <div style={{ padding: '1.4rem 1.3rem 1rem 1.3rem' }}>
+                    <h3 style={{ color: 'var(--wine)', fontSize: '1.15rem', margin: '0 0 0.3rem 0', lineHeight: 1.25 }}>
+                      {pillar.title}
                     </h3>
-                    
-                    <h4 style={{color: 'var(--tan)', margin: '0 0 0.6rem 0'}}>
-                      {activePillarData.subtitle}
-                    </h4>
-
-                    <p style={{ color: 'var(--isabelline)', opacity: 0.9, fontSize: '0.85rem', lineHeight: 1.5, marginBottom: '1rem', maxWidth: '480px', fontWeight: 300 }}>
-                      {activePillarData.desc}
+                    <div style={{ fontSize: '0.8rem', color: 'var(--redwood)', fontWeight: 700, marginBottom: '0.6rem' }}>
+                      {pillar.subtitle}
+                    </div>
+                    <p style={{ fontSize: '0.86rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>
+                      {pillar.desc}
                     </p>
 
-                    {/* Benefit Pills - Shiny Bold Gold Text */}
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.55rem', marginBottom: '1.4rem' }}>
-                      {activePillarData.benefits.map((b, bIdx) => (
-                        <span 
-                          key={bIdx}
-                          style={{
-                            backgroundColor: 'rgba(20, 18, 20, 0.72)',
-                            backdropFilter: 'blur(10px)',
-                            border: '1.5px solid var(--harvest-gold)',
-                            boxShadow: '0 4px 15px rgba(220, 160, 50, 0.25)',
-                            padding: '0.4rem 0.85rem',
-                            borderRadius: '20px',
-                            fontSize: '0.78rem',
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '0.45rem'
-                          }}
-                        >
-                          <span style={{ color: '#f7d070', fontSize: '0.85rem', textShadow: '0 0 10px rgba(247, 208, 112, 0.9)' }}>✦</span>
-                          <span className="shiny-gold-text" style={{ fontWeight: 800, letterSpacing: '0.02em' }}>{b}</span>
-                        </span>
+                    {/* Inclusion Bullets */}
+                    <div style={{ borderTop: '1px solid rgba(94, 39, 53, 0.08)', paddingTop: '0.8rem', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                      {pillar.inclusions.map((inc, iidx) => (
+                        <div key={iidx} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.82rem', color: 'var(--raisin-black)' }}>
+                          <span style={{ color: 'var(--wine)', display: 'inline-flex', alignItems: 'center' }}><Check size={14} strokeWidth={2.5} /></span>
+                          <span style={{ fontWeight: 500 }}>{inc}</span>
+                        </div>
                       ))}
                     </div>
-
-                    {/* Luxury Gleaming Gold Pill Button */}
-                    <motion.button
-                      whileHover={{ scale: 1.04, boxShadow: '0 12px 30px rgba(220, 160, 50, 0.55)' }}
-                      whileTap={{ scale: 0.97 }}
-                      onClick={() => onNavigate('programmes')}
-                      className="btn-luxury"
-                    >
-                      <span>Explore {activePillarData.title}</span>
-                      <span style={{ fontSize: '1rem', fontWeight: 800 }}>&rarr;</span>
-                    </motion.button>
                   </div>
                 </div>
 
-                {/* RIGHT: 2-Column Interactive Compact Tiles */}
-                <div 
-                  className="haven-tiles-grid"
-                  onMouseEnter={() => setHoveredPillarIndex(activePillarIndex)}
-                  onMouseLeave={() => setHoveredPillarIndex(null)}
-                >
-                  {sanctuaryPillars.map((p, idx) => {
-                    const isActive = (activePillarIndex % 8) === idx;
-                    return (
-                      <div
-                        key={idx}
-                        className={`haven-tile ${isActive ? 'active' : ''}`}
-                        onClick={() => setActivePillarIndex(idx)}
-                      >
-                        <div className="haven-tile-num">0{idx + 1}</div>
-                        <div style={{ flex: 1, minWidth: 0 }}>
-                          <h4 className="haven-tile-title" style={{whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>{p.title}</h4>
-                          <div className="haven-tile-sub" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{p.subtitle}</div>
-                        </div>
-                        <div style={{ color: isActive ? 'var(--redwood)' : 'rgba(94, 39, 53, 0.3)', fontSize: '0.9rem', transition: 'all 0.3s' }}>
-                          {isActive ? '✦' : '→'}
-                        </div>
-                      </div>
-                    );
-                  })}
+                {/* Card Action Link */}
+                <div style={{ padding: '0.9rem 1.3rem 1.3rem 1.3rem' }}>
+                  <button
+                    onClick={() => onNavigate('programmes')}
+                    style={{
+                      width: '100%',
+                      padding: '0.65rem 1rem',
+                      borderRadius: '12px',
+                      border: '1.5px solid rgba(94, 39, 53, 0.2)',
+                      backgroundColor: 'rgba(94, 39, 53, 0.04)',
+                      color: 'var(--wine)',
+                      fontSize: '0.8rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '0.4rem',
+                      transition: 'all 0.25s ease'
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.backgroundColor = 'var(--wine)';
+                      e.currentTarget.style.color = '#ffffff';
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.backgroundColor = 'rgba(94, 39, 53, 0.04)';
+                      e.currentTarget.style.color = 'var(--wine)';
+                    }}
+                  >
+                    <span>Explore Modality</span>
+                    <ArrowRight size={14} />
+                  </button>
                 </div>
-              </div>
-            );
-          })()}
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Section Bottom View More CTA */}
+          <div style={{ textAlign: 'center', marginTop: '2.8rem' }}>
+            <motion.button
+              whileHover={{ scale: 1.03, boxShadow: '0 10px 25px rgba(94, 39, 53, 0.2)' }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => onNavigate('programmes')}
+              className="btn-luxury"
+              style={{ padding: '0.85rem 2.4rem', fontSize: '0.85rem', fontWeight: 800 }}
+            >
+              <span>View All Modalities &amp; Retreat Programmes</span>
+              <ArrowRight size={16} />
+            </motion.button>
+          </div>
         </div>
       </section>
 

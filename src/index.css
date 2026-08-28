@@ -2102,6 +2102,11 @@ html, body {
     left: 15px !important;
     top: 15px !important;
   }
+  .top-left-logo-pill.hero-centered-logo {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    padding: 0px !important;
+  }
 
   .hero-title {
     font-size: clamp(2.35rem, 9.5vw, 3.2rem) !important;

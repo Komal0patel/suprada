@@ -179,7 +179,7 @@ function App() {
             return (
               <div 
                 onClick={() => handlePageChange('home')}
-                className="top-left-logo-pill"
+                className={`top-left-logo-pill ${isHeroLogo ? 'hero-centered-logo' : ''}`}
                 style={{ 
                   position: 'fixed', 
                   top: '15px', 

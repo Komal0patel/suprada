@@ -1485,7 +1485,7 @@ export default function Home({ onNavigate }) {
         <Pattern28 style={{ position: 'absolute', top: '-40px', left: '-40px', width: '250px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
         <Pattern25 style={{ position: 'absolute', bottom: '-40px', right: '-40px', width: '250px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
         
-        <div style={{ maxWidth: '1280px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+        <div style={{ maxWidth: '1120px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <style>{`
             .naturopathy-section-container {
               background-color: var(--tea-green);
@@ -1512,11 +1512,11 @@ export default function Home({ onNavigate }) {
               }
             }
             .naturopathy-bento-layout {
-              display: grid;
-              grid-template-columns: 0.9fr 1.1fr;
-              gap: 2rem;
-              align-items: stretch;
-            }
+               display: grid;
+               grid-template-columns: 1.12fr 0.88fr;
+               gap: 2rem;
+               align-items: stretch;
+             }
             @media (max-width: 960px) {
               .naturopathy-bento-layout {
                 grid-template-columns: 1fr;

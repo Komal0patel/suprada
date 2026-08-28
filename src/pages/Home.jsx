@@ -2217,7 +2217,7 @@ export default function Home({ onNavigate }) {
                       </span>
                     )}
                   </div>
-                  <h3 style={{color: 'var(--tan)', margin: 0, lineHeight: 1.2, opacity: isMatch ? 1 : 0.7}}>
+                  <h3 style={{color: 'var(--tan)', margin: 0, lineHeight: 1.2, opacity: isMatch ? 1 : 0.7, fontSize: '1.35rem'}}>
                     {prog.title}
                   </h3>
                   <p style={{ fontSize: '0.84rem', color: 'var(--isabelline)', opacity: isMatch ? 0.88 : 0.5, lineHeight: 1.5, margin: 0 }}>

@@ -1494,7 +1494,7 @@ export default function Home({ onNavigate }) {
             }
             .naturopathy-bento-layout {
               display: grid;
-              grid-template-columns: 1fr 1.08fr;
+              grid-template-columns: 1.3fr 0.84fr;
               gap: 2rem;
               align-items: stretch;
             }
@@ -1506,16 +1506,16 @@ export default function Home({ onNavigate }) {
             .naturopathy-left-column {
               display: flex;
               flex-direction: column;
-              justify-content: center;
+              justify-content: space-between;
             }
             .naturopathy-tile-grid {
               display: grid;
               grid-template-columns: repeat(2, 1fr);
-              gap: 0.75rem;
+              gap: 0.85rem;
             }
             .naturopathy-photo-tile {
               position: relative;
-              height: 110px;
+              height: 140px;
               border-radius: 14px;
               overflow: hidden;
               cursor: pointer;
@@ -1525,7 +1525,7 @@ export default function Home({ onNavigate }) {
             }
             @media (min-width: 1400px) {
               .naturopathy-photo-tile {
-                height: 124px;
+                height: 152px;
               }
             }
             .naturopathy-photo-tile:hover {
@@ -1547,12 +1547,13 @@ export default function Home({ onNavigate }) {
             .naturopathy-tile-overlay {
               position: absolute;
               inset: 0;
-              background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.7) 100%);
+              background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.72) 100%);
             }
             .naturopathy-explore-tile {
               background: linear-gradient(135deg, var(--wine) 0%, #4a1d29 100%);
               border-radius: 14px;
               padding: 0.8rem;
+              height: 140px;
               display: flex;
               flex-direction: column;
               align-items: center;
@@ -1563,6 +1564,11 @@ export default function Home({ onNavigate }) {
               box-shadow: 0 4px 14px rgba(94, 39, 53, 0.15);
               transition: all 0.3s ease;
               border: 1.5px solid rgba(220, 160, 50, 0.3);
+            }
+            @media (min-width: 1400px) {
+              .naturopathy-explore-tile {
+                height: 152px;
+              }
             }
             .naturopathy-explore-tile:hover {
               transform: translateY(-2px);
@@ -1608,27 +1614,27 @@ export default function Home({ onNavigate }) {
               { 
                 category: 'CELLULAR PURIFICATION',
                 title: 'Detox & Cleansing', 
-                subtitle: 'Cellular Purification',
-                fullDesc: 'Comprehensive purification using therapeutic fasting, custom therapies, and natural cleansing protocols.',
-                benefits: ['Cellular Regeneration', 'Colon Hydrotherapy', 'Liver & Kidney Flush', 'Lymphatic Drainage'],
-                image: 'https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&w=1200&q=80'
+                subtitle: 'Cellular Cleanse Protocols',
+                fullDesc: 'Revitalize cellular function with targeted cleansing, colon hydrotherapy, and metabolic reset therapies.',
+                benefits: ['Colon Hydrotherapy', 'Liver & Kidney Cleanse', 'Heavy Metal Detox', 'Juice Fasting Protocols'],
+                image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=80'
               }
             ];
 
-            const activePillar = sanctuaryPillars[activeTherapyIndex % sanctuaryPillars.length];
+            const activePillar = sanctuaryPillars[activeTherapyIndex % sanctuaryPillars.length] || sanctuaryPillars[0];
 
             return (
               <div className="naturopathy-bento-layout">
                 {/* LEFT COLUMN: Left-Aligned Header + 2x3 Grid of Tiles */}
                 <div className="naturopathy-left-column">
-                  <div style={{ textAlign: 'left', marginBottom: '1.2rem' }}>
+                  <div style={{ textAlign: 'left', marginBottom: '1rem' }}>
                     <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.75rem', fontWeight: 800, display: 'block', marginBottom: '0.25rem' }}>
                       ✦ CORE MEDICAL MODALITIES
                     </span>
-                    <h2 style={{ color: 'var(--wine)', lineHeight: 1.15, margin: '0 0 0.4rem 0', fontSize: 'clamp(1.7rem, 2.4vw, 2.3rem)' }}>
+                    <h2 style={{ color: 'var(--wine)', lineHeight: 1.15, margin: '0 0 0.35rem 0', fontSize: 'clamp(1.6rem, 2.2vw, 2.2rem)' }}>
                       Transformative Naturopathy <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>&amp; Holistic Wellness</em>
                     </h2>
-                    <p style={{ color: 'var(--raisin-black)', opacity: 0.88, fontSize: '0.88rem', lineHeight: 1.5, fontWeight: 400, margin: 0 }}>
+                    <p style={{ color: 'var(--raisin-black)', opacity: 0.88, fontSize: '0.86rem', lineHeight: 1.48, fontWeight: 400, margin: 0 }}>
                       At Suprada Wellness, we help you unlock your body's innate capacity to heal through doctor-guided drugless therapies, ancient wisdom, and bio-cleansing protocols.
                     </p>
                   </div>
@@ -1653,13 +1659,13 @@ export default function Home({ onNavigate }) {
                           
                           {/* Category Badge */}
                           <span style={{
-                            position: 'absolute', top: '7px', left: '7px',
-                            backgroundColor: 'rgba(0, 0, 0, 0.45)',
+                            position: 'absolute', top: '8px', left: '8px',
+                            backgroundColor: 'rgba(0, 0, 0, 0.48)',
                             color: '#ffffff',
-                            fontSize: '0.54rem',
+                            fontSize: '0.58rem',
                             fontWeight: 800,
                             letterSpacing: '0.08em',
-                            padding: '0.18rem 0.5rem',
+                            padding: '0.2rem 0.55rem',
                             borderRadius: '5px',
                             backdropFilter: 'blur(4px)',
                             zIndex: 2
@@ -1669,12 +1675,12 @@ export default function Home({ onNavigate }) {
 
                           {/* Title */}
                           <span style={{
-                            position: 'absolute', bottom: '7px', left: '9px', right: '9px',
+                            position: 'absolute', bottom: '9px', left: '10px', right: '10px',
                             color: '#ffffff',
-                            fontSize: '0.82rem',
+                            fontSize: '0.88rem',
                             fontWeight: 700,
                             lineHeight: 1.15,
-                            textShadow: '0 2px 4px rgba(0,0,0,0.7)',
+                            textShadow: '0 2px 4px rgba(0,0,0,0.8)',
                             zIndex: 2
                           }}>
                             {item.title}
@@ -1690,17 +1696,17 @@ export default function Home({ onNavigate }) {
                       whileTap={{ scale: 0.98 }}
                     >
                       <div style={{
-                        width: '26px', height: '26px', borderRadius: '50%',
+                        width: '28px', height: '28px', borderRadius: '50%',
                         border: '1.5px solid var(--harvest-gold)', color: 'var(--harvest-gold)',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        fontSize: '0.95rem', fontWeight: 700, marginBottom: '0.2rem'
+                        fontSize: '1rem', fontWeight: 700, marginBottom: '0.25rem'
                       }}>
                         +
                       </div>
-                      <span style={{ fontSize: '0.58rem', letterSpacing: '0.12em', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase' }}>
+                      <span style={{ fontSize: '0.6rem', letterSpacing: '0.12em', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase' }}>
                         EXPLORE ALL
                       </span>
-                      <strong style={{ fontSize: '0.86rem', color: '#ffffff', marginTop: '0.05rem' }}>
+                      <strong style={{ fontSize: '0.9rem', color: '#ffffff', marginTop: '0.05rem' }}>
                         8+ Pillars
                       </strong>
                     </motion.div>
@@ -1716,11 +1722,10 @@ export default function Home({ onNavigate }) {
                   overflow: 'hidden',
                   display: 'flex',
                   flexDirection: 'column',
-                  height: '100%',
-                  minHeight: '520px'
+                  height: '100%'
                 }}>
-                  {/* Tall Top Image Banner */}
-                  <div style={{ height: '280px', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+                  {/* Top Image Banner */}
+                  <div style={{ height: '260px', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
                     <AnimatePresence mode="wait">
                       <motion.img 
                         key={activePillar.image}

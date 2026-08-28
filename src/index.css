@@ -2109,7 +2109,7 @@ html, body {
   }
 
   .hero-side-overlay {
-    background: linear-gradient(to top, rgba(18, 7, 12, 0.8) 0%, rgba(18, 7, 12, 0.52) 55%, rgba(18, 7, 12, 0.2) 100%) !important;
+    background: linear-gradient(to top, rgba(14, 5, 9, 0.9) 0%, rgba(14, 5, 9, 0.65) 60%, rgba(14, 5, 9, 0.25) 100%) !important;
   }
 
   /* Spacing */

@@ -628,38 +628,38 @@ export default function Home({ onNavigate }) {
               top: 0, left: 0, width: '100%', height: '100%',
               backgroundImage: `url(${heroImages[currentImage]})`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center right',
+              backgroundPosition: '90% center',
               zIndex: 1
             }}
           />
         </AnimatePresence>
 
-        {/* Directional Side Shadow Gradient Overlay — Lightened for a softer, warmer feel */}
+        {/* Directional Side Shadow Overlay — Darker Behind Text, Fading Out towards Image */}
         <div 
           className="hero-side-overlay"
           style={{ 
             position: 'absolute', 
             top: 0, left: 0, width: '100%', height: '100%', 
-            background: 'linear-gradient(to right, rgba(18, 7, 12, 0.72) 0%, rgba(18, 7, 12, 0.52) 38%, rgba(18, 7, 12, 0.2) 68%, transparent 100%)', 
+            background: 'linear-gradient(to right, rgba(14, 5, 9, 0.88) 0%, rgba(14, 5, 9, 0.72) 32%, rgba(14, 5, 9, 0.35) 60%, transparent 90%)', 
             zIndex: 2 
           }} 
         />
 
-        {/* Left-Shifted Content Container */}
-        <div style={{ position: 'relative', zIndex: 10, padding: '0 6%', width: '100%', maxWidth: '1350px', margin: '0 auto' }}>
+        {/* Left-Shifted Content Container with Top Gap */}
+        <div style={{ position: 'relative', zIndex: 10, padding: '4rem 6% 0 6%', width: '100%', maxWidth: '1350px', margin: '0 auto' }}>
           <motion.div 
             variants={staggerContainer} 
             initial="hidden" 
             animate="visible"
-            style={{ maxWidth: '680px', textAlign: 'left' }}
+            style={{ maxWidth: '640px', textAlign: 'left' }}
           >
-            {/* Top Sub-Heading Badge */}
-            <motion.div variants={blurFadeIn} style={{ display: 'flex', alignItems: 'center', gap: '0.7rem', marginBottom: '1rem' }}>
+            {/* Top Sub-Heading Badge with Top Gap & Fixed Alignment */}
+            <motion.div variants={blurFadeIn} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.2rem', marginTop: '1.8rem' }}>
               <motion.div 
                 animate={{ scaleX: [0.9, 1.1, 0.9], opacity: [0.7, 1, 0.7] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 className="shiny-gold-line" 
-                style={{ height: '2px', width: '40px' }}
+                style={{ height: '1.5px', width: '42px', backgroundColor: 'var(--harvest-gold)', display: 'inline-block' }}
               />
               <span 
                 className="shiny-gold-text"
@@ -667,8 +667,10 @@ export default function Home({ onNavigate }) {
                   textTransform: 'uppercase', 
                   letterSpacing: '0.35em', 
                   fontWeight: 800, 
-                  fontSize: '0.85rem',
-                  display: 'inline-block'
+                  fontSize: '0.8rem',
+                  color: 'var(--harvest-gold)',
+                  display: 'inline-flex',
+                  alignItems: 'center'
                 }}
               >
                 Suprada Wellness
@@ -676,14 +678,14 @@ export default function Home({ onNavigate }) {
               <motion.span 
                 animate={{ opacity: [0.4, 1, 0.4], scale: [0.8, 1.2, 0.8] }}
                 transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-                style={{ color: '#f7d070', fontSize: '0.85rem', textShadow: '0 0 12px rgba(247, 208, 112, 0.9)' }}
+                style={{ color: '#f7d070', fontSize: '0.8rem', textShadow: '0 0 12px rgba(247, 208, 112, 0.9)', display: 'inline-flex', alignItems: 'center' }}
               >
                 ✦
               </motion.span>
             </motion.div>
 
             {/* Left-Aligned Even Headline */}
-            <h1 className="hero-title" style={{ color: 'var(--isabelline)', margin: '0 0 1.2rem 0', textShadow: '0 4px 24px rgba(0,0,0,0.5)', textAlign: 'left', lineHeight: 1.15, fontWeight: 700, letterSpacing: '-0.01em' }}>
+            <h1 className="hero-title" style={{ color: 'var(--isabelline)', margin: '0 0 1.2rem 0', textShadow: '0 4px 24px rgba(0,0,0,0.6)', textAlign: 'left', lineHeight: 1.15, fontWeight: 700, letterSpacing: '-0.01em' }}>
               <motion.span 
                 initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }} 
@@ -696,36 +698,36 @@ export default function Home({ onNavigate }) {
                 initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }} 
                 transition={{ duration: 0.9, delay: 0.25 }}
-                style={{ display: 'block', fontStyle: 'italic', color: 'var(--tan)', fontWeight: 600, textShadow: '0 4px 18px rgba(0,0,0,0.4)' }}
+                style={{ display: 'block', fontStyle: 'italic', color: 'var(--tan)', fontWeight: 600, textShadow: '0 4px 18px rgba(0,0,0,0.5)' }}
               >
                 inner bliss.
               </motion.span>
             </h1>
             
-            {/* Left-Aligned Subtitle Paragraph */}
-            <motion.p variants={blurFadeIn} style={{ color: 'var(--isabelline)', fontSize: 'clamp(0.98rem, 1.6vw, 1.18rem)', opacity: 0.94, maxWidth: '560px', margin: '0 0 2rem 0', fontWeight: 400, lineHeight: 1.7, textShadow: '0 2px 10px rgba(0,0,0,0.3)', textAlign: 'left', letterSpacing: '0.01em' }}>
+            {/* Left-Aligned Slightly Smaller Subtitle Paragraph */}
+            <motion.p variants={blurFadeIn} style={{ color: 'var(--isabelline)', fontSize: '0.94rem', opacity: 0.92, maxWidth: '500px', margin: '0 0 1.8rem 0', fontWeight: 400, lineHeight: 1.65, textShadow: '0 2px 10px rgba(0,0,0,0.5)', textAlign: 'left', letterSpacing: '0.01em' }}>
               Experience the ancient healing intelligence of Naturopathy &amp; Yogic Science. Nestled on the banks of the holy Suvarnamukhi River.
             </motion.p>
 
-            {/* Left-Aligned Dual CTA Action Buttons */}
-            <motion.div variants={blurFadeIn} style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            {/* Left-Aligned Dual CTA Action Buttons (Slightly Smaller) */}
+            <motion.div variants={blurFadeIn} style={{ display: 'flex', alignItems: 'center', gap: '0.9rem', flexWrap: 'wrap' }}>
               <button 
                 onClick={() => onNavigate('stay')}
                 className="btn-primary" 
-                style={{ padding: '0.95rem 2.5rem', fontSize: '0.85rem', letterSpacing: '0.1em' }}
+                style={{ padding: '0.75rem 1.8rem', fontSize: '0.78rem', letterSpacing: '0.1em', fontWeight: 800 }}
               >
-                ✦ Book Your Stay
+                ✦ BOOK YOUR STAY
               </button>
 
               <button 
                 onClick={() => onNavigate('programmes')}
                 style={{
-                  padding: '0.92rem 2.1rem',
-                  fontSize: '0.85rem',
+                  padding: '0.72rem 1.6rem',
+                  fontSize: '0.78rem',
                   letterSpacing: '0.08em',
                   color: 'var(--isabelline)',
                   backgroundColor: 'rgba(255, 255, 255, 0.12)',
-                  border: '1.5px solid rgba(255, 255, 255, 0.35)',
+                  border: '1.5px solid rgba(255, 255, 255, 0.3)',
                   borderRadius: '50px',
                   fontWeight: 700,
                   cursor: 'pointer',

@@ -615,18 +615,7 @@ h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
   z-index: 50; /* Bring hovered card to front */
 }
 
-/* Desktop positions for timeline nodes and cards (relative to 1800px width container) */
-.timeline-node-1 { left: 176px; top: 76px; }  /* 200px - 24px */
-.timeline-node-2 { left: 526px; top: 256px; } /* 550px - 24px */
-.timeline-node-3 { left: 876px; top: 76px; }  /* 900px - 24px */
-.timeline-node-4 { left: 1226px; top: 256px; } /* 1250px - 24px */
-.timeline-node-5 { left: 1576px; top: 76px; }  /* 1600px - 24px */
-
-.timeline-card-1 { left: 65px; top: 140px; }
-.timeline-card-2 { left: 415px; top: 40px; }
-.timeline-card-3 { left: 765px; top: 140px; }
-.timeline-card-4 { left: 1115px; top: 40px; }
-.timeline-card-5 { left: 1465px; top: 140px; }
+/* Dynamic positioning is handled smoothly via inline styles for all 15 steps */
 
 /* Desktop positions for leaf buds */
 .timeline-leaf-1 { left: 364px; top: 179px; }  /* 375px - 11px */

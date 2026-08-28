@@ -592,8 +592,12 @@ export default function Home({ onNavigate }) {
   const stepScroll = (direction) => {
     const container = scrollContainerRef.current;
     if (!container) return;
-    const stepSize = 420;
-    const target = container.scrollLeft + (direction === 'left' ? -stepSize : stepSize);
+    triggerUserInteraction();
+    targetSpeedRef.current = 0;
+    speedRef.current = 0;
+    const stepSize = 360;
+    const currentScroll = container.scrollLeft;
+    const target = direction === 'left' ? Math.max(0, currentScroll - stepSize) : currentScroll + stepSize;
     container.scrollTo({ left: target, behavior: 'smooth' });
   };
 
@@ -1962,22 +1966,21 @@ export default function Home({ onNavigate }) {
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -10 }}
-                  onClick={() => stepScroll('left')}
-                  onMouseEnter={() => { targetSpeedRef.current = -2.8; }}
-                  onMouseLeave={() => { targetSpeedRef.current = 0; }}
+                  onClick={(e) => { e.stopPropagation(); stepScroll('left'); }}
                   style={{
-                    position: 'absolute', left: '1rem', top: '220px', transform: 'translateY(-50%)',
-                    width: '48px', height: '48px', borderRadius: '50%',
-                    background: 'rgba(244, 240, 236, 0.96)', backdropFilter: 'blur(10px)',
-                    border: '1.5px solid var(--wine)', color: 'var(--wine)',
+                    position: 'absolute', left: '1.2rem', top: '220px', transform: 'translateY(-50%)',
+                    width: '52px', height: '52px', borderRadius: '50%',
+                    background: 'var(--wine)', color: 'var(--harvest-gold)',
+                    border: '2px solid var(--harvest-gold)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    boxShadow: '0 8px 25px rgba(94, 39, 53, 0.2)', cursor: 'pointer', zIndex: 30
+                    boxShadow: '0 10px 30px rgba(94, 39, 53, 0.35)', cursor: 'pointer', zIndex: 100,
+                    pointerEvents: 'auto'
                   }}
-                  whileHover={{ scale: 1.08, backgroundColor: 'var(--isabelline)' }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.1, backgroundColor: '#4a1d29' }}
+                  whileTap={{ scale: 0.92 }}
                   aria-label="Scroll Left"
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="19" y1="12" x2="5" y2="12"></line>
                     <polyline points="12 19 5 12 12 5"></polyline>
                   </svg>
@@ -1991,22 +1994,21 @@ export default function Home({ onNavigate }) {
                   initial={{ opacity: 0, x: 10 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 10 }}
-                  onClick={() => stepScroll('right')}
-                  onMouseEnter={() => { targetSpeedRef.current = 2.8; }}
-                  onMouseLeave={() => { targetSpeedRef.current = 0; }}
+                  onClick={(e) => { e.stopPropagation(); stepScroll('right'); }}
                   style={{
-                    position: 'absolute', right: '1rem', top: '220px', transform: 'translateY(-50%)',
-                    width: '48px', height: '48px', borderRadius: '50%',
-                    background: 'rgba(244, 240, 236, 0.96)', backdropFilter: 'blur(10px)',
-                    border: '1.5px solid var(--wine)', color: 'var(--wine)',
+                    position: 'absolute', right: '1.2rem', top: '220px', transform: 'translateY(-50%)',
+                    width: '52px', height: '52px', borderRadius: '50%',
+                    background: 'var(--wine)', color: 'var(--harvest-gold)',
+                    border: '2px solid var(--harvest-gold)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    boxShadow: '0 8px 25px rgba(94, 39, 53, 0.2)', cursor: 'pointer', zIndex: 30
+                    boxShadow: '0 10px 30px rgba(94, 39, 53, 0.35)', cursor: 'pointer', zIndex: 100,
+                    pointerEvents: 'auto'
                   }}
-                  whileHover={{ scale: 1.08, backgroundColor: 'var(--isabelline)' }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.1, backgroundColor: '#4a1d29' }}
+                  whileTap={{ scale: 0.92 }}
                   aria-label="Scroll Right"
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>

@@ -1403,30 +1403,16 @@ export default function Home({ onNavigate }) {
         </div>
       </section>
 
-      {/* Transformative Naturopathy & Holistic Wellness Section - Screen-Fit (100vh) Bento Layout */}
+      {/* Transformative Naturopathy & Holistic Wellness Section - Screen-Fit Split Layout */}
       <section className="naturopathy-section-container luxury-clay">
         <Pattern28 style={{ position: 'absolute', top: '-40px', left: '-40px', width: '250px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
         <Pattern25 style={{ position: 'absolute', bottom: '-40px', right: '-40px', width: '250px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
         
-        <div style={{ maxWidth: '1240px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          {/* Header */}
-          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 1.1rem auto' }}>
-            <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.72rem', fontWeight: 800, display: 'block', marginBottom: '0.2rem' }}>
-              ✦ CORE MEDICAL MODALITIES
-            </span>
-            <h2 style={{ color: 'var(--wine)', lineHeight: 1.15, margin: '0 0 0.3rem 0', fontSize: 'clamp(1.6rem, 2.4vw, 2.1rem)' }}>
-              Transformative Naturopathy <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>&amp; Holistic Wellness</em>
-            </h2>
-            <p style={{ color: 'var(--raisin-black)', opacity: 0.88, fontSize: '0.86rem', lineHeight: 1.45, fontWeight: 400, margin: 0 }}>
-              At Suprada Wellness, we help you unlock your body's innate capacity to heal through doctor-guided drugless therapies, ancient wisdom, and bio-cleansing protocols.
-            </p>
-          </div>
-
-          {/* Reference Split Layout: Left 2x3 Grid, Right Spotlight Card */}
+        <div style={{ maxWidth: '1280px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <style>{`
             .naturopathy-section-container {
               background-color: var(--tea-green);
-              padding: 1.6rem 5%;
+              padding: 2.2rem 5%;
               position: relative;
               overflow: hidden;
               color: var(--raisin-black);
@@ -1450,8 +1436,8 @@ export default function Home({ onNavigate }) {
             }
             .naturopathy-bento-layout {
               display: grid;
-              grid-template-columns: 1fr 1.05fr;
-              gap: 1.2rem;
+              grid-template-columns: 1.05fr 1fr;
+              gap: 1.8rem;
               align-items: stretch;
             }
             @media (max-width: 960px) {
@@ -1459,14 +1445,19 @@ export default function Home({ onNavigate }) {
                 grid-template-columns: 1fr;
               }
             }
+            .naturopathy-left-column {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            }
             .naturopathy-tile-grid {
               display: grid;
               grid-template-columns: repeat(2, 1fr);
-              gap: 0.6rem;
+              gap: 0.65rem;
             }
             .naturopathy-photo-tile {
               position: relative;
-              height: 96px;
+              height: 98px;
               border-radius: 12px;
               overflow: hidden;
               cursor: pointer;
@@ -1476,7 +1467,7 @@ export default function Home({ onNavigate }) {
             }
             @media (min-width: 1400px) {
               .naturopathy-photo-tile {
-                height: 110px;
+                height: 112px;
               }
             }
             .naturopathy-photo-tile:hover {
@@ -1570,92 +1561,108 @@ export default function Home({ onNavigate }) {
 
             return (
               <div className="naturopathy-bento-layout">
-                {/* LEFT: 2x3 Grid of 5 Photo Cards + 1 Explore All Tile */}
-                <div className="naturopathy-tile-grid">
-                  {sanctuaryPillars.map((item, idx) => {
-                    const isActive = (activeTherapyIndex % sanctuaryPillars.length) === idx;
-                    return (
-                      <motion.div
-                        key={idx}
-                        className={`naturopathy-photo-tile ${isActive ? 'active' : ''}`}
-                        onClick={() => setActiveTherapyIndex(idx)}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        <img 
-                          src={item.image} 
-                          alt={item.title}
-                          className="naturopathy-tile-bg"
-                        />
-                        <div className="naturopathy-tile-overlay" />
-                        
-                        {/* Category Badge */}
-                        <span style={{
-                          position: 'absolute', top: '6px', left: '6px',
-                          backgroundColor: 'rgba(0, 0, 0, 0.45)',
-                          color: '#ffffff',
-                          fontSize: '0.52rem',
-                          fontWeight: 800,
-                          letterSpacing: '0.08em',
-                          padding: '0.15rem 0.45rem',
-                          borderRadius: '5px',
-                          backdropFilter: 'blur(4px)',
-                          zIndex: 2
-                        }}>
-                          {item.category}
-                        </span>
-
-                        {/* Title */}
-                        <span style={{
-                          position: 'absolute', bottom: '6px', left: '8px', right: '8px',
-                          color: '#ffffff',
-                          fontSize: '0.78rem',
-                          fontWeight: 700,
-                          lineHeight: 1.15,
-                          textShadow: '0 2px 4px rgba(0,0,0,0.7)',
-                          zIndex: 2
-                        }}>
-                          {item.title}
-                        </span>
-                      </motion.div>
-                    );
-                  })}
-
-                  {/* 6th Card: Solid Brand Explore All Card */}
-                  <motion.div
-                    className="naturopathy-explore-tile"
-                    onClick={() => onNavigate('programmes')}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <div style={{
-                      width: '24px', height: '24px', borderRadius: '50%',
-                      border: '1.5px solid var(--harvest-gold)', color: 'var(--harvest-gold)',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: '0.9rem', fontWeight: 700, marginBottom: '0.15rem'
-                    }}>
-                      +
-                    </div>
-                    <span style={{ fontSize: '0.55rem', letterSpacing: '0.12em', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase' }}>
-                      EXPLORE ALL
+                {/* LEFT COLUMN: Left-Aligned Header + 2x3 Grid of Tiles */}
+                <div className="naturopathy-left-column">
+                  <div style={{ textAlign: 'left', marginBottom: '1.1rem' }}>
+                    <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.72rem', fontWeight: 800, display: 'block', marginBottom: '0.25rem' }}>
+                      ✦ CORE MEDICAL MODALITIES
                     </span>
-                    <strong style={{ fontSize: '0.82rem', color: '#ffffff', marginTop: '0.05rem' }}>
-                      8+ Pillars
-                    </strong>
-                  </motion.div>
+                    <h2 style={{ color: 'var(--wine)', lineHeight: 1.15, margin: '0 0 0.35rem 0', fontSize: 'clamp(1.65rem, 2.3vw, 2.2rem)' }}>
+                      Transformative Naturopathy <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>&amp; Holistic Wellness</em>
+                    </h2>
+                    <p style={{ color: 'var(--raisin-black)', opacity: 0.88, fontSize: '0.86rem', lineHeight: 1.48, fontWeight: 400, margin: 0 }}>
+                      At Suprada Wellness, we help you unlock your body's innate capacity to heal through doctor-guided drugless therapies, ancient wisdom, and bio-cleansing protocols.
+                    </p>
+                  </div>
+
+                  {/* 2x3 Grid of 5 Photo Cards + 1 Explore All Tile */}
+                  <div className="naturopathy-tile-grid">
+                    {sanctuaryPillars.map((item, idx) => {
+                      const isActive = (activeTherapyIndex % sanctuaryPillars.length) === idx;
+                      return (
+                        <motion.div
+                          key={idx}
+                          className={`naturopathy-photo-tile ${isActive ? 'active' : ''}`}
+                          onClick={() => setActiveTherapyIndex(idx)}
+                          whileTap={{ scale: 0.98 }}
+                        >
+                          <img 
+                            src={item.image} 
+                            alt={item.title}
+                            className="naturopathy-tile-bg"
+                          />
+                          <div className="naturopathy-tile-overlay" />
+                          
+                          {/* Category Badge */}
+                          <span style={{
+                            position: 'absolute', top: '6px', left: '6px',
+                            backgroundColor: 'rgba(0, 0, 0, 0.45)',
+                            color: '#ffffff',
+                            fontSize: '0.52rem',
+                            fontWeight: 800,
+                            letterSpacing: '0.08em',
+                            padding: '0.15rem 0.45rem',
+                            borderRadius: '5px',
+                            backdropFilter: 'blur(4px)',
+                            zIndex: 2
+                          }}>
+                            {item.category}
+                          </span>
+
+                          {/* Title */}
+                          <span style={{
+                            position: 'absolute', bottom: '6px', left: '8px', right: '8px',
+                            color: '#ffffff',
+                            fontSize: '0.78rem',
+                            fontWeight: 700,
+                            lineHeight: 1.15,
+                            textShadow: '0 2px 4px rgba(0,0,0,0.7)',
+                            zIndex: 2
+                          }}>
+                            {item.title}
+                          </span>
+                        </motion.div>
+                      );
+                    })}
+
+                    {/* 6th Card: Solid Brand Explore All Card */}
+                    <motion.div
+                      className="naturopathy-explore-tile"
+                      onClick={() => onNavigate('programmes')}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <div style={{
+                        width: '24px', height: '24px', borderRadius: '50%',
+                        border: '1.5px solid var(--harvest-gold)', color: 'var(--harvest-gold)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        fontSize: '0.9rem', fontWeight: 700, marginBottom: '0.15rem'
+                      }}>
+                        +
+                      </div>
+                      <span style={{ fontSize: '0.55rem', letterSpacing: '0.12em', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase' }}>
+                        EXPLORE ALL
+                      </span>
+                      <strong style={{ fontSize: '0.82rem', color: '#ffffff', marginTop: '0.05rem' }}>
+                        8+ Pillars
+                      </strong>
+                    </motion.div>
+                  </div>
                 </div>
 
-                {/* RIGHT: Featured Active Pillar Card */}
+                {/* RIGHT COLUMN: Full-Height Display Card */}
                 <div style={{
                   backgroundColor: '#ffffff',
-                  borderRadius: '16px',
+                  borderRadius: '18px',
                   border: '1.5px solid rgba(94, 39, 53, 0.14)',
-                  boxShadow: '0 10px 30px rgba(94, 39, 53, 0.06)',
+                  boxShadow: '0 12px 35px rgba(94, 39, 53, 0.08)',
                   overflow: 'hidden',
                   display: 'flex',
                   flexDirection: 'column',
-                  height: '100%'
+                  height: '100%',
+                  minHeight: '430px'
                 }}>
                   {/* Top Image Banner */}
-                  <div style={{ height: '155px', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+                  <div style={{ height: '210px', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
                     <AnimatePresence mode="wait">
                       <motion.img 
                         key={activePillar.image}
@@ -1671,14 +1678,14 @@ export default function Home({ onNavigate }) {
                     
                     <span style={{
                       position: 'absolute',
-                      top: '10px',
-                      left: '10px',
+                      top: '12px',
+                      left: '12px',
                       backgroundColor: 'rgba(255, 255, 255, 0.9)',
                       color: 'var(--wine)',
-                      fontSize: '0.62rem',
+                      fontSize: '0.64rem',
                       fontWeight: 800,
                       letterSpacing: '0.1em',
-                      padding: '0.28rem 0.75rem',
+                      padding: '0.3rem 0.8rem',
                       borderRadius: '10px',
                       backdropFilter: 'blur(6px)',
                       boxShadow: '0 3px 10px rgba(0,0,0,0.08)'
@@ -1688,39 +1695,39 @@ export default function Home({ onNavigate }) {
                   </div>
 
                   {/* Content Body */}
-                  <div style={{ padding: '1.1rem 1.4rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: 1 }}>
+                  <div style={{ padding: '1.3rem 1.6rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: 1 }}>
                     <div>
-                      <h3 style={{ color: 'var(--wine)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.15rem 0', lineHeight: 1.2 }}>
+                      <h3 style={{ color: 'var(--wine)', fontSize: '1.35rem', fontWeight: 700, margin: '0 0 0.15rem 0', lineHeight: 1.2 }}>
                         {activePillar.title}
                       </h3>
-                      <div style={{ fontSize: '0.78rem', color: 'var(--redwood)', fontWeight: 700, marginBottom: '0.4rem' }}>
+                      <div style={{ fontSize: '0.82rem', color: 'var(--redwood)', fontWeight: 700, marginBottom: '0.45rem' }}>
                         {activePillar.subtitle}
                       </div>
-                      <div style={{ width: '32px', height: '2px', backgroundColor: 'var(--harvest-gold)', marginBottom: '0.6rem' }} />
+                      <div style={{ width: '36px', height: '2px', backgroundColor: 'var(--harvest-gold)', marginBottom: '0.7rem' }} />
                       
-                      <p style={{ fontSize: '0.82rem', color: 'var(--raisin-black)', opacity: 0.88, lineHeight: 1.48, margin: '0 0 0.7rem 0' }}>
+                      <p style={{ fontSize: '0.84rem', color: 'var(--raisin-black)', opacity: 0.88, lineHeight: 1.52, margin: '0 0 0.9rem 0' }}>
                         {activePillar.fullDesc}
                       </p>
 
                       {/* Benefits Tag Chips */}
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginBottom: '0.6rem' }}>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '0.8rem' }}>
                         {activePillar.benefits.map((b, bIdx) => (
                           <span 
                             key={bIdx}
                             style={{
                               backgroundColor: 'rgba(94, 39, 53, 0.06)',
                               border: '1px solid rgba(94, 39, 53, 0.18)',
-                              padding: '0.22rem 0.65rem',
+                              padding: '0.25rem 0.7rem',
                               borderRadius: '16px',
-                              fontSize: '0.72rem',
+                              fontSize: '0.74rem',
                               color: 'var(--wine)',
                               fontWeight: 700,
                               display: 'inline-flex',
                               alignItems: 'center',
-                              gap: '0.3rem'
+                              gap: '0.32rem'
                             }}
                           >
-                            <span style={{ color: 'var(--harvest-gold)', fontSize: '0.7rem' }}>✦</span>
+                            <span style={{ color: 'var(--harvest-gold)', fontSize: '0.72rem' }}>✦</span>
                             <span>{b}</span>
                           </span>
                         ))}
@@ -1732,19 +1739,19 @@ export default function Home({ onNavigate }) {
                       style={{ 
                         color: 'var(--wine)', 
                         fontWeight: 800, 
-                        fontSize: '0.78rem', 
+                        fontSize: '0.8rem', 
                         letterSpacing: '0.08em', 
                         cursor: 'pointer', 
                         display: 'inline-flex', 
                         alignItems: 'center', 
-                        gap: '0.35rem',
-                        marginTop: '0.4rem',
-                        paddingTop: '0.6rem',
+                        gap: '0.4rem',
+                        marginTop: '0.5rem',
+                        paddingTop: '0.7rem',
                         borderTop: '1px solid rgba(94,39,53,0.08)'
                       }}
                     >
                       <span>EXPLORE {activePillar.title.toUpperCase()}</span>
-                      <ArrowRight size={13} />
+                      <ArrowRight size={14} />
                     </div>
                   </div>
                 </div>

@@ -2396,10 +2396,10 @@ export default function Home({ onNavigate }) {
           
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
             <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.72rem', fontWeight: 700, display: 'block', marginBottom: '0.2rem' }}>
-              <Star size={12} style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Clinical Authority
+              <Star size={12} style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Leadership & Clinical Authority
             </span>
             <h2 style={{color: 'var(--tan)', margin: 0}}>
-              Guided by <em style={{ fontStyle: 'italic', color: 'var(--harvest-gold)' }}>Licensed Physicians</em>
+              Guided by Founders <em style={{ fontStyle: 'italic', color: 'var(--harvest-gold)' }}>&amp; Clinical Experts</em>
             </h2>
           </div>
 

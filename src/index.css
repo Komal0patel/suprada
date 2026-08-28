@@ -2107,6 +2107,29 @@ html, body {
     transform: translateX(-50%) !important;
     padding: 0px !important;
   }
+  .show-in-hero-mobile {
+    display: inline-block !important;
+    height: 22px !important;
+  }
+
+  .hero-badge-container {
+    gap: 0.35rem !important;
+    max-width: 100% !important;
+    flex-wrap: nowrap !important;
+  }
+  .hero-badge-line {
+    width: 20px !important;
+    flex-shrink: 0 !important;
+  }
+  .hero-badge-star {
+    font-size: 0.7rem !important;
+    flex-shrink: 0 !important;
+  }
+  .hero-badge-text {
+    letter-spacing: 0.18em !important;
+    font-size: 0.72rem !important;
+    white-space: nowrap !important;
+  }
 
   .hero-title {
     font-size: clamp(2.35rem, 9.5vw, 3.2rem) !important;

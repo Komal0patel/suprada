@@ -211,7 +211,7 @@ function App() {
                 <img 
                   src="/assets/suprada-wellness.svg" 
                   alt="Suprada Wellness" 
-                  className="hide-mobile" 
+                  className={isHeroLogo ? "show-in-hero-mobile" : "hide-mobile"} 
                   style={{ 
                     height: isHeroLogo ? '28px' : '22px', 
                     filter: 'brightness(0) invert(1)',

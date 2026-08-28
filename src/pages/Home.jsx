@@ -1541,20 +1541,34 @@ export default function Home({ onNavigate }) {
             }
             @media (max-width: 960px) {
               .naturopathy-section-container {
-                min-height: auto;
-                height: auto;
-                padding: 2.5rem 5%;
+                min-height: auto !important;
+                height: auto !important;
+                padding: 2rem 4% !important;
+                overflow: visible !important;
               }
-            }
-            .naturopathy-bento-layout {
-               display: grid;
-               grid-template-columns: 0.95fr 0.9fr;
-               gap: 2rem;
-               align-items: stretch;
-             }
-            @media (max-width: 960px) {
               .naturopathy-bento-layout {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
+                gap: 1.2rem !important;
+              }
+              .naturopathy-tile-grid {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.65rem !important;
+                overflow: visible !important;
+              }
+              .naturopathy-photo-tile,
+              .naturopathy-explore-tile {
+                height: 105px !important;
+                min-width: 0 !important;
+                flex: none !important;
+              }
+              .naturopathy-right-card {
+                height: auto !important;
+                min-height: auto !important;
+                flex: none !important;
+              }
+              .naturopathy-right-card-banner {
+                height: 180px !important;
               }
             }
             .naturopathy-left-column {
@@ -1768,7 +1782,7 @@ export default function Home({ onNavigate }) {
                 </div>
 
                 {/* RIGHT COLUMN: Full-Height Display Card with Tall Image Banner */}
-                <div style={{
+                <div className="naturopathy-right-card" style={{
                   backgroundColor: '#ffffff',
                   borderRadius: '20px',
                   border: '1.5px solid rgba(94, 39, 53, 0.14)',
@@ -1779,7 +1793,7 @@ export default function Home({ onNavigate }) {
                   height: '100%'
                 }}>
                   {/* Top Image Banner */}
-                  <div style={{ height: '260px', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+                  <div className="naturopathy-right-card-banner" style={{ height: '260px', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
                     <AnimatePresence mode="wait">
                       <motion.img 
                         key={activePillar.image}

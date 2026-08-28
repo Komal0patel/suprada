@@ -2793,22 +2793,38 @@ html, body {
     padding: 1.2rem !important;
   }
 
-  /* 5. Naturopathy Modalities Bento Layout on Mobile */
+  /* 5. Naturopathy Modalities Bento Layout on Mobile: Clean 2-Column Grid with Full Card Visibility */
+  .naturopathy-section-container {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 2rem 4% !important;
+    overflow: visible !important;
+  }
+  .naturopathy-bento-layout {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem !important;
+  }
   .naturopathy-tile-grid {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 0.65rem !important;
-    padding-bottom: 0.6rem !important;
-    -webkit-overflow-scrolling: touch;
+    overflow: visible !important;
+    width: 100% !important;
   }
   .naturopathy-photo-tile,
   .naturopathy-explore-tile {
-    flex: 0 0 155px !important;
-    min-width: 155px !important;
-    height: 115px !important;
-    scroll-snap-align: start !important;
+    height: 105px !important;
+    min-width: 0 !important;
+    flex: none !important;
+  }
+  .naturopathy-right-card {
+    height: auto !important;
+    min-height: auto !important;
+    flex: none !important;
+  }
+  .naturopathy-right-card-banner {
+    height: 180px !important;
   }
 }
 

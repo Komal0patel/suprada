@@ -1024,7 +1024,7 @@ export default function Stay({ onNavigate }) {
                         {cottage.name}
                       </h3>
 
-                      <p style={{ fontSize: '1.04rem', opacity: 0.85, lineHeight: 1.6, color: 'var(--raisin-black)', marginBottom: '1rem', fontWeight: 300 }}>
+                      <p style={{ fontSize: '1.05rem', opacity: 0.95, lineHeight: 1.65, color: 'var(--raisin-black)', marginBottom: '1rem', fontWeight: 450 }}>
                         {cottage.desc}
                       </p>
 
@@ -1034,28 +1034,28 @@ export default function Stay({ onNavigate }) {
                         gridTemplateColumns: 'repeat(2, 1fr)',
                         gap: '0.6rem',
                         padding: '0.8rem 1rem',
-                        background: 'rgba(245, 235, 217, 0.3)',
+                        background: 'rgba(245, 235, 217, 0.5)',
                         backdropFilter: 'blur(10px)',
                         WebkitBackdropFilter: 'blur(10px)',
-                        border: '1px solid rgba(255, 255, 255, 0.35)',
+                        border: '1.5px solid rgba(94, 39, 53, 0.2)',
                         borderRadius: '16px',
-                        fontSize: '0.95rem',
+                        fontSize: '0.98rem',
                         marginBottom: '1rem'
                       }}>
                         <div>
-                          <span style={{ opacity: 0.6, display: 'block', fontSize: '0.78rem', textTransform: 'uppercase' }}>🌿 Primary View</span>
+                          <span style={{ color: 'var(--redwood)', fontWeight: 800, opacity: 0.95, display: 'block', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>🌿 Primary View</span>
                           <strong style={{ color: 'var(--wine)' }}>{cottage.viewType}</strong>
                         </div>
                         <div>
-                          <span style={{ opacity: 0.6, display: 'block', fontSize: '0.78rem', textTransform: 'uppercase' }}>📐 Room Area</span>
+                          <span style={{ color: 'var(--redwood)', fontWeight: 800, opacity: 0.95, display: 'block', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>📐 Room Area</span>
                           <strong style={{ color: 'var(--wine)' }}>{cottage.areaSqFt} Sq.Ft</strong>
                         </div>
                         <div>
-                          <span style={{ opacity: 0.6, display: 'block', fontSize: '0.78rem', textTransform: 'uppercase' }}>★ Privacy Rating</span>
+                          <span style={{ color: 'var(--redwood)', fontWeight: 800, opacity: 0.95, display: 'block', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>★ Privacy Rating</span>
                           <strong style={{ color: '#b5801c' }}>{'★'.repeat(Math.floor(cottage.privacyScore))} ({cottage.privacyScore}/5)</strong>
                         </div>
                         <div>
-                          <span style={{ opacity: 0.6, display: 'block', fontSize: '0.78rem', textTransform: 'uppercase' }}>🏛️ Materials</span>
+                          <span style={{ color: 'var(--redwood)', fontWeight: 800, opacity: 0.95, display: 'block', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>🏛️ Materials</span>
                           <strong style={{ color: 'var(--wine)' }}>{cottage.material.split('&')[0]}</strong>
                         </div>
                       </div>
@@ -1066,12 +1066,12 @@ export default function Stay({ onNavigate }) {
                           <span 
                             key={fidx}
                             style={{ 
-                              fontSize: '0.84rem', 
-                              backgroundColor: 'rgba(94, 39, 53, 0.07)', 
+                              fontSize: '0.88rem', 
+                              backgroundColor: 'rgba(94, 39, 53, 0.1)', 
                               color: 'var(--wine)', 
-                              padding: '0.3rem 0.75rem', 
+                              padding: '0.35rem 0.85rem', 
                               borderRadius: '50px',
-                              fontWeight: 600
+                              fontWeight: 700
                             }}
                           >
                             ✦ {f}

@@ -778,13 +778,13 @@ export default function Spaces({ onNavigate }) {
         <div style={{ maxWidth: '1220px', margin: '0 auto' }}>
           
           <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-            <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.26em', fontSize: '0.68rem', fontWeight: 800, display: 'block', marginBottom: '0.3rem' }}>
+            <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.26em', fontSize: '0.84rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
               + CHAPTER III - RESTING BLOCKS
             </span>
             <h2 style={{color: 'var(--wine)', margin: 0}}>
               Suprada Residences & Cottages
             </h2>
-            <p style={{ color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '600px', margin: '0.6rem auto 0 auto', fontSize: '0.95rem' }}>
+            <p style={{ color: 'var(--raisin-black)', opacity: 0.95, maxWidth: '640px', margin: '0.8rem auto 0 auto', fontSize: '1.05rem', lineHeight: 1.7, fontWeight: 400 }}>
               8 distinct lodging blocks crafted with mud plaster, local granite, and reclaimed teakwood to support deep nervous system recovery.
             </p>
           </div>
@@ -818,12 +818,12 @@ export default function Spaces({ onNavigate }) {
                         alt={block.name} 
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       />
-                      <span className="residence-card-tag" style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'rgba(58, 21, 32, 0.85)', color: 'var(--harvest-gold)', fontSize: '0.65rem', fontWeight: 800, padding: '0.35rem 0.9rem', borderRadius: '15px', backdropFilter: 'blur(4px)' }}>
+                      <span className="residence-card-tag" style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'rgba(58, 21, 32, 0.9)', color: 'var(--harvest-gold)', fontSize: '0.78rem', fontWeight: 800, padding: '0.4rem 1rem', borderRadius: '15px', backdropFilter: 'blur(4px)' }}>
                         {block.tag}
                       </span>
                     </div>
 
-                    <span className="residence-card-type" style={{ fontSize: '0.68rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.2rem' }}>
+                    <span className="residence-card-type" style={{ fontSize: '0.82rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>
                       {block.type}
                     </span>
 
@@ -831,13 +831,13 @@ export default function Spaces({ onNavigate }) {
                       {block.name}
                     </h3>
 
-                    <p className="residence-card-desc" style={{ fontSize: '0.86rem', color: 'var(--raisin-black)', opacity: 0.82, lineHeight: 1.6, margin: '0 0 1.2rem 0', fontWeight: 300 }}>
+                    <p className="residence-card-desc" style={{ fontSize: '0.98rem', color: 'var(--raisin-black)', opacity: 0.95, lineHeight: 1.65, margin: '0 0 1.2rem 0', fontWeight: 400 }}>
                       {block.desc}
                     </p>
                   </div>
 
-                  <div className="residence-card-config" style={{ paddingTop: '1rem', borderTop: `1px dashed ${block.borderColor}`, fontSize: '0.76rem', color: 'var(--wine)', fontWeight: 600 }}>
-                    <span style={{ opacity: 0.7 }}>Config: </span>{block.config}
+                  <div className="residence-card-config" style={{ paddingTop: '1rem', borderTop: `1px dashed ${block.borderColor}`, fontSize: '0.88rem', color: 'var(--wine)', fontWeight: 700 }}>
+                    <span style={{ color: 'var(--redwood)', fontWeight: 800 }}>Config: </span>{block.config}
                   </div>
                 </motion.div>
               </TiltCard>
@@ -848,7 +848,7 @@ export default function Spaces({ onNavigate }) {
             <button 
               onClick={() => onNavigate('stay')}
               className="btn-luxury" 
-              style={{ padding: '0.9rem 2.6rem', fontSize: '0.82rem' }}
+              style={{ padding: '1rem 2.8rem', fontSize: '0.92rem', fontWeight: 800 }}
             >
               Explore Cottage Amenities &amp; Book Stay
             </button>
@@ -877,13 +877,13 @@ export default function Spaces({ onNavigate }) {
         <div style={{ maxWidth: '1180px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           
           <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
-            <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.26em', fontSize: '0.65rem', fontWeight: 800, display: 'block', marginBottom: '0.25rem' }}>
+            <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.26em', fontSize: '0.82rem', fontWeight: 800, display: 'block', marginBottom: '0.35rem' }}>
               ✦ CHAPTER IV • THE SANCTUM ZONES
             </span>
             <h2 style={{color: 'var(--tan)', margin: 0}}>
               The Spaces That Shape the Journey
             </h2>
-            <p style={{ color: 'var(--isabelline)', opacity: 0.82, maxWidth: '560px', margin: '0.4rem auto 0 auto', fontSize: '0.86rem', fontWeight: 300 }}>
+            <p style={{ color: '#ffffff', opacity: 0.95, maxWidth: '600px', margin: '0.5rem auto 0 auto', fontSize: '0.98rem', fontWeight: 400 }}>
               Explore the detailed architectural structures built to house each element of your natural healing formula.
             </p>
           </div>
@@ -897,12 +897,12 @@ export default function Spaces({ onNavigate }) {
                   key={idx}
                   onClick={() => setActiveCategory(idx)}
                   style={{
-                    padding: '0.5rem 1.2rem',
+                    padding: '0.6rem 1.4rem',
                     borderRadius: '24px',
-                    border: isActive ? '2px solid var(--harvest-gold)' : '1.5px solid rgba(220, 160, 50, 0.3)',
-                    backgroundColor: isActive ? 'var(--harvest-gold)' : 'rgba(255, 255, 255, 0.05)',
-                    color: isActive ? 'var(--wine)' : 'var(--isabelline)',
-                    fontSize: '0.72rem',
+                    border: isActive ? '2px solid var(--harvest-gold)' : '1.5px solid rgba(220, 160, 50, 0.4)',
+                    backgroundColor: isActive ? 'var(--harvest-gold)' : 'rgba(255, 255, 255, 0.1)',
+                    color: isActive ? 'var(--wine)' : '#ffffff',
+                    fontSize: '0.85rem',
                     fontWeight: 700,
                     cursor: 'pointer',
                     transition: 'all 0.3s ease',
@@ -931,13 +931,13 @@ export default function Spaces({ onNavigate }) {
                   key={idx}
                   className="sanctum-zone-card"
                   style={{
-                    border: '1.5px solid rgba(220, 160, 50, 0.35)',
+                    border: '1.5px solid rgba(220, 160, 50, 0.4)',
                     borderRadius: '16px',
                     padding: '1.2rem 1.4rem',
                     display: 'flex',
                     flexDirection: 'column',
                     gap: '0.4rem',
-                    backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.08)',
                     backdropFilter: 'blur(10px)',
                     boxShadow: '0 8px 24px rgba(0,0,0,0.15)'
                   }}
@@ -945,7 +945,7 @@ export default function Spaces({ onNavigate }) {
                   <h3 style={{color: 'var(--harvest-gold)', margin: 0,}}>
                     {item.name}
                   </h3>
-                  <p style={{ fontSize: '0.82rem', color: 'var(--isabelline)', opacity: 0.88, lineHeight: 1.5, margin: 0, fontWeight: 300 }}>
+                  <p style={{ fontSize: '0.95rem', color: '#ffffff', opacity: 0.95, lineHeight: 1.55, margin: 0, fontWeight: 400 }}>
                     {item.desc}
                   </p>
                 </div>
@@ -961,13 +961,13 @@ export default function Spaces({ onNavigate }) {
           ========================================================================= */}
       <section style={{ padding: '6.5rem 6%', textAlign: 'center', backgroundColor: 'var(--antique-white)' }}>
         <div style={{ maxWidth: '750px', margin: '0 auto' }}>
-          <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
+          <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.84rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
             + SACRED SANCTUARY INVITE
           </span>
           <h2 style={{color: 'var(--wine)', marginBottom: '1rem',}}>
             A Sanctuary Designed to Heal as One
           </h2>
-          <p style={{ color: 'var(--raisin-black)', opacity: 0.85, margin: '0 auto 2.5rem auto', fontSize: '1rem', lineHeight: 1.7, fontWeight: 300 }}>
+          <p style={{ color: 'var(--raisin-black)', opacity: 0.95, margin: '0 auto 2.5rem auto', fontSize: '1.1rem', lineHeight: 1.75, fontWeight: 400 }}>
             Our caregivers, doctors, and specialists communicate directly under one roof across our 10-acre estate to coordinate your custom natural treatment paths.
           </p>
           <div style={{ display: 'flex', gap: '1.2rem', justifyContent: 'center', flexWrap: 'wrap' }}>

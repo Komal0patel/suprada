@@ -414,14 +414,14 @@ export default function Programmes({ onNavigate }) {
           {/* Section Header */}
           <div className="flex-stack-mobile" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2.5rem', flexWrap: 'wrap', gap: '1.5rem', textAlign: 'left' }}>
             <div>
-              <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.6rem' }}>
+              <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.84rem', fontWeight: 800, display: 'block', marginBottom: '0.6rem' }}>
                 ✦ Signature Journeys
               </span>
               <h2 style={{color: 'var(--wine)', lineHeight: 1.15, margin: 0}}>
                 On-Site Programs
               </h2>
             </div>
-            <p style={{ color: 'var(--raisin-black)', opacity: 0.6, maxWidth: '360px', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>
+            <p style={{ color: 'var(--raisin-black)', opacity: 0.9, maxWidth: '380px', fontSize: '1.02rem', lineHeight: 1.65, margin: 0, fontWeight: 500 }}>
               Every program begins with a diagnostic check-up and doctor consultation to calibrate your treatment map.
             </p>
           </div>
@@ -433,15 +433,15 @@ export default function Programmes({ onNavigate }) {
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
                 style={{
-                  padding: '0.85rem 2rem',
+                  padding: '0.85rem 2.2rem',
                   borderRadius: '50px',
-                  border: activeFilter === filter ? '2px solid var(--wine)' : '1px solid rgba(94, 39, 53, 0.2)',
+                  border: activeFilter === filter ? '2.5px solid var(--wine)' : '1.5px solid var(--wine)',
                   backgroundColor: activeFilter === filter ? 'var(--wine)' : '#ffffff',
                   color: activeFilter === filter ? '#ffffff' : 'var(--wine)',
-                  fontWeight: activeFilter === filter ? 700 : 500,
-                  fontSize: '0.84rem',
+                  fontWeight: 700,
+                  fontSize: '0.98rem',
                   cursor: 'pointer',
-                  boxShadow: activeFilter === filter ? '0 10px 25px rgba(94, 39, 53, 0.25)' : '0 4px 12px rgba(0,0,0,0.03)',
+                  boxShadow: activeFilter === filter ? '0 10px 25px rgba(94, 39, 53, 0.25)' : '0 4px 14px rgba(0,0,0,0.06)',
                   transition: 'all 0.3s ease'
                 }}
               >
@@ -494,9 +494,9 @@ export default function Programmes({ onNavigate }) {
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1.5rem' }}>
                           <span style={{ fontSize: '2.5rem' }}>{prog.icon}</span>
                           <span style={{
-                            fontSize: '0.68rem', textTransform: 'uppercase', color: 'var(--harvest-gold)',
-                            backgroundColor: 'rgba(220,160,50,0.18)', padding: '0.35rem 1rem', borderRadius: '50px',
-                            fontWeight: 800, letterSpacing: '0.12em', border: '1px solid rgba(220,160,50,0.3)'
+                            fontSize: '0.88rem', textTransform: 'uppercase', color: '#ffffff',
+                            backgroundColor: 'rgba(220,160,50,0.35)', padding: '0.4rem 1.1rem', borderRadius: '50px',
+                            fontWeight: 800, letterSpacing: '0.12em', border: '1.5px solid var(--harvest-gold)'
                           }}>
                             {prog.days}
                           </span>
@@ -506,14 +506,14 @@ export default function Programmes({ onNavigate }) {
                           {prog.title}
                         </h3>
 
-                        <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.7, maxWidth: '340px' }}>
+                        <p style={{ fontSize: '1.05rem', color: '#ffffff', opacity: 0.95, lineHeight: 1.7, maxWidth: '350px', fontWeight: 400 }}>
                           {prog.desc}
                         </p>
                       </div>
 
                       {/* Intensity Meter */}
                       <div style={{ marginTop: '1.5rem', position: 'relative', zIndex: 2 }}>
-                        <span style={{ fontSize: '0.68rem', textTransform: 'uppercase', color: 'var(--harvest-gold)', letterSpacing: '0.12em', fontWeight: 700 }}>
+                        <span style={{ fontSize: '0.88rem', textTransform: 'uppercase', color: 'var(--harvest-gold)', letterSpacing: '0.12em', fontWeight: 800 }}>
                           Intensity: {prog.intensity}
                         </span>
                         <div style={{ display: 'flex', gap: '4px', marginTop: '0.5rem' }}>
@@ -540,29 +540,29 @@ export default function Programmes({ onNavigate }) {
                       <div>
                         <div style={{ display: 'flex', gap: '0.8rem', marginBottom: '1.2rem', flexWrap: 'wrap' }}>
                           <span style={{
-                            fontSize: '0.72rem', fontWeight: 700, color: 'var(--wine)',
-                            backgroundColor: 'rgba(94,39,53,0.08)', padding: '0.35rem 1rem', borderRadius: '50px',
-                            border: '1px solid rgba(94,39,53,0.1)'
+                            fontSize: '0.9rem', fontWeight: 800, color: 'var(--wine)',
+                            backgroundColor: 'rgba(94,39,53,0.12)', padding: '0.45rem 1.2rem', borderRadius: '50px',
+                            border: '1.5px solid rgba(94,39,53,0.25)'
                           }}>
                             Focus: {prog.focus}
                           </span>
                         </div>
 
-                        <div style={{ marginBottom: '1rem' }}>
-                          <span style={{ fontSize: '0.75rem', opacity: 0.6, display: 'block', marginBottom: '0.3rem', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Ideal for:</span>
-                          <span style={{ fontSize: '0.88rem', color: 'var(--wine)', fontWeight: 500 }}>{prog.ideal}</span>
+                        <div style={{ marginBottom: '1.2rem' }}>
+                          <span style={{ fontSize: '0.88rem', color: 'var(--redwood)', fontWeight: 800, display: 'block', marginBottom: '0.3rem', textTransform: 'uppercase', letterSpacing: '0.12em' }}>Ideal for:</span>
+                          <span style={{ fontSize: '1.05rem', color: 'var(--raisin-black)', fontWeight: 600, lineHeight: 1.6 }}>{prog.ideal}</span>
                         </div>
 
                         {/* Inclusions — palette-accented */}
                         <div style={{ borderTop: '1px solid rgba(94,39,53,0.1)', paddingTop: '1.2rem' }}>
-                          <h4 style={{color: 'var(--wine)', marginBottom: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.08em'}}>
+                          <h4 style={{color: 'var(--wine)', marginBottom: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 800, fontSize: '1.05rem'}}>
                             What's Included:
                           </h4>
-                          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem 1.5rem' }}>
+                          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem 1.5rem' }}>
                             {prog.inclusions.map((inc, iidx) => (
-                              <div key={iidx} style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', fontSize: '0.82rem', lineHeight: 1.5 }}>
-                                <span style={{ color: 'var(--harvest-gold)', flexShrink: 0, display: 'inline-flex', alignItems: 'center' }}><Check size={14} /></span>
-                                <span style={{ opacity: 0.8 }}>{inc}</span>
+                              <div key={iidx} style={{ display: 'flex', gap: '0.6rem', alignItems: 'center', fontSize: '0.98rem', lineHeight: 1.6 }}>
+                                <span style={{ color: 'var(--harvest-gold)', flexShrink: 0, display: 'inline-flex', alignItems: 'center' }}><Check size={16} strokeWidth={3} /></span>
+                                <span style={{ color: 'var(--raisin-black)', fontWeight: 500 }}>{inc}</span>
                               </div>
                             ))}
                           </div>
@@ -570,22 +570,18 @@ export default function Programmes({ onNavigate }) {
                       </div>
 
                       {/* Action Buttons */}
-                      <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem' }}>
+                      <div style={{ display: 'flex', gap: '1rem', marginTop: '1.8rem' }}>
                         <button
                           onClick={() => onNavigate('contact')}
                           className="btn-luxury"
-                          style={{ padding: '0.85rem 2rem', fontSize: '0.78rem', letterSpacing: '0.1em' }}
+                          style={{ padding: '0.95rem 2.2rem', fontSize: '0.92rem', letterSpacing: '0.12em', fontWeight: 800 }}
                         >
                           Book Programme
                         </button>
                         <button
                           onClick={() => onNavigate('contact')}
-                          style={{
-                            padding: '0.85rem 1.5rem', backgroundColor: 'transparent',
-                            border: '1.5px solid rgba(94,39,53,0.25)', color: 'var(--wine)',
-                            borderRadius: '8px', fontSize: '0.78rem', fontWeight: 600, cursor: 'pointer',
-                            transition: 'all 0.3s ease'
-                          }}
+                          className="btn-secondary"
+                          style={{ padding: '0.95rem 1.8rem', fontSize: '0.92rem', letterSpacing: '0.1em', fontWeight: 700 }}
                         >
                           Speak to Doctor
                         </button>
@@ -612,7 +608,7 @@ export default function Programmes({ onNavigate }) {
         
         <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.6rem' }}>
+            <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.88rem', fontWeight: 800, display: 'block', marginBottom: '0.6rem' }}>
               ✦ Compare
             </span>
             <h2 style={{color: 'var(--tan)',}}>
@@ -621,18 +617,18 @@ export default function Programmes({ onNavigate }) {
           </div>
 
           <div style={{
-            backgroundColor: 'rgba(244,240,236,0.05)',
+            backgroundColor: 'rgba(244,240,236,0.08)',
             borderRadius: '20px',
-            border: '1px solid rgba(220,160,50,0.18)',
+            border: '1.5px solid rgba(220,160,50,0.3)',
             overflow: 'hidden',
             backdropFilter: 'blur(12px)'
           }}>
             <div style={{ overflowX: 'auto' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '800px', fontSize: '0.82rem' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '800px', fontSize: '0.98rem' }}>
                 <thead>
-                  <tr style={{ borderBottom: '1px solid rgba(220,160,50,0.25)', backgroundColor: 'rgba(94,39,53,0.4)' }}>
+                  <tr style={{ borderBottom: '1.5px solid rgba(220,160,50,0.4)', backgroundColor: 'rgba(94,39,53,0.6)' }}>
                     {['Program', 'Duration', 'Intensity', 'Focus', 'Key Therapies'].map((header) => (
-                      <th key={header} style={{ padding: '1.2rem 1.2rem', color: 'var(--harvest-gold)', fontWeight: 700, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                      <th key={header} style={{ padding: '1.2rem 1.2rem', color: 'var(--harvest-gold)', fontWeight: 800, fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.12em' }}>
                         {header}
                       </th>
                     ))}
@@ -648,25 +644,25 @@ export default function Programmes({ onNavigate }) {
                   ].map((row, idx) => (
                     <tr
                       key={idx}
-                      style={{ borderBottom: '1px solid rgba(220,160,50,0.07)', transition: 'background 0.3s' }}
+                      style={{ borderBottom: '1px solid rgba(220,160,50,0.15)', transition: 'background 0.3s' }}
                       onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(94,39,53,0.3)'}
                       onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                     >
-                      <td style={{ padding: '1.2rem', fontWeight: 600, color: 'var(--tan)' }}>{row.name}</td>
-                      <td style={{ padding: '1.2rem', color: 'rgba(220,195,175,0.8)' }}>{row.dur}</td>
+                      <td style={{ padding: '1.2rem', fontWeight: 700, color: 'var(--tan)' }}>{row.name}</td>
+                      <td style={{ padding: '1.2rem', color: '#ffffff', fontWeight: 500 }}>{row.dur}</td>
                       <td style={{ padding: '1.2rem' }}>
                         <span style={{
-                          fontSize: '0.7rem', padding: '0.25rem 0.7rem', borderRadius: '50px',
-                          backgroundColor: row.int === 'Very High' ? 'rgba(184,94,76,0.25)' : row.int === 'High' ? 'rgba(220,160,50,0.15)' : 'rgba(179,186,142,0.18)',
-                          color: row.int === 'Very High' ? 'var(--redwood)' : row.int === 'High' ? 'var(--harvest-gold)' : 'var(--sage)',
-                          fontWeight: 700,
-                          border: `1px solid ${row.int === 'Very High' ? 'rgba(184,94,76,0.3)' : row.int === 'High' ? 'rgba(220,160,50,0.25)' : 'rgba(179,186,142,0.25)'}`
+                          fontSize: '0.82rem', padding: '0.3rem 0.85rem', borderRadius: '50px',
+                          backgroundColor: row.int === 'Very High' ? 'rgba(184,94,76,0.35)' : row.int === 'High' ? 'rgba(220,160,50,0.25)' : 'rgba(179,186,142,0.28)',
+                          color: row.int === 'Very High' ? '#ff9e8c' : row.int === 'High' ? '#f7d070' : '#d8e2aa',
+                          fontWeight: 800,
+                          border: `1.5px solid ${row.int === 'Very High' ? 'rgba(184,94,76,0.5)' : row.int === 'High' ? 'rgba(220,160,50,0.4)' : 'rgba(179,186,142,0.4)'}`
                         }}>
                           {row.int}
                         </span>
                       </td>
-                      <td style={{ padding: '1.2rem', color: 'rgba(220,195,175,0.8)' }}>{row.focus}</td>
-                      <td style={{ padding: '1.2rem', color: 'rgba(220,195,175,0.55)', fontSize: '0.78rem' }}>{row.therapies}</td>
+                      <td style={{ padding: '1.2rem', color: '#ffffff', fontWeight: 500 }}>{row.focus}</td>
+                      <td style={{ padding: '1.2rem', color: 'rgba(244,240,236,0.92)', fontSize: '0.9rem', fontWeight: 400 }}>{row.therapies}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -688,14 +684,14 @@ export default function Programmes({ onNavigate }) {
         <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <div className="flex-stack-mobile" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3rem', flexWrap: 'wrap', gap: '1rem' }}>
             <div>
-              <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.5rem' }}>
+              <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.84rem', fontWeight: 800, display: 'block', marginBottom: '0.5rem' }}>
                 ✦ The Checklist
               </span>
               <h2 style={{color: 'var(--wine)', lineHeight: 1.15, margin: 0}}>
                 Included in<br />Every Program
               </h2>
             </div>
-            <p style={{ color: 'var(--raisin-black)', opacity: 0.6, maxWidth: '340px', fontSize: '0.85rem', lineHeight: 1.65, margin: 0 }}>
+            <p style={{ color: 'var(--raisin-black)', opacity: 0.9, maxWidth: '360px', fontSize: '1.02rem', lineHeight: 1.65, margin: 0, fontWeight: 500 }}>
               Regardless of package intensity, every guest at Suprada receives these standard elite services.
             </p>
           </div>
@@ -731,14 +727,14 @@ export default function Programmes({ onNavigate }) {
                 <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'linear-gradient(135deg, rgba(220,160,50,0.3), rgba(220,160,50,0.08))', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.3rem', border: '1px solid rgba(220,160,50,0.25)' }}>
                   {whatIsIncluded[0].icon}
                 </div>
-                <span style={{ fontSize: '0.65rem', textTransform: 'uppercase', color: 'var(--harvest-gold)', backgroundColor: 'rgba(220,160,50,0.12)', padding: '0.3rem 0.8rem', borderRadius: '50px', fontWeight: 800, letterSpacing: '0.1em', border: '1px solid rgba(220,160,50,0.2)' }}>
+                <span style={{ fontSize: '0.78rem', textTransform: 'uppercase', color: 'var(--harvest-gold)', backgroundColor: 'rgba(220,160,50,0.18)', padding: '0.35rem 1rem', borderRadius: '50px', fontWeight: 800, letterSpacing: '0.1em', border: '1px solid rgba(220,160,50,0.3)' }}>
                   Core Service
                 </span>
               </div>
               <h3 style={{color: 'var(--tan)', marginBottom: '0.3rem'}}>
                 {whatIsIncluded[0].title}
               </h3>
-              <p style={{ fontSize: '0.85rem', color: 'rgba(220,195,175,0.7)', lineHeight: 1.6, maxWidth: '400px' }}>
+              <p style={{ fontSize: '0.98rem', color: 'rgba(244,240,236,0.92)', lineHeight: 1.6, maxWidth: '440px', fontWeight: 400 }}>
                 {whatIsIncluded[0].desc}
               </p>
             </motion.div>
@@ -778,7 +774,7 @@ export default function Programmes({ onNavigate }) {
                     <h4 style={{color: 'var(--wine)', margin: '0 0 0.2rem 0'}}>
                       {item.title}
                     </h4>
-                    <p style={{ fontSize: '0.72rem', color: 'var(--raisin-black)', opacity: 0.6, lineHeight: 1.5, margin: 0 }}>
+                    <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.5, margin: 0, fontWeight: 500 }}>
                       {item.desc}
                     </p>
                   </div>
@@ -818,7 +814,7 @@ export default function Programmes({ onNavigate }) {
                 <h3 style={{color: 'var(--wine)', margin: 0}}>
                   {item.title}
                 </h3>
-                <p style={{ fontSize: '0.75rem', color: 'var(--raisin-black)', opacity: 0.65, lineHeight: 1.55, margin: 0 }}>
+                <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.55, margin: 0, fontWeight: 500 }}>
                   {item.desc}
                 </p>
               </motion.div>
@@ -836,7 +832,7 @@ export default function Programmes({ onNavigate }) {
         
         <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.6rem' }}>
+            <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.84rem', fontWeight: 800, display: 'block', marginBottom: '0.6rem' }}>
               ✦ The Advantage
             </span>
             <h2 style={{color: 'var(--wine)',}}>
@@ -877,7 +873,7 @@ export default function Programmes({ onNavigate }) {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: '0.82rem',
+                  fontSize: '0.92rem',
                   fontWeight: 800,
                   color: 'var(--wine)',
                   zIndex: 2
@@ -888,7 +884,7 @@ export default function Programmes({ onNavigate }) {
                 <h3 style={{color: 'var(--wine)', margin: 0}}>
                   {adv.title}
                 </h3>
-                <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black)', opacity: 0.65, lineHeight: 1.7, margin: 0 }}>
+                <p style={{ fontSize: '1.02rem', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.7, margin: 0, fontWeight: 400 }}>
                   {adv.desc}
                 </p>
               </motion.div>

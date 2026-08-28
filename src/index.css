@@ -16,7 +16,7 @@
   --brand-bg: #e5d7c6;     /* Raw clay */
   
   --font-heading: 'Cormorant Garamond', serif;
-  --font-body: 'Cormorant Garamond', serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 
   /* Unified Typography Scale (Responsive clamp values) */
   --fs-hero: clamp(3.2rem, 7.5vw, 6.8rem);       /* Aesthetic Hero Headers */
@@ -25,8 +25,8 @@
   --fs-h3: clamp(1.35rem, 2.2vw, 1.75rem);       /* Card / Feature Block Headings */
   --fs-h4: clamp(1.1rem, 1.8vw, 1.35rem);        /* Sub-card / Small Labels */
   --fs-h5: clamp(0.95rem, 1.5vw, 1.12rem);       /* Micro Details */
-  --fs-body: clamp(1.15rem, 1.5vw, 1.3rem);     /* Standard Paragraph Text - Increased size */
-  --fs-small: clamp(0.88rem, 1.15vw, 0.98rem);   /* Captions / Small Helper Text - Increased size */
+  --fs-body: clamp(1.15rem, 1.5vw, 1.32rem);     /* Standard Paragraph Text - Increased size & clarity */
+  --fs-small: clamp(0.92rem, 1.2vw, 1.02rem);   /* Captions / Small Helper Text - High visibility */
 }
 
 * {
@@ -38,9 +38,10 @@
 body, button, input, select, textarea {
   font-family: var(--font-body);
   font-size: var(--fs-body);
+  font-weight: 500;
   background-color: var(--isabelline);
   color: var(--raisin-black);
-  line-height: 1.6;
+  line-height: 1.65;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }

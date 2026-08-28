@@ -1553,20 +1553,24 @@ export default function Home({ onNavigate }) {
               background-color: var(--tea-green);
               padding: 2.8rem 5%;
               position: relative;
-              overflow-x: hidden !important;
+              overflow-x: hidden;
               color: var(--raisin-black);
               display: flex;
               flex-direction: column;
               justify-content: center;
               box-sizing: border-box;
               min-height: 100vh;
-              width: 100% !important;
-              max-width: 100vw !important;
             }
             @media (min-width: 961px) {
               .naturopathy-section-container {
                 min-height: 100vh;
               }
+            }
+            .naturopathy-bento-layout {
+              display: grid;
+              grid-template-columns: 0.95fr 0.9fr;
+              gap: 2rem;
+              align-items: stretch;
             }
             @media (max-width: 960px) {
               .naturopathy-section-container {

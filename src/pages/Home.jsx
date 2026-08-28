@@ -1472,7 +1472,7 @@ export default function Home({ onNavigate }) {
               background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.7) 100%);
             }
             .naturopathy-explore-tile {
-              background: linear-gradient(135deg, #1b3b2b 0%, #0f241a 100%);
+              background: linear-gradient(135deg, var(--wine) 0%, #4a1d29 100%);
               border-radius: 14px;
               padding: 1rem;
               display: flex;
@@ -1481,15 +1481,15 @@ export default function Home({ onNavigate }) {
               justify-content: center;
               cursor: pointer;
               text-align: center;
-              color: #ffffff;
-              box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+              color: var(--isabelline);
+              box-shadow: 0 6px 18px rgba(94, 39, 53, 0.15);
               transition: all 0.3s ease;
-              border: 1px solid rgba(220,160,50,0.25);
+              border: 1.5px solid rgba(220, 160, 50, 0.3);
             }
             .naturopathy-explore-tile:hover {
               transform: translateY(-3px);
-              box-shadow: 0 12px 28px rgba(15, 36, 26, 0.3);
-              background: linear-gradient(135deg, var(--wine) 0%, #401822 100%);
+              box-shadow: 0 12px 28px rgba(94, 39, 53, 0.3);
+              background: linear-gradient(135deg, #733142 0%, var(--wine) 100%);
             }
           `}</style>
 

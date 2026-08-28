@@ -2251,7 +2251,7 @@ export default function Home({ onNavigate }) {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))', gap: '1.3rem', alignItems: 'stretch' }}>
             
             {/* Left Interactive Category Selector */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem', height: '100%' }}>
               {[
                 { id: 'Internal & Metabolic', title: 'Internal & Metabolic Health', count: '6 Therapies', desc: 'Cellular detox, diabetes reversal & metabolic restoration.' },
                 { id: 'Nervous System', title: 'Nervous System & Mind', count: '5 Therapies', desc: 'Shirodhara, insomnia recovery & neurological stress reset.' },
@@ -2275,7 +2275,8 @@ export default function Home({ onNavigate }) {
                       boxShadow: isActive ? '0 8px 20px rgba(94, 39, 53, 0.18)' : '0 2px 10px rgba(94, 39, 53, 0.03)',
                       display: 'flex',
                       justifyContent: 'space-between',
-                      alignItems: 'center'
+                      alignItems: 'center',
+                      flex: 1
                     }}
                   >
                     <div>
@@ -2318,7 +2319,7 @@ export default function Home({ onNavigate }) {
               boxShadow: '0 10px 30px rgba(94, 39, 53, 0.05)',
               display: 'flex',
               flexDirection: 'column',
-              justify: 'space-between',
+              justifyContent: 'space-between',
               gap: '1rem'
             }}>
               <div>
@@ -2404,13 +2405,13 @@ export default function Home({ onNavigate }) {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem' }}>
             {[
-              { name: 'Dr. Anjali Sharma', role: 'Senior Naturopath', creds: 'BNYS • 14 Yrs', img: 'https://images.unsplash.com/photo-1594824813571-24a69c100d3a?auto=format&fit=crop&w=800&q=80' },
-              { name: 'Dr. Rajesh Kumar', role: 'Holistic Physician', creds: 'MD (Naturopathy) • 16 Yrs', img: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80' },
-              { name: 'Ms. Priya Singh', role: 'Yoga Therapist', creds: 'M.Sc Yogic Science', img: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80' },
-              { name: 'Dr. Sumanth Hegde', role: 'Holistic Consultant', creds: 'BNYS • Clinical Fellow', img: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=800&q=80' }
+              { name: 'Dr. Sunil Jayaraj', role: 'Founder', creds: 'Suprada Wellness', img: '/assets/sunil_jayaraj.jpg' },
+              { name: 'Dr. Prema Ramadas', role: 'Co-founder', creds: 'Suprada Wellness', img: '/assets/prema_ramadas.jpg' },
+              { name: 'Srinivas Ramadas', role: 'Director Operations', creds: 'Suprada Wellness', img: '/assets/srinivas_ramadas.jpg' },
+              { name: 'Dr. Vinaya, B.N.Y.S', role: 'Chief Medical Officer', creds: 'Suprada Wellness', img: '/assets/vinaya.jpg' }
             ].map((doc, idx) => (
               <div key={idx} className="editorial-master-card" style={{ height: '320px' }}>
-                <img src={doc.img} alt={doc.name} />
+                <img src={doc.img} alt={doc.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div className="editorial-master-overlay" style={{ padding: '1.4rem' }}>
                   <span style={{ fontSize: '0.68rem', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase' }}>
                     {doc.creds}

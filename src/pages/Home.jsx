@@ -2501,14 +2501,15 @@ export default function Home({ onNavigate }) {
 
           {/* Enriched Diagnostic Showcase Card */}
           <div className="flex-stack-mobile" style={{ backgroundColor: '#ffffff', border: '1.5px solid rgba(94, 39, 53, 0.15)', borderRadius: '24px', padding: '2.8rem 3rem', boxShadow: '0 15px 45px rgba(94, 39, 53, 0.08)', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-            <div className="flex-stack-mobile" style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center' }}>
+            {/* Row 1: Selectors (Centered) */}
+            <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
               
               {/* Selector 1: Dosha */}
               <div>
-                <span style={{ fontSize: '0.82rem', color: 'var(--wine)', fontWeight: 800, display: 'block', marginBottom: '0.6rem', letterSpacing: '0.02em' }}>
+                <span style={{ fontSize: '0.82rem', color: 'var(--wine)', fontWeight: 800, display: 'block', marginBottom: '0.6rem', letterSpacing: '0.02em', textAlign: 'center' }}>
                   1. Primary Body Type (Dosha):
                 </span>
-                <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap', justifyContent: 'center' }}>
                   {['Vata', 'Pitta', 'Kapha'].map((d, dIdx) => (
                     <button 
                       key={dIdx}
@@ -2524,10 +2525,10 @@ export default function Home({ onNavigate }) {
 
               {/* Selector 2: Toxicity */}
               <div>
-                <span style={{ fontSize: '0.82rem', color: 'var(--wine)', fontWeight: 800, display: 'block', marginBottom: '0.6rem', letterSpacing: '0.02em' }}>
+                <span style={{ fontSize: '0.82rem', color: 'var(--wine)', fontWeight: 800, display: 'block', marginBottom: '0.6rem', letterSpacing: '0.02em', textAlign: 'center' }}>
                   2. Sluggishness Level:
                 </span>
-                <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap', justifyContent: 'center' }}>
                   {['Mild Fatigue', 'Moderate Detox', 'High Stress'].map((tox, tIdx) => (
                     <button 
                       key={tIdx}
@@ -2541,8 +2542,11 @@ export default function Home({ onNavigate }) {
                 </div>
               </div>
 
-              {/* Calculation Output & Action CTA */}
-              <div className="flex-stack-mobile" style={{ backgroundColor: 'rgba(94, 39, 53, 0.06)', border: '1px solid rgba(94, 39, 53, 0.12)', padding: '1.1rem 1.8rem', borderRadius: '16px', display: 'flex', alignItems: 'center', gap: '1.6rem', textAlign: 'center' }}>
+            </div>
+
+            {/* Row 2: Calculation Output & Action CTA (Centered) */}
+            <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+              <div className="flex-stack-mobile" style={{ backgroundColor: 'rgba(94, 39, 53, 0.06)', border: '1px solid rgba(94, 39, 53, 0.12)', padding: '1.1rem 2.2rem', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.6rem', textAlign: 'center', flexWrap: 'wrap' }}>
                 <div>
                   <span style={{ fontSize: '0.72rem', color: 'var(--wine)', fontWeight: 800, display: 'block', marginBottom: '0.15rem' }}>
                     Calculated Protocol Match:
@@ -2555,7 +2559,6 @@ export default function Home({ onNavigate }) {
                   Book Consultation &rarr;
                 </button>
               </div>
-
             </div>
           </div>
 

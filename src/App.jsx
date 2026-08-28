@@ -180,19 +180,14 @@ function App() {
             style={{ 
               position: 'fixed', 
               top: '15px', 
-              left: '25px', 
+              left: '50%', 
+              transform: 'translateX(-50%)',
               zIndex: 999999, 
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '0.8rem',
-              backgroundColor: '#1c1410',
-              borderRadius: '50px',
-              border: '1.5px solid rgba(220, 160, 50, 0.4)',
-              boxShadow: '0 12px 30px rgba(0,0,0,0.5)',
-              backdropFilter: 'blur(20px)',
-              padding: '0.55rem 1.4rem 0.55rem 0.9rem'
+              gap: '0.8rem'
             }}
           >
             <img src="/assets/logo.svg" alt="Suprada Icon" style={{ height: '32px' }} />

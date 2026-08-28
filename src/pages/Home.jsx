@@ -1528,28 +1528,12 @@ export default function Home({ onNavigate }) {
                 image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80'
               },
               { 
-                category: 'EMOTIONAL BALANCE',
-                title: 'Mental & Emotional', 
-                subtitle: 'Resilience & Stress Relief',
-                fullDesc: 'Counselling, stress management, restorative breathwork, and emotional resilience tools.',
-                benefits: ['Emotional Release Therapy', 'Stress Diagnostics', 'Mindfulness Coaching', 'Deep Restorative Sleep'],
-                image: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=1200&q=80'
-              },
-              { 
                 category: 'CELLULAR PURIFICATION',
                 title: 'Detox & Cleansing', 
                 subtitle: 'Cellular Purification',
                 fullDesc: 'Comprehensive purification using therapeutic fasting, custom therapies, and natural cleansing protocols.',
                 benefits: ['Cellular Regeneration', 'Colon Hydrotherapy', 'Liver & Kidney Flush', 'Lymphatic Drainage'],
                 image: 'https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&w=1200&q=80'
-              },
-              { 
-                category: 'PHYSICAL RECOVERY',
-                title: 'Physiotherapy', 
-                subtitle: 'Mobility & Muscle Recovery',
-                fullDesc: 'Evidence-based physical rehabilitation to improve mobility, relieve pain, and accelerate muscular recovery.',
-                benefits: ['Spinal & Joint Alignment', 'Myofascial Release', 'Posture Correction', 'Targeted Rehabilitation'],
-                image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=80'
               }
             ];
 
@@ -1557,7 +1541,7 @@ export default function Home({ onNavigate }) {
 
             return (
               <div className="naturopathy-bento-layout">
-                {/* LEFT: 2x4 Grid of Compact Photo Cards */}
+                {/* LEFT: 2x3 Grid of 5 Photo Cards + 1 Explore All Tile */}
                 <div className="naturopathy-tile-grid">
                   {sanctuaryPillars.map((item, idx) => {
                     const isActive = (activeTherapyIndex % sanctuaryPillars.length) === idx;

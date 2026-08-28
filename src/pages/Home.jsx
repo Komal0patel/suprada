@@ -1578,16 +1578,24 @@ export default function Home({ onNavigate }) {
                 gap: 1.2rem !important;
               }
               .naturopathy-tile-grid {
-                display: grid !important;
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 0.65rem !important;
-                overflow: visible !important;
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory !important;
+                gap: 0.75rem !important;
+                padding: 0.2rem 0.2rem 0.6rem 0.2rem !important;
+                -webkit-overflow-scrolling: touch;
+                touch-action: pan-x pan-y !important;
+                width: 100% !important;
               }
               .naturopathy-photo-tile,
               .naturopathy-explore-tile {
-                height: 105px !important;
-                min-width: 0 !important;
-                flex: none !important;
+                flex: 0 0 170px !important;
+                width: 170px !important;
+                min-width: 170px !important;
+                height: 125px !important;
+                scroll-snap-align: start !important;
               }
               .naturopathy-right-card {
                 height: auto !important;
@@ -1595,7 +1603,7 @@ export default function Home({ onNavigate }) {
                 flex: none !important;
               }
               .naturopathy-right-card-banner {
-                height: 180px !important;
+                height: 200px !important;
               }
             }
             .naturopathy-left-column {

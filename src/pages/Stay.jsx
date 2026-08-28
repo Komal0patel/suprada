@@ -1122,246 +1122,112 @@ export default function Stay({ onNavigate }) {
         <div style={{ position: 'absolute', bottom: '-100px', left: '-60px', maxWidth: '350px', width: '100%', height: '350px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(94,39,53,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
         <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          
-          {/* Section Header — left-aligned with ample indent to clear fixed top-left logo pill */}
-          <div className="amenities-header-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2.5rem', flexWrap: 'wrap', gap: '1rem', paddingLeft: 'clamp(0px, 14vw, 220px)', paddingTop: '0.5rem' }}>
+          {/* Section Header */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2.2rem', flexWrap: 'wrap', gap: '1.2rem' }}>
             <div>
-              <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.84rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem', opacity: 0.85 }}>
-                ✦ Curated Comforts
+              <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.78rem', fontWeight: 800, display: 'block', marginBottom: '0.3rem', opacity: 0.85 }}>
+                ✦ CURATED COMFORTS
               </span>
-              <h2 style={{color: 'var(--wine)', lineHeight: 1.15, margin: 0}}>
-                Thoughtful<br />Amenities
+              <h2 style={{ color: 'var(--wine)', lineHeight: 1.15, margin: 0, fontSize: 'clamp(1.8rem, 2.8vw, 2.5rem)' }}>
+                Thoughtful Amenities
               </h2>
             </div>
-            <p style={{ color: 'var(--wine)', opacity: 0.85, maxWidth: '360px', fontSize: '1.04rem', lineHeight: 1.65, margin: 0, fontWeight: 400 }}>
+            <p style={{ color: 'var(--wine)', opacity: 0.85, maxWidth: '380px', fontSize: '0.94rem', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
               Every detail is intentional — from the water you drink to the air you breathe. Wellness woven into every comfort.
             </p>
           </div>
 
-          {/* MOBILE 2-COLUMN GRID (Shown only on Mobile Devices < 769px) */}
-          <div className="amenities-mobile-grid">
+          {/* Unified Responsive 3x2 Amenities Grid Layout */}
+          <style>{`
+            .amenities-unified-grid {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 1.25rem;
+              width: 100%;
+            }
+            @media (max-width: 960px) {
+              .amenities-unified-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+              }
+            }
+            @media (max-width: 580px) {
+              .amenities-unified-grid {
+                grid-template-columns: 1fr;
+                gap: 0.85rem;
+              }
+            }
+            .amenity-card-item {
+              background: rgba(255, 255, 255, 0.88);
+              backdrop-filter: blur(16px);
+              -webkit-backdrop-filter: blur(16px);
+              border: 1.5px solid rgba(94, 39, 53, 0.14);
+              border-radius: 18px;
+              padding: 1.5rem;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              min-height: 155px;
+              box-shadow: 0 8px 24px rgba(94, 39, 53, 0.05);
+              transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+              box-sizing: border-box;
+            }
+            .amenity-card-item:hover {
+              transform: translateY(-4px);
+              box-shadow: 0 16px 36px rgba(94, 39, 53, 0.12);
+              border-color: rgba(94, 39, 53, 0.3);
+            }
+          `}</style>
+
+          <div className="amenities-unified-grid">
             {amenitiesList.map((item, idx) => (
-              <div
+              <motion.div
                 key={idx}
-                style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.94)',
-                  border: '1px solid rgba(94, 39, 53, 0.18)',
-                  borderRadius: '16px',
-                  padding: '1rem 0.9rem',
-                  boxShadow: '0 8px 25px rgba(94, 39, 53, 0.08)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  gap: '0.6rem',
-                  boxSizing: 'border-box'
-                }}
+                className="amenity-card-item"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.06 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.9rem', width: '100%' }}>
                   <div style={{
-                    width: '36px',
-                    height: '36px',
-                    borderRadius: '50%',
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: '12px',
                     backgroundColor: 'rgba(94, 39, 53, 0.08)',
+                    color: 'var(--wine)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: '1.1rem'
+                    flexShrink: 0
                   }}>
                     {item.icon}
                   </div>
                   <span style={{
-                    fontSize: '0.72rem',
+                    fontSize: '0.68rem',
                     textTransform: 'uppercase',
                     color: '#b5801c',
                     backgroundColor: 'rgba(181, 128, 28, 0.12)',
-                    padding: '0.2rem 0.55rem',
+                    border: '1px solid rgba(181, 128, 28, 0.25)',
+                    padding: '0.25rem 0.65rem',
                     borderRadius: '50px',
                     fontWeight: 800,
-                    letterSpacing: '0.05em'
+                    letterSpacing: '0.06em'
                   }}>
                     {item.tag}
                   </span>
                 </div>
+
                 <div>
-                  <h4 style={{color: 'var(--wine)', margin: '0 0 0.25rem 0', lineHeight: 1.25}}>
+                  <h3 style={{ color: 'var(--wine)', fontSize: '1.15rem', fontWeight: 700, margin: '0 0 0.35rem 0', lineHeight: 1.25 }}>
                     {item.name}
-                  </h4>
-                  <p style={{ fontSize: '0.88rem', color: 'var(--wine)', opacity: 0.85, lineHeight: 1.45, margin: 0, fontWeight: 400 }}>
+                  </h3>
+                  <p style={{ fontSize: '0.88rem', color: 'var(--wine)', opacity: 0.85, lineHeight: 1.5, margin: 0, fontWeight: 400 }}>
                     {item.desc}
                   </p>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          {/* DESKTOP BENTO GRID LAYOUT (Shown on Desktop >= 769px) */}
-          <div className="bento-grid-responsive" style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(12, 1fr)',
-            gridTemplateRows: 'auto auto',
-            gap: '1.2rem'
-          }}>
-
-            {/* HERO CARD — spans 7 columns, row 1 */}
-            <motion.div
-              whileHover={{ scale: 1.01, boxShadow: '0 25px 55px rgba(90, 100, 60, 0.18), inset 0 1px 0 rgba(255, 255, 255, 1), 0 0 45px rgba(255, 255, 255, 0.65)' }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              style={{
-                gridColumn: '1 / 8',
-                gridRow: '1 / 2',
-                background: 'rgba(255, 255, 255, 0.42)',
-                backdropFilter: 'blur(22px)',
-                WebkitBackdropFilter: 'blur(22px)',
-                borderRadius: '24px',
-                padding: '2.2rem 2.4rem',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                minHeight: '220px',
-                position: 'relative',
-                overflow: 'hidden',
-                border: '1px solid rgba(255, 255, 255, 0.75)',
-                boxShadow: '0 20px 45px rgba(90, 100, 60, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.35)'
-              }}
-            >
-              {/* Corner ornament */}
-              <DecorativeSVG src="/assets/logo-mandala.svg" style={{ position: 'absolute', top: 0, left: 0, width: '80px', opacity: 0.07, pointerEvents: 'none', zIndex: -1 }} />
-              
-              {/* Decorative pattern */}
-              <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '200px', height: '200px', borderRadius: '50%', border: '1px solid rgba(255, 255, 255, 0.5)', pointerEvents: 'none' }} />
-              <div style={{ position: 'absolute', top: '0', right: '0', width: '140px', height: '140px', borderRadius: '50%', border: '1px solid rgba(255, 255, 255, 0.3)', pointerEvents: 'none' }} />
-              
-              <div>
-                <div className="amenities-card-toprow" style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '0.8rem' }}>
-                  <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(255, 255, 255, 0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.3rem', border: '1px solid rgba(255, 255, 255, 0.8)', boxShadow: '0 4px 15px rgba(255, 255, 255, 0.4)' }}>
-                    {amenitiesList[0].icon}
-                  </div>
-                  <span style={{ fontSize: '0.82rem', textTransform: 'uppercase', color: 'var(--wine)', backgroundColor: 'rgba(255, 255, 255, 0.65)', padding: '0.35rem 1rem', borderRadius: '50px', fontWeight: 800, letterSpacing: '0.12em', border: '1px solid rgba(255, 255, 255, 0.85)' }}>
-                    {amenitiesList[0].tag}
-                  </span>
-                </div>
-                <h3 style={{color: 'var(--wine)', marginBottom: '0.4rem'}}>
-                  {amenitiesList[0].name}
-                </h3>
-                <p style={{ fontSize: '1.04rem', color: 'var(--wine)', opacity: 0.85, lineHeight: 1.6, maxWidth: '380px' }}>
-                  {amenitiesList[0].desc}
-                </p>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginTop: '1rem' }}>
-                <div style={{ width: '36px', height: '2px', backgroundColor: 'var(--wine)', borderRadius: '2px' }} />
-                <span style={{ fontSize: '0.86rem', color: 'var(--wine)', fontWeight: 700, letterSpacing: '0.08em' }}>Featured Amenity</span>
-              </div>
-            </motion.div>
-
-            {/* ACCENT CARD — spans 5 columns, row 1 */}
-            <motion.div
-              whileHover={{ scale: 1.02, boxShadow: '0 25px 55px rgba(90, 100, 60, 0.18), inset 0 1px 0 rgba(255, 255, 255, 1), 0 0 45px rgba(255, 255, 255, 0.65)' }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              style={{
-                gridColumn: '8 / 13',
-                gridRow: '1 / 2',
-                background: 'rgba(255, 255, 255, 0.42)',
-                backdropFilter: 'blur(22px)',
-                WebkitBackdropFilter: 'blur(22px)',
-                borderRadius: '24px',
-                padding: '1.8rem 2rem',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                gap: '1.4rem',
-                border: '1px solid rgba(255, 255, 255, 0.75)',
-                boxShadow: '0 20px 45px rgba(90, 100, 60, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.35)',
-                minHeight: '220px',
-                position: 'relative',
-                overflow: 'hidden'
-              }}
-            >
-              {/* Corner ornament */}
-              <DecorativeSVG src="/assets/logo-mandala.svg" style={{ position: 'absolute', top: 0, left: 0, width: '80px', opacity: 0.07, pointerEvents: 'none', zIndex: -1 }} />
-              {[amenitiesList[1], amenitiesList[2]].map((item, i) => (
-                <div key={i} style={{ display: 'flex', gap: '1.2rem', alignItems: 'flex-start' }}>
-                  <div style={{
-                    width: '40px', height: '40px', borderRadius: '10px', flexShrink: 0,
-                    background: 'rgba(255, 255, 255, 0.65)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem',
-                    border: '1px solid rgba(255, 255, 255, 0.85)',
-                    boxShadow: '0 4px 12px rgba(255, 255, 255, 0.4)'
-                  }}>
-                    {item.icon}
-                  </div>
-                  <div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.3rem' }}>
-                      <h4 style={{color: 'var(--wine)', margin: 0}}>
-                        {item.name}
-                      </h4>
-                      <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: '#b5801c', fontWeight: 800, letterSpacing: '0.1em' }}>
-                        {item.tag}
-                      </span>
-                    </div>
-                    <p style={{ fontSize: '0.95rem', color: 'var(--wine)', opacity: 0.82, lineHeight: 1.55, margin: 0 }}>
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-              {/* Divider between the two items */}
-              <div style={{ position: 'absolute', left: '2.5rem', right: '2.5rem', top: '50%', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent)', pointerEvents: 'none' }} />
-            </motion.div>
-
-            {/* BOTTOM ROW — 3 equal cards spanning 4 columns each */}
-            {amenitiesList.slice(3).map((item, idx) => (
-              <motion.div
-                key={idx + 3}
-                whileHover={{ y: -6, borderColor: 'rgba(255, 255, 255, 1)', boxShadow: '0 25px 50px rgba(90, 100, 60, 0.18), inset 0 1px 0 rgba(255, 255, 255, 1), 0 0 40px rgba(255, 255, 255, 0.6)' }}
-                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                style={{
-                  gridColumn: `${(idx * 4) + 1} / ${(idx * 4) + 5}`,
-                  gridRow: '2 / 3',
-                  background: 'rgba(255, 255, 255, 0.42)',
-                  backdropFilter: 'blur(22px)',
-                  WebkitBackdropFilter: 'blur(22px)',
-                  borderRadius: '20px',
-                  padding: '1.6rem 1.5rem',
-                  border: '1px solid rgba(255, 255, 255, 0.75)',
-                  boxShadow: '0 15px 35px rgba(90, 100, 60, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 0 25px rgba(255, 255, 255, 0.35)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '0.8rem',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  cursor: 'default'
-                }}
-              >
-                {/* Corner ornament */}
-                <DecorativeSVG src="/assets/logo-mandala.svg" style={{ position: 'absolute', top: 0, left: 0, width: '80px', opacity: 0.07, pointerEvents: 'none', zIndex: -1 }} />
-                
-                {/* Subtle corner accent */}
-                <div style={{ position: 'absolute', top: 0, right: 0, width: '80px', height: '80px', background: `radial-gradient(circle at top right, ${idx === 0 ? 'rgba(100,160,220,0.18)' : idx === 1 ? 'rgba(220,120,80,0.18)' : 'rgba(160,200,100,0.18)'} 0%, transparent 70%)`, pointerEvents: 'none' }} />
-                
-                <div className="amenities-card-toprow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <div style={{
-                    width: '40px', height: '40px', borderRadius: '50%',
-                    background: 'rgba(255, 255, 255, 0.65)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.1rem',
-                    border: '1px solid rgba(255, 255, 255, 0.85)',
-                    boxShadow: '0 4px 12px rgba(255, 255, 255, 0.4)'
-                  }}>
-                    {item.icon}
-                  </div>
-                  <span style={{ fontSize: '0.76rem', textTransform: 'uppercase', color: '#b5801c', backgroundColor: 'rgba(255, 255, 255, 0.65)', padding: '0.3rem 0.8rem', borderRadius: '50px', fontWeight: 800, letterSpacing: '0.1em', border: '1px solid rgba(255, 255, 255, 0.85)' }}>
-                    {item.tag}
-                  </span>
-                </div>
-
-                <h3 style={{color: 'var(--wine)', margin: 0}}>
-                  {item.name}
-                </h3>
-                <p style={{ fontSize: '0.95rem', color: 'var(--wine)', opacity: 0.82, lineHeight: 1.55, margin: 0 }}>
-                  {item.desc}
-                </p>
               </motion.div>
             ))}
-
           </div>
         </div>
       </section>

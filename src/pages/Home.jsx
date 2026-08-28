@@ -1876,18 +1876,18 @@ export default function Home({ onNavigate }) {
               transition={{ default: { duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.15 } }}
               className="transformation-card transformation-card-text"
             >
-              <div style={{ color: 'var(--redwood)', fontSize: '1.2rem', marginBottom: '0.35rem', textAlign: 'center' }}>✦</div>
+              <div style={{ color: 'var(--redwood)', fontSize: '1.45rem', marginBottom: '0.5rem', textAlign: 'center' }}>✦</div>
               
-              <h3 style={{ color: 'var(--wine)', marginBottom: '0.45rem', lineHeight: 1.2, textAlign: 'center', fontSize: '1.35rem' }}>
+              <h3 style={{ color: 'var(--wine)', marginBottom: '0.8rem', lineHeight: 1.22, textAlign: 'center', fontSize: 'clamp(1.55rem, 2.3vw, 2.05rem)', fontWeight: 700 }}>
                 Path To Transformation<br />
                 <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>Begins Within</em>
               </h3>
 
-              <p style={{ fontSize: '0.84rem', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.55, textAlign: 'center', margin: '0 0 0.4rem 0' }}>
+              <p style={{ fontSize: 'clamp(0.92rem, 1.2vw, 1.05rem)', color: 'var(--raisin-black)', opacity: 0.92, lineHeight: 1.65, textAlign: 'center', margin: '0 0 0.8rem 0', fontWeight: 400 }}>
                 At Suprada, wellness is a transformative journey that nourishes your mind, body, and soul. Nestled in nature's embrace, our retreat offers a sanctuary to decompress, restore balance, and reconnect with your inner self through personalized holistic practices.
               </p>
 
-              <h5 style={{ marginTop: '0.35rem', color: 'var(--wine)', letterSpacing: '0.08em', textAlign: 'center', fontSize: '0.85rem' }}>
+              <h5 style={{ marginTop: '0.6rem', color: 'var(--wine)', letterSpacing: '0.12em', textAlign: 'center', fontSize: '1rem', fontWeight: 700 }}>
                 Suprada
               </h5>
             </motion.div>

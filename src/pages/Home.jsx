@@ -1553,13 +1553,15 @@ export default function Home({ onNavigate }) {
               background-color: var(--tea-green);
               padding: 2.8rem 5%;
               position: relative;
-              overflow: hidden;
+              overflow-x: hidden !important;
               color: var(--raisin-black);
               display: flex;
               flex-direction: column;
               justify-content: center;
               box-sizing: border-box;
               min-height: 100vh;
+              width: 100% !important;
+              max-width: 100vw !important;
             }
             @media (min-width: 961px) {
               .naturopathy-section-container {
@@ -1570,12 +1572,21 @@ export default function Home({ onNavigate }) {
               .naturopathy-section-container {
                 min-height: auto !important;
                 height: auto !important;
-                padding: 2rem 4% !important;
-                overflow: visible !important;
+                padding: 2.2rem 4% 3rem 4% !important;
+                overflow-x: hidden !important;
               }
               .naturopathy-bento-layout {
                 grid-template-columns: 1fr !important;
                 gap: 1.2rem !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+              }
+              .naturopathy-left-column {
+                min-width: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                overflow: hidden !important;
               }
               .naturopathy-tile-grid {
                 display: flex !important;
@@ -1583,33 +1594,41 @@ export default function Home({ onNavigate }) {
                 flex-wrap: nowrap !important;
                 overflow-x: auto !important;
                 scroll-snap-type: x mandatory !important;
-                gap: 0.75rem !important;
+                gap: 0.7rem !important;
                 padding: 0.2rem 0.2rem 0.6rem 0.2rem !important;
                 -webkit-overflow-scrolling: touch;
                 touch-action: pan-x pan-y !important;
                 width: 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                box-sizing: border-box !important;
               }
               .naturopathy-photo-tile,
               .naturopathy-explore-tile {
-                flex: 0 0 170px !important;
-                width: 170px !important;
-                min-width: 170px !important;
-                height: 125px !important;
+                flex: 0 0 155px !important;
+                width: 155px !important;
+                min-width: 155px !important;
+                height: 115px !important;
                 scroll-snap-align: start !important;
               }
               .naturopathy-right-card {
                 height: auto !important;
                 min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
                 flex: none !important;
               }
               .naturopathy-right-card-banner {
-                height: 200px !important;
+                height: 190px !important;
               }
             }
             .naturopathy-left-column {
               display: flex;
               flex-direction: column;
               justify-content: space-between;
+              min-width: 0;
+              width: 100%;
             }
             .naturopathy-tile-grid {
               display: grid;

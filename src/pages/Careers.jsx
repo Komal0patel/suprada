@@ -387,7 +387,7 @@ function JobOpeningCard({ job, onDetailClick, onApplyClick }) {
           marginBottom: '0.9rem',
           fontWeight: 500
         }}>
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}><MapPin size={12} style={{ color: 'var(--wine)' }} /> Suprada Estate, Bangalore</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}><MapPin size={12} style={{ color: 'var(--wine)' }} /> Suprada Wellness Estate, Bangalore</span>
         </div>
 
         {/* Short Job Overview Excerpt */}

@@ -16,8 +16,8 @@ export default function Footer({ onNavigate }) {
                 <span style={{ fontSize: '1.7rem', color: 'var(--wine)', fontWeight: 600, display: 'block', lineHeight: 1 }}>
                   Suprada
                 </span>
-                <span style={{ fontSize: '0.82rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--redwood)', opacity: 0.9, fontWeight: 500 }}>
-                  Naturopathy &amp; Yoga Sanctuary
+                <span style={{ fontSize: '0.82rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--redwood)', opacity: 0.9, fontWeight: 600 }}>
+                  WELLNESS
                 </span>
               </div>
             </div>
@@ -119,7 +119,7 @@ export default function Footer({ onNavigate }) {
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                   <circle cx="12" cy="10" r="3"/>
                 </svg>
-                <span>Suprada Estate, By River Suvarnamukhi, Kanakapura Road, Bangalore, India</span>
+                <span>Suprada Wellness Estate, By River Suvarnamukhi, Kanakapura Road, Bangalore, India</span>
               </li>
               <li style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--redwood)" strokeWidth="2" style={{ flexShrink: 0 }}>
@@ -149,7 +149,7 @@ export default function Footer({ onNavigate }) {
         {/* Bottom Legal & Copyright Bar */}
         <div className="footer-normal-bottom">
           <div>
-            © {new Date().getFullYear()} Suprada Naturopathy &amp; Yoga Sanctuary. All rights reserved.
+            © {new Date().getFullYear()} Suprada Wellness. All rights reserved.
           </div>
 
           <div style={{ display: 'flex', gap: '1.5rem' }}>

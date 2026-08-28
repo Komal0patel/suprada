@@ -1403,31 +1403,55 @@ export default function Home({ onNavigate }) {
         </div>
       </section>
 
-      {/* Transformative Naturopathy & Holistic Wellness Section - Reference Bento Layout */}
-      <section style={{ backgroundColor: 'var(--tea-green)', padding: '2.5rem 5%', position: 'relative', overflow: 'hidden', color: 'var(--raisin-black)' }} className="luxury-clay">
+      {/* Transformative Naturopathy & Holistic Wellness Section - Screen-Fit (100vh) Bento Layout */}
+      <section className="naturopathy-section-container luxury-clay">
         <Pattern28 style={{ position: 'absolute', top: '-40px', left: '-40px', width: '250px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
         <Pattern25 style={{ position: 'absolute', bottom: '-40px', right: '-40px', width: '250px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
         
-        <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+        <div style={{ maxWidth: '1240px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           {/* Header */}
-          <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 1.8rem auto' }}>
-            <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.75rem', fontWeight: 800, display: 'block', marginBottom: '0.3rem' }}>
+          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 1.1rem auto' }}>
+            <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.72rem', fontWeight: 800, display: 'block', marginBottom: '0.2rem' }}>
               ✦ CORE MEDICAL MODALITIES
             </span>
-            <h2 style={{ color: 'var(--wine)', lineHeight: 1.18, margin: '0 0 0.4rem 0' }}>
+            <h2 style={{ color: 'var(--wine)', lineHeight: 1.15, margin: '0 0 0.3rem 0', fontSize: 'clamp(1.6rem, 2.4vw, 2.1rem)' }}>
               Transformative Naturopathy <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>&amp; Holistic Wellness</em>
             </h2>
-            <p style={{ color: 'var(--raisin-black)', opacity: 0.88, fontSize: '0.9rem', lineHeight: 1.55, fontWeight: 400, margin: 0 }}>
+            <p style={{ color: 'var(--raisin-black)', opacity: 0.88, fontSize: '0.86rem', lineHeight: 1.45, fontWeight: 400, margin: 0 }}>
               At Suprada Wellness, we help you unlock your body's innate capacity to heal through doctor-guided drugless therapies, ancient wisdom, and bio-cleansing protocols.
             </p>
           </div>
 
           {/* Reference Split Layout: Left 2x3 Grid, Right Spotlight Card */}
           <style>{`
+            .naturopathy-section-container {
+              background-color: var(--tea-green);
+              padding: 1.6rem 5%;
+              position: relative;
+              overflow: hidden;
+              color: var(--raisin-black);
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              box-sizing: border-box;
+            }
+            @media (min-width: 961px) {
+              .naturopathy-section-container {
+                height: 100vh;
+                max-height: 100vh;
+              }
+            }
+            @media (max-width: 960px) {
+              .naturopathy-section-container {
+                min-height: auto;
+                height: auto;
+                padding: 2.5rem 5%;
+              }
+            }
             .naturopathy-bento-layout {
               display: grid;
               grid-template-columns: 1fr 1.05fr;
-              gap: 1.5rem;
+              gap: 1.2rem;
               align-items: stretch;
             }
             @media (max-width: 960px) {
@@ -1438,25 +1462,30 @@ export default function Home({ onNavigate }) {
             .naturopathy-tile-grid {
               display: grid;
               grid-template-columns: repeat(2, 1fr);
-              gap: 0.75rem;
+              gap: 0.6rem;
             }
             .naturopathy-photo-tile {
               position: relative;
-              height: 118px;
-              border-radius: 14px;
+              height: 96px;
+              border-radius: 12px;
               overflow: hidden;
               cursor: pointer;
-              box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+              box-shadow: 0 4px 14px rgba(0,0,0,0.06);
               transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
               border: 2px solid transparent;
             }
+            @media (min-width: 1400px) {
+              .naturopathy-photo-tile {
+                height: 110px;
+              }
+            }
             .naturopathy-photo-tile:hover {
-              transform: translateY(-3px);
-              box-shadow: 0 10px 25px rgba(94,39,53,0.15);
+              transform: translateY(-2px);
+              box-shadow: 0 8px 20px rgba(94,39,53,0.15);
             }
             .naturopathy-photo-tile.active {
               border-color: var(--wine);
-              box-shadow: 0 10px 25px rgba(94, 39, 53, 0.22);
+              box-shadow: 0 8px 22px rgba(94, 39, 53, 0.22);
             }
             .naturopathy-tile-bg {
               position: absolute;
@@ -1473,8 +1502,8 @@ export default function Home({ onNavigate }) {
             }
             .naturopathy-explore-tile {
               background: linear-gradient(135deg, var(--wine) 0%, #4a1d29 100%);
-              border-radius: 14px;
-              padding: 1rem;
+              border-radius: 12px;
+              padding: 0.8rem;
               display: flex;
               flex-direction: column;
               align-items: center;
@@ -1482,13 +1511,13 @@ export default function Home({ onNavigate }) {
               cursor: pointer;
               text-align: center;
               color: var(--isabelline);
-              box-shadow: 0 6px 18px rgba(94, 39, 53, 0.15);
+              box-shadow: 0 4px 14px rgba(94, 39, 53, 0.15);
               transition: all 0.3s ease;
               border: 1.5px solid rgba(220, 160, 50, 0.3);
             }
             .naturopathy-explore-tile:hover {
-              transform: translateY(-3px);
-              box-shadow: 0 12px 28px rgba(94, 39, 53, 0.3);
+              transform: translateY(-2px);
+              box-shadow: 0 10px 24px rgba(94, 39, 53, 0.3);
               background: linear-gradient(135deg, #733142 0%, var(--wine) 100%);
             }
           `}</style>
@@ -1561,14 +1590,14 @@ export default function Home({ onNavigate }) {
                         
                         {/* Category Badge */}
                         <span style={{
-                          position: 'absolute', top: '8px', left: '8px',
+                          position: 'absolute', top: '6px', left: '6px',
                           backgroundColor: 'rgba(0, 0, 0, 0.45)',
                           color: '#ffffff',
-                          fontSize: '0.55rem',
+                          fontSize: '0.52rem',
                           fontWeight: 800,
                           letterSpacing: '0.08em',
-                          padding: '0.18rem 0.5rem',
-                          borderRadius: '6px',
+                          padding: '0.15rem 0.45rem',
+                          borderRadius: '5px',
                           backdropFilter: 'blur(4px)',
                           zIndex: 2
                         }}>
@@ -1577,11 +1606,11 @@ export default function Home({ onNavigate }) {
 
                         {/* Title */}
                         <span style={{
-                          position: 'absolute', bottom: '8px', left: '10px', right: '10px',
+                          position: 'absolute', bottom: '6px', left: '8px', right: '8px',
                           color: '#ffffff',
-                          fontSize: '0.84rem',
+                          fontSize: '0.78rem',
                           fontWeight: 700,
-                          lineHeight: 1.2,
+                          lineHeight: 1.15,
                           textShadow: '0 2px 4px rgba(0,0,0,0.7)',
                           zIndex: 2
                         }}>
@@ -1591,24 +1620,24 @@ export default function Home({ onNavigate }) {
                     );
                   })}
 
-                  {/* 8th Card: Solid Brand Explore All Card */}
+                  {/* 6th Card: Solid Brand Explore All Card */}
                   <motion.div
                     className="naturopathy-explore-tile"
                     onClick={() => onNavigate('programmes')}
                     whileTap={{ scale: 0.98 }}
                   >
                     <div style={{
-                      width: '28px', height: '28px', borderRadius: '50%',
+                      width: '24px', height: '24px', borderRadius: '50%',
                       border: '1.5px solid var(--harvest-gold)', color: 'var(--harvest-gold)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: '1rem', fontWeight: 700, marginBottom: '0.2rem'
+                      fontSize: '0.9rem', fontWeight: 700, marginBottom: '0.15rem'
                     }}>
                       +
                     </div>
-                    <span style={{ fontSize: '0.6rem', letterSpacing: '0.14em', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase' }}>
+                    <span style={{ fontSize: '0.55rem', letterSpacing: '0.12em', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase' }}>
                       EXPLORE ALL
                     </span>
-                    <strong style={{ fontSize: '0.88rem', color: '#ffffff', marginTop: '0.1rem' }}>
+                    <strong style={{ fontSize: '0.82rem', color: '#ffffff', marginTop: '0.05rem' }}>
                       8+ Pillars
                     </strong>
                   </motion.div>
@@ -1617,16 +1646,16 @@ export default function Home({ onNavigate }) {
                 {/* RIGHT: Featured Active Pillar Card */}
                 <div style={{
                   backgroundColor: '#ffffff',
-                  borderRadius: '18px',
+                  borderRadius: '16px',
                   border: '1.5px solid rgba(94, 39, 53, 0.14)',
-                  boxShadow: '0 12px 35px rgba(94, 39, 53, 0.06)',
+                  boxShadow: '0 10px 30px rgba(94, 39, 53, 0.06)',
                   overflow: 'hidden',
                   display: 'flex',
                   flexDirection: 'column',
                   height: '100%'
                 }}>
                   {/* Top Image Banner */}
-                  <div style={{ height: '210px', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+                  <div style={{ height: '155px', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
                     <AnimatePresence mode="wait">
                       <motion.img 
                         key={activePillar.image}
@@ -1642,56 +1671,56 @@ export default function Home({ onNavigate }) {
                     
                     <span style={{
                       position: 'absolute',
-                      top: '12px',
-                      left: '12px',
+                      top: '10px',
+                      left: '10px',
                       backgroundColor: 'rgba(255, 255, 255, 0.9)',
                       color: 'var(--wine)',
-                      fontSize: '0.68rem',
+                      fontSize: '0.62rem',
                       fontWeight: 800,
                       letterSpacing: '0.1em',
-                      padding: '0.35rem 0.85rem',
-                      borderRadius: '12px',
+                      padding: '0.28rem 0.75rem',
+                      borderRadius: '10px',
                       backdropFilter: 'blur(6px)',
-                      boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+                      boxShadow: '0 3px 10px rgba(0,0,0,0.08)'
                     }}>
                       {activePillar.category}
                     </span>
                   </div>
 
                   {/* Content Body */}
-                  <div style={{ padding: '1.5rem 1.8rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: 1 }}>
+                  <div style={{ padding: '1.1rem 1.4rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: 1 }}>
                     <div>
-                      <h3 style={{ color: 'var(--wine)', fontSize: '1.45rem', fontWeight: 700, margin: '0 0 0.2rem 0', lineHeight: 1.2 }}>
+                      <h3 style={{ color: 'var(--wine)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.15rem 0', lineHeight: 1.2 }}>
                         {activePillar.title}
                       </h3>
-                      <div style={{ fontSize: '0.82rem', color: 'var(--redwood)', fontWeight: 700, marginBottom: '0.6rem' }}>
+                      <div style={{ fontSize: '0.78rem', color: 'var(--redwood)', fontWeight: 700, marginBottom: '0.4rem' }}>
                         {activePillar.subtitle}
                       </div>
-                      <div style={{ width: '38px', height: '2.5px', backgroundColor: 'var(--harvest-gold)', marginBottom: '0.9rem' }} />
+                      <div style={{ width: '32px', height: '2px', backgroundColor: 'var(--harvest-gold)', marginBottom: '0.6rem' }} />
                       
-                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black)', opacity: 0.88, lineHeight: 1.6, margin: '0 0 1.2rem 0' }}>
+                      <p style={{ fontSize: '0.82rem', color: 'var(--raisin-black)', opacity: 0.88, lineHeight: 1.48, margin: '0 0 0.7rem 0' }}>
                         {activePillar.fullDesc}
                       </p>
 
                       {/* Benefits Tag Chips */}
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem', marginBottom: '1rem' }}>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginBottom: '0.6rem' }}>
                         {activePillar.benefits.map((b, bIdx) => (
                           <span 
                             key={bIdx}
                             style={{
                               backgroundColor: 'rgba(94, 39, 53, 0.06)',
                               border: '1px solid rgba(94, 39, 53, 0.18)',
-                              padding: '0.3rem 0.75rem',
-                              borderRadius: '20px',
-                              fontSize: '0.76rem',
+                              padding: '0.22rem 0.65rem',
+                              borderRadius: '16px',
+                              fontSize: '0.72rem',
                               color: 'var(--wine)',
                               fontWeight: 700,
                               display: 'inline-flex',
                               alignItems: 'center',
-                              gap: '0.35rem'
+                              gap: '0.3rem'
                             }}
                           >
-                            <span style={{ color: 'var(--harvest-gold)', fontSize: '0.75rem' }}>✦</span>
+                            <span style={{ color: 'var(--harvest-gold)', fontSize: '0.7rem' }}>✦</span>
                             <span>{b}</span>
                           </span>
                         ))}
@@ -1703,19 +1732,19 @@ export default function Home({ onNavigate }) {
                       style={{ 
                         color: 'var(--wine)', 
                         fontWeight: 800, 
-                        fontSize: '0.82rem', 
+                        fontSize: '0.78rem', 
                         letterSpacing: '0.08em', 
                         cursor: 'pointer', 
                         display: 'inline-flex', 
                         alignItems: 'center', 
-                        gap: '0.4rem',
-                        marginTop: '1rem',
-                        paddingTop: '0.8rem',
+                        gap: '0.35rem',
+                        marginTop: '0.4rem',
+                        paddingTop: '0.6rem',
                         borderTop: '1px solid rgba(94,39,53,0.08)'
                       }}
                     >
                       <span>EXPLORE {activePillar.title.toUpperCase()}</span>
-                      <ArrowRight size={14} />
+                      <ArrowRight size={13} />
                     </div>
                   </div>
                 </div>

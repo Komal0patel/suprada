@@ -138,12 +138,44 @@ export default function Occasions({ onNavigate }) {
   const isHoveredCeremonyCardRef = useRef(false);
   const [activeSpaceModal, setActiveSpaceModal] = useState(null);
   const photoGalleryRef = useRef(null);
+  const detailsCarouselRef = useRef(null);
 
   const scrollPhotoGallery = (direction) => {
     if (photoGalleryRef.current) {
       const scrollAmount = direction === 'left' ? -250 : 250;
       photoGalleryRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
+  };
+
+  const scrollDetailsCarousel = (direction) => {
+    if (detailsCarouselRef.current) {
+      const scrollAmount = direction === 'left' ? -270 : 270;
+      detailsCarouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
+
+  // Touch & Mouse Drag Scroll Handlers for mobile horizontal carousels
+  const dragScrollState = useRef({ isDown: false, startX: 0, scrollLeft: 0 });
+
+  const handleDragStart = (e, ref) => {
+    const el = ref.current;
+    if (!el) return;
+    dragScrollState.current.isDown = true;
+    dragScrollState.current.startX = (e.touches ? e.touches[0].pageX : e.pageX) - el.offsetLeft;
+    dragScrollState.current.scrollLeft = el.scrollLeft;
+  };
+
+  const handleDragMove = (e, ref) => {
+    if (!dragScrollState.current.isDown) return;
+    const el = ref.current;
+    if (!el) return;
+    const x = (e.touches ? e.touches[0].pageX : e.pageX) - el.offsetLeft;
+    const walk = (x - dragScrollState.current.startX) * 1.5;
+    el.scrollLeft = dragScrollState.current.scrollLeft - walk;
+  };
+
+  const handleDragEnd = () => {
+    dragScrollState.current.isDown = false;
   };
 
   // Mobile responsiveness check
@@ -2502,7 +2534,7 @@ export default function Occasions({ onNavigate }) {
                 paddingBottom: isMobile ? '0.5rem' : '1.5rem',
                 paddingLeft: isMobile ? '0.5rem' : '1.5rem',
                 paddingRight: isMobile ? '0.5rem' : '1.5rem',
-                overflowX: 'hidden',
+                overflowX: 'visible',
                 boxSizing: 'border-box'
               }}
               onClick={() => setActiveSpaceModal(null)}
@@ -2690,8 +2722,9 @@ export default function Occasions({ onNavigate }) {
                         .spaces-photo-gallery {
                           display: flex !important;
                           flex-direction: row !important;
-                          overflow-x: auto !important;
-                          scroll-snap-type: x mandatory !important;
+                          flex-wrap: nowrap !important;
+                          overflow-x: scroll !important;
+                          overflow-y: hidden !important;
                           gap: 0.85rem !important;
                           padding: 0.5rem 0.5rem 1.2rem 0.5rem !important;
                           scrollbar-width: none !important;
@@ -2701,22 +2734,39 @@ export default function Occasions({ onNavigate }) {
                           box-sizing: border-box !important;
                           touch-action: pan-x pan-y !important;
                           overscroll-behavior-x: contain !important;
+                          user-select: none !important;
+                          -webkit-user-select: none !important;
                         }
                         .spaces-photo-gallery::-webkit-scrollbar {
                           display: none !important;
                         }
                         .spaces-photo-card {
-                          flex: 0 0 78vw !important;
-                          max-width: 280px !important;
+                          flex: 0 0 250px !important;
+                          min-width: 250px !important;
+                          max-width: 250px !important;
+                          width: 250px !important;
                           flex-shrink: 0 !important;
                           scroll-snap-align: start !important;
-                          height: 195px !important;
+                          height: 190px !important;
                           touch-action: pan-x pan-y !important;
+                          pointer-events: auto !important;
                         }
                       }
                     `}} />
 
-                    <div className="spaces-photo-gallery" ref={photoGalleryRef} data-lenis-prevent="true">
+                    <div 
+                      className="spaces-photo-gallery" 
+                      ref={photoGalleryRef} 
+                      data-lenis-prevent="true"
+                      onTouchStart={(e) => handleDragStart(e, photoGalleryRef)}
+                      onTouchMove={(e) => handleDragMove(e, photoGalleryRef)}
+                      onTouchEnd={handleDragEnd}
+                      onMouseDown={(e) => handleDragStart(e, photoGalleryRef)}
+                      onMouseMove={(e) => handleDragMove(e, photoGalleryRef)}
+                      onMouseUp={handleDragEnd}
+                      onMouseLeave={handleDragEnd}
+                      style={{ cursor: 'grab' }}
+                    >
                       {(activeSpaceModal.galleryImages || [activeSpaceModal.img]).map((gImg, gIdx) => (
                         <motion.div
                           key={gIdx}
@@ -2755,8 +2805,9 @@ export default function Occasions({ onNavigate }) {
                         .spaces-details-carousel {
                           display: flex !important;
                           flex-direction: row !important;
-                          overflow-x: auto !important;
-                          scroll-snap-type: x mandatory !important;
+                          flex-wrap: nowrap !important;
+                          overflow-x: scroll !important;
+                          overflow-y: hidden !important;
                           gap: 0.85rem !important;
                           padding: 0.5rem 0.5rem 1.5rem 0.5rem !important;
                           scrollbar-width: none !important;
@@ -2766,13 +2817,17 @@ export default function Occasions({ onNavigate }) {
                           box-sizing: border-box !important;
                           touch-action: pan-x pan-y !important;
                           overscroll-behavior-x: contain !important;
+                          user-select: none !important;
+                          -webkit-user-select: none !important;
                         }
                         .spaces-details-carousel::-webkit-scrollbar {
                           display: none !important;
                         }
                         .spaces-detail-card-item {
-                          flex: 0 0 82vw !important;
-                          max-width: 300px !important;
+                          flex: 0 0 270px !important;
+                          min-width: 270px !important;
+                          max-width: 270px !important;
+                          width: 270px !important;
                           flex-shrink: 0 !important;
                           scroll-snap-align: start !important;
                           box-sizing: border-box !important;
@@ -2780,10 +2835,23 @@ export default function Occasions({ onNavigate }) {
                           display: flex !important;
                           flex-direction: column !important;
                           touch-action: pan-x pan-y !important;
+                          pointer-events: auto !important;
                         }
                       `}} />
 
-                      <div className="spaces-details-carousel" data-lenis-prevent="true">
+                      <div 
+                        className="spaces-details-carousel" 
+                        ref={detailsCarouselRef} 
+                        data-lenis-prevent="true"
+                        onTouchStart={(e) => handleDragStart(e, detailsCarouselRef)}
+                        onTouchMove={(e) => handleDragMove(e, detailsCarouselRef)}
+                        onTouchEnd={handleDragEnd}
+                        onMouseDown={(e) => handleDragStart(e, detailsCarouselRef)}
+                        onMouseMove={(e) => handleDragMove(e, detailsCarouselRef)}
+                        onMouseUp={handleDragEnd}
+                        onMouseLeave={handleDragEnd}
+                        style={{ cursor: 'grab' }}
+                      >
                         {/* 1. Overview */}
                         <div className="spaces-detail-card-item" style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '2rem 1.6rem', border: '1px solid rgba(94, 39, 53, 0.08)', boxShadow: '0 8px 25px rgba(94, 39, 53, 0.03)' }}>
                           <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.18em', fontSize: '0.72rem', fontWeight: 800, display: 'block', marginBottom: '0.8rem' }}>

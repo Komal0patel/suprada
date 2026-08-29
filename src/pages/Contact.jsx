@@ -387,9 +387,9 @@ export default function Contact({ onNavigate }) {
           <p style={{
             color: 'var(--raisin-black)',
             opacity: 0.88,
-            fontSize: '1.05rem',
-            lineHeight: 1.85,
-            fontWeight: 300,
+            fontSize: 'var(--fs-body)',
+            lineHeight: 1.7,
+            fontWeight: 400,
             maxWidth: '500px',
             margin: '0 0 2.5rem 0',
             minHeight: '6rem'

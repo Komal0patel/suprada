@@ -2011,16 +2011,16 @@ export default function Home({ onNavigate }) {
             >
               <div style={{ color: 'var(--redwood)', fontSize: '1.45rem', marginBottom: '0.5rem', textAlign: 'center' }}>✦</div>
               
-              <h3 style={{ color: 'var(--wine)', marginBottom: '0.8rem', lineHeight: 1.22, textAlign: 'center', fontSize: 'clamp(1.55rem, 2.3vw, 2.05rem)', fontWeight: 700 }}>
+              <h3 style={{ color: 'var(--wine)', marginBottom: '0.8rem', lineHeight: 1.22, textAlign: 'center', fontSize: 'var(--fs-h3)', fontWeight: 700 }}>
                 Path To Transformation<br />
                 <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>Begins Within</em>
               </h3>
 
-              <p style={{ fontSize: 'clamp(0.92rem, 1.2vw, 1.05rem)', color: 'var(--raisin-black)', opacity: 0.92, lineHeight: 1.65, textAlign: 'center', margin: '0 0 0.8rem 0', fontWeight: 400 }}>
+              <p style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.88, lineHeight: 1.65, textAlign: 'center', margin: '0 0 0.8rem 0', fontWeight: 400 }}>
                 At Suprada, wellness is a transformative journey that nourishes your mind, body, and soul. Nestled in nature's embrace, our retreat offers a sanctuary to decompress, restore balance, and reconnect with your inner self through personalized holistic practices.
               </p>
 
-              <h5 style={{ marginTop: '0.6rem', color: 'var(--wine)', letterSpacing: '0.12em', textAlign: 'center', fontSize: '1rem', fontWeight: 700 }}>
+              <h5 style={{ marginTop: '0.6rem', color: 'var(--wine)', letterSpacing: '0.12em', textAlign: 'center', fontSize: 'var(--fs-h5)', fontWeight: 700 }}>
                 Suprada
               </h5>
             </motion.div>
@@ -2502,8 +2502,8 @@ export default function Home({ onNavigate }) {
       </section>
 
       {/* Section 3: Guided by Experts (Combo 2: var(--raisin-black) #252425) */}
-      <section style={{ backgroundColor: 'var(--raisin-black)', color: 'var(--isabelline)', padding: '3.2rem 5%', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+      <section style={{ backgroundColor: 'var(--raisin-black)', color: 'var(--isabelline)', padding: '3.2rem 4%', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ maxWidth: '1380px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
             <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.72rem', fontWeight: 700, display: 'block', marginBottom: '0.2rem' }}>
@@ -2514,7 +2514,7 @@ export default function Home({ onNavigate }) {
             </h2>
           </div>
 
-          <div className="experts-carousel-mobile" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.5rem', width: '100%' }}>
+          <div className="experts-carousel-mobile" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '0.9rem', width: '100%' }}>
             {[
               { name: 'Dr. Sunil Jayaraj', role: 'Founder', creds: 'Suprada Wellness', img: '/assets/sunil_jayaraj.jpg' },
               { name: 'Dr. Prema Ramadas', role: 'Co-founder', creds: 'Suprada Wellness', img: '/assets/prema_ramadas.jpg' },
@@ -2522,16 +2522,16 @@ export default function Home({ onNavigate }) {
               { name: 'Nagaraju', role: 'Chairman', creds: 'Suprada Wellness', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80' },
               { name: 'Dr. Vinaya, B.N.Y.S', role: 'Chief Medical Officer', creds: 'Suprada Wellness', img: '/assets/vinaya.jpg' }
             ].map((doc, idx) => (
-              <div key={idx} className="editorial-master-card" style={{ height: '320px', width: '280px', flex: '0 1 280px' }}>
+              <div key={idx} className="editorial-master-card" style={{ height: '300px', width: '100%' }}>
                 <img src={doc.img} alt={doc.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div className="editorial-master-overlay" style={{ padding: '1.4rem' }}>
-                  <span style={{ fontSize: '0.68rem', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase' }}>
+                <div className="editorial-master-overlay" style={{ padding: '1rem 0.9rem' }}>
+                  <span style={{ fontSize: '0.62rem', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                     {doc.creds}
                   </span>
-                  <h3 style={{color: '#ffffff', margin: '0.1rem 0 0.2rem 0'}}>
+                  <h3 style={{color: '#ffffff', margin: '0.1rem 0 0.15rem 0', fontSize: '1.05rem', lineHeight: 1.2}}>
                     {doc.name}
                   </h3>
-                  <span style={{ fontSize: '0.78rem', color: 'var(--tan)', opacity: 0.9 }}>
+                  <span style={{ fontSize: '0.74rem', color: 'var(--tan)', opacity: 0.9, fontWeight: 500 }}>
                     {doc.role}
                   </span>
                 </div>

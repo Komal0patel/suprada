@@ -106,6 +106,43 @@ h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
   font-weight: inherit;
 }
 
+/* Core Unified Typography Classes */
+.section-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: 0.02em;
+  color: var(--wine);
+}
+
+.section-badge {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--redwood);
+  display: block;
+}
+
+.card-heading {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--wine);
+}
+
+.body-paragraph {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--raisin-black);
+  opacity: 0.9;
+}
+
 /* Premium Textures (Noise + Paper) */
 .luxury-paper {
   background-color: var(--antique-white);

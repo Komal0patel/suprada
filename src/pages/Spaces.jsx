@@ -888,14 +888,46 @@ export default function Spaces({ onNavigate }) {
             </p>
           </div>
 
+          {/* Responsive Mobile 2-Per-Row Grid CSS */}
+          <style dangerouslySetInnerHTML={{__html: `
+            @media (max-width: 768px) {
+              .sanctum-category-tabs {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.5rem !important;
+                margin-bottom: 1.2rem !important;
+                width: 100% !important;
+              }
+              .sanctum-category-btn {
+                padding: 0.55rem 0.4rem !important;
+                font-size: 0.74rem !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 0.3rem !important;
+                text-align: center !important;
+                line-height: 1.2 !important;
+                border-radius: 20px !important;
+              }
+              .sanctum-category-btn:nth-child(5) {
+                grid-column: 1 / -1 !important;
+                max-width: 85% !important;
+                justify-self: center !important;
+              }
+            }
+          `}} />
+
           {/* Category Selector Tabs */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '0.6rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
+          <div className="sanctum-category-tabs" style={{ display: 'flex', justifyContent: 'center', gap: '0.6rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
             {spacesCategories.map((cat, idx) => {
               const isActive = activeCategory === idx;
               return (
                 <button
                   key={idx}
                   onClick={() => setActiveCategory(idx)}
+                  className="sanctum-category-btn"
                   style={{
                     padding: '0.6rem 1.4rem',
                     borderRadius: '24px',

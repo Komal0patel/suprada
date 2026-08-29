@@ -331,10 +331,10 @@ export default function Contact({ onNavigate }) {
           }}
         />
 
-        {/* Soft Vignette Gradient Overlay — keeps location image clear & vibrant */}
+        {/* Light Blackish Gradient Overlay — luxury dark vignette */}
         <div style={{
           position: 'absolute', inset: 0, zIndex: 1,
-          background: 'linear-gradient(to right, rgba(248, 244, 238, 0.88) 0%, rgba(248, 244, 238, 0.35) 45%, transparent 100%)'
+          background: 'linear-gradient(to right, rgba(18, 15, 18, 0.72) 0%, rgba(18, 15, 18, 0.42) 50%, rgba(0, 0, 0, 0.1) 100%)'
         }} />
 
         {/* ── LEFT TEXT PANEL ── */}
@@ -358,41 +358,43 @@ export default function Contact({ onNavigate }) {
             <img 
               src="/assets/logo.svg" 
               alt="Suprada Official Emblem Logo" 
-              style={{ height: '75px', width: 'auto', filter: 'drop-shadow(0 4px 12px rgba(94, 39, 53, 0.15))' }} 
+              style={{ height: '75px', width: 'auto', filter: 'drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4))' }} 
             />
           </motion.div>
 
           {/* Leaf SVG Watermark Overlay */}
-          <Pattern24 style={{ position: 'absolute', top: '1rem', left: '-20px', width: '260px', opacity: 0.12, color: 'var(--wine)', pointerEvents: 'none' }} />
+          <Pattern24 style={{ position: 'absolute', top: '1rem', left: '-20px', width: '260px', opacity: 0.15, color: 'var(--harvest-gold)', pointerEvents: 'none' }} />
 
           {/* "Get in Touch" — typewriter title */}
-          <h1 style={{color: 'var(--wine)',
+          <h1 style={{color: '#ffffff',
             lineHeight: 1.1,
             margin: '0 0 0.5rem 0',
-            minHeight: '5.5rem'}}>
+            minHeight: '5.5rem',
+            textShadow: '0 2px 10px rgba(0,0,0,0.5)'}}>
             {typedTitle}
             {phase === "title" && <span className="typewriter-cursor" />}
           </h1>
 
           {/* "A Sanctuary by the River" — typewriter subtitle */}
-          <h2 style={{color: 'var(--redwood)',
+          <h2 style={{color: 'var(--harvest-gold)',
             fontStyle: 'italic',
             margin: '0 0 2rem 0',
-            minHeight: '2.5rem'}}>
+            minHeight: '2.5rem',
+            textShadow: '0 2px 8px rgba(0,0,0,0.5)'}}>
             {typedSubtitle}
             {phase === "subtitle" && <span className="typewriter-cursor" />}
           </h2>
 
           {/* Description — typewriter body */}
           <p style={{
-            color: 'var(--raisin-black)',
-            opacity: 0.88,
+            color: 'rgba(255, 255, 255, 0.92)',
             fontSize: 'var(--fs-body)',
             lineHeight: 1.7,
             fontWeight: 400,
             maxWidth: '500px',
             margin: '0 0 2.5rem 0',
-            minHeight: '6rem'
+            minHeight: '6rem',
+            textShadow: '0 1px 6px rgba(0,0,0,0.5)'
           }}>
             {typedDesc}
             {phase === "desc" && <span className="typewriter-cursor" />}
@@ -838,61 +840,70 @@ export default function Contact({ onNavigate }) {
               gap: '1.8rem',
               width: '100%'
             }}>
-              {/* Instagram */}
+              {/* Instagram Drawing Line Icon */}
               <motion.a
                 href="https://instagram.com/supradawellness" target="_blank" rel="noreferrer"
                 whileHover={{ scale: 1.08, y: -4 }}
-                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.8rem', textDecoration: 'none' }}
+                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.7rem', textDecoration: 'none' }}
               >
                 <div style={{
-                  width: '80px', height: '80px', borderRadius: '22px',
-                  background: 'linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)',
+                  width: '68px', height: '68px', borderRadius: '50%',
+                  backgroundColor: 'rgba(94, 39, 53, 0.04)',
+                  border: '1.5px solid rgba(94, 39, 53, 0.16)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  boxShadow: '0 10px 25px rgba(220,39,67,0.3)'
+                  boxShadow: '0 8px 20px rgba(94, 39, 53, 0.05)',
+                  transition: 'all 0.3s ease'
                 }}>
-                  <svg viewBox="0 0 24 24" width="40" height="40" fill="#ffffff">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--wine)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                   </svg>
                 </div>
-                <span style={{ color: '#dc2743', fontWeight: 700, fontSize: '1.05rem', }}>Instagram</span>
+                <span style={{ color: 'var(--wine)', fontWeight: 600, fontSize: '0.88rem' }}>Instagram</span>
               </motion.a>
 
-              {/* YouTube */}
+              {/* YouTube Drawing Line Icon */}
               <motion.a
                 href="https://youtube.com/@supradawellness" target="_blank" rel="noreferrer"
                 whileHover={{ scale: 1.08, y: -4 }}
-                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.8rem', textDecoration: 'none' }}
+                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.7rem', textDecoration: 'none' }}
               >
                 <div style={{
-                  width: '80px', height: '80px', borderRadius: '22px',
-                  background: '#ff0000',
+                  width: '68px', height: '68px', borderRadius: '50%',
+                  backgroundColor: 'rgba(94, 39, 53, 0.04)',
+                  border: '1.5px solid rgba(94, 39, 53, 0.16)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  boxShadow: '0 10px 25px rgba(255,0,0,0.3)'
+                  boxShadow: '0 8px 20px rgba(94, 39, 53, 0.05)',
+                  transition: 'all 0.3s ease'
                 }}>
-                  <svg viewBox="0 0 24 24" width="40" height="40" fill="#ffffff">
-                    <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--wine)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="none" stroke="var(--wine)" strokeWidth="1.8" />
                   </svg>
                 </div>
-                <span style={{ color: '#ff0000', fontWeight: 700, fontSize: '1.05rem', }}>YouTube</span>
+                <span style={{ color: 'var(--wine)', fontWeight: 600, fontSize: '0.88rem' }}>YouTube</span>
               </motion.a>
 
-              {/* Facebook */}
+              {/* Facebook Drawing Line Icon */}
               <motion.a
                 href="https://facebook.com/supradawellness" target="_blank" rel="noreferrer"
                 whileHover={{ scale: 1.08, y: -4 }}
-                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.8rem', textDecoration: 'none' }}
+                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.7rem', textDecoration: 'none' }}
               >
                 <div style={{
-                  width: '80px', height: '80px', borderRadius: '22px',
-                  background: '#1877f2',
+                  width: '68px', height: '68px', borderRadius: '50%',
+                  backgroundColor: 'rgba(94, 39, 53, 0.04)',
+                  border: '1.5px solid rgba(94, 39, 53, 0.16)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  boxShadow: '0 10px 25px rgba(24,119,242,0.3)'
+                  boxShadow: '0 8px 20px rgba(94, 39, 53, 0.05)',
+                  transition: 'all 0.3s ease'
                 }}>
-                  <svg viewBox="0 0 24 24" width="40" height="40" fill="#ffffff">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--wine)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                   </svg>
                 </div>
-                <span style={{ color: '#1877f2', fontWeight: 700, fontSize: '1.05rem', }}>Facebook</span>
+                <span style={{ color: 'var(--wine)', fontWeight: 600, fontSize: '0.88rem' }}>Facebook</span>
               </motion.a>
             </div>
           </motion.div>

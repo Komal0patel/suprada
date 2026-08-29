@@ -695,7 +695,7 @@ export default function Occasions({ onNavigate }) {
         <div style={{ maxWidth: '1000px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
 
           {/* Main Title Header */}
-          <div style={{ textAlign: 'center', marginBottom: '1.2rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '2.8rem' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', backgroundColor: 'rgba(220, 160, 50, 0.12)', border: '1px solid var(--harvest-gold)', padding: '0.25rem 0.9rem', borderRadius: '20px', marginBottom: '0.5rem' }}>
               <span style={{ fontSize: '0.75rem', color: 'var(--wine)' }}>✦</span>
               <span style={{ textTransform: 'uppercase', letterSpacing: '0.15em', fontSize: '0.68rem', fontWeight: 800, color: 'var(--wine)' }}>Exclusive Insight</span>
@@ -703,7 +703,7 @@ export default function Occasions({ onNavigate }) {
             <h2 style={{ color: 'var(--wine)', margin: 0, lineHeight: 1.2 }}>
               The Wellness Difference
             </h2>
-            <p style={{ color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '620px', margin: '0.4rem auto 0 auto', fontSize: '0.92rem', lineHeight: 1.5 }}>
+            <p style={{ color: 'var(--raisin-black)', opacity: 0.88, maxWidth: '620px', margin: '0.4rem auto 0 auto', fontSize: '0.92rem', lineHeight: 1.5 }}>
               How wellness-centered event hosting creates meaningful connections while lowering environmental impact.
             </p>
           </div>
@@ -712,11 +712,12 @@ export default function Occasions({ onNavigate }) {
           {!isMobileChart && (
             <div style={{
               position: 'relative',
-              height: '380px',
+              height: '400px',
+              marginTop: '2.5rem',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              margin: '0 auto'
+              margin: '2.5rem auto 0 auto'
             }}>
               {/* Background Orbital Dashed Motion Ring */}
               <motion.div
@@ -1201,17 +1202,23 @@ export default function Occasions({ onNavigate }) {
           {/* Large showcase card section with navigation tabs */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 2.2fr', gap: '3rem', marginTop: '2rem' }} className="ceremonies-responsive-layout">
 
-            {/* Sidebar Navigation Tabs */}
+            {/* Left Filter Card Container - Displays ~4 items with smooth scroll */}
             <div
-              className="ceremonies-tabs-container no-scrollbar"
+              className="ceremonies-tab-list"
               style={{
+                flex: '0 0 290px',
+                height: '280px',
+                maxHeight: '280px',
+                overflowY: 'auto',
+                backgroundColor: 'rgba(255, 255, 255, 0.45)',
+                border: '1.5px solid rgba(255, 255, 255, 0.75)',
+                borderRadius: '20px',
+                padding: '0.6rem',
+                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.04)',
+                backdropFilter: 'blur(12px)',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '0.4rem',
-                borderRight: '1px solid rgba(94, 39, 53, 0.12)',
-                paddingRight: '1.5rem',
-                maxHeight: '450px',
-                overflowY: 'auto'
+                gap: '0.35rem'
               }}
             >
               {[
@@ -1233,23 +1240,23 @@ export default function Occasions({ onNavigate }) {
                     }}
                     className={`ceremonies-tab-item ${isActive ? 'active' : ''}`}
                     style={{
-                      padding: '0.9rem 1.2rem',
-                      borderRadius: '10px',
+                      padding: '0.6rem 0.9rem',
+                      borderRadius: '12px',
                       cursor: 'pointer',
                       borderLeft: '3px solid transparent',
                       borderLeftColor: isActive ? 'var(--wine)' : 'transparent',
                       color: isActive ? 'var(--wine)' : '#3d3d32',
-                      backgroundColor: isActive ? 'rgba(255, 255, 255, 0.55)' : 'transparent',
+                      backgroundColor: isActive ? 'rgba(255, 255, 255, 0.75)' : 'transparent',
                       boxShadow: isActive ? '0 4px 15px rgba(0, 0, 0, 0.05)' : 'none',
                       fontWeight: isActive ? 700 : 500,
                       opacity: isActive ? 1 : 0.75,
-                      fontSize: '0.9rem',
+                      fontSize: '0.85rem',
                       transition: 'all 0.3s ease'
                     }}
                     onMouseEnter={(e) => {
                       if (!isActive) {
                         e.currentTarget.style.opacity = '1';
-                        e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.25)';
+                        e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.35)';
                         e.currentTarget.style.color = 'var(--wine)';
                       }
                     }}
@@ -1262,15 +1269,15 @@ export default function Occasions({ onNavigate }) {
                     }}
                   >
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <span>{ceremony.name}</span>
-                      <span style={{ fontSize: '0.68rem', opacity: 0.75, marginTop: '0.1rem', fontWeight: 400 }}>{ceremony.subtitle}</span>
+                      <span style={{ fontSize: '0.86rem' }}>{ceremony.name}</span>
+                      <span style={{ fontSize: '0.66rem', opacity: 0.75, marginTop: '0.05rem', fontWeight: 400 }}>{ceremony.subtitle}</span>
                     </div>
                   </div>
                 );
               })}
             </div>
 
-            {/* Focused Animated Details Pane / Card - Glassmorphism style matching reference */}
+            {/* Focused Animated Details Pane / Card - Compact Height Equal to Left Card */}
             <div
               onMouseEnter={() => {
                 isHoveredCeremonyCardRef.current = true;
@@ -1279,14 +1286,17 @@ export default function Occasions({ onNavigate }) {
                 isHoveredCeremonyCardRef.current = false;
               }}
               style={{
+                flex: 1,
                 border: '1.5px solid rgba(255, 255, 255, 0.75)',
                 borderRadius: '24px',
-                padding: '3rem 2.8rem',
+                padding: '1.6rem 2.2rem',
                 background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.35) 100%)',
                 backdropFilter: 'blur(16px)',
                 WebkitBackdropFilter: 'blur(16px)',
                 boxShadow: '0 20px 45px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.9)',
-                minHeight: '340px',
+                height: '280px',
+                minHeight: '280px',
+                maxHeight: '280px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
@@ -2464,44 +2474,65 @@ export default function Occasions({ onNavigate }) {
           <p style={{ opacity: 0.85, fontSize: '1rem', lineHeight: 1.6, maxWidth: '600px', margin: 0 }}>
             Speak to our team to design a wellness-infused celebration tailored to your vision.
           </p>
-          <div style={{ display: 'flex', gap: '1.2rem', flexWrap: 'wrap', justifyContent: 'center', marginTop: '1rem' }}>
-            <a
-              href="tel:+91-0000000000"
+          <div style={{ display: 'flex', gap: '1.2rem', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', marginTop: '1.2rem' }}>
+            {/* Small Card 1: Call Us */}
+            <div
               style={{
-                backgroundColor: 'var(--harvest-gold)', color: 'var(--wine)',
-                padding: '0.9rem 2rem', borderRadius: '4px', textDecoration: 'none',
-                fontWeight: 700, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em',
-                boxShadow: '0 4px 15px rgba(220,160,50,0.25)', display: 'inline-block'
+                backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                border: '1.5px solid rgba(220, 160, 50, 0.35)',
+                borderRadius: '16px',
+                padding: '0.85rem 1.4rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.8rem',
+                backdropFilter: 'blur(10px)',
+                textAlign: 'left'
               }}
             >
-              Call Us
-            </a>
-            <a
-              href="https://wa.me/910000000000"
-              target="_blank" rel="noopener noreferrer"
+              <div style={{ width: '38px', height: '38px', borderRadius: '50%', backgroundColor: 'rgba(220, 160, 50, 0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--harvest-gold)', flexShrink: 0 }}>
+                <Phone size={18} />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <span style={{ fontSize: '0.68rem', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Call Us</span>
+                <span style={{ fontSize: '0.88rem', color: '#ffffff', fontWeight: 600 }}>+91 98765 54321</span>
+              </div>
+            </div>
+
+            {/* Small Card 2: WhatsApp */}
+            <div
               style={{
-                backgroundColor: 'transparent', color: '#ffffff',
-                border: '1.5px solid rgba(255,255,255,0.25)',
-                padding: '0.9rem 2rem', borderRadius: '4px', textDecoration: 'none',
-                fontWeight: 700, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em',
-                display: 'inline-block'
+                backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                border: '1.5px solid rgba(255, 255, 255, 0.2)',
+                borderRadius: '16px',
+                padding: '0.85rem 1.4rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.8rem',
+                backdropFilter: 'blur(10px)',
+                textAlign: 'left'
               }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.08)'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
             >
-              WhatsApp
-            </a>
+              <div style={{ width: '38px', height: '38px', borderRadius: '50%', backgroundColor: 'rgba(37, 211, 102, 0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#25D366', flexShrink: 0 }}>
+                <MessageCircle size={18} />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <span style={{ fontSize: '0.68rem', color: '#25D366', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em' }}>WhatsApp</span>
+                <span style={{ fontSize: '0.88rem', color: '#ffffff', fontWeight: 600 }}>+91 98765 54321</span>
+              </div>
+            </div>
+
+            {/* Action Button: Download Brochure */}
             <a
               href="/assets/event-brochure.pdf"
               target="_blank" rel="noopener noreferrer"
               style={{
                 backgroundColor: 'transparent', color: '#ffffff',
-                border: '1.5px solid rgba(255,255,255,0.25)',
-                padding: '0.9rem 2rem', borderRadius: '4px', textDecoration: 'none',
-                fontWeight: 700, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em',
-                display: 'inline-block'
+                border: '1.5px solid rgba(255,255,255,0.3)',
+                padding: '0.9rem 1.8rem', borderRadius: '30px', textDecoration: 'none',
+                fontWeight: 700, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.08em',
+                display: 'inline-block', transition: 'all 0.3s'
               }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.08)'}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.12)'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
             >
               Download Event Brochure

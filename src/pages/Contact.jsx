@@ -303,7 +303,7 @@ export default function Contact({ onNavigate }) {
         className="mobile-hero-compact"
         style={{
           position: 'relative',
-          minHeight: '100vh',
+          minHeight: '68vh',
           display: 'flex',
           alignItems: 'center',
           overflow: 'hidden'
@@ -344,7 +344,7 @@ export default function Contact({ onNavigate }) {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          padding: '6rem 8% 2.25rem 8%',
+          padding: '4.5rem 8% 2rem 8%',
           maxWidth: '680px'
         }}>
           {/* Official Suprada Emblem Logo */}

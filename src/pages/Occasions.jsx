@@ -411,13 +411,13 @@ export default function Occasions({ onNavigate }) {
       {/* Top Header / Hero Section */}
       <section className="mobile-hero-compact" style={{
         boxSizing: 'border-box',
-        padding: '10rem 10% 6rem 10%',
+        padding: '5rem 8% 3rem 8%',
         background: 'linear-gradient(135deg, #c46c59 0%, #b85e4c 60%, #a24d3c 100%)',
         color: '#ffffff',
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden',
-        minHeight: '100vh',
+        minHeight: '68vh',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -443,7 +443,7 @@ export default function Occasions({ onNavigate }) {
             <img 
               src="/assets/logo.svg" 
               alt="Suprada Official Emblem Logo" 
-              style={{ height: '85px', width: 'auto', filter: 'brightness(0) invert(1) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25))' }} 
+              style={{ height: '85px', width: 'auto', filter: 'drop-shadow(0 4px 16px rgba(220, 160, 50, 0.35))' }} 
             />
           </motion.div>
 

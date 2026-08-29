@@ -334,7 +334,7 @@ export default function Gallery({ onNavigate }) {
         className="mobile-hero-compact"
         style={{
           boxSizing: 'border-box',
-          padding: '8rem 8% 2rem 8%',
+          padding: '4.5rem 8% 2rem 8%',
           background: 'linear-gradient(135deg, #c5cc9f 0%, #b3ba8e 60%, #9ea776 100%)',
           color: 'var(--wine)',
           textAlign: 'center',
@@ -344,7 +344,7 @@ export default function Gallery({ onNavigate }) {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          minHeight: '100vh',
+          minHeight: '68vh',
           marginBottom: '0'
         }}
       >

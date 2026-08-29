@@ -1186,27 +1186,32 @@ export default function Stay({ onNavigate }) {
             .campus-filter-container {
               position: relative;
               display: flex;
-              gap: 0.8rem;
+              gap: 0.65rem;
               justify-content: center;
-              flex-wrap: wrap;
+              align-items: center;
+              flex-wrap: nowrap !important;
               margin-bottom: 2.5rem;
               width: 100%;
+              overflow-x: auto !important;
+              -webkit-overflow-scrolling: touch;
+              padding-bottom: 0.5rem;
+              scrollbar-width: none;
+              -ms-overflow-style: none;
             }
-            @media (max-width: 768px) {
+            .campus-filter-container::-webkit-scrollbar {
+              display: none;
+            }
+            .campus-filter-container .btn-luxury-pill {
+              flex-shrink: 0 !important;
+              white-space: nowrap !important;
+              padding: 0.65rem 1.4rem !important;
+              font-size: 0.92rem !important;
+            }
+            @media (max-width: 900px) {
               .campus-filter-container {
                 justify-content: flex-start !important;
-                flex-wrap: nowrap !important;
-                overflow-x: auto !important;
-                -webkit-overflow-scrolling: touch;
-                padding-bottom: 0.8rem !important;
-                scrollbar-width: none;
-                -ms-overflow-style: none;
-              }
-              .campus-filter-container::-webkit-scrollbar {
-                display: none;
-              }
-              .campus-filter-container .btn-luxury-pill {
-                flex-shrink: 0 !important;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
               }
             }
 

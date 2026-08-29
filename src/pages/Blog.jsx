@@ -424,7 +424,7 @@ export default function Blog({ onNavigate }) {
               className="mobile-hero-compact"
               style={{
                 boxSizing: 'border-box',
-                padding: '6rem 8% 2.25rem 8%',
+                padding: '4.5rem 8% 2rem 8%',
                 background: 'linear-gradient(135deg, #ded2bf 0%, #d5c6b0 60%, #c8b79e 100%)',
                 color: 'var(--wine)',
                 textAlign: 'center',
@@ -434,7 +434,7 @@ export default function Blog({ onNavigate }) {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                minHeight: '100vh'
+                minHeight: '68vh'
               }}
             >
               {/* Leaf SVG Watermark Overlays */}

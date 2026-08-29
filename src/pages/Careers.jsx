@@ -583,7 +583,7 @@ export default function Careers({ onNavigate }) {
               className="mobile-hero-compact"
               style={{
                 boxSizing: 'border-box',
-                padding: '7rem 8% 2.25rem 8%',
+                padding: '4.5rem 8% 2rem 8%',
                 background: 'linear-gradient(135deg, #6b2e3e 0%, #5e2735 60%, #4a1d28 100%)',
                 color: '#ffffff',
                 textAlign: 'center',
@@ -593,7 +593,7 @@ export default function Careers({ onNavigate }) {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                minHeight: '100vh'
+                minHeight: '68vh'
               }}
             >
               {/* Leaf SVG Watermark Overlays */}
@@ -616,7 +616,7 @@ export default function Careers({ onNavigate }) {
                   <img 
                     src="/assets/logo.svg" 
                     alt="Suprada Official Emblem Logo" 
-                    style={{ height: '85px', width: 'auto', filter: 'brightness(0) invert(1) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25))' }} 
+                    style={{ height: '85px', width: 'auto', filter: 'drop-shadow(0 4px 16px rgba(220, 160, 50, 0.35))' }} 
                   />
                 </motion.div>
 

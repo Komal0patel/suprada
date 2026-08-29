@@ -59,12 +59,30 @@ export default function Programmes({ onNavigate }) {
   const [mobileProgLimit, setMobileProgLimit] = useState(3);
   const [mobileInclusionLimit, setMobileInclusionLimit] = useState(4);
 
+  // Philosophy Interactive State & Points
+  const [activePhilosophyIndex, setActivePhilosophyIndex] = useState(0);
+  const philosophyList = [
+    'Teach the absolute importance of prevention over cure.',
+    'Identify your unique, custom biological Wellness Formula.',
+    'Introduce daily rhythms that align with nature\'s cycles.',
+    'Offer structured, intensive healing paths for chronic ailments.',
+    'Provide continuous virtual support after you return home.'
+  ];
+
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  useEffect(() => {
+    if (!isMobile) return;
+    const interval = setInterval(() => {
+      setActivePhilosophyIndex((prev) => (prev + 1) % philosophyList.length);
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [isMobile, activePhilosophyIndex, philosophyList.length]);
 
   // Program gradients now use proper palette colors
   const programsList = [
@@ -306,7 +324,7 @@ export default function Programmes({ onNavigate }) {
               ✦ Healing Journeys ✦
             </span>
 
-            <h1 style={{color: 'var(--tan)', 
+            <h1 style={{color: 'var(--wine)', 
             margin: '0 0 0.9rem 0', 
             lineHeight: 1.1, 
             display: 'flex', 
@@ -316,7 +334,7 @@ export default function Programmes({ onNavigate }) {
             </h1>
 
             <p style={{
-              fontSize: '1.15rem',
+              fontSize: isMobile ? '1.0rem' : '1.15rem',
               opacity: 0.9,
               lineHeight: 1.85,
               fontWeight: 300,
@@ -328,7 +346,7 @@ export default function Programmes({ onNavigate }) {
             </p>
 
             <p style={{
-              fontSize: '0.96rem',
+              fontSize: isMobile ? '0.88rem' : '0.96rem',
               color: 'var(--redwood)',
               fontStyle: 'italic',
               marginTop: '1.2rem',
@@ -382,39 +400,159 @@ export default function Programmes({ onNavigate }) {
       {/* ========================================================================= */}
       {/* --- SECTION 2: PHILOSOPHY (Brand-bg warm clay — mirrors Stay overview) --- */}
       {/* ========================================================================= */}
-      <section style={{ padding: '6rem 8%', backgroundColor: 'var(--brand-bg)', color: 'var(--wine)', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ padding: isMobile ? '3rem 6%' : '6rem 8%', backgroundColor: 'var(--brand-bg)', color: 'var(--wine)', position: 'relative', overflow: 'hidden' }}>
         {/* Isabelline top-right blob */}
         <div style={{ position: 'absolute', top: '-100px', right: '-60px', maxWidth: '350px', width: '100%', height: '350px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(244,240,236,0.6) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center', position: 'relative', zIndex: 2 }}>
-          <div>
-            <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.8rem' }}>
+        {isMobile ? (
+          /* Premium Interactive Radial Flower/Leaf Layout for Mobile */
+          <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: '100%' }}>
+            <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.72rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
               ✦ Our Philosophy
             </span>
-            <h2 style={{color: 'var(--wine)', lineHeight: 1.2, margin: 0}}>
+            <h2 style={{color: 'var(--wine)', lineHeight: 1.25, margin: '0 0 1rem 0', fontSize: '1.65rem'}}>
               Rooted in Nature.<br />Guided by Tradition.
             </h2>
-            <p style={{ marginTop: '1.2rem', fontSize: '0.95rem', color: 'var(--raisin-black)', lineHeight: 1.85, opacity: 0.75, fontWeight: 300 }}>
+
+            <p style={{ marginTop: '0.5rem', fontSize: '0.94rem', color: 'var(--raisin-black)', lineHeight: 1.6, opacity: 0.85, maxWidth: '320px', margin: '0 auto 1rem auto', fontWeight: 500 }}>
               Leading a life rooted in holistic wellness requires mindful living and the consistent practice of daily routines that align with nature's intelligence.
             </p>
+
+            {/* Radial Mandala/Flower Layout */}
+            <div style={{
+              position: 'relative',
+              width: '300px',
+              height: '300px',
+              margin: '1.5rem auto 1.5rem auto',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              {/* Central Display Circle (shows the active principle text inside the center) */}
+              <div style={{
+                position: 'absolute',
+                width: '180px',
+                height: '180px',
+                borderRadius: '50%',
+                background: 'var(--wine)',
+                border: '2.5px solid var(--harvest-gold)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 8px 24px rgba(94, 39, 53, 0.35)',
+                color: '#ffffff',
+                zIndex: 3,
+                padding: '1.2rem',
+                textAlign: 'center',
+                boxSizing: 'border-box'
+              }}>
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activePhilosophyIndex}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.3 }}
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '0.35rem',
+                      height: '100%',
+                      width: '100%'
+                    }}
+                  >
+                    <span style={{
+                      fontSize: '0.85rem',
+                      textTransform: 'uppercase',
+                      color: 'var(--harvest-gold)',
+                      fontWeight: 800,
+                      letterSpacing: '0.15em',
+                      fontFamily: 'var(--font-heading)'
+                    }}>
+                      ✦ {String(activePhilosophyIndex + 1).padStart(2, '0')} ✦
+                    </span>
+                    <p style={{
+                      margin: 0,
+                      fontSize: '0.78rem',
+                      lineHeight: 1.45,
+                      color: '#ffffff',
+                      fontWeight: 500,
+                      fontFamily: 'var(--font-body)'
+                    }}>
+                      {philosophyList[activePhilosophyIndex]}
+                    </p>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* 5 Revolving Points (styled like smaller leaves or gold circles) */}
+              {philosophyList.map((item, idx) => {
+                const isActive = activePhilosophyIndex === idx;
+                // Calculate position around a 105px radius circle (42% bounds)
+                const theta = (idx * 2 * Math.PI) / 5 - Math.PI / 2; // Start from top
+                const x = Math.round(50 + 42 * Math.cos(theta));
+                const y = Math.round(50 + 42 * Math.sin(theta));
+
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => setActivePhilosophyIndex(idx)}
+                    style={{
+                      position: 'absolute',
+                      top: `${y}%`,
+                      left: `${x}%`,
+                      transform: 'translate(-50%, -50%)',
+                      width: '42px',
+                      height: '42px',
+                      borderRadius: '50%',
+                      background: isActive ? 'var(--harvest-gold)' : 'rgba(255, 255, 255, 0.9)',
+                      border: `1.5px solid ${isActive ? 'var(--wine)' : 'rgba(94, 39, 53, 0.25)'}`,
+                      color: isActive ? '#ffffff' : 'var(--wine)',
+                      fontWeight: 800,
+                      fontSize: '1rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      cursor: 'pointer',
+                      boxShadow: isActive ? '0 0 16px var(--harvest-gold)' : '0 4px 10px rgba(0,0,0,0.06)',
+                      transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                      zIndex: 4
+                    }}
+                  >
+                    {idx + 1}
+                  </button>
+                );
+              })}
+            </div>
           </div>
-          <div>
-            <ul style={{ paddingLeft: '0', listStyle: 'none', fontSize: '0.9rem', color: 'var(--raisin-black)', lineHeight: 1.75, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-              {[
-                'Teach the absolute importance of prevention over cure.',
-                'Identify your unique, custom biological Wellness Formula.',
-                'Introduce daily rhythms that align with nature\'s cycles.',
-                'Offer structured, intensive healing paths for chronic ailments.',
-                'Provide continuous virtual support after you return home.'
-              ].map((item, i) => (
-                <li key={i} style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start', padding: '0.8rem 1rem', backgroundColor: 'rgba(94,39,53,0.05)', borderRadius: '12px', borderLeft: '3px solid var(--harvest-gold)' }}>
-                  <span style={{ color: 'var(--harvest-gold)', flexShrink: 0, marginTop: '2px' }}>✦</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+        ) : (
+          /* Present screen layout for desktop/laptop/tablet (remains unchanged) */
+          <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center', position: 'relative', zIndex: 2 }}>
+            <div>
+              <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.8rem' }}>
+                ✦ Our Philosophy
+              </span>
+              <h2 style={{color: 'var(--wine)', lineHeight: 1.2, margin: 0}}>
+                Rooted in Nature.<br />Guided by Tradition.
+              </h2>
+              <p style={{ marginTop: '1.2rem', fontSize: '0.95rem', color: 'var(--raisin-black)', lineHeight: 1.85, opacity: 0.75, fontWeight: 300 }}>
+                Leading a life rooted in holistic wellness requires mindful living and the consistent practice of daily routines that align with nature's intelligence.
+              </p>
+            </div>
+            <div>
+              <ul style={{ paddingLeft: '0', listStyle: 'none', fontSize: '0.9rem', color: 'var(--raisin-black)', lineHeight: 1.75, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                {philosophyList.map((item, i) => (
+                  <li key={i} style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start', padding: '0.8rem 1rem', backgroundColor: 'rgba(94,39,53,0.05)', borderRadius: '12px', borderLeft: '3px solid var(--harvest-gold)' }}>
+                    <span style={{ color: 'var(--harvest-gold)', flexShrink: 0, marginTop: '2px' }}>✦</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
+        )}
       </section>
 
       {/* ========================================================================= */}
@@ -439,12 +577,23 @@ export default function Programmes({ onNavigate }) {
           </div>
 
           {/* Filter Pills — Wine-colored active state to match Stay campus filter pills */}
-          <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap', marginBottom: '3rem' }}>
+          <div style={{
+            display: 'flex',
+            gap: '0.6rem',
+            flexWrap: isMobile ? 'nowrap' : 'wrap',
+            overflowX: isMobile ? 'auto' : 'visible',
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+            paddingBottom: isMobile ? '0.8rem' : '0',
+            marginBottom: '3rem',
+            WebkitOverflowScrolling: 'touch'
+          }}>
             {filters.map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
                 style={{
+                  flexShrink: 0,
                   padding: '0.7rem 1.8rem',
                   borderRadius: '50px',
                   border: activeFilter === filter ? '2px solid var(--wine)' : '1.5px solid var(--wine)',
@@ -570,7 +719,7 @@ export default function Programmes({ onNavigate }) {
                           <h4 style={{color: 'var(--wine)', marginBottom: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 800, fontSize: '0.94rem'}}>
                             What's Included:
                           </h4>
-                          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem 1.2rem' }}>
+                          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '0.5rem 1.2rem' }}>
                             {prog.inclusions.map((inc, iidx) => (
                               <div key={iidx} style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', fontSize: '0.9rem', lineHeight: 1.5 }}>
                                 <span style={{ color: 'var(--harvest-gold)', flexShrink: 0, display: 'inline-flex', alignItems: 'center' }}><Check size={15} strokeWidth={3} /></span>
@@ -754,10 +903,24 @@ export default function Programmes({ onNavigate }) {
                 gap: 1rem;
               }
             }
-            @media (max-width: 580px) {
+            @media (max-width: 768px) {
               .inclusions-unified-grid {
-                grid-template-columns: 1fr;
-                gap: 0.85rem;
+                display: flex !important;
+                flex-direction: row !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory !important;
+                gap: 1rem !important;
+                padding: 0.5rem 0 1.2rem 0 !important;
+                scrollbar-width: none !important;
+                -ms-overflow-style: none !important;
+                -webkit-overflow-scrolling: touch !important;
+              }
+              .inclusions-unified-grid::-webkit-scrollbar {
+                display: none !important;
+              }
+              .inclusion-card-item {
+                flex: 0 0 280px !important;
+                scroll-snap-align: center !important;
               }
             }
             .inclusion-card-item {
@@ -781,7 +944,7 @@ export default function Programmes({ onNavigate }) {
           `}</style>
 
           <div className="inclusions-unified-grid">
-            {(isMobile ? whatIsIncluded.slice(0, mobileInclusionLimit) : whatIsIncluded).map((item, idx) => (
+            {whatIsIncluded.map((item, idx) => (
               <motion.div
                 key={idx}
                 className="inclusion-card-item"
@@ -829,38 +992,6 @@ export default function Programmes({ onNavigate }) {
               </motion.div>
             ))}
           </div>
-
-          {/* Mobile View Explore More / Show Less Toggle Button */}
-          {isMobile && whatIsIncluded.length > mobileInclusionLimit && (
-            <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
-              <button
-                onClick={() => setMobileInclusionLimit(whatIsIncluded.length)}
-                className="btn-primary"
-                style={{ padding: '0.9rem 2.2rem', fontSize: '0.9rem', letterSpacing: '0.1em' }}
-              >
-                ✦ Explore All Inclusions ({whatIsIncluded.length - mobileInclusionLimit} More)
-              </button>
-            </div>
-          )}
-          {isMobile && mobileInclusionLimit >= whatIsIncluded.length && whatIsIncluded.length > 4 && (
-            <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
-              <button
-                onClick={() => setMobileInclusionLimit(4)}
-                style={{
-                  backgroundColor: 'transparent',
-                  border: '1.5px solid var(--wine)',
-                  color: 'var(--wine)',
-                  padding: '0.75rem 1.8rem',
-                  borderRadius: '50px',
-                  fontWeight: 700,
-                  fontSize: '0.85rem',
-                  cursor: 'pointer'
-                }}
-              >
-                Show Fewer Inclusions ↑
-              </button>
-            </div>
-          )}
         </div>
       </section>
 

@@ -253,6 +253,17 @@ export default function Blog({ onNavigate }) {
   const [articles, setArticles] = useState(localArticlesFallback);
   const [loading, setLoading] = useState(true);
 
+  // Mobile responsiveness states
+  const [isMobile, setIsMobile] = useState(false);
+  const [mobileBlogLimit, setMobileBlogLimit] = useState(3);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   // Scroll to top when article is opened
   useEffect(() => {
     if (selectedArticle) {
@@ -473,12 +484,44 @@ export default function Blog({ onNavigate }) {
 
             {/* Category Filter Pills */}
             <section style={{ padding: '2.25rem 8% 1.5rem 8%' }}>
-              <div style={{ display: 'flex', justifyContent: 'center', gap: '0.8rem', flexWrap: 'wrap', maxWidth: '900px', margin: '0 auto', position: 'relative' }}>
+              <style dangerouslySetInnerHTML={{__html: `
+                .blog-filter-container {
+                  display: flex;
+                  justify-content: center;
+                  gap: 0.8rem;
+                  flex-wrap: wrap;
+                  max-width: 900px;
+                  margin: 0 auto;
+                  position: relative;
+                }
+                @media (max-width: 768px) {
+                  .blog-filter-container {
+                    display: flex !important;
+                    flex-wrap: nowrap !important;
+                    justify-content: flex-start !important;
+                    overflow-x: auto !important;
+                    padding-bottom: 0.8rem !important;
+                    scrollbar-width: none !important;
+                    -ms-overflow-style: none !important;
+                    -webkit-overflow-scrolling: touch !important;
+                    max-width: 100% !important;
+                    width: 100% !important;
+                  }
+                  .blog-filter-container::-webkit-scrollbar {
+                    display: none !important;
+                  }
+                  .blog-filter-btn {
+                    flex-shrink: 0 !important;
+                  }
+                }
+              `}} />
+              <div className="blog-filter-container">
                 {categories.map((cat) => {
                   const isActive = activeCategory === cat;
                   return (
                     <motion.button
                       key={cat}
+                      className="blog-filter-btn"
                       onClick={() => setActiveCategory(cat)}
                       style={{
                         position: 'relative',
@@ -493,6 +536,7 @@ export default function Blog({ onNavigate }) {
                         letterSpacing: '0.05em',
                         cursor: 'pointer',
                         zIndex: 1,
+                        flexShrink: 0,
                         transition: 'color 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
                       }}
                     >
@@ -549,7 +593,7 @@ export default function Blog({ onNavigate }) {
                 animate="visible"
                 style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem' }}
               >
-                {filteredArticles.map((art) => {
+                {(isMobile ? filteredArticles.slice(0, mobileBlogLimit) : filteredArticles).map((art) => {
                   const colors = getBadgeColors(art);
                   const imageUrl = art.isSanityPost ? urlForSanityImage(art.imgRef) : art.img;
                   
@@ -564,6 +608,48 @@ export default function Blog({ onNavigate }) {
                   );
                 })}
               </motion.div>
+
+              {/* Dynamic View All / Show Fewer Blogs Toggles for Mobile */}
+              {isMobile && filteredArticles.length > mobileBlogLimit && (
+                <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+                  <button
+                    onClick={() => setMobileBlogLimit(filteredArticles.length)}
+                    style={{
+                      backgroundColor: 'var(--wine)',
+                      color: '#ffffff',
+                      border: 'none',
+                      padding: '0.85rem 2.2rem',
+                      borderRadius: '50px',
+                      fontWeight: 700,
+                      fontSize: '0.88rem',
+                      cursor: 'pointer',
+                      letterSpacing: '0.08em',
+                      boxShadow: '0 8px 24px rgba(94, 39, 53, 0.15)'
+                    }}
+                  >
+                    ✦ See All Blogs ({filteredArticles.length - mobileBlogLimit} More)
+                  </button>
+                </div>
+              )}
+              {isMobile && mobileBlogLimit >= filteredArticles.length && filteredArticles.length > 3 && (
+                <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+                  <button
+                    onClick={() => setMobileBlogLimit(3)}
+                    style={{
+                      backgroundColor: 'transparent',
+                      border: '1.5px solid var(--wine)',
+                      color: 'var(--wine)',
+                      padding: '0.8rem 2rem',
+                      borderRadius: '50px',
+                      fontWeight: 700,
+                      fontSize: '0.85rem',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Show Fewer Blogs ↑
+                  </button>
+                </div>
+              )}
             </section>
           </motion.div>
         ) : (

@@ -137,7 +137,16 @@ export default function Occasions({ onNavigate }) {
   const [activeCeremonyIdx, setActiveCeremonyIdx] = useState(0);
   const isHoveredCeremonyCardRef = useRef(false);
   const [activeSpaceModal, setActiveSpaceModal] = useState(null);
-  
+
+  // Mobile responsiveness check
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const serviceOfferingsRef = useRef(null);
   const isHoveredServiceTrackRef = useRef(false);
   const [expandedServiceIdx, setExpandedServiceIdx] = useState(0);
@@ -280,10 +289,10 @@ export default function Occasions({ onNavigate }) {
 
     const cardStride = 372; // 340px card width + 32px gap
     const totalCards = 6;
-    
+
     // Calculate current card index from scroll position
     const currentPosIndex = Math.round(container.scrollLeft / cardStride);
-    
+
     let targetIndex = dir === 'next' ? currentPosIndex + 1 : currentPosIndex - 1;
     if (targetIndex >= totalCards) targetIndex = 0;
     if (targetIndex < 0) targetIndex = totalCards - 1;
@@ -394,7 +403,7 @@ export default function Occasions({ onNavigate }) {
 
   return (
     <div style={{ backgroundColor: 'var(--isabelline)', minHeight: '100vh', overflowX: 'hidden', position: 'relative' }}>
-      
+
       {/* Botanical Leaf Vector Watermarks */}
       <Pattern24 style={{ position: 'absolute', top: '20%', left: '-80px', maxWidth: '340px', width: '100%', height: 'auto', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
       <Pattern25 style={{ position: 'absolute', top: '55%', right: '-80px', maxWidth: '340px', width: '100%', height: 'auto', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
@@ -434,8 +443,10 @@ export default function Occasions({ onNavigate }) {
             }}
             initial="hidden"
             animate="visible"
-            style={{color: '#ffffff',
-              lineHeight: 1.15, margin: 0, display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap'}}
+            style={{
+              color: '#ffffff',
+              lineHeight: 1.15, margin: 0, display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap'
+            }}
           >
             {["Occasions", "at", "Suprada"].map((word, idx) => (
               <motion.span
@@ -476,7 +487,7 @@ export default function Occasions({ onNavigate }) {
             />
           </div>
         </div>
-        
+
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4.5rem', alignItems: 'center' }}>
 
           {/* Left Column: Interactive Image Showcase Frame */}
@@ -495,7 +506,7 @@ export default function Occasions({ onNavigate }) {
                   alt={pillarsList[activePillar].title}
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
-                
+
                 {/* Vignette bottom */}
                 <div style={{
                   position: 'absolute', inset: 0,
@@ -505,7 +516,7 @@ export default function Occasions({ onNavigate }) {
 
                 {/* Animated Badge & Stat Overlay */}
                 <div style={{ position: 'absolute', bottom: '2.5rem', left: '2.5rem', right: '2.5rem', display: 'flex', flexDirection: 'column', gap: '0.6rem', color: '#ffffff', zIndex: 10 }}>
-                  <motion.span 
+                  <motion.span
                     initial={{ y: 15, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.2, type: 'spring', stiffness: 100 }}
@@ -524,12 +535,12 @@ export default function Occasions({ onNavigate }) {
                   >
                     {pillarsList[activePillar].badge}
                   </motion.span>
-                  
-                  <motion.h3 
+
+                  <motion.h3
                     initial={{ y: 15, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.3, type: 'spring', stiffness: 100 }}
-                    style={{color: 'var(--tan)', margin: 0,}}
+                    style={{ color: 'var(--tan)', margin: 0, }}
                   >
                     {pillarsList[activePillar].stat}
                   </motion.h3>
@@ -542,7 +553,7 @@ export default function Occasions({ onNavigate }) {
           <div className="flex-stack-mobile" style={{ display: 'flex', flexDirection: 'column', gap: '2.2rem' }}>
             <div>
               <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.2em', fontSize: '0.78rem', fontWeight: 700, display: 'block', marginBottom: '0.6rem' }}>Event Innovation</span>
-              <h2 style={{color: 'var(--wine)', lineHeight: 1.2, margin: 0}}>
+              <h2 style={{ color: 'var(--wine)', lineHeight: 1.2, margin: 0 }}>
                 Why Wellness Centers Lead in Carbon-Free Events
               </h2>
             </div>
@@ -581,12 +592,12 @@ export default function Occasions({ onNavigate }) {
                     }}>
                       {item.icon}
                     </div>
-                    
+
                     <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, paddingTop: '0.2rem' }}>
-                      <h4 style={{color: 'var(--wine)', margin: 0,}}>
+                      <h4 style={{ color: 'var(--wine)', margin: 0, }}>
                         {item.title}
                       </h4>
-                      
+
                       <AnimatePresence initial={false}>
                         {isActive && (
                           <motion.div
@@ -600,7 +611,7 @@ export default function Occasions({ onNavigate }) {
                             <p style={{ margin: '0.4rem 0 0 0', fontSize: '0.88rem', color: 'var(--raisin-black)', opacity: 0.8, lineHeight: 1.6 }}>
                               {item.desc}
                             </p>
-                            
+
                             <div style={{ width: '100%', height: '2px', backgroundColor: 'rgba(94, 39, 53, 0.08)', marginTop: '0.8rem', borderRadius: '1px', overflow: 'hidden' }}>
                               <motion.div
                                 initial={{ scaleX: 0 }}
@@ -628,14 +639,14 @@ export default function Occasions({ onNavigate }) {
         <Pattern24 style={{ position: 'absolute', top: '5%', right: '-80px', maxWidth: '340px', width: '100%', height: 'auto', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
 
         <div style={{ maxWidth: '1000px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
-          
+
           {/* Main Title Header */}
           <div style={{ textAlign: 'center', marginBottom: '1.2rem' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', backgroundColor: 'rgba(220, 160, 50, 0.12)', border: '1px solid var(--harvest-gold)', padding: '0.25rem 0.9rem', borderRadius: '20px', marginBottom: '0.5rem' }}>
               <span style={{ fontSize: '0.75rem', color: 'var(--wine)' }}>✦</span>
               <span style={{ textTransform: 'uppercase', letterSpacing: '0.15em', fontSize: '0.68rem', fontWeight: 800, color: 'var(--wine)' }}>Exclusive Insight</span>
             </div>
-            <h2 style={{color: 'var(--wine)', margin: 0, lineHeight: 1.2}}>
+            <h2 style={{ color: 'var(--wine)', margin: 0, lineHeight: 1.2 }}>
               The Wellness Difference
             </h2>
             <p style={{ color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '620px', margin: '0.4rem auto 0 auto', fontSize: '0.92rem', lineHeight: 1.5 }}>
@@ -687,7 +698,7 @@ export default function Occasions({ onNavigate }) {
                 overflow: 'hidden'
               }}>
                 <Pattern24 style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.12, color: 'var(--harvest-gold)', pointerEvents: 'none' }} />
-                
+
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={diffSlideIdx}
@@ -707,7 +718,7 @@ export default function Occasions({ onNavigate }) {
                     <span style={{ fontSize: '1.8rem', marginBottom: '0.3rem' }}>
                       {wellnessDiffList[diffSlideIdx].icon}
                     </span>
-                    <h3 style={{color: 'var(--harvest-gold)', margin: '0 0 0.5rem 0', lineHeight: 1.25}}>
+                    <h3 style={{ color: 'var(--harvest-gold)', margin: '0 0 0.5rem 0', lineHeight: 1.25 }}>
                       {wellnessDiffList[diffSlideIdx].title}
                     </h3>
                     <p style={{ fontSize: '0.8rem', color: 'var(--isabelline)', opacity: 0.92, lineHeight: 1.5, margin: 0, fontWeight: 300 }}>
@@ -825,7 +836,7 @@ export default function Occasions({ onNavigate }) {
                     <span style={{ fontSize: '1.8rem', display: 'block', marginBottom: '0.4rem' }}>
                       {wellnessDiffList[diffSlideIdx].icon}
                     </span>
-                    <h3 style={{color: 'var(--harvest-gold)', margin: '0 0 0.5rem 0',}}>
+                    <h3 style={{ color: 'var(--harvest-gold)', margin: '0 0 0.5rem 0', }}>
                       {wellnessDiffList[diffSlideIdx].title}
                     </h3>
                     <p style={{ fontSize: '0.85rem', color: 'var(--isabelline)', opacity: 0.9, lineHeight: 1.55, margin: 0, fontWeight: 300 }}>
@@ -844,7 +855,8 @@ export default function Occasions({ onNavigate }) {
       <section className="celebrations-section-wrapper" style={{ backgroundColor: 'var(--isabelline)', overflow: 'hidden', position: 'relative' }}>
         <Pattern24 style={{ position: 'absolute', top: '15%', right: '-80px', maxWidth: '340px', width: '100%', height: 'auto', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
         {/* Style injection for smooth responsive scrollbars and carousel card sizes */}
-        <style dangerouslySetInnerHTML={{__html: `
+        <style dangerouslySetInnerHTML={{
+          __html: `
           .no-scrollbar::-webkit-scrollbar {
             display: none !important;
           }
@@ -876,12 +888,12 @@ export default function Occasions({ onNavigate }) {
         `}} />
 
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          
+
           {/* Header Row with Title */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2rem', flexWrap: 'wrap', gap: '1.5rem' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', maxWidth: '750px' }}>
               <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.75rem', fontWeight: 700, display: 'block' }}>Healthcations</span>
-              <h2 style={{color: 'var(--wine)', margin: 0}}>
+              <h2 style={{ color: 'var(--wine)', margin: 0 }}>
                 Wellness-Themed Celebrations
               </h2>
               <AnimatedParagraph
@@ -893,7 +905,7 @@ export default function Occasions({ onNavigate }) {
 
           {/* Draggable/Animated Carousel Track Container with Left and Right Controls */}
           <div style={{ position: 'relative', overflow: 'visible' }}>
-            
+
             {/* Left Floating Scroller Arrow Button */}
             <button
               onClick={() => handleScroll('prev')}
@@ -1023,8 +1035,8 @@ export default function Occasions({ onNavigate }) {
                         scrollSnapAlign: 'start',
                         borderRadius: '16px',
                         overflow: 'hidden',
-                        boxShadow: isHovered 
-                          ? '0 20px 45px rgba(94, 39, 53, 0.18), 0 0 15px rgba(220, 160, 50, 0.25)' 
+                        boxShadow: isHovered
+                          ? '0 20px 45px rgba(94, 39, 53, 0.18), 0 0 15px rgba(220, 160, 50, 0.25)'
                           : '0 12px 35px rgba(94, 39, 53, 0.06)',
                         display: 'flex',
                         flexDirection: 'column',
@@ -1061,7 +1073,7 @@ export default function Occasions({ onNavigate }) {
 
                       {/* Content */}
                       <div style={{ position: 'relative', zIndex: 2, color: '#ffffff', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                        <h3 style={{color: 'var(--tan)', margin: 0,}}>
+                        <h3 style={{ color: 'var(--tan)', margin: 0, }}>
                           {item.title}
                         </h3>
                         <p style={{
@@ -1094,7 +1106,7 @@ export default function Occasions({ onNavigate }) {
         <Pattern25 style={{ position: 'absolute', top: '10%', left: '-80px', maxWidth: '340px', width: '100%', height: 'auto', opacity: 0.12, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <h2 style={{color: 'var(--wine)',}}>
+            <h2 style={{ color: 'var(--wine)', }}>
               Traditional Hindu Ceremonies
             </h2>
             <AnimatedParagraph
@@ -1104,7 +1116,8 @@ export default function Occasions({ onNavigate }) {
           </div>
 
           {/* Responsive styles for Hindu Ceremonies showcase */}
-          <style dangerouslySetInnerHTML={{__html: `
+          <style dangerouslySetInnerHTML={{
+            __html: `
             @media (max-width: 868px) {
               .ceremonies-responsive-layout {
                 grid-template-columns: 1fr !important;
@@ -1133,15 +1146,15 @@ export default function Occasions({ onNavigate }) {
 
           {/* Large showcase card section with navigation tabs */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 2.2fr', gap: '3rem', marginTop: '2rem' }} className="ceremonies-responsive-layout">
-            
+
             {/* Sidebar Navigation Tabs */}
-            <div 
+            <div
               className="ceremonies-tabs-container no-scrollbar"
-              style={{ 
-                display: 'flex', 
-                flexDirection: 'column', 
-                gap: '0.4rem', 
-                borderRight: '1px solid rgba(94, 39, 53, 0.12)', 
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.4rem',
+                borderRight: '1px solid rgba(94, 39, 53, 0.12)',
                 paddingRight: '1.5rem',
                 maxHeight: '450px',
                 overflowY: 'auto'
@@ -1233,7 +1246,7 @@ export default function Occasions({ onNavigate }) {
               <Pattern24 style={{ position: 'absolute', right: '-40px', bottom: '-40px', width: '280px', opacity: 0.15, color: 'var(--wine)', pointerEvents: 'none' }} />
               {/* Autoplay timeline indicators/dots at the bottom edge */}
               <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '3px', backgroundColor: 'rgba(94,39,53,0.1)' }}>
-                <motion.div 
+                <motion.div
                   key={activeCeremonyIdx}
                   initial={{ width: '0%' }}
                   animate={{ width: '100%' }}
@@ -1266,7 +1279,7 @@ export default function Occasions({ onNavigate }) {
                     >
                       <div>
                         <div className="flex-stack-mobile" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem', flexWrap: 'wrap', gap: '1rem' }}>
-                          <motion.span 
+                          <motion.span
                             initial={{ scale: 0.9, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             transition={{ delay: 0.05, duration: 0.3 }}
@@ -1274,7 +1287,7 @@ export default function Occasions({ onNavigate }) {
                           >
                             {activeCeremony.subtitle}
                           </motion.span>
-                          <motion.span 
+                          <motion.span
                             initial={{ opacity: 0, x: 10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.1 }}
@@ -1284,7 +1297,7 @@ export default function Occasions({ onNavigate }) {
                           </motion.span>
                         </div>
 
-                        <h3 style={{color: 'var(--wine)', margin: '0 0 1.2rem 0', display: 'flex', flexWrap: 'wrap'}}>
+                        <h3 style={{ color: 'var(--wine)', margin: '0 0 1.2rem 0', display: 'flex', flexWrap: 'wrap' }}>
                           {activeCeremony.name.split("").map((char, index) => (
                             <motion.span
                               key={index}
@@ -1344,10 +1357,10 @@ export default function Occasions({ onNavigate }) {
             borderRadius: '24px',
             boxShadow: '0 12px 35px rgba(94, 39, 53, 0.08)'
           }}>
-            
+
             {/* Section Header */}
             <div style={{ textAlign: 'center', marginBottom: '1.8rem' }}>
-              <h4 style={{color: 'var(--wine)', margin: 0,}}>
+              <h4 style={{ color: 'var(--wine)', margin: 0, }}>
                 Our Service Offerings
               </h4>
               <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black)', opacity: 0.85, margin: '0.4rem 0 0 0', fontWeight: 400 }}>
@@ -1357,7 +1370,7 @@ export default function Occasions({ onNavigate }) {
 
             {/* Slider Container with Side-Mounted Floating Arrow Buttons */}
             <div style={{ position: 'relative', padding: '0 0.5rem' }}>
-              
+
               {/* Left Arrow Button */}
               <button
                 onClick={() => handleServiceScroll('prev')}
@@ -1493,7 +1506,7 @@ export default function Occasions({ onNavigate }) {
               <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.75rem', fontWeight: 800, display: 'block', marginBottom: '0.6rem' }}>
                 EXECUTIVE RECOVERY &amp; VITALITY
               </span>
-              <h2 style={{color: 'var(--wine)', lineHeight: 1.25}}>
+              <h2 style={{ color: 'var(--wine)', lineHeight: 1.25 }}>
                 Corporate Wellness, Team Building &amp; Retreats
               </h2>
               <p style={{ fontSize: '0.98rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.75, marginTop: '1.2rem', marginBottom: '1.8rem' }}>
@@ -1535,7 +1548,7 @@ export default function Occasions({ onNavigate }) {
                 <span style={{ backgroundColor: 'var(--harvest-gold)', color: 'var(--wine)', padding: '0.3rem 0.8rem', borderRadius: '20px', fontSize: '0.62rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
                   Estate Infrastructure
                 </span>
-                <h3 style={{color: '#ffffff', margin: '0.4rem 0 0 0',}}>
+                <h3 style={{ color: '#ffffff', margin: '0.4rem 0 0 0', }}>
                   High-Ceiling Conference Sanctuary
                 </h3>
               </div>
@@ -1552,19 +1565,33 @@ export default function Occasions({ onNavigate }) {
             position: 'relative',
             overflow: 'hidden'
           }}>
-            <style dangerouslySetInnerHTML={{__html: `
+            <style dangerouslySetInnerHTML={{
+              __html: `
               .interventions-2col-grid {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1.4rem;
               }
-              @media (max-width: 640px) {
+              @media (max-width: 768px) {
                 .interventions-2col-grid {
-                  grid-template-columns: repeat(2, 1fr) !important;
-                  gap: 0.8rem !important;
+                  display: flex !important;
+                  flex-direction: row !important;
+                  overflow-x: auto !important;
+                  scroll-snap-type: x mandatory !important;
+                  gap: 1rem !important;
+                  padding: 0.5rem 0 1.2rem 0 !important;
+                  scrollbar-width: none !important;
+                  -ms-overflow-style: none !important;
+                  -webkit-overflow-scrolling: touch !important;
+                  width: 100% !important;
+                }
+                .interventions-2col-grid::-webkit-scrollbar {
+                  display: none !important;
                 }
                 .interventions-2col-card {
-                  padding: 1.1rem 0.85rem !important;
+                  flex: 0 0 260px !important;
+                  scroll-snap-align: center !important;
+                  padding: 1.4rem 1.2rem !important;
                 }
               }
             `}} />
@@ -1572,7 +1599,7 @@ export default function Occasions({ onNavigate }) {
               <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
                 INTERVENTIONS &amp; MODULES
               </span>
-              <h3 style={{color: 'var(--wine)', margin: 0}}>
+              <h3 style={{ color: 'var(--wine)', margin: 0 }}>
                 Corporate Retreat Activities
               </h3>
               <p style={{ fontSize: '0.92rem', color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '600px', margin: '0.5rem auto 0 auto', lineHeight: 1.6 }}>
@@ -1632,7 +1659,7 @@ export default function Occasions({ onNavigate }) {
                     {box.badge}
                   </span>
 
-                  <h4 style={{color: 'var(--wine)', margin: '0 0 0.5rem 0', lineHeight: 1.3}}>
+                  <h4 style={{ color: 'var(--wine)', margin: '0 0 0.5rem 0', lineHeight: 1.3 }}>
                     {box.title}
                   </h4>
 
@@ -1650,13 +1677,13 @@ export default function Occasions({ onNavigate }) {
       <section id="sanctuary-spaces-section" style={{ padding: '7rem 8%', backgroundColor: 'var(--isabelline)', position: 'relative', overflow: 'hidden' }}>
         <Pattern24 style={{ position: 'absolute', top: '15%', right: '-80px', maxWidth: '340px', width: '100%', height: 'auto', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
         <Pattern25 style={{ position: 'absolute', bottom: '10%', left: '-80px', maxWidth: '340px', width: '100%', height: 'auto', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
-        
+
         <div style={{ maxWidth: '1300px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.72rem', fontWeight: 700, display: 'block', marginBottom: '0.6rem' }}>
               SANCTUARY ARCHITECTURE
             </span>
-            <h2 style={{color: 'var(--wine)', margin: 0}}>
+            <h2 style={{ color: 'var(--wine)', margin: 0 }}>
               Spaces to Celebrate
             </h2>
             <p style={{ color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '680px', margin: '0.8rem auto 0 auto', fontSize: '0.96rem', lineHeight: 1.65 }}>
@@ -1665,7 +1692,8 @@ export default function Occasions({ onNavigate }) {
           </div>
 
           {/* Responsive CSS for Equal 4-Column Bento Grid */}
-          <style dangerouslySetInnerHTML={{__html: `
+          <style dangerouslySetInnerHTML={{
+            __html: `
             .bento-spaces-8-grid {
               display: grid;
               grid-template-columns: repeat(4, 1fr);
@@ -1877,7 +1905,7 @@ export default function Occasions({ onNavigate }) {
                   }}>
                     {venue.role}
                   </span>
-                  <h3 style={{color: '#ffffff', margin: 0, lineHeight: 1.2}}>
+                  <h3 style={{ color: '#ffffff', margin: 0, lineHeight: 1.2 }}>
                     {venue.name}
                   </h3>
                 </div>
@@ -1919,7 +1947,7 @@ export default function Occasions({ onNavigate }) {
                       </span>
                     </div>
 
-                    <h3 style={{color: 'var(--tan)', margin: '0.15rem 0 0 0', lineHeight: 1.25}}>
+                    <h3 style={{ color: 'var(--tan)', margin: '0.15rem 0 0 0', lineHeight: 1.25 }}>
                       {venue.name}
                     </h3>
 
@@ -1974,387 +2002,10 @@ export default function Occasions({ onNavigate }) {
             </button>
           </div>
         </div>
+    </section>
 
-        {/* Full Dedicated Space Detail Page View (Dedicated Full Screen Page) */}
-        <AnimatePresence>
-          {activeSpaceModal && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              style={{
-                backgroundColor: 'rgba(20, 16, 18, 0.85)',
-                backdropFilter: 'blur(8px)',
-                height: '100vh',
-                width: '100vw',
-                zIndex: 999999,
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: '1.5rem'
-              }}
-              onClick={() => setActiveSpaceModal(null)}
-            >
-              <motion.div
-                data-lenis-prevent="true"
-                initial={{ opacity: 0, scale: 0.95, y: 30 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                transition={{ duration: 0.4 }}
-                onClick={(e) => e.stopPropagation()}
-                style={{
-                  backgroundColor: 'var(--isabelline)',
-                  width: '100%',
-                  maxWidth: '1200px',
-                  height: '92vh',
-                  borderRadius: '24px',
-                  overflowY: 'auto',
-                  overscrollBehavior: 'contain',
-                  position: 'relative',
-                  boxShadow: '0 25px 60px rgba(0,0,0,0.4)',
-                  display: 'flex',
-                  flexDirection: 'column'
-                }}
-              >
-              {/* Sticky Top Navigation Bar */}
-              <div className="flex-stack-mobile" style={{
-                position: 'sticky',
-                top: 0,
-                backgroundColor: 'rgba(25, 23, 24, 0.96)',
-                backdropFilter: 'blur(12px)',
-                padding: '1.2rem 8%',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                zIndex: 40,
-                borderBottom: '1px solid rgba(220, 160, 50, 0.25)'
-              }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  <button
-                    onClick={() => {
-                      setActiveSpaceModal(null);
-                      const spacesSection = document.getElementById('sanctuary-spaces-section');
-                      if (spacesSection) spacesSection.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    style={{
-                      backgroundColor: 'rgba(220, 160, 50, 0.15)',
-                      border: '1px solid var(--harvest-gold)',
-                      color: 'var(--harvest-gold)',
-                      padding: '0.5rem 1.2rem',
-                      borderRadius: '25px',
-                      fontSize: '0.82rem',
-                      fontWeight: 700,
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.1em',
-                      cursor: 'pointer',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.5rem',
-                      transition: 'all 0.2s'
-                    }}
-                  >
-                    &larr; Back to All Spaces
-                  </button>
-                  <span style={{ color: 'rgba(255,255,255,0.3)' }}>|</span>
-                  <span style={{ color: 'var(--isabelline)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.1em', opacity: 0.85, fontWeight: 500 }}>
-                    {activeSpaceModal.name}
-                  </span>
-                </div>
-
-                <button
-                  onClick={() => {
-                    setActiveSpaceModal(null);
-                    const spacesSection = document.getElementById('sanctuary-spaces-section');
-                    if (spacesSection) spacesSection.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  style={{
-                    backgroundColor: 'rgba(220, 160, 50, 0.15)',
-                    color: 'var(--harvest-gold)',
-                    border: '1px solid var(--harvest-gold)',
-                    padding: '0.4rem 1rem',
-                    borderRadius: '20px',
-                    fontSize: '0.8rem',
-                    fontWeight: 700,
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.4rem',
-                    transition: 'all 0.2s'
-                  }}
-                >
-                  Close View &times;
-                </button>
-              </div>
-
-              {/* Space Hero Banner Section */}
-              <div style={{ height: '480px', width: '100%', position: 'relative', overflow: 'hidden' }}>
-                <img
-                  src={activeSpaceModal.img}
-                  alt={activeSpaceModal.name}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(25, 23, 24, 0.95) 0%, rgba(25, 23, 24, 0.3) 65%, transparent 100%)' }} />
-                <Pattern24 style={{ position: 'absolute', top: '10%', right: '-40px', maxWidth: '360px', width: '100%', height: 'auto', opacity: 0.15, color: 'var(--harvest-gold)', pointerEvents: 'none' }} />
-
-                <div style={{ position: 'absolute', bottom: '3rem', left: '8%', right: '8%', maxWidth: '1240px', margin: '0 auto' }}>
-                  <span style={{
-                    backgroundColor: 'var(--harvest-gold)',
-                    color: 'var(--wine)',
-                    padding: '0.45rem 1.2rem',
-                    borderRadius: '20px',
-                    fontSize: '0.75rem',
-                    fontWeight: 800,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.14em',
-                    display: 'inline-block',
-                    marginBottom: '0.8rem'
-                  }}>
-                    {activeSpaceModal.role}
-                  </span>
-                  <h1 style={{color: '#ffffff', margin: 0, lineHeight: 1.1}}>
-                    {activeSpaceModal.name}
-                  </h1>
-                  {activeSpaceModal.tagline && (
-                    <p style={{ color: 'var(--tan)', fontSize: '1.35rem', margin: '0.6rem 0 0 0', fontStyle: 'italic' }}>
-                      {activeSpaceModal.tagline}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              {/* Main Content Layout — Photo Gallery & 2-Column Specs */}
-              <div className="flex-stack-mobile" style={{ padding: '4rem 8%', maxWidth: '1280px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '3.5rem', color: 'var(--raisin-black)' }}>
-                
-                {/* Space Photo Gallery Showcase Section */}
-                <div>
-                  <div className="flex-stack-mobile" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.4rem' }}>
-                    <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.8rem', fontWeight: 800 }}>
-                      Sanctuary Photography &amp; Views
-                    </span>
-                    <span style={{ fontSize: '0.85rem', color: 'var(--wine)', opacity: 0.75, fontWeight: 600 }}>
-                      4 High-Resolution Gallery Shots
-                    </span>
-                  </div>
-
-                  <div className="grid-4-laptop" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
-                    {(activeSpaceModal.galleryImages || [activeSpaceModal.img]).map((gImg, gIdx) => (
-                      <motion.div
-                        key={gIdx}
-                        whileHover={{ scale: 1.03, y: -4 }}
-                        transition={{ duration: 0.3 }}
-                        style={{
-                          height: '210px',
-                          borderRadius: '16px',
-                          overflow: 'hidden',
-                          boxShadow: '0 10px 28px rgba(0,0,0,0.12)',
-                          border: '1px solid rgba(94, 39, 53, 0.12)',
-                          position: 'relative'
-                        }}
-                      >
-                        <img
-                          src={gImg}
-                          alt={`${activeSpaceModal.name} view ${gIdx + 1}`}
-                          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                        />
-                        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 60%)' }} />
-                        <span style={{ position: 'absolute', bottom: '0.9rem', left: '1.2rem', color: '#ffffff', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.05em' }}>
-                          View 0{gIdx + 1}
-                        </span>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* 2-Column Responsive Information Layout */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'start' }}>
-                  
-                  {/* Left Main Column: Narrative & Features */}
-                  <div className="flex-stack-mobile" style={{ display: 'flex', flexDirection: 'column', gap: '2.2rem' }}>
-                    
-                    {/* Overview Narrative */}
-                    <div style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '2.5rem', border: '1px solid rgba(94, 39, 53, 0.08)', boxShadow: '0 8px 25px rgba(94, 39, 53, 0.03)' }}>
-                      <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.18em', fontSize: '0.75rem', fontWeight: 800, display: 'block', marginBottom: '0.8rem' }}>
-                        SANCTUARY OVERVIEW
-                      </span>
-                      <p style={{ fontSize: '1.1rem', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.85, margin: 0, fontWeight: 300 }}>
-                        {activeSpaceModal.fullDesc || activeSpaceModal.desc}
-                      </p>
-                    </div>
-
-                    {/* Purpose-Built Features */}
-                    {activeSpaceModal.features && (
-                      <div style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '2.5rem', border: '1px solid rgba(94, 39, 53, 0.08)', boxShadow: '0 8px 25px rgba(94, 39, 53, 0.03)' }}>
-                        <h3 style={{color: 'var(--wine)', marginTop: 0, marginBottom: '1.4rem',}}>
-                          Purpose-Built Features
-                        </h3>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.2rem' }}>
-                          {activeSpaceModal.features.map((feat, fIdx) => (
-                            <div key={fIdx} style={{ display: 'flex', alignItems: 'center', gap: '0.9rem', fontSize: '0.98rem', color: 'var(--raisin-black)', opacity: 0.9 }}>
-                              <span style={{ width: '24px', height: '24px', borderRadius: '50%', backgroundColor: 'var(--wine)', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><Check size={12} /></span>
-                              <span style={{ lineHeight: 1.4 }}>{feat}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Textures & Ambience Box */}
-                    {activeSpaceModal.texturesAmbience && (
-                      <div style={{ backgroundColor: 'var(--wine)', color: 'var(--isabelline)', padding: '2.5rem', borderRadius: '20px', position: 'relative', overflow: 'hidden' }}>
-                        <Pattern25 style={{ position: 'absolute', right: '-30px', bottom: '-30px', width: '220px', opacity: 0.12, color: 'var(--harvest-gold)', pointerEvents: 'none' }} />
-                        <span style={{ color: 'var(--harvest-gold)', fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', display: 'block', marginBottom: '0.6rem' }}>
-                          Textures &amp; Ambience
-                        </span>
-                        <p style={{ fontSize: '1rem', lineHeight: 1.75, margin: 0, opacity: 0.92, fontWeight: 300 }}>
-                          {activeSpaceModal.texturesAmbience}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Right Specs Column: Sustainability & Capacity Box */}
-                  <div className="flex-stack-mobile" style={{ display: 'flex', flexDirection: 'column', gap: '2.2rem' }}>
-                    
-                    {/* Sustainable Design */}
-                    {activeSpaceModal.sustainable && (
-                      <div style={{ backgroundColor: '#ffffff', padding: '2.5rem', borderRadius: '20px', border: '1px solid rgba(94,39,53,0.1)', boxShadow: '0 8px 25px rgba(94, 39, 53, 0.03)' }}>
-                        <span style={{ color: 'var(--redwood)', fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', display: 'block', marginBottom: '0.6rem' }}>
-                          Sustainable, Natural, Considered
-                        </span>
-                        <p style={{ fontSize: '1rem', lineHeight: 1.75, margin: 0, opacity: 0.88, fontWeight: 300 }}>
-                          {activeSpaceModal.sustainable}
-                        </p>
-                      </div>
-                    )}
-
-                    {/* Specifications Summary Card */}
-                    <div style={{
-                      backgroundColor: 'var(--antique-white)',
-                      padding: '2.5rem',
-                      borderRadius: '20px',
-                      border: '1.5px solid rgba(220, 160, 50, 0.4)',
-                      boxShadow: '0 10px 30px rgba(94, 39, 53, 0.05)',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '1.5rem'
-                    }}>
-                      <h4 style={{color: 'var(--wine)', margin: 0, borderBottom: '1px solid rgba(94,39,53,0.15)', paddingBottom: '0.8rem'}}>
-                        Sanctuary Specifications
-                      </h4>
-
-                      <div>
-                        <span style={{ fontSize: '0.75rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '0.3rem' }}>
-                          Guest Capacity
-                        </span>
-                        <strong style={{ fontSize: '1.3rem', color: 'var(--wine)', }}>
-                          {activeSpaceModal.capacity}
-                        </strong>
-                      </div>
-
-                      <div>
-                        <span style={{ fontSize: '0.75rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '0.3rem' }}>
-                          Architectural Setting
-                        </span>
-                        <strong style={{ fontSize: '1.2rem', color: 'var(--wine)', }}>
-                          {activeSpaceModal.setting}
-                        </strong>
-                      </div>
-
-                      <div>
-                        <span style={{ fontSize: '0.75rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '0.3rem' }}>
-                          Estate Location
-                        </span>
-                        <strong style={{ fontSize: '1.2rem', color: 'var(--wine)', }}>
-                          Suprada 10-Acres Forest Estate
-                        </strong>
-                      </div>
-                    </div>
-
-                    {/* Action CTAs */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                      <button
-                        onClick={() => {
-                          setActiveSpaceModal(null);
-                          const inquiryForm = document.getElementById('inquiry-form');
-                          if (inquiryForm) {
-                            inquiryForm.scrollIntoView({ behavior: 'smooth' });
-                          }
-                        }}
-                        className="btn-luxury"
-                        style={{ width: '100%', padding: '1rem 2rem', fontSize: '0.85rem', textAlign: 'center', justifyContent: 'center' }}
-                      >
-                        Inquire About Space &rarr;
-                      </button>
-
-                      <button
-                        onClick={() => {
-                          setActiveSpaceModal(null);
-                          if (onNavigate) {
-                            onNavigate('programmes');
-                          } else {
-                            window.location.href = '/programmes';
-                          }
-                        }}
-                        style={{
-                          width: '100%',
-                          padding: '0.95rem 2rem',
-                          borderRadius: '30px',
-                          backgroundColor: 'var(--wine)',
-                          color: 'var(--isabelline)',
-                          border: 'none',
-                          fontWeight: 600,
-                          fontSize: '0.82rem',
-                          textTransform: 'uppercase',
-                          letterSpacing: '0.08em',
-                          cursor: 'pointer',
-                          textAlign: 'center'
-                        }}
-                      >
-                        Explore Programmes
-                      </button>
-
-                      <button
-                        onClick={() => {
-                          setActiveSpaceModal(null);
-                          const spacesSection = document.getElementById('sanctuary-spaces-section');
-                          if (spacesSection) spacesSection.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                        style={{
-                          width: '100%',
-                          padding: '0.85rem 2rem',
-                          borderRadius: '30px',
-                          backgroundColor: 'transparent',
-                          color: 'var(--wine)',
-                          border: '1.5px solid var(--wine)',
-                          fontWeight: 600,
-                          fontSize: '0.82rem',
-                          textTransform: 'uppercase',
-                          letterSpacing: '0.08em',
-                          cursor: 'pointer',
-                          textAlign: 'center'
-                        }}
-                      >
-                        &larr; Return to All Spaces
-                      </button>
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </section>
-
-      {/* Why Suprada for Occasions Section - Luxury Round Cards */}
-      <section className="why-suprada-section" style={{ padding: '3.5rem 8%', backgroundColor: 'var(--isabelline)', borderTop: '1px solid rgba(220, 160, 50, 0.2)', position: 'relative', overflow: 'hidden' }}>
+  {/* Why Suprada for Occasions Section - Luxury Round Cards */ }
+  < section className = "why-suprada-section" style = {{ padding: '3.5rem 8%', backgroundColor: 'var(--isabelline)', borderTop: '1px solid rgba(220, 160, 50, 0.2)', position: 'relative', overflow: 'hidden' }}>
         <Pattern25 style={{ position: 'absolute', bottom: '-50px', left: '-50px', maxWidth: '380px', width: '100%', height: 'auto', opacity: 0.07, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
         <Pattern24 style={{ position: 'absolute', top: '-40px', right: '-40px', maxWidth: '320px', width: '100%', height: 'auto', opacity: 0.08, color: 'var(--harvest-gold)', pointerEvents: 'none', zIndex: 0 }} />
         <style dangerouslySetInnerHTML={{__html: `
@@ -2553,206 +2204,206 @@ export default function Occasions({ onNavigate }) {
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
 
 
-      {/* Inquiry Form with Multi-Step Stepper Layout */}
-      <section id="inquiry-form" className="inquiry-section-wrapper" style={{ padding: '6rem 8%', backgroundColor: 'var(--antique-white)' }}>
-        <div style={{ maxWidth: '700px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.2em', fontSize: '0.75rem', fontWeight: 700, display: 'block', marginBottom: '0.8rem' }}>Inquiry</span>
-            <h2 style={{color: 'var(--wine)',}}>
-              Start Planning Your Occasion
-            </h2>
-            <p style={{ color: 'var(--raisin-black)', opacity: 0.8, fontSize: '0.92rem', marginTop: '0.5rem' }}>
-              Let\'s create a customized event plan reflecting your family traditions or business objectives.
-            </p>
+  {/* Inquiry Form with Multi-Step Stepper Layout */ }
+  < section id = "inquiry-form" className = "inquiry-section-wrapper" style = {{ padding: '6rem 8%', backgroundColor: 'var(--antique-white)' }}>
+    <div style={{ maxWidth: '700px', margin: '0 auto' }}>
+      <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+        <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.2em', fontSize: '0.75rem', fontWeight: 700, display: 'block', marginBottom: '0.8rem' }}>Inquiry</span>
+        <h2 style={{ color: 'var(--wine)', }}>
+          Start Planning Your Occasion
+        </h2>
+        <p style={{ color: 'var(--raisin-black)', opacity: 0.8, fontSize: '0.92rem', marginTop: '0.5rem' }}>
+          Let\'s create a customized event plan reflecting your family traditions or business objectives.
+        </p>
+      </div>
+
+      {formSubmitted ? (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          style={{ backgroundColor: '#ffffff', border: '1px solid rgba(94, 39, 53, 0.1)', padding: '3.5rem', borderRadius: '16px', textAlign: 'center', boxShadow: '0 15px 40px rgba(94, 39, 53, 0.05)' }}
+        >
+          <div style={{ color: 'var(--harvest-gold)', fontSize: '1.8rem', marginBottom: '1.2rem' }}>✦</div>
+          <h3 style={{ color: 'var(--wine)', marginBottom: '0.8rem', }}>Thank You</h3>
+          <p style={{ fontSize: '0.92rem', opacity: 0.85, lineHeight: 1.6, maxWidth: '400px', margin: '0 auto' }}>
+            Your inquiry has been received. Our event coordinator and medical officers will connect with you within 24 hours to schedule a consultation call.
+          </p>
+          <button
+            onClick={() => { setFormSubmitted(false); setFormStep(1); }}
+            className="btn-luxury"
+            style={{ padding: '0.8rem 2.2rem', fontSize: '0.78rem', marginTop: '2rem' }}
+          >
+            Submit Another Inquiry
+          </button>
+        </motion.div>
+      ) : (
+        <div className="inquiry-card-wrapper" style={{ backgroundColor: '#ffffff', borderRadius: '16px', padding: '3rem 2.5rem', border: '1px solid rgba(94,39,53,0.06)', boxShadow: '0 15px 35px rgba(94,39,53,0.02)' }}>
+
+          {/* Stepper Progress Bar */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2.5rem', position: 'relative' }}>
+            <div style={{ position: 'absolute', top: '15px', left: 0, right: 0, height: '2px', backgroundColor: 'rgba(94,39,53,0.06)', zIndex: 0 }} />
+            <div style={{ position: 'absolute', top: '15px', left: 0, width: `${(formStep - 1) * 50}%`, height: '2px', backgroundColor: 'var(--redwood)', zIndex: 0, transition: 'width 0.4s' }} />
+            {[
+              { num: 1, label: 'Occasion' },
+              { num: 2, label: 'Custom Details' },
+              { num: 3, label: 'Contact' }
+            ].map((step) => (
+              <div key={step.num} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.4rem', zIndex: 1 }}>
+                <div style={{
+                  width: '32px', height: '32px', borderRadius: '50%',
+                  backgroundColor: formStep >= step.num ? 'var(--redwood)' : '#ffffff',
+                  color: formStep >= step.num ? '#ffffff' : 'var(--wine)',
+                  border: '2px solid', borderColor: formStep >= step.num ? 'var(--redwood)' : 'rgba(94,39,53,0.15)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontWeight: 700, fontSize: '0.85rem', transition: 'all 0.3s'
+                }}>
+                  {step.num}
+                </div>
+                <span style={{ fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: formStep >= step.num ? 'var(--wine)' : 'rgba(0,0,0,0.4)', textAlign: 'center' }}>{step.label}</span>
+              </div>
+            ))}
           </div>
 
-          {formSubmitted ? (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              style={{ backgroundColor: '#ffffff', border: '1px solid rgba(94, 39, 53, 0.1)', padding: '3.5rem', borderRadius: '16px', textAlign: 'center', boxShadow: '0 15px 40px rgba(94, 39, 53, 0.05)' }}
-            >
-              <div style={{ color: 'var(--harvest-gold)', fontSize: '1.8rem', marginBottom: '1.2rem' }}>✦</div>
-              <h3 style={{color: 'var(--wine)', marginBottom: '0.8rem',}}>Thank You</h3>
-              <p style={{ fontSize: '0.92rem', opacity: 0.85, lineHeight: 1.6, maxWidth: '400px', margin: '0 auto' }}>
-                Your inquiry has been received. Our event coordinator and medical officers will connect with you within 24 hours to schedule a consultation call.
-              </p>
-              <button
-                onClick={() => { setFormSubmitted(false); setFormStep(1); }}
-                className="btn-luxury"
-                style={{ padding: '0.8rem 2.2rem', fontSize: '0.78rem', marginTop: '2rem' }}
-              >
-                Submit Another Inquiry
-              </button>
-            </motion.div>
-          ) : (
-            <div className="inquiry-card-wrapper" style={{ backgroundColor: '#ffffff', borderRadius: '16px', padding: '3rem 2.5rem', border: '1px solid rgba(94,39,53,0.06)', boxShadow: '0 15px 35px rgba(94,39,53,0.02)' }}>
-
-              {/* Stepper Progress Bar */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2.5rem', position: 'relative' }}>
-                <div style={{ position: 'absolute', top: '15px', left: 0, right: 0, height: '2px', backgroundColor: 'rgba(94,39,53,0.06)', zIndex: 0 }} />
-                <div style={{ position: 'absolute', top: '15px', left: 0, width: `${(formStep - 1) * 50}%`, height: '2px', backgroundColor: 'var(--redwood)', zIndex: 0, transition: 'width 0.4s' }} />
-                {[
-                  { num: 1, label: 'Occasion' },
-                  { num: 2, label: 'Custom Details' },
-                  { num: 3, label: 'Contact' }
-                ].map((step) => (
-                  <div key={step.num} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.4rem', zIndex: 1 }}>
-                    <div style={{
-                      width: '32px', height: '32px', borderRadius: '50%',
-                      backgroundColor: formStep >= step.num ? 'var(--redwood)' : '#ffffff',
-                      color: formStep >= step.num ? '#ffffff' : 'var(--wine)',
-                      border: '2px solid', borderColor: formStep >= step.num ? 'var(--redwood)' : 'rgba(94,39,53,0.15)',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontWeight: 700, fontSize: '0.85rem', transition: 'all 0.3s'
-                    }}>
-                      {step.num}
-                    </div>
-                    <span style={{ fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: formStep >= step.num ? 'var(--wine)' : 'rgba(0,0,0,0.4)', textAlign: 'center' }}>{step.label}</span>
+          {/* Form Layout with Sliding Stepper Panels */}
+          <form onSubmit={handleSubmit} className="luxury-form" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <AnimatePresence mode="wait">
+              {formStep === 1 && (
+                <motion.div
+                  key="step1"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 10 }}
+                  transition={{ duration: 0.3 }}
+                  style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}
+                >
+                  <div className="form-group">
+                    <label htmlFor="type">Occasion Type</label>
+                    <select id="type" name="type" value={formData.type} onChange={handleInputChange}>
+                      <option value="corporate">Corporate Retreat</option>
+                      <option value="hindu-ceremony">Hindu Ceremony (Shastipurti, etc.)</option>
+                      <option value="family-celebration">Family Gathering</option>
+                      <option value="anniversary">Couple Anniversary</option>
+                      <option value="wedding">Pre-Wedding / Haldi</option>
+                    </select>
                   </div>
-                ))}
-              </div>
 
-              {/* Form Layout with Sliding Stepper Panels */}
-              <form onSubmit={handleSubmit} className="luxury-form" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                <AnimatePresence mode="wait">
-                  {formStep === 1 && (
-                    <motion.div
-                      key="step1"
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: 10 }}
-                      transition={{ duration: 0.3 }}
-                      style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}
-                    >
-                      <div className="form-group">
-                        <label htmlFor="type">Occasion Type</label>
-                        <select id="type" name="type" value={formData.type} onChange={handleInputChange}>
-                          <option value="corporate">Corporate Retreat</option>
-                          <option value="hindu-ceremony">Hindu Ceremony (Shastipurti, etc.)</option>
-                          <option value="family-celebration">Family Gathering</option>
-                          <option value="anniversary">Couple Anniversary</option>
-                          <option value="wedding">Pre-Wedding / Haldi</option>
-                        </select>
-                      </div>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem' }}>
+                    <div className="form-group">
+                      <label htmlFor="guests">Number of Guests</label>
+                      <input type="number" id="guests" name="guests" required value={formData.guests} onChange={handleInputChange} placeholder="e.g. 25" />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="date">Preferred Date(s)</label>
+                      <input type="date" id="date" name="date" required value={formData.date} onChange={handleInputChange} />
+                    </div>
+                  </div>
+                </motion.div>
+              )}
 
-                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem' }}>
-                        <div className="form-group">
-                          <label htmlFor="guests">Number of Guests</label>
-                          <input type="number" id="guests" name="guests" required value={formData.guests} onChange={handleInputChange} placeholder="e.g. 25" />
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="date">Preferred Date(s)</label>
-                          <input type="date" id="date" name="date" required value={formData.date} onChange={handleInputChange} />
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
+              {formStep === 2 && (
+                <motion.div
+                  key="step2"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 10 }}
+                  transition={{ duration: 0.3 }}
+                  style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}
+                >
+                  <div className="form-group">
+                    <label htmlFor="name">Your Name</label>
+                    <input type="text" id="name" name="name" required value={formData.name} onChange={handleInputChange} placeholder="e.g. Sunil Kumar" />
+                  </div>
 
-                  {formStep === 2 && (
-                    <motion.div
-                      key="step2"
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: 10 }}
-                      transition={{ duration: 0.3 }}
-                      style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}
-                    >
-                      <div className="form-group">
-                        <label htmlFor="name">Your Name</label>
-                        <input type="text" id="name" name="name" required value={formData.name} onChange={handleInputChange} placeholder="e.g. Sunil Kumar" />
-                      </div>
+                  <div className="form-group">
+                    <label htmlFor="message">Requirements / Message</label>
+                    <textarea id="message" name="message" rows="5" required value={formData.message} onChange={handleInputChange} placeholder="Please detail any specific dietary needs, traditional rituals, or corporate workshop objectives..."></textarea>
+                  </div>
+                </motion.div>
+              )}
 
-                      <div className="form-group">
-                        <label htmlFor="message">Requirements / Message</label>
-                        <textarea id="message" name="message" rows="5" required value={formData.message} onChange={handleInputChange} placeholder="Please detail any specific dietary needs, traditional rituals, or corporate workshop objectives..."></textarea>
-                      </div>
-                    </motion.div>
-                  )}
+              {formStep === 3 && (
+                <motion.div
+                  key="step3"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 10 }}
+                  transition={{ duration: 0.3 }}
+                  style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}
+                >
+                  <div className="form-group">
+                    <label htmlFor="email">Email Address</label>
+                    <input type="email" id="email" name="email" required value={formData.email} onChange={handleInputChange} placeholder="e.g. sunil@example.com" />
+                  </div>
 
-                  {formStep === 3 && (
-                    <motion.div
-                      key="step3"
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: 10 }}
-                      transition={{ duration: 0.3 }}
-                      style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}
-                    >
-                      <div className="form-group">
-                        <label htmlFor="email">Email Address</label>
-                        <input type="email" id="email" name="email" required value={formData.email} onChange={handleInputChange} placeholder="e.g. sunil@example.com" />
-                      </div>
+                  <div className="form-group">
+                    <label htmlFor="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required value={formData.phone} onChange={handleInputChange} placeholder="e.g. +91 98765 43210" />
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
-                      <div className="form-group">
-                        <label htmlFor="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" required value={formData.phone} onChange={handleInputChange} placeholder="e.g. +91 98765 43210" />
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+            {/* Navigation Buttons */}
+            <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem', borderTop: '1px solid rgba(0,0,0,0.06)', paddingTop: '1.5rem' }}>
+              {formStep > 1 && (
+                <button
+                  type="button"
+                  onClick={handlePrevStep}
+                  style={{
+                    padding: '0.8rem 1.8rem', background: 'none', border: '1.5px solid rgba(94,39,53,0.2)',
+                    color: 'var(--wine)', borderRadius: '4px', cursor: 'pointer', fontWeight: 600, fontSize: '0.78rem',
+                    textTransform: 'uppercase', letterSpacing: '0.08em', transition: 'all 0.2s'
+                  }}
+                  onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(94,39,53,0.04)'}
+                  onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+                >
+                  Back
+                </button>
+              )}
 
-                {/* Navigation Buttons */}
-                <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem', borderTop: '1px solid rgba(0,0,0,0.06)', paddingTop: '1.5rem' }}>
-                  {formStep > 1 && (
-                    <button
-                      type="button"
-                      onClick={handlePrevStep}
-                      style={{
-                        padding: '0.8rem 1.8rem', background: 'none', border: '1.5px solid rgba(94,39,53,0.2)',
-                        color: 'var(--wine)', borderRadius: '4px', cursor: 'pointer', fontWeight: 600, fontSize: '0.78rem',
-                        textTransform: 'uppercase', letterSpacing: '0.08em', transition: 'all 0.2s'
-                      }}
-                      onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(94,39,53,0.04)'}
-                      onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
-                    >
-                      Back
-                    </button>
-                  )}
-
-                  {formStep < 3 ? (
-                    <button
-                      type="button"
-                      onClick={handleNextStep}
-                      className="btn-luxury"
-                      style={{ padding: '0.8rem 2.2rem', marginLeft: 'auto', fontSize: '0.78rem' }}
-                    >
-                      Continue
-                    </button>
-                  ) : (
-                    <button
-                      type="submit"
-                      className="btn-luxury"
-                      style={{ padding: '0.9rem 2.5rem', width: '100%', fontSize: '0.82rem' }}
-                    >
-                      Submit Inquiry
-                    </button>
-                  )}
-                </div>
-              </form>
-
+              {formStep < 3 ? (
+                <button
+                  type="button"
+                  onClick={handleNextStep}
+                  className="btn-luxury"
+                  style={{ padding: '0.8rem 2.2rem', marginLeft: 'auto', fontSize: '0.78rem' }}
+                >
+                  Continue
+                </button>
+              ) : (
+                <button
+                  type="submit"
+                  className="btn-luxury"
+                  style={{ padding: '0.9rem 2.5rem', width: '100%', fontSize: '0.82rem' }}
+                >
+                  Submit Inquiry
+                </button>
+              )}
             </div>
-          )}
+          </form>
+
         </div>
-      </section>
+      )}
+    </div>
+      </section >
 
-      {/* Let's Craft Your Wellness-Themed Occasion Banner */}
-      <section style={{
-        padding: '6rem 10%',
-        backgroundColor: 'var(--wine)',
-        color: 'var(--isabelline)',
+  {/* Let's Craft Your Wellness-Themed Occasion Banner */ }
+  < section style = {{
+  padding: '6rem 10%',
+    backgroundColor: 'var(--wine)',
+      color: 'var(--isabelline)',
         textAlign: 'center',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        {/* Glow backdrop */}
-        <div style={{ position: 'absolute', top: '-20%', left: '30%', maxWidth: '600px', width: '100%', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.08) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(70px)', zIndex: 0 }} />
+          position: 'relative',
+            overflow: 'hidden'
+}}>
+  {/* Glow backdrop */ }
+  < div style = {{ position: 'absolute', top: '-20%', left: '30%', maxWidth: '600px', width: '100%', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.08) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(70px)', zIndex: 0 }} />
 
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center' }}>
+    < div style = {{ position: 'relative', zIndex: 1, maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center' }}>
           <h2 style={{color: 'var(--tan)', margin: 0}}>
             Let's Craft Your Wellness-Themed Occasion
           </h2>
@@ -2802,9 +2453,635 @@ export default function Occasions({ onNavigate }) {
               Download Event Brochure
             </a>
           </div>
-        </div>
-      </section>
+        </div >
+      </section >
 
-    </div>
+        {/* Full Dedicated Space Detail Page View (Dedicated Full Screen Page at Root Level) */}
+        <AnimatePresence>
+          {activeSpaceModal && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              style={{
+                backgroundColor: 'rgba(20, 16, 18, 0.85)',
+                backdropFilter: 'blur(8px)',
+                position: 'fixed',
+                top: 0,
+                bottom: 0,
+                left: 0,
+                right: 0,
+                zIndex: 999999,
+                display: 'flex',
+                alignItems: isMobile ? 'flex-start' : 'center',
+                justifyContent: 'center',
+                paddingTop: isMobile ? 'max(2.5rem, env(safe-area-inset-top))' : '1.5rem',
+                paddingBottom: isMobile ? '0.5rem' : '1.5rem',
+                paddingLeft: isMobile ? '0.5rem' : '1.5rem',
+                paddingRight: isMobile ? '0.5rem' : '1.5rem',
+                overflowX: 'hidden',
+                boxSizing: 'border-box'
+              }}
+              onClick={() => setActiveSpaceModal(null)}
+            >
+              <motion.div
+                data-lenis-prevent="true"
+                initial={{ opacity: 0, scale: 0.95, y: 30 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                transition={{ duration: 0.4 }}
+                onClick={(e) => e.stopPropagation()}
+                style={{
+                  backgroundColor: 'var(--isabelline)',
+                  width: '100%',
+                  maxWidth: '1200px',
+                  height: isMobile ? '100%' : '92vh',
+                  borderRadius: isMobile ? '16px' : '24px',
+                  overflowY: 'auto',
+                  overflowX: 'hidden',
+                  overscrollBehavior: 'contain',
+                  position: 'relative',
+                  boxShadow: '0 25px 60px rgba(0,0,0,0.4)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  boxSizing: 'border-box'
+                }}
+              >
+                {/* Sticky Top Navigation Bar */}
+                <div style={{
+                  position: 'sticky',
+                  top: 0,
+                  backgroundColor: 'rgba(25, 23, 24, 0.96)',
+                  backdropFilter: 'blur(12px)',
+                  padding: isMobile ? '0.8rem 1rem' : '1.2rem 8%',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  zIndex: 40,
+                  width: '100%',
+                  boxSizing: 'border-box',
+                  borderBottom: '1px solid rgba(220, 160, 50, 0.25)'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                    <button
+                      onClick={() => {
+                        setActiveSpaceModal(null);
+                        const spacesSection = document.getElementById('sanctuary-spaces-section');
+                        if (spacesSection) spacesSection.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      style={{
+                        backgroundColor: 'rgba(220, 160, 50, 0.15)',
+                        border: '1px solid var(--harvest-gold)',
+                        color: 'var(--harvest-gold)',
+                        padding: isMobile ? '0.4rem 0.8rem' : '0.5rem 1.2rem',
+                        borderRadius: '25px',
+                        fontSize: isMobile ? '0.74rem' : '0.82rem',
+                        fontWeight: 700,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.1em',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.4rem',
+                        transition: 'all 0.2s'
+                      }}
+                    >
+                      &larr; {isMobile ? 'Back' : 'Back to All Spaces'}
+                    </button>
+                    {!isMobile && (
+                      <>
+                        <span style={{ color: 'rgba(255,255,255,0.3)' }}>|</span>
+                        <span style={{ color: 'var(--isabelline)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.1em', opacity: 0.85, fontWeight: 500 }}>
+                          {activeSpaceModal.name}
+                        </span>
+                      </>
+                    )}
+                  </div>
+
+                  <button
+                    onClick={() => {
+                      setActiveSpaceModal(null);
+                      const spacesSection = document.getElementById('sanctuary-spaces-section');
+                      if (spacesSection) spacesSection.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    style={{
+                      backgroundColor: 'rgba(220, 160, 50, 0.15)',
+                      color: 'var(--harvest-gold)',
+                      border: '1px solid var(--harvest-gold)',
+                      padding: isMobile ? '0.4rem 0.8rem' : '0.4rem 1rem',
+                      borderRadius: '20px',
+                      fontSize: isMobile ? '0.74rem' : '0.8rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.4rem',
+                      transition: 'all 0.2s'
+                    }}
+                  >
+                    {isMobile ? 'Close' : 'Close View'} &times;
+                  </button>
+                </div>
+
+                {/* Space Hero Banner Section */}
+                <div style={{ height: isMobile ? '230px' : '480px', width: '100%', position: 'relative', overflow: 'hidden' }}>
+                  <img
+                    src={activeSpaceModal.img}
+                    alt={activeSpaceModal.name}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(25, 23, 24, 0.95) 0%, rgba(25, 23, 24, 0.3) 65%, transparent 100%)' }} />
+                  <Pattern24 style={{ position: 'absolute', top: '10%', right: '-40px', maxWidth: '360px', width: '100%', height: 'auto', opacity: 0.15, color: 'var(--harvest-gold)', pointerEvents: 'none' }} />
+
+                  <div style={{ position: 'absolute', bottom: isMobile ? '1.5rem' : '3rem', left: '8%', right: '8%', maxWidth: '1240px', margin: '0 auto' }}>
+                    <span style={{
+                      backgroundColor: 'var(--harvest-gold)',
+                      color: 'var(--wine)',
+                      padding: '0.45rem 1.2rem',
+                      borderRadius: '20px',
+                      fontSize: '0.75rem',
+                      fontWeight: 800,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.14em',
+                      display: 'inline-block',
+                      marginBottom: '0.8rem'
+                    }}>
+                      {activeSpaceModal.role}
+                    </span>
+                    <h1 style={{color: '#ffffff', margin: 0, lineHeight: 1.1, fontSize: isMobile ? '1.8rem' : '2.5rem'}}>
+                      {activeSpaceModal.name}
+                    </h1>
+                    {!isMobile && activeSpaceModal.tagline && (
+                      <p style={{ color: 'var(--tan)', fontSize: '1.35rem', margin: '0.6rem 0 0 0', fontStyle: 'italic' }}>
+                        {activeSpaceModal.tagline}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Main Content Layout — Photo Gallery & Specs */}
+                <div className="flex-stack-mobile" style={{
+                  padding: isMobile ? '1.5rem 1rem' : '4rem 8%',
+                  maxWidth: '1280px',
+                  width: '100%',
+                  boxSizing: 'border-box',
+                  margin: '0 auto',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: isMobile ? '1.5rem' : '3.5rem',
+                  color: 'var(--raisin-black)',
+                  overflowX: 'hidden'
+                }}>
+                  
+                  {/* Space Photo Gallery Showcase Section */}
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem' }}>
+                      <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: isMobile ? '0.74rem' : '0.8rem', fontWeight: 800 }}>
+                        Sanctuary Photography &amp; Views
+                      </span>
+                      <span style={{ fontSize: '0.85rem', color: 'var(--wine)', opacity: 0.75, fontWeight: 600 }}>
+                        4 Gallery Shots
+                      </span>
+                    </div>
+
+                    <style dangerouslySetInnerHTML={{__html: `
+                      .spaces-photo-gallery {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                        gap: 1.5rem;
+                        width: 100%;
+                      }
+                      @media (max-width: 768px) {
+                        .spaces-photo-gallery {
+                          display: flex !important;
+                          flex-direction: row !important;
+                          overflow-x: auto !important;
+                          scroll-snap-type: x mandatory !important;
+                          gap: 1rem !important;
+                          padding: 0.5rem 1rem 1.2rem 1rem !important;
+                          scrollbar-width: none !important;
+                          -ms-overflow-style: none !important;
+                          -webkit-overflow-scrolling: touch !important;
+                          width: 100% !important;
+                          box-sizing: border-box !important;
+                        }
+                        .spaces-photo-gallery::-webkit-scrollbar {
+                          display: none !important;
+                        }
+                        .spaces-photo-card {
+                          flex: 0 0 270px !important;
+                          scroll-snap-align: center !important;
+                          height: 180px !important;
+                        }
+                      }
+                    `}} />
+
+                    <div className="spaces-photo-gallery">
+                      {(activeSpaceModal.galleryImages || [activeSpaceModal.img]).map((gImg, gIdx) => (
+                        <motion.div
+                          key={gIdx}
+                          className="spaces-photo-card"
+                          whileHover={isMobile ? {} : { scale: 1.03, y: -4 }}
+                          transition={{ duration: 0.3 }}
+                          style={{
+                            height: '210px',
+                            borderRadius: '16px',
+                            overflow: 'hidden',
+                            boxShadow: '0 10px 28px rgba(0,0,0,0.12)',
+                            border: '1px solid rgba(94, 39, 53, 0.12)',
+                            position: 'relative'
+                          }}
+                        >
+                          <img
+                            src={gImg}
+                            alt={`${activeSpaceModal.name} view ${gIdx + 1}`}
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                          />
+                          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 60%)' }} />
+                          <span style={{ position: 'absolute', bottom: '0.9rem', left: '1.2rem', color: '#ffffff', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.05em' }}>
+                            View 0{gIdx + 1}
+                          </span>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Information Layout - Conditional Mobile Carousel vs Desktop 2-Column Grid */}
+                  {isMobile ? (
+                    /* Mobile: Horizontal Carousel of Details Cards */
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: '100%' }}>
+                      
+                      <style dangerouslySetInnerHTML={{__html: `
+                        .spaces-details-carousel {
+                          display: flex !important;
+                          flex-direction: row !important;
+                          overflow-x: auto !important;
+                          scroll-snap-type: x mandatory !important;
+                          gap: 1rem !important;
+                          padding: 0.5rem 0 1.5rem 0 !important;
+                          scrollbar-width: none !important;
+                          -ms-overflow-style: none !important;
+                          -webkit-overflow-scrolling: touch !important;
+                          width: 100% !important;
+                        }
+                        .spaces-details-carousel::-webkit-scrollbar {
+                          display: none !important;
+                        }
+                        .spaces-detail-card-item {
+                          flex: 0 0 290px !important;
+                          scroll-snap-align: center !important;
+                          box-sizing: border-box !important;
+                          min-height: 360px !important;
+                          display: flex !important;
+                          flex-direction: column !important;
+                        }
+                      `}} />
+
+                      <div className="spaces-details-carousel">
+                        {/* 1. Overview */}
+                        <div className="spaces-detail-card-item" style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '2rem 1.6rem', border: '1px solid rgba(94, 39, 53, 0.08)', boxShadow: '0 8px 25px rgba(94, 39, 53, 0.03)' }}>
+                          <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.18em', fontSize: '0.72rem', fontWeight: 800, display: 'block', marginBottom: '0.8rem' }}>
+                            SANCTUARY OVERVIEW
+                          </span>
+                          <p style={{ fontSize: '0.94rem', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.65, margin: 0, fontWeight: 400, overflowY: 'auto' }}>
+                            {activeSpaceModal.fullDesc || activeSpaceModal.desc}
+                          </p>
+                        </div>
+
+                        {/* 2. Features */}
+                        {activeSpaceModal.features && (
+                          <div className="spaces-detail-card-item" style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '2rem 1.6rem', border: '1px solid rgba(94, 39, 53, 0.08)', boxShadow: '0 8px 25px rgba(94, 39, 53, 0.03)' }}>
+                            <h4 style={{color: 'var(--wine)', marginTop: 0, marginBottom: '1.2rem', fontSize: '1.05rem'}}>
+                              Purpose-Built Features
+                            </h4>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', overflowY: 'auto' }}>
+                              {activeSpaceModal.features.map((feat, fIdx) => (
+                                <div key={fIdx} style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '0.88rem', color: 'var(--raisin-black)', opacity: 0.9 }}>
+                                  <span style={{ width: '22px', height: '22px', borderRadius: '50%', backgroundColor: 'var(--wine)', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><Check size={10} /></span>
+                                  <span style={{ lineHeight: 1.4 }}>{feat}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* 3. Sustainable Design */}
+                        {activeSpaceModal.sustainable && (
+                          <div className="spaces-detail-card-item" style={{ backgroundColor: '#ffffff', padding: '2rem 1.6rem', borderRadius: '20px', border: '1px solid rgba(94,39,53,0.1)', boxShadow: '0 8px 25px rgba(94, 39, 53, 0.03)' }}>
+                            <span style={{ color: 'var(--redwood)', fontSize: '0.72rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', display: 'block', marginBottom: '0.8rem' }}>
+                              Sustainable, Natural, Considered
+                            </span>
+                            <p style={{ fontSize: '0.92rem', lineHeight: 1.65, margin: 0, opacity: 0.88, fontWeight: 400, overflowY: 'auto' }}>
+                              {activeSpaceModal.sustainable}
+                            </p>
+                          </div>
+                        )}
+
+                        {/* 4. Textures & Ambience */}
+                        {activeSpaceModal.texturesAmbience && (
+                          <div className="spaces-detail-card-item" style={{ backgroundColor: 'var(--wine)', color: 'var(--isabelline)', padding: '2rem 1.6rem', borderRadius: '20px', position: 'relative', overflow: 'hidden' }}>
+                            <Pattern25 style={{ position: 'absolute', right: '-30px', bottom: '-30px', width: '180px', opacity: 0.12, color: 'var(--harvest-gold)', pointerEvents: 'none' }} />
+                            <span style={{ color: 'var(--harvest-gold)', fontSize: '0.72rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', display: 'block', marginBottom: '0.8rem' }}>
+                              Textures &amp; Ambience
+                            </span>
+                            <p style={{ fontSize: '0.92rem', lineHeight: 1.65, margin: 0, opacity: 0.92, fontWeight: 400, overflowY: 'auto' }}>
+                              {activeSpaceModal.texturesAmbience}
+                            </p>
+                          </div>
+                        )}
+
+                        {/* 5. Specifications */}
+                        <div className="spaces-detail-card-item" style={{
+                          backgroundColor: 'var(--antique-white)',
+                          padding: '2rem 1.6rem',
+                          borderRadius: '20px',
+                          border: '1.5px solid rgba(220, 160, 50, 0.4)',
+                          boxShadow: '0 10px 30px rgba(94, 39, 53, 0.05)',
+                          justifyContent: 'space-between'
+                        }}>
+                          <h4 style={{color: 'var(--wine)', margin: 0, borderBottom: '1px solid rgba(94,39,53,0.15)', paddingBottom: '0.6rem', fontSize: '1.05rem'}}>
+                            Specifications
+                          </h4>
+
+                          <div>
+                            <span style={{ fontSize: '0.72rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '0.2rem' }}>
+                              Guest Capacity
+                            </span>
+                            <strong style={{ fontSize: '1.15rem', color: 'var(--wine)', }}>
+                              {activeSpaceModal.capacity}
+                            </strong>
+                          </div>
+
+                          <div>
+                            <span style={{ fontSize: '0.72rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '0.2rem' }}>
+                              Architectural Setting
+                            </span>
+                            <strong style={{ fontSize: '1.1rem', color: 'var(--wine)', }}>
+                              {activeSpaceModal.setting}
+                            </strong>
+                          </div>
+
+                          <div>
+                            <span style={{ fontSize: '0.72rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '0.2rem' }}>
+                              Estate Location
+                            </span>
+                            <strong style={{ fontSize: '1.1rem', color: 'var(--wine)', }}>
+                              Suprada Forest Estate
+                            </strong>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Action CTAs (positioned below carousel on mobile, fully aligned) */}
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', width: '100%', maxWidth: '340px', margin: '1rem auto 0 auto' }}>
+                        <button
+                          onClick={() => {
+                            setActiveSpaceModal(null);
+                            const inquiryForm = document.getElementById('inquiry-form');
+                            if (inquiryForm) {
+                              inquiryForm.scrollIntoView({ behavior: 'smooth' });
+                            }
+                          }}
+                          className="btn-luxury"
+                          style={{ width: '100%', padding: '0.95rem 2rem', fontSize: '0.86rem', textAlign: 'center', justifyContent: 'center' }}
+                        >
+                          Inquire About Space &rarr;
+                        </button>
+
+                        <button
+                          onClick={() => {
+                            setActiveSpaceModal(null);
+                            if (onNavigate) {
+                              onNavigate('programmes');
+                            } else {
+                              window.location.href = '/programmes';
+                            }
+                          }}
+                          style={{
+                            width: '100%',
+                            padding: '0.9rem 2rem',
+                            borderRadius: '30px',
+                            backgroundColor: 'var(--wine)',
+                            color: 'var(--isabelline)',
+                            border: 'none',
+                            fontWeight: 600,
+                            fontSize: '0.82rem',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.08em',
+                            cursor: 'pointer',
+                            textAlign: 'center'
+                          }}
+                        >
+                          Explore Programmes
+                        </button>
+
+                        <button
+                          onClick={() => {
+                            setActiveSpaceModal(null);
+                            const spacesSection = document.getElementById('sanctuary-spaces-section');
+                            if (spacesSection) spacesSection.scrollIntoView({ behavior: 'smooth' });
+                          }}
+                          style={{
+                            width: '100%',
+                            padding: '0.85rem 2rem',
+                            borderRadius: '30px',
+                            backgroundColor: 'transparent',
+                            color: 'var(--wine)',
+                            border: '1.5px solid var(--wine)',
+                            fontWeight: 600,
+                            fontSize: '0.82rem',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.08em',
+                            cursor: 'pointer',
+                            textAlign: 'center'
+                          }}
+                        >
+                          &larr; Return to Spaces
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    /* Desktop/Tablet: 2-Column Responsive Information Layout */
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'start' }}>
+                      
+                      {/* Left Main Column: Narrative & Features */}
+                      <div className="flex-stack-mobile" style={{ display: 'flex', flexDirection: 'column', gap: '2.2rem' }}>
+                        
+                        {/* Overview Narrative */}
+                        <div style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '2.5rem', border: '1px solid rgba(94, 39, 53, 0.08)', boxShadow: '0 8px 25px rgba(94, 39, 53, 0.03)' }}>
+                          <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.18em', fontSize: '0.75rem', fontWeight: 800, display: 'block', marginBottom: '0.8rem' }}>
+                            SANCTUARY OVERVIEW
+                          </span>
+                          <p style={{ fontSize: '1.1rem', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.85, margin: 0, fontWeight: 300 }}>
+                            {activeSpaceModal.fullDesc || activeSpaceModal.desc}
+                          </p>
+                        </div>
+
+                        {/* Purpose-Built Features */}
+                        {activeSpaceModal.features && (
+                          <div style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '2.5rem', border: '1px solid rgba(94, 39, 53, 0.08)', boxShadow: '0 8px 25px rgba(94, 39, 53, 0.03)' }}>
+                            <h3 style={{color: 'var(--wine)', marginTop: 0, marginBottom: '1.4rem',}}>
+                              Purpose-Built Features
+                            </h3>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.2rem' }}>
+                              {activeSpaceModal.features.map((feat, fIdx) => (
+                                <div key={fIdx} style={{ display: 'flex', alignItems: 'center', gap: '0.9rem', fontSize: '0.98rem', color: 'var(--raisin-black)', opacity: 0.9 }}>
+                                  <span style={{ width: '24px', height: '24px', borderRadius: '50%', backgroundColor: 'var(--wine)', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><Check size={12} /></span>
+                                  <span style={{ lineHeight: 1.4 }}>{feat}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Textures & Ambience Box */}
+                        {activeSpaceModal.texturesAmbience && (
+                          <div style={{ backgroundColor: 'var(--wine)', color: 'var(--isabelline)', padding: '2.5rem', borderRadius: '20px', position: 'relative', overflow: 'hidden' }}>
+                            <Pattern25 style={{ position: 'absolute', right: '-30px', bottom: '-30px', width: '220px', opacity: 0.12, color: 'var(--harvest-gold)', pointerEvents: 'none' }} />
+                            <span style={{ color: 'var(--harvest-gold)', fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', display: 'block', marginBottom: '0.6rem' }}>
+                              Textures &amp; Ambience
+                            </span>
+                            <p style={{ fontSize: '1rem', lineHeight: 1.75, margin: 0, opacity: 0.92, fontWeight: 300 }}>
+                              {activeSpaceModal.texturesAmbience}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Right Specs Column: Sustainability & Capacity Box */}
+                      <div className="flex-stack-mobile" style={{ display: 'flex', flexDirection: 'column', gap: '2.2rem' }}>
+                        
+                        {/* Sustainable Design */}
+                        {activeSpaceModal.sustainable && (
+                          <div style={{ backgroundColor: '#ffffff', padding: '2.5rem', borderRadius: '20px', border: '1px solid rgba(94,39,53,0.1)', boxShadow: '0 8px 25px rgba(94, 39, 53, 0.03)' }}>
+                            <span style={{ color: 'var(--redwood)', fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', display: 'block', marginBottom: '0.6rem' }}>
+                              Sustainable, Natural, Considered
+                            </span>
+                            <p style={{ fontSize: '1rem', lineHeight: 1.75, margin: 0, opacity: 0.88, fontWeight: 300 }}>
+                              {activeSpaceModal.sustainable}
+                            </p>
+                          </div>
+                        )}
+
+                        {/* Specifications Summary Card */}
+                        <div style={{
+                          backgroundColor: 'var(--antique-white)',
+                          padding: '2.5rem',
+                          borderRadius: '20px',
+                          border: '1.5px solid rgba(220, 160, 50, 0.4)',
+                          boxShadow: '0 10px 30px rgba(94, 39, 53, 0.05)',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          gap: '1.5rem'
+                        }}>
+                          <h4 style={{color: 'var(--wine)', margin: 0, borderBottom: '1px solid rgba(94,39,53,0.15)', paddingBottom: '0.8rem'}}>
+                            Sanctuary Specifications
+                          </h4>
+
+                          <div>
+                            <span style={{ fontSize: '0.75rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '0.3rem' }}>
+                              Guest Capacity
+                            </span>
+                            <strong style={{ fontSize: '1.3rem', color: 'var(--wine)', }}>
+                              {activeSpaceModal.capacity}
+                            </strong>
+                          </div>
+
+                          <div>
+                            <span style={{ fontSize: '0.75rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '0.3rem' }}>
+                              Architectural Setting
+                            </span>
+                            <strong style={{ fontSize: '1.2rem', color: 'var(--wine)', }}>
+                              {activeSpaceModal.setting}
+                            </strong>
+                          </div>
+
+                          <div>
+                            <span style={{ fontSize: '0.75rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '0.3rem' }}>
+                              Estate Location
+                            </span>
+                            <strong style={{ fontSize: '1.2rem', color: 'var(--wine)', }}>
+                              Suprada 10-Acres Forest Estate
+                            </strong>
+                          </div>
+                        </div>
+
+                        {/* Action CTAs */}
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                          <button
+                            onClick={() => {
+                              setActiveSpaceModal(null);
+                              const inquiryForm = document.getElementById('inquiry-form');
+                              if (inquiryForm) {
+                                inquiryForm.scrollIntoView({ behavior: 'smooth' });
+                              }
+                            }}
+                            className="btn-luxury"
+                            style={{ width: '100%', padding: '1rem 2rem', fontSize: '0.85rem', textAlign: 'center', justifyContent: 'center' }}
+                          >
+                            Inquire About Space &rarr;
+                          </button>
+
+                          <button
+                            onClick={() => {
+                              setActiveSpaceModal(null);
+                              if (onNavigate) {
+                                onNavigate('programmes');
+                              } else {
+                                window.location.href = '/programmes';
+                              }
+                            }}
+                            style={{
+                              width: '100%',
+                              padding: '0.95rem 2rem',
+                              borderRadius: '30px',
+                              backgroundColor: 'var(--wine)',
+                              color: 'var(--isabelline)',
+                              border: 'none',
+                              fontWeight: 600,
+                              fontSize: '0.82rem',
+                              textTransform: 'uppercase',
+                              letterSpacing: '0.08em',
+                              cursor: 'pointer',
+                              textAlign: 'center'
+                            }}
+                          >
+                            Explore Programmes
+                          </button>
+
+                          <button
+                            onClick={() => {
+                              setActiveSpaceModal(null);
+                              const spacesSection = document.getElementById('sanctuary-spaces-section');
+                              if (spacesSection) spacesSection.scrollIntoView({ behavior: 'smooth' });
+                            }}
+                            style={{
+                              width: '100%',
+                              padding: '0.85rem 2rem',
+                              borderRadius: '30px',
+                              backgroundColor: 'transparent',
+                              color: 'var(--wine)',
+                              border: '1.5px solid var(--wine)',
+                              fontWeight: 600,
+                              fontSize: '0.82rem',
+                              textTransform: 'uppercase',
+                              letterSpacing: '0.08em',
+                              cursor: 'pointer',
+                              textAlign: 'center'
+                            }}
+                          >
+                            &larr; Return to All Spaces
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+     </div >
   );
 }

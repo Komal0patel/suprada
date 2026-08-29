@@ -36,6 +36,14 @@ function App() {
   }, [location.pathname]);
   // ──────────────────────────────────────────────────────────────────────────
 
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
@@ -182,7 +190,7 @@ function App() {
                 className={`top-left-logo-pill ${isHeroLogo ? 'hero-centered-logo' : ''}`}
                 style={{ 
                   position: 'fixed', 
-                  top: '15px', 
+                  top: isMobile ? 'max(20px, env(safe-area-inset-top))' : '15px', 
                   left: isHeroLogo ? '50%' : '25px', 
                   transform: isHeroLogo ? 'translateX(-50%)' : 'none',
                   zIndex: 999999, 
@@ -225,7 +233,7 @@ function App() {
           {/* Top Right Floating Staggered 3-Line Hamburger & Expandable Pill */}
           <div style={{
             position: 'fixed',
-            top: '15px',
+            top: isMobile ? 'max(20px, env(safe-area-inset-top))' : '15px',
             right: '25px',
             zIndex: 999999,
             display: 'flex',

@@ -481,7 +481,7 @@ export default function Stay({ onNavigate }) {
 
   // Mobile Responsiveness States
   const [isMobile, setIsMobile] = useState(false);
-  const [mobileCottageLimit, setMobileCottageLimit] = useState(4);
+  const [mobileCottageLimit, setMobileCottageLimit] = useState(3);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
@@ -663,7 +663,7 @@ export default function Stay({ onNavigate }) {
 
             {/* Thoughtful Words & Reflections */}
             <p style={{
-              fontSize: '1.28rem',
+              fontSize: isMobile ? '1.02rem' : '1.28rem',
               opacity: 0.9,
               lineHeight: 1.85,
               fontWeight: 300,
@@ -675,7 +675,7 @@ export default function Stay({ onNavigate }) {
             </p>
 
             <p style={{
-              fontSize: '1.12rem',
+              fontSize: isMobile ? '0.96rem' : '1.12rem',
               color: 'var(--redwood)',
               fontStyle: 'italic',
               marginBottom: '2.8rem',
@@ -748,7 +748,7 @@ export default function Stay({ onNavigate }) {
           </div>
 
           {/* Campus Filter Pills */}
-          <div style={{ position: 'relative', display: 'flex', gap: '0.8rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
+          <div className="campus-filter-container">
             {/* Filter pills watermark */}
             <DecorativeSVG src="/assets/logo-mandala.svg" style={{ position: 'absolute', top: '-20px', left: '50%', transform: 'translateX(-50%)', width: '250px', opacity: 0.08, pointerEvents: 'none', zIndex: -1 }} />
             {campusZones.map((z) => (
@@ -965,7 +965,7 @@ export default function Stay({ onNavigate }) {
                       </div>
 
                       {/* Hotspots */}
-                      {cottage.hotspots.map((hs, hsi) => (
+                      {!isMobile && cottage.hotspots.map((hs, hsi) => (
                         <div
                           key={hsi}
                           onClick={(e) => {
@@ -1134,10 +1134,10 @@ export default function Stay({ onNavigate }) {
                 </button>
               </div>
             )}
-            {isMobile && mobileCottageLimit >= filteredBlocks.length && filteredBlocks.length > 4 && (
+            {isMobile && mobileCottageLimit >= filteredBlocks.length && filteredBlocks.length > 3 && (
               <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
                 <button
-                  onClick={() => setMobileCottageLimit(4)}
+                  onClick={() => setMobileCottageLimit(3)}
                   style={{
                     backgroundColor: 'transparent',
                     border: '1.5px solid var(--wine)',
@@ -1166,7 +1166,7 @@ export default function Stay({ onNavigate }) {
 
         <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           {/* Section Header */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2.2rem', flexWrap: 'wrap', gap: '1.2rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '2.2rem', gap: '0.8rem' }}>
             <div>
               <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.78rem', fontWeight: 800, display: 'block', marginBottom: '0.3rem', opacity: 0.85 }}>
                 ✦ CURATED COMFORTS
@@ -1175,13 +1175,39 @@ export default function Stay({ onNavigate }) {
                 Thoughtful Amenities
               </h2>
             </div>
-            <p style={{ color: 'var(--wine)', opacity: 0.85, maxWidth: '380px', fontSize: '0.94rem', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
+            <p style={{ color: 'var(--wine)', opacity: 0.85, maxWidth: '600px', fontSize: '0.94rem', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
               Every detail is intentional — from the water you drink to the air you breathe. Wellness woven into every comfort.
             </p>
           </div>
 
-          {/* Unified Responsive 3x2 Amenities Grid Layout */}
           <style>{`
+            .campus-filter-container {
+              position: relative;
+              display: flex;
+              gap: 0.8rem;
+              justify-content: center;
+              flex-wrap: wrap;
+              margin-bottom: 2.5rem;
+              width: 100%;
+            }
+            @media (max-width: 768px) {
+              .campus-filter-container {
+                justify-content: flex-start !important;
+                flex-wrap: nowrap !important;
+                overflow-x: auto !important;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 0.8rem !important;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+              }
+              .campus-filter-container::-webkit-scrollbar {
+                display: none;
+              }
+              .campus-filter-container .btn-luxury-pill {
+                flex-shrink: 0 !important;
+              }
+            }
+
             .amenities-unified-grid {
               display: grid;
               grid-template-columns: repeat(3, 1fr);
@@ -1194,10 +1220,28 @@ export default function Stay({ onNavigate }) {
                 gap: 1rem;
               }
             }
-            @media (max-width: 580px) {
+            @media (max-width: 768px) {
               .amenities-unified-grid {
-                grid-template-columns: 1fr;
-                gap: 0.85rem;
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory !important;
+                gap: 0.85rem !important;
+                padding: 0.5rem 0.2rem 1.2rem 0.2rem !important;
+                justify-content: flex-start !important;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+              }
+              .amenities-unified-grid::-webkit-scrollbar {
+                display: none;
+              }
+              .amenities-unified-grid .amenity-card-item {
+                flex: 0 0 85% !important;
+                width: 85% !important;
+                min-width: 85% !important;
+                scroll-snap-align: center !important;
               }
             }
             .amenity-card-item {

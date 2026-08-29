@@ -18,14 +18,14 @@
   --font-heading: 'Cormorant Garamond', serif;
   --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 
-  /* Unified Typography Scale (Calibrated Normal Luxury Sizes) */
-  --fs-hero: clamp(2.0rem, 3.8vw, 3.2rem);       /* Aesthetic Hero Headers */
-  --fs-h1: clamp(1.8rem, 3.2vw, 2.6rem);         /* Main Page Title Headings */
-  --fs-h2: clamp(1.4rem, 2.2vw, 1.95rem);        /* Standard Section Headings */
-  --fs-h3: clamp(1.15rem, 1.6vw, 1.45rem);       /* Card / Feature Block Headings */
-  --fs-h4: clamp(1.0rem, 1.3vw, 1.2rem);         /* Sub-card / Small Labels */
-  --fs-h5: clamp(0.9rem, 1.1vw, 1.05rem);        /* Micro Details */
-  --fs-body: 0.95rem;                             /* Standard Paragraph Text - Balanced, normal & clear */
+  /* Unified Typography Scale (Calibrated Normal Luxury Proportions) */
+  --fs-hero: clamp(1.8rem, 3.2vw, 2.6rem);       /* Aesthetic Hero Headers */
+  --fs-h1: clamp(1.6rem, 2.8vw, 2.2rem);         /* Main Page Title Headings */
+  --fs-h2: clamp(1.3rem, 2.0vw, 1.75rem);        /* Standard Section Headings */
+  --fs-h3: clamp(1.05rem, 1.4vw, 1.3rem);        /* Card / Feature Block Headings */
+  --fs-h4: clamp(0.95rem, 1.1vw, 1.12rem);       /* Sub-card / Small Labels */
+  --fs-h5: clamp(0.85rem, 1.0vw, 0.98rem);       /* Micro Details */
+  --fs-body: 0.92rem;                             /* Standard Paragraph Text - Balanced & clear */
   --fs-small: 0.78rem;                            /* Captions / Helper Text - Refined & visible */
 }
 

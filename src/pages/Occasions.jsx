@@ -2523,40 +2523,17 @@ export default function Occasions({ onNavigate }) {
                   boxSizing: 'border-box',
                   borderBottom: '1px solid rgba(220, 160, 50, 0.25)'
                 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                    <button
-                      onClick={() => {
-                        setActiveSpaceModal(null);
-                        const spacesSection = document.getElementById('sanctuary-spaces-section');
-                        if (spacesSection) spacesSection.scrollIntoView({ behavior: 'smooth' });
-                      }}
-                      style={{
-                        backgroundColor: 'rgba(220, 160, 50, 0.15)',
-                        border: '1px solid var(--harvest-gold)',
-                        color: 'var(--harvest-gold)',
-                        padding: isMobile ? '0.4rem 0.8rem' : '0.5rem 1.2rem',
-                        borderRadius: '25px',
-                        fontSize: isMobile ? '0.74rem' : '0.82rem',
-                        fontWeight: 700,
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.1em',
-                        cursor: 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.4rem',
-                        transition: 'all 0.2s'
-                      }}
-                    >
-                      &larr; {isMobile ? 'Back' : 'Back to All Spaces'}
-                    </button>
-                    {!isMobile && (
-                      <>
-                        <span style={{ color: 'rgba(255,255,255,0.3)' }}>|</span>
-                        <span style={{ color: 'var(--isabelline)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.1em', opacity: 0.85, fontWeight: 500 }}>
-                          {activeSpaceModal.name}
-                        </span>
-                      </>
-                    )}
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <span style={{
+                      color: 'var(--harvest-gold)',
+                      fontSize: isMobile ? '0.85rem' : '1.1rem',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.12em',
+                      fontWeight: 700,
+                      fontFamily: 'var(--font-heading)'
+                    }}>
+                      {activeSpaceModal.name}
+                    </span>
                   </div>
 
                   <button

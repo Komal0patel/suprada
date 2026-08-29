@@ -374,7 +374,7 @@ export default function Blog({ onNavigate }) {
   };
 
   // Filter categories
-  const categories = ['All', 'Naturopathy', 'Science', 'Circadian Rhythm', 'Nutrition', 'Sound Healing'];
+  const categories = ['All', 'Science', 'Circadian Rhythm', 'Nutrition', 'Sound Healing'];
   const filteredArticles = activeCategory === 'All' 
     ? articles 
     : articles.filter(art => art.category.toLowerCase() === activeCategory.toLowerCase());

@@ -433,6 +433,20 @@ export default function Occasions({ onNavigate }) {
 
         {/* ── BOTANICAL BLOOM (FINAL CHOSEN ANIMATION) ── */}
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', width: '100%', textAlign: 'center' }}>
+          {/* Official Suprada Emblem Logo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: 'easeOut' }}
+            style={{ marginBottom: '1.2rem', display: 'flex', justifyContent: 'center' }}
+          >
+            <img 
+              src="/assets/logo.svg" 
+              alt="Suprada Official Emblem Logo" 
+              style={{ height: '85px', width: 'auto', filter: 'brightness(0) invert(1) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25))' }} 
+            />
+          </motion.div>
+
           <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.8rem', fontWeight: 800, display: 'block', marginBottom: '1.2rem' }}>
             ✦ Elevated Gatherings ✦
           </span>

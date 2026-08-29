@@ -201,7 +201,7 @@ export default function About({ onNavigate }) {
       badge: "Blue Planet Runner & PhD",
       quote: "Athletic endurance is the structural logic of stilling the mind and awakening biological resilience.",
       bio: "Doctorate in Mechanical Engineering (USA). Known globally as the Blue Planet Runner — the only Indian athlete to run around the entire world across continents. His analytical systems and endurance discipline anchor Suprada's retreat architecture.",
-      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1000&q=80",
+      image: "/assets/sunil_jayaraj.jpg",
       tags: ["PhD Mechanical Engg.", "World Marathoner", "Chairman", "Systems Architect"]
     },
     premasudha: {
@@ -210,7 +210,7 @@ export default function About({ onNavigate }) {
       badge: "US Board Certified MD",
       quote: "Precision clinical science and ancient Indian heritage are not opposites — they are partners in restorative healing.",
       bio: "US Board-Certified in Internal Medicine with 16+ years of hospital and clinical experience. Her passion for India's traditional healing sciences led to the creation of Suprada's integrative drugless medical protocols.",
-      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1000&q=80",
+      image: "/assets/prema_ramadas.jpg",
       tags: ["MD Internal Medicine", "16+ Yrs Clinical", "Co-Founder", "Vedic Integration"]
     }
   };
@@ -798,7 +798,7 @@ export default function About({ onNavigate }) {
                     We eliminate artificial suppressants and reactivate the body’s innate chemistry. By treating root causes rather than symptoms, Suprada empowers guests to reclaim lifelong vitality.
                   </p>
 
-                  <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+                  <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap', justifyContent: 'center' }}>
                     {['Cellular Fasting & Detox', 'Hydrotherapy Balancing', 'Restorative Sleep'].map((item, idx) => (
                       <span key={idx} style={{ backgroundColor: '#ffffff', color: 'var(--wine)', fontSize: '0.74rem', fontWeight: 700, padding: '0.4rem 1rem', borderRadius: '18px', border: '1px solid var(--sage)' }}>
                         <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}><Check size={12} /> {item}</span>

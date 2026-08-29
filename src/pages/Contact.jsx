@@ -347,6 +347,20 @@ export default function Contact({ onNavigate }) {
           padding: '6rem 8% 2.25rem 8%',
           maxWidth: '680px'
         }}>
+          {/* Official Suprada Emblem Logo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: 'easeOut' }}
+            style={{ marginBottom: '1.2rem', display: 'flex', justifyContent: 'flex-start' }}
+          >
+            <img 
+              src="/assets/logo.svg" 
+              alt="Suprada Official Emblem Logo" 
+              style={{ height: '75px', width: 'auto', filter: 'drop-shadow(0 4px 12px rgba(94, 39, 53, 0.15))' }} 
+            />
+          </motion.div>
+
           {/* Leaf SVG Watermark Overlay */}
           <Pattern24 style={{ position: 'absolute', top: '1rem', left: '-20px', width: '260px', opacity: 0.12, color: 'var(--wine)', pointerEvents: 'none' }} />
 

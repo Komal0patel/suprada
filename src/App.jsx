@@ -184,6 +184,7 @@ function App() {
           {/* Top Left Floating Pill Logo */}
           {(() => {
             const isHeroLogo = scrollYPos < 100 && currentPage === 'home';
+            const isOtherHeroSection = currentPage !== 'home' && scrollYPos < 200;
             return (
               <div 
                 onClick={() => handlePageChange('home')}
@@ -205,7 +206,9 @@ function App() {
                   border: isHeroLogo ? '1.5px solid transparent' : '1.5px solid rgba(220, 160, 50, 0.4)',
                   boxShadow: isHeroLogo ? 'none' : '0 12px 30px rgba(0,0,0,0.5)',
                   backdropFilter: isHeroLogo ? 'none' : 'blur(20px)',
-                  padding: isHeroLogo ? '0px' : '0.55rem 1.4rem 0.55rem 0.9rem'
+                  padding: isHeroLogo ? '0px' : '0.55rem 1.4rem 0.55rem 0.9rem',
+                  opacity: isOtherHeroSection ? 0 : 1,
+                  pointerEvents: isOtherHeroSection ? 'none' : 'auto'
                 }}
               >
                 <img 

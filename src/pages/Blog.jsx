@@ -446,6 +446,20 @@ export default function Blog({ onNavigate }) {
               <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(184,94,76,0.12) 0%, rgba(184,94,76,0) 70%)', filter: 'blur(80px)', zIndex: 0, pointerEvents: 'none' }} />
 
               <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', width: '100%', textAlign: 'center' }}>
+                {/* Official Suprada Emblem Logo */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 1.2, ease: 'easeOut' }}
+                  style={{ marginBottom: '1.2rem', display: 'flex', justifyContent: 'center' }}
+                >
+                  <img 
+                    src="/assets/logo.svg" 
+                    alt="Suprada Official Emblem Logo" 
+                    style={{ height: '85px', width: 'auto', filter: 'drop-shadow(0 4px 12px rgba(94, 39, 53, 0.15))' }} 
+                  />
+                </motion.div>
+
                 <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.8rem', fontWeight: 800, display: 'block', marginBottom: '1.2rem' }}>
                   Readings &amp; Articles
                 </span>

@@ -432,6 +432,13 @@ h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
   box-shadow: 0 8px 22px rgba(94, 39, 53, 0.2) !important;
 }
 
+/* Override sizes for cottage cards buttons on desktop */
+.room-btn-primary,
+.room-btn-secondary {
+  padding: 0.6rem 1.4rem !important;
+  font-size: 0.82rem !important;
+}
+
 /* 4. Luxury Text Action Link (.btn-luxury-text) */
 .btn-luxury-text {
   position: relative;

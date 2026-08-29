@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
-import { Pattern24, Pattern25 } from '../AnimatedPatterns';
+import { Pattern24, Pattern25, Pattern27 } from '../AnimatedPatterns';
 
 const blurFadeIn = {
   hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
@@ -444,6 +444,23 @@ export default function Blog({ onNavigate }) {
               {/* Ambient Golden & Green Bokeh Glows */}
               <div style={{ position: 'absolute', top: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.18) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(70px)', zIndex: 0, pointerEvents: 'none' }} />
               <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(184,94,76,0.12) 0%, rgba(184,94,76,0) 70%)', filter: 'blur(80px)', zIndex: 0, pointerEvents: 'none' }} />
+
+              {/* Background Rotating Mandala Watermark (Spaces Hero Animation) */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 100, repeat: Infinity, ease: 'linear' }}
+                style={{
+                  position: 'absolute',
+                  top: '50%', left: '50%',
+                  x: '-50%', y: '-50%',
+                  width: '620px', height: '620px',
+                  opacity: 0.08,
+                  pointerEvents: 'none',
+                  zIndex: 0
+                }}
+              >
+                <Pattern27 style={{ width: '100%', height: '100%', color: 'var(--wine)' }} />
+              </motion.div>
 
               <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', width: '100%', textAlign: 'center', marginTop: '-2.5rem' }}>
                 {/* Official Suprada Emblem Logo */}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Pattern24, Pattern25, Pattern27 } from '../AnimatedPatterns';
 import TwinklingLights from '../components/TwinklingLights';
 import { Sunrise, Leaf, Activity, Droplet, Dna, Stethoscope, Soup, Globe, Flame, Brain, ClipboardList, Check } from 'lucide-react';
 
@@ -247,39 +248,30 @@ export default function Programmes({ onNavigate }) {
         overflow: 'hidden',
         boxSizing: 'border-box'
       }}>
-        {/* Subtle Organic Background Pattern */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundImage: 'radial-gradient(rgba(94, 39, 53, 0.04) 1.5px, transparent 0)',
-          backgroundSize: '24px 24px',
-          opacity: 0.8,
-          pointerEvents: 'none'
-        }} />
+        {/* Ambient Wine & Gold Bokeh Glow Effects */}
+        <div style={{ position: 'absolute', top: '-10%', left: '10%', maxWidth: '450px', width: '100%', height: '450px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(94,39,53,0.08) 0%, rgba(94,39,53,0) 70%)', filter: 'blur(70px)', zIndex: 0, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-15%', right: '10%', maxWidth: '500px', width: '100%', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.12) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(80px)', zIndex: 0, pointerEvents: 'none' }} />
 
-        {/* Pale Dogwood blush accent blob — top right */}
-        <div style={{
-          position: 'absolute',
-          top: '-80px',
-          right: '-80px',
-          maxWidth: '400px', width: '100%',
-          height: '400px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(242,215,204,0.55) 0%, transparent 70%)',
-          pointerEvents: 'none'
-        }} />
+        {/* Botanical Leaf SVG Watermarks */}
+        <Pattern24 style={{ position: 'absolute', top: '-20px', left: '-40px', width: '300px', opacity: 0.1, color: 'var(--wine)', pointerEvents: 'none' }} />
+        <Pattern25 style={{ position: 'absolute', bottom: '-20px', right: '-40px', width: '300px', opacity: 0.1, color: 'var(--wine)', pointerEvents: 'none' }} />
 
-        {/* Tea Green accent blob — bottom left */}
-        <div style={{
-          position: 'absolute',
-          bottom: '-60px',
-          left: '-60px',
-          maxWidth: '320px', width: '100%',
-          height: '320px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(209,218,194,0.45) 0%, transparent 70%)',
-          pointerEvents: 'none'
-        }} />
+        {/* Background Rotating Mandala Watermark (Spaces Hero Animation) */}
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 100, repeat: Infinity, ease: 'linear' }}
+          style={{
+            position: 'absolute',
+            top: '50%', left: '50%',
+            x: '-50%', y: '-50%',
+            width: '620px', height: '620px',
+            opacity: 0.08,
+            pointerEvents: 'none',
+            zIndex: 0
+          }}
+        >
+          <Pattern27 style={{ width: '100%', height: '100%', color: 'var(--wine)' }} />
+        </motion.div>
 
         {/* Center Content */}
         <div style={{

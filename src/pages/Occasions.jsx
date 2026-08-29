@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Pattern24, Pattern25 } from '../AnimatedPatterns';
+import { Pattern24, Pattern25, Pattern27 } from '../AnimatedPatterns';
 import { Sun, Sprout, Leaf, Heart, Home, Users, Sparkles, Utensils, Droplet, Award, Handshake, Building, Crown, Check, Phone, MessageCircle } from 'lucide-react';
 
 const blurFadeIn = {
@@ -470,6 +470,23 @@ export default function Occasions({ onNavigate }) {
         {/* Ambient Golden Bokeh Glow Effects */}
         <div style={{ position: 'absolute', top: '-10%', left: '-10%', maxWidth: '400px', width: '100%', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.22) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(65px)', zIndex: 0, pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', maxWidth: '500px', width: '100%', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%)', filter: 'blur(80px)', zIndex: 0, pointerEvents: 'none' }} />
+
+        {/* Background Rotating Mandala Watermark (Spaces Hero Animation) */}
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 100, repeat: Infinity, ease: 'linear' }}
+          style={{
+            position: 'absolute',
+            top: '50%', left: '50%',
+            x: '-50%', y: '-50%',
+            width: '620px', height: '620px',
+            opacity: 0.12,
+            pointerEvents: 'none',
+            zIndex: 0
+          }}
+        >
+          <Pattern27 style={{ width: '100%', height: '100%', color: '#ffffff' }} />
+        </motion.div>
 
         {/* ── BOTANICAL BLOOM (FINAL CHOSEN ANIMATION) ── */}
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', width: '100%', textAlign: 'center', marginTop: '-2.5rem' }}>

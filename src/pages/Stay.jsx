@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Pattern24, Pattern27 } from '../AnimatedPatterns';
+import { Pattern24, Pattern25, Pattern27 } from '../AnimatedPatterns';
 import { Wifi, Wind, Coffee, Droplet, Sparkles, Leaf, Waves, Trees, Sunrise, MapPin, Check, X } from 'lucide-react';
 import TwinklingLights from '../components/TwinklingLights';
 import DecorativeSVG from '../components/DecorativeSVG';
@@ -600,17 +600,30 @@ export default function Stay({ onNavigate }) {
         overflow: 'hidden',
         boxSizing: 'border-box'
       }}>
-        {/* Subtle Organic Background Clay Pattern */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundImage: 'radial-gradient(rgba(94, 39, 53, 0.04) 1.5px, transparent 0)',
-          backgroundSize: '24px 24px',
-          opacity: 0.8,
-          pointerEvents: 'none'
-        }} />
-        {/* Mandala decorative SVG */}
-        <DecorativeSVG src="/assets/logo-mandala.svg" style={{ position: 'absolute', top: '10%', right: '5%', width: '200px', opacity: 0.12, pointerEvents: 'none', zIndex: 0 }} />
+        {/* Ambient Wine & Gold Bokeh Glow Effects */}
+        <div style={{ position: 'absolute', top: '-10%', left: '10%', maxWidth: '450px', width: '100%', height: '450px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(94,39,53,0.08) 0%, rgba(94,39,53,0) 70%)', filter: 'blur(70px)', zIndex: 0, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-15%', right: '10%', maxWidth: '500px', width: '100%', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.12) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(80px)', zIndex: 0, pointerEvents: 'none' }} />
+
+        {/* Botanical Leaf SVG Watermarks */}
+        <Pattern24 style={{ position: 'absolute', top: '-20px', left: '-40px', width: '300px', opacity: 0.1, color: 'var(--wine)', pointerEvents: 'none' }} />
+        <Pattern25 style={{ position: 'absolute', bottom: '-20px', right: '-40px', width: '300px', opacity: 0.1, color: 'var(--wine)', pointerEvents: 'none' }} />
+
+        {/* Background Rotating Mandala Watermark (Spaces Hero Animation) */}
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 100, repeat: Infinity, ease: 'linear' }}
+          style={{
+            position: 'absolute',
+            top: '50%', left: '50%',
+            x: '-50%', y: '-50%',
+            width: '620px', height: '620px',
+            opacity: 0.08,
+            pointerEvents: 'none',
+            zIndex: 0
+          }}
+        >
+          <Pattern27 style={{ width: '100%', height: '100%', color: 'var(--wine)' }} />
+        </motion.div>
 
         {/* Clean Center Content Box */}
         <div style={{

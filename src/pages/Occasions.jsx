@@ -540,7 +540,7 @@ export default function Occasions({ onNavigate }) {
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 0.95, scale: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            style={{ color: '#f5ebd9', maxWidth: '720px', margin: '1.8rem auto 0 auto', fontSize: '1.08rem', lineHeight: 1.8, fontWeight: 300 }}
+            style={{ color: '#f5ebd9', maxWidth: '720px', margin: '1.8rem auto 0 auto', fontSize: 'var(--fs-body)', lineHeight: 1.8, fontWeight: 300 }}
           >
             From intimate moments to grand gatherings, we curate healthcations that infuse every occasion with transformative wellness experiences. Our versatile spaces accommodate groups from two to fifty guests.
           </motion.p>
@@ -554,7 +554,7 @@ export default function Occasions({ onNavigate }) {
           <div style={{ textAlign: 'center', margin: '0 auto 4rem auto', maxWidth: '800px' }}>
             <AnimatedParagraph
               text="Research shows that wellness centers like Suprada offer a unique alternative to traditional commercial venues — hosting events that are not only carbon-neutral but transformative, fostering genuine well-being rather than consumption."
-              style={{ fontSize: '0.98rem', color: 'var(--raisin-black)', opacity: 0.8, lineHeight: 1.7, fontStyle: 'italic', justifyContent: 'center' }}
+              style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.8, lineHeight: 1.7, fontStyle: 'italic', justifyContent: 'center' }}
             />
           </div>
         </div>
@@ -679,7 +679,7 @@ export default function Occasions({ onNavigate }) {
                             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                             style={{ overflow: 'hidden' }}
                           >
-                            <p style={{ margin: '0.4rem 0 0 0', fontSize: '0.88rem', color: 'var(--raisin-black)', opacity: 0.8, lineHeight: 1.6 }}>
+                            <p style={{ margin: '0.4rem 0 0 0', fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.8, lineHeight: 1.6 }}>
                               {item.desc}
                             </p>
 
@@ -720,7 +720,7 @@ export default function Occasions({ onNavigate }) {
             <h2 style={{ color: 'var(--wine)', margin: 0, lineHeight: 1.2 }}>
               The Wellness Difference
             </h2>
-            <p style={{ color: 'var(--raisin-black)', opacity: 0.88, maxWidth: '620px', margin: '0.4rem auto 0 auto', fontSize: '0.92rem', lineHeight: 1.5 }}>
+            <p style={{ color: 'var(--raisin-black)', opacity: 0.88, maxWidth: '620px', margin: '0.4rem auto 0 auto', fontSize: 'var(--fs-body)', lineHeight: 1.5 }}>
               How wellness-centered event hosting creates meaningful connections while lowering environmental impact.
             </p>
           </div>
@@ -793,7 +793,7 @@ export default function Occasions({ onNavigate }) {
                     <h3 style={{ color: 'var(--harvest-gold)', margin: '0 0 0.5rem 0', lineHeight: 1.25 }}>
                       {wellnessDiffList[diffSlideIdx].title}
                     </h3>
-                    <p style={{ fontSize: '0.8rem', color: 'var(--isabelline)', opacity: 0.92, lineHeight: 1.5, margin: 0, fontWeight: 300 }}>
+                    <p style={{ fontSize: 'var(--fs-body)', color: 'var(--isabelline)', opacity: 0.92, lineHeight: 1.5, margin: 0, fontWeight: 300 }}>
                       {wellnessDiffList[diffSlideIdx].desc}
                     </p>
                   </motion.div>
@@ -911,7 +911,7 @@ export default function Occasions({ onNavigate }) {
                     <h3 style={{ color: 'var(--harvest-gold)', margin: '0 0 0.5rem 0', }}>
                       {wellnessDiffList[diffSlideIdx].title}
                     </h3>
-                    <p style={{ fontSize: '0.85rem', color: 'var(--isabelline)', opacity: 0.9, lineHeight: 1.55, margin: 0, fontWeight: 300 }}>
+                    <p style={{ fontSize: 'var(--fs-body)', color: 'var(--isabelline)', opacity: 0.9, lineHeight: 1.55, margin: 0, fontWeight: 300 }}>
                       {wellnessDiffList[diffSlideIdx].desc}
                     </p>
                   </motion.div>
@@ -970,7 +970,7 @@ export default function Occasions({ onNavigate }) {
               </h2>
               <AnimatedParagraph
                 text="Explore the different types of events we host, each custom-designed to match your intention and elevate your occasion with wellness at the core."
-                style={{ color: 'var(--raisin-black)', opacity: 0.75, fontSize: '0.94rem', lineHeight: 1.55, margin: 0 }}
+                style={{ color: 'var(--raisin-black)', opacity: 0.75, fontSize: 'var(--fs-body)', lineHeight: 1.55, margin: 0 }}
               />
             </div>
           </div>
@@ -1183,7 +1183,7 @@ export default function Occasions({ onNavigate }) {
             </h2>
             <AnimatedParagraph
               text="We support families in celebrating sacred Hindu traditions with authenticity and care. From milestone birthdays to welcoming new beginnings, our team ensures every ritual is performed meaningfully and seamlessly. Our comprehensive services include venue decoration, pooja arrangements, priest coordination, catering, photography, guest management, and custom rituals based on your family traditions."
-              style={{ color: 'var(--raisin-black)', opacity: 0.85, maxWidth: '780px', margin: '1rem auto 0 auto', fontSize: '0.98rem', lineHeight: 1.65, justifyContent: 'center' }}
+              style={{ color: 'var(--raisin-black)', opacity: 0.85, maxWidth: '780px', margin: '1rem auto 0 auto', fontSize: 'var(--fs-body)', lineHeight: 1.65, justifyContent: 'center' }}
             />
           </div>
 
@@ -1392,7 +1392,7 @@ export default function Occasions({ onNavigate }) {
                           ))}
                         </h3>
 
-                        <p style={{ fontSize: '1rem', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.75, margin: 0, fontWeight: 400 }}>
+                        <p style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.75, margin: 0, fontWeight: 400 }}>
                           {activeCeremony.desc.split(" ").map((word, index) => (
                             <motion.span
                               key={index}
@@ -1590,7 +1590,7 @@ export default function Occasions({ onNavigate }) {
               <h2 style={{ color: 'var(--wine)', lineHeight: 1.25 }}>
                 Corporate Wellness, Team Building &amp; Retreats
               </h2>
-              <p style={{ fontSize: '0.98rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.75, marginTop: '1.2rem', marginBottom: '1.8rem' }}>
+              <p style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.75, marginTop: '1.2rem', marginBottom: '1.8rem' }}>
                 Suprada's corporate wellness programs blend preventive and curative drugless healthcare within a luxury forest estate. Curated from 3 to 21 days, we integrate strategy sessions, clinical stress relief, and group nature practices tailored to your corporate goals.
               </p>
               <div style={{ borderLeft: '3px solid var(--redwood)', paddingLeft: '1.5rem', fontSize: '0.85rem', color: 'var(--raisin-black)', opacity: 0.85, display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '2.2rem' }}>
@@ -1683,7 +1683,7 @@ export default function Occasions({ onNavigate }) {
               <h3 style={{ color: 'var(--wine)', margin: 0 }}>
                 Corporate Retreat Activities
               </h3>
-              <p style={{ fontSize: '0.92rem', color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '600px', margin: '0.5rem auto 0 auto', lineHeight: 1.6 }}>
+              <p style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '600px', margin: '0.5rem auto 0 auto', lineHeight: 1.6 }}>
                 Four core group modules designed to enhance focus, vitality, and organizational cohesion.
               </p>
             </div>

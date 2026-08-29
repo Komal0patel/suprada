@@ -410,48 +410,51 @@ export default function Home({ onNavigate }) {
   // Orbital Carousel States
   const [rotationAngle, setRotationAngle] = useState(90);
   const [activeRitualIndex, setActiveRitualIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
-  // Auto-cycle activeRitualIndex every 2 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveRitualIndex(prev => (prev + 1) % 6);
-    }, 2000);
-    
-    return () => clearInterval(interval);
-  }, []);
-
-  // Easing loop to smoothly rotate the wheel to target active index
+  // Unified loop for continuous rotation (when not hovered) and smooth easing (when hovered/focused)
   useEffect(() => {
     let animationFrameId;
-    const targetIdx = activeRitualIndex;
-    const targetAngle = 90 - (targetIdx * 60);
-
-    const smoothEase = () => {
-      let isDone = false;
-      setRotationAngle(prev => {
-        let diff = (targetAngle - prev) % 360;
-        if (diff > 180) diff -= 360;
-        if (diff < -180) diff += 360;
-        if (Math.abs(diff) < 0.05) {
-          isDone = true;
-          return targetAngle;
-        }
-        return prev + diff * 0.085; // smooth easing factor
-      });
-
-      if (!isDone) {
-        animationFrameId = requestAnimationFrame(smoothEase);
+    
+    const tick = () => {
+      if (isHovered) {
+        // Easing mode: smoothly rotate to target angle for activeRitualIndex
+        const targetAngle = 90 - (activeRitualIndex * 60);
+        setRotationAngle(prev => {
+          let diff = (targetAngle - prev) % 360;
+          if (diff > 180) diff -= 360;
+          if (diff < -180) diff += 360;
+          if (Math.abs(diff) < 0.05) {
+            return targetAngle;
+          }
+          return prev + diff * 0.085; // smooth easing factor
+        });
+      } else {
+        // Continuous revolution mode: slowly rotate the wheel
+        setRotationAngle(prev => {
+          const nextAngle = prev - 0.2; // 0.2 degrees per frame (12 deg/sec, 30s per full rev)
+          
+          // Calculate active index closest to the front (90 degrees)
+          const closestIndex = (Math.round((90 - nextAngle) / 60) % 6 + 6) % 6;
+          if (closestIndex !== activeRitualIndex) {
+            setActiveRitualIndex(closestIndex);
+          }
+          
+          return nextAngle % 360;
+        });
       }
+      
+      animationFrameId = requestAnimationFrame(tick);
     };
 
-    animationFrameId = requestAnimationFrame(smoothEase);
+    animationFrameId = requestAnimationFrame(tick);
 
     return () => {
       if (animationFrameId) {
         cancelAnimationFrame(animationFrameId);
       }
     };
-  }, [activeRitualIndex]);
+  }, [isHovered, activeRitualIndex]);
 
   // Active Therapy Selection State for Naturopathy Bento Layout
   const [activeTherapyIndex, setActiveTherapyIndex] = useState(0);
@@ -752,7 +755,7 @@ export default function Home({ onNavigate }) {
             </h1>
             
             {/* Left-Aligned Slightly Smaller Subtitle Paragraph */}
-            <motion.p variants={blurFadeIn} className="hero-subtitle-mobile" style={{ color: 'var(--isabelline)', fontSize: '0.94rem', opacity: 0.92, maxWidth: '500px', margin: '0 0 1.8rem 0', fontWeight: 400, lineHeight: 1.65, textShadow: '0 2px 10px rgba(0,0,0,0.5)', textAlign: 'left', letterSpacing: '0.01em' }}>
+            <motion.p variants={blurFadeIn} className="hero-subtitle-mobile" style={{ color: 'var(--isabelline)', fontSize: 'var(--fs-body)', opacity: 0.92, maxWidth: '500px', margin: '0 0 1.8rem 0', fontWeight: 400, lineHeight: 1.65, textShadow: '0 2px 10px rgba(0,0,0,0.5)', textAlign: 'left', letterSpacing: '0.01em' }}>
               Experience the ancient healing intelligence of Naturopathy &amp; Yogic Science. Nestled on the banks of the holy Suvarnamukhi River.
             </motion.p>
 
@@ -978,15 +981,15 @@ export default function Home({ onNavigate }) {
               Where Global Expertise Meets Indian Heritage
             </motion.h4>
             
-            <motion.p variants={foundersMistFadeVariant} className="founders-body" style={{ color: 'var(--isabelline)', fontSize: '0.95rem', opacity: 0.9, lineHeight: 1.55, fontWeight: 300, margin: 0 }}>
+            <motion.p variants={foundersMistFadeVariant} className="founders-body" style={{ color: 'var(--isabelline)', fontSize: 'var(--fs-body)', opacity: 0.9, lineHeight: 1.55, fontWeight: 300, margin: 0 }}>
               Suprada is the realization of a vision shared by <strong>Sunil Jayaraj</strong> and <strong>Dr. Premasudha Ramadas</strong>. After spending 16 years in the United States, they returned to India with a singular purpose: to bridge the gap between advanced science and ancient Indian wisdom.
             </motion.p>
             
-            <motion.p variants={foundersMistFadeVariant} className="founders-body" style={{ color: 'var(--isabelline)', fontSize: '0.95rem', opacity: 0.9, lineHeight: 1.55, fontWeight: 300, margin: 0 }}>
+            <motion.p variants={foundersMistFadeVariant} className="founders-body" style={{ color: 'var(--isabelline)', fontSize: 'var(--fs-body)', opacity: 0.9, lineHeight: 1.55, fontWeight: 300, margin: 0 }}>
               Sunil, known as a "Blue Planet Runner," brings the endurance and discipline of an elite athlete, while Dr. Premasudha, a US Board-certified physician, ensures our holistic integration is grounded in authenticity and clinical evidence.
             </motion.p>
             
-            <motion.p variants={foundersMistFadeVariant} className="founders-quote" style={{ color: 'var(--tan)', fontSize: '0.95rem', opacity: 0.95, lineHeight: 1.5, fontStyle: 'italic', marginTop: '0.2rem', margin: 0, fontWeight: 500 }}>
+            <motion.p variants={foundersMistFadeVariant} className="founders-quote" style={{ color: 'var(--tan)', fontSize: 'var(--fs-body)', opacity: 0.95, lineHeight: 1.5, fontStyle: 'italic', marginTop: '0.2rem', margin: 0, fontWeight: 500 }}>
               "In today's world, healing is often scattered—one place for the body, another for the mind. We created Suprada to bring these fragments together into one cohesive journey of restoration."
             </motion.p>
             
@@ -1093,17 +1096,23 @@ export default function Home({ onNavigate }) {
         `}</style>
 
         <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          <div className="rituals-split-container">
+          <div 
+            className="rituals-split-container"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onFocus={() => setIsHovered(true)}
+            onBlur={() => setIsHovered(false)}
+          >
             
             {/* LEFT COLUMN: Headings and Interactive Menu */}
             <div className="rituals-left-col">
               <div>
-                <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.7rem', fontWeight: 600, display: 'block', marginBottom: '0.5rem' }}>Exclusive Rituals</span>
+                <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: 'var(--fs-small)', fontWeight: 600, display: 'block', marginBottom: '0.5rem' }}>Exclusive Rituals</span>
                 <h2 style={{color: 'var(--wine)', lineHeight: 1.1}}>
                   Unique Experiences <br />
                   <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Only at Suprada</em>
                 </h2>
-                <p style={{ color: 'var(--raisin-black)', opacity: 0.72, fontSize: '0.85rem', lineHeight: 1.5, marginTop: '0.6rem', maxWidth: '380px' }}>
+                <p style={{ color: 'var(--raisin-black)', opacity: 0.72, fontSize: 'var(--fs-body)', lineHeight: 1.5, marginTop: '0.6rem', maxWidth: '380px' }}>
                   Sacred practices designed to calm your sensory experience, cleanse the aura, and ground the spirit.
                 </p>
               </div>
@@ -1139,7 +1148,7 @@ export default function Home({ onNavigate }) {
                       }} />
                       
                       <div style={{
-                        fontSize: '0.78rem',
+                        fontSize: 'var(--fs-small)',
                         fontWeight: isItemActive ? 600 : 400,
                         color: isItemActive ? 'var(--wine)' : 'var(--raisin-black)',
                         opacity: isItemActive ? 1 : 0.5,
@@ -1209,7 +1218,7 @@ export default function Home({ onNavigate }) {
                       top: `calc(50% + ${y}px)`,
                       transform: 'translate(-50%, -50%)',
                       color: 'var(--harvest-gold)',
-                      fontSize: '0.85rem',
+                      fontSize: 'var(--fs-body)',
                       pointerEvents: 'none',
                       zIndex: 4
                     }}
@@ -1318,7 +1327,7 @@ export default function Home({ onNavigate }) {
                         >
                           <span style={{
                             color: 'var(--redwood)',
-                            fontSize: '0.72rem',
+                            fontSize: 'var(--fs-small)',
                             fontWeight: 500,
                             textTransform: 'uppercase',
                             letterSpacing: '0.25em'
@@ -1430,6 +1439,9 @@ export default function Home({ onNavigate }) {
                 return (
                   <motion.div
                     key={idx}
+                    onClick={() => {
+                      setActiveRitualIndex(idx);
+                    }}
                     style={{
                       position: 'absolute',
                       left: `calc(50% + ${x}px)`,
@@ -1756,13 +1768,13 @@ export default function Home({ onNavigate }) {
                 {/* LEFT COLUMN: Left-Aligned Header + 2x3 Grid of Tiles */}
                 <div className="naturopathy-left-column">
                   <div style={{ textAlign: 'left', marginBottom: '1rem' }}>
-                    <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.75rem', fontWeight: 800, display: 'block', marginBottom: '0.25rem' }}>
+                    <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: 'var(--fs-small)', fontWeight: 800, display: 'block', marginBottom: '0.25rem' }}>
                       ✦ CORE MEDICAL MODALITIES
                     </span>
-                    <h2 style={{ color: 'var(--wine)', lineHeight: 1.15, margin: '0 0 0.35rem 0', fontSize: 'clamp(1.6rem, 2.2vw, 2.2rem)' }}>
+                    <h2 style={{ color: 'var(--wine)', lineHeight: 1.15, margin: '0 0 0.35rem 0', fontSize: 'var(--fs-h2)' }}>
                       Transformative Naturopathy <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>&amp; Holistic Wellness</em>
                     </h2>
-                    <p style={{ color: 'var(--raisin-black)', opacity: 0.88, fontSize: '0.86rem', lineHeight: 1.48, fontWeight: 400, margin: 0 }}>
+                    <p style={{ color: 'var(--raisin-black)', opacity: 0.88, fontSize: 'var(--fs-body)', lineHeight: 1.48, fontWeight: 400, margin: 0 }}>
                       At Suprada Wellness, we help you unlock your body's innate capacity to heal through doctor-guided drugless therapies, ancient wisdom, and bio-cleansing protocols.
                     </p>
                   </div>
@@ -1804,7 +1816,7 @@ export default function Home({ onNavigate }) {
                           <span style={{
                             position: 'absolute', bottom: '9px', left: '10px', right: '10px',
                             color: '#ffffff',
-                            fontSize: '0.88rem',
+                            fontSize: 'var(--fs-small)',
                             fontWeight: 700,
                             lineHeight: 1.15,
                             textShadow: '0 2px 4px rgba(0,0,0,0.8)',
@@ -1825,14 +1837,14 @@ export default function Home({ onNavigate }) {
                         width: '28px', height: '28px', borderRadius: '50%',
                         border: '1.5px solid var(--harvest-gold)', color: 'var(--harvest-gold)',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        fontSize: '1rem', fontWeight: 700, marginBottom: '0.25rem'
+                        fontSize: 'var(--fs-body)', fontWeight: 700, marginBottom: '0.25rem'
                       }}>
                         +
                       </div>
-                      <span style={{ fontSize: '0.6rem', letterSpacing: '0.12em', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase' }}>
+                      <span style={{ fontSize: '0.55rem', letterSpacing: '0.12em', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase' }}>
                         EXPLORE ALL
                       </span>
-                      <strong style={{ fontSize: '0.9rem', color: '#ffffff', marginTop: '0.05rem' }}>
+                      <strong style={{ fontSize: 'var(--fs-small)', color: '#ffffff', marginTop: '0.05rem' }}>
                         8+ Pillars
                       </strong>
                     </div>
@@ -1871,7 +1883,7 @@ export default function Home({ onNavigate }) {
                       left: '12px',
                       backgroundColor: 'rgba(255, 255, 255, 0.9)',
                       color: 'var(--wine)',
-                      fontSize: '0.64rem',
+                      fontSize: 'var(--fs-small)',
                       fontWeight: 800,
                       letterSpacing: '0.1em',
                       padding: '0.3rem 0.8rem',
@@ -1886,15 +1898,15 @@ export default function Home({ onNavigate }) {
                   {/* Content Body */}
                   <div style={{ padding: '1.3rem 1.6rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: 1 }}>
                     <div>
-                      <h3 style={{ color: 'var(--wine)', fontSize: '1.35rem', fontWeight: 700, margin: '0 0 0.15rem 0', lineHeight: 1.2 }}>
+                      <h3 style={{ color: 'var(--wine)', fontSize: 'var(--fs-h3)', fontWeight: 700, margin: '0 0 0.15rem 0', lineHeight: 1.2 }}>
                         {activePillar.title}
                       </h3>
-                      <div style={{ fontSize: '0.82rem', color: 'var(--redwood)', fontWeight: 700, marginBottom: '0.45rem' }}>
+                      <div style={{ fontSize: 'var(--fs-small)', color: 'var(--redwood)', fontWeight: 700, marginBottom: '0.45rem' }}>
                         {activePillar.subtitle}
                       </div>
                       <div style={{ width: '36px', height: '2px', backgroundColor: 'var(--harvest-gold)', marginBottom: '0.7rem' }} />
                       
-                      <p style={{ fontSize: '0.84rem', color: 'var(--raisin-black)', opacity: 0.88, lineHeight: 1.52, margin: '0 0 0.9rem 0' }}>
+                      <p style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.88, lineHeight: 1.52, margin: '0 0 0.9rem 0' }}>
                         {activePillar.fullDesc}
                       </p>
 
@@ -2053,7 +2065,7 @@ export default function Home({ onNavigate }) {
           <h2 style={{color: 'var(--wine)'}}>
             The Suprada <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Rhythm</em>
           </h2>
-          <p style={{ color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '650px', margin: '1rem auto 0 auto', fontSize: '1rem', lineHeight: 1.7 }}>
+          <p style={{ color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '650px', margin: '1rem auto 0 auto', fontSize: 'var(--fs-body)', lineHeight: 1.7 }}>
             Nature-led Daily Dinacharya – A day designed to align your biological clock with nature's cycle
           </p>
 
@@ -2320,10 +2332,10 @@ export default function Home({ onNavigate }) {
                       </span>
                     )}
                   </div>
-                  <h3 style={{color: 'var(--tan)', margin: 0, lineHeight: 1.2, opacity: isMatch ? 1 : 0.7, fontSize: '1.35rem'}}>
+                  <h3 style={{color: 'var(--tan)', margin: 0, lineHeight: 1.2, opacity: isMatch ? 1 : 0.7, fontSize: 'var(--fs-h3)'}}>
                     {prog.title}
                   </h3>
-                  <p style={{ fontSize: '0.84rem', color: 'var(--isabelline)', opacity: isMatch ? 0.88 : 0.5, lineHeight: 1.5, margin: 0 }}>
+                  <p style={{ fontSize: 'var(--fs-body)', color: 'var(--isabelline)', opacity: isMatch ? 0.88 : 0.5, lineHeight: 1.5, margin: 0 }}>
                     {prog.tagline}
                   </p>
                   <button className="btn-luxury" style={{ alignSelf: 'flex-start', padding: '0.45rem 1.1rem', fontSize: '0.68rem', marginTop: 'auto', opacity: isMatch ? 1 : 0.5 }}>

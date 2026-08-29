@@ -467,7 +467,7 @@ export default function Spaces({ onNavigate }) {
               color: 'rgba(94, 39, 53, 0.88)',
               maxWidth: '680px',
               margin: '0 auto 1.4rem auto',
-              fontSize: '1.02rem',
+              fontSize: 'var(--fs-body)',
               lineHeight: 1.7,
               fontWeight: 400,
               justifyContent: 'center'
@@ -649,7 +649,7 @@ export default function Spaces({ onNavigate }) {
             <h2 style={{color: 'var(--wine)', margin: 0}}>
               The 10-Stage Healing Trajectory
             </h2>
-            <p style={{ color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '560px', margin: '0.6rem auto 0 auto', fontSize: '0.92rem' }}>
+            <p style={{ color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '560px', margin: '0.6rem auto 0 auto', fontSize: 'var(--fs-body)' }}>
               Each stage of your sanctuary stay is mapped to specific spatial zones across our 10-acre estate.
             </p>
           </div>
@@ -727,7 +727,7 @@ export default function Spaces({ onNavigate }) {
                 </div>
 
                 <div>
-                  <p style={{ fontSize: '0.96rem', color: 'var(--raisin-black)', opacity: 0.88, lineHeight: 1.75, margin: '0 0 1.5rem 0', fontWeight: 300 }}>
+                  <p style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.88, lineHeight: 1.75, margin: '0 0 1.5rem 0', fontWeight: 300 }}>
                     {journeySteps[activeStep].desc}
                   </p>
 
@@ -784,7 +784,7 @@ export default function Spaces({ onNavigate }) {
             <h2 style={{color: 'var(--wine)', margin: 0}}>
               Suprada Residences & Cottages
             </h2>
-            <p style={{ color: 'var(--raisin-black)', opacity: 0.95, maxWidth: '640px', margin: '0.8rem auto 0 auto', fontSize: '0.98rem', lineHeight: 1.65, fontWeight: 400 }}>
+            <p style={{ color: 'var(--raisin-black)', opacity: 0.95, maxWidth: '640px', margin: '0.8rem auto 0 auto', fontSize: 'var(--fs-body)', lineHeight: 1.65, fontWeight: 400 }}>
               8 distinct lodging blocks crafted with mud plaster, local granite, and reclaimed teakwood to support deep nervous system recovery.
             </p>
           </div>
@@ -831,7 +831,7 @@ export default function Spaces({ onNavigate }) {
                       {block.name}
                     </h3>
 
-                    <p className="residence-card-desc" style={{ fontSize: '0.9rem', color: 'var(--raisin-black)', opacity: 0.95, lineHeight: 1.6, margin: '0 0 1.2rem 0', fontWeight: 400 }}>
+                    <p className="residence-card-desc" style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.95, lineHeight: 1.6, margin: '0 0 1.2rem 0', fontWeight: 400 }}>
                       {block.desc}
                     </p>
                   </div>
@@ -883,7 +883,7 @@ export default function Spaces({ onNavigate }) {
             <h2 style={{color: 'var(--tan)', margin: 0}}>
               The Spaces That Shape the Journey
             </h2>
-            <p style={{ color: '#ffffff', opacity: 0.95, maxWidth: '600px', margin: '0.5rem auto 0 auto', fontSize: '0.98rem', fontWeight: 400 }}>
+            <p style={{ color: '#ffffff', opacity: 0.95, maxWidth: '600px', margin: '0.5rem auto 0 auto', fontSize: 'var(--fs-body)', fontWeight: 400 }}>
               Explore the detailed architectural structures built to house each element of your natural healing formula.
             </p>
           </div>
@@ -999,7 +999,7 @@ export default function Spaces({ onNavigate }) {
           <h2 style={{color: 'var(--wine)', marginBottom: '1rem',}}>
             A Sanctuary Designed to Heal as One
           </h2>
-          <p style={{ color: 'var(--raisin-black)', opacity: 0.95, margin: '0 auto 2.5rem auto', fontSize: '1.1rem', lineHeight: 1.75, fontWeight: 400 }}>
+          <p style={{ color: 'var(--raisin-black)', opacity: 0.95, margin: '0 auto 2.5rem auto', fontSize: 'var(--fs-body)', lineHeight: 1.75, fontWeight: 400 }}>
             Our caregivers, doctors, and specialists communicate directly under one roof across our 10-acre estate to coordinate your custom natural treatment paths.
           </p>
           <div style={{ display: 'flex', gap: '1.2rem', justifyContent: 'center', flexWrap: 'wrap' }}>

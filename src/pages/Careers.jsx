@@ -668,7 +668,7 @@ export default function Careers({ onNavigate }) {
                     initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 0.9, scale: 1 }}
                     transition={{ delay: 0.6, duration: 0.8 }}
-                    style={{ color: 'var(--isabelline)', maxWidth: '700px', margin: '1.8rem auto 0 auto', fontSize: '1.08rem', lineHeight: 1.8, fontWeight: 300 }}
+                    style={{ color: 'var(--isabelline)', maxWidth: '700px', margin: '1.8rem auto 0 auto', fontSize: 'var(--fs-body)', lineHeight: 1.8, fontWeight: 300 }}
                   >
                     {currentSlide.desc}
                   </motion.p>
@@ -695,7 +695,7 @@ export default function Careers({ onNavigate }) {
                   <h2 style={{color: 'var(--wine)', margin: 0}}>
                     Current Openings
                   </h2>
-                  <p style={{ color: 'var(--raisin-black)', opacity: 0.7, maxWidth: '520px', margin: '1rem auto 0 auto', fontSize: '0.95rem', lineHeight: 1.6 }}>
+                  <p style={{ color: 'var(--raisin-black)', opacity: 0.7, maxWidth: '520px', margin: '1rem auto 0 auto', fontSize: 'var(--fs-body)', lineHeight: 1.6 }}>
                     We are actively looking for compassionate professionals. Hover a role to explore — or write to <strong>supradawellness@gmail.com</strong>
                   </p>
                 </motion.div>
@@ -927,7 +927,7 @@ export default function Careers({ onNavigate }) {
               <h1 style={{color: 'var(--wine)', margin: '0.5rem 0'}}>
                 {detailJob.title}
               </h1>
-              <div style={{ fontSize: '0.95rem', color: '#666', fontWeight: 500 }}>
+              <div style={{ fontSize: 'var(--fs-body)', color: '#666', fontWeight: 500 }}>
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', verticalAlign: 'middle' }}><MapPin size={14} style={{ color: 'var(--wine)' }} /> Suprada Wellness, Bangalore</span> &nbsp; | &nbsp; Reports to: {detailJob.reportsTo}
               </div>
             </div>
@@ -942,7 +942,7 @@ export default function Careers({ onNavigate }) {
                   <h2 style={{color: 'var(--wine)', borderBottom: '1px solid rgba(94,39,53,0.1)', paddingBottom: '0.5rem', marginBottom: '1rem'}}>
                     Role Overview
                   </h2>
-                  <p style={{ fontSize: '0.95rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.7, margin: 0 }}>
+                  <p style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.7, margin: 0 }}>
                     {detailJob.overview}
                   </p>
                 </div>
@@ -952,7 +952,7 @@ export default function Careers({ onNavigate }) {
                   <h2 style={{color: 'var(--wine)', borderBottom: '1px solid rgba(94,39,53,0.1)', paddingBottom: '0.5rem', marginBottom: '1.2rem'}}>
                     Key Responsibilities
                   </h2>
-                  <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', paddingLeft: '1.2rem', margin: 0, fontSize: '0.92rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.6 }}>
+                  <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', paddingLeft: '1.2rem', margin: 0, fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.6 }}>
                     {detailJob.responsibilities.map((resp, i) => (
                       <li key={i}>{resp}</li>
                     ))}
@@ -965,7 +965,7 @@ export default function Careers({ onNavigate }) {
                     <h2 style={{color: 'var(--wine)', borderBottom: '1px solid rgba(94,39,53,0.1)', paddingBottom: '0.5rem', marginBottom: '1.2rem'}}>
                       Skills & Competencies
                     </h2>
-                    <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', paddingLeft: '1.2rem', margin: 0, fontSize: '0.92rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.6 }}>
+                    <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', paddingLeft: '1.2rem', margin: 0, fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.6 }}>
                       {detailJob.skills.map((skill, i) => (
                         <li key={i}>{skill}</li>
                       ))}
@@ -1092,13 +1092,13 @@ export default function Careers({ onNavigate }) {
                   >
                     <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.2rem' }}><Leaf size={48} style={{ color: 'var(--harvest-gold)' }} /></div>
                     <h3 style={{color: 'var(--wine)', marginBottom: '0.8rem',}}>Application Received</h3>
-                    <p style={{ fontSize: '0.95rem', opacity: 0.85, lineHeight: 1.6, maxWidth: '360px', margin: '0 auto' }}>
+                    <p style={{ fontSize: 'var(--fs-body)', opacity: 0.85, lineHeight: 1.6, maxWidth: '360px', margin: '0 auto' }}>
                       Thank you for applying. Your credentials have been registered and our HR director will connect with you via email shortly.
                     </p>
                     <button 
                       onClick={() => { setSelectedJob(null); setApplied(false); }}
                       className="btn-luxury" 
-                      style={{ padding: '0.8rem 2.2rem', fontSize: '0.78rem', marginTop: '2.5rem', width: '100%', textAlign: 'center' }}
+                      style={{ padding: '0.8rem 2.2rem', fontSize: 'var(--fs-small)', marginTop: '2.5rem', width: '100%', textAlign: 'center' }}
                     >
                       Close Window
                     </button>

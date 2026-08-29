@@ -284,7 +284,8 @@ function App() {
                           cursor: 'pointer',
                           color: currentPage === item.id ? 'var(--harvest-gold)' : '#ffffff',
                           fontWeight: currentPage === item.id ? 800 : 400,
-                          fontSize: '0.96rem',
+                          fontSize: 'var(--fs-body)',
+                          fontFamily: 'var(--font-body)',
                           letterSpacing: '0.04em',
                           transition: 'all 0.3s ease',
                           whiteSpace: 'nowrap'
@@ -384,7 +385,7 @@ function App() {
               >
                 <X size={28} />
               </button>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'center', fontSize: '1.3rem', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 500 }}>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'center', fontSize: 'var(--fs-h2)', fontFamily: 'var(--font-body)', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 600 }}>
                 {menuItems.map((item) => (
                   <motion.li
                     whileHover={{ scale: 1.08, color: 'var(--harvest-gold)' }}

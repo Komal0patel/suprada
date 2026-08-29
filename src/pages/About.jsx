@@ -365,7 +365,7 @@ export default function About({ onNavigate }) {
               color: 'rgba(245, 235, 217, 0.92)', 
               maxWidth: '680px', 
               margin: '0 auto 1.4rem auto', 
-              fontSize: '1.02rem', 
+              fontSize: 'var(--fs-body)', 
               lineHeight: 1.7, 
               fontWeight: 300, 
               justifyContent: 'center' 
@@ -555,7 +555,7 @@ export default function About({ onNavigate }) {
                   "{foundersData[activeFounder].quote}"
                 </h4>
 
-                <p style={{ fontSize: '0.84rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.6, margin: '0 0 1.1rem 0' }}>
+                <p style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.6, margin: '0 0 1.1rem 0' }}>
                   {foundersData[activeFounder].bio}
                 </p>
 
@@ -794,7 +794,7 @@ export default function About({ onNavigate }) {
                     </h4>
                   </div>
 
-                  <p style={{ fontSize: '0.88rem', color: 'var(--wine)', opacity: 0.9, lineHeight: 1.65, margin: '0 0 1rem 0' }}>
+                  <p style={{ fontSize: 'var(--fs-body)', color: 'var(--wine)', opacity: 0.9, lineHeight: 1.65, margin: '0 0 1rem 0' }}>
                     We eliminate artificial suppressants and reactivate the body’s innate chemistry. By treating root causes rather than symptoms, Suprada empowers guests to reclaim lifelong vitality.
                   </p>
 
@@ -858,7 +858,7 @@ export default function About({ onNavigate }) {
                     </h4>
                   </div>
 
-                  <p style={{ fontSize: '0.88rem', color: 'var(--isabelline)', opacity: 0.92, lineHeight: 1.65, margin: '0 0 1rem 0', fontWeight: 300 }}>
+                  <p style={{ fontSize: 'var(--fs-body)', color: 'var(--isabelline)', opacity: 0.92, lineHeight: 1.65, margin: '0 0 1rem 0', fontWeight: 300 }}>
                     Our medical framework bridges ancient scriptural wisdom with contemporary diagnostic precision. Anchored by US Board-Certified clinical oversight and pulse/iris profiling.
                   </p>
 
@@ -921,7 +921,7 @@ export default function About({ onNavigate }) {
                     </h4>
                   </div>
 
-                  <p style={{ fontSize: '0.88rem', color: 'var(--wine)', opacity: 0.9, lineHeight: 1.65, margin: '0 0 1rem 0' }}>
+                  <p style={{ fontSize: 'var(--fs-body)', color: 'var(--wine)', opacity: 0.9, lineHeight: 1.65, margin: '0 0 1rem 0' }}>
                     Every interaction at Suprada is guided by a caregiver’s heart. We honor sacred Indian heritage while maintaining an unwavering commitment to sanctuary privacy.
                   </p>
 
@@ -1189,7 +1189,7 @@ export default function About({ onNavigate }) {
           <h2 style={{color: 'var(--tan)', lineHeight: 1.15,}}>
             Nestled in the Heart of Nature
           </h2>
-          <p style={{ opacity: 0.88, fontSize: '0.95rem', lineHeight: 1.7, fontWeight: 300 }}>
+          <p style={{ opacity: 0.88, fontSize: 'var(--fs-body)', lineHeight: 1.7, fontWeight: 300 }}>
             Suprada stretches across 54 acres of lush greens and fragrant herbal fields along the banks of the sacred Suvarnamukhi River on Kanakapura Road, Bangalore. The gentle murmur of flowing water and pure natural air create an ideal landscape for nervous system regulation.
           </p>
           <div style={{ display: 'flex', gap: '1.2rem', marginTop: '0.5rem' }}>

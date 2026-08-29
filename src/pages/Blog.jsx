@@ -164,7 +164,7 @@ function BlogCard({ art, colors, imageUrl, onSelect }) {
           <span>{art.readTime}</span>
         </div>
 
-        <h3 style={{ color: 'var(--wine)', margin: '0.2rem 0', lineHeight: 1.4, fontSize: '1rem', fontWeight: 700 }}>
+        <h3 style={{ color: 'var(--wine)', margin: '0.2rem 0', lineHeight: 1.4, fontSize: 'var(--fs-h3)', fontWeight: 700 }}>
           {art.title}
         </h3>
 
@@ -208,11 +208,11 @@ function BlogCard({ art, colors, imageUrl, onSelect }) {
                 <span style={{ fontSize: '0.7rem', opacity: 0.7, color: 'var(--tan)' }}>{art.readTime}</span>
               </div>
 
-              <h4 style={{ color: 'var(--tan)', margin: '0 0 0.6rem 0', lineHeight: 1.3, fontSize: '1rem', fontWeight: 700 }}>
+              <h4 style={{ color: 'var(--tan)', margin: '0 0 0.6rem 0', lineHeight: 1.3, fontSize: 'var(--fs-h3)', fontWeight: 700 }}>
                 {art.title}
               </h4>
 
-              <p style={{ fontSize: '0.85rem', opacity: 0.9, lineHeight: 1.6, fontWeight: 300, margin: 0, display: '-webkit-box', WebkitLineClamp: 4, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+              <p style={{ fontSize: 'var(--fs-body)', opacity: 0.9, lineHeight: 1.6, fontWeight: 300, margin: 0, display: '-webkit-box', WebkitLineClamp: 4, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                 {art.excerpt}
               </p>
             </div>
@@ -364,7 +364,7 @@ export default function Blog({ onNavigate }) {
           );
         }
         return (
-          <p key={i} style={{ fontSize: '1rem', lineHeight: 1.85, color: 'var(--raisin-black)', opacity: 0.85, marginBottom: '1.2rem', fontWeight: 300 }}>
+          <p key={i} style={{ fontSize: 'var(--fs-body)', lineHeight: 1.85, color: 'var(--raisin-black)', opacity: 0.85, marginBottom: '1.2rem', fontWeight: 300 }}>
             {text}
           </p>
         );
@@ -507,7 +507,7 @@ export default function Blog({ onNavigate }) {
                     </motion.span>
                   ))}
                 </motion.h1>
-                <p style={{ color: 'var(--raisin-black)', opacity: 0.85, maxWidth: '680px', margin: '1.5rem auto 0 auto', fontSize: '1.08rem', lineHeight: 1.8, fontWeight: 300 }}>
+                <p style={{ color: 'var(--raisin-black)', opacity: 0.85, maxWidth: '680px', margin: '1.5rem auto 0 auto', fontSize: 'var(--fs-body)', lineHeight: 1.8, fontWeight: 300 }}>
                   Insights, clinical perspectives, and ancient wisdom on drugless healing, satwik nutrition, and holistic lifestyle.
                 </p>
               </div>
@@ -757,7 +757,7 @@ export default function Blog({ onNavigate }) {
             </div>
 
             {/* Article Body */}
-            <div style={{ fontSize: '1.05rem', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.95, fontWeight: 300, display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.95, fontWeight: 300, display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               {selectedArticle.isSanityPost ? (
                 renderBodyBlocks(selectedArticle.bodyBlocks)
               ) : (
@@ -826,7 +826,7 @@ export default function Blog({ onNavigate }) {
             <div style={{ border: '1px solid rgba(220,160,50,0.3)', borderRadius: '12px', padding: '3rem 2.5rem', backgroundColor: 'var(--antique-white)', marginTop: '4.5rem', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'radial-gradient(circle, rgba(220,160,50,0.03) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none' }} />
               <h3 style={{color: 'var(--wine)', marginBottom: '0.8rem', position: 'relative', zIndex: 1}}>Inspired by this article?</h3>
-              <p style={{ fontSize: '0.92rem', opacity: 0.8, lineHeight: 1.6, maxWidth: '500px', margin: '0 auto 2rem auto', position: 'relative', zIndex: 1 }}>
+              <p style={{ fontSize: 'var(--fs-body)', opacity: 0.8, lineHeight: 1.6, maxWidth: '500px', margin: '0 auto 2rem auto', position: 'relative', zIndex: 1 }}>
                 Join our retreats to experience these therapies firsthand, custom-prescribed for your body type.
               </p>
               <button 

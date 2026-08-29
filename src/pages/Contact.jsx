@@ -614,11 +614,11 @@ export default function Contact({ onNavigate }) {
                   </div>
 
                   <p style={{
-                    fontSize: '0.9rem', lineHeight: 1.7, opacity: 0.88, maxWidth: '340px', margin: '0 auto 0.7rem auto'
+                    fontSize: 'var(--fs-body)', lineHeight: 1.7, opacity: 0.88, maxWidth: '340px', margin: '0 auto 0.7rem auto'
                   }}>Connect with us to discover the perfect wellness programme tailored to your needs.</p>
 
                   <p style={{
-                    fontSize: '0.82rem', lineHeight: 1.7, opacity: 0.7, maxWidth: '320px', margin: '0 auto',
+                    fontSize: 'var(--fs-small)', lineHeight: 1.7, opacity: 0.7, maxWidth: '320px', margin: '0 auto',
                     fontStyle: 'italic'
                   }}>Let the sacred Suvarnamukhi River and ancient healing wisdom guide your transformation.</p>
                 </motion.div>
@@ -655,8 +655,8 @@ export default function Contact({ onNavigate }) {
                     <div key={i} style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start' }}>
                       <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px' }}>{item.icon}</span>
                       <div>
-                        <h4 style={{ color: 'var(--wine)', marginBottom: '0.15rem', fontSize: '1.05rem', fontWeight: 600 }}>{item.title}</h4>
-                        <div style={{ fontSize: '0.82rem', color: 'var(--raisin-black)', opacity: 0.8, lineHeight: 1.5 }}>{item.desc}</div>
+                        <h4 style={{ color: 'var(--wine)', marginBottom: '0.15rem', fontSize: 'var(--fs-h3)', fontWeight: 600 }}>{item.title}</h4>
+                        <div style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.8, lineHeight: 1.5 }}>{item.desc}</div>
                       </div>
                     </div>
                   ))}

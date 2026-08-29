@@ -402,11 +402,11 @@ export default function Programmes({ onNavigate }) {
             <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.72rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
               ✦ Our Philosophy
             </span>
-            <h2 style={{color: 'var(--wine)', lineHeight: 1.25, margin: '0 0 1rem 0', fontSize: '1.65rem'}}>
+            <h2 style={{color: 'var(--wine)', lineHeight: 1.25, margin: '0 0 1rem 0', fontSize: 'var(--fs-h2)'}}>
               Rooted in Nature.<br />Guided by Tradition.
             </h2>
 
-            <p style={{ marginTop: '0.5rem', fontSize: '0.94rem', color: 'var(--raisin-black)', lineHeight: 1.6, opacity: 0.85, maxWidth: '320px', margin: '0 auto 1rem auto', fontWeight: 500 }}>
+            <p style={{ marginTop: '0.5rem', fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', lineHeight: 1.6, opacity: 0.85, maxWidth: '320px', margin: '0 auto 1rem auto', fontWeight: 500 }}>
               Leading a life rooted in holistic wellness requires mindful living and the consistent practice of daily routines that align with nature's intelligence.
             </p>
 
@@ -529,12 +529,12 @@ export default function Programmes({ onNavigate }) {
               <h2 style={{color: 'var(--wine)', lineHeight: 1.2, margin: 0}}>
                 Rooted in Nature.<br />Guided by Tradition.
               </h2>
-              <p style={{ marginTop: '1.2rem', fontSize: '0.95rem', color: 'var(--raisin-black)', lineHeight: 1.85, opacity: 0.75, fontWeight: 300 }}>
+              <p style={{ marginTop: '1.2rem', fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', lineHeight: 1.85, opacity: 0.75, fontWeight: 300 }}>
                 Leading a life rooted in holistic wellness requires mindful living and the consistent practice of daily routines that align with nature's intelligence.
               </p>
             </div>
             <div>
-              <ul style={{ paddingLeft: '0', listStyle: 'none', fontSize: '0.9rem', color: 'var(--raisin-black)', lineHeight: 1.75, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+              <ul style={{ paddingLeft: '0', listStyle: 'none', fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', lineHeight: 1.75, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
                 {philosophyList.map((item, i) => (
                   <li key={i} style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start', padding: '0.8rem 1rem', backgroundColor: 'rgba(94,39,53,0.05)', borderRadius: '12px', borderLeft: '3px solid var(--harvest-gold)' }}>
                     <span style={{ color: 'var(--harvest-gold)', flexShrink: 0, marginTop: '2px' }}>✦</span>
@@ -563,7 +563,7 @@ export default function Programmes({ onNavigate }) {
                 On-Site Programs
               </h2>
             </div>
-            <p style={{ color: 'var(--raisin-black)', opacity: 0.9, maxWidth: '380px', fontSize: '1.02rem', lineHeight: 1.65, margin: 0, fontWeight: 500 }}>
+            <p style={{ color: 'var(--raisin-black)', opacity: 0.9, maxWidth: '380px', fontSize: 'var(--fs-body)', lineHeight: 1.65, margin: 0, fontWeight: 500 }}>
               Every program begins with a diagnostic check-up and doctor consultation to calibrate your treatment map.
             </p>
           </div>
@@ -659,7 +659,7 @@ export default function Programmes({ onNavigate }) {
                           {prog.title}
                         </h3>
 
-                        <p style={{ fontSize: '0.96rem', color: '#ffffff', opacity: 0.95, lineHeight: 1.65, maxWidth: '340px', fontWeight: 400 }}>
+                        <p style={{ fontSize: 'var(--fs-body)', color: '#ffffff', opacity: 0.95, lineHeight: 1.65, maxWidth: '340px', fontWeight: 400 }}>
                           {prog.desc}
                         </p>
                       </div>
@@ -703,17 +703,17 @@ export default function Programmes({ onNavigate }) {
 
                         <div style={{ marginBottom: '1rem' }}>
                           <span style={{ fontSize: '0.8rem', color: 'var(--redwood)', fontWeight: 800, display: 'block', marginBottom: '0.2rem', textTransform: 'uppercase', letterSpacing: '0.12em' }}>Ideal for:</span>
-                          <span style={{ fontSize: '0.95rem', color: 'var(--raisin-black)', fontWeight: 600, lineHeight: 1.5 }}>{prog.ideal}</span>
+                          <span style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', fontWeight: 600, lineHeight: 1.5 }}>{prog.ideal}</span>
                         </div>
 
                         {/* Inclusions — palette-accented */}
                         <div style={{ borderTop: '1px solid rgba(94,39,53,0.1)', paddingTop: '1rem' }}>
-                          <h4 style={{color: 'var(--wine)', marginBottom: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 800, fontSize: '0.94rem'}}>
+                          <h4 style={{color: 'var(--wine)', marginBottom: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 800, fontSize: 'var(--fs-h3)'}}>
                             What's Included:
                           </h4>
                           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '0.5rem 1.2rem' }}>
                             {prog.inclusions.map((inc, iidx) => (
-                              <div key={iidx} style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', fontSize: '0.9rem', lineHeight: 1.5 }}>
+                              <div key={iidx} style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', fontSize: 'var(--fs-body)', lineHeight: 1.5 }}>
                                 <span style={{ color: 'var(--harvest-gold)', flexShrink: 0, display: 'inline-flex', alignItems: 'center' }}><Check size={15} strokeWidth={3} /></span>
                                 <span style={{ color: 'var(--raisin-black)', fontWeight: 500 }}>{inc}</span>
                               </div>
@@ -809,7 +809,7 @@ export default function Programmes({ onNavigate }) {
             backdropFilter: 'blur(12px)'
           }}>
             <div style={{ overflowX: 'auto' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '800px', fontSize: '0.98rem' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '800px', fontSize: 'var(--fs-body)' }}>
                 <thead>
                   <tr style={{ borderBottom: '1.5px solid rgba(220,160,50,0.4)', backgroundColor: 'rgba(94,39,53,0.6)' }}>
                     {['Program', 'Duration', 'Intensity', 'Focus', 'Key Therapies'].map((header) => (
@@ -847,7 +847,7 @@ export default function Programmes({ onNavigate }) {
                         </span>
                       </td>
                       <td style={{ padding: '1.2rem', color: '#ffffff', fontWeight: 500 }}>{row.focus}</td>
-                      <td style={{ padding: '1.2rem', color: 'rgba(244,240,236,0.92)', fontSize: '0.9rem', fontWeight: 400 }}>{row.therapies}</td>
+                      <td style={{ padding: '1.2rem', color: 'rgba(244,240,236,0.92)', fontSize: 'var(--fs-body)', fontWeight: 400 }}>{row.therapies}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -876,7 +876,7 @@ export default function Programmes({ onNavigate }) {
                 Included in<br />Every Program
               </h2>
             </div>
-            <p style={{ color: 'var(--raisin-black)', opacity: 0.9, maxWidth: '360px', fontSize: '1.02rem', lineHeight: 1.65, margin: 0, fontWeight: 500 }}>
+            <p style={{ color: 'var(--raisin-black)', opacity: 0.9, maxWidth: '360px', fontSize: 'var(--fs-body)', lineHeight: 1.65, margin: 0, fontWeight: 500 }}>
               Regardless of package intensity, every guest at Suprada receives these standard elite services.
             </p>
           </div>
@@ -974,10 +974,10 @@ export default function Programmes({ onNavigate }) {
                 </div>
 
                 <div>
-                  <h3 style={{ color: 'var(--wine)', fontSize: '1.15rem', fontWeight: 700, margin: '0 0 0.35rem 0', lineHeight: 1.25 }}>
+                  <h3 style={{ color: 'var(--wine)', fontSize: 'var(--fs-h3)', fontWeight: 700, margin: '0 0 0.35rem 0', lineHeight: 1.25 }}>
                     {item.title}
                   </h3>
-                  <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.5, margin: 0, fontWeight: 400 }}>
+                  <p style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.5, margin: 0, fontWeight: 400 }}>
                     {item.desc}
                   </p>
                 </div>
@@ -1048,7 +1048,7 @@ export default function Programmes({ onNavigate }) {
                 <h3 style={{color: 'var(--wine)', margin: 0}}>
                   {adv.title}
                 </h3>
-                <p style={{ fontSize: '1.02rem', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.7, margin: 0, fontWeight: 400 }}>
+                <p style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.7, margin: 0, fontWeight: 400 }}>
                   {adv.desc}
                 </p>
               </motion.div>
@@ -1086,7 +1086,7 @@ export default function Programmes({ onNavigate }) {
           <h2 style={{color: 'var(--tan)', marginBottom: '1rem',}}>
             Ready to Begin Your Healing Journey?
           </h2>
-          <p style={{ color: 'rgba(220,195,175,0.7)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '2.5rem' }}>
+          <p style={{ color: 'rgba(220,195,175,0.7)', fontSize: 'var(--fs-body)', lineHeight: 1.7, marginBottom: '2.5rem' }}>
             Our physicians are ready to design your personalized wellness protocol.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>

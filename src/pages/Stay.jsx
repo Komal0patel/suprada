@@ -1047,7 +1047,7 @@ export default function Stay({ onNavigate }) {
                         {cottage.name}
                       </h3>
 
-                      <p style={{ fontSize: '0.95rem', opacity: 0.95, lineHeight: 1.6, color: 'var(--raisin-black)', marginBottom: '1rem', fontWeight: 450 }}>
+                      <p style={{ fontSize: 'var(--fs-body)', opacity: 0.95, lineHeight: 1.6, color: 'var(--raisin-black)', marginBottom: '1rem', fontWeight: 450 }}>
                         {cottage.desc}
                       </p>
 
@@ -1186,11 +1186,11 @@ export default function Stay({ onNavigate }) {
               <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.78rem', fontWeight: 800, display: 'block', marginBottom: '0.3rem', opacity: 0.85 }}>
                 ✦ CURATED COMFORTS
               </span>
-              <h2 style={{ color: 'var(--wine)', lineHeight: 1.15, margin: 0, fontSize: 'clamp(1.8rem, 2.8vw, 2.5rem)' }}>
+              <h2 style={{ color: 'var(--wine)', lineHeight: 1.15, margin: 0, fontSize: 'var(--fs-h2)' }}>
                 Thoughtful Amenities
               </h2>
             </div>
-            <p style={{ color: 'var(--wine)', opacity: 0.85, maxWidth: '600px', fontSize: '0.94rem', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
+            <p style={{ color: 'var(--wine)', opacity: 0.85, maxWidth: '600px', fontSize: 'var(--fs-body)', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
               Every detail is intentional — from the water you drink to the air you breathe. Wellness woven into every comfort.
             </p>
           </div>
@@ -1326,10 +1326,10 @@ export default function Stay({ onNavigate }) {
                 </div>
 
                 <div>
-                  <h3 style={{ color: 'var(--wine)', fontSize: '1.15rem', fontWeight: 700, margin: '0 0 0.35rem 0', lineHeight: 1.25 }}>
+                  <h3 style={{ color: 'var(--wine)', fontSize: 'var(--fs-h3)', fontWeight: 700, margin: '0 0 0.35rem 0', lineHeight: 1.25 }}>
                     {item.name}
                   </h3>
-                  <p style={{ fontSize: '0.88rem', color: 'var(--wine)', opacity: 0.85, lineHeight: 1.5, margin: 0, fontWeight: 400 }}>
+                  <p style={{ fontSize: 'var(--fs-body)', color: 'var(--wine)', opacity: 0.85, lineHeight: 1.5, margin: 0, fontWeight: 400 }}>
                     {item.desc}
                   </p>
                 </div>
@@ -1538,7 +1538,7 @@ export default function Stay({ onNavigate }) {
               <h3 style={{color: 'var(--wine)', marginBottom: '0.5rem'}}>
                 {selectedHotspot.title}
               </h3>
-              <p style={{ fontSize: '1.05rem', opacity: 0.8, lineHeight: 1.6 }}>
+              <p style={{ fontSize: 'var(--fs-body)', opacity: 0.8, lineHeight: 1.6 }}>
                 {selectedHotspot.desc}
               </p>
             </motion.div>
@@ -1602,13 +1602,13 @@ export default function Stay({ onNavigate }) {
                 ))}
               </div>
 
-              <span style={{ color: 'var(--redwood)', fontSize: '0.92rem', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 800 }}>
+              <span style={{ color: 'var(--redwood)', fontSize: 'var(--fs-small)', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 800 }}>
                 {activeModal.category}
               </span>
               <h2 style={{color: 'var(--wine)', marginTop: '0.2rem'}}>
                 {activeModal.name}
               </h2>
-              <p style={{ fontSize: '1.1rem', opacity: 0.8, lineHeight: 1.7, marginTop: '0.8rem' }}>
+              <p style={{ fontSize: 'var(--fs-body)', opacity: 0.8, lineHeight: 1.7, marginTop: '0.8rem' }}>
                 {activeModal.desc}
               </p>
 
@@ -1616,7 +1616,7 @@ export default function Stay({ onNavigate }) {
                 <h4 style={{color: 'var(--wine)', marginBottom: '0.8rem'}}>
                   Architectural Highlights
                 </h4>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '1.02rem' }}>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: 'var(--fs-body)' }}>
                   {activeModal.highlights.map((h, i) => (
                     <li key={i} style={{ display: 'flex', gap: '0.6rem' }}>
                       <span style={{ color: 'var(--harvest-gold)', fontWeight: 700 }}>✦</span>
@@ -1748,17 +1748,17 @@ export default function Stay({ onNavigate }) {
               <h2 style={{color: 'var(--wine)', marginBottom: '0.4rem'}}>
                 Sanctuary Comparison Matrix
               </h2>
-              <p style={{ fontSize: '1.04rem', opacity: 0.7, marginBottom: '2rem' }}>
+              <p style={{ fontSize: 'var(--fs-body)', opacity: 0.7, marginBottom: '2rem' }}>
                 Compare specs, materials, views, and privacy across your chosen blocks.
               </p>
 
               <div style={{ overflowX: 'auto' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '1.04rem' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: 'var(--fs-body)' }}>
                   <thead>
                     <tr style={{ borderBottom: '2px solid var(--wine)' }}>
                       <th style={{ padding: '1rem', width: '25%' }}>Attribute</th>
                       {comparedBlocks.map(b => (
-                        <th key={b.id} style={{ padding: '1rem', color: 'var(--wine)', fontSize: '1.3rem' }}>
+                        <th key={b.id} style={{ padding: '1rem', color: 'var(--wine)', fontSize: 'var(--fs-h3)' }}>
                           {b.name}
                         </th>
                       ))}

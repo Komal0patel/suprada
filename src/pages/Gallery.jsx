@@ -428,7 +428,7 @@ export default function Gallery({ onNavigate }) {
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 0.85, scale: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            style={{ color: 'var(--raisin-black)', maxWidth: '700px', margin: '1.8rem auto 0 auto', fontSize: '1.08rem', lineHeight: 1.85, fontWeight: 300 }}
+            style={{ color: 'var(--raisin-black)', maxWidth: '700px', margin: '1.8rem auto 0 auto', fontSize: 'var(--fs-body)', lineHeight: 1.85, fontWeight: 300 }}
           >
             Discover the serene beauty and transformative experiences that await you at Suprada Wellness. Explore our retreat spaces, therapeutic treatments, nutritious cuisine, and peaceful architecture.
           </motion.p>
@@ -582,7 +582,7 @@ export default function Gallery({ onNavigate }) {
         <h2 style={{color: 'var(--tan)', marginBottom: '1rem',}}>
           Experience Suprada in Person
         </h2>
-        <p style={{ opacity: 0.8, maxWidth: '550px', margin: '0 auto 2.5rem auto', fontSize: '1rem', lineHeight: 1.6 }}>
+        <p style={{ opacity: 0.8, maxWidth: '550px', margin: '0 auto 2.5rem auto', fontSize: 'var(--fs-body)', lineHeight: 1.6 }}>
           While photographs capture visual moments, nothing compares to the physical serenity of our forest retreat.
         </p>
         <button
@@ -708,7 +708,7 @@ export default function Gallery({ onNavigate }) {
                     <X size={16} />
                   </button>
                 </div>
-                <p style={{ fontSize: '0.92rem', color: 'var(--raisin-black)', opacity: 0.8, lineHeight: 1.6, margin: 0, fontWeight: 300 }}>
+                <p style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.8, lineHeight: 1.6, margin: 0, fontWeight: 300 }}>
                   {getDescriptionForTitle(filteredItems[selectedIdx].title)}
                 </p>
               </div>

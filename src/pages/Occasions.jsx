@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Pattern24, Pattern25 } from '../AnimatedPatterns';
-import { Sun, Sprout, Leaf, Heart, Home, Users, Sparkles, Utensils, Droplet, Award, Handshake, Building, Crown, Check } from 'lucide-react';
+import { Sun, Sprout, Leaf, Heart, Home, Users, Sparkles, Utensils, Droplet, Award, Handshake, Building, Crown, Check, Phone, MessageCircle } from 'lucide-react';
 
 const blurFadeIn = {
   hidden: { opacity: 0, y: 35, filter: "blur(8px)" },

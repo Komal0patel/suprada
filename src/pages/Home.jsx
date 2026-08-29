@@ -500,8 +500,8 @@ export default function Home({ onNavigate }) {
   const [activeCareCategory, setActiveCareCategory] = useState('All Interventions');
   const [expandedPillar, setExpandedPillar] = useState(0);
   const [quizSelections, setQuizSelections] = useState({
-    dosha: 'Pitta-Kapha',
-    detox: 'Moderate Toxicity',
+    dosha: 'Vata',
+    detox: 'Mild Fatigue',
     stress: 'Mild Stress'
   });
 
@@ -2625,7 +2625,7 @@ export default function Home({ onNavigate }) {
                   {['Vata', 'Pitta', 'Kapha'].map((d, dIdx) => (
                     <button 
                       key={dIdx}
-                      className={`quiz-option-chip ${quizSelections.dosha.includes(d) ? 'selected' : ''}`}
+                      className={`quiz-option-chip ${quizSelections.dosha === d ? 'selected' : ''}`}
                       style={{ padding: '0.6rem 1.4rem', fontSize: '0.85rem' }}
                       onClick={() => setQuizSelections(prev => ({ ...prev, dosha: d }))}
                     >

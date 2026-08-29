@@ -829,81 +829,84 @@ export default function Contact({ onNavigate }) {
             }}
             className="bento-box-12-tablet"
           >
-            <h3 style={{color: 'var(--wine)', margin: '0 0 2.5rem 0'}}>
+            <h3 style={{color: 'var(--wine)', margin: '0 0 2rem 0'}}>
               Follow <span style={{ color: 'var(--harvest-gold)' }}>Our Journey</span>
             </h3>
 
             <div style={{
               display: 'flex',
-              justifyContent: 'center',
+              flexDirection: 'column',
               alignItems: 'center',
-              gap: '1.8rem',
+              gap: '1.4rem',
               width: '100%'
             }}>
               {/* Instagram Drawing Line Icon */}
               <motion.a
                 href="https://instagram.com/supradawellness" target="_blank" rel="noreferrer"
-                whileHover={{ scale: 1.08, y: -4 }}
-                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.7rem', textDecoration: 'none' }}
+                whileHover={{ scale: 1.05, x: 4 }}
+                style={{ display: 'flex', alignItems: 'center', gap: '1.2rem', width: '180px', textDecoration: 'none' }}
               >
                 <div style={{
-                  width: '68px', height: '68px', borderRadius: '50%',
+                  width: '54px', height: '54px', borderRadius: '50%',
                   backgroundColor: 'rgba(94, 39, 53, 0.04)',
                   border: '1.5px solid rgba(94, 39, 53, 0.16)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  boxShadow: '0 8px 20px rgba(94, 39, 53, 0.05)',
+                  boxShadow: '0 6px 16px rgba(94, 39, 53, 0.05)',
+                  flexShrink: 0,
                   transition: 'all 0.3s ease'
                 }}>
-                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--wine)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="var(--wine)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                   </svg>
                 </div>
-                <span style={{ color: 'var(--wine)', fontWeight: 600, fontSize: '0.88rem' }}>Instagram</span>
+                <span style={{ color: 'var(--wine)', fontWeight: 600, fontSize: '0.92rem' }}>Instagram</span>
               </motion.a>
 
               {/* YouTube Drawing Line Icon */}
               <motion.a
                 href="https://youtube.com/@supradawellness" target="_blank" rel="noreferrer"
-                whileHover={{ scale: 1.08, y: -4 }}
-                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.7rem', textDecoration: 'none' }}
+                whileHover={{ scale: 1.05, x: 4 }}
+                style={{ display: 'flex', alignItems: 'center', gap: '1.2rem', width: '180px', textDecoration: 'none' }}
               >
                 <div style={{
-                  width: '68px', height: '68px', borderRadius: '50%',
+                  width: '54px', height: '54px', borderRadius: '50%',
                   backgroundColor: 'rgba(94, 39, 53, 0.04)',
                   border: '1.5px solid rgba(94, 39, 53, 0.16)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  boxShadow: '0 8px 20px rgba(94, 39, 53, 0.05)',
+                  boxShadow: '0 6px 16px rgba(94, 39, 53, 0.05)',
+                  flexShrink: 0,
                   transition: 'all 0.3s ease'
                 }}>
-                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--wine)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="var(--wine)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
                     <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="none" stroke="var(--wine)" strokeWidth="1.8" />
                   </svg>
                 </div>
-                <span style={{ color: 'var(--wine)', fontWeight: 600, fontSize: '0.88rem' }}>YouTube</span>
+                <span style={{ color: 'var(--wine)', fontWeight: 600, fontSize: '0.92rem' }}>YouTube</span>
               </motion.a>
 
               {/* Facebook Drawing Line Icon */}
               <motion.a
                 href="https://facebook.com/supradawellness" target="_blank" rel="noreferrer"
-                whileHover={{ scale: 1.08, y: -4 }}
-                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.7rem', textDecoration: 'none' }}
+                whileHover={{ scale: 1.05, x: 4 }}
+                style={{ display: 'flex', alignItems: 'center', gap: '1.2rem', width: '180px', textDecoration: 'none' }}
               >
                 <div style={{
-                  width: '68px', height: '68px', borderRadius: '50%',
+                  width: '54px', height: '54px', borderRadius: '50%',
                   backgroundColor: 'rgba(94, 39, 53, 0.04)',
                   border: '1.5px solid rgba(94, 39, 53, 0.16)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  boxShadow: '0 8px 20px rgba(94, 39, 53, 0.05)',
+                  boxShadow: '0 6px 16px rgba(94, 39, 53, 0.05)',
+                  flexShrink: 0,
                   transition: 'all 0.3s ease'
                 }}>
-                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--wine)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="var(--wine)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                   </svg>
                 </div>
-                <span style={{ color: 'var(--wine)', fontWeight: 600, fontSize: '0.88rem' }}>Facebook</span>
+                <span style={{ color: 'var(--wine)', fontWeight: 600, fontSize: '0.92rem' }}>Facebook</span>
               </motion.a>
             </div>
           </motion.div>

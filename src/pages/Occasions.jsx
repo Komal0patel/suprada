@@ -2476,50 +2476,53 @@ export default function Occasions({ onNavigate }) {
           </p>
           <div style={{ display: 'flex', gap: '1.2rem', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', marginTop: '1.2rem' }}>
             {/* Small Card 1: Call Us */}
-            <div
+            <a
+              href="tel:+91-0000000000"
               style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.08)',
                 border: '1.5px solid rgba(220, 160, 50, 0.35)',
                 borderRadius: '16px',
-                padding: '0.85rem 1.4rem',
+                padding: '0.85rem 1.6rem',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.8rem',
                 backdropFilter: 'blur(10px)',
-                textAlign: 'left'
+                textDecoration: 'none',
+                transition: 'all 0.3s ease'
               }}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.14)'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.08)'}
             >
-              <div style={{ width: '38px', height: '38px', borderRadius: '50%', backgroundColor: 'rgba(220, 160, 50, 0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--harvest-gold)', flexShrink: 0 }}>
-                <Phone size={18} />
+              <div style={{ width: '36px', height: '36px', borderRadius: '50%', backgroundColor: 'rgba(220, 160, 50, 0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--harvest-gold)', flexShrink: 0 }}>
+                <Phone size={17} />
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <span style={{ fontSize: '0.68rem', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Call Us</span>
-                <span style={{ fontSize: '0.88rem', color: '#ffffff', fontWeight: 600 }}>+91 98765 54321</span>
-              </div>
-            </div>
+              <span style={{ fontSize: '0.82rem', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Call Us</span>
+            </a>
 
             {/* Small Card 2: WhatsApp */}
-            <div
+            <a
+              href="https://wa.me/910000000000"
+              target="_blank" rel="noopener noreferrer"
               style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.08)',
                 border: '1.5px solid rgba(255, 255, 255, 0.2)',
                 borderRadius: '16px',
-                padding: '0.85rem 1.4rem',
+                padding: '0.85rem 1.6rem',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.8rem',
                 backdropFilter: 'blur(10px)',
-                textAlign: 'left'
+                textDecoration: 'none',
+                transition: 'all 0.3s ease'
               }}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.14)'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.08)'}
             >
-              <div style={{ width: '38px', height: '38px', borderRadius: '50%', backgroundColor: 'rgba(37, 211, 102, 0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#25D366', flexShrink: 0 }}>
-                <MessageCircle size={18} />
+              <div style={{ width: '36px', height: '36px', borderRadius: '50%', backgroundColor: 'rgba(37, 211, 102, 0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#25D366', flexShrink: 0 }}>
+                <MessageCircle size={17} />
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <span style={{ fontSize: '0.68rem', color: '#25D366', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em' }}>WhatsApp</span>
-                <span style={{ fontSize: '0.88rem', color: '#ffffff', fontWeight: 600 }}>+91 98765 54321</span>
-              </div>
-            </div>
+              <span style={{ fontSize: '0.82rem', color: '#25D366', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em' }}>WhatsApp</span>
+            </a>
 
             {/* Action Button: Download Brochure */}
             <a

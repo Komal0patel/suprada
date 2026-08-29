@@ -1223,7 +1223,7 @@ export default function About({ onNavigate }) {
       <section style={{ padding: '5.5rem 8%', backgroundColor: 'var(--isabelline)', position: 'relative' }}>
         <FloatingPetals count={6} color="var(--sage)" />
 
-        <div style={{ maxWidth: '1240px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem', alignItems: 'center' }}>
+        <div style={{ maxWidth: '1240px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem', alignItems: 'stretch' }}>
           
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', position: 'relative', zIndex: 2 }}>
             <div>
@@ -1264,11 +1264,12 @@ export default function About({ onNavigate }) {
             </div>
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'center', position: 'relative', zIndex: 2 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', height: '100%', position: 'relative', zIndex: 2 }}>
             <div style={{
               width: '100%',
               maxWidth: '460px',
-              height: '400px',
+              height: '100%',
+              minHeight: '480px',
               backgroundImage: 'url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80")',
               backgroundSize: 'cover',
               backgroundPosition: 'center',

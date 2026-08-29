@@ -436,7 +436,7 @@ export default function Spaces({ onNavigate }) {
           </motion.div>
 
           {/* Word-by-Word Revealed Main Headline */}
-          <h1 style={{color: 'var(--tan)', 
+          <h1 style={{color: 'var(--wine)', 
             margin: '0 0 0.9rem 0', 
             lineHeight: 1.1, 
             display: 'flex', 
@@ -516,7 +516,7 @@ export default function Spaces({ onNavigate }) {
                 backgroundColor: 'var(--wine)',
                 color: '#f5ebd9',
                 border: '1.5px solid var(--wine)',
-                borderRadius: '2px',
+                borderRadius: '30px',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
                 boxShadow: '0 4px 18px rgba(94,39,53,0.22)'

@@ -2657,9 +2657,25 @@ export default function Occasions({ onNavigate }) {
                       }
                       @media (max-width: 768px) {
                         .spaces-photo-gallery {
-                          grid-template-columns: 1fr !important;
+                          display: flex !important;
+                          flex-direction: row !important;
+                          overflow-x: auto !important;
+                          scroll-snap-type: x mandatory !important;
                           gap: 1rem !important;
-                          padding: 0 !important;
+                          padding: 0.5rem 1rem 1.2rem 1rem !important;
+                          scrollbar-width: none !important;
+                          -ms-overflow-style: none !important;
+                          -webkit-overflow-scrolling: touch !important;
+                          width: 100% !important;
+                          box-sizing: border-box !important;
+                        }
+                        .spaces-photo-gallery::-webkit-scrollbar {
+                          display: none !important;
+                        }
+                        .spaces-photo-card {
+                          flex: 0 0 270px !important;
+                          scroll-snap-align: center !important;
+                          height: 180px !important;
                         }
                       }
                     `}} />

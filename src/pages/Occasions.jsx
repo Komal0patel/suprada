@@ -137,6 +137,14 @@ export default function Occasions({ onNavigate }) {
   const [activeCeremonyIdx, setActiveCeremonyIdx] = useState(0);
   const isHoveredCeremonyCardRef = useRef(false);
   const [activeSpaceModal, setActiveSpaceModal] = useState(null);
+  const photoGalleryRef = useRef(null);
+
+  const scrollPhotoGallery = (direction) => {
+    if (photoGalleryRef.current) {
+      const scrollAmount = direction === 'left' ? -250 : 250;
+      photoGalleryRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   // Mobile responsiveness check
   const [isMobile, setIsMobile] = useState(false);
@@ -2513,7 +2521,7 @@ export default function Occasions({ onNavigate }) {
                   height: isMobile ? '100%' : '92vh',
                   borderRadius: isMobile ? '16px' : '24px',
                   overflowY: 'auto',
-                  overflowX: 'hidden',
+                  overflowX: 'visible',
                   overscrollBehavior: 'contain',
                   position: 'relative',
                   boxShadow: '0 25px 60px rgba(0,0,0,0.4)',
@@ -2586,7 +2594,7 @@ export default function Occasions({ onNavigate }) {
                   flexDirection: 'column',
                   gap: isMobile ? '1.5rem' : '3.5rem',
                   color: 'var(--raisin-black)',
-                  overflowX: 'hidden'
+                  overflowX: 'visible'
                 }}>
                   
                   {/* Space Title and Tagline Header */}
@@ -2634,9 +2642,41 @@ export default function Occasions({ onNavigate }) {
                       <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: isMobile ? '0.74rem' : '0.8rem', fontWeight: 800 }}>
                         Sanctuary Photography &amp; Views
                       </span>
-                      <span style={{ fontSize: '0.85rem', color: 'var(--wine)', opacity: 0.75, fontWeight: 600 }}>
-                        4 Gallery Shots
-                      </span>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                        {isMobile && (
+                          <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center' }}>
+                            <button
+                              onClick={() => scrollPhotoGallery('left')}
+                              style={{
+                                width: '28px', height: '28px', borderRadius: '50%',
+                                backgroundColor: 'var(--wine)', color: 'var(--harvest-gold)',
+                                border: '1px solid var(--harvest-gold)', display: 'flex',
+                                alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
+                                fontSize: '0.9rem'
+                              }}
+                              aria-label="Previous view"
+                            >
+                              ‹
+                            </button>
+                            <button
+                              onClick={() => scrollPhotoGallery('right')}
+                              style={{
+                                width: '28px', height: '28px', borderRadius: '50%',
+                                backgroundColor: 'var(--wine)', color: 'var(--harvest-gold)',
+                                border: '1px solid var(--harvest-gold)', display: 'flex',
+                                alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
+                                fontSize: '0.9rem'
+                              }}
+                              aria-label="Next view"
+                            >
+                              ›
+                            </button>
+                          </div>
+                        )}
+                        <span style={{ fontSize: '0.85rem', color: 'var(--wine)', opacity: 0.75, fontWeight: 600 }}>
+                          {(activeSpaceModal.galleryImages || [activeSpaceModal.img]).length} Gallery Shots
+                        </span>
+                      </div>
                     </div>
 
                     <style dangerouslySetInnerHTML={{__html: `
@@ -2652,28 +2692,31 @@ export default function Occasions({ onNavigate }) {
                           flex-direction: row !important;
                           overflow-x: auto !important;
                           scroll-snap-type: x mandatory !important;
-                          gap: 1rem !important;
-                          padding: 0.5rem 1rem 1.2rem 1rem !important;
+                          gap: 0.85rem !important;
+                          padding: 0.5rem 0.5rem 1.2rem 0.5rem !important;
                           scrollbar-width: none !important;
                           -ms-overflow-style: none !important;
                           -webkit-overflow-scrolling: touch !important;
                           width: 100% !important;
                           box-sizing: border-box !important;
-                          touch-action: pan-x !important;
+                          touch-action: pan-x pan-y !important;
+                          overscroll-behavior-x: contain !important;
                         }
                         .spaces-photo-gallery::-webkit-scrollbar {
                           display: none !important;
                         }
                         .spaces-photo-card {
-                          flex: 0 0 270px !important;
-                          scroll-snap-align: center !important;
-                          height: 180px !important;
-                          touch-action: pan-x !important;
+                          flex: 0 0 78vw !important;
+                          max-width: 280px !important;
+                          flex-shrink: 0 !important;
+                          scroll-snap-align: start !important;
+                          height: 195px !important;
+                          touch-action: pan-x pan-y !important;
                         }
                       }
                     `}} />
 
-                    <div className="spaces-photo-gallery" data-lenis-prevent="true">
+                    <div className="spaces-photo-gallery" ref={photoGalleryRef} data-lenis-prevent="true">
                       {(activeSpaceModal.galleryImages || [activeSpaceModal.img]).map((gImg, gIdx) => (
                         <motion.div
                           key={gIdx}
@@ -2714,26 +2757,29 @@ export default function Occasions({ onNavigate }) {
                           flex-direction: row !important;
                           overflow-x: auto !important;
                           scroll-snap-type: x mandatory !important;
-                          gap: 1rem !important;
-                          padding: 0.5rem 1rem 1.5rem 1rem !important;
+                          gap: 0.85rem !important;
+                          padding: 0.5rem 0.5rem 1.5rem 0.5rem !important;
                           scrollbar-width: none !important;
                           -ms-overflow-style: none !important;
                           -webkit-overflow-scrolling: touch !important;
                           width: 100% !important;
                           box-sizing: border-box !important;
-                          touch-action: pan-x !important;
+                          touch-action: pan-x pan-y !important;
+                          overscroll-behavior-x: contain !important;
                         }
                         .spaces-details-carousel::-webkit-scrollbar {
                           display: none !important;
                         }
                         .spaces-detail-card-item {
-                          flex: 0 0 290px !important;
-                          scroll-snap-align: center !important;
+                          flex: 0 0 82vw !important;
+                          max-width: 300px !important;
+                          flex-shrink: 0 !important;
+                          scroll-snap-align: start !important;
                           box-sizing: border-box !important;
-                          min-height: 360px !important;
+                          min-height: 340px !important;
                           display: flex !important;
                           flex-direction: column !important;
-                          touch-action: pan-x !important;
+                          touch-action: pan-x pan-y !important;
                         }
                       `}} />
 

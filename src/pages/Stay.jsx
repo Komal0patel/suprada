@@ -1070,24 +1070,26 @@ export default function Stay({ onNavigate }) {
                         </div>
                       </div>
 
-                      {/* Amenities Micro Badges */}
-                      <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', marginBottom: '1.2rem' }}>
-                        {cottage.features.slice(0, 3).map((f, fidx) => (
-                          <span 
-                            key={fidx}
-                            style={{ 
-                              fontSize: '0.88rem', 
-                              backgroundColor: 'rgba(94, 39, 53, 0.1)', 
-                              color: 'var(--wine)', 
-                              padding: '0.35rem 0.85rem', 
-                              borderRadius: '50px',
-                              fontWeight: 700
-                            }}
-                          >
-                            ✦ {f}
-                          </span>
-                        ))}
-                      </div>
+                      {/* Amenities Micro Badges – hidden on mobile */}
+{!isMobile && (
+  <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', marginBottom: '1.2rem' }}>
+    {cottage.features.slice(0, 3).map((f, fidx) => (
+      <span 
+        key={fidx}
+        style={{ 
+          fontSize: '0.88rem', 
+          backgroundColor: 'rgba(94, 39, 53, 0.1)', 
+          color: 'var(--wine)', 
+          padding: '0.35rem 0.85rem', 
+          borderRadius: '50px',
+          fontWeight: 700
+        }}
+      >
+        ✦ {f}
+      </span>
+    ))}
+  </div>
+)}
 
                       {/* Action Triggers */}
                       <div className="action-triggers-responsive" style={{ display: 'flex', gap: '0.8rem', alignItems: 'center', flexWrap: 'wrap' }}>

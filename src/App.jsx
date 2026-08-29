@@ -183,7 +183,7 @@ function App() {
         <>
           {/* Top Left Floating Pill Logo */}
           {(() => {
-            const isHeroLogo = scrollYPos < 100 && (currentPage === 'home' || currentPage === 'stay');
+            const isHeroLogo = scrollYPos < 100 && currentPage === 'home';
             return (
               <div 
                 onClick={() => handlePageChange('home')}

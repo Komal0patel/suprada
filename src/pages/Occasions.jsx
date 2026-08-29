@@ -2654,11 +2654,12 @@ export default function Occasions({ onNavigate }) {
                           flex: 0 0 270px !important;
                           scroll-snap-align: center !important;
                           height: 180px !important;
+                          touch-action: pan-x !important;
                         }
                       }
                     `}} />
 
-                    <div className="spaces-photo-gallery">
+                    <div className="spaces-photo-gallery" data-lenis-prevent="true">
                       {(activeSpaceModal.galleryImages || [activeSpaceModal.img]).map((gImg, gIdx) => (
                         <motion.div
                           key={gIdx}
@@ -2718,10 +2719,11 @@ export default function Occasions({ onNavigate }) {
                           min-height: 360px !important;
                           display: flex !important;
                           flex-direction: column !important;
+                          touch-action: pan-x !important;
                         }
                       `}} />
 
-                      <div className="spaces-details-carousel">
+                      <div className="spaces-details-carousel" data-lenis-prevent="true">
                         {/* 1. Overview */}
                         <div className="spaces-detail-card-item" style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '2rem 1.6rem', border: '1px solid rgba(94, 39, 53, 0.08)', boxShadow: '0 8px 25px rgba(94, 39, 53, 0.03)' }}>
                           <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.18em', fontSize: '0.72rem', fontWeight: 800, display: 'block', marginBottom: '0.8rem' }}>

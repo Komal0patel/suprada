@@ -255,7 +255,7 @@ h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
   color: var(--wine, #5e2735) !important;
   border: 1.5px solid var(--wine, #5e2735) !important;
   padding: 0.85rem 2.4rem;
-  border-radius: 50px;
+  border-radius: 8px;
   font-family: var(--font-body);
   font-font-size: 0.94rem;
   font-weight: 700 !important;
@@ -338,7 +338,7 @@ h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
   color: var(--wine, #5e2735) !important;
   border: 1.5px solid rgba(94, 39, 53, 0.35) !important;
   padding: 0.8rem 2rem;
-  border-radius: 50px;
+  border-radius: 8px;
   font-family: var(--font-body);
   font-size: 0.94rem;
   font-weight: 700 !important;

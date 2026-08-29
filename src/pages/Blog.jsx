@@ -132,7 +132,7 @@ function BlogCard({ art, colors, imageUrl, onSelect }) {
       }}
     >
       {/* Base Card Image Header */}
-      <div style={{ height: '220px', width: '100%', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
         <img
           src={imageUrl}
           alt={art.title}
@@ -158,13 +158,13 @@ function BlogCard({ art, colors, imageUrl, onSelect }) {
       </div>
 
       {/* Base Card Body Content */}
-      <div style={{ padding: '1.6rem 1.6rem 1.4rem 1.6rem', display: 'flex', flexDirection: 'column', gap: '0.6rem', flexGrow: 1 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', color: 'var(--redwood)', fontWeight: 600 }}>
+      <div style={{ padding: '1.4rem 1.5rem', display: 'flex', flexDirection: 'column', gap: '0.6rem', flexGrow: 1, minWidth: 0 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'var(--redwood)', fontWeight: 600 }}>
           <span>{art.date}</span>
           <span>{art.readTime}</span>
         </div>
 
-        <h3 style={{color: 'var(--wine)', margin: '0.2rem 0', lineHeight: 1.35}}>
+        <h3 style={{ color: 'var(--wine)', margin: '0.2rem 0', lineHeight: 1.4, fontSize: '1rem', fontWeight: 700 }}>
           {art.title}
         </h3>
 
@@ -208,7 +208,7 @@ function BlogCard({ art, colors, imageUrl, onSelect }) {
                 <span style={{ fontSize: '0.7rem', opacity: 0.7, color: 'var(--tan)' }}>{art.readTime}</span>
               </div>
 
-              <h4 style={{color: 'var(--tan)', margin: '0 0 0.8rem 0', lineHeight: 1.3}}>
+              <h4 style={{ color: 'var(--tan)', margin: '0 0 0.6rem 0', lineHeight: 1.3, fontSize: '1rem', fontWeight: 700 }}>
                 {art.title}
               </h4>
 

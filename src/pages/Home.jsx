@@ -756,16 +756,8 @@ export default function Home({ onNavigate }) {
               Experience the ancient healing intelligence of Naturopathy &amp; Yogic Science. Nestled on the banks of the holy Suvarnamukhi River.
             </motion.p>
 
-            {/* Left-Aligned Dual CTA Action Buttons (Slightly Smaller) */}
+            {/* Left-Aligned CTA Action Button */}
             <motion.div variants={blurFadeIn} style={{ display: 'flex', alignItems: 'center', gap: '0.9rem', flexWrap: 'wrap' }}>
-              <button 
-                onClick={() => onNavigate('stay')}
-                className="btn-primary" 
-                style={{ padding: '0.75rem 1.8rem', fontSize: '0.78rem', letterSpacing: '0.1em', fontWeight: 800 }}
-              >
-                ✦ BOOK YOUR STAY
-              </button>
-
               <button 
                 onClick={() => onNavigate('programmes')}
                 className="hero-btn-secondary"

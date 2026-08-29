@@ -720,7 +720,7 @@ export default function Stay({ onNavigate }) {
           <h2 style={{color: 'var(--wine)', marginBottom: '1.2rem'}}>
             Your Personal <span style={{ color: 'var(--harvest-gold)' }}>Sanctuary</span>
           </h2>
-          <p style={{ fontSize: '1.28rem', lineHeight: 1.8, opacity: 0.85, maxWidth: '800px', margin: '0 auto', fontWeight: 300 }}>
+          <p style={{ fontSize: 'var(--fs-body)', lineHeight: 1.7, opacity: 0.88, maxWidth: '750px', margin: '0 auto', fontWeight: 400 }}>
             Our accommodations are designed to be an extension of your therapy. Built with natural materials and positioned to maximize natural light and ventilation, each room offers a serene environment for deep relaxation and healing.
           </p>
         </div>
@@ -736,13 +736,13 @@ export default function Stay({ onNavigate }) {
           
           {/* Section Header */}
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-            <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.92rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
+            <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: 'var(--fs-small)', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
               ✦ Sanctuary Portfolio ✦
             </span>
             <h2 style={{color: 'var(--wine)',}}>
               Distinctive Living Spaces
             </h2>
-            <p style={{ opacity: 0.8, maxWidth: '650px', margin: '0.5rem auto 0 auto', fontSize: '1.22rem', lineHeight: 1.7, fontWeight: 300 }}>
+            <p style={{ opacity: 0.88, maxWidth: '650px', margin: '0.5rem auto 0 auto', fontSize: 'var(--fs-body)', lineHeight: 1.7, fontWeight: 400 }}>
               Filter by estate campus location and explore our 9 handcrafted sanctuaries designed with organic eco-lime, warm timber, and private sit-out verandas.
             </p>
           </div>

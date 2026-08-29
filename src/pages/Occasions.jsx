@@ -2584,42 +2584,6 @@ export default function Occasions({ onNavigate }) {
                   </button>
                 </div>
 
-                {/* Space Hero Banner Section */}
-                <div style={{ height: isMobile ? '230px' : '480px', width: '100%', position: 'relative', overflow: 'hidden' }}>
-                  <img
-                    src={activeSpaceModal.img}
-                    alt={activeSpaceModal.name}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(25, 23, 24, 0.95) 0%, rgba(25, 23, 24, 0.3) 65%, transparent 100%)' }} />
-                  <Pattern24 style={{ position: 'absolute', top: '10%', right: '-40px', maxWidth: '360px', width: '100%', height: 'auto', opacity: 0.15, color: 'var(--harvest-gold)', pointerEvents: 'none' }} />
-
-                  <div style={{ position: 'absolute', bottom: isMobile ? '1.5rem' : '3rem', left: '8%', right: '8%', maxWidth: '1240px', margin: '0 auto' }}>
-                    <span style={{
-                      backgroundColor: 'var(--harvest-gold)',
-                      color: 'var(--wine)',
-                      padding: '0.45rem 1.2rem',
-                      borderRadius: '20px',
-                      fontSize: '0.75rem',
-                      fontWeight: 800,
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.14em',
-                      display: 'inline-block',
-                      marginBottom: '0.8rem'
-                    }}>
-                      {activeSpaceModal.role}
-                    </span>
-                    <h1 style={{color: '#ffffff', margin: 0, lineHeight: 1.1, fontSize: isMobile ? '1.8rem' : '2.5rem'}}>
-                      {activeSpaceModal.name}
-                    </h1>
-                    {!isMobile && activeSpaceModal.tagline && (
-                      <p style={{ color: 'var(--tan)', fontSize: '1.35rem', margin: '0.6rem 0 0 0', fontStyle: 'italic' }}>
-                        {activeSpaceModal.tagline}
-                      </p>
-                    )}
-                  </div>
-                </div>
-
                 {/* Main Content Layout — Photo Gallery & Specs */}
                 <div className="flex-stack-mobile" style={{
                   padding: isMobile ? '1.5rem 1rem' : '4rem 8%',
@@ -2634,6 +2598,45 @@ export default function Occasions({ onNavigate }) {
                   overflowX: 'hidden'
                 }}>
                   
+                  {/* Space Title and Tagline Header */}
+                  <div style={{ marginBottom: isMobile ? '0.2rem' : '1rem' }}>
+                    <span style={{
+                      backgroundColor: 'var(--harvest-gold)',
+                      color: 'var(--wine)',
+                      padding: '0.45rem 1.2rem',
+                      borderRadius: '20px',
+                      fontSize: '0.74rem',
+                      fontWeight: 800,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.14em',
+                      display: 'inline-block',
+                      marginBottom: '0.8rem'
+                    }}>
+                      {activeSpaceModal.role}
+                    </span>
+                    <h2 style={{
+                      color: 'var(--wine)',
+                      margin: 0,
+                      lineHeight: 1.2,
+                      fontSize: isMobile ? '1.8rem' : '2.8rem',
+                      fontFamily: 'var(--font-heading)',
+                      fontWeight: 700
+                    }}>
+                      {activeSpaceModal.name}
+                    </h2>
+                    {activeSpaceModal.tagline && (
+                      <p style={{
+                        color: 'var(--redwood)',
+                        fontSize: isMobile ? '0.94rem' : '1.3rem',
+                        margin: '0.6rem 0 0 0',
+                        fontStyle: 'italic',
+                        opacity: 0.85
+                      }}>
+                        {activeSpaceModal.tagline}
+                      </p>
+                    )}
+                  </div>
+
                   {/* Space Photo Gallery Showcase Section */}
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem' }}>
@@ -2647,32 +2650,16 @@ export default function Occasions({ onNavigate }) {
 
                     <style dangerouslySetInnerHTML={{__html: `
                       .spaces-photo-gallery {
-                        display: grid;
-                        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                        gap: 1.5rem;
-                        width: 100%;
+                        display: grid !important;
+                        grid-template-columns: repeat(2, 1fr) !important;
+                        gap: 1.5rem !important;
+                        width: 100% !important;
                       }
                       @media (max-width: 768px) {
                         .spaces-photo-gallery {
-                          display: flex !important;
-                          flex-direction: row !important;
-                          overflow-x: auto !important;
-                          scroll-snap-type: x mandatory !important;
+                          grid-template-columns: 1fr !important;
                           gap: 1rem !important;
-                          padding: 0.5rem 1rem 1.2rem 1rem !important;
-                          scrollbar-width: none !important;
-                          -ms-overflow-style: none !important;
-                          -webkit-overflow-scrolling: touch !important;
-                          width: 100% !important;
-                          box-sizing: border-box !important;
-                        }
-                        .spaces-photo-gallery::-webkit-scrollbar {
-                          display: none !important;
-                        }
-                        .spaces-photo-card {
-                          flex: 0 0 270px !important;
-                          scroll-snap-align: center !important;
-                          height: 180px !important;
+                          padding: 0 !important;
                         }
                       }
                     `}} />
@@ -2685,7 +2672,7 @@ export default function Occasions({ onNavigate }) {
                           whileHover={isMobile ? {} : { scale: 1.03, y: -4 }}
                           transition={{ duration: 0.3 }}
                           style={{
-                            height: '210px',
+                            height: isMobile ? '180px' : '280px',
                             borderRadius: '16px',
                             overflow: 'hidden',
                             boxShadow: '0 10px 28px rgba(0,0,0,0.12)',

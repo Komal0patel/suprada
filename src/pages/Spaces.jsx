@@ -920,7 +920,7 @@ export default function Spaces({ onNavigate }) {
           `}} />
 
           {/* Category Selector Tabs */}
-          <div className="sanctum-category-tabs" style={{ display: 'flex', justifyContent: 'center', gap: '0.6rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
+          <div className="sanctum-category-tabs" style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
             {spacesCategories.map((cat, idx) => {
               const isActive = activeCategory === idx;
               return (
@@ -929,7 +929,7 @@ export default function Spaces({ onNavigate }) {
                   onClick={() => setActiveCategory(idx)}
                   className="sanctum-category-btn"
                   style={{
-                    padding: '0.6rem 1.4rem',
+                    padding: '0.6rem 1rem',
                     borderRadius: '24px',
                     border: isActive ? '2px solid var(--harvest-gold)' : '1.5px solid rgba(220, 160, 50, 0.4)',
                     backgroundColor: isActive ? 'var(--harvest-gold)' : 'rgba(255, 255, 255, 0.1)',

@@ -583,7 +583,7 @@ export default function Careers({ onNavigate }) {
               className="mobile-hero-compact"
               style={{
                 boxSizing: 'border-box',
-                padding: '4.5rem 8% 2rem 8%',
+                padding: '6rem 8% 3rem 8%',
                 background: 'linear-gradient(135deg, #6b2e3e 0%, #5e2735 60%, #4a1d28 100%)',
                 color: '#ffffff',
                 textAlign: 'center',
@@ -593,7 +593,7 @@ export default function Careers({ onNavigate }) {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                minHeight: '68vh'
+                minHeight: '100vh'
               }}
             >
               {/* Leaf SVG Watermark Overlays */}
@@ -605,7 +605,7 @@ export default function Careers({ onNavigate }) {
               <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 70%)', filter: 'blur(80px)', zIndex: 0, pointerEvents: 'none' }} />
 
               {/* ── BOTANICAL BLOOM (FINAL CHOSEN ANIMATION) ── */}
-              <motion.div layout style={{ position: 'relative', zIndex: 1, maxWidth: '800px', width: '100%', paddingBottom: '4rem' }}>
+              <motion.div layout style={{ position: 'relative', zIndex: 1, maxWidth: '800px', width: '100%', paddingBottom: '4rem', marginTop: '-2.5rem' }}>
                 {/* Official Suprada Emblem Logo */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}

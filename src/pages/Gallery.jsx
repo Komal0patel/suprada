@@ -334,7 +334,7 @@ export default function Gallery({ onNavigate }) {
         className="mobile-hero-compact"
         style={{
           boxSizing: 'border-box',
-          padding: '4.5rem 8% 2rem 8%',
+          padding: '6rem 8% 3rem 8%',
           background: 'linear-gradient(135deg, #c5cc9f 0%, #b3ba8e 60%, #9ea776 100%)',
           color: 'var(--wine)',
           textAlign: 'center',
@@ -344,7 +344,7 @@ export default function Gallery({ onNavigate }) {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          minHeight: '68vh',
+          minHeight: '100vh',
           marginBottom: '0'
         }}
       >
@@ -353,7 +353,7 @@ export default function Gallery({ onNavigate }) {
         <Pattern25 style={{ position: 'absolute', bottom: '-20px', right: '-40px', width: '280px', opacity: 0.12, color: 'var(--wine)', pointerEvents: 'none' }} />
 
         {/* ── BOTANICAL BLOOM (FINAL CHOSEN ANIMATION) ── */}
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', width: '100%', textAlign: 'center' }}>
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', width: '100%', textAlign: 'center', marginTop: '-2.5rem' }}>
           {/* Official Suprada Emblem Logo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}

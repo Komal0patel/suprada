@@ -411,13 +411,13 @@ export default function Occasions({ onNavigate }) {
       {/* Top Header / Hero Section */}
       <section className="mobile-hero-compact" style={{
         boxSizing: 'border-box',
-        padding: '5rem 8% 3rem 8%',
+        padding: '7rem 8% 3rem 8%',
         background: 'linear-gradient(135deg, #c46c59 0%, #b85e4c 60%, #a24d3c 100%)',
         color: '#ffffff',
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden',
-        minHeight: '68vh',
+        minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -432,7 +432,7 @@ export default function Occasions({ onNavigate }) {
         <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', maxWidth: '500px', width: '100%', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%)', filter: 'blur(80px)', zIndex: 0, pointerEvents: 'none' }} />
 
         {/* ── BOTANICAL BLOOM (FINAL CHOSEN ANIMATION) ── */}
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', width: '100%', textAlign: 'center' }}>
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', width: '100%', textAlign: 'center', marginTop: '-2.5rem' }}>
           {/* Official Suprada Emblem Logo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}

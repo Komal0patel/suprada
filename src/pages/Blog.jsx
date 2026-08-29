@@ -424,7 +424,7 @@ export default function Blog({ onNavigate }) {
               className="mobile-hero-compact"
               style={{
                 boxSizing: 'border-box',
-                padding: '4.5rem 8% 2rem 8%',
+                padding: '6rem 8% 3rem 8%',
                 background: 'linear-gradient(135deg, #ded2bf 0%, #d5c6b0 60%, #c8b79e 100%)',
                 color: 'var(--wine)',
                 textAlign: 'center',
@@ -434,7 +434,7 @@ export default function Blog({ onNavigate }) {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                minHeight: '68vh'
+                minHeight: '100vh'
               }}
             >
               {/* Leaf SVG Watermark Overlays */}
@@ -445,7 +445,7 @@ export default function Blog({ onNavigate }) {
               <div style={{ position: 'absolute', top: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.18) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(70px)', zIndex: 0, pointerEvents: 'none' }} />
               <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(184,94,76,0.12) 0%, rgba(184,94,76,0) 70%)', filter: 'blur(80px)', zIndex: 0, pointerEvents: 'none' }} />
 
-              <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', width: '100%', textAlign: 'center' }}>
+              <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', width: '100%', textAlign: 'center', marginTop: '-2.5rem' }}>
                 {/* Official Suprada Emblem Logo */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}

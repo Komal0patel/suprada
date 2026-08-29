@@ -181,7 +181,7 @@ function App() {
         {/* --- UNIVERSAL FLOATING HAMBURGER & EXPANDABLE PILL NAVBAR (ALL PAGES) --- */}
         {/* ========================================================================= */}
         <>
-          {/* Top Left Floating Pill Logo */}
+          {/* Top Left Floating Logo & Name (No Oval Background Container) */}
           {(() => {
             const isHeroLogo = scrollYPos < 100 && currentPage === 'home';
             const isOtherHeroSection = currentPage !== 'home' && scrollYPos < 200;
@@ -191,7 +191,7 @@ function App() {
                 className={`top-left-logo-pill ${isHeroLogo ? 'hero-centered-logo' : ''}`}
                 style={{ 
                   position: 'fixed', 
-                  top: isMobile ? 'max(20px, env(safe-area-inset-top))' : '15px', 
+                  top: isMobile ? 'max(18px, env(safe-area-inset-top))' : (isHeroLogo ? '32px' : '20px'), 
                   left: isHeroLogo ? '50%' : '25px', 
                   transform: isHeroLogo ? 'translateX(-50%)' : 'none',
                   zIndex: 999999, 
@@ -199,14 +199,14 @@ function App() {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  gap: '0.8rem',
+                  gap: isHeroLogo ? '1rem' : '0.7rem',
                   transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
-                  backgroundColor: isHeroLogo ? 'transparent' : '#1c1410',
-                  borderRadius: isHeroLogo ? '0px' : '50px',
-                  border: isHeroLogo ? '1.5px solid transparent' : '1.5px solid rgba(220, 160, 50, 0.4)',
-                  boxShadow: isHeroLogo ? 'none' : '0 12px 30px rgba(0,0,0,0.5)',
-                  backdropFilter: isHeroLogo ? 'none' : 'blur(20px)',
-                  padding: isHeroLogo ? '0px' : '0.55rem 1.4rem 0.55rem 0.9rem',
+                  backgroundColor: 'transparent',
+                  borderRadius: '0px',
+                  border: 'none',
+                  boxShadow: 'none',
+                  backdropFilter: 'none',
+                  padding: '0px',
                   opacity: isOtherHeroSection ? 0 : 1,
                   pointerEvents: isOtherHeroSection ? 'none' : 'auto'
                 }}
@@ -215,8 +215,9 @@ function App() {
                   src="/assets/logo.svg" 
                   alt="Suprada Icon" 
                   style={{ 
-                    height: isHeroLogo ? '42px' : '32px', 
-                    transition: 'height 0.5s cubic-bezier(0.16, 1, 0.3, 1)' 
+                    height: isHeroLogo ? (isMobile ? '48px' : '64px') : (isMobile ? '36px' : '44px'), 
+                    filter: 'drop-shadow(0 3px 10px rgba(0,0,0,0.4))',
+                    transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)' 
                   }} 
                 />
                 <img 
@@ -224,9 +225,9 @@ function App() {
                   alt="Suprada Wellness" 
                   className={isHeroLogo ? "show-in-hero-mobile" : "hide-mobile"} 
                   style={{ 
-                    height: isHeroLogo ? '28px' : '22px', 
-                    filter: 'brightness(0) invert(1)',
-                    transition: 'height 0.5s cubic-bezier(0.16, 1, 0.3, 1)' 
+                    height: isHeroLogo ? (isMobile ? '32px' : '42px') : (isMobile ? '24px' : '30px'), 
+                    filter: 'brightness(0) invert(1) drop-shadow(0 3px 10px rgba(0,0,0,0.4))',
+                    transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)' 
                   }} 
                 />
               </div>

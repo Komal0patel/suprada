@@ -454,7 +454,7 @@ export default function Gallery({ onNavigate }) {
                   borderRadius: '30px',
                   border: '1.5px solid transparent',
                   backgroundColor: 'transparent',
-                  color: isActive ? '#ffffff' : 'var(--wine)',
+                  color: isActive ? 'var(--wine)' : 'rgba(94, 39, 53, 0.7)',
                   fontSize: '0.78rem',
                   fontWeight: 600,
                   textTransform: 'uppercase',
@@ -470,7 +470,7 @@ export default function Gallery({ onNavigate }) {
                     style={{
                       position: 'absolute',
                       top: 0, left: 0, right: 0, bottom: 0,
-                      backgroundColor: 'var(--redwood)',
+                      backgroundColor: 'var(--sage)',
                       borderRadius: '30px',
                       zIndex: -1
                     }}

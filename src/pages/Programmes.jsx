@@ -813,7 +813,7 @@ export default function Programmes({ onNavigate }) {
                 <thead>
                   <tr style={{ borderBottom: '1.5px solid rgba(220,160,50,0.4)', backgroundColor: 'rgba(94,39,53,0.6)' }}>
                     {['Program', 'Duration', 'Intensity', 'Focus', 'Key Therapies'].map((header) => (
-                      <th key={header} style={{ padding: '1.2rem 1.2rem', color: 'var(--harvest-gold)', fontWeight: 800, fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.12em' }}>
+                      <th key={header} style={{ padding: '1.2rem 1.2rem', color: 'var(--harvest-gold)', fontWeight: 800, fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.12em', textAlign: header === 'Intensity' ? 'center' : 'left' }}>
                         {header}
                       </th>
                     ))}
@@ -835,9 +835,13 @@ export default function Programmes({ onNavigate }) {
                     >
                       <td style={{ padding: '1.2rem', fontWeight: 700, color: 'var(--tan)' }}>{row.name}</td>
                       <td style={{ padding: '1.2rem', color: '#ffffff', fontWeight: 500 }}>{row.dur}</td>
-                      <td style={{ padding: '1.2rem' }}>
+                      <td style={{ padding: '1.2rem', textAlign: 'center' }}>
                         <span style={{
-                          fontSize: '0.82rem', padding: '0.3rem 0.85rem', borderRadius: '50px',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          width: '120px',
+                          fontSize: '0.82rem', padding: '0.35rem 0.5rem', borderRadius: '50px',
                           backgroundColor: row.int === 'Very High' ? 'rgba(184,94,76,0.35)' : row.int === 'High' ? 'rgba(220,160,50,0.25)' : 'rgba(179,186,142,0.28)',
                           color: row.int === 'Very High' ? '#ff9e8c' : row.int === 'High' ? '#f7d070' : '#d8e2aa',
                           fontWeight: 800,

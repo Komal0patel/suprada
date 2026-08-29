@@ -2670,45 +2670,13 @@ export default function Occasions({ onNavigate }) {
 
                   {/* Space Photo Gallery Showcase Section */}
                   <div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
                       <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: isMobile ? '0.74rem' : '0.8rem', fontWeight: 800 }}>
                         Sanctuary Photography &amp; Views
                       </span>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                        {isMobile && (
-                          <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center' }}>
-                            <button
-                              onClick={() => scrollPhotoGallery('left')}
-                              style={{
-                                width: '28px', height: '28px', borderRadius: '50%',
-                                backgroundColor: 'var(--wine)', color: 'var(--harvest-gold)',
-                                border: '1px solid var(--harvest-gold)', display: 'flex',
-                                alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
-                                fontSize: '0.9rem'
-                              }}
-                              aria-label="Previous view"
-                            >
-                              ‹
-                            </button>
-                            <button
-                              onClick={() => scrollPhotoGallery('right')}
-                              style={{
-                                width: '28px', height: '28px', borderRadius: '50%',
-                                backgroundColor: 'var(--wine)', color: 'var(--harvest-gold)',
-                                border: '1px solid var(--harvest-gold)', display: 'flex',
-                                alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
-                                fontSize: '0.9rem'
-                              }}
-                              aria-label="Next view"
-                            >
-                              ›
-                            </button>
-                          </div>
-                        )}
-                        <span style={{ fontSize: '0.85rem', color: 'var(--wine)', opacity: 0.75, fontWeight: 600 }}>
-                          {(activeSpaceModal.galleryImages || [activeSpaceModal.img]).length} Gallery Shots
-                        </span>
-                      </div>
+                      <span style={{ fontSize: '0.85rem', color: 'var(--wine)', opacity: 0.75, fontWeight: 600 }}>
+                        {(activeSpaceModal.galleryImages || [activeSpaceModal.img]).length} Gallery Shots
+                      </span>
                     </div>
 
                     <style dangerouslySetInnerHTML={{__html: `
@@ -2720,53 +2688,23 @@ export default function Occasions({ onNavigate }) {
                       }
                       @media (max-width: 768px) {
                         .spaces-photo-gallery {
-                          display: flex !important;
-                          flex-direction: row !important;
-                          flex-wrap: nowrap !important;
-                          overflow-x: scroll !important;
-                          overflow-y: hidden !important;
-                          gap: 0.85rem !important;
-                          padding: 0.5rem 0.5rem 1.2rem 0.5rem !important;
-                          scrollbar-width: none !important;
-                          -ms-overflow-style: none !important;
-                          -webkit-overflow-scrolling: touch !important;
+                          display: grid !important;
+                          grid-template-columns: repeat(2, 1fr) !important;
+                          gap: 0.65rem !important;
                           width: 100% !important;
+                          padding: 0 !important;
                           box-sizing: border-box !important;
-                          touch-action: pan-x pan-y !important;
-                          overscroll-behavior-x: contain !important;
-                          user-select: none !important;
-                          -webkit-user-select: none !important;
-                        }
-                        .spaces-photo-gallery::-webkit-scrollbar {
-                          display: none !important;
                         }
                         .spaces-photo-card {
-                          flex: 0 0 250px !important;
-                          min-width: 250px !important;
-                          max-width: 250px !important;
-                          width: 250px !important;
-                          flex-shrink: 0 !important;
-                          scroll-snap-align: start !important;
-                          height: 190px !important;
-                          touch-action: pan-x pan-y !important;
-                          pointer-events: auto !important;
+                          width: 100% !important;
+                          height: 130px !important;
+                          border-radius: 12px !important;
+                          box-sizing: border-box !important;
                         }
                       }
                     `}} />
 
-                    <div 
-                      className="spaces-photo-gallery" 
-                      ref={photoGalleryRef} 
-                      data-lenis-prevent="true"
-                      onTouchStart={(e) => handleDragStart(e, photoGalleryRef)}
-                      onTouchMove={(e) => handleDragMove(e, photoGalleryRef)}
-                      onTouchEnd={handleDragEnd}
-                      onMouseDown={(e) => handleDragStart(e, photoGalleryRef)}
-                      onMouseMove={(e) => handleDragMove(e, photoGalleryRef)}
-                      onMouseUp={handleDragEnd}
-                      onMouseLeave={handleDragEnd}
-                      style={{ cursor: 'grab' }}
-                    >
+                    <div className="spaces-photo-gallery">
                       {(activeSpaceModal.galleryImages || [activeSpaceModal.img]).map((gImg, gIdx) => (
                         <motion.div
                           key={gIdx}
@@ -2774,10 +2712,10 @@ export default function Occasions({ onNavigate }) {
                           whileHover={isMobile ? {} : { scale: 1.03, y: -4 }}
                           transition={{ duration: 0.3 }}
                           style={{
-                            height: isMobile ? '180px' : '280px',
-                            borderRadius: '16px',
+                            height: isMobile ? '130px' : '280px',
+                            borderRadius: isMobile ? '12px' : '16px',
                             overflow: 'hidden',
-                            boxShadow: '0 10px 28px rgba(0,0,0,0.12)',
+                            boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
                             border: '1px solid rgba(94, 39, 53, 0.12)',
                             position: 'relative'
                           }}
@@ -2787,8 +2725,8 @@ export default function Occasions({ onNavigate }) {
                             alt={`${activeSpaceModal.name} view ${gIdx + 1}`}
                             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                           />
-                          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 60%)' }} />
-                          <span style={{ position: 'absolute', bottom: '0.9rem', left: '1.2rem', color: '#ffffff', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.05em' }}>
+                          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%)' }} />
+                          <span style={{ position: 'absolute', bottom: '0.6rem', left: '0.8rem', color: '#ffffff', fontSize: isMobile ? '0.7rem' : '0.78rem', fontWeight: 600, letterSpacing: '0.05em' }}>
                             View 0{gIdx + 1}
                           </span>
                         </motion.div>

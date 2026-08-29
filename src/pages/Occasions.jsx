@@ -2645,6 +2645,7 @@ export default function Occasions({ onNavigate }) {
                           -webkit-overflow-scrolling: touch !important;
                           width: 100% !important;
                           box-sizing: border-box !important;
+                          touch-action: pan-x !important;
                         }
                         .spaces-photo-gallery::-webkit-scrollbar {
                           display: none !important;
@@ -2699,11 +2700,13 @@ export default function Occasions({ onNavigate }) {
                           overflow-x: auto !important;
                           scroll-snap-type: x mandatory !important;
                           gap: 1rem !important;
-                          padding: 0.5rem 0 1.5rem 0 !important;
+                          padding: 0.5rem 1rem 1.5rem 1rem !important;
                           scrollbar-width: none !important;
                           -ms-overflow-style: none !important;
                           -webkit-overflow-scrolling: touch !important;
                           width: 100% !important;
+                          box-sizing: border-box !important;
+                          touch-action: pan-x !important;
                         }
                         .spaces-details-carousel::-webkit-scrollbar {
                           display: none !important;

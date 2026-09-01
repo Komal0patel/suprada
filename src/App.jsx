@@ -173,51 +173,58 @@ function App() {
             right: 0,
             width: '100%',
             zIndex: 99999,
-            padding: isMobile ? '0.75rem 1.25rem' : '1rem 3rem',
+            padding: isMobile ? '0.8rem 1.2rem' : '1.2rem 3.5rem',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            backgroundColor: scrollYPos > 50 ? 'rgba(28, 20, 16, 0.88)' : 'rgba(0, 0, 0, 0.25)',
-            backdropFilter: 'blur(16px)',
-            WebkitBackdropFilter: 'blur(16px)',
-            borderBottom: scrollYPos > 50 ? '1px solid rgba(220, 160, 50, 0.2)' : '1px solid rgba(255, 255, 255, 0.1)',
-            transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-            boxShadow: scrollYPos > 50 ? '0 10px 30px rgba(0,0,0,0.4)' : 'none'
+            backgroundColor: scrollYPos > 80 ? 'rgba(28, 20, 16, 0.45)' : 'transparent',
+            backdropFilter: scrollYPos > 80 ? 'blur(12px)' : 'none',
+            WebkitBackdropFilter: scrollYPos > 80 ? 'blur(12px)' : 'none',
+            transition: 'all 0.4s ease',
+            boxShadow: scrollYPos > 80 ? '0 10px 30px rgba(0,0,0,0.25)' : 'none'
           }}
         >
           {/* Left: Brand Logo & Title */}
           <div 
             onClick={() => handlePageChange('home')}
-            style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', cursor: 'pointer' }}
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '0.9rem', 
+              cursor: 'pointer',
+              marginRight: isMobile ? '0' : '2.5rem',
+              flexShrink: 0
+            }}
           >
             <img 
               src="/assets/extracted/logo.svg" 
               alt="Suprada Logo" 
-              style={{ height: isMobile ? '36px' : '44px', filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.4))' }} 
+              style={{ height: isMobile ? '36px' : '44px', filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.5))' }} 
             />
             <img 
               src="/assets/extracted/suprada-wellness.svg" 
               alt="Suprada Wellness" 
-              style={{ height: isMobile ? '22px' : '30px', filter: 'brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.4))' }} 
+              style={{ height: isMobile ? '22px' : '30px', filter: 'brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.5))' }} 
             />
           </div>
 
           {/* Center/Right Navigation Links (Desktop) */}
           {!isMobile && (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1.6rem', flexWrap: 'nowrap' }}>
               {menuItems.map((item) => (
                 <span
                   key={item.id}
                   onClick={() => handlePageChange(item.id)}
                   style={{
                     cursor: 'pointer',
-                    color: currentPage === item.id ? 'var(--harvest-gold)' : 'rgba(255, 255, 255, 0.92)',
+                    color: currentPage === item.id ? 'var(--harvest-gold)' : 'rgba(255, 255, 255, 0.95)',
                     fontWeight: currentPage === item.id ? 800 : 500,
-                    fontSize: '0.8rem',
+                    fontSize: '0.82rem',
                     letterSpacing: '0.08em',
                     textTransform: 'uppercase',
                     transition: 'all 0.3s ease',
-                    whiteSpace: 'nowrap'
+                    whiteSpace: 'nowrap',
+                    textShadow: '0 2px 8px rgba(0,0,0,0.6)'
                   }}
                   className="hover-gold"
                 >
@@ -227,51 +234,30 @@ function App() {
             </div>
           )}
 
-          {/* Right Actions: Search Bar + Book Now + Mobile Menu Button */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.7rem' }}>
+          {/* Right Action: Search Bar & Mobile Menu */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexShrink: 0 }}>
             {/* Search Bar Button */}
             <button
               onClick={() => setIsSearchOpen(true)}
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.5rem',
-                padding: '0.45rem 0.9rem',
-                backgroundColor: 'rgba(255, 255, 255, 0.12)',
-                border: '1px solid rgba(255, 255, 255, 0.25)',
-                borderRadius: '20px',
+                gap: '0.55rem',
+                padding: '0.45rem 1rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
+                borderRadius: '25px',
                 color: '#ffffff',
                 fontSize: '0.78rem',
                 cursor: 'pointer',
                 backdropFilter: 'blur(8px)',
-                transition: 'all 0.3s ease'
+                transition: 'all 0.3s ease',
+                boxShadow: '0 2px 10px rgba(0,0,0,0.2)'
               }}
             >
               <Search size={14} style={{ color: 'var(--harvest-gold)' }} />
               {!isMobile && <span>Search</span>}
-              {!isMobile && <span style={{ fontSize: '0.65rem', opacity: 0.6, backgroundColor: 'rgba(255,255,255,0.18)', padding: '1px 5px', borderRadius: '4px' }}>⌘K</span>}
-            </button>
-
-            {/* Book Now Button */}
-            <button
-              onClick={() => handlePageChange('contact')}
-              style={{
-                padding: '0.45rem 1rem',
-                backgroundColor: 'var(--harvest-gold)',
-                color: '#632633',
-                fontWeight: 800,
-                fontSize: '0.76rem',
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                borderRadius: '8px',
-                border: 'none',
-                cursor: 'pointer',
-                boxShadow: '0 4px 14px rgba(220, 160, 50, 0.4)',
-                transition: 'all 0.3s ease'
-              }}
-              className="hide-mobile"
-            >
-              Book Now
+              {!isMobile && <span style={{ fontSize: '0.65rem', opacity: 0.7, backgroundColor: 'rgba(255,255,255,0.2)', padding: '1px 5px', borderRadius: '4px' }}>⌘K</span>}
             </button>
 
             {/* Mobile Drawer Trigger */}
@@ -283,7 +269,7 @@ function App() {
                   color: '#632633',
                   border: 'none',
                   borderRadius: '8px',
-                  padding: '0.4rem 0.7rem',
+                  padding: '0.45rem 0.85rem',
                   fontWeight: 800,
                   fontSize: '0.75rem',
                   cursor: 'pointer'
@@ -464,7 +450,7 @@ function App() {
         </AnimatePresence>
 
         {/* Dynamic Page Routing Switcher — URL-based */}
-        <div key={location.pathname} style={{ paddingTop: '80px' }}>
+        <div key={location.pathname} style={{ paddingTop: currentPage === 'home' ? '0px' : '90px' }}>
           {currentPage === 'home'       && <Home        onNavigate={handlePageChange} />}
           {currentPage === 'about'      && <About       onNavigate={handlePageChange} />}
           {currentPage === 'spaces'     && <Spaces      onNavigate={handlePageChange} />}

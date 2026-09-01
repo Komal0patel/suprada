@@ -1111,6 +1111,124 @@ export default function Home({ onNavigate }) {
         </motion.div>
       </section>
 
+      {/* Transformative Naturopathy & Holistic Wellness Section - Sleek 4-Card Interactive Grid */}
+      <section className="naturopathy-section-container luxury-clay" style={{ position: 'relative', overflow: 'hidden', padding: '5rem 6%', backgroundColor: 'var(--antique-white)' }}>
+        <Pattern28 style={{ position: 'absolute', top: '-40px', left: '-40px', width: '250px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
+        <Pattern25 style={{ position: 'absolute', bottom: '-40px', right: '-40px', width: '250px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
+        
+        <div style={{ maxWidth: '1280px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+          {/* Section Header */}
+          <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 3.5rem auto' }}>
+            <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.8rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
+              ✦ CORE MEDICAL MODALITIES
+            </span>
+            <h2 style={{ color: 'var(--wine)', lineHeight: 1.15, margin: '0 0 0.6rem 0', fontSize: 'clamp(2.1rem, 4vw, 3rem)', fontWeight: 700 }}>
+              Naturopathy <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>&amp; Holistic Wellness</em>
+            </h2>
+            <p style={{ color: 'var(--wine)', fontStyle: 'italic', fontWeight: 600, fontSize: '1.05rem', margin: '0 0 1rem 0' }}>
+              "Prakṛtireva bheṣajam — Nature itself is the medicine."
+            </p>
+            <p style={{ color: 'var(--raisin-black)', opacity: 0.88, fontSize: '0.98rem', lineHeight: 1.6, fontWeight: 400, margin: 0 }}>
+              At Suprada Wellness, we help you unlock your body's innate capacity to heal through doctor-guided drugless therapies, ancient wisdom, non-invasive diagnostics, and bio-cleansing protocols.
+            </p>
+          </div>
+
+          {/* 4-Card Visual Interactive Grid (Clean layout for click-to-view details) */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: isMobile ? '1fr' : 'repeat(4, 1fr)',
+            gap: '1.8rem',
+            alignItems: 'stretch'
+          }}>
+            {naturopathyCards.map((card) => (
+              <motion.div
+                key={card.id}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                onClick={() => setSelectedNaturopathyModal(card)}
+                style={{
+                  backgroundColor: '#ffffff',
+                  borderRadius: '22px',
+                  border: '1.5px solid rgba(94, 39, 53, 0.14)',
+                  boxShadow: '0 12px 35px rgba(94, 39, 53, 0.08)',
+                  overflow: 'hidden',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  cursor: 'pointer',
+                  position: 'relative'
+                }}
+              >
+                {/* Card Top Cover Image */}
+                <div style={{ height: '220px', position: 'relative', overflow: 'hidden' }}>
+                  <img 
+                    src={card.image} 
+                    alt={card.title}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(28,20,16,0.75) 100%)' }} />
+                  
+                  <span style={{
+                    position: 'absolute', top: '14px', left: '14px',
+                    backgroundColor: 'rgba(28, 20, 16, 0.65)',
+                    color: 'var(--harvest-gold)',
+                    fontSize: '0.62rem',
+                    fontWeight: 800,
+                    letterSpacing: '0.12em',
+                    padding: '0.3rem 0.7rem',
+                    borderRadius: '50px',
+                    backdropFilter: 'blur(6px)',
+                    textTransform: 'uppercase',
+                    border: '1px solid rgba(220,160,50,0.3)'
+                  }}>
+                    ✦ {card.category}
+                  </span>
+
+                  <span style={{
+                    position: 'absolute', bottom: '12px', right: '14px',
+                    color: '#ffffff',
+                    fontSize: '1.4rem',
+                    fontWeight: 800,
+                    opacity: 0.85
+                  }}>
+                    {card.number}
+                  </span>
+                </div>
+
+                {/* Card Clean Footer Content */}
+                <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                  <div>
+                    <h3 style={{ color: 'var(--wine)', fontSize: '1.35rem', fontWeight: 700, margin: '0 0 0.3rem 0' }}>
+                      {card.title}
+                    </h3>
+                    <p style={{ color: 'var(--redwood)', fontSize: '0.82rem', fontWeight: 700, margin: '0 0 0.6rem 0' }}>
+                      {card.tagline}
+                    </p>
+                    <p style={{ fontStyle: 'italic', color: 'rgba(94, 39, 53, 0.75)', fontSize: '0.78rem', margin: '0 0 1rem 0' }}>
+                      "{card.sanskritQuote}"
+                    </p>
+                  </div>
+
+                  {/* Clean Action Button */}
+                  <div style={{ paddingTop: '1rem', borderTop: '1px solid rgba(94, 39, 53, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                    <span style={{ color: 'var(--wine)', fontWeight: 700, fontSize: '0.82rem', letterSpacing: '0.04em' }}>
+                      Explore Modality
+                    </span>
+                    <span style={{
+                      backgroundColor: 'var(--wine)', color: '#ffffff',
+                      borderRadius: '50%', width: '28px', height: '28px',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      fontSize: '0.85rem', fontWeight: 700
+                    }}>
+                      →
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Unique Experiences Section */}
       <section style={{ backgroundColor: 'var(--isabelline)', padding: '4rem 8% 5rem 8%', position: 'relative', overflow: 'hidden' }}>
         <Pattern28 style={{ position: 'absolute', top: '-10px', left: '-50px', width: '260px', color: 'var(--wine)', opacity: 0.16, pointerEvents: 'none', zIndex: 1 }} />
@@ -1651,145 +1769,7 @@ export default function Home({ onNavigate }) {
         </div>
       </section>
 
-      {/* Transformative Naturopathy & Holistic Wellness Section - 4-Card Responsive Grid Layout */}
-      <section className="naturopathy-section-container luxury-clay" style={{ position: 'relative', overflow: 'hidden', padding: '4.5rem 5%', backgroundColor: 'var(--tea-green)' }}>
-        <Pattern28 style={{ position: 'absolute', top: '-40px', left: '-40px', width: '250px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
-        <Pattern25 style={{ position: 'absolute', bottom: '-40px', right: '-40px', width: '250px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
-        
-        <div style={{ maxWidth: '1280px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          {/* Section Header */}
-          <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 3rem auto' }}>
-            <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.8rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
-              ✦ CORE MEDICAL MODALITIES
-            </span>
-            <h2 style={{ color: 'var(--wine)', lineHeight: 1.15, margin: '0 0 0.6rem 0', fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 700 }}>
-              Naturopathy <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>&amp; Holistic Wellness</em>
-            </h2>
-            <p style={{ color: 'var(--wine)', fontStyle: 'italic', fontWeight: 600, fontSize: '1rem', margin: '0 0 1rem 0' }}>
-              "Prakṛtireva bheṣajam — Nature itself is the medicine."
-            </p>
-            <p style={{ color: 'var(--raisin-black)', opacity: 0.88, fontSize: '0.95rem', lineHeight: 1.6, fontWeight: 400, margin: 0 }}>
-              At Suprada Wellness, we help you unlock your body's innate capacity to heal through doctor-guided drugless therapies, ancient wisdom, non-invasive diagnostics, and bio-cleansing protocols.
-            </p>
-          </div>
 
-          {/* 4-Card Responsive Grid Layout */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(260px, 1fr))',
-            gap: '1.6rem',
-            alignItems: 'stretch'
-          }}>
-            {naturopathyCards.map((card) => (
-              <motion.div
-                key={card.id}
-                whileHover={{ y: -6 }}
-                transition={{ duration: 0.3 }}
-                onClick={() => setSelectedNaturopathyModal(card)}
-                style={{
-                  backgroundColor: '#ffffff',
-                  borderRadius: '20px',
-                  border: '1.5px solid rgba(94, 39, 53, 0.14)',
-                  boxShadow: '0 10px 30px rgba(94, 39, 53, 0.08)',
-                  overflow: 'hidden',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease'
-                }}
-              >
-                {/* Card Top Image Banner */}
-                <div style={{ height: '190px', position: 'relative', overflow: 'hidden' }}>
-                  <img 
-                    src={card.image} 
-                    alt={card.title}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.65) 100%)' }} />
-                  
-                  <span style={{
-                    position: 'absolute', top: '12px', left: '12px',
-                    backgroundColor: 'rgba(0,0,0,0.55)',
-                    color: 'var(--harvest-gold)',
-                    fontSize: '0.62rem',
-                    fontWeight: 800,
-                    letterSpacing: '0.1em',
-                    padding: '0.25rem 0.65rem',
-                    borderRadius: '6px',
-                    backdropFilter: 'blur(6px)',
-                    textTransform: 'uppercase'
-                  }}>
-                    {card.category}
-                  </span>
-
-                  <span style={{
-                    position: 'absolute', bottom: '12px', right: '12px',
-                    color: '#ffffff',
-                    fontSize: '1.3rem',
-                    fontWeight: 800,
-                    opacity: 0.85
-                  }}>
-                    {card.number}
-                  </span>
-                </div>
-
-                {/* Card Body Content */}
-                <div style={{ padding: '1.4rem', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                  <div>
-                    <h3 style={{ color: 'var(--wine)', fontSize: '1.3rem', fontWeight: 700, margin: '0 0 0.2rem 0' }}>
-                      {card.title}
-                    </h3>
-                    <p style={{ color: 'var(--redwood)', fontSize: '0.8rem', fontWeight: 700, margin: '0 0 0.6rem 0' }}>
-                      {card.tagline}
-                    </p>
-                    
-                    <p style={{ color: 'var(--raisin-black)', opacity: 0.85, fontSize: '0.85rem', lineHeight: 1.5, marginBottom: '1rem' }}>
-                      {card.description}
-                    </p>
-
-                    {/* Highlights List */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginBottom: '1.2rem' }}>
-                      {card.highlights.map((item, idx) => (
-                        <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.78rem', color: 'var(--wine)', fontWeight: 600 }}>
-                          <span style={{ color: 'var(--harvest-gold)', fontSize: '0.8rem' }}>✦</span>
-                          <span>{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* CTA Button */}
-                  <div style={{ paddingTop: '0.8rem', borderTop: '1px solid rgba(94, 39, 53, 0.1)' }}>
-                    <button 
-                      style={{
-                        width: '100%',
-                        padding: '0.65rem',
-                        backgroundColor: 'var(--wine)',
-                        color: 'var(--isabelline)',
-                        border: 'none',
-                        borderRadius: '10px',
-                        fontWeight: 700,
-                        fontSize: '0.78rem',
-                        letterSpacing: '0.06em',
-                        cursor: 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        gap: '0.4rem',
-                        transition: 'all 0.3s ease'
-                      }}
-                    >
-                      <span>View Protocol &amp; Details</span>
-                      <span>→</span>
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Full Detailed Modal Popup for Naturopathy Cards */}
       <AnimatePresence>

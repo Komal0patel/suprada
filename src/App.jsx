@@ -165,123 +165,150 @@ function App() {
         {/* ========================================================================= */}
         {/* --- UNIVERSAL STATIC 100% TRANSPARENT HEADER NAVBAR --- */}
         {/* ========================================================================= */}
-        <nav 
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            width: '100%',
-            zIndex: 99999,
-            padding: isMobile ? '0.8rem 1.2rem' : '1.1rem 3rem',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            backgroundColor: scrollYPos > 200 ? 'rgba(28, 20, 16, 0.65)' : 'transparent',
-            backdropFilter: scrollYPos > 200 ? 'blur(14px)' : 'none',
-            WebkitBackdropFilter: scrollYPos > 200 ? 'blur(14px)' : 'none',
-            boxShadow: scrollYPos > 200 ? '0 10px 30px rgba(0, 0, 0, 0.35)' : 'none',
-            borderBottom: scrollYPos > 200 ? '1px solid rgba(220, 160, 50, 0.15)' : 'none',
-            transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
-          }}
-        >
-          {/* Left: Brand Logo & Title */}
-          <div 
-            onClick={() => handlePageChange('home')}
-            style={{ 
-              display: 'flex', 
-              alignItems: 'center', 
-              gap: '0.9rem', 
-              cursor: 'pointer',
-              marginRight: isMobile ? '0' : '2rem',
-              flexShrink: 0
-            }}
-          >
-            <img 
-              src="/assets/extracted/logo.svg" 
-              alt="Suprada Logo" 
-              style={{ height: isMobile ? '36px' : '44px', filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.5))' }} 
-            />
-            <img 
-              src="/assets/extracted/suprada-wellness.svg" 
-              alt="Suprada Wellness" 
-              style={{ height: isMobile ? '22px' : '30px', filter: 'brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.5))' }} 
-            />
-          </div>
+        {/* ========================================================================= */}
+        {/* --- UNIVERSAL DYNAMIC LIGHT/DARK ADAPTIVE HEADER NAVBAR --- */}
+        {/* ========================================================================= */}
+        {(() => {
+          const isLightHeader = currentPage !== 'home' || scrollYPos > 200;
 
-          {/* Center/Right Navigation Links (Desktop) */}
-          {!isMobile && (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem', flexWrap: 'nowrap', marginRight: '3rem' }}>
-              {menuItems.map((item) => (
-                <span
-                  key={item.id}
-                  onClick={() => handlePageChange(item.id)}
-                  style={{
-                    cursor: 'pointer',
-                    color: currentPage === item.id ? 'var(--harvest-gold)' : 'rgba(255, 255, 255, 0.95)',
-                    fontWeight: currentPage === item.id ? 800 : 500,
-                    fontSize: '0.8rem',
-                    letterSpacing: '0.08em',
-                    textTransform: 'uppercase',
-                    transition: 'all 0.3s ease',
-                    whiteSpace: 'nowrap',
-                    textShadow: '0 2px 8px rgba(0,0,0,0.6)'
-                  }}
-                  className="hover-gold"
-                >
-                  {item.label}
-                </span>
-              ))}
-            </div>
-          )}
-
-          {/* Right Action: Search Bar & Mobile Menu */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexShrink: 0, marginLeft: 'auto' }}>
-            {/* Search Bar Button */}
-            <button
-              onClick={() => setIsSearchOpen(true)}
+          return (
+            <nav 
               style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                width: '100%',
+                zIndex: 99999,
+                padding: isMobile ? '0.8rem 1.2rem' : '1.1rem 3rem',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.45rem',
-                padding: '0.4rem 0.95rem',
-                backgroundColor: 'rgba(255, 255, 255, 0.12)',
-                border: '1px solid rgba(255, 255, 255, 0.3)',
-                borderRadius: '50px',
-                color: 'rgba(255, 255, 255, 0.95)',
-                fontSize: '0.78rem',
-                letterSpacing: '0.04em',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                boxShadow: '0 2px 10px rgba(0,0,0,0.2)'
+                justifyContent: 'space-between',
+                backgroundColor: scrollYPos > 200 
+                  ? 'rgba(242, 236, 228, 0.94)' 
+                  : 'transparent',
+                backdropFilter: scrollYPos > 200 ? 'blur(16px)' : 'none',
+                WebkitBackdropFilter: scrollYPos > 200 ? 'blur(16px)' : 'none',
+                boxShadow: scrollYPos > 200 ? '0 8px 30px rgba(40, 38, 37, 0.08)' : 'none',
+                borderBottom: scrollYPos > 200 ? '1px solid rgba(94, 39, 53, 0.12)' : 'none',
+                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
-              className="hover-gold"
-              aria-label="Search"
             >
-              <Search size={14} style={{ color: 'var(--harvest-gold)' }} />
-              <span>Search</span>
-            </button>
-
-            {/* Mobile Drawer Trigger */}
-            {isMobile && (
-              <button
-                onClick={() => setMobileMenuOpen(true)}
-                style={{
-                  backgroundColor: 'var(--harvest-gold)',
-                  color: '#632633',
-                  border: 'none',
-                  borderRadius: '8px',
-                  padding: '0.45rem 0.85rem',
-                  fontWeight: 800,
-                  fontSize: '0.75rem',
-                  cursor: 'pointer'
+              {/* Left: Brand Logo & Title */}
+              <div 
+                onClick={() => handlePageChange('home')}
+                style={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  gap: '0.9rem', 
+                  cursor: 'pointer',
+                  marginRight: isMobile ? '0' : '2rem',
+                  flexShrink: 0
                 }}
               >
-                MENU
-              </button>
-            )}
-          </div>
-        </nav>
+                <img 
+                  src="/assets/extracted/logo.svg" 
+                  alt="Suprada Logo" 
+                  style={{
+                    height: isMobile ? '36px' : '44px',
+                    filter: isLightHeader
+                      ? 'drop-shadow(0 2px 6px rgba(94, 39, 53, 0.15))'
+                      : 'drop-shadow(0 2px 8px rgba(0,0,0,0.5))'
+                  }} 
+                />
+                <img 
+                  src="/assets/extracted/suprada-wellness.svg" 
+                  alt="Suprada Wellness" 
+                  style={{
+                    height: isMobile ? '22px' : '30px',
+                    filter: isLightHeader
+                      ? 'none'
+                      : 'brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.5))'
+                  }} 
+                />
+              </div>
+
+              {/* Center/Right Navigation Links (Desktop) */}
+              {!isMobile && (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem', flexWrap: 'nowrap', marginRight: '3rem' }}>
+                  {menuItems.map((item) => (
+                    <span
+                      key={item.id}
+                      onClick={() => handlePageChange(item.id)}
+                      style={{
+                        cursor: 'pointer',
+                        color: currentPage === item.id 
+                          ? (isLightHeader ? 'var(--wine)' : 'var(--harvest-gold)')
+                          : (isLightHeader ? 'rgba(40, 38, 37, 0.85)' : 'rgba(255, 255, 255, 0.95)'),
+                        fontWeight: currentPage === item.id ? 800 : 600,
+                        fontSize: '0.8rem',
+                        letterSpacing: '0.08em',
+                        textTransform: 'uppercase',
+                        transition: 'all 0.3s ease',
+                        whiteSpace: 'nowrap',
+                        textShadow: isLightHeader ? 'none' : '0 2px 8px rgba(0,0,0,0.6)',
+                        borderBottom: currentPage === item.id && isLightHeader ? '2px solid var(--wine)' : '2px solid transparent',
+                        paddingBottom: '2px'
+                      }}
+                      className={isLightHeader ? 'hover-wine' : 'hover-gold'}
+                    >
+                      {item.label}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              {/* Right Action: Search Bar & Mobile Menu */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexShrink: 0, marginLeft: 'auto' }}>
+                {/* Search Bar Button */}
+                <button
+                  onClick={() => setIsSearchOpen(true)}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.45rem',
+                    padding: '0.4rem 0.95rem',
+                    backgroundColor: isLightHeader ? 'rgba(94, 39, 53, 0.06)' : 'rgba(255, 255, 255, 0.12)',
+                    border: isLightHeader ? '1px solid rgba(94, 39, 53, 0.2)' : '1px solid rgba(255, 255, 255, 0.3)',
+                    borderRadius: '50px',
+                    color: isLightHeader ? 'var(--raisin-black)' : 'rgba(255, 255, 255, 0.95)',
+                    fontSize: '0.78rem',
+                    letterSpacing: '0.04em',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    boxShadow: isLightHeader ? '0 2px 8px rgba(94, 39, 53, 0.05)' : '0 2px 10px rgba(0,0,0,0.2)'
+                  }}
+                  className={isLightHeader ? 'hover-wine' : 'hover-gold'}
+                  aria-label="Search"
+                >
+                  <Search size={14} style={{ color: isLightHeader ? 'var(--wine)' : 'var(--harvest-gold)' }} />
+                  <span>Search</span>
+                </button>
+
+                {/* Mobile Drawer Trigger */}
+                {isMobile && (
+                  <button
+                    onClick={() => setMobileMenuOpen(true)}
+                    style={{
+                      backgroundColor: isLightHeader ? 'var(--wine)' : 'var(--harvest-gold)',
+                      color: isLightHeader ? '#ffffff' : '#632633',
+                      border: 'none',
+                      borderRadius: '8px',
+                      padding: '0.45rem 0.85rem',
+                      fontWeight: 800,
+                      fontSize: '0.75rem',
+                      cursor: 'pointer',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.12)'
+                    }}
+                  >
+                    MENU
+                  </button>
+                )}
+              </div>
+            </nav>
+          );
+        })()}
 
         {/* Global Search Overlay Modal */}
         <AnimatePresence>

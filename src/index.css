@@ -3063,6 +3063,21 @@ html, body {
   background: var(--wine);
 }
 
+/* Header Navbar Hover Utility Classes */
+.hover-gold {
+  transition: all 0.3s ease;
+}
+.hover-gold:hover {
+  color: var(--harvest-gold) !important;
+}
+
+.hover-wine {
+  transition: all 0.3s ease;
+}
+.hover-wine:hover {
+  color: var(--wine) !important;
+}
+
 
 
 

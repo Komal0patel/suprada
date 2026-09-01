@@ -1323,7 +1323,7 @@ export default function Home({ onNavigate }) {
       </section>
 
       {/* Unique Experiences Section */}
-      <section style={{ backgroundColor: 'var(--tea-green)', padding: '4rem 8% 5rem 8%', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ backgroundColor: 'var(--isabelline)', padding: '4rem 8% 5rem 8%', position: 'relative', overflow: 'hidden' }}>
         <Pattern28 style={{ position: 'absolute', top: '-10px', left: '-50px', width: '260px', color: 'var(--wine)', opacity: 0.16, pointerEvents: 'none', zIndex: 1 }} />
         {/* Responsive CSS Stylesheet injection for the split layout */}
         <style>{`
@@ -2636,8 +2636,8 @@ export default function Home({ onNavigate }) {
         </div>
       </section>
 
-      {/* Section 4: Why Choose Suprada (Combo 2: var(--tea-green) #d1dac2) */}
-      <section style={{ backgroundColor: 'var(--tea-green)', color: 'var(--wine)', padding: '3.2rem 5%', position: 'relative', overflow: 'hidden' }}>
+      {/* Section 4: Why Choose Suprada */}
+      <section style={{ backgroundColor: 'var(--isabelline)', color: 'var(--wine)', padding: '3.2rem 5%', position: 'relative', overflow: 'hidden' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
@@ -2693,7 +2693,7 @@ export default function Home({ onNavigate }) {
       </section>
 
       {/* Section 5: Discover Your Wellness Path (Instant Diagnostic Assessment) */}
-      <section style={{ backgroundColor: 'var(--isabelline)', padding: '4.2rem 5%', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ backgroundColor: 'var(--antique-white)', padding: '4.2rem 5%', position: 'relative', overflow: 'hidden' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
@@ -2771,8 +2771,8 @@ export default function Home({ onNavigate }) {
         </div>
       </section>
 
-      {/* Section 6: Guest Stories (Combo 2: var(--pale-dogwood) #f2d7cc) */}
-      <section style={{ backgroundColor: 'var(--pale-dogwood)', color: 'var(--wine)', padding: '3.2rem 5%', position: 'relative', overflow: 'hidden' }}>
+      {/* Section 6: Guest Stories */}
+      <section style={{ backgroundColor: 'var(--isabelline)', color: 'var(--wine)', padding: '3.2rem 5%', position: 'relative', overflow: 'hidden' }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>

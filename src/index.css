@@ -29,6 +29,20 @@
   --fs-small: 0.78rem;                            /* Captions / Helper Text - Refined & visible */
 }
 
+/* Custom Scrollbar Hiding Utilities - Allows full mouse wheel & touch scrolling without visible scrollbar track */
+.hide-scrollbar::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.hide-scrollbar,
+.no-scrollbar {
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;  /* Firefox */
+}
+
 * {
   margin: 0;
   padding: 0;

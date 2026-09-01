@@ -1972,12 +1972,17 @@ export default function Home({ onNavigate }) {
               </div>
 
               {/* Modal Internal Scrollable Body Area */}
-              <div style={{
-                padding: isMobile ? '1.4rem' : '1.8rem 2rem',
-                overflowY: 'auto',
-                flex: 1,
-                overscrollBehavior: 'contain'
-              }}>
+              <div 
+                className="hide-scrollbar"
+                style={{
+                  padding: isMobile ? '1.4rem' : '1.8rem 2rem',
+                  overflowY: 'auto',
+                  flex: 1,
+                  overscrollBehavior: 'contain',
+                  scrollbarWidth: 'none',
+                  msOverflowStyle: 'none'
+                }}
+              >
                 <p style={{ fontSize: '0.96rem', color: 'var(--raisin-black)', lineHeight: 1.65, marginBottom: '1.6rem' }}>
                   {selectedNaturopathyModal.description}
                 </p>

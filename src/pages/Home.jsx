@@ -2142,7 +2142,7 @@ export default function Home({ onNavigate }) {
       </section>
 
       {/* The Suprada Rhythm Timeline */}
-      <section ref={timelineRef} className="timeline-section dot-grid" style={{ backgroundColor: 'var(--platinum)', overflow: 'hidden', position: 'relative' }}>
+      <section ref={timelineRef} className="timeline-section dot-grid" style={{ backgroundColor: 'var(--isabelline)', overflow: 'hidden', position: 'relative' }}>
         <TwinklingLights />
         <Pattern28 style={{ position: 'absolute', top: 0, left: 0, width: '250px', color: 'var(--wine)', opacity: 0.1, pointerEvents: 'none', zIndex: 1 }} />
         <Pattern25 style={{ position: 'absolute', bottom: 0, right: 0, width: '250px', color: 'var(--wine)', opacity: 0.1, pointerEvents: 'none', zIndex: 1 }} />
@@ -2351,7 +2351,7 @@ export default function Home({ onNavigate }) {
       </section>
 
       {/* Section 1: Signature Programmes (The Sanctuary Collection) */}
-      <section style={{ backgroundColor: 'var(--tan)', color: 'var(--wine)', padding: '2.8rem 5%', minHeight: '440px', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ backgroundColor: 'var(--antique-white)', color: 'var(--wine)', padding: '2.8rem 5%', minHeight: '440px', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
         <Pattern28 style={{ position: 'absolute', top: 0, left: 0, width: '280px', color: 'var(--wine)', opacity: 0.06, pointerEvents: 'none' }} />
         <div style={{ maxWidth: '1280px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           

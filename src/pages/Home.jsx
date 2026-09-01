@@ -468,35 +468,17 @@ export default function Home({ onNavigate }) {
   // Active Therapy Selection State for Naturopathy Layout
   const [selectedNaturopathyModal, setSelectedNaturopathyModal] = useState(null);
 
-  // Lock background body, html, and wheel events when detail modal is open
+  // Lock background body and html scroll when detail modal is open
   useEffect(() => {
     if (selectedNaturopathyModal) {
+      const originalBodyOverflow = document.body.style.overflow;
+      const originalDocOverflow = document.documentElement.style.overflow;
       document.body.style.overflow = 'hidden';
       document.documentElement.style.overflow = 'hidden';
 
-      const preventDefaultScroll = (e) => {
-        const scrollableContainer = document.querySelector('.hide-scrollbar');
-        if (scrollableContainer && scrollableContainer.contains(e.target)) {
-          const { scrollTop, scrollHeight, clientHeight } = scrollableContainer;
-          const delta = e.deltaY;
-          const isAtTop = delta < 0 && scrollTop <= 0;
-          const isAtBottom = delta > 0 && scrollTop + clientHeight >= scrollHeight - 1;
-          if (isAtTop || isAtBottom) {
-            e.preventDefault();
-          }
-        } else {
-          e.preventDefault();
-        }
-      };
-
-      window.addEventListener('wheel', preventDefaultScroll, { passive: false });
-      window.addEventListener('touchmove', preventDefaultScroll, { passive: false });
-
       return () => {
-        document.body.style.overflow = '';
-        document.documentElement.style.overflow = '';
-        window.removeEventListener('wheel', preventDefaultScroll);
-        window.removeEventListener('touchmove', preventDefaultScroll);
+        document.body.style.overflow = originalBodyOverflow;
+        document.documentElement.style.overflow = originalDocOverflow;
       };
     }
   }, [selectedNaturopathyModal]);
@@ -1997,8 +1979,13 @@ export default function Home({ onNavigate }) {
                   overflowY: 'auto',
                   flex: 1,
                   overscrollBehavior: 'contain',
+                  WebkitOverflowScrolling: 'touch',
                   scrollbarWidth: 'none',
-                  msOverflowStyle: 'none'
+                  msOverflowStyle: 'none',
+                  pointerEvents: 'auto'
+                }}
+                onWheel={(e) => {
+                  e.stopPropagation();
                 }}
               >
                 <p style={{ fontSize: '0.96rem', color: 'var(--raisin-black)', lineHeight: 1.65, marginBottom: '1.6rem' }}>

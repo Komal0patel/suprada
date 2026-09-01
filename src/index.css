@@ -683,29 +683,45 @@ h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
 
 /* ================= EDITORIAL 15-STEP RHYTHM CARD DESIGNS ================= */
 .rhythm-card {
-  padding: 1.5rem 1.3rem;
+  padding: 1.1rem 1.3rem;
   border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(94, 39, 53, 0.12);
+  box-shadow: 0 10px 25px rgba(94, 39, 53, 0.1);
   position: relative;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   box-sizing: border-box;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.rhythm-card:hover,
+.timeline-card-wrapper:hover .rhythm-card {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 20px 45px rgba(94, 39, 53, 0.25);
+  z-index: 50;
+  padding-bottom: 1.3rem;
 }
 
 .rhythm-time-badge {
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
   display: block;
 }
 
 .rhythm-card-title {
   font-family: var(--font-heading);
-  font-size: 1.22rem;
+  font-size: 1.18rem;
   font-weight: 600;
-  margin: 0 0 0.8rem 0;
+  margin: 0;
   line-height: 1.25;
+  transition: margin-bottom 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rhythm-card:hover .rhythm-card-title,
+.timeline-card-wrapper:hover .rhythm-card-title {
+  margin-bottom: 0.7rem;
 }
 
 .rhythm-points-list {
@@ -716,6 +732,40 @@ h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
   flex-direction: column;
   gap: 0.5rem;
   text-align: left;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), margin-top 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rhythm-card:hover .rhythm-points-list,
+.timeline-card-wrapper:hover .rhythm-points-list {
+  max-height: 350px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.rhythm-card::after {
+  content: "✦ hover to view";
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--harvest-gold);
+  opacity: 0.75;
+  margin-top: 0.4rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.rhythm-card:hover::after,
+.timeline-card-wrapper:hover .rhythm-card::after {
+  opacity: 0;
+  transform: translateY(4px);
+  height: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
 .rhythm-points-list li {

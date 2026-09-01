@@ -678,7 +678,7 @@ export default function Careers({ onNavigate }) {
             </section>
 
             {/* Current Openings — Search, Filter & Interactive Cards */}
-            <section style={{ padding: '2.25rem 5% 4.5rem 5%', background: 'linear-gradient(180deg, var(--isabelline) 0%, var(--pale-dogwood) 35%, var(--tea-green) 70%, var(--platinum) 100%)' }}>
+            <section style={{ padding: '2.25rem 5% 4.5rem 5%', backgroundColor: 'var(--tea-green)' }}>
               <div style={{ maxWidth: '1320px', margin: '0 auto' }}>
 
                 {/* Section Header */}
@@ -905,7 +905,7 @@ export default function Careers({ onNavigate }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.4 }}
-            style={{ maxWidth: '1100px', margin: '2rem auto 0 auto', padding: '3rem 8% 5rem 8%', borderRadius: '24px', background: 'linear-gradient(135deg, var(--antique-white) 0%, var(--tan) 100%)', boxShadow: '0 15px 45px rgba(94,39,53,0.06)' }}
+            style={{ maxWidth: '1100px', margin: '2rem auto 0 auto', padding: '3rem 8% 5rem 8%', borderRadius: '24px', backgroundColor: 'var(--pale-dogwood)', boxShadow: '0 15px 45px rgba(94,39,53,0.06)' }}
           >
             {/* Back Button Link */}
             <div 

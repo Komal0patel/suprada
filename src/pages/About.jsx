@@ -456,7 +456,7 @@ export default function About({ onNavigate }) {
       <section className="visionaries-section" style={{
         position: 'relative',
         overflow: 'hidden',
-        background: 'linear-gradient(135deg, var(--tea-green) 0%, var(--platinum) 100%)',
+        backgroundColor: 'var(--tea-green)',
         padding: '3.5rem 6%',
         minHeight: '100dvh',
         height: '100vh',
@@ -943,7 +943,7 @@ export default function About({ onNavigate }) {
       {/* =========================================================================
           CHAPTER V: Intimate Scale & Metrics
           ========================================================================= */}
-      <section style={{ padding: '5rem 8%', background: 'linear-gradient(135deg, var(--pale-dogwood) 0%, var(--antique-white) 100%)', position: 'relative' }}>
+      <section style={{ padding: '5rem 8%', backgroundColor: 'var(--pale-dogwood)', position: 'relative' }}>
         <div style={{ maxWidth: '1180px', margin: '0 auto', textAlign: 'center' }}>
           <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.72rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
             ✦ CHAPTER V • INTIMACY & SCALE
@@ -1058,7 +1058,7 @@ export default function About({ onNavigate }) {
       {/* =========================================================================
           CHAPTER VI: The Collective
           ========================================================================= */}
-      <section style={{ padding: '5.5rem 8%', position: 'relative', background: 'linear-gradient(135deg, var(--platinum) 0%, var(--isabelline) 100%)' }}>
+      <section style={{ padding: '5.5rem 8%', position: 'relative', backgroundColor: 'var(--tan)' }}>
         <FloatingPetals count={5} color="var(--tea-green)" />
 
         <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
@@ -1220,7 +1220,7 @@ export default function About({ onNavigate }) {
       </section>
 
       {/* Sustainability Radar */}
-      <section style={{ padding: '5.5rem 8%', background: 'linear-gradient(135deg, rgba(194, 186, 144, 0.35) 0%, var(--tea-green) 100%)', position: 'relative' }}>
+      <section style={{ padding: '5.5rem 8%', backgroundColor: 'var(--platinum)', position: 'relative' }}>
         <FloatingPetals count={6} color="var(--sage)" />
 
         <div style={{ maxWidth: '1240px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem', alignItems: 'stretch' }}>

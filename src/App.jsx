@@ -173,13 +173,16 @@ function App() {
             right: 0,
             width: '100%',
             zIndex: 99999,
-            padding: isMobile ? '0.8rem 1.2rem' : '1.2rem 3rem',
+            padding: isMobile ? '0.8rem 1.2rem' : '1.1rem 3rem',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            backgroundColor: 'transparent',
-            background: 'transparent',
-            transition: 'all 0.4s ease'
+            backgroundColor: scrollYPos > 200 ? 'rgba(28, 20, 16, 0.65)' : 'transparent',
+            backdropFilter: scrollYPos > 200 ? 'blur(14px)' : 'none',
+            WebkitBackdropFilter: scrollYPos > 200 ? 'blur(14px)' : 'none',
+            boxShadow: scrollYPos > 200 ? '0 10px 30px rgba(0, 0, 0, 0.35)' : 'none',
+            borderBottom: scrollYPos > 200 ? '1px solid rgba(220, 160, 50, 0.15)' : 'none',
+            transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
           }}
         >
           {/* Left: Brand Logo & Title */}

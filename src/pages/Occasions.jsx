@@ -101,7 +101,7 @@ export default function Occasions({ onNavigate }) {
       desc: 'Our infrastructure prioritizes renewable energy, natural lighting, and minimal environmental impact — reducing carbon footprint by up to 70% compared to conventional event venues.',
       stat: '70% CO2 Reduction',
       badge: 'Renewable Power',
-      img: '/assets/retreat.png'
+      img: '/assets/more_images/retreat.png'
     },
     {
       icon: <Sprout size={20} />,
@@ -109,7 +109,7 @@ export default function Occasions({ onNavigate }) {
       desc: 'Events at Suprada follow our zero-waste principles — locally sourced, plant-based meals, biodegradable materials, and practices that regenerate rather than deplete natural resources.',
       stat: '100% Biodegradable',
       badge: 'Zero-Waste',
-      img: '/assets/nutrition.png'
+      img: '/assets/more_images/nutrition.png'
     },
     {
       icon: <Leaf size={20} />,
@@ -117,7 +117,7 @@ export default function Occasions({ onNavigate }) {
       desc: 'Unlike commercial resorts focused on consumption, our spaces are designed to integrate with nature — outdoor pavilions, open-air courtyards, and natural ventilation eliminate the need for excessive energy use.',
       stat: 'Zero HVAC Dependency',
       badge: 'Passive Ventilation',
-      img: '/assets/yoga-meditation.jpg'
+      img: '/assets/more_images/yoga-meditation.jpg'
     }
   ];
 
@@ -346,12 +346,12 @@ export default function Occasions({ onNavigate }) {
   };
 
   const celebrationTypes = [
-    { title: 'Anniversaries', desc: 'Intimate wellness retreats designed for couples to reconnect and rejuvenate together.', icon: <Heart size={20} />, img: '/assets/occasions.png' },
-    { title: 'Family Gatherings', desc: 'Reconnect in nature with tailored group wellness programs for extended families.', icon: <Users size={20} />, img: '/assets/events.jpg' },
-    { title: 'Wedding Celebrations', desc: 'Pre-wedding wellness sessions, Haldi ceremonies, and post-wedding rejuvenation packages.', icon: <Sparkles size={20} />, img: '/assets/private-courtyard.webp' },
-    { title: 'Private Dinners & Celebrations', desc: 'Exclusive dining experiences across serene natural settings with curated wellness menus.', icon: <Utensils size={20} />, img: '/assets/occasions.png' },
-    { title: 'Group Wellness Sessions', desc: 'Private yoga, meditation, aqua therapy, and sound healing sessions for groups.', icon: <Droplet size={20} />, img: '/assets/yoga-meditation.jpg' },
-    { title: 'Special Occasions', desc: 'Birthdays, milestones, reunions — redefined the Suprada way with wellness at the core.', icon: <Award size={20} />, img: '/assets/spa-interior.jpg' }
+    { title: 'Anniversaries', desc: 'Intimate wellness retreats designed for couples to reconnect and rejuvenate together.', icon: <Heart size={20} />, img: '/assets/more_images/occasions.png' },
+    { title: 'Family Gatherings', desc: 'Reconnect in nature with tailored group wellness programs for extended families.', icon: <Users size={20} />, img: '/assets/more_images/events.jpg' },
+    { title: 'Wedding Celebrations', desc: 'Pre-wedding wellness sessions, Haldi ceremonies, and post-wedding rejuvenation packages.', icon: <Sparkles size={20} />, img: '/assets/more_images/private-courtyard.webp' },
+    { title: 'Private Dinners & Celebrations', desc: 'Exclusive dining experiences across serene natural settings with curated wellness menus.', icon: <Utensils size={20} />, img: '/assets/more_images/occasions.png' },
+    { title: 'Group Wellness Sessions', desc: 'Private yoga, meditation, aqua therapy, and sound healing sessions for groups.', icon: <Droplet size={20} />, img: '/assets/more_images/yoga-meditation.jpg' },
+    { title: 'Special Occasions', desc: 'Birthdays, milestones, reunions — redefined the Suprada way with wellness at the core.', icon: <Award size={20} />, img: '/assets/more_images/spa-interior.jpg' }
   ];
 
   const hinduCeremonies = [
@@ -371,56 +371,56 @@ export default function Occasions({ onNavigate }) {
       role: 'Welcome Centre',
       desc: 'Arrival, registration, and orientation space surrounded by water. Built over a lotus pond with floating bridge entry ways.',
       capacity: 'Up to 30 Guests',
-      img: '/assets/retreat.png'
+      img: '/assets/more_images/retreat.png'
     },
     {
       name: 'Champa',
       role: 'Multi-Purpose Hall',
       desc: 'Spacious high-ceiling wooden hall designed for workshops, family meets, and collaborative strategy sessions.',
       capacity: 'Up to 60 Guests',
-      img: '/assets/events.jpg'
+      img: '/assets/more_images/events.jpg'
     },
     {
       name: 'Chandra Paada',
       role: 'Yoga Hall & Gym',
       desc: 'A quiet, glass-walled movement sanctuary with panoramic forest views for yoga, sound healing, and meditation.',
       capacity: 'Up to 40 Guests',
-      img: '/assets/yoga-meditation.jpg'
+      img: '/assets/more_images/yoga-meditation.jpg'
     },
     {
       name: 'Nandi Battalu',
       role: 'Dining Hall',
       desc: 'Beautiful indoor-outdoor riverfront dining pavilion serving fresh farm-to-table organic Sattvik vegetarian meals.',
       capacity: 'Up to 50 Guests',
-      img: '/assets/nutrition.png'
+      img: '/assets/more_images/nutrition.png'
     },
     {
       name: 'Private Courtyards',
       role: 'Intimate Settings',
       desc: 'Stone-paved open courtyards bordered by traditional pillars, perfect for small fire homams and morning rituals.',
       capacity: 'Up to 20 Guests',
-      img: '/assets/private-courtyard.webp'
+      img: '/assets/more_images/private-courtyard.webp'
     },
     {
       name: 'Amphitheatre',
       role: 'Open-Air Venue',
       desc: 'Symmetric stone-stepped outdoor theatre facing the riverbank, ideal for evening kirtans, lectures, and musical sessions.',
       capacity: 'Up to 80 Guests',
-      img: '/assets/open-air-amphitheatre.png'
+      img: '/assets/more_images/open-air-amphitheatre.png'
     },
     {
       name: 'Private Dinners',
       role: 'Exclusive Settings',
       desc: 'Beautiful riverside and orchard dining spots set up under the stars with custom theme decorations.',
       capacity: 'Up to 15 Guests',
-      img: '/assets/occasions.png'
+      img: '/assets/more_images/occasions.png'
     },
     {
       name: 'Wellness Pavilions',
       role: 'Therapy Spaces',
       desc: 'Open-air therapy pavilions surrounded by lush greenery, perfect for group sound healing or ayurveda sessions.',
       capacity: 'Up to 30 Guests',
-      img: '/assets/spa-interior.jpg'
+      img: '/assets/more_images/spa-interior.jpg'
     }
   ];
 
@@ -498,7 +498,7 @@ export default function Occasions({ onNavigate }) {
             style={{ marginBottom: '1.2rem', display: 'flex', justifyContent: 'center' }}
           >
             <img 
-              src="/assets/logo.svg" 
+              src="/assets/extracted/logo.svg" 
               alt="Suprada Official Emblem Logo" 
               style={{ height: '85px', width: 'auto', filter: 'drop-shadow(0 4px 16px rgba(220, 160, 50, 0.35))' }} 
             />
@@ -1614,7 +1614,7 @@ export default function Occasions({ onNavigate }) {
             </div>
 
             <div style={{
-              backgroundImage: 'url("/assets/conference-room.jpg")',
+              backgroundImage: 'url("/assets/more_images/conference-room.jpg")',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               height: '420px',
@@ -1817,8 +1817,8 @@ export default function Occasions({ onNavigate }) {
                 sustainable: 'Lotus-inspired architecture with open natural ventilation over lotus-blooming water ponds.',
                 capacity: 'Up to 30 Guests',
                 setting: 'Over-Water Lotus Pavilion',
-                img: '/assets/retreat.png',
-                galleryImages: ['/assets/retreat.png', '/assets/antaragange.png', '/assets/location_contact.png', '/assets/planting_trees.png']
+                img: '/assets/more_images/retreat.png',
+                galleryImages: ['/assets/more_images/retreat.png', '/assets/more_images/antaragange.png', '/assets/more_images/location_contact.png', '/assets/more_images/planting_trees.png']
               },
               {
                 className: 'bento-c2',
@@ -1833,8 +1833,8 @@ export default function Occasions({ onNavigate }) {
                 sustainable: 'Flexible architecture with natural acoustics supports gatherings while remaining serene and energy-efficient.',
                 capacity: 'Up to 60 Guests',
                 setting: 'Climate-Controlled Timber Hall',
-                img: '/assets/events.jpg',
-                galleryImages: ['/assets/events.jpg', '/assets/conference-room.jpg', '/assets/satsang.png', '/assets/wellness.png']
+                img: '/assets/more_images/events.jpg',
+                galleryImages: ['/assets/more_images/events.jpg', '/assets/more_images/conference-room.jpg', '/assets/more_images/satsang.png', '/assets/more_images/wellness.png']
               },
               {
                 className: 'bento-c3',
@@ -1849,8 +1849,8 @@ export default function Occasions({ onNavigate }) {
                 sustainable: 'Semi-open, naturally ventilated design reduces energy use and enhances mindful practice.',
                 capacity: 'Up to 40 Guests',
                 setting: 'Glass-Enclosed Forest Deck',
-                img: '/assets/yoga-meditation.jpg',
-                galleryImages: ['/assets/yoga-meditation.jpg', '/assets/mahabilva.jpg', '/assets/walking_track.png', '/assets/sound_healing.png']
+                img: '/assets/more_images/yoga-meditation.jpg',
+                galleryImages: ['/assets/more_images/yoga-meditation.jpg', '/assets/more_images/mahabilva.jpg', '/assets/more_images/walking_track.png', '/assets/more_images/sound_healing.png']
               },
               {
                 className: 'bento-c4',
@@ -1865,8 +1865,8 @@ export default function Occasions({ onNavigate }) {
                 sustainable: 'Mud and lime plaster, recycled stones and open ventilation create a pure dining environment.',
                 capacity: 'Up to 50 Guests',
                 setting: 'Riverfront Semi-Open Pavilion',
-                img: '/assets/nutrition.png',
-                galleryImages: ['/assets/nutrition.png', '/assets/occasions.png', '/assets/gograsa.png', '/assets/retreat.png']
+                img: '/assets/more_images/nutrition.png',
+                galleryImages: ['/assets/more_images/nutrition.png', '/assets/more_images/occasions.png', '/assets/more_images/gograsa.png', '/assets/more_images/retreat.png']
               },
               {
                 className: 'bento-c5',
@@ -1881,8 +1881,8 @@ export default function Occasions({ onNavigate }) {
                 sustainable: 'Traditional lime mortar stone construction with rainwater harvesting urulis.',
                 capacity: 'Up to 20 Guests',
                 setting: 'Open-Air Heritage Courtyard',
-                img: '/assets/private-courtyard.webp',
-                galleryImages: ['/assets/private-courtyard.webp', '/assets/antaragange.png', '/assets/agnihotra.png', '/assets/gograsa.png']
+                img: '/assets/more_images/private-courtyard.webp',
+                galleryImages: ['/assets/more_images/private-courtyard.webp', '/assets/more_images/antaragange.png', '/assets/more_images/agnihotra.png', '/assets/more_images/gograsa.png']
               },
               {
                 className: 'bento-c6',
@@ -1897,8 +1897,8 @@ export default function Occasions({ onNavigate }) {
                 sustainable: 'Zero artificial amplification required due to stepwell acoustic terracing.',
                 capacity: 'Up to 80 Guests',
                 setting: 'Outdoor Terraced Stone Theatre',
-                img: '/assets/open-air-amphitheatre.png',
-                galleryImages: ['/assets/open-air-amphitheatre.png', '/assets/satsang.png', '/assets/events.jpg', '/assets/art_therapy.png']
+                img: '/assets/more_images/open-air-amphitheatre.png',
+                galleryImages: ['/assets/more_images/open-air-amphitheatre.png', '/assets/more_images/satsang.png', '/assets/more_images/events.jpg', '/assets/more_images/art_therapy.png']
               },
               {
                 className: 'bento-c7',
@@ -1912,8 +1912,8 @@ export default function Occasions({ onNavigate }) {
                 sustainable: 'Biodegradable palm-leaf table styling and locally harvested seasonal flowers.',
                 capacity: 'Up to 15 Guests',
                 setting: 'Private Riverside / Orchard Setup',
-                img: '/assets/occasions.png',
-                galleryImages: ['/assets/occasions.png', '/assets/nutrition.png', '/assets/retreat-contact.png', '/assets/location_contact.png']
+                img: '/assets/more_images/occasions.png',
+                galleryImages: ['/assets/more_images/occasions.png', '/assets/more_images/nutrition.png', '/assets/more_images/retreat-contact.png', '/assets/more_images/location_contact.png']
               },
               {
                 className: 'bento-c8',
@@ -1928,8 +1928,8 @@ export default function Occasions({ onNavigate }) {
                 sustainable: 'Built using natural stone, lime plaster and mud elements for insulation and purity. Thoughtful ventilation ensures fresh air.',
                 capacity: 'Up to 30 Guests',
                 setting: 'Garden Thatch Therapy Pavilion',
-                img: '/assets/spa-interior.jpg',
-                galleryImages: ['/assets/spa-interior.jpg', '/assets/wellness.png', '/assets/sound_healing.png', '/assets/art_therapy.png']
+                img: '/assets/more_images/spa-interior.jpg',
+                galleryImages: ['/assets/more_images/spa-interior.jpg', '/assets/more_images/wellness.png', '/assets/more_images/sound_healing.png', '/assets/more_images/art_therapy.png']
               }
             ].map((venue, idx) => (
               <motion.div

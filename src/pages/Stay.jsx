@@ -644,7 +644,7 @@ export default function Stay({ onNavigate }) {
             style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}
           >
             <img 
-              src="/assets/logo.svg" 
+              src="/assets/extracted/logo.svg" 
               alt="Suprada Official Emblem Logo" 
               style={{ height: '90px', width: 'auto', filter: 'drop-shadow(0 4px 12px rgba(94, 39, 53, 0.15))' }} 
             />
@@ -738,7 +738,7 @@ export default function Stay({ onNavigate }) {
           </p>
         </div>
         {/* Logo decorative SVG */}
-        <DecorativeSVG src="/assets/suprada-logo.svg" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '300px', opacity: 0.1, pointerEvents: 'none', zIndex: -1 }} />
+        <DecorativeSVG src="/assets/extracted/suprada-logo.svg" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '300px', opacity: 0.1, pointerEvents: 'none', zIndex: -1 }} />
       </section>
 
       {/* ========================================================================= */}
@@ -763,7 +763,7 @@ export default function Stay({ onNavigate }) {
           {/* Campus Filter Pills */}
           <div className="campus-filter-container">
             {/* Filter pills watermark */}
-            <DecorativeSVG src="/assets/logo-mandala.svg" style={{ position: 'absolute', top: '-20px', left: '50%', transform: 'translateX(-50%)', width: '250px', opacity: 0.08, pointerEvents: 'none', zIndex: -1 }} />
+            <DecorativeSVG src="/assets/extracted/logo-mandala.svg" style={{ position: 'absolute', top: '-20px', left: '50%', transform: 'translateX(-50%)', width: '250px', opacity: 0.08, pointerEvents: 'none', zIndex: -1 }} />
             {campusZones.map((z) => (
               <button
                 key={z.id}
@@ -1342,7 +1342,7 @@ export default function Stay({ onNavigate }) {
       {/* --- EARTH ARCHITECTURE BANNER --- */}
       <section style={{ backgroundColor: 'var(--wine)', padding: '6.5rem 8%', color: 'var(--isabelline)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         {/* Background logo SVG */}
-        <DecorativeSVG src="/assets/suprada-logo.svg" style={{ position: 'absolute', top: '30%', left: '50%', transform: 'translateX(-50%)', width: '350px', opacity: 0.09, pointerEvents: 'none', zIndex: -1 }} />
+        <DecorativeSVG src="/assets/extracted/suprada-logo.svg" style={{ position: 'absolute', top: '30%', left: '50%', transform: 'translateX(-50%)', width: '350px', opacity: 0.09, pointerEvents: 'none', zIndex: -1 }} />
         <div style={{ maxWidth: '850px', margin: '0 auto' }}>
           <span style={{ color: 'var(--harvest-gold)', fontSize: '0.92rem', textTransform: 'uppercase', letterSpacing: '0.22em', fontWeight: 800, display: 'block', marginBottom: '1rem' }}>
             Built with Earth in Mind

@@ -631,7 +631,7 @@ export default function Careers({ onNavigate }) {
                   style={{ marginBottom: '1.2rem', display: 'flex', justifyContent: 'center' }}
                 >
                   <img 
-                    src="/assets/logo.svg" 
+                    src="/assets/extracted/logo.svg" 
                     alt="Suprada Official Emblem Logo" 
                     style={{ height: '85px', width: 'auto', filter: 'drop-shadow(0 4px 16px rgba(220, 160, 50, 0.35))' }} 
                   />

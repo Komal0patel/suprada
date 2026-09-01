@@ -201,7 +201,7 @@ export default function About({ onNavigate }) {
       badge: "Blue Planet Runner & PhD",
       quote: "Athletic endurance is the structural logic of stilling the mind and awakening biological resilience.",
       bio: "Doctorate in Mechanical Engineering (USA). Known globally as the Blue Planet Runner — the only Indian athlete to run around the entire world across continents. His analytical systems and endurance discipline anchor Suprada's retreat architecture.",
-      image: "/assets/sunil_jayaraj.jpg",
+      image: "/assets/more_images/sunil_jayaraj.jpg",
       tags: ["PhD Mechanical Engg.", "World Marathoner", "Chairman", "Systems Architect"]
     },
     premasudha: {
@@ -210,7 +210,7 @@ export default function About({ onNavigate }) {
       badge: "US Board Certified MD",
       quote: "Precision clinical science and ancient Indian heritage are not opposites — they are partners in restorative healing.",
       bio: "US Board-Certified in Internal Medicine with 16+ years of hospital and clinical experience. Her passion for India's traditional healing sciences led to the creation of Suprada's integrative drugless medical protocols.",
-      image: "/assets/prema_ramadas.jpg",
+      image: "/assets/more_images/prema_ramadas.jpg",
       tags: ["MD Internal Medicine", "16+ Yrs Clinical", "Co-Founder", "Vedic Integration"]
     }
   };
@@ -308,7 +308,7 @@ export default function About({ onNavigate }) {
             style={{ marginBottom: '1.2rem', display: 'flex', justifyContent: 'center' }}
           >
             <img 
-              src="/assets/logo.svg" 
+              src="/assets/extracted/logo.svg" 
               alt="Suprada Official Emblem Logo" 
               style={{ height: '85px', width: 'auto', filter: 'drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25))' }} 
             />

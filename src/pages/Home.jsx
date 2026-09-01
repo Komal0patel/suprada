@@ -933,7 +933,7 @@ export default function Home({ onNavigate }) {
               }}
             >
               <img 
-                src="/assets/logo.svg" 
+                src="/assets/extracted/logo.svg" 
                 alt="Suprada Logo" 
                 className="founders-badge-img"
                 style={{ 
@@ -1289,12 +1289,12 @@ export default function Home({ onNavigate }) {
                             position: 'absolute',
                             top: 0, left: 0, right: 0, bottom: 0,
                             backgroundImage: `url(${[
-                              '/assets/gograsa.png',
-                              '/assets/agnihotra.png',
-                              '/assets/sound_healing.png',
-                              '/assets/satsang.png',
-                              '/assets/planting_trees.png',
-                              '/assets/art_therapy.png'
+                              '/assets/more_images/gograsa.png',
+                              '/assets/more_images/agnihotra.png',
+                              '/assets/more_images/sound_healing.png',
+                              '/assets/more_images/satsang.png',
+                              '/assets/more_images/planting_trees.png',
+                              '/assets/more_images/art_therapy.png'
                             ][currentIdx]})`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
@@ -1396,27 +1396,27 @@ export default function Home({ onNavigate }) {
               {[
                 { 
                   title: 'Gograsa', 
-                  image: '/assets/gograsa.png' 
+                  image: '/assets/more_images/gograsa.png' 
                 },
                 { 
                   title: 'Agnihotra', 
-                  image: '/assets/agnihotra.png' 
+                  image: '/assets/more_images/agnihotra.png' 
                 },
                 { 
                   title: 'Sound Healing', 
-                  image: '/assets/sound_healing.png' 
+                  image: '/assets/more_images/sound_healing.png' 
                 },
                 { 
                   title: 'Satsang', 
-                  image: '/assets/satsang.png' 
+                  image: '/assets/more_images/satsang.png' 
                 },
                 { 
                   title: 'Planting Trees', 
-                  image: '/assets/planting_trees.png' 
+                  image: '/assets/more_images/planting_trees.png' 
                 },
                 { 
                   title: 'Art Therapy', 
-                  image: '/assets/art_therapy.png' 
+                  image: '/assets/more_images/art_therapy.png' 
                 },
               ].map((node, idx) => {
                 // Trigonometric calculations for 3D Ellipse
@@ -2039,7 +2039,7 @@ export default function Home({ onNavigate }) {
               className="transformation-card transformation-card-crest"
             >
               <div className="crest-logo-box">
-                <img src="/assets/logo.svg" alt="Suprada Logo" />
+                <img src="/assets/extracted/logo.svg" alt="Suprada Logo" />
               </div>
               <p className="crest-title">
                 LET NATURE<br />GUIDE THE WAY
@@ -2520,11 +2520,11 @@ export default function Home({ onNavigate }) {
 
           <div className="experts-carousel-mobile" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '0.9rem', width: '100%' }}>
             {[
-              { name: 'Dr. Sunil Jayaraj', role: 'Founder', creds: 'Suprada Wellness', img: '/assets/sunil_jayaraj.jpg' },
-              { name: 'Dr. Prema Ramadas', role: 'Co-founder', creds: 'Suprada Wellness', img: '/assets/prema_ramadas.jpg' },
-              { name: 'Srinivas Ramadas', role: 'Director Operations', creds: 'Suprada Wellness', img: '/assets/srinivas_ramadas.jpg' },
+              { name: 'Dr. Sunil Jayaraj', role: 'Founder', creds: 'Suprada Wellness', img: '/assets/more_images/sunil_jayaraj.jpg' },
+              { name: 'Dr. Prema Ramadas', role: 'Co-founder', creds: 'Suprada Wellness', img: '/assets/more_images/prema_ramadas.jpg' },
+              { name: 'Srinivas Ramadas', role: 'Director Operations', creds: 'Suprada Wellness', img: '/assets/more_images/srinivas_ramadas.jpg' },
               { name: 'Nagaraju', role: 'Chairman', creds: 'Suprada Wellness', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80' },
-              { name: 'Dr. Vinaya, B.N.Y.S', role: 'Chief Medical Officer', creds: 'Suprada Wellness', img: '/assets/vinaya.jpg' }
+              { name: 'Dr. Vinaya, B.N.Y.S', role: 'Chief Medical Officer', creds: 'Suprada Wellness', img: '/assets/more_images/vinaya.jpg' }
             ].map((doc, idx) => (
               <div key={idx} className="editorial-master-card" style={{ height: '300px', width: '100%' }}>
                 <img src={doc.img} alt={doc.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />

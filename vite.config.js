@@ -20,7 +20,7 @@ try {
     'headmassage.jpg': 'https://images.pexels.com/photos/6187305/pexels-photo-6187305.jpeg?auto=compress&w=2000',
     'shouldermassage.jpg': 'https://images.pexels.com/photos/19695945/pexels-photo-19695945/free-photo-of-a-man-having-a-shoulders-massage.jpeg?auto=compress&w=2000',
     'outdoormassage.jpg': 'https://images.pexels.com/photos/37719540/pexels-photo-37719540/free-photo-of-relaxing-outdoor-massage-therapy-session.jpeg?auto=compress&w=2000',
-    'mahabilva.jpg': 'https://supradawellness-v3.vercel.app/assets/mahabilva.jpg'
+    'mahabilva.jpg': 'https://supradawellness-v3.vercel.app/assets/more_images/mahabilva.jpg'
   };
 
   const downloadImage = (url, dest) => {

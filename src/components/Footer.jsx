@@ -11,7 +11,7 @@ export default function Footer({ onNavigate }) {
           {/* Column 1: Brand & Philosophy */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', cursor: 'pointer' }} onClick={() => onNavigate('home')}>
-              <img src="/assets/logo.svg" alt="Suprada Logo" style={{ height: '38px' }} />
+              <img src="/assets/extracted/logo.svg" alt="Suprada Logo" style={{ height: '38px' }} />
               <div>
                 <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', color: 'var(--wine)', fontWeight: 700, display: 'block', lineHeight: 1 }}>
                   Suprada

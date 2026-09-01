@@ -311,7 +311,7 @@ export default function Contact({ onNavigate }) {
       >
         {/* ── Full-width Background Image ── */}
         <motion.img
-          src="/assets/location_contact.png"
+          src="/assets/more_images/location_contact.png"
           alt="Suprada Wellness by the Suvarnamukhi River"
           animate={{
             scale: [1, 1.03, 1, 1.02, 1],
@@ -356,7 +356,7 @@ export default function Contact({ onNavigate }) {
             style={{ marginBottom: '1.2rem', display: 'flex', justifyContent: 'flex-start' }}
           >
             <img 
-              src="/assets/logo.svg" 
+              src="/assets/extracted/logo.svg" 
               alt="Suprada Official Emblem Logo" 
               style={{ height: '75px', width: 'auto', filter: 'drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4))' }} 
             />
@@ -568,7 +568,7 @@ export default function Contact({ onNavigate }) {
             {/* LEFT — retreat-contact image with production wording overlay */}
             <div style={{ position: 'relative', overflow: 'hidden', minHeight: '360px' }}>
               <motion.img
-                src="/assets/retreat-contact.png"
+                src="/assets/more_images/retreat-contact.png"
                 alt="Suprada Wellness Retreat"
                 whileHover={{ scale: 1.04 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}

@@ -212,7 +212,7 @@ function App() {
                 }}
               >
                 <img 
-                  src="/assets/logo.svg" 
+                  src="/assets/extracted/logo.svg" 
                   alt="Suprada Icon" 
                   style={{ 
                     height: isHeroLogo ? (isMobile ? '48px' : '64px') : (isMobile ? '36px' : '44px'), 
@@ -221,7 +221,7 @@ function App() {
                   }} 
                 />
                 <img 
-                  src="/assets/suprada-wellness.svg" 
+                  src="/assets/extracted/suprada-wellness.svg" 
                   alt="Suprada Wellness" 
                   className={isHeroLogo ? "show-in-hero-mobile" : "hide-mobile"} 
                   style={{ 

@@ -242,22 +242,22 @@ function App() {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.55rem',
-                padding: '0.45rem 1rem',
-                backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                border: '1px solid rgba(255, 255, 255, 0.3)',
-                borderRadius: '25px',
-                color: '#ffffff',
+                gap: '0.45rem',
+                padding: '0.4rem 0.95rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(255, 255, 255, 0.22)',
+                borderRadius: '50px',
+                color: 'rgba(255, 255, 255, 0.95)',
                 fontSize: '0.78rem',
+                letterSpacing: '0.04em',
                 cursor: 'pointer',
-                backdropFilter: 'blur(8px)',
-                transition: 'all 0.3s ease',
-                boxShadow: '0 2px 10px rgba(0,0,0,0.2)'
+                transition: 'all 0.3s ease'
               }}
+              className="hover-gold"
+              aria-label="Search"
             >
               <Search size={14} style={{ color: 'var(--harvest-gold)' }} />
-              {!isMobile && <span>Search</span>}
-              {!isMobile && <span style={{ fontSize: '0.65rem', opacity: 0.7, backgroundColor: 'rgba(255,255,255,0.2)', padding: '1px 5px', borderRadius: '4px' }}>⌘K</span>}
+              <span>Search</span>
             </button>
 
             {/* Mobile Drawer Trigger */}

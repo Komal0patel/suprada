@@ -1228,7 +1228,7 @@ export default function Home({ onNavigate }) {
             gap: '1.25rem',
             alignItems: 'stretch'
           }}>
-            {naturopathyCards.slice(0, 4).map((card) => (
+            {naturopathyCards.map((card) => (
               <motion.div
                 key={card.id}
                 whileHover={{ y: -6, scale: 1.015 }}
@@ -1894,84 +1894,114 @@ export default function Home({ onNavigate }) {
               backgroundColor: 'rgba(15, 10, 8, 0.85)',
               backdropFilter: 'blur(16px)',
               zIndex: 9999999,
+              overflowY: 'auto',
+              padding: isMobile ? '1.5rem 0.8rem' : '3rem 1.5rem',
               display: 'flex',
-              alignItems: 'center',
               justifyContent: 'center',
-              padding: isMobile ? '1rem' : '2rem'
+              alignItems: 'flex-start',
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none'
             }}
             onClick={() => setSelectedNaturopathyModal(null)}
           >
             <motion.div
-              initial={{ scale: 0.92, y: 20 }}
+              initial={{ scale: 0.94, y: 20 }}
               animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.92, y: 20 }}
+              exit={{ scale: 0.94, y: 20 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
               style={{
                 width: '100%',
-                maxWidth: '900px',
-                maxHeight: '90vh',
+                maxWidth: '880px',
                 backgroundColor: '#ffffff',
                 borderRadius: '24px',
-                overflow: 'hidden',
+                padding: isMobile ? '1.5rem' : '2.2rem',
                 boxShadow: '0 25px 70px rgba(0,0,0,0.5)',
-                display: 'flex',
-                flexDirection: 'column',
-                position: 'relative'
+                position: 'relative',
+                margin: 'auto 0'
               }}
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedNaturopathyModal(null)}
                 style={{
-                  position: 'absolute', top: '16px', right: '16px', zIndex: 10,
-                  backgroundColor: 'rgba(0,0,0,0.6)', color: '#ffffff',
-                  border: 'none', borderRadius: '50%', width: '36px', height: '36px',
+                  position: 'absolute', top: '18px', right: '18px', zIndex: 10,
+                  backgroundColor: 'rgba(94, 39, 53, 0.08)', color: 'var(--wine)',
+                  border: 'none', borderRadius: '50%', width: '38px', height: '38px',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  cursor: 'pointer', backdropFilter: 'blur(6px)'
+                  cursor: 'pointer', transition: 'all 0.25s ease'
                 }}
+                className="hover-gold"
               >
                 <X size={20} />
               </button>
 
-              {/* Modal Top Banner */}
-              <div style={{ height: '220px', position: 'relative', flexShrink: 0 }}>
-                <img 
-                  src={selectedNaturopathyModal.image} 
-                  alt={selectedNaturopathyModal.title}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(28,20,16,0.85) 100%)' }} />
-                
-                <div style={{ position: 'absolute', bottom: '1.5rem', left: '1.8rem', right: '1.8rem', color: '#ffffff' }}>
-                  <span style={{ color: 'var(--harvest-gold)', fontSize: '0.7rem', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase' }}>
+              {/* Modal Header with Small Image Card */}
+              <div style={{
+                display: 'flex',
+                flexDirection: isMobile ? 'column' : 'row',
+                gap: '1.4rem',
+                alignItems: isMobile ? 'flex-start' : 'center',
+                marginBottom: '1.6rem',
+                paddingBottom: '1.4rem',
+                borderBottom: '1.5px solid rgba(94, 39, 53, 0.12)',
+                paddingRight: '2.5rem'
+              }}>
+                {/* Small Image Card */}
+                <div style={{
+                  width: isMobile ? '100%' : '160px',
+                  height: isMobile ? '150px' : '110px',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  flexShrink: 0,
+                  boxShadow: '0 8px 22px rgba(94, 39, 53, 0.14)',
+                  border: '1px solid rgba(94, 39, 53, 0.12)'
+                }}>
+                  <img 
+                    src={selectedNaturopathyModal.image} 
+                    alt={selectedNaturopathyModal.title}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                </div>
+
+                {/* Header Information */}
+                <div style={{ flex: 1 }}>
+                  <span style={{
+                    color: 'var(--redwood)',
+                    fontSize: '0.68rem',
+                    fontWeight: 800,
+                    letterSpacing: '0.16em',
+                    textTransform: 'uppercase',
+                    display: 'block',
+                    marginBottom: '0.3rem'
+                  }}>
                     ✦ {selectedNaturopathyModal.category}
                   </span>
-                  <h2 style={{ fontSize: '2rem', margin: '0.2rem 0', fontWeight: 700, color: '#ffffff' }}>
+                  <h2 style={{ fontSize: isMobile ? '1.45rem' : '1.85rem', margin: '0 0 0.3rem 0', fontWeight: 700, color: 'var(--wine)', lineHeight: 1.2 }}>
                     {selectedNaturopathyModal.title}
                   </h2>
-                  <p style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.9)', fontSize: '0.9rem', margin: 0 }}>
+                  <p style={{ fontStyle: 'italic', color: 'var(--redwood)', fontSize: '0.86rem', fontWeight: 600, margin: 0 }}>
                     "{selectedNaturopathyModal.sanskritQuote}" — {selectedNaturopathyModal.sanskritMeaning}
                   </p>
                 </div>
               </div>
 
-              {/* Modal Content Scroll Area */}
-              <div style={{ padding: '1.8rem', overflowY: 'auto', flex: 1 }}>
-                <p style={{ fontSize: '1rem', color: 'var(--raisin-black)', lineHeight: 1.6, marginBottom: '1.6rem' }}>
+              {/* Modal Overview Content */}
+              <div>
+                <p style={{ fontSize: '0.96rem', color: 'var(--raisin-black)', lineHeight: 1.65, marginBottom: '1.6rem' }}>
                   {selectedNaturopathyModal.description}
                 </p>
 
                 {/* Diagnostic Pillars Section */}
                 <div style={{ marginBottom: '1.8rem' }}>
-                  <h3 style={{ color: 'var(--wine)', fontSize: '1.15rem', borderBottom: '2px solid var(--harvest-gold)', paddingBottom: '0.4rem', marginBottom: '1rem', fontWeight: 700 }}>
+                  <h3 style={{ color: 'var(--wine)', fontSize: '1.1rem', borderBottom: '2px solid var(--harvest-gold)', paddingBottom: '0.4rem', marginBottom: '1rem', fontWeight: 700 }}>
                     Diagnostic Pillars &amp; Assessments
                   </h3>
-                  <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '1rem' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '0.9rem' }}>
                     {selectedNaturopathyModal.details.diagnostics.map((diag, idx) => (
-                      <div key={idx} style={{ backgroundColor: 'rgba(94, 39, 53, 0.04)', padding: '1rem', borderRadius: '12px', borderLeft: '3px solid var(--wine)' }}>
-                        <h4 style={{ color: 'var(--wine)', margin: '0 0 0.3rem 0', fontSize: '0.92rem', fontWeight: 700 }}>{diag.name}</h4>
-                        <p style={{ color: 'var(--raisin-black)', opacity: 0.8, fontSize: '0.82rem', margin: 0, lineHeight: 1.4 }}>{diag.desc}</p>
+                      <div key={idx} style={{ backgroundColor: 'rgba(94, 39, 53, 0.04)', padding: '0.95rem 1.1rem', borderRadius: '12px', borderLeft: '3px solid var(--wine)' }}>
+                        <h4 style={{ color: 'var(--wine)', margin: '0 0 0.25rem 0', fontSize: '0.9rem', fontWeight: 700 }}>{diag.name}</h4>
+                        <p style={{ color: 'var(--raisin-black)', opacity: 0.82, fontSize: '0.8rem', margin: 0, lineHeight: 1.45 }}>{diag.desc}</p>
                       </div>
                     ))}
                   </div>
@@ -1979,16 +2009,16 @@ export default function Home({ onNavigate }) {
 
                 {/* Detailed Modalities & Therapies */}
                 <div style={{ marginBottom: '1.8rem' }}>
-                  <h3 style={{ color: 'var(--wine)', fontSize: '1.15rem', borderBottom: '2px solid var(--harvest-gold)', paddingBottom: '0.4rem', marginBottom: '1rem', fontWeight: 700 }}>
+                  <h3 style={{ color: 'var(--wine)', fontSize: '1.1rem', borderBottom: '2px solid var(--harvest-gold)', paddingBottom: '0.4rem', marginBottom: '1rem', fontWeight: 700 }}>
                     Therapeutic Protocols &amp; Treatments
                   </h3>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                     {selectedNaturopathyModal.details.therapies.map((mod, idx) => (
-                      <div key={idx} style={{ backgroundColor: 'var(--isabelline)', padding: '1.2rem', borderRadius: '14px', border: '1px solid rgba(94,39,53,0.1)' }}>
-                        <h4 style={{ color: 'var(--wine)', margin: '0 0 0.6rem 0', fontSize: '0.98rem', fontWeight: 700 }}>{mod.name}</h4>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                      <div key={idx} style={{ backgroundColor: 'var(--isabelline)', padding: '1.1rem 1.2rem', borderRadius: '14px', border: '1px solid rgba(94,39,53,0.1)' }}>
+                        <h4 style={{ color: 'var(--wine)', margin: '0 0 0.5rem 0', fontSize: '0.95rem', fontWeight: 700 }}>{mod.name}</h4>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem' }}>
                           {mod.list.map((item, itemIdx) => (
-                            <span key={itemIdx} style={{ backgroundColor: '#ffffff', border: '1px solid rgba(94,39,53,0.18)', padding: '0.35rem 0.85rem', borderRadius: '20px', fontSize: '0.8rem', color: 'var(--wine)', fontWeight: 600 }}>
+                            <span key={itemIdx} style={{ backgroundColor: '#ffffff', border: '1px solid rgba(94,39,53,0.16)', padding: '0.3rem 0.8rem', borderRadius: '20px', fontSize: '0.78rem', color: 'var(--wine)', fontWeight: 600 }}>
                               ✦ {item}
                             </span>
                           ))}
@@ -1999,7 +2029,7 @@ export default function Home({ onNavigate }) {
                 </div>
 
                 {/* Modal Action CTA */}
-                <div style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-end', paddingTop: '1rem', borderTop: '1px solid rgba(0,0,0,0.1)' }}>
+                <div style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-end', paddingTop: '1.2rem', borderTop: '1px solid rgba(94, 39, 53, 0.1)' }}>
                   <button
                     onClick={() => {
                       setSelectedNaturopathyModal(null);
@@ -2010,12 +2040,14 @@ export default function Home({ onNavigate }) {
                       backgroundColor: 'var(--wine)',
                       color: '#ffffff',
                       border: 'none',
-                      borderRadius: '10px',
+                      borderRadius: '50px',
                       fontWeight: 700,
-                      fontSize: '0.85rem',
+                      fontSize: '0.82rem',
                       cursor: 'pointer',
-                      letterSpacing: '0.05em'
+                      letterSpacing: '0.04em',
+                      transition: 'all 0.3s ease'
                     }}
+                    className="hover-gold"
                   >
                     Explore Full Retreat Packages →
                   </button>

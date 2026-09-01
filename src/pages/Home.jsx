@@ -468,19 +468,37 @@ export default function Home({ onNavigate }) {
   // Active Therapy Selection State for Naturopathy Layout
   const [selectedNaturopathyModal, setSelectedNaturopathyModal] = useState(null);
 
-  // Lock background body and html scroll when detail modal is open
+  // Lock background body, html, and wheel events when detail modal is open
   useEffect(() => {
     if (selectedNaturopathyModal) {
       document.body.style.overflow = 'hidden';
       document.documentElement.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
+
+      const preventDefaultScroll = (e) => {
+        const scrollableContainer = document.querySelector('.hide-scrollbar');
+        if (scrollableContainer && scrollableContainer.contains(e.target)) {
+          const { scrollTop, scrollHeight, clientHeight } = scrollableContainer;
+          const delta = e.deltaY;
+          const isAtTop = delta < 0 && scrollTop <= 0;
+          const isAtBottom = delta > 0 && scrollTop + clientHeight >= scrollHeight - 1;
+          if (isAtTop || isAtBottom) {
+            e.preventDefault();
+          }
+        } else {
+          e.preventDefault();
+        }
+      };
+
+      window.addEventListener('wheel', preventDefaultScroll, { passive: false });
+      window.addEventListener('touchmove', preventDefaultScroll, { passive: false });
+
+      return () => {
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
+        window.removeEventListener('wheel', preventDefaultScroll);
+        window.removeEventListener('touchmove', preventDefaultScroll);
+      };
     }
-    return () => {
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-    };
   }, [selectedNaturopathyModal]);
 
   const naturopathyCards = [
@@ -2055,21 +2073,21 @@ export default function Home({ onNavigate }) {
 
       {/* Floating Solid Cards Section (Slide 12: Path To Transformation Begins Within) */}
       <section style={{ 
-        backgroundColor: 'var(--pale-dogwood)', 
-        padding: '2.5rem 5%', 
+        backgroundColor: 'var(--isabelline)', 
+        padding: '3rem 5%', 
         position: 'relative', 
         overflow: 'hidden' 
       }} className="dot-grid">
         
         <Pattern24 aria-hidden="true" style={{ 
           position: 'absolute', left: '-2%', top: '50%', transform: 'translateY(-50%) scale(1.25)', 
-          height: '90%', maxHeight: '600px', width: 'auto', opacity: 0.38, 
-          filter: 'brightness(0.7)', color: 'var(--redwood)', pointerEvents: 'none', zIndex: 1 
+          height: '90%', maxHeight: '600px', width: 'auto', opacity: 0.08, 
+          color: 'var(--wine)', pointerEvents: 'none', zIndex: 1 
         }} />
         <Pattern25 aria-hidden="true" style={{ 
           position: 'absolute', right: '-2%', top: '50%', transform: 'translateY(-50%) scale(1.25)', 
-          height: '90%', maxHeight: '600px', width: 'auto', opacity: 0.38, 
-          filter: 'brightness(0.7)', color: 'var(--redwood)', pointerEvents: 'none', zIndex: 1 
+          height: '90%', maxHeight: '600px', width: 'auto', opacity: 0.08, 
+          color: 'var(--wine)', pointerEvents: 'none', zIndex: 1 
         }} />
 
         {/* Glows */}

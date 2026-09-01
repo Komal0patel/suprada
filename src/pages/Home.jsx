@@ -478,8 +478,8 @@ export default function Home({ onNavigate }) {
       tagline: "Nature's Path to Healing & Rejuvenation",
       sanskritQuote: 'Prakṛtireva bheṣajam.',
       sanskritMeaning: 'Nature itself is the medicine.',
-      description: 'A 100% drug-free holistic healing system combining natural elements (water, mud, air, sunlight, diet) to detoxify, restore balance, and rejuvenate the entire being.',
-      image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80',
+      description: 'Naturopathy is a holistic system of healing that harnesses the body\'s innate ability to heal itself through natural, drug-free therapies. At Suprada Wellness, our naturopathy programmes combine time-tested natural treatments with modern wellness practices to detoxify, restore balance, and rejuvenate your entire being.',
+      image: 'https://images.pexels.com/photos/4021775/pexels-photo-4021775.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop',
       highlights: ['Iris & Facial Mapping', '15+ Therapeutic Massages', 'Hydrotherapy & Spinal Spray', 'Full Body Earth Mud Baths'],
       details: {
         diagnostics: [
@@ -489,7 +489,7 @@ export default function Home({ onNavigate }) {
           { name: 'Body Impedance Analysis (BIA)', desc: 'Precision cellular hydration, visceral fat, body composition, and metabolic assessment.' }
         ],
         therapies: [
-          { name: 'Therapeutic Massages', list: ['Powder Vibrio (Udhwartana)', 'Deep Tissue Alignment', 'Reflexology', 'Acumassage', 'Shiatsu', 'Swedish Massage', 'Thai Yoga Massage', 'Hot Stone Therapy'] },
+          { name: 'Therapeutic Massages Suite', list: ['Powder Vibrio (Udhwartana)', 'Deep Tissue Alignment', 'Reflexology', 'Acumassage', 'Shiatsu', 'Swedish Massage', 'Thai Yoga Massage'] },
           { name: 'Hydrotherapy Suite', list: ['Hip Bath & Immersion Baths (Neem, Turmeric, Epsom Salt)', 'Spinal Spray & Spinal Bath', 'Jacuzzi & Spiral Jet Bath', 'Colon Hydrotherapy', 'Herbal Steam & Finnish Sauna'] },
           { name: 'Earth & Mud Therapies', list: ['Full Body Mud Bath', 'Abdominal & Ocular Cooling Mud Packs', 'Sun & Helio Therapy'] }
         ]
@@ -503,8 +503,8 @@ export default function Home({ onNavigate }) {
       tagline: 'Unite Body, Mind & Spirit',
       sanskritQuote: 'Yogaś citta-vṛtti-nirodhaḥ.',
       sanskritMeaning: 'Yoga is the cessation of the modifications of the mind.',
-      description: 'Classical Asanas, Pranayama breath control, Shatkarma cleansing kriyas, Mudras, and guided meditation to cultivate physical strength, emotional stability, and spiritual equilibrium.',
-      image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80',
+      description: 'Yoga and meditation are transformative practices that unite the body, mind, and spirit. At Suprada Wellness, we offer authentic yoga sessions guided by experienced instructors, combining classical Asanas (postures), Pranayama (breath work), and meditation techniques to cultivate physical strength, mental clarity, and emotional balance.',
+      image: 'https://images.pexels.com/photos/3822906/pexels-photo-3822906.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop',
       highlights: ['Classical Asana Flow', 'Pranayama Breath Control', 'Shatkarma Cleansing Kriyas', 'Yoga Nidra & Sound Rest'],
       details: {
         diagnostics: [
@@ -523,10 +523,10 @@ export default function Home({ onNavigate }) {
       category: 'VIBRATIONAL MEDICINE',
       title: 'Holistic Therapies',
       tagline: 'Integrated Healing for Complete Wellness',
-      sanskritQuote: 'Sarvaṃ khalvidaṃ brahma.',
+      sanskritQuote: 'Sarvaṁ khalvidaṁ brahma.',
       sanskritMeaning: 'All this is indeed the universal consciousness.',
-      description: 'Integrative modalities bridging ancient oriental medicine and modern vibrational sound healing to release deep energetic blockages and restore emotional harmony.',
-      image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1200&q=80',
+      description: 'Our holistic therapies integrate diverse healing modalities from around the world to address your health from multiple dimensions. Combining ancient wisdom with modern techniques, we offer acupuncture, acupressure, energy healing, cupping therapy, music & sound healing and other complementary treatments designed to restore balance and promote deep healing.',
+      image: 'https://images.pexels.com/photos/3865676/pexels-photo-3865676.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop',
       highlights: ['Acupuncture & Reflexology', 'Tibetan Om Singing Bowls', 'Gong & Flute Sound Baths', 'Pranic & Reiki Energy Work'],
       details: {
         diagnostics: [
@@ -545,19 +545,107 @@ export default function Home({ onNavigate }) {
       category: 'SATWIK NOURISHMENT',
       title: 'Nutrition & Lifestyle',
       tagline: 'Nourish Your Body, Transform Your Life',
-      sanskritQuote: 'Ahāraśuddhau sattvaśuddhiḥ.',
+      sanskritQuote: 'Āhāraśuddhau sattvaśuddhiḥ.',
       sanskritMeaning: 'When food is pure, the mind becomes pure.',
-      description: 'Personalized organic Satwik meal plans, anti-inflammatory nutrition, ancient millet recipes, cold-pressed detox juices, and therapeutic bio-fasting for gut microbiome repair.',
-      image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80',
+      description: 'True wellness begins with what you put on your plate and how you live your daily life. Our nutrition and lifestyle programmes combine ancient dietary wisdom with modern nutritional science to create personalized plans that support your health goals, enhance vitality, and promote long-term well-being.',
+      image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop',
       highlights: ['Farm-to-Table Satwik Meals', 'Gut Microbiome Repair', 'Cold-Pressed Juices', 'Therapeutic Bio-Fasting'],
       details: {
         diagnostics: [
           { name: 'Prakriti & Metabolic Assessment', desc: 'Customizing dietary plans to your unique metabolic dosha type.' },
-          { name: 'Digestive Fire (Agni) Mapping', desc: 'Evaluating digestive strength, nutrient absorption, and gut health.' }
+          { name: 'Gut & Inflammatory Profile', desc: 'Evaluating digestive fires (Agni), gut microbiome health, and food intolerances.' }
         ],
         therapies: [
           { name: 'Satwik Dining', list: ['Organic Farm-to-Table Cuisine', 'Millet & Ancient Grain Recipes', 'Probiotic & Herbal Infusions', 'Anti-Inflammatory Soups'] },
           { name: 'Detox & Fasting', list: ['Therapeutic Bio-Fasting', 'Cold-Pressed Green Juices', 'Intermittent Gut Rest Protocols', 'Mindful Eating Workshops'] }
+        ]
+      }
+    },
+    {
+      id: 'mental-wellbeing',
+      number: '05',
+      category: 'MINDFUL RESILIENCE',
+      title: 'Mental & Emotional Well-Being',
+      tagline: 'Nurture Your Mind, Heal Your Heart',
+      sanskritQuote: 'Mana eva manuṣyāṇāṁ kāraṇaṁ bandhamokṣayoḥ.',
+      sanskritMeaning: 'The mind alone is the cause of bondage and liberation.',
+      description: 'Mental and emotional health are foundational to overall wellness. Our comprehensive programmes combine professional counselling, stress management techniques, breathwork, and mindfulness practices to help you navigate life\'s challenges with greater resilience, clarity, and inner peace.',
+      image: 'https://images.pexels.com/photos/3759657/pexels-photo-3759657.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop',
+      highlights: ['Professional Counselling', 'Stress Resilience Training', 'Mindfulness & Meditation', 'Emotional Trauma Release'],
+      details: {
+        diagnostics: [
+          { name: 'Autonomic Nervous System Evaluation', desc: 'Assessing sympathetic vs parasympathetic tone and stress reactivity.' },
+          { name: 'Emotional Stress Mapping', desc: 'Identifying psychological stressors, anxiety patterns, and burnout triggers.' }
+        ],
+        therapies: [
+          { name: 'Mindfulness & Therapy', list: ['Cognitive Wellness Counselling', 'Guided Mindfulness Meditation', 'Somatic Release Breathwork', 'Nature Grounding & Silence Retaining'] },
+          { name: 'Stress Reduction', list: ['Progressive Muscle Relaxation', 'Aromatherapy Neural Calm', 'Biofeedback & Heart Rate Variability'] }
+        ]
+      }
+    },
+    {
+      id: 'detox-cleansing',
+      number: '06',
+      category: 'CELLULAR PURIFICATION',
+      title: 'Detox & Cleansing',
+      tagline: 'Purify, Renew, Revitalize',
+      sanskritQuote: 'Śuddhireva paramaṁ dharmaḥ.',
+      sanskritMeaning: 'Purity is the highest virtue.',
+      description: 'In our modern world, toxins accumulate from environmental pollutants, processed foods, stress, and lifestyle factors. Our comprehensive detoxification programmes use time-tested authentic therapies protocols, therapeutic fasting, and natural cleansing methods to eliminate accumulated toxins, restore cellular health, and rejuvenate your entire system.',
+      image: 'https://images.pexels.com/photos/1346347/pexels-photo-1346347.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop',
+      highlights: ['Systemic Toxins Evaluation', 'Colon & Liver Cleansing', 'Herbal Bio-Steam Packs', 'Therapeutic Juice Fasting'],
+      details: {
+        diagnostics: [
+          { name: 'Toxic Burden & Cellular Hydration Analysis', desc: 'Mapping metabolic waste accumulation and liver detoxification capacity.' },
+          { name: 'Digestive Toxicity Assessment', desc: 'Evaluating Ama (accumulated toxins) in the gastrointestinal tract.' }
+        ],
+        therapies: [
+          { name: 'Purification Therapies', list: ['Colon Hydrotherapy', 'Full Body Mud Wrap & Detox', 'Herbal Bio-Steam & Finnish Sauna', 'Enema Cleansing Protocols'] },
+          { name: 'Detox Fasting', list: ['Therapeutic Juice Fasting', 'Kunjal & Shatkarma Kriyas', 'Herbal Liver Flush Infusions'] }
+        ]
+      }
+    },
+    {
+      id: 'physiotherapy',
+      number: '07',
+      category: 'REHABILITATION & MOVEMENT',
+      title: 'Physiotherapy',
+      tagline: 'Restore Movement, Reclaim Life',
+      sanskritQuote: 'Calanaṁ jīvanam.',
+      sanskritMeaning: 'Movement is life.',
+      description: 'Our physiotherapy programmes combine evidence-based rehabilitation techniques with holistic wellness principles to help you recover from injuries, manage chronic pain, and improve overall mobility. Our experienced physiotherapists create personalized treatment plans tailored to your specific condition and recovery goals.',
+      image: 'https://images.pexels.com/photos/6111619/pexels-photo-6111619.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop',
+      highlights: ['Postural Correction', 'Joint & Spinal Rehabilitation', 'Myofascial Trigger Release', 'Therapeutic Exercise Protocols'],
+      details: {
+        diagnostics: [
+          { name: 'Kinesiological Motion & Gait Analysis', desc: 'Biomechanical examination of joint range of motion, muscle imbalance, and gait efficiency.' },
+          { name: 'Spinal Alignment Assessment', desc: 'Detailed spinal curvature and nerve impingement testing.' }
+        ],
+        therapies: [
+          { name: 'Rehabilitation Modalities', list: ['Manual Therapy & Joint Mobilization', 'Electrotherapy & Ultrasound', 'Myofascial Trigger Point Release', 'Therapeutic Hydro-Rehab'] },
+          { name: 'Functional Conditioning', list: ['Core Stabilization Training', 'Postural Alignment Retraining', 'Ergonomic & Biomechanical Guidance'] }
+        ]
+      }
+    },
+    {
+      id: 'ayurveda',
+      number: '08',
+      category: 'ANCIENT DOSHIC WISDOM',
+      title: 'Ayurveda',
+      tagline: 'Ancient Wisdom for Modern Wellness',
+      sanskritQuote: 'Svasthasya svāsthyarakṣaṇaṁ.',
+      sanskritMeaning: 'Preservation of health of the healthy.',
+      description: 'Ayurveda, the 5,000-year-old "Science of Life," offers a comprehensive approach to health and wellness by balancing the three doshas—Vata, Pitta, and Kapha. At Suprada Wellness, our authentic Ayurvedic treatments combine classical therapies with personalized care to restore harmony, enhance immunity, and promote longevity.',
+      image: 'https://images.pexels.com/photos/3997992/pexels-photo-3997992.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop',
+      highlights: ['Nadi Pariksha Pulse Diagnosis', 'Shirodhara Oil Therapy', 'Abhyanga Oil Alignment', 'Kizhi Herbal Compress'],
+      details: {
+        diagnostics: [
+          { name: 'Nadi Pariksha (Pulse Diagnosis)', desc: 'Ancient pulse assessment evaluating dosha imbalances (Vata, Pitta, Kapha) and organ vitality.' },
+          { name: 'Prakriti & Vikriti Assessment', desc: 'Determining your innate constitutional type and current state of doshic imbalance.' }
+        ],
+        therapies: [
+          { name: 'Classical Therapies', list: ['Shirodhara Warm Oil Therapy', 'Abhyanga Synchronized Massage', 'Kizhi Herbal Compress Massage', 'Nasya Herbal Nasal Cleansing'] },
+          { name: 'Rejuvenation Protocols', list: ['Rasayana Anti-Aging Treatments', 'Kashaya Dhara Medicated Stream', 'Doshic Herbal Teas & Formulations'] }
         ]
       }
     }
@@ -1133,10 +1221,10 @@ export default function Home({ onNavigate }) {
             </p>
           </div>
 
-          {/* 4-Card Visual Interactive Grid (Clean layout for click-to-view details) */}
+          {/* 8-Card Visual Interactive Grid (Clean layout for click-to-view details) */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : 'repeat(4, 1fr)',
+            gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(270px, 1fr))',
             gap: '1.8rem',
             alignItems: 'stretch'
           }}>

@@ -468,15 +468,18 @@ export default function Home({ onNavigate }) {
   // Active Therapy Selection State for Naturopathy Layout
   const [selectedNaturopathyModal, setSelectedNaturopathyModal] = useState(null);
 
-  // Lock background body scroll when detail modal is open
+  // Lock background body and html scroll when detail modal is open
   useEffect(() => {
     if (selectedNaturopathyModal) {
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     };
   }, [selectedNaturopathyModal]);
 
@@ -1882,13 +1885,11 @@ export default function Home({ onNavigate }) {
               backgroundColor: 'rgba(15, 10, 8, 0.85)',
               backdropFilter: 'blur(16px)',
               zIndex: 9999999,
-              overflowY: 'auto',
-              padding: isMobile ? '1.5rem 0.8rem' : '3rem 1.5rem',
               display: 'flex',
+              alignItems: 'center',
               justifyContent: 'center',
-              alignItems: 'flex-start',
-              scrollbarWidth: 'none',
-              msOverflowStyle: 'none'
+              padding: isMobile ? '1rem' : '2rem',
+              overflow: 'hidden'
             }}
             onClick={() => setSelectedNaturopathyModal(null)}
           >
@@ -1901,12 +1902,14 @@ export default function Home({ onNavigate }) {
               style={{
                 width: '100%',
                 maxWidth: '880px',
+                maxHeight: '85vh',
                 backgroundColor: '#ffffff',
                 borderRadius: '24px',
-                padding: isMobile ? '1.5rem' : '2.2rem',
                 boxShadow: '0 25px 70px rgba(0,0,0,0.5)',
                 position: 'relative',
-                margin: 'auto 0'
+                display: 'flex',
+                flexDirection: 'column',
+                overflow: 'hidden'
               }}
             >
               {/* Close Button */}
@@ -1924,21 +1927,22 @@ export default function Home({ onNavigate }) {
                 <X size={20} />
               </button>
 
-              {/* Modal Header with Small Image Card */}
+              {/* Modal Fixed Header with Small Image Card */}
               <div style={{
                 display: 'flex',
                 flexDirection: isMobile ? 'column' : 'row',
                 gap: '1.4rem',
                 alignItems: isMobile ? 'flex-start' : 'center',
-                marginBottom: '1.6rem',
-                paddingBottom: '1.4rem',
+                padding: isMobile ? '1.4rem' : '1.8rem 2rem 1.4rem 2rem',
                 borderBottom: '1.5px solid rgba(94, 39, 53, 0.12)',
-                paddingRight: '2.5rem'
+                paddingRight: '3.5rem',
+                flexShrink: 0,
+                backgroundColor: '#ffffff'
               }}>
                 {/* Small Image Card */}
                 <div style={{
-                  width: isMobile ? '100%' : '160px',
-                  height: isMobile ? '150px' : '110px',
+                  width: isMobile ? '100%' : '150px',
+                  height: isMobile ? '130px' : '100px',
                   borderRadius: '16px',
                   overflow: 'hidden',
                   flexShrink: 0,
@@ -1974,8 +1978,13 @@ export default function Home({ onNavigate }) {
                 </div>
               </div>
 
-              {/* Modal Overview Content */}
-              <div>
+              {/* Modal Internal Scrollable Body Area */}
+              <div style={{
+                padding: isMobile ? '1.4rem' : '1.8rem 2rem',
+                overflowY: 'auto',
+                flex: 1,
+                overscrollBehavior: 'contain'
+              }}>
                 <p style={{ fontSize: '0.96rem', color: 'var(--raisin-black)', lineHeight: 1.65, marginBottom: '1.6rem' }}>
                   {selectedNaturopathyModal.description}
                 </p>

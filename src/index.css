@@ -3078,6 +3078,29 @@ html, body {
   color: var(--wine) !important;
 }
 
+.hover-redwood {
+  transition: all 0.3s ease;
+}
+.hover-redwood:hover {
+  color: var(--redwood) !important;
+  border-color: var(--redwood) !important;
+}
+
+@keyframes pulse-dot {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+}
+
 
 
 

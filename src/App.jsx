@@ -258,8 +258,42 @@ function App() {
                 </div>
               )}
 
-              {/* Right Action: Search Bar & Mobile Menu */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexShrink: 0, marginLeft: 'auto' }}>
+              {/* Right Action: We're Hiring, Search Bar & Mobile Menu */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0, marginLeft: 'auto' }}>
+                {/* "We're Hiring" Aesthetic Pill Button */}
+                <button
+                  onClick={() => handlePageChange('careers')}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.4rem',
+                    padding: '0.38rem 0.85rem',
+                    backgroundColor: isLightHeader ? 'rgba(184, 86, 69, 0.1)' : 'rgba(234, 169, 54, 0.18)',
+                    border: isLightHeader ? '1px solid rgba(184, 86, 69, 0.35)' : '1px solid rgba(234, 169, 54, 0.45)',
+                    borderRadius: '50px',
+                    color: isLightHeader ? 'var(--redwood)' : 'var(--harvest-gold)',
+                    fontSize: '0.74rem',
+                    letterSpacing: '0.04em',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    boxShadow: isLightHeader ? '0 2px 8px rgba(184, 86, 69, 0.08)' : '0 2px 10px rgba(0,0,0,0.2)'
+                  }}
+                  className={isLightHeader ? 'hover-redwood' : 'hover-gold'}
+                  aria-label="We are hiring - View Careers"
+                >
+                  <span style={{
+                    width: '6px',
+                    height: '6px',
+                    borderRadius: '50%',
+                    backgroundColor: isLightHeader ? 'var(--redwood)' : 'var(--harvest-gold)',
+                    display: 'inline-block',
+                    boxShadow: isLightHeader ? '0 0 6px var(--redwood)' : '0 0 6px var(--harvest-gold)',
+                    animation: 'pulse-dot 1.8s infinite ease-in-out'
+                  }} />
+                  <span>We're Hiring</span>
+                </button>
+
                 {/* Search Bar Button */}
                 <button
                   onClick={() => setIsSearchOpen(true)}
@@ -493,6 +527,74 @@ function App() {
 
         {/* Global Footer */}
         <Footer onNavigate={handlePageChange} />
+
+        {/* Global Constant Floating Contact Actions (WhatsApp & Call Buttons) */}
+        <div
+          style={{
+            position: 'fixed',
+            bottom: isMobile ? '20px' : '28px',
+            right: isMobile ? '18px' : '28px',
+            zIndex: 999998,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '12px',
+            alignItems: 'center'
+          }}
+        >
+          {/* WhatsApp Floating Button */}
+          <motion.a
+            href="https://wa.me/919876554321?text=Hello%20Suprada%20Wellness%2C%20I%20would%20like%20to%20inquire%20about%20your%20retreats"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp"
+            whileHover={{ scale: 1.12, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            style={{
+              width: isMobile ? '48px' : '54px',
+              height: isMobile ? '48px' : '54px',
+              borderRadius: '50%',
+              backgroundColor: '#25D366',
+              color: '#ffffff',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 8px 25px rgba(37, 211, 102, 0.45)',
+              textDecoration: 'none',
+              cursor: 'pointer',
+              transition: 'box-shadow 0.3s ease'
+            }}
+          >
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.94 9.94 0 0 0 1.341 5.011L2 22l5.143-1.343a9.96 9.96 0 0 0 4.869 1.327h.004c5.507 0 9.99-4.478 9.99-9.985 0-2.668-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm5.836 14.137c-.246.692-1.228 1.332-1.996 1.498-.526.113-1.213.203-3.518-.751-2.951-1.221-4.85-4.227-4.998-4.425-.147-.197-1.202-1.602-1.202-3.056 0-1.454.761-2.169 1.033-2.464.272-.295.592-.369.79-.369.197 0 .395.002.568.01.184.008.434-.07.679.518.246.591.838 2.043.912 2.191.074.148.123.321.025.518-.099.197-.148.321-.296.493-.148.172-.311.384-.443.516-.148.148-.303.309-.131.605.172.296.764 1.261 1.637 2.039 1.122.999 2.068 1.309 2.364 1.457.296.148.468.123.64-.074.172-.197.739-.862.936-1.157.197-.295.395-.246.666-.148.271.099 1.724.813 2.02 0.96.295.148.493.222.566.345.074.123.074.715-.172 1.407z"/>
+            </svg>
+          </motion.a>
+
+          {/* Call Floating Button */}
+          <motion.a
+            href="tel:+919876554321"
+            aria-label="Call Suprada Wellness"
+            whileHover={{ scale: 1.12, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            style={{
+              width: isMobile ? '48px' : '54px',
+              height: isMobile ? '48px' : '54px',
+              borderRadius: '50%',
+              backgroundColor: '#258CFB',
+              color: '#ffffff',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 8px 25px rgba(37, 140, 251, 0.45)',
+              textDecoration: 'none',
+              cursor: 'pointer',
+              transition: 'box-shadow 0.3s ease'
+            }}
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </motion.a>
+        </div>
 
       </div>
     </>

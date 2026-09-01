@@ -2028,30 +2028,7 @@ export default function Home({ onNavigate }) {
                   </div>
                 </div>
 
-                {/* Modal Action CTA */}
-                <div style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-end', paddingTop: '1.2rem', borderTop: '1px solid rgba(94, 39, 53, 0.1)' }}>
-                  <button
-                    onClick={() => {
-                      setSelectedNaturopathyModal(null);
-                      onNavigate('programmes');
-                    }}
-                    style={{
-                      padding: '0.75rem 1.6rem',
-                      backgroundColor: 'var(--wine)',
-                      color: '#ffffff',
-                      border: 'none',
-                      borderRadius: '50px',
-                      fontWeight: 700,
-                      fontSize: '0.82rem',
-                      cursor: 'pointer',
-                      letterSpacing: '0.04em',
-                      transition: 'all 0.3s ease'
-                    }}
-                    className="hover-gold"
-                  >
-                    Explore Full Retreat Packages →
-                  </button>
-                </div>
+
               </div>
             </motion.div>
           </motion.div>

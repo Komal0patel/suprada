@@ -456,6 +456,15 @@ export default function Home({ onNavigate }) {
     };
   }, [isHovered, activeRitualIndex]);
 
+  // Mobile Responsiveness State
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   // Active Therapy Selection State for Naturopathy Layout
   const [activeTherapyIndex, setActiveTherapyIndex] = useState(0);
   const [selectedNaturopathyModal, setSelectedNaturopathyModal] = useState(null);

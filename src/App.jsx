@@ -235,7 +235,7 @@ function App() {
           )}
 
           {/* Right Action: Search Bar & Mobile Menu */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexShrink: 0 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexShrink: 0, marginLeft: 'auto' }}>
             {/* Search Bar Button */}
             <button
               onClick={() => setIsSearchOpen(true)}

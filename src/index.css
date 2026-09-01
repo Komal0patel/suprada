@@ -2996,6 +2996,73 @@ html, body {
   }
 }
 
+/* Light Global Search Modal Styling */
+.search-modal-backdrop {
+  background-color: rgba(40, 38, 37, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.search-modal-card {
+  background-color: var(--antique-white); /* #FAF0E6 */
+  border: 1.5px solid rgba(94, 39, 53, 0.15);
+  box-shadow: 0 24px 60px rgba(40, 38, 37, 0.18), 0 8px 25px rgba(94, 39, 53, 0.08);
+}
+
+.search-modal-header {
+  background-color: var(--isabelline); /* #F2ECE4 */
+  border-bottom: 1px solid rgba(94, 39, 53, 0.12);
+}
+
+.search-input-field {
+  color: var(--raisin-black);
+}
+
+.search-input-field::placeholder {
+  color: rgba(40, 38, 37, 0.45);
+}
+
+.search-modal-close-btn {
+  background-color: rgba(94, 39, 53, 0.08);
+  color: var(--wine);
+  transition: all 0.2s ease;
+}
+
+.search-modal-close-btn:hover {
+  background-color: rgba(94, 39, 53, 0.16);
+  transform: scale(1.05);
+}
+
+.search-result-item {
+  background-color: #ffffff;
+  border: 1px solid rgba(94, 39, 53, 0.08);
+  box-shadow: 0 2px 8px rgba(40, 38, 37, 0.03);
+  transition: all 0.22s ease;
+}
+
+.search-result-item:hover {
+  background-color: #FAF4EE;
+  border-color: var(--wine);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(94, 39, 53, 0.1);
+}
+
+/* Custom Scrollbar for Search Modal Results */
+.custom-light-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-light-scrollbar::-webkit-scrollbar-track {
+  background: rgba(94, 39, 53, 0.04);
+  border-radius: 10px;
+}
+.custom-light-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(94, 39, 53, 0.2);
+  border-radius: 10px;
+}
+.custom-light-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--wine);
+}
+
 
 
 

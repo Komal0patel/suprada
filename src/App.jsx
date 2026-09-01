@@ -291,11 +291,10 @@ function App() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
+              className="search-modal-backdrop"
               style={{
                 position: 'fixed',
                 inset: 0,
-                backgroundColor: 'rgba(15, 10, 8, 0.85)',
-                backdropFilter: 'blur(20px)',
                 zIndex: 9999999,
                 display: 'flex',
                 alignItems: 'flex-start',
@@ -312,47 +311,48 @@ function App() {
                 exit={{ scale: 0.95, y: -20 }}
                 transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
                 onClick={(e) => e.stopPropagation()}
+                className="search-modal-card"
                 style={{
                   width: '100%',
                   maxWidth: '680px',
-                  backgroundColor: '#1c1410',
                   borderRadius: '24px',
-                  border: '1.5px solid rgba(220, 160, 50, 0.4)',
-                  boxShadow: '0 30px 80px rgba(0,0,0,0.8)',
                   overflow: 'hidden',
                   display: 'flex',
                   flexDirection: 'column'
                 }}
               >
                 {/* Search Input Header */}
-                <div style={{ display: 'flex', alignItems: 'center', padding: '1.2rem 1.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)', gap: '1rem' }}>
-                  <Search size={22} style={{ color: 'var(--harvest-gold)', flexShrink: 0 }} />
+                <div className="search-modal-header" style={{ display: 'flex', alignItems: 'center', padding: '1.2rem 1.5rem', gap: '1rem' }}>
+                  <Search size={22} style={{ color: 'var(--wine)', flexShrink: 0 }} />
                   <input
                     type="text"
                     placeholder="Search therapies, spaces, programmes, stay, about..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     autoFocus
+                    className="search-input-field"
                     style={{
                       width: '100%',
                       backgroundColor: 'transparent',
                       border: 'none',
                       outline: 'none',
-                      color: '#ffffff',
                       fontSize: '1.1rem',
-                      fontFamily: 'var(--font-body)'
+                      fontFamily: 'var(--font-body)',
+                      fontWeight: 500
                     }}
                   />
                   <button
                     onClick={() => setIsSearchOpen(false)}
-                    style={{ backgroundColor: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '50%', width: '32px', height: '32px', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}
+                    className="search-modal-close-btn"
+                    style={{ border: 'none', borderRadius: '50%', width: '34px', height: '34px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', flexShrink: 0 }}
+                    aria-label="Close search"
                   >
                     <X size={18} />
                   </button>
                 </div>
 
                 {/* Filtered Search Results */}
-                <div style={{ maxHeight: '60vh', overflowY: 'auto', padding: '1rem' }}>
+                <div className="custom-light-scrollbar" style={{ maxHeight: '60vh', overflowY: 'auto', padding: '1rem' }}>
                   {(() => {
                     const filtered = searchIndex.filter(item => 
                       item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -362,8 +362,8 @@ function App() {
 
                     if (filtered.length === 0) {
                       return (
-                        <div style={{ textAlign: 'center', padding: '3rem 1rem', color: 'rgba(255,255,255,0.6)' }}>
-                          <p>No results found for "{searchQuery}"</p>
+                        <div style={{ textAlign: 'center', padding: '3rem 1rem', color: 'rgba(40, 38, 37, 0.6)' }}>
+                          <p style={{ fontSize: '1rem', fontWeight: 500 }}>No results found for "{searchQuery}"</p>
                         </div>
                       );
                     }
@@ -376,26 +376,25 @@ function App() {
                           setIsSearchOpen(false);
                           setSearchQuery('');
                         }}
+                        className="search-result-item"
                         style={{
-                          padding: '1rem 1.2rem',
-                          borderRadius: '14px',
-                          backgroundColor: 'rgba(255,255,255,0.04)',
-                          marginBottom: '0.6rem',
+                          padding: '1rem 1.25rem',
+                          borderRadius: '16px',
+                          marginBottom: '0.65rem',
                           cursor: 'pointer',
                           display: 'flex',
                           alignItems: 'center',
-                          justifyContent: 'space-between',
-                          transition: 'all 0.2s ease'
+                          justifyContent: 'space-between'
                         }}
                       >
                         <div>
-                          <span style={{ fontSize: '0.68rem', color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700, display: 'block', marginBottom: '0.2rem' }}>
+                          <span style={{ fontSize: '0.7rem', color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700, display: 'block', marginBottom: '0.25rem' }}>
                             {item.category}
                           </span>
-                          <h4 style={{ color: '#ffffff', fontSize: '1rem', margin: 0, fontWeight: 600 }}>{item.title}</h4>
-                          <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.82rem', margin: '0.2rem 0 0 0' }}>{item.desc}</p>
+                          <h4 style={{ color: 'var(--raisin-black)', fontSize: '1.08rem', margin: 0, fontWeight: 700, fontFamily: 'var(--font-heading)' }}>{item.title}</h4>
+                          <p style={{ color: 'rgba(40, 38, 37, 0.72)', fontSize: '0.84rem', margin: '0.25rem 0 0 0', lineHeight: 1.45 }}>{item.desc}</p>
                         </div>
-                        <ChevronRight size={18} style={{ color: 'var(--harvest-gold)', flexShrink: 0 }} />
+                        <ChevronRight size={18} style={{ color: 'var(--wine)', flexShrink: 0, marginLeft: '1rem' }} />
                       </div>
                     ));
                   })()}

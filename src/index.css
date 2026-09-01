@@ -1,19 +1,19 @@
 /* Core luxury brand variables */
 :root {
-  --wine: #5e2735;         /* Deep royal burgundy */
-  --harvest-gold: #dca032; /* Rich gold leaf */
-  --tan: #dcc3af;          /* Warm desert sand */
-  --sage: #b3ba8e;         /* Calming herbal green */
-  --redwood: #b85e4c;      /* Terracotta earth */
-  --raisin-black: #252425; /* Sleek charcoal */
+  --wine: #5E2735;         /* Deep royal burgundy */
+  --harvest-gold: #EAA936; /* Warm golden turmeric accent */
+  --tan: #E6D3C0;          /* Warm desert sand linen */
+  --sage: #C2BA90;         /* Calming herbal muted sage */
+  --redwood: #B85645;      /* Terracotta redwood earth */
+  --raisin-black: #282625; /* Sleek charcoal dark */
   
   /* Luxury Neutrals */
-  --isabelline: #f4f0ec;   /* Soft silk */
-  --tea-green: #d1dac2;    /* Sage glaze */
-  --antique-white: #f5ebd9;/* Heavy cotton paper */
-  --platinum: #e5e5e5;     /* Cool mist */
-  --pale-dogwood: #f2d7cc; /* Soft rose blush */
-  --brand-bg: #e5d7c6;     /* Raw clay */
+  --isabelline: #F2ECE4;   /* Soft silk clay off-white */
+  --tea-green: #D3DFCC;    /* Sage glaze tea green */
+  --antique-white: #FAF0E6;/* Heavy cotton paper antique white */
+  --platinum: #E7EDE8;     /* Cool mist pale platinum */
+  --pale-dogwood: #F4DACA; /* Soft warm rose pale dogwood blush */
+  --brand-bg: #E6D3C0;     /* Raw clay tan fill */
   
   --font-heading: 'Cormorant Garamond', serif;
   --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;

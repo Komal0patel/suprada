@@ -1,0 +1,85 @@
+{
+  "brandName": "Suprada Wellness",
+  "version": "1.0.0",
+  "primaryPalette": {
+    "wine": {
+      "name": "Wine",
+      "hex": "#5E2735",
+      "rgb": "rgb(94, 39, 53)",
+      "hsl": "hsl(345, 41%, 26%)",
+      "description": "Deep royal burgundy wine. Used for main brand headings, primary action buttons, dark accents, and regal brand identity."
+    },
+    "harvestGold": {
+      "name": "Harvest Gold",
+      "hex": "#EAA936",
+      "rgb": "rgb(234, 169, 54)",
+      "hsl": "hsl(38, 80%, 56%)",
+      "description": "Warm golden turmeric. Used for gold foil accents, highlight badges, star icons, and interactive hover states."
+    },
+    "tan": {
+      "name": "Tan",
+      "hex": "#E6D3C0",
+      "rgb": "rgb(230, 211, 192)",
+      "hsl": "hsl(30, 44%, 83%)",
+      "description": "Warm desert linen tan. Used for card background fills, subtle borders, and soft warm containers."
+    },
+    "sage": {
+      "name": "Sage",
+      "hex": "#C2BA90",
+      "rgb": "rgb(194, 186, 144)",
+      "hsl": "hsl(50, 29%, 66%)",
+      "description": "Earthy muted herbal sage green. Used for natural wellness badges, botanical icons, and calming accents."
+    },
+    "redwood": {
+      "name": "Redwood",
+      "hex": "#B85645",
+      "rgb": "rgb(184, 86, 69)",
+      "hsl": "hsl(9, 45%, 50%)",
+      "description": "Warm terracotta redwood. Used for section subheadings, category badges, and secondary accent text."
+    },
+    "raisinBlack": {
+      "name": "Raisin Black",
+      "hex": "#282625",
+      "rgb": "rgb(40, 38, 37)",
+      "hsl": "hsl(20, 4%, 15%)",
+      "description": "Sleek charcoal dark. Used for primary readable body text, high-contrast dark backdrops, and overlay gradients."
+    }
+  },
+  "neutralsPalette": {
+    "isabelline": {
+      "name": "Isabelline",
+      "hex": "#F2ECE4",
+      "rgb": "rgb(242, 236, 228)",
+      "hsl": "hsl(34, 32%, 92%)",
+      "description": "Soft silk clay off-white. Primary background color for the entire website layout."
+    },
+    "teaGreen": {
+      "name": "Tea Green",
+      "hex": "#D3DFCC",
+      "rgb": "rgb(211, 223, 204)",
+      "hsl": "hsl(98, 25%, 84%)",
+      "description": "Soft sage glaze tea green. Used for wellness feature cards, detox/naturopathy badges, and calming light fills."
+    },
+    "antiqueWhite": {
+      "name": "Antique White",
+      "hex": "#FAF0E6",
+      "rgb": "rgb(250, 240, 230)",
+      "hsl": "hsl(30, 67%, 94%)",
+      "description": "Creamy warm cotton paper antique white. Used for contrasting section backgrounds and light modal containers."
+    },
+    "platinum": {
+      "name": "Platinum",
+      "hex": "#E7EDE8",
+      "rgb": "rgb(231, 237, 232)",
+      "hsl": "hsl(130, 15%, 92%)",
+      "description": "Cool mist pale platinum gray-green. Used for subtle card borders, divider lines, and light neutral cards."
+    },
+    "paleDogwood": {
+      "name": "Pale Dogwood",
+      "hex": "#F4DACA",
+      "rgb": "rgb(244, 218, 202)",
+      "hsl": "hsl(23, 62%, 87%)",
+      "description": "Soft warm rose blush pale dogwood. Used for delicate card highlights and warm blush container fills."
+    }
+  }
+}

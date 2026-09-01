@@ -1220,19 +1220,13 @@ export default function Home({ onNavigate }) {
         
         <div style={{ maxWidth: '1280px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           {/* Section Header */}
-          <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 2.2rem auto' }}>
-            <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.2em', fontSize: '0.75rem', fontWeight: 800, display: 'block', marginBottom: '0.3rem' }}>
+          <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 1.5rem auto' }}>
+            <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.18em', fontSize: '0.68rem', fontWeight: 800, display: 'block', marginBottom: '0.2rem' }}>
               ✦ CORE MEDICAL MODALITIES
             </span>
-            <h2 style={{ color: 'var(--wine)', lineHeight: 1.18, margin: '0 0 0.4rem 0', fontSize: 'clamp(1.75rem, 3.2vw, 2.3rem)', fontWeight: 700 }}>
+            <h2 style={{ color: 'var(--wine)', lineHeight: 1.18, margin: 0, fontSize: 'clamp(1.4rem, 2.2vw, 1.8rem)', fontWeight: 700 }}>
               Naturopathy <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>&amp; Holistic Wellness</em>
             </h2>
-            <p style={{ color: 'var(--wine)', fontStyle: 'italic', fontWeight: 600, fontSize: '0.92rem', margin: '0 0 0.6rem 0' }}>
-              "Prakṛtireva bheṣajam — Nature itself is the medicine."
-            </p>
-            <p style={{ color: 'var(--raisin-black)', opacity: 0.88, fontSize: '0.88rem', lineHeight: 1.55, fontWeight: 400, margin: 0 }}>
-              At Suprada Wellness, we help you unlock your body's innate capacity to heal through doctor-guided drugless therapies, ancient wisdom, non-invasive diagnostics, and bio-cleansing protocols.
-            </p>
           </div>
 
           {/* Ultra-Compact 8-Card Grid Layout (Only Title Displayed) */}

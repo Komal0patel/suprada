@@ -466,8 +466,19 @@ export default function Home({ onNavigate }) {
   }, []);
 
   // Active Therapy Selection State for Naturopathy Layout
-  const [activeTherapyIndex, setActiveTherapyIndex] = useState(0);
   const [selectedNaturopathyModal, setSelectedNaturopathyModal] = useState(null);
+
+  // Lock background body scroll when detail modal is open
+  useEffect(() => {
+    if (selectedNaturopathyModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedNaturopathyModal]);
 
   const naturopathyCards = [
     {
@@ -1221,24 +1232,24 @@ export default function Home({ onNavigate }) {
             </p>
           </div>
 
-          {/* Compact 4-Column Grid Layout (Fits cleanly in 1 screen height) */}
+          {/* Ultra-Compact 8-Card Grid Layout (Only Title Displayed) */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : 'repeat(4, 1fr)',
-            gap: '1.25rem',
+            gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
+            gap: '1rem',
             alignItems: 'stretch'
           }}>
             {naturopathyCards.map((card) => (
               <motion.div
                 key={card.id}
-                whileHover={{ y: -6, scale: 1.015 }}
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => setSelectedNaturopathyModal(card)}
                 style={{
                   backgroundColor: '#ffffff',
-                  borderRadius: '18px',
-                  border: '1.5px solid rgba(94, 39, 53, 0.14)',
-                  boxShadow: '0 8px 25px rgba(94, 39, 53, 0.07)',
+                  borderRadius: '14px',
+                  border: '1.5px solid rgba(94, 39, 53, 0.12)',
+                  boxShadow: '0 6px 18px rgba(94, 39, 53, 0.06)',
                   overflow: 'hidden',
                   display: 'flex',
                   flexDirection: 'column',
@@ -1246,35 +1257,35 @@ export default function Home({ onNavigate }) {
                   position: 'relative'
                 }}
               >
-                {/* Card Top Cover Image */}
-                <div style={{ height: '155px', position: 'relative', overflow: 'hidden' }}>
+                {/* Compact Cover Image */}
+                <div style={{ height: isMobile ? '95px' : '115px', position: 'relative', overflow: 'hidden' }}>
                   <img 
                     src={card.image} 
                     alt={card.title}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(28,20,16,0.75) 100%)' }} />
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(28,20,16,0.65) 100%)' }} />
                   
                   <span style={{
-                    position: 'absolute', top: '10px', left: '10px',
-                    backgroundColor: 'rgba(28, 20, 16, 0.65)',
+                    position: 'absolute', top: '8px', left: '8px',
+                    backgroundColor: 'rgba(28, 20, 16, 0.7)',
                     color: 'var(--harvest-gold)',
-                    fontSize: '0.58rem',
+                    fontSize: '0.52rem',
                     fontWeight: 800,
-                    letterSpacing: '0.1em',
-                    padding: '0.2rem 0.55rem',
+                    letterSpacing: '0.08em',
+                    padding: '0.15rem 0.45rem',
                     borderRadius: '4px',
-                    backdropFilter: 'blur(6px)',
+                    backdropFilter: 'blur(4px)',
                     textTransform: 'uppercase',
-                    border: '1px solid rgba(220,160,50,0.3)'
+                    border: '1px solid rgba(220,160,50,0.25)'
                   }}>
                     ✦ {card.category}
                   </span>
 
                   <span style={{
-                    position: 'absolute', bottom: '8px', right: '10px',
+                    position: 'absolute', bottom: '6px', right: '8px',
                     color: '#ffffff',
-                    fontSize: '1.1rem',
+                    fontSize: '0.95rem',
                     fontWeight: 800,
                     opacity: 0.85
                   }}>
@@ -1282,34 +1293,11 @@ export default function Home({ onNavigate }) {
                   </span>
                 </div>
 
-                {/* Card Clean Footer Content */}
-                <div style={{ padding: '1rem 1.1rem', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                  <div>
-                    <h3 style={{ color: 'var(--wine)', fontSize: '1.15rem', fontWeight: 700, margin: '0 0 0.2rem 0' }}>
-                      {card.title}
-                    </h3>
-                    <p style={{ color: 'var(--redwood)', fontSize: '0.78rem', fontWeight: 600, margin: '0 0 0.4rem 0' }}>
-                      {card.tagline}
-                    </p>
-                    <p style={{ fontStyle: 'italic', color: 'rgba(94, 39, 53, 0.75)', fontSize: '0.75rem', margin: '0 0 0.8rem 0' }}>
-                      "{card.sanskritQuote}"
-                    </p>
-                  </div>
-
-                  {/* Clean Action Link */}
-                  <div style={{ paddingTop: '0.75rem', borderTop: '1px solid rgba(94, 39, 53, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                    <span style={{ color: 'var(--wine)', fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.04em' }}>
-                      Explore Modality
-                    </span>
-                    <span style={{
-                      backgroundColor: 'var(--wine)', color: '#ffffff',
-                      borderRadius: '50%', width: '24px', height: '24px',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: '0.78rem', fontWeight: 700
-                    }}>
-                      →
-                    </span>
-                  </div>
+                {/* Card Title Only */}
+                <div style={{ padding: '0.8rem 0.9rem', display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 1, backgroundColor: '#ffffff', textAlign: 'center' }}>
+                  <h3 style={{ color: 'var(--wine)', fontSize: '1.02rem', fontWeight: 700, margin: 0, lineHeight: 1.25 }}>
+                    {card.title}
+                  </h3>
                 </div>
               </motion.div>
             ))}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from 'framer-motion';
 import { Pattern24, Pattern25, Pattern27, Pattern28 } from '../AnimatedPatterns';
-import { Stethoscope, Star, Leaf, Globe, Check, ArrowRight } from 'lucide-react';
+import { Stethoscope, Star, Leaf, Globe, Check, ArrowRight, X } from 'lucide-react';
 import TwinklingLights from '../components/TwinklingLights';
 
 
@@ -1199,46 +1199,46 @@ export default function Home({ onNavigate }) {
         </motion.div>
       </section>
 
-      {/* Transformative Naturopathy & Holistic Wellness Section - Sleek 4-Card Interactive Grid */}
-      <section className="naturopathy-section-container luxury-clay" style={{ position: 'relative', overflow: 'hidden', padding: '5rem 6%', backgroundColor: 'var(--antique-white)' }}>
-        <Pattern28 style={{ position: 'absolute', top: '-40px', left: '-40px', width: '250px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
-        <Pattern25 style={{ position: 'absolute', bottom: '-40px', right: '-40px', width: '250px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
+      {/* Transformative Naturopathy & Holistic Wellness Section - Compact 1-Screen Responsive Layout */}
+      <section className="naturopathy-section-container luxury-clay" style={{ position: 'relative', overflow: 'hidden', padding: isMobile ? '3rem 5%' : '3.5rem 6%', backgroundColor: 'var(--antique-white)' }}>
+        <Pattern28 style={{ position: 'absolute', top: '-40px', left: '-40px', width: '220px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
+        <Pattern25 style={{ position: 'absolute', bottom: '-40px', right: '-40px', width: '220px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
         
         <div style={{ maxWidth: '1280px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           {/* Section Header */}
-          <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 3.5rem auto' }}>
-            <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.8rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
+          <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 2.2rem auto' }}>
+            <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.2em', fontSize: '0.75rem', fontWeight: 800, display: 'block', marginBottom: '0.3rem' }}>
               ✦ CORE MEDICAL MODALITIES
             </span>
-            <h2 style={{ color: 'var(--wine)', lineHeight: 1.15, margin: '0 0 0.6rem 0', fontSize: 'clamp(2.1rem, 4vw, 3rem)', fontWeight: 700 }}>
+            <h2 style={{ color: 'var(--wine)', lineHeight: 1.18, margin: '0 0 0.4rem 0', fontSize: 'clamp(1.75rem, 3.2vw, 2.3rem)', fontWeight: 700 }}>
               Naturopathy <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>&amp; Holistic Wellness</em>
             </h2>
-            <p style={{ color: 'var(--wine)', fontStyle: 'italic', fontWeight: 600, fontSize: '1.05rem', margin: '0 0 1rem 0' }}>
+            <p style={{ color: 'var(--wine)', fontStyle: 'italic', fontWeight: 600, fontSize: '0.92rem', margin: '0 0 0.6rem 0' }}>
               "Prakṛtireva bheṣajam — Nature itself is the medicine."
             </p>
-            <p style={{ color: 'var(--raisin-black)', opacity: 0.88, fontSize: '0.98rem', lineHeight: 1.6, fontWeight: 400, margin: 0 }}>
+            <p style={{ color: 'var(--raisin-black)', opacity: 0.88, fontSize: '0.88rem', lineHeight: 1.55, fontWeight: 400, margin: 0 }}>
               At Suprada Wellness, we help you unlock your body's innate capacity to heal through doctor-guided drugless therapies, ancient wisdom, non-invasive diagnostics, and bio-cleansing protocols.
             </p>
           </div>
 
-          {/* 8-Card Visual Interactive Grid (Clean layout for click-to-view details) */}
+          {/* Compact 4-Column Grid Layout (Fits cleanly in 1 screen height) */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(270px, 1fr))',
-            gap: '1.8rem',
+            gridTemplateColumns: isMobile ? '1fr' : 'repeat(4, 1fr)',
+            gap: '1.25rem',
             alignItems: 'stretch'
           }}>
-            {naturopathyCards.map((card) => (
+            {naturopathyCards.slice(0, 4).map((card) => (
               <motion.div
                 key={card.id}
-                whileHover={{ y: -8, scale: 1.02 }}
-                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -6, scale: 1.015 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => setSelectedNaturopathyModal(card)}
                 style={{
                   backgroundColor: '#ffffff',
-                  borderRadius: '22px',
+                  borderRadius: '18px',
                   border: '1.5px solid rgba(94, 39, 53, 0.14)',
-                  boxShadow: '0 12px 35px rgba(94, 39, 53, 0.08)',
+                  boxShadow: '0 8px 25px rgba(94, 39, 53, 0.07)',
                   overflow: 'hidden',
                   display: 'flex',
                   flexDirection: 'column',
@@ -1247,7 +1247,7 @@ export default function Home({ onNavigate }) {
                 }}
               >
                 {/* Card Top Cover Image */}
-                <div style={{ height: '220px', position: 'relative', overflow: 'hidden' }}>
+                <div style={{ height: '155px', position: 'relative', overflow: 'hidden' }}>
                   <img 
                     src={card.image} 
                     alt={card.title}
@@ -1256,14 +1256,14 @@ export default function Home({ onNavigate }) {
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(28,20,16,0.75) 100%)' }} />
                   
                   <span style={{
-                    position: 'absolute', top: '14px', left: '14px',
+                    position: 'absolute', top: '10px', left: '10px',
                     backgroundColor: 'rgba(28, 20, 16, 0.65)',
                     color: 'var(--harvest-gold)',
-                    fontSize: '0.62rem',
+                    fontSize: '0.58rem',
                     fontWeight: 800,
-                    letterSpacing: '0.12em',
-                    padding: '0.3rem 0.7rem',
-                    borderRadius: '50px',
+                    letterSpacing: '0.1em',
+                    padding: '0.2rem 0.55rem',
+                    borderRadius: '4px',
                     backdropFilter: 'blur(6px)',
                     textTransform: 'uppercase',
                     border: '1px solid rgba(220,160,50,0.3)'
@@ -1272,9 +1272,9 @@ export default function Home({ onNavigate }) {
                   </span>
 
                   <span style={{
-                    position: 'absolute', bottom: '12px', right: '14px',
+                    position: 'absolute', bottom: '8px', right: '10px',
                     color: '#ffffff',
-                    fontSize: '1.4rem',
+                    fontSize: '1.1rem',
                     fontWeight: 800,
                     opacity: 0.85
                   }}>
@@ -1283,29 +1283,29 @@ export default function Home({ onNavigate }) {
                 </div>
 
                 {/* Card Clean Footer Content */}
-                <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <div style={{ padding: '1rem 1.1rem', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                   <div>
-                    <h3 style={{ color: 'var(--wine)', fontSize: '1.35rem', fontWeight: 700, margin: '0 0 0.3rem 0' }}>
+                    <h3 style={{ color: 'var(--wine)', fontSize: '1.15rem', fontWeight: 700, margin: '0 0 0.2rem 0' }}>
                       {card.title}
                     </h3>
-                    <p style={{ color: 'var(--redwood)', fontSize: '0.82rem', fontWeight: 700, margin: '0 0 0.6rem 0' }}>
+                    <p style={{ color: 'var(--redwood)', fontSize: '0.78rem', fontWeight: 600, margin: '0 0 0.4rem 0' }}>
                       {card.tagline}
                     </p>
-                    <p style={{ fontStyle: 'italic', color: 'rgba(94, 39, 53, 0.75)', fontSize: '0.78rem', margin: '0 0 1rem 0' }}>
+                    <p style={{ fontStyle: 'italic', color: 'rgba(94, 39, 53, 0.75)', fontSize: '0.75rem', margin: '0 0 0.8rem 0' }}>
                       "{card.sanskritQuote}"
                     </p>
                   </div>
 
-                  {/* Clean Action Button */}
-                  <div style={{ paddingTop: '1rem', borderTop: '1px solid rgba(94, 39, 53, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                    <span style={{ color: 'var(--wine)', fontWeight: 700, fontSize: '0.82rem', letterSpacing: '0.04em' }}>
+                  {/* Clean Action Link */}
+                  <div style={{ paddingTop: '0.75rem', borderTop: '1px solid rgba(94, 39, 53, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                    <span style={{ color: 'var(--wine)', fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.04em' }}>
                       Explore Modality
                     </span>
                     <span style={{
                       backgroundColor: 'var(--wine)', color: '#ffffff',
-                      borderRadius: '50%', width: '28px', height: '28px',
+                      borderRadius: '50%', width: '24px', height: '24px',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: '0.85rem', fontWeight: 700
+                      fontSize: '0.78rem', fontWeight: 700
                     }}>
                       →
                     </span>
@@ -1313,6 +1313,27 @@ export default function Home({ onNavigate }) {
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          {/* Secondary Modalities Indicator Bar */}
+          <div style={{ textAlign: 'center', marginTop: '1.8rem' }}>
+            <button
+              onClick={() => onNavigate('programmes')}
+              style={{
+                backgroundColor: 'rgba(94, 39, 53, 0.06)',
+                border: '1.5px solid rgba(94, 39, 53, 0.2)',
+                color: 'var(--wine)',
+                padding: '0.55rem 1.4rem',
+                borderRadius: '50px',
+                fontWeight: 700,
+                fontSize: '0.8rem',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease'
+              }}
+              className="hover-gold"
+            >
+              View All 8 Clinical Modalities &amp; Programmes →
+            </button>
           </div>
         </div>
       </section>

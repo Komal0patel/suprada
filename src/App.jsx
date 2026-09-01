@@ -163,7 +163,7 @@ function App() {
       <div className="app-container" style={{ backgroundColor: 'var(--isabelline)', minHeight: '100vh', color: 'var(--raisin-black)', fontFamily: 'var(--font-body)', overflowX: 'hidden', position: 'relative', zIndex: 1 }}>
         
         {/* ========================================================================= */}
-        {/* --- UNIVERSAL STATIC TRANSPARENT HEADER NAVBAR --- */}
+        {/* --- UNIVERSAL STATIC 100% TRANSPARENT HEADER NAVBAR --- */}
         {/* ========================================================================= */}
         <nav 
           style={{
@@ -173,15 +173,13 @@ function App() {
             right: 0,
             width: '100%',
             zIndex: 99999,
-            padding: isMobile ? '0.8rem 1.2rem' : '1.2rem 3.5rem',
+            padding: isMobile ? '0.8rem 1.2rem' : '1.2rem 3rem',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            backgroundColor: scrollYPos > 80 ? 'rgba(28, 20, 16, 0.45)' : 'transparent',
-            backdropFilter: scrollYPos > 80 ? 'blur(12px)' : 'none',
-            WebkitBackdropFilter: scrollYPos > 80 ? 'blur(12px)' : 'none',
-            transition: 'all 0.4s ease',
-            boxShadow: scrollYPos > 80 ? '0 10px 30px rgba(0,0,0,0.25)' : 'none'
+            backgroundColor: 'transparent',
+            background: 'transparent',
+            transition: 'all 0.4s ease'
           }}
         >
           {/* Left: Brand Logo & Title */}
@@ -192,7 +190,7 @@ function App() {
               alignItems: 'center', 
               gap: '0.9rem', 
               cursor: 'pointer',
-              marginRight: isMobile ? '0' : '2.5rem',
+              marginRight: isMobile ? '0' : '2rem',
               flexShrink: 0
             }}
           >
@@ -210,7 +208,7 @@ function App() {
 
           {/* Center/Right Navigation Links (Desktop) */}
           {!isMobile && (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1.6rem', flexWrap: 'nowrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem', flexWrap: 'nowrap', marginRight: '3rem' }}>
               {menuItems.map((item) => (
                 <span
                   key={item.id}
@@ -219,7 +217,7 @@ function App() {
                     cursor: 'pointer',
                     color: currentPage === item.id ? 'var(--harvest-gold)' : 'rgba(255, 255, 255, 0.95)',
                     fontWeight: currentPage === item.id ? 800 : 500,
-                    fontSize: '0.82rem',
+                    fontSize: '0.8rem',
                     letterSpacing: '0.08em',
                     textTransform: 'uppercase',
                     transition: 'all 0.3s ease',
@@ -244,14 +242,15 @@ function App() {
                 alignItems: 'center',
                 gap: '0.45rem',
                 padding: '0.4rem 0.95rem',
-                backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                border: '1px solid rgba(255, 255, 255, 0.22)',
+                backgroundColor: 'rgba(255, 255, 255, 0.12)',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
                 borderRadius: '50px',
                 color: 'rgba(255, 255, 255, 0.95)',
                 fontSize: '0.78rem',
                 letterSpacing: '0.04em',
                 cursor: 'pointer',
-                transition: 'all 0.3s ease'
+                transition: 'all 0.3s ease',
+                boxShadow: '0 2px 10px rgba(0,0,0,0.2)'
               }}
               className="hover-gold"
               aria-label="Search"
@@ -450,7 +449,7 @@ function App() {
         </AnimatePresence>
 
         {/* Dynamic Page Routing Switcher — URL-based */}
-        <div key={location.pathname} style={{ paddingTop: currentPage === 'home' ? '0px' : '90px' }}>
+        <div key={location.pathname} style={{ paddingTop: '0px' }}>
           {currentPage === 'home'       && <Home        onNavigate={handlePageChange} />}
           {currentPage === 'about'      && <About       onNavigate={handlePageChange} />}
           {currentPage === 'spaces'     && <Spaces      onNavigate={handlePageChange} />}

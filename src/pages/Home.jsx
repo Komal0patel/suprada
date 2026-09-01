@@ -1013,14 +1013,14 @@ export default function Home({ onNavigate }) {
       </section>
 
       {/* The Spirit of Suprada (Founders Section) */}
-      <section style={{ backgroundColor: 'var(--wine)', position: 'relative', overflow: 'hidden' }} className="dot-grid founders-section">
+      <section style={{ backgroundColor: 'var(--isabelline)', position: 'relative', overflow: 'hidden' }} className="dot-grid founders-section">
         {/* Floating Decorative Patterns */}
         <motion.div
           animate={{ y: [0, -8, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           style={{ position: 'absolute', bottom: 0, left: 0, width: '250px', zIndex: 1, pointerEvents: 'none' }}
         >
-          <Pattern28 style={{ width: '100%', color: 'var(--tan)', opacity: 0.06 }} />
+          <Pattern28 style={{ width: '100%', color: 'var(--wine)', opacity: 0.08 }} />
         </motion.div>
         
         <motion.div
@@ -1028,10 +1028,10 @@ export default function Home({ onNavigate }) {
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
           style={{ position: 'absolute', bottom: 0, right: 0, width: '250px', zIndex: 1, pointerEvents: 'none' }}
         >
-          <Pattern25 style={{ width: '100%', color: 'var(--tan)', opacity: 0.06 }} />
+          <Pattern25 style={{ width: '100%', color: 'var(--wine)', opacity: 0.08 }} />
         </motion.div>
         
-        <div className="float-slow" style={{ position: 'absolute', right: '-5%', top: '5%', maxWidth: '500px', width: '100%', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.12) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none', zIndex: 1 }}></div>
+        <div className="float-slow" style={{ position: 'absolute', right: '-5%', top: '5%', maxWidth: '500px', width: '100%', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(94,39,53,0.06) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none', zIndex: 1 }}></div>
 
         <style>{`
           .founders-section {
@@ -1070,7 +1070,7 @@ export default function Home({ onNavigate }) {
               align-items: center !important;
               gap: 0.75rem !important;
               padding-bottom: 0.75rem;
-              border-bottom: 1px solid rgba(220, 160, 50, 0.2);
+              border-bottom: 1px solid rgba(94, 39, 53, 0.15);
             }
             .founders-badge-icon {
               width: 44px !important;
@@ -1147,13 +1147,13 @@ export default function Home({ onNavigate }) {
                   width: '120px', 
                   height: '120px', 
                   objectFit: 'contain',
-                  filter: 'drop-shadow(0 6px 20px rgba(220, 160, 50, 0.35))' 
+                  filter: 'drop-shadow(0 6px 20px rgba(94, 39, 53, 0.2))' 
                 }} 
               />
             </motion.div>
             <div style={{ textAlign: 'center' }} className="founders-badge-text">
-              <h3 style={{color: 'var(--tan)', letterSpacing: '0.1em', margin: 0,}}>Suprada</h3>
-              <span style={{ color: 'var(--isabelline)', opacity: 0.65, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginTop: '0.15rem', display: 'block' }}>Est. 2026</span>
+              <h3 style={{color: 'var(--wine)', letterSpacing: '0.1em', margin: 0, fontWeight: 700}}>Suprada</h3>
+              <span style={{ color: 'var(--redwood)', opacity: 0.85, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginTop: '0.15rem', display: 'block', fontWeight: 700 }}>Est. 2026</span>
             </div>
           </motion.div>
 
@@ -1163,7 +1163,7 @@ export default function Home({ onNavigate }) {
               variants={foundersMistFadeVariant}
               style={{ display: 'inline-block', position: 'relative', width: 'fit-content' }}
             >
-              <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.2em', fontSize: '0.78rem', fontWeight: 600 }}>
+              <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.2em', fontSize: '0.78rem', fontWeight: 800 }}>
                 Our Story
               </span>
               <motion.div 
@@ -1171,32 +1171,31 @@ export default function Home({ onNavigate }) {
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-                style={{ height: '1.5px', backgroundColor: 'var(--harvest-gold)', width: '100%', originX: 0, marginTop: '0.2rem' }}
+                style={{ height: '1.5px', backgroundColor: 'var(--redwood)', width: '100%', originX: 0, marginTop: '0.2rem' }}
               />
             </motion.div>
             
             <motion.h2 
               variants={foundersMistFadeVariant}
-              className="gold-foil-text founders-title" 
-              style={{lineHeight: 1.18, 
-                margin: 0,}}
+              className="founders-title" 
+              style={{lineHeight: 1.18, margin: 0, color: 'var(--wine)', fontWeight: 700}}
             >
               The Spirit of Suprada
             </motion.h2>
             
-            <motion.h4 variants={foundersMistFadeVariant} className="founders-subtitle" style={{color: 'var(--tan)', letterSpacing: '0.02em', margin: 0}}>
+            <motion.h4 variants={foundersMistFadeVariant} className="founders-subtitle" style={{color: 'var(--redwood)', letterSpacing: '0.02em', margin: 0, fontWeight: 600}}>
               Where Global Expertise Meets Indian Heritage
             </motion.h4>
             
-            <motion.p variants={foundersMistFadeVariant} className="founders-body" style={{ color: 'var(--isabelline)', fontSize: 'var(--fs-body)', opacity: 0.9, lineHeight: 1.55, fontWeight: 300, margin: 0 }}>
+            <motion.p variants={foundersMistFadeVariant} className="founders-body" style={{ color: 'var(--raisin-black)', fontSize: 'var(--fs-body)', opacity: 0.88, lineHeight: 1.6, fontWeight: 400, margin: 0 }}>
               Suprada is the realization of a vision shared by <strong>Sunil Jayaraj</strong> and <strong>Dr. Premasudha Ramadas</strong>. After spending 16 years in the United States, they returned to India with a singular purpose: to bridge the gap between advanced science and ancient Indian wisdom.
             </motion.p>
             
-            <motion.p variants={foundersMistFadeVariant} className="founders-body" style={{ color: 'var(--isabelline)', fontSize: 'var(--fs-body)', opacity: 0.9, lineHeight: 1.55, fontWeight: 300, margin: 0 }}>
+            <motion.p variants={foundersMistFadeVariant} className="founders-body" style={{ color: 'var(--raisin-black)', fontSize: 'var(--fs-body)', opacity: 0.88, lineHeight: 1.6, fontWeight: 400, margin: 0 }}>
               Sunil, known as a "Blue Planet Runner," brings the endurance and discipline of an elite athlete, while Dr. Premasudha, a US Board-certified physician, ensures our holistic integration is grounded in authenticity and clinical evidence.
             </motion.p>
             
-            <motion.p variants={foundersMistFadeVariant} className="founders-quote" style={{ color: 'var(--tan)', fontSize: 'var(--fs-body)', opacity: 0.95, lineHeight: 1.5, fontStyle: 'italic', marginTop: '0.2rem', margin: 0, fontWeight: 500 }}>
+            <motion.p variants={foundersMistFadeVariant} className="founders-quote" style={{ color: 'var(--wine)', fontSize: 'var(--fs-body)', opacity: 0.95, lineHeight: 1.5, fontStyle: 'italic', marginTop: '0.2rem', margin: 0, fontWeight: 600 }}>
               "In today's world, healing is often scattered—one place for the body, another for the mind. We created Suprada to bring these fragments together into one cohesive journey of restoration."
             </motion.p>
             
@@ -1204,7 +1203,7 @@ export default function Home({ onNavigate }) {
               <motion.button 
                 whileHover={{ x: 8 }}
                 onClick={() => onNavigate('about')}
-                style={{ background: 'none', border: 'none', color: 'var(--harvest-gold)', cursor: 'pointer', textAlign: 'left', fontWeight: 600, fontSize: '0.88rem', display: 'flex', alignItems: 'center', gap: '0.5rem', padding: 0 }}
+                style={{ background: 'none', border: 'none', color: 'var(--wine)', cursor: 'pointer', textAlign: 'left', fontWeight: 700, fontSize: '0.88rem', display: 'flex', alignItems: 'center', gap: '0.5rem', padding: 0 }}
               >
                 Learn More About Our Journey &rarr;
               </motion.button>
@@ -1324,7 +1323,7 @@ export default function Home({ onNavigate }) {
       </section>
 
       {/* Unique Experiences Section */}
-      <section style={{ backgroundColor: 'var(--isabelline)', padding: '4rem 8% 5rem 8%', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ backgroundColor: 'var(--tea-green)', padding: '4rem 8% 5rem 8%', position: 'relative', overflow: 'hidden' }}>
         <Pattern28 style={{ position: 'absolute', top: '-10px', left: '-50px', width: '260px', color: 'var(--wine)', opacity: 0.16, pointerEvents: 'none', zIndex: 1 }} />
         {/* Responsive CSS Stylesheet injection for the split layout */}
         <style>{`
@@ -2051,8 +2050,8 @@ export default function Home({ onNavigate }) {
 
       {/* Floating Solid Cards Section (Slide 12: Path To Transformation Begins Within) */}
       <section style={{ 
-        background: 'linear-gradient(135deg, var(--antique-white) 0%, var(--isabelline) 50%, var(--tan) 100%)', 
-        padding: '2rem 5% 2rem 5%', 
+        backgroundColor: 'var(--pale-dogwood)', 
+        padding: '2.5rem 5%', 
         position: 'relative', 
         overflow: 'hidden' 
       }} className="dot-grid">
@@ -2138,7 +2137,7 @@ export default function Home({ onNavigate }) {
       </section>
 
       {/* The Suprada Rhythm Timeline */}
-      <section ref={timelineRef} className="timeline-section dot-grid" style={{ overflow: 'hidden', position: 'relative' }}>
+      <section ref={timelineRef} className="timeline-section dot-grid" style={{ backgroundColor: 'var(--platinum)', overflow: 'hidden', position: 'relative' }}>
         <TwinklingLights />
         <Pattern28 style={{ position: 'absolute', top: 0, left: 0, width: '250px', color: 'var(--wine)', opacity: 0.1, pointerEvents: 'none', zIndex: 1 }} />
         <Pattern25 style={{ position: 'absolute', bottom: 0, right: 0, width: '250px', color: 'var(--wine)', opacity: 0.1, pointerEvents: 'none', zIndex: 1 }} />
@@ -2347,17 +2346,17 @@ export default function Home({ onNavigate }) {
       </section>
 
       {/* Section 1: Signature Programmes (The Sanctuary Collection) */}
-      <section style={{ backgroundColor: 'var(--wine)', color: 'var(--isabelline)', padding: '2.8rem 5%', minHeight: '440px', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
-        <Pattern28 style={{ position: 'absolute', top: 0, left: 0, width: '280px', color: 'var(--harvest-gold)', opacity: 0.05, pointerEvents: 'none' }} />
+      <section style={{ backgroundColor: 'var(--tan)', color: 'var(--wine)', padding: '2.8rem 5%', minHeight: '440px', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
+        <Pattern28 style={{ position: 'absolute', top: 0, left: 0, width: '280px', color: 'var(--wine)', opacity: 0.06, pointerEvents: 'none' }} />
         <div style={{ maxWidth: '1280px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           
           <div className="flex-stack-mobile" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '0.8rem' }}>
             <div>
-              <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.7rem', fontWeight: 700, display: 'block', marginBottom: '0.15rem' }}>
+              <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.15rem' }}>
                 ✦ Healing Retreats
               </span>
-              <h2 style={{color: 'var(--tan)', margin: 0, lineHeight: 1.1}}>
-                The Sanctuary <em style={{ fontStyle: 'italic', color: 'var(--harvest-gold)' }}>Collection</em>
+              <h2 style={{color: 'var(--wine)', margin: 0, lineHeight: 1.1, fontWeight: 700}}>
+                The Sanctuary <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>Collection</em>
               </h2>
             </div>
 
@@ -2391,18 +2390,17 @@ export default function Home({ onNavigate }) {
                     filter: isMatch ? 'blur(0px)' : 'blur(1px)'
                   }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  whileHover={isMatch ? { y: -4, borderColor: 'var(--harvest-gold)' } : {}}
+                  whileHover={isMatch ? { y: -4, borderColor: 'var(--wine)' } : {}}
                   style={{
-                    backgroundColor: isMatch ? 'rgba(255, 255, 255, 0.07)' : 'rgba(255, 255, 255, 0.02)',
-                    border: isMatch ? '1.5px solid rgba(220, 160, 50, 0.6)' : '1px solid rgba(220, 160, 50, 0.15)',
+                    backgroundColor: '#ffffff',
+                    border: isMatch ? '1.5px solid rgba(94, 39, 53, 0.2)' : '1px solid rgba(94, 39, 53, 0.1)',
                     borderRadius: '16px',
                     padding: '1.4rem 1.5rem',
                     display: 'flex',
                     flexDirection: 'column',
                     gap: '0.7rem',
-                    backdropFilter: 'blur(12px)',
-                    cursor: 'pointer',
-                    boxShadow: isMatch ? '0 8px 25px rgba(0, 0, 0, 0.15)' : 'none'
+                    boxShadow: isMatch ? '0 8px 25px rgba(94, 39, 53, 0.08)' : 'none',
+                    cursor: 'pointer'
                   }}
                   onClick={() => {
                     setActiveProgFilter('All Retreats');
@@ -2410,7 +2408,7 @@ export default function Home({ onNavigate }) {
                   }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontSize: '0.68rem', color: isMatch ? 'var(--harvest-gold)' : 'var(--tan)', fontWeight: 800, letterSpacing: '0.1em', opacity: isMatch ? 1 : 0.6 }}>
+                    <span style={{ fontSize: '0.68rem', color: 'var(--redwood)', fontWeight: 800, letterSpacing: '0.1em' }}>
                       ✦ {prog.days}
                     </span>
                     {prog.popular && (
@@ -2419,13 +2417,13 @@ export default function Home({ onNavigate }) {
                       </span>
                     )}
                   </div>
-                  <h3 style={{color: 'var(--tan)', margin: 0, lineHeight: 1.2, opacity: isMatch ? 1 : 0.7, fontSize: 'var(--fs-h3)'}}>
+                  <h3 style={{color: 'var(--wine)', margin: 0, lineHeight: 1.2, fontSize: 'var(--fs-h3)', fontWeight: 700}}>
                     {prog.title}
                   </h3>
-                  <p style={{ fontSize: 'var(--fs-body)', color: 'var(--isabelline)', opacity: isMatch ? 0.88 : 0.5, lineHeight: 1.5, margin: 0 }}>
+                  <p style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
                     {prog.tagline}
                   </p>
-                  <button className="btn-luxury" style={{ alignSelf: 'flex-start', padding: '0.45rem 1.1rem', fontSize: '0.68rem', marginTop: 'auto', opacity: isMatch ? 1 : 0.5 }}>
+                  <button className="btn-luxury" style={{ alignSelf: 'flex-start', padding: '0.45rem 1.1rem', fontSize: '0.68rem', marginTop: 'auto' }}>
                     Explore &rarr;
                   </button>
                 </motion.div>
@@ -2437,7 +2435,7 @@ export default function Home({ onNavigate }) {
       </section>
 
       {/* Section 2: Comprehensive Care (Split Interactive Clinical Showcase) */}
-      <section style={{ backgroundColor: 'var(--antique-white)', color: 'var(--wine)', padding: '2.2rem 5%', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ backgroundColor: 'var(--sage)', color: 'var(--wine)', padding: '2.5rem 5%', position: 'relative', overflow: 'hidden' }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           
           <div style={{ textAlign: 'center', marginBottom: '1.4rem' }}>
@@ -2592,16 +2590,16 @@ export default function Home({ onNavigate }) {
         </div>
       </section>
 
-      {/* Section 3: Guided by Experts (Combo 2: var(--raisin-black) #252425) */}
-      <section style={{ backgroundColor: 'var(--raisin-black)', color: 'var(--isabelline)', padding: '3.2rem 4%', position: 'relative', overflow: 'hidden' }}>
+      {/* Section 3: Guided by Experts */}
+      <section style={{ backgroundColor: 'var(--antique-white)', color: 'var(--wine)', padding: '3.2rem 4%', position: 'relative', overflow: 'hidden' }}>
         <div style={{ maxWidth: '1380px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-            <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.72rem', fontWeight: 700, display: 'block', marginBottom: '0.2rem' }}>
-              <Star size={12} style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Leadership & Clinical Authority
+            <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.72rem', fontWeight: 800, display: 'block', marginBottom: '0.2rem' }}>
+              <Star size={12} style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Leadership &amp; Clinical Authority
             </span>
-            <h2 style={{color: 'var(--tan)', margin: 0}}>
-              Guided by Founders <em style={{ fontStyle: 'italic', color: 'var(--harvest-gold)' }}>&amp; Clinical Experts</em>
+            <h2 style={{color: 'var(--wine)', margin: 0, fontWeight: 700}}>
+              Guided by Founders <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>&amp; Clinical Experts</em>
             </h2>
           </div>
 
@@ -2808,27 +2806,27 @@ export default function Home({ onNavigate }) {
         </div>
       </section>
 
-      {/* Section 7: Begin Your Healing Journey (Combo 2: var(--raisin-black) #252425) */}
-      <section style={{ backgroundColor: 'var(--raisin-black)', color: 'var(--isabelline)', padding: '3.8rem 5%', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', maxWidth: '600px', width: '100%', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.25) 0%, transparent 70%)', pointerEvents: 'none' }} />
+      {/* Section 7: Begin Your Healing Journey */}
+      <section style={{ backgroundColor: 'var(--tan)', color: 'var(--wine)', padding: '3.8rem 5%', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', maxWidth: '600px', width: '100%', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(184,86,69,0.15) 0%, transparent 70%)', pointerEvents: 'none' }} />
         
         <div style={{ position: 'relative', zIndex: 10, maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center' }}>
-          <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.75rem', fontWeight: 700 }}>
+          <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.75rem', fontWeight: 800 }}>
             ✦ Your Transformation Awaits
           </span>
 
-          <h2 style={{color: 'var(--tan)', lineHeight: 1.15, margin: 0}}>
+          <h2 style={{color: 'var(--wine)', lineHeight: 1.15, margin: 0, fontWeight: 700}}>
             The Sacred Sanctuary Gateway
           </h2>
 
-          <p style={{ opacity: 0.88, fontSize: '1rem', lineHeight: 1.7, fontWeight: 300, maxWidth: '640px', margin: 0 }}>
+          <p style={{ color: 'var(--raisin-black)', opacity: 0.88, fontSize: '1rem', lineHeight: 1.7, fontWeight: 400, maxWidth: '640px', margin: 0 }}>
             Let the sacred Suvarnamukhi River and ancient drugless healing wisdom guide your body to perfect equilibrium.
           </p>
 
           <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem' }}>✦ 100% Drugless Naturopathy</div>
-            <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem' }}>✦ 54 Riverfront Acres</div>
-            <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}><Stethoscope size={14} style={{ color: 'var(--harvest-gold)' }} /> 24/7 Resident Doctors</div>
+            <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem', color: 'var(--wine)', borderColor: 'rgba(94,39,53,0.2)' }}>✦ 100% Drugless Naturopathy</div>
+            <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem', color: 'var(--wine)', borderColor: 'rgba(94,39,53,0.2)' }}>✦ 54 Riverfront Acres</div>
+            <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem', color: 'var(--wine)', borderColor: 'rgba(94,39,53,0.2)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}><Stethoscope size={14} style={{ color: 'var(--redwood)' }} /> 24/7 Resident Doctors</div>
           </div>
 
           <div style={{ display: 'flex', gap: '1.2rem', flexWrap: 'wrap', justifyContent: 'center', marginTop: '0.5rem' }}>
@@ -2841,8 +2839,8 @@ export default function Home({ onNavigate }) {
             </button>
             <button 
               onClick={() => onNavigate('contact')}
-              style={{ background: 'none', border: '1.5px solid var(--tan)', color: 'var(--tan)', cursor: 'pointer', padding: '0.95rem 2.6rem', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 600, borderRadius: '50px', transition: 'all 0.3s ease' }}
-              className="hover-tan"
+              style={{ background: 'none', border: '1.5px solid var(--wine)', color: 'var(--wine)', cursor: 'pointer', padding: '0.95rem 2.6rem', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 700, borderRadius: '50px', transition: 'all 0.3s ease' }}
+              className="hover-gold"
             >
               Schedule Medical Consultation
             </button>

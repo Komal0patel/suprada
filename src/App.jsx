@@ -601,4 +601,5 @@ function App() {
   );
 }
 
+// Suprada Wellness — Integrated Application Build v1.0.4
 export default App;

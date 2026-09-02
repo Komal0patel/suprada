@@ -33,11 +33,16 @@ jobs:
       - name: Install dependencies
         run: npm ci || npm install
 
-      - name: Build
-        run: npm run build
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
+      - name: Build project
+        run: npm run build
+
+      - name: Generate .nojekyll and SPA fallback
+        run: |
+          touch dist/.nojekyll
+          cp dist/index.html dist/404.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -47,3 +52,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+

@@ -53,7 +53,7 @@ function App() {
 
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    const checkMobile = () => setIsMobile(window.innerWidth <= 1120);
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
@@ -179,8 +179,10 @@ function App() {
                 left: 0,
                 right: 0,
                 width: '100%',
+                maxWidth: '100vw',
+                boxSizing: 'border-box',
                 zIndex: 99999,
-                padding: isMobile ? '0.8rem 1.2rem' : '1.1rem 3rem',
+                padding: isMobile ? '0.75rem 1rem' : '0.85rem 1.6rem',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
@@ -200,9 +202,9 @@ function App() {
                 style={{ 
                   display: 'flex', 
                   alignItems: 'center', 
-                  gap: '0.9rem', 
+                  gap: '0.75rem', 
                   cursor: 'pointer',
-                  marginRight: isMobile ? '0' : '2rem',
+                  marginRight: isMobile ? '0' : '1rem',
                   flexShrink: 0
                 }}
               >
@@ -210,7 +212,7 @@ function App() {
                   src="/assets/extracted/logo.svg" 
                   alt="Suprada Logo" 
                   style={{
-                    height: isMobile ? '36px' : '44px',
+                    height: isMobile ? '34px' : '40px',
                     filter: isLightHeader
                       ? 'drop-shadow(0 2px 6px rgba(94, 39, 53, 0.15))'
                       : 'drop-shadow(0 2px 8px rgba(0,0,0,0.5))'
@@ -220,7 +222,7 @@ function App() {
                   src="/assets/extracted/suprada-wellness.svg" 
                   alt="Suprada Wellness" 
                   style={{
-                    height: isMobile ? '22px' : '30px',
+                    height: isMobile ? '20px' : '26px',
                     filter: isLightHeader
                       ? 'none'
                       : 'brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.5))'
@@ -230,7 +232,14 @@ function App() {
 
               {/* Center/Right Navigation Links (Desktop) */}
               {!isMobile && (
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem', flexWrap: 'nowrap', marginRight: '3rem' }}>
+                <div style={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  gap: 'clamp(0.4rem, 0.8vw, 0.95rem)', 
+                  flexWrap: 'nowrap', 
+                  marginRight: '1.2rem',
+                  flexShrink: 1
+                }}>
                   {menuItems.map((item) => (
                     <span
                       key={item.id}
@@ -241,8 +250,8 @@ function App() {
                           ? (isLightHeader ? 'var(--wine)' : 'var(--harvest-gold)')
                           : (isLightHeader ? 'rgba(40, 38, 37, 0.85)' : 'rgba(255, 255, 255, 0.95)'),
                         fontWeight: currentPage === item.id ? 800 : 600,
-                        fontSize: '0.8rem',
-                        letterSpacing: '0.08em',
+                        fontSize: '0.75rem',
+                        letterSpacing: '0.05em',
                         textTransform: 'uppercase',
                         transition: 'all 0.3s ease',
                         whiteSpace: 'nowrap',
@@ -259,23 +268,25 @@ function App() {
               )}
 
               {/* Right Action: We're Hiring, Search Bar & Mobile Menu */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0, marginLeft: 'auto' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0, marginLeft: 'auto' }}>
                 {/* "We're Hiring" Aesthetic Pill Button */}
                 <button
                   onClick={() => handlePageChange('careers')}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.4rem',
-                    padding: '0.38rem 0.85rem',
+                    gap: '0.35rem',
+                    padding: '0.35rem 0.75rem',
                     backgroundColor: isLightHeader ? 'rgba(184, 86, 69, 0.1)' : 'rgba(234, 169, 54, 0.18)',
                     border: isLightHeader ? '1px solid rgba(184, 86, 69, 0.35)' : '1px solid rgba(234, 169, 54, 0.45)',
                     borderRadius: '50px',
                     color: isLightHeader ? 'var(--redwood)' : 'var(--harvest-gold)',
-                    fontSize: '0.74rem',
-                    letterSpacing: '0.04em',
+                    fontSize: '0.72rem',
+                    letterSpacing: '0.03em',
                     fontWeight: 700,
                     cursor: 'pointer',
+                    whiteSpace: 'nowrap',
+                    flexShrink: 0,
                     transition: 'all 0.3s ease',
                     boxShadow: isLightHeader ? '0 2px 8px rgba(184, 86, 69, 0.08)' : '0 2px 10px rgba(0,0,0,0.2)'
                   }}
@@ -300,16 +311,18 @@ function App() {
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.45rem',
-                    padding: '0.4rem 0.95rem',
+                    gap: '0.4rem',
+                    padding: '0.35rem 0.8rem',
                     backgroundColor: isLightHeader ? 'rgba(94, 39, 53, 0.06)' : 'rgba(255, 255, 255, 0.12)',
                     border: isLightHeader ? '1px solid rgba(94, 39, 53, 0.2)' : '1px solid rgba(255, 255, 255, 0.3)',
                     borderRadius: '50px',
                     color: isLightHeader ? 'var(--raisin-black)' : 'rgba(255, 255, 255, 0.95)',
-                    fontSize: '0.78rem',
-                    letterSpacing: '0.04em',
+                    fontSize: '0.75rem',
+                    letterSpacing: '0.03em',
                     fontWeight: 600,
                     cursor: 'pointer',
+                    whiteSpace: 'nowrap',
+                    flexShrink: 0,
                     transition: 'all 0.3s ease',
                     boxShadow: isLightHeader ? '0 2px 8px rgba(94, 39, 53, 0.05)' : '0 2px 10px rgba(0,0,0,0.2)'
                   }}

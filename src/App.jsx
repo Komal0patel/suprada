@@ -169,8 +169,9 @@ function App() {
         {/* --- UNIVERSAL DYNAMIC LIGHT/DARK ADAPTIVE HEADER NAVBAR --- */}
         {/* ========================================================================= */}
         {(() => {
+          const isScrolled = scrollYPos > 200;
           const isDarkHeroPage = currentPage === 'home' || currentPage === 'contact';
-          const isLightHeader = !isDarkHeroPage || scrollYPos > 200;
+          const isLightHeader = !isDarkHeroPage && !isScrolled;
 
           return (
             <nav 
@@ -187,13 +188,13 @@ function App() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                backgroundColor: scrollYPos > 200 
-                  ? 'rgba(242, 236, 228, 0.94)' 
+                backgroundColor: isScrolled 
+                  ? 'rgba(24, 21, 23, 0.84)' 
                   : 'transparent',
-                backdropFilter: scrollYPos > 200 ? 'blur(16px)' : 'none',
-                WebkitBackdropFilter: scrollYPos > 200 ? 'blur(16px)' : 'none',
-                boxShadow: scrollYPos > 200 ? '0 8px 30px rgba(40, 38, 37, 0.08)' : 'none',
-                borderBottom: scrollYPos > 200 ? '1px solid rgba(94, 39, 53, 0.12)' : 'none',
+                backdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
+                WebkitBackdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
+                boxShadow: isScrolled ? '0 12px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1)' : 'none',
+                borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.12)' : 'none',
                 transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
             >
@@ -225,7 +226,7 @@ function App() {
                   style={{
                     height: isMobile ? '20px' : '26px',
                     filter: isLightHeader
-                      ? 'none'
+                      ? 'brightness(0.22)'
                       : 'brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.5))'
                   }} 
                 />

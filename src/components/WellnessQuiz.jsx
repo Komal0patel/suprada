@@ -229,12 +229,12 @@ export default function WellnessQuiz({ onNavigate }) {
   return (
     <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
       
-      {/* Section Header */}
+      {/* Section Header - Styled exactly like other Home page sections */}
       <div style={{ textAlign: 'center', marginBottom: '1.8rem' }}>
-        <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.75rem', fontWeight: 700, display: 'block', marginBottom: '0.3rem' }}>
+        <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.72rem', fontWeight: 700, display: 'block', marginBottom: '0.2rem' }}>
           ✦ Instant Diagnostic Assessment
         </span>
-        <h2 style={{ color: 'var(--wine)', margin: 0, lineHeight: 1.1, fontSize: 'clamp(2rem, 3.5vw, 2.6rem)' }}>
+        <h2 style={{ color: 'var(--wine)', margin: 0 }}>
           Discover Your <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Wellness Path</em>
         </h2>
       </div>
@@ -245,7 +245,7 @@ export default function WellnessQuiz({ onNavigate }) {
         justifyContent: 'center', 
         gap: '0.6rem', 
         flexWrap: 'wrap', 
-        marginBottom: '2rem' 
+        marginBottom: '1.8rem' 
       }}>
         {quizTabs.map((tab, idx) => {
           const isActive = activeTabIdx === idx;
@@ -258,13 +258,13 @@ export default function WellnessQuiz({ onNavigate }) {
                 color: 'var(--wine)',
                 border: isActive ? '2px solid var(--wine)' : '1px solid rgba(94, 39, 53, 0.15)',
                 borderRadius: '12px',
-                padding: '0.75rem 1.4rem',
-                fontSize: '0.74rem',
+                padding: '0.6rem 1.2rem',
+                fontSize: '0.72rem',
                 fontWeight: 800,
-                letterSpacing: '0.08em',
+                letterSpacing: '0.06em',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
-                boxShadow: isActive ? '0 6px 18px rgba(194, 186, 144, 0.45)' : 'none'
+                boxShadow: isActive ? '0 4px 14px rgba(194, 186, 144, 0.45)' : 'none'
               }}
             >
               {tab.tabLabel}
@@ -282,14 +282,14 @@ export default function WellnessQuiz({ onNavigate }) {
         overflow: 'hidden',
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-        minHeight: '480px'
+        minHeight: '440px'
       }}>
         
         {/* Left Column: Light Herbal Sage & Tea Green Banner Overlay */}
         <div style={{
           position: 'relative',
           background: 'linear-gradient(135deg, #C2BA90 0%, #D3DFCC 55%, #E7EDE8 100%)',
-          padding: '3rem 2.5rem',
+          padding: '2.5rem 2.2rem',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
@@ -307,8 +307,8 @@ export default function WellnessQuiz({ onNavigate }) {
           {/* Top Play Badge Icon */}
           <div style={{ position: 'relative', zIndex: 2 }}>
             <div style={{
-              width: '42px',
-              height: '42px',
+              width: '38px',
+              height: '38px',
               borderRadius: '50%',
               backgroundColor: 'rgba(94, 39, 53, 0.12)',
               backdropFilter: 'blur(8px)',
@@ -316,21 +316,21 @@ export default function WellnessQuiz({ onNavigate }) {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              marginBottom: '2rem'
+              marginBottom: '1.5rem'
             }}>
-              <Play size={18} fill="var(--wine)" style={{ color: 'var(--wine)', marginLeft: '2px' }} />
+              <Play size={16} fill="var(--wine)" style={{ color: 'var(--wine)', marginLeft: '2px' }} />
             </div>
 
-            <h2 style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.2rem)', fontWeight: 700, color: 'var(--wine)', lineHeight: 1.25, margin: '0 0 1rem 0' }}>
+            <h3 style={{ fontSize: '1.45rem', fontWeight: 700, color: 'var(--wine)', lineHeight: 1.28, margin: '0 0 0.8rem 0', fontFamily: 'var(--font-heading)' }}>
               {currentTab.bannerTitle.split('\n')[0]}
-            </h2>
-            <p style={{ fontSize: '0.92rem', color: 'var(--wine)', opacity: 0.88, lineHeight: 1.6, margin: 0, fontWeight: 500 }}>
+            </h3>
+            <p style={{ fontSize: '0.86rem', color: 'var(--wine)', opacity: 0.88, lineHeight: 1.55, margin: 0, fontWeight: 500 }}>
               {currentTab.bannerSub}
             </p>
           </div>
 
           {/* Bottom Flourish Line */}
-          <div style={{ position: 'relative', zIndex: 2, marginTop: '2rem' }}>
+          <div style={{ position: 'relative', zIndex: 2, marginTop: '1.8rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
               <div style={{ height: '1.5px', flex: 1, backgroundColor: 'var(--wine)', opacity: 0.35 }} />
               <span style={{ color: 'var(--wine)', fontSize: '0.8rem' }}>✦</span>
@@ -340,7 +340,7 @@ export default function WellnessQuiz({ onNavigate }) {
         </div>
 
         {/* Right Column: Quiz Dynamic Step Content */}
-        <div style={{ padding: '2.8rem 2.8rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', backgroundColor: '#ffffff' }}>
+        <div style={{ padding: '2.4rem 2.4rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', backgroundColor: '#ffffff' }}>
           
           <AnimatePresence mode="wait">
             
@@ -352,25 +352,25 @@ export default function WellnessQuiz({ onNavigate }) {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.3 }}
-                style={{ display: 'flex', flexDirection: 'column', gap: '1.4rem' }}
+                style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}
               >
-                <h3 style={{ fontSize: '1.5rem', color: 'var(--wine)', fontWeight: 700, lineHeight: 1.3, margin: 0 }}>
+                <h3 style={{ fontSize: '1.25rem', color: 'var(--wine)', fontWeight: 700, lineHeight: 1.3, margin: 0 }}>
                   {currentTab.introTitle}
                 </h3>
-                <p style={{ fontSize: '0.95rem', color: 'var(--raisin-black)', opacity: 0.8, lineHeight: 1.6, margin: 0 }}>
+                <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black)', opacity: 0.8, lineHeight: 1.55, margin: 0 }}>
                   {currentTab.introSub}
                 </p>
 
-                <div style={{ marginTop: '1rem' }}>
+                <div style={{ marginTop: '0.8rem' }}>
                   <button
                     onClick={handleStartQuiz}
                     className="btn-luxury"
                     style={{
-                      padding: '0.9rem 2.2rem',
-                      fontSize: '0.86rem',
+                      padding: '0.8rem 2rem',
+                      fontSize: '0.8rem',
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: '0.6rem'
+                      gap: '0.5rem'
                     }}
                   >
                     Start Assessment <Play size={14} fill="currentColor" />
@@ -391,17 +391,17 @@ export default function WellnessQuiz({ onNavigate }) {
               >
                 <div>
                   {/* Top Progress Bar & Question Counter */}
-                  <div style={{ marginBottom: '1.6rem' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-                      <span style={{ fontSize: '0.68rem', color: 'var(--wine)', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+                  <div style={{ marginBottom: '1.4rem' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.4rem' }}>
+                      <span style={{ fontSize: '0.66rem', color: 'var(--wine)', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                         QUESTION {currentQIdx + 1} OF {questions.length}
                       </span>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--wine)', fontWeight: 800 }}>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--wine)', fontWeight: 800 }}>
                         {progressPercent}%
                       </span>
                     </div>
                     {/* Progress Bar Container */}
-                    <div style={{ height: '5px', backgroundColor: '#E7EDE8', borderRadius: '10px', overflow: 'hidden' }}>
+                    <div style={{ height: '4px', backgroundColor: '#E7EDE8', borderRadius: '10px', overflow: 'hidden' }}>
                       <motion.div 
                         initial={{ width: 0 }}
                         animate={{ width: `${progressPercent}%` }}
@@ -412,12 +412,12 @@ export default function WellnessQuiz({ onNavigate }) {
                   </div>
 
                   {/* Question Title */}
-                  <h3 style={{ fontSize: '1.35rem', color: 'var(--wine)', fontWeight: 700, margin: '0 0 1.4rem 0', lineHeight: 1.35 }}>
+                  <h3 style={{ fontSize: '1.15rem', color: 'var(--wine)', fontWeight: 700, margin: '0 0 1.2rem 0', lineHeight: 1.35 }}>
                     {currentQuestion.text}
                   </h3>
 
                   {/* Options List */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1.8rem' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', marginBottom: '1.5rem' }}>
                     {currentQuestion.options.map((opt, oIdx) => {
                       const isSelected = currentQuestion.multi
                         ? Array.isArray(userAnswers[currentQuestion.id]) && userAnswers[currentQuestion.id].includes(opt)
@@ -430,20 +430,20 @@ export default function WellnessQuiz({ onNavigate }) {
                           style={{
                             display: 'flex',
                             alignItems: 'center',
-                            gap: '0.9rem',
-                            padding: '0.85rem 1.1rem',
-                            borderRadius: '14px',
+                            gap: '0.8rem',
+                            padding: '0.75rem 1rem',
+                            borderRadius: '12px',
                             border: isSelected ? '2px solid var(--wine)' : '1.5px solid rgba(94, 39, 53, 0.12)',
                             backgroundColor: isSelected ? '#F4DACA' : '#F2ECE4',
                             cursor: 'pointer',
                             transition: 'all 0.2s ease',
-                            boxShadow: isSelected ? '0 4px 14px rgba(184, 94, 76, 0.15)' : 'none'
+                            boxShadow: isSelected ? '0 4px 12px rgba(184, 94, 76, 0.12)' : 'none'
                           }}
                         >
                           {/* Circle indicator */}
                           <div style={{
-                            width: '26px',
-                            height: '26px',
+                            width: '22px',
+                            height: '22px',
                             borderRadius: '50%',
                             backgroundColor: isSelected ? '#C2BA90' : '#E6D3C0',
                             display: 'flex',
@@ -452,10 +452,10 @@ export default function WellnessQuiz({ onNavigate }) {
                             flexShrink: 0,
                             transition: 'all 0.2s ease'
                           }}>
-                            {isSelected && <Check size={16} style={{ color: 'var(--wine)' }} />}
+                            {isSelected && <Check size={14} style={{ color: 'var(--wine)' }} />}
                           </div>
 
-                          <span style={{ fontSize: '0.92rem', color: 'var(--wine)', fontWeight: isSelected ? 700 : 500 }}>
+                          <span style={{ fontSize: '0.85rem', color: 'var(--wine)', fontWeight: isSelected ? 700 : 500 }}>
                             {opt}
                           </span>
                         </div>

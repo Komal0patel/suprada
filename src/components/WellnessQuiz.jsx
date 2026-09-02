@@ -244,9 +244,9 @@ export default function WellnessQuiz({ onNavigate }) {
               key={tab.id}
               onClick={() => handleTabChange(idx)}
               style={{
-                backgroundColor: isActive ? 'var(--wine)' : 'rgba(94, 39, 53, 0.07)',
-                color: isActive ? '#ffffff' : 'var(--wine)',
-                border: isActive ? '1.5px solid var(--wine)' : '1px solid rgba(94, 39, 53, 0.15)',
+                backgroundColor: isActive ? '#C2BA90' : '#FAF0E6',
+                color: 'var(--wine)',
+                border: isActive ? '2px solid var(--wine)' : '1px solid rgba(94, 39, 53, 0.15)',
                 borderRadius: '12px',
                 padding: '0.75rem 1.4rem',
                 fontSize: '0.74rem',
@@ -254,7 +254,7 @@ export default function WellnessQuiz({ onNavigate }) {
                 letterSpacing: '0.08em',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
-                boxShadow: isActive ? '0 6px 20px rgba(94, 39, 53, 0.25)' : 'none'
+                boxShadow: isActive ? '0 6px 18px rgba(194, 186, 144, 0.45)' : 'none'
               }}
             >
               {tab.tabLabel}
@@ -275,24 +275,24 @@ export default function WellnessQuiz({ onNavigate }) {
         minHeight: '480px'
       }}>
         
-        {/* Left Column: Wine / Burgundy Image Banner Overlay */}
+        {/* Left Column: Light Herbal Sage & Tea Green Banner Overlay */}
         <div style={{
           position: 'relative',
-          backgroundColor: 'var(--wine)',
+          background: 'linear-gradient(135deg, #C2BA90 0%, #D3DFCC 55%, #E7EDE8 100%)',
           padding: '3rem 2.5rem',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          color: '#ffffff',
+          color: 'var(--wine)',
           overflow: 'hidden'
         }}>
           {/* Background Image Overlay */}
           <img 
             src={currentTab.bannerImage} 
             alt={currentTab.bannerTitle}
-            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.22, mixBlendMode: 'luminosity' }}
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.15, mixBlendMode: 'multiply' }}
           />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(94, 39, 53, 0.95) 0%, rgba(58, 21, 32, 0.92) 100%)', zIndex: 1 }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(194, 186, 144, 0.75) 0%, rgba(211, 223, 204, 0.8) 100%)', zIndex: 1 }} />
 
           {/* Top Play Badge Icon */}
           <div style={{ position: 'relative', zIndex: 2 }}>
@@ -300,21 +300,21 @@ export default function WellnessQuiz({ onNavigate }) {
               width: '42px',
               height: '42px',
               borderRadius: '50%',
-              backgroundColor: 'rgba(255, 255, 255, 0.15)',
+              backgroundColor: 'rgba(94, 39, 53, 0.12)',
               backdropFilter: 'blur(8px)',
-              border: '1px solid rgba(255, 255, 255, 0.25)',
+              border: '1.5px solid rgba(94, 39, 53, 0.25)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               marginBottom: '2rem'
             }}>
-              <Play size={18} fill="#ffffff" style={{ color: '#ffffff', marginLeft: '2px' }} />
+              <Play size={18} fill="var(--wine)" style={{ color: 'var(--wine)', marginLeft: '2px' }} />
             </div>
 
-            <h2 style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.2rem)', fontWeight: 700, color: '#ffffff', lineHeight: 1.25, margin: '0 0 1rem 0' }}>
+            <h2 style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.2rem)', fontWeight: 700, color: 'var(--wine)', lineHeight: 1.25, margin: '0 0 1rem 0' }}>
               {currentTab.bannerTitle.split('\n')[0]}
             </h2>
-            <p style={{ fontSize: '0.92rem', color: 'rgba(255, 255, 255, 0.85)', lineHeight: 1.6, margin: 0, fontWeight: 300 }}>
+            <p style={{ fontSize: '0.92rem', color: 'var(--wine)', opacity: 0.88, lineHeight: 1.6, margin: 0, fontWeight: 500 }}>
               {currentTab.bannerSub}
             </p>
           </div>
@@ -322,9 +322,9 @@ export default function WellnessQuiz({ onNavigate }) {
           {/* Bottom Flourish Line */}
           <div style={{ position: 'relative', zIndex: 2, marginTop: '2rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-              <div style={{ height: '1px', flex: 1, backgroundColor: 'var(--harvest-gold)', opacity: 0.6 }} />
-              <span style={{ color: 'var(--harvest-gold)', fontSize: '0.8rem' }}>✦</span>
-              <div style={{ height: '1px', flex: 1, backgroundColor: 'var(--harvest-gold)', opacity: 0.6 }} />
+              <div style={{ height: '1.5px', flex: 1, backgroundColor: 'var(--wine)', opacity: 0.35 }} />
+              <span style={{ color: 'var(--wine)', fontSize: '0.8rem' }}>✦</span>
+              <div style={{ height: '1.5px', flex: 1, backgroundColor: 'var(--wine)', opacity: 0.35 }} />
             </div>
           </div>
         </div>
@@ -386,17 +386,17 @@ export default function WellnessQuiz({ onNavigate }) {
                       <span style={{ fontSize: '0.68rem', color: 'var(--wine)', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                         QUESTION {currentQIdx + 1} OF {questions.length}
                       </span>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--harvest-gold)', fontWeight: 800 }}>
+                      <span style={{ fontSize: '0.72rem', color: 'var(--wine)', fontWeight: 800 }}>
                         {progressPercent}%
                       </span>
                     </div>
                     {/* Progress Bar Container */}
-                    <div style={{ height: '5px', backgroundColor: 'rgba(94, 39, 53, 0.08)', borderRadius: '10px', overflow: 'hidden' }}>
+                    <div style={{ height: '5px', backgroundColor: '#E7EDE8', borderRadius: '10px', overflow: 'hidden' }}>
                       <motion.div 
                         initial={{ width: 0 }}
                         animate={{ width: `${progressPercent}%` }}
                         transition={{ duration: 0.3 }}
-                        style={{ height: '100%', backgroundColor: 'var(--harvest-gold)', borderRadius: '10px' }}
+                        style={{ height: '100%', backgroundColor: '#C2BA90', borderRadius: '10px' }}
                       />
                     </div>
                   </div>
@@ -423,11 +423,11 @@ export default function WellnessQuiz({ onNavigate }) {
                             gap: '0.9rem',
                             padding: '0.85rem 1.1rem',
                             borderRadius: '14px',
-                            border: isSelected ? '2px solid var(--harvest-gold)' : '1.5px solid rgba(94, 39, 53, 0.12)',
-                            backgroundColor: isSelected ? 'rgba(220, 160, 50, 0.06)' : '#ffffff',
+                            border: isSelected ? '2px solid var(--wine)' : '1.5px solid rgba(94, 39, 53, 0.12)',
+                            backgroundColor: isSelected ? '#F4DACA' : '#F2ECE4',
                             cursor: 'pointer',
                             transition: 'all 0.2s ease',
-                            boxShadow: isSelected ? '0 4px 14px rgba(220, 160, 50, 0.15)' : 'none'
+                            boxShadow: isSelected ? '0 4px 14px rgba(184, 94, 76, 0.15)' : 'none'
                           }}
                         >
                           {/* Circle indicator */}
@@ -435,7 +435,7 @@ export default function WellnessQuiz({ onNavigate }) {
                             width: '26px',
                             height: '26px',
                             borderRadius: '50%',
-                            backgroundColor: isSelected ? 'var(--harvest-gold)' : '#e5dec9',
+                            backgroundColor: isSelected ? '#C2BA90' : '#E6D3C0',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',

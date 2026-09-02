@@ -2795,8 +2795,19 @@ export default function Home({ onNavigate }) {
 
 
 
-      {/* Section 5: Discover Your Wellness Path (3-Tab Interactive Diagnostic Quiz) */}
-      <section style={{ backgroundColor: 'var(--antique-white)', padding: '4.2rem 5%', position: 'relative', overflow: 'hidden' }}>
+      {/* Section 5: Discover Your Wellness Path (3-Tab Interactive Diagnostic Quiz - Fit to Screen) */}
+      <section style={{ 
+        backgroundColor: 'var(--antique-white)', 
+        minHeight: '100vh',
+        boxSizing: 'border-box',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '3rem 5%', 
+        position: 'relative', 
+        overflow: 'hidden' 
+      }}>
         <WellnessQuiz onNavigate={onNavigate} />
       </section>
 

@@ -852,28 +852,24 @@ export default function Home({ onNavigate }) {
     <div>
       {/* Hero Section — Side-Shifted Left Layout with Side Shadow Overlay */}
       <section style={{ height: '100vh', minHeight: '100dvh', width: '100%', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
-        <AnimatePresence mode="sync">
-          <motion.div
-            key={currentImage}
-            initial={{ opacity: 0, scale: 1.12, x: -10, y: -5 }}
-            animate={{ opacity: 1, scale: 1.02, x: 0, y: 0 }}
-            exit={{ opacity: 0, transition: { duration: 1.8, ease: "easeInOut" } }}
-            transition={{ 
-              opacity: { duration: 1.8, ease: "easeInOut" },
-              scale: { duration: 6.2, ease: "linear" },
-              x: { duration: 6.2, ease: "linear" },
-              y: { duration: 6.2, ease: "linear" }
-            }}
-            style={{
-              position: 'absolute',
-              top: 0, left: 0, width: '100%', height: '100%',
-              backgroundImage: `url(${heroImages[currentImage]})`,
-              backgroundSize: 'cover',
-              backgroundPosition: '90% center',
-              zIndex: 1
-            }}
-          />
-        </AnimatePresence>
+        {/* Background Video for Hero Section */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: 1
+          }}
+        >
+          <source src="/assets/heroSection/IMG_0224.MP4" type="video/mp4" />
+        </video>
 
         {/* Directional Side Shadow Overlay — Darker Behind Text, Fading Out towards Image */}
         <div 
@@ -987,26 +983,6 @@ export default function Home({ onNavigate }) {
               >
                 Explore Programmes →
               </button>
-            </motion.div>
-
-            {/* Left-Aligned Interactive Slide Dots */}
-            <motion.div variants={blurFadeIn} style={{ display: 'flex', gap: '0.6rem', marginTop: '2.5rem', alignItems: 'center' }}>
-              {heroImages.map((_, dotIdx) => (
-                <button
-                  key={dotIdx}
-                  onClick={() => setCurrentImage(dotIdx)}
-                  style={{
-                    width: currentImage === dotIdx ? '28px' : '9px',
-                    height: '9px',
-                    borderRadius: '50px',
-                    backgroundColor: currentImage === dotIdx ? 'var(--harvest-gold)' : 'rgba(255, 255, 255, 0.35)',
-                    border: 'none',
-                    cursor: 'pointer',
-                    transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
-                  }}
-                  aria-label={`Go to slide ${dotIdx + 1}`}
-                />
-              ))}
             </motion.div>
           </motion.div>
         </div>

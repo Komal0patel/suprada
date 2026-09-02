@@ -174,7 +174,7 @@ function App() {
         {/* ========================================================================= */}
         {(() => {
           const isScrolled = scrollYPos > 200;
-          const isDarkHeroPage = currentPage === 'home' || currentPage === 'contact';
+          const isDarkHeroPage = currentPage === 'home' || currentPage === 'contact' || currentPage === 'comprehensivecare' || currentPage === 'naturopathy';
           const isLightHeader = !isDarkHeroPage && !isScrolled;
 
           return (

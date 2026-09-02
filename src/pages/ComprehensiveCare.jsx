@@ -200,20 +200,52 @@ export default function ComprehensiveCare({ onNavigate }) {
   return (
     <div style={{ backgroundColor: 'var(--antique-white)', color: 'var(--wine)', minHeight: '100vh', position: 'relative' }}>
       
-      {/* Hero Section - Extends to Top Behind Navbar */}
+      {/* Hero Section - Full Screen 100vh Video Background */}
       <section style={{ 
-        padding: isMobile ? '6.5rem 5% 3rem 5%' : '8.5rem 8% 4.5rem 8%',
+        boxSizing: 'border-box',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: isMobile ? '6.5rem 5% 3rem 5%' : '7.5rem 8% 4rem 8%',
         textAlign: 'center',
         position: 'relative',
-        overflow: 'hidden',
-        background: 'linear-gradient(135deg, #c5cc9f 0%, #b3ba8e 60%, #9ea776 100%)'
+        overflow: 'hidden'
       }}>
-        <Pattern24 style={{ position: 'absolute', top: '-50px', left: '-50px', width: '260px', opacity: 0.1, color: 'var(--wine)' }} />
-        <Pattern25 style={{ position: 'absolute', bottom: '-50px', right: '-50px', width: '260px', opacity: 0.1, color: 'var(--wine)' }} />
+        {/* Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: 1
+          }}
+        >
+          <source src="/assets/heroSection/IMG_0224.MP4" type="video/mp4" />
+        </video>
+
+        {/* Ambient Dark Gradient Overlay */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(180deg, rgba(20, 15, 12, 0.65) 0%, rgba(20, 15, 12, 0.5) 50%, rgba(20, 15, 12, 0.85) 100%)',
+          zIndex: 1
+        }} />
+
+        <Pattern24 style={{ position: 'absolute', top: '-50px', left: '-50px', width: '260px', opacity: 0.15, color: 'var(--harvest-gold)', zIndex: 2 }} />
+        <Pattern25 style={{ position: 'absolute', bottom: '-50px', right: '-50px', width: '260px', opacity: 0.15, color: 'var(--harvest-gold)', zIndex: 2 }} />
 
         <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <span style={{ 
-            color: 'var(--redwood)', 
+            color: 'var(--harvest-gold)', 
             textTransform: 'uppercase', 
             letterSpacing: '0.24em', 
             fontSize: '0.72rem', 
@@ -222,31 +254,33 @@ export default function ComprehensiveCare({ onNavigate }) {
             alignItems: 'center',
             gap: '0.4rem',
             marginBottom: '0.6rem',
-            backgroundColor: 'rgba(255,255,255,0.6)',
+            backgroundColor: 'rgba(20, 15, 12, 0.65)',
+            border: '1px solid rgba(220,160,50,0.35)',
             padding: '0.35rem 0.9rem',
             borderRadius: '20px',
-            backdropFilter: 'blur(6px)'
+            backdropFilter: 'blur(8px)'
           }}>
-            <Star size={12} style={{ color: 'var(--redwood)' }} /> 100% DRUGLESS NATUROPATHIC CARE
+            <Star size={12} style={{ color: 'var(--harvest-gold)' }} /> 100% DRUGLESS NATUROPATHIC CARE
           </span>
 
           <h1 style={{ 
             fontSize: 'clamp(2.2rem, 4vw, 3.4rem)', 
-            color: 'var(--wine)', 
+            color: '#ffffff', 
             fontWeight: 700, 
             lineHeight: 1.15, 
             margin: '0.4rem 0 1rem 0' 
           }}>
-            Comprehensive <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Clinical Spectrum</em>
+            Comprehensive <em style={{ fontStyle: 'italic', color: 'var(--harvest-gold)' }}>Clinical Spectrum</em>
           </h1>
 
           <p style={{ 
             fontSize: isMobile ? '0.95rem' : '1.1rem', 
-            color: 'var(--wine)', 
-            opacity: 0.9, 
+            color: '#ffffff', 
+            opacity: 0.92, 
             lineHeight: 1.65, 
             maxWidth: '760px', 
-            margin: '0 auto' 
+            margin: '0 auto',
+            textShadow: '0 2px 10px rgba(0,0,0,0.5)' 
           }}>
             Our 12 specialized doctor-supervised clinical conditions integrate evidence-based Naturopathy, hydrotherapy, clinical nutrition, and yogic science for lasting drugless recovery.
           </p>

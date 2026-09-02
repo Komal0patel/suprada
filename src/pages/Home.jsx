@@ -2672,118 +2672,6 @@ export default function Home({ onNavigate }) {
                   { name: 'Hepatic Enzyme & Bile Screening', desc: 'Evaluating liver transaminases, bilirubin clearance, and digestive fire (Agni).' },
                   { name: 'Visceral Palpation', desc: 'Doctor-led physical abdominal mapping for liver enlargement and congestion.' }
                 ]
-              },
-              {
-                id: 'obesity-and-weight-imbalance',
-                number: '05',
-                title: 'Obesity & Weight Imbalance',
-                category: '14 to 28 Days',
-                image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80',
-                protocolTitle: 'Visceral Fat Reduction & Body Composition Reset',
-                fullDesc: 'Holistic weight management program targeting stubborn visceral fat, leptin resistance, and metabolic slowdown using vigorous hydro-massage, thermal steam baths, bio-fasting, and daily high-burn yogic kriya.',
-                modalities: ['Under-Water Jet Massage', 'Therapeutic Steam Baths', 'Udvarthana Herbal Scrub', 'Thermic Satwik Diet', 'Barefoot Riverland Walking'],
-                diagnostics: [
-                  { name: 'Visceral Fat Analysis', desc: 'Segmental body composition mapping visceral vs subcutaneous fat ratios.' },
-                  { name: 'Basal Metabolic Assessment', desc: 'Evaluating resting metabolic rate and hormonal leptin/ghrelin triggers.' }
-                ]
-              },
-              {
-                id: 'heart-and-cardiovascular-conditions',
-                number: '06',
-                title: 'Heart & Cardiovascular Care',
-                category: '14 to 21 Days',
-                image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80',
-                protocolTitle: 'Vascular De-Stressing & Arterial Tonification',
-                fullDesc: 'Doctor-monitored cardiovascular wellness protocol designed to normalize hypertension, lower arterial stiffness, and enhance cardiac output through gentle hydro-baths, specialized pranayama, and heart-healthy bio-nutrition.',
-                modalities: ['Arm & Foot Hydro-Baths', 'Cardio-Protective Herbs', 'Deep Cardiac Pranayama', 'Sodium-Balancing Diet', 'Stress Elimination Yoga'],
-                diagnostics: [
-                  { name: 'Blood Pressure Dynamics', desc: '24-hour diurnal blood pressure monitoring and arterial pulse pressure index.' },
-                  { name: 'Cardiopulmonary Capacity', desc: 'Assessment of VO2 efficiency and exercise pulse recovery times.' }
-                ]
-              },
-              {
-                id: 'hormonal-disorders',
-                number: '07',
-                title: 'Hormonal Disorders & Endocrine',
-                category: '14 to 21 Days',
-                image: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80',
-                protocolTitle: 'Endocrine System Synchronization & Adrenal Reset',
-                fullDesc: 'Targeted endocrine realignment protocol for thyroid imbalances, PCOS/PCOD, and adrenal exhaustion. Combines glandular hydro-packs, endocrine-stimulating yoga postures, and adaptogenic botanical nutrition.',
-                modalities: ['Thyroid Hydro Compresses', 'PCOS Pelvic Packs', 'Endocrine Asana Series', 'Seed Cycling Nutrition', 'Adrenal De-stress Yoga'],
-                diagnostics: [
-                  { name: 'Endocrine Axis Profiling', desc: 'Mapping HPA (hypothalamic-pituitary-adrenal) axis strain and thyroid activity.' },
-                  { name: 'Menstrual Cycle Synchronicity', desc: 'Naturopathic tracking of ovarian cycles and progesterone/estrogen balance.' }
-                ]
-              },
-              {
-                id: 'rheumatoid-arthritis-and-joint-disorders',
-                number: '08',
-                title: 'Rheumatoid Arthritis & Joints',
-                category: '14 to 28 Days',
-                image: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=800&q=80',
-                protocolTitle: 'Hydro-Kinesiology & Inflammatory Arthritis Relief',
-                fullDesc: 'Specialized rheumatological protocol reducing joint swelling, morning stiffness, and autoimmune flare-ups through warm mineral hydrotherapy, herbal oil fomentation, anti-inflammatory nutrition, and pool exercise.',
-                modalities: ['Warm Mineral Baths', 'Janu Basti Oil Reservoirs', 'Herbal Steam Poultice', 'Anti-Inflammatory Nutrition', 'Hydro-Kinesiology'],
-                diagnostics: [
-                  { name: 'Joint Range & Mobility Index', desc: 'Goniometric measurement of spinal flex, knee extension, and grip strength.' },
-                  { name: 'Autoimmune Inflammatory Markers', desc: 'Evaluating systemic inflammation markers and morning stiffness duration.' }
-                ]
-              },
-              {
-                id: 'respiratory-diseases',
-                number: '09',
-                title: 'Respiratory & Pulmonary Care',
-                category: '7 to 14 Days',
-                image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80',
-                protocolTitle: 'Bronchial Cleansing & Pulmonary Expansion',
-                fullDesc: 'Clinical respiratory care protocol designed for asthma, chronic bronchitis, sinusitis, and post-viral pulmonary recovery using saline Neti, chest steam poultices, oxygenating pranayama, and pristine riverfront clean air.',
-                modalities: ['Jala & Sutra Neti', 'Chest Herbal Steam Poultice', 'Kapalbhati Pulmonary Kriya', 'Bronchial Hydro Compresses', 'Eucalyptus Steam'],
-                diagnostics: [
-                  { name: 'Peak Expiratory Flow Measurement', desc: 'Spirometry and lung clearance evaluation under clean air conditions.' },
-                  { name: 'Sinus & Airway Mapping', desc: 'Assessment of nasal congestion, mucus accumulation, and bronchial spasm.' }
-                ]
-              },
-              {
-                id: 'stress-and-emotional-management',
-                number: '10',
-                title: 'Stress & Emotional Wellbeing',
-                category: '7 to 14 Days',
-                image: 'https://images.unsplash.com/photo-1499209974431-9dac3ada00d7?auto=format&fit=crop&w=800&q=80',
-                protocolTitle: 'Autonomic Nervous System Reset & Mindful Healing',
-                fullDesc: 'A deeply calming retreat protocol for mental exhaustion, occupational burnout, and emotional trauma. Combines forest bathing on our 54-acre estate, Yoga Nidra sound immersion, and therapeutic hydro-relaxation.',
-                modalities: ['Yoga Nidra Sound Sanctum', 'Forest River Bathing', 'Shirodhara Oil Therapy', 'Silent Meditation', 'Mindful Organic Dining'],
-                diagnostics: [
-                  { name: 'Heart Rate Variability (HRV)', desc: 'Bio-feedback tracking of vagal nerve activity and psychological resilience.' },
-                  { name: 'Cortisol & Sleep Cycle Profiling', desc: 'Evaluating circadian sleep disruption and diurnal stress hormone levels.' }
-                ]
-              },
-              {
-                id: 'cancer-care-and-recovery-support',
-                number: '11',
-                title: 'Cancer Care & Recovery Support',
-                category: '14 to 28 Days',
-                image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80',
-                protocolTitle: 'Integrative Vitality Rebuilding & Immune Fortification',
-                fullDesc: 'Gentle, doctor-monitored supportive care protocol designed to alleviate chemotherapy/radiation side effects, boost natural killer cell activity, reduce systemic inflammation, and nourish body & spirit.',
-                modalities: ['Gentle Detox Hydrotherapy', 'Immune-Boosting Bio-Nutrition', 'Pranic Healing & Yoga', 'Lymphatic Drainage', 'Emotional Sanctuary'],
-                diagnostics: [
-                  { name: 'Immune & Vital Energy Mapping', desc: 'Gentle evaluation of stamina, appetite, peripheral neuropathy, and mood.' },
-                  { name: 'Systemic Toxicity & Fatigue Index', desc: 'Monitoring post-treatment recovery milestones and tissue regeneration.' }
-                ]
-              },
-              {
-                id: 'digestion-and-gut-health',
-                number: '12',
-                title: 'Digestion & Gut Health',
-                category: '7 to 21 Days',
-                image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80',
-                protocolTitle: 'Gastrointestinal Realignment & Microbiome Reset',
-                fullDesc: 'Comprehensive gastrointestinal protocol restoring gut barrier integrity, digestive fire (Agni), and microbial diversity through mud packs, probiotic fermented Satwik elixirs, Enema hydro-cleansing, and digestive yoga.',
-                modalities: ['Abdominal Mud Packs', 'Gastro Hydro-Enema', 'Probiotic Satwik Elixirs', 'Agni Deepana Spices', 'Digestive Asana Flow'],
-                diagnostics: [
-                  { name: 'Gut Transit & Agni Evaluation', desc: 'Assessment of digestive fire strength, gastric acidity, and bowel motility.' },
-                  { name: 'Microbiome & Barrier Integrity', desc: 'Evaluating bloating, food intolerances, leaky gut, and colon health.' }
-                ]
               }
             ].map((card) => (
               <motion.div
@@ -2847,6 +2735,17 @@ export default function Home({ onNavigate }) {
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          {/* Explore All 12 Clinical Conditions Button */}
+          <div style={{ textAlign: 'center', marginTop: '2.2rem' }}>
+            <button 
+              onClick={() => onNavigate('comprehensivecare')}
+              className="btn-luxury"
+              style={{ padding: '0.85rem 2.4rem', fontSize: '0.8rem' }}
+            >
+              Explore All 12 Clinical Conditions &rarr;
+            </button>
           </div>
 
         </div>

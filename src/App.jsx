@@ -14,6 +14,7 @@ import Blog from './pages/Blog';
 import Occasions from './pages/Occasions';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
+import ComprehensiveCare from './pages/ComprehensiveCare';
 
 // Import Global Components
 import Footer from './components/Footer';
@@ -36,7 +37,8 @@ const searchIndex = [
   { title: "Blog & Healing Journal", category: "Navigation", path: "blog", desc: "Articles on drugless health, iris diagnosis & naturopathic wisdom" },
   { title: "Occasions & Events", category: "Navigation", path: "occasions", desc: "Weddings, anniversaries, family reunions & quiet retreats" },
   { title: "Careers & Opportunities", category: "Navigation", path: "careers", desc: "Join our team of doctors, therapists, hospitality & wellness leads" },
-  { title: "Contact Us & Directions", category: "Navigation", path: "contact", desc: "Get in touch, location map by Suvarnamukhi river & booking" }
+  { title: "Contact Us & Directions", category: "Navigation", path: "contact", desc: "Get in touch, location map by Suvarnamukhi river & booking" },
+  { title: "Comprehensive Clinical Spectrum", category: "Navigation", path: "comprehensivecare", desc: "Explore our 12 specialized doctor-supervised clinical conditions" }
 ];
 
 function App() {
@@ -538,6 +540,7 @@ function App() {
           {currentPage === 'occasions'  && <Occasions   onNavigate={handlePageChange} />}
           {currentPage === 'careers'    && <Careers     onNavigate={handlePageChange} />}
           {currentPage === 'contact'    && <Contact     onNavigate={handlePageChange} />}
+          {currentPage === 'comprehensivecare' && <ComprehensiveCare onNavigate={handlePageChange} />}
         </div>
 
         {/* Global Footer */}

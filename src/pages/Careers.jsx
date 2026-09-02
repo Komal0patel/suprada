@@ -677,8 +677,62 @@ export default function Careers({ onNavigate }) {
               </motion.div>
             </section>
 
+            {/* Life at Suprada — Culture & Environment Section */}
+            <section style={{ padding: '4.5rem 6%', backgroundColor: 'var(--platinum)', position: 'relative' }}>
+              <div style={{ maxWidth: '1240px', margin: '0 auto', textAlign: 'center' }}>
+                <motion.span
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.26em', fontSize: '0.72rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}
+                >
+                  ✦ LIFE AT SUPRADA ✦
+                </motion.span>
+                <motion.h2
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  style={{ color: 'var(--wine)', margin: '0 0 2.8rem 0' }}
+                >
+                  Why Work With <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Us?</em>
+                </motion.h2>
+
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.8rem', textAlign: 'left' }}>
+                  {culturePoints.map((point, idx) => {
+                    const cardBgs = ['var(--antique-white)', 'var(--pale-dogwood)', 'var(--tan)'];
+                    const cardBorders = ['var(--sage)', 'var(--redwood)', 'var(--harvest-gold)'];
+                    return (
+                      <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, y: 25 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: idx * 0.12 }}
+                        whileHover={{ y: -6, boxShadow: '0 14px 35px rgba(94, 39, 53, 0.08)' }}
+                        style={{
+                          backgroundColor: cardBgs[idx % cardBgs.length],
+                          border: `1.5px solid ${cardBorders[idx % cardBorders.length]}`,
+                          borderRadius: '22px',
+                          padding: '2.2rem 1.8rem',
+                          boxShadow: '0 8px 24px rgba(94, 39, 53, 0.04)',
+                          transition: 'all 0.3s ease'
+                        }}
+                      >
+                        <div style={{ width: '44px', height: '44px', borderRadius: '50%', backgroundColor: 'var(--wine)', color: 'var(--harvest-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.2rem', boxShadow: '0 4px 12px rgba(94, 39, 53, 0.15)' }}>
+                          {point.icon}
+                        </div>
+                        <h3 style={{ color: 'var(--wine)', margin: '0 0 0.6rem 0', fontSize: '1.18rem' }}>{point.title}</h3>
+                        <p style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.88, lineHeight: 1.65, margin: 0, fontWeight: 300 }}>{point.desc}</p>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </div>
+            </section>
+
             {/* Current Openings — Search, Filter & Interactive Cards */}
-            <section style={{ padding: '2.25rem 5% 4.5rem 5%', backgroundColor: 'var(--tea-green)' }}>
+            <section style={{ padding: '3.5rem 5% 5rem 5%', backgroundColor: 'var(--tea-green)' }}>
               <div style={{ maxWidth: '1320px', margin: '0 auto' }}>
 
                 {/* Section Header */}

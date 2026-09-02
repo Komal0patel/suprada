@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useScroll, useTransform, useInView } from 'fra
 import { Pattern24, Pattern25, Pattern27, Pattern28 } from '../AnimatedPatterns';
 import { Stethoscope, Star, Leaf, Globe, Check, ArrowRight, X } from 'lucide-react';
 import TwinklingLights from '../components/TwinklingLights';
+import WellnessQuiz from '../components/WellnessQuiz';
 
 
 
@@ -2794,83 +2795,9 @@ export default function Home({ onNavigate }) {
 
 
 
-      {/* Section 5: Discover Your Wellness Path (Instant Diagnostic Assessment) */}
+      {/* Section 5: Discover Your Wellness Path (3-Tab Interactive Diagnostic Quiz) */}
       <section style={{ backgroundColor: 'var(--antique-white)', padding: '4.2rem 5%', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          
-          <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-            <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.75rem', fontWeight: 700, display: 'block', marginBottom: '0.3rem' }}>
-              ✦ Instant Diagnostic Assessment
-            </span>
-            <h2 style={{color: 'var(--wine)', margin: 0, lineHeight: 1.1}}>
-              Discover Your <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Wellness Path</em>
-            </h2>
-          </div>
-
-          {/* Enriched Diagnostic Showcase Card */}
-          <div className="flex-stack-mobile" style={{ backgroundColor: '#ffffff', border: '1.5px solid rgba(94, 39, 53, 0.15)', borderRadius: '24px', padding: '2.8rem 3rem', boxShadow: '0 15px 45px rgba(94, 39, 53, 0.08)', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-            {/* Row 1: Selectors (Centered) */}
-            <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-              
-              {/* Selector 1: Dosha */}
-              <div>
-                <span style={{ fontSize: '0.82rem', color: 'var(--wine)', fontWeight: 800, display: 'block', marginBottom: '0.6rem', letterSpacing: '0.02em', textAlign: 'center' }}>
-                  1. Primary Body Type (Dosha):
-                </span>
-                <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-                  {['Vata', 'Pitta', 'Kapha'].map((d, dIdx) => (
-                    <button 
-                      key={dIdx}
-                      className={`quiz-option-chip ${quizSelections.dosha === d ? 'selected' : ''}`}
-                      style={{ padding: '0.6rem 1.4rem', fontSize: '0.85rem' }}
-                      onClick={() => setQuizSelections(prev => ({ ...prev, dosha: d }))}
-                    >
-                      {d}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Selector 2: Toxicity */}
-              <div>
-                <span style={{ fontSize: '0.82rem', color: 'var(--wine)', fontWeight: 800, display: 'block', marginBottom: '0.6rem', letterSpacing: '0.02em', textAlign: 'center' }}>
-                  2. Sluggishness Level:
-                </span>
-                <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-                  {['Mild Fatigue', 'Moderate Detox', 'High Stress'].map((tox, tIdx) => (
-                    <button 
-                      key={tIdx}
-                      className={`quiz-option-chip ${quizSelections.detox === tox ? 'selected' : ''}`}
-                      style={{ padding: '0.6rem 1.4rem', fontSize: '0.85rem' }}
-                      onClick={() => setQuizSelections(prev => ({ ...prev, detox: tox }))}
-                    >
-                      {tox}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-            </div>
-
-            {/* Row 2: Calculation Output & Action CTA (Centered) */}
-            <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-              <div className="flex-stack-mobile" style={{ backgroundColor: 'rgba(94, 39, 53, 0.06)', border: '1px solid rgba(94, 39, 53, 0.12)', padding: '1.1rem 2.2rem', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.6rem', textAlign: 'center', flexWrap: 'wrap' }}>
-                <div>
-                  <span style={{ fontSize: '0.72rem', color: 'var(--wine)', fontWeight: 800, display: 'block', marginBottom: '0.15rem' }}>
-                    Calculated Protocol Match:
-                  </span>
-                  <span style={{ fontSize: '1.02rem', color: 'var(--redwood)', fontWeight: 800 }}>
-                    {quizSelections.dosha} • {quizSelections.detox} Program
-                  </span>
-                </div>
-                <button onClick={() => onNavigate('contact')} className="btn-luxury" style={{ padding: '0.8rem 1.8rem', fontSize: '0.78rem' }}>
-                  Book Consultation &rarr;
-                </button>
-              </div>
-            </div>
-          </div>
-
-        </div>
+        <WellnessQuiz onNavigate={onNavigate} />
       </section>
 
       {/* Section 6: Guest Stories */}

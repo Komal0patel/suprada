@@ -331,21 +331,10 @@ export default function Programmes({ onNavigate }) {
               lineHeight: 1.85,
               fontWeight: 300,
               maxWidth: '740px',
-              margin: '0 auto',
+              margin: '0 auto 2.8rem auto',
               color: 'var(--raisin-black)'
             }}>
               "Structured, doctor-led wellness journeys tailored to cleanse, balance, and revitalize your biological clock — from weekend resets to 21-day clinical healing protocols."
-            </p>
-
-            <p style={{
-              fontSize: isMobile ? '0.88rem' : '0.96rem',
-              color: 'var(--redwood)',
-              fontStyle: 'italic',
-              marginTop: '1.2rem',
-              marginBottom: '2.8rem',
-              fontWeight: 500
-            }}>
-              Rooted in Ayurveda. Guided by modern science.
             </p>
 
             {/* Explore Programs CTA */}

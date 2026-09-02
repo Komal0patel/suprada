@@ -870,13 +870,13 @@ export default function Home({ onNavigate }) {
           <source src="/assets/heroSection/IMG_0224.MP4" type="video/mp4" />
         </video>
 
-        {/* Directional Side Shadow Overlay — Darker Behind Text, Fading Out towards Image */}
+        {/* Directional Side Shadow Overlay — Softened Darker Behind Text, Fading Out towards Image */}
         <div 
           className="hero-side-overlay"
           style={{ 
             position: 'absolute', 
             top: 0, left: 0, width: '100%', height: '100%', 
-            background: 'linear-gradient(to right, rgba(14, 5, 9, 0.88) 0%, rgba(14, 5, 9, 0.72) 32%, rgba(14, 5, 9, 0.35) 60%, transparent 90%)', 
+            background: 'linear-gradient(to right, rgba(14, 5, 9, 0.65) 0%, rgba(14, 5, 9, 0.48) 35%, rgba(14, 5, 9, 0.18) 65%, transparent 90%)', 
             zIndex: 2 
           }} 
         />

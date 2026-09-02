@@ -247,7 +247,7 @@ export default function Naturopathy({ onNavigate }) {
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(180deg, rgba(20, 15, 12, 0.65) 0%, rgba(20, 15, 12, 0.5) 50%, rgba(20, 15, 12, 0.85) 100%)',
+          background: 'linear-gradient(180deg, rgba(20, 15, 12, 0.48) 0%, rgba(20, 15, 12, 0.32) 50%, rgba(20, 15, 12, 0.65) 100%)',
           zIndex: 1
         }} />
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from 'framer-motion';
 import { Pattern24, Pattern25, Pattern27, Pattern28 } from '../AnimatedPatterns';
-import { Stethoscope, Star, Leaf, Globe, Check, ArrowRight, X } from 'lucide-react';
+import { Stethoscope, Star, Leaf, Globe, Check, ArrowRight, X, Download } from 'lucide-react';
 import TwinklingLights from '../components/TwinklingLights';
 import WellnessQuiz from '../components/WellnessQuiz';
 
@@ -1275,8 +1275,8 @@ export default function Home({ onNavigate }) {
             ))}
           </div>
 
-          {/* Secondary Modalities Indicator Bar */}
-          <div style={{ textAlign: 'center', marginTop: '1.8rem' }}>
+          {/* Secondary Modalities & Brochure CTA Bar */}
+          <div style={{ textAlign: 'center', marginTop: '1.8rem', display: 'flex', gap: '0.8rem', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
             <button
               onClick={() => onNavigate('naturopathy')}
               style={{
@@ -1294,6 +1294,31 @@ export default function Home({ onNavigate }) {
             >
               Explore All 8 Clinical Modalities &amp; Programmes →
             </button>
+
+            <a
+              href="/assets/Suprada_Wellness_Brochure.pdf"
+              download="Suprada_Wellness_Brochure.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                backgroundColor: 'var(--wine)',
+                border: '1.5px solid var(--wine)',
+                color: '#ffffff',
+                padding: '0.55rem 1.4rem',
+                borderRadius: '50px',
+                fontWeight: 700,
+                fontSize: '0.8rem',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                textDecoration: 'none'
+              }}
+              className="hover-gold"
+            >
+              <Download size={15} /> Download Brochure
+            </a>
           </div>
         </div>
       </section>

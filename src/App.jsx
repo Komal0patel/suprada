@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { X, Search, ChevronRight } from 'lucide-react';
+import { X, Search, ChevronRight, Download, Menu } from 'lucide-react';
 
 // Import Pages
 import Home from './pages/Home';
@@ -218,7 +218,7 @@ function App() {
                   src="/assets/extracted/logo.svg" 
                   alt="Suprada Logo" 
                   style={{
-                    height: isMobile ? '34px' : '40px',
+                    height: isMobile ? '28px' : '40px',
                     filter: isLightHeader
                       ? 'drop-shadow(0 2px 6px rgba(94, 39, 53, 0.15))'
                       : 'drop-shadow(0 2px 8px rgba(0,0,0,0.5))'
@@ -228,7 +228,7 @@ function App() {
                   src="/assets/extracted/suprada-wellness.svg" 
                   alt="Suprada Wellness" 
                   style={{
-                    height: isMobile ? '20px' : '26px',
+                    height: isMobile ? '15px' : '26px',
                     filter: isLightHeader
                       ? 'brightness(0.22)'
                       : 'brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.5))'
@@ -274,21 +274,21 @@ function App() {
               )}
 
               {/* Right Action: We're Hiring, Search Bar & Mobile Menu */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0, marginLeft: 'auto' }}>
-                {/* "We're Hiring" Aesthetic Pill Button — Uniform Gold Style Across All Pages */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '0.35rem' : '0.5rem', flexShrink: 0, marginLeft: 'auto' }}>
+                {/* "We're Hiring" Aesthetic Pill Button — Compact on Mobile */}
                 <button
                   onClick={() => handlePageChange('careers')}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.35rem',
-                    padding: '0.35rem 0.75rem',
+                    gap: '0.3rem',
+                    padding: isMobile ? '0.28rem 0.55rem' : '0.35rem 0.75rem',
                     backgroundColor: 'rgba(234, 169, 54, 0.18)',
                     border: '1px solid rgba(234, 169, 54, 0.55)',
                     borderRadius: '50px',
                     color: 'var(--harvest-gold)',
-                    fontSize: '0.72rem',
-                    letterSpacing: '0.03em',
+                    fontSize: isMobile ? '0.65rem' : '0.72rem',
+                    letterSpacing: '0.02em',
                     fontWeight: 700,
                     cursor: 'pointer',
                     whiteSpace: 'nowrap',
@@ -300,25 +300,26 @@ function App() {
                   aria-label="We are hiring - View Careers"
                 >
                   <span style={{
-                    width: '6px',
-                    height: '6px',
+                    width: '5px',
+                    height: '5px',
                     borderRadius: '50%',
                     backgroundColor: 'var(--harvest-gold)',
                     display: 'inline-block',
                     boxShadow: '0 0 6px var(--harvest-gold)',
                     animation: 'pulse-dot 1.8s infinite ease-in-out'
                   }} />
-                  <span>We're Hiring</span>
+                  <span>{isMobile ? "Hiring" : "We're Hiring"}</span>
                 </button>
 
-                {/* Search Bar Button */}
+                {/* Search Bar Button — Icon Only on Mobile */}
                 <button
                   onClick={() => setIsSearchOpen(true)}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.4rem',
-                    padding: '0.35rem 0.8rem',
+                    justifyContent: 'center',
+                    gap: '0.35rem',
+                    padding: isMobile ? '0.32rem 0.45rem' : '0.35rem 0.8rem',
                     backgroundColor: isLightHeader ? 'rgba(94, 39, 53, 0.06)' : 'rgba(255, 255, 255, 0.12)',
                     border: isLightHeader ? '1px solid rgba(94, 39, 53, 0.2)' : '1px solid rgba(255, 255, 255, 0.3)',
                     borderRadius: '50px',
@@ -336,7 +337,7 @@ function App() {
                   aria-label="Search"
                 >
                   <Search size={14} style={{ color: isLightHeader ? 'var(--wine)' : 'var(--harvest-gold)' }} />
-                  <span>Search</span>
+                  {!isMobile && <span>Search</span>}
                 </button>
 
                 {/* Mobile Drawer Trigger */}
@@ -348,14 +349,17 @@ function App() {
                       color: isLightHeader ? '#ffffff' : '#632633',
                       border: 'none',
                       borderRadius: '8px',
-                      padding: '0.45rem 0.85rem',
+                      padding: '0.38rem 0.65rem',
                       fontWeight: 800,
-                      fontSize: '0.75rem',
+                      fontSize: '0.72rem',
                       cursor: 'pointer',
-                      boxShadow: '0 2px 8px rgba(0,0,0,0.12)'
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.25rem'
                     }}
                   >
-                    MENU
+                    <Menu size={14} /> MENU
                   </button>
                 )}
               </div>
@@ -510,7 +514,7 @@ function App() {
               >
                 <X size={28} />
               </button>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1.8rem', alignItems: 'center', fontSize: '1.25rem', fontFamily: 'var(--font-body)', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 600 }}>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1.4rem', alignItems: 'center', fontSize: '1.15rem', fontFamily: 'var(--font-body)', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 600 }}>
                 {menuItems.map((item) => (
                   <motion.li
                     whileHover={{ scale: 1.08, color: 'var(--harvest-gold)' }}
@@ -526,6 +530,34 @@ function App() {
                   </motion.li>
                 ))}
               </ul>
+
+              {/* Mobile Drawer Action Buttons */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', marginTop: '2rem', width: '100%', maxWidth: '280px', alignItems: 'center' }}>
+                <a
+                  href="/assets/Suprada_Wellness_Brochure.pdf"
+                  download="Suprada_Wellness_Brochure.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '0.5rem',
+                    width: '100%',
+                    padding: '0.7rem 1.2rem',
+                    backgroundColor: 'rgba(234, 169, 54, 0.15)',
+                    border: '1.5px solid var(--harvest-gold)',
+                    borderRadius: '30px',
+                    color: 'var(--harvest-gold)',
+                    fontSize: '0.8rem',
+                    fontWeight: 700,
+                    textDecoration: 'none',
+                    letterSpacing: '0.05em'
+                  }}
+                >
+                  <Download size={15} /> Download Brochure
+                </a>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

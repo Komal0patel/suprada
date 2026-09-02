@@ -257,8 +257,8 @@ export default function About({ onNavigate }) {
       <section style={{
         boxSizing: 'border-box',
         padding: '5rem 6% 2.5rem 6%',
-        background: 'linear-gradient(135deg, var(--wine) 0%, #2a0e18 60%, #1e0910 100%)',
-        color: 'var(--tan)',
+        background: 'linear-gradient(135deg, #f5ebd9 0%, #f0e2cc 60%, #ead9be 100%)',
+        color: 'var(--wine)',
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden',
@@ -270,12 +270,12 @@ export default function About({ onNavigate }) {
         alignItems: 'center'
       }}>
         {/* Botanical Leaf SVG Watermarks */}
-        <Pattern24 style={{ position: 'absolute', top: '-20px', left: '-40px', width: '300px', opacity: 0.12, color: 'var(--harvest-gold)', pointerEvents: 'none' }} />
-        <Pattern25 style={{ position: 'absolute', bottom: '-20px', right: '-40px', width: '300px', opacity: 0.12, color: 'var(--harvest-gold)', pointerEvents: 'none' }} />
+        <Pattern24 style={{ position: 'absolute', top: '-20px', left: '-40px', width: '300px', opacity: 0.1, color: 'var(--wine)', pointerEvents: 'none' }} />
+        <Pattern25 style={{ position: 'absolute', bottom: '-20px', right: '-40px', width: '300px', opacity: 0.1, color: 'var(--wine)', pointerEvents: 'none' }} />
 
-        {/* Ambient Golden Bokeh Glow Effects */}
-        <div style={{ position: 'absolute', top: '-10%', left: '15%', maxWidth: '450px', width: '100%', height: '450px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.18) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(70px)', zIndex: 0, pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: '-15%', right: '15%', maxWidth: '500px', width: '100%', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.12) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(80px)', zIndex: 0, pointerEvents: 'none' }} />
+        {/* Ambient Wine Bokeh Glow Effects */}
+        <div style={{ position: 'absolute', top: '-10%', left: '15%', maxWidth: '450px', width: '100%', height: '450px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(94,39,53,0.07) 0%, rgba(94,39,53,0) 70%)', filter: 'blur(70px)', zIndex: 0, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-15%', right: '15%', maxWidth: '500px', width: '100%', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.1) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(80px)', zIndex: 0, pointerEvents: 'none' }} />
 
         {/* Background Mandala Watermark */}
         <motion.div
@@ -284,14 +284,14 @@ export default function About({ onNavigate }) {
             top: '50%', left: '50%',
             x: '-50%', y: '-50%',
             width: '600px', height: '600px',
-            opacity: 0.04,
+            opacity: 0.06,
             scale: heroMandalaScale,
             rotate: heroMandalaRotate,
             pointerEvents: 'none',
             zIndex: 0
           }}
         >
-          <Pattern27 style={{ width: '100%', height: '100%', color: 'var(--harvest-gold)' }} />
+          <Pattern27 style={{ width: '100%', height: '100%', color: 'var(--wine)' }} />
         </motion.div>
 
         <motion.div
@@ -310,7 +310,7 @@ export default function About({ onNavigate }) {
             <img 
               src="/assets/extracted/logo.svg" 
               alt="Suprada Official Emblem Logo" 
-              style={{ height: '85px', width: 'auto', filter: 'drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25))' }} 
+              style={{ height: '85px', width: 'auto', filter: 'drop-shadow(0 4px 12px rgba(94, 39, 53, 0.15))' }} 
             />
           </motion.div>
 
@@ -321,20 +321,20 @@ export default function About({ onNavigate }) {
             transition={{ duration: 1 }}
             style={{
               display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
-              backgroundColor: 'rgba(220, 160, 50, 0.12)',
+              backgroundColor: 'rgba(94, 39, 53, 0.07)',
               padding: '0.3rem 1.2rem', borderRadius: '30px',
-              border: '1px solid rgba(220, 160, 50, 0.3)',
+              border: '1px solid rgba(94, 39, 53, 0.2)',
               marginBottom: '1rem'
             }}
           >
             <span style={{ color: 'var(--harvest-gold)', fontSize: '0.75rem' }}>✦</span>
-            <span style={{ color: 'var(--tan)', textTransform: 'uppercase', fontSize: '0.7rem', fontWeight: 700 }}>
+            <span style={{ color: 'var(--wine)', textTransform: 'uppercase', fontSize: '0.7rem', fontWeight: 700 }}>
               Our Story &amp; Philosophy
             </span>
           </motion.div>
 
           {/* Word-by-Word Revealed Main Headline */}
-          <h1 style={{color: 'var(--tan)', 
+          <h1 style={{color: 'var(--wine)', 
             margin: '0 0 0.9rem 0', 
             lineHeight: 1.1, 
             display: 'flex', 
@@ -352,7 +352,7 @@ export default function About({ onNavigate }) {
             ))}
             <motion.span
               variants={wordVariant}
-              style={{ display: 'inline-block', fontStyle: 'italic', color: 'var(--harvest-gold)' }}
+              style={{ display: 'inline-block', fontStyle: 'italic', color: 'var(--redwood)' }}
             >
               Meets Heritage
             </motion.span>
@@ -362,7 +362,7 @@ export default function About({ onNavigate }) {
           <AnimatedParagraph 
             text="Bridging advanced clinical science with ancient Indian wisdom — Suprada is a 54-acre riverfront sanctuary on Kanakapura Road, dedicated to the drugless cellular restoration of body, mind, and spirit."
             style={{ 
-              color: 'rgba(245, 235, 217, 0.92)', 
+              color: 'rgba(40, 38, 37, 0.88)', 
               maxWidth: '680px', 
               margin: '0 auto 1.4rem auto', 
               fontSize: 'var(--fs-body)', 
@@ -380,14 +380,14 @@ export default function About({ onNavigate }) {
             transition={{ duration: 0.8, delay: 0.6 }}
             style={{ display: 'flex', gap: '0.8rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '1.5rem' }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,160,50,0.25)', padding: '0.4rem 1.1rem', borderRadius: '24px', fontSize: '0.78rem', color: 'var(--tan)' }}>
-              <span><Leaf size={14} style={{ color: 'var(--harvest-gold)' }} /></span> <span>54-Acre Riverfront Estate</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(94, 39, 53, 0.18)', padding: '0.4rem 1.1rem', borderRadius: '24px', fontSize: '0.78rem', color: 'var(--wine)' }}>
+              <span><Leaf size={14} style={{ color: 'var(--redwood)' }} /></span> <span>54-Acre Riverfront Estate</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,160,50,0.25)', padding: '0.4rem 1.1rem', borderRadius: '24px', fontSize: '0.78rem', color: 'var(--tan)' }}>
-              <span><Stethoscope size={14} style={{ color: 'var(--harvest-gold)' }} /></span> <span>30+ Years Clinical Heritage</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(94, 39, 53, 0.18)', padding: '0.4rem 1.1rem', borderRadius: '24px', fontSize: '0.78rem', color: 'var(--wine)' }}>
+              <span><Stethoscope size={14} style={{ color: 'var(--redwood)' }} /></span> <span>30+ Years Clinical Heritage</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(220,160,50,0.25)', padding: '0.4rem 1.1rem', borderRadius: '24px', fontSize: '0.78rem', color: 'var(--tan)' }}>
-              <span><Building size={14} style={{ color: 'var(--harvest-gold)' }} /></span> <span>9 Private Cottages</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(94, 39, 53, 0.18)', padding: '0.4rem 1.1rem', borderRadius: '24px', fontSize: '0.78rem', color: 'var(--wine)' }}>
+              <span><Building size={14} style={{ color: 'var(--redwood)' }} /></span> <span>9 Private Cottages</span>
             </div>
           </motion.div>
 
@@ -409,8 +409,8 @@ export default function About({ onNavigate }) {
               onClick={() => onNavigate('programmes')}
               style={{
                 background: 'transparent',
-                border: '1.5px solid rgba(220,160,50,0.4)',
-                color: 'var(--tan)',
+                border: '1.5px solid rgba(94, 39, 53, 0.3)',
+                color: 'var(--wine)',
                 cursor: 'pointer',
                 padding: '0.85rem 2.1rem',
                 fontSize: '0.82rem',
@@ -419,8 +419,8 @@ export default function About({ onNavigate }) {
                 borderRadius: '30px',
                 transition: 'all 0.3s ease'
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(220,160,50,0.15)'; e.currentTarget.style.borderColor = 'var(--harvest-gold)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.borderColor = 'rgba(220,160,50,0.4)'; }}
+              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(94, 39, 53, 0.08)'; e.currentTarget.style.borderColor = 'var(--wine)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.borderColor = 'rgba(94, 39, 53, 0.3)'; }}
             >
               View Programmes
             </button>
@@ -443,8 +443,8 @@ export default function About({ onNavigate }) {
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.2rem' }}
           >
-            <span style={{ fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--harvest-gold)', opacity: 0.7, fontWeight: 700 }}>Scroll</span>
-            <div style={{ width: '1px', height: '24px', background: 'linear-gradient(to bottom, var(--harvest-gold), transparent)', opacity: 0.5 }} />
+            <span style={{ fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--wine)', opacity: 0.7, fontWeight: 700 }}>Scroll</span>
+            <div style={{ width: '1px', height: '24px', background: 'linear-gradient(to bottom, var(--wine), transparent)', opacity: 0.4 }} />
           </motion.div>
         </motion.div>
 

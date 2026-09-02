@@ -15,6 +15,7 @@ import Occasions from './pages/Occasions';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
 import ComprehensiveCare from './pages/ComprehensiveCare';
+import Naturopathy from './pages/Naturopathy';
 
 // Import Global Components
 import Footer from './components/Footer';
@@ -38,7 +39,8 @@ const searchIndex = [
   { title: "Occasions & Events", category: "Navigation", path: "occasions", desc: "Weddings, anniversaries, family reunions & quiet retreats" },
   { title: "Careers & Opportunities", category: "Navigation", path: "careers", desc: "Join our team of doctors, therapists, hospitality & wellness leads" },
   { title: "Contact Us & Directions", category: "Navigation", path: "contact", desc: "Get in touch, location map by Suvarnamukhi river & booking" },
-  { title: "Comprehensive Clinical Spectrum", category: "Navigation", path: "comprehensivecare", desc: "Explore our 12 specialized doctor-supervised clinical conditions" }
+  { title: "Comprehensive Clinical Spectrum", category: "Navigation", path: "comprehensivecare", desc: "Explore our 12 specialized doctor-supervised clinical conditions" },
+  { title: "Naturopathy & Holistic Wellness", category: "Navigation", path: "naturopathy", desc: "Explore our 8 core drugless medical modalities & natural therapies" }
 ];
 
 function App() {
@@ -195,7 +197,7 @@ function App() {
                   : 'transparent',
                 backdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
                 WebkitBackdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
-                boxShadow: isScrolled ? '0 12px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1)' : 'none',
+                boxShadow: isScrolled ? '0 8px 24px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.08)' : 'none',
                 borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.12)' : 'none',
                 transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
@@ -541,6 +543,7 @@ function App() {
           {currentPage === 'careers'    && <Careers     onNavigate={handlePageChange} />}
           {currentPage === 'contact'    && <Contact     onNavigate={handlePageChange} />}
           {currentPage === 'comprehensivecare' && <ComprehensiveCare onNavigate={handlePageChange} />}
+          {currentPage === 'naturopathy' && <Naturopathy onNavigate={handlePageChange} />}
         </div>
 
         {/* Global Footer */}
@@ -561,7 +564,7 @@ function App() {
         >
           {/* WhatsApp Floating Button */}
           <motion.a
-            href="https://wa.me/919876554321?text=Hello%20Suprada%20Wellness%2C%20I%20would%20like%20to%20inquire%20about%20your%20retreats"
+            href="https://wa.me/917892596969?text=Hello%20Suprada%20Wellness%2C%20I%20would%20like%20to%20inquire%20about%20your%20retreats"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Chat on WhatsApp"
@@ -589,7 +592,7 @@ function App() {
 
           {/* Call Floating Button */}
           <motion.a
-            href="tel:+919876554321"
+            href="tel:+917892596969"
             aria-label="Call Suprada Wellness"
             whileHover={{ scale: 1.12, y: -2 }}
             whileTap={{ scale: 0.95 }}

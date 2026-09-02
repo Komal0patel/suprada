@@ -198,11 +198,11 @@ export default function ComprehensiveCare({ onNavigate }) {
   }, [selectedDiseaseModal]);
 
   return (
-    <div style={{ backgroundColor: 'var(--antique-white)', color: 'var(--wine)', minHeight: '100vh', paddingTop: '100px' }}>
+    <div style={{ backgroundColor: 'var(--antique-white)', color: 'var(--wine)', minHeight: '100vh', position: 'relative' }}>
       
-      {/* Hero Section */}
+      {/* Hero Section - Extends to Top Behind Navbar */}
       <section style={{ 
-        padding: isMobile ? '3.5rem 5% 2.5rem 5%' : '5rem 8% 3.5rem 8%',
+        padding: isMobile ? '6.5rem 5% 3rem 5%' : '8.5rem 8% 4.5rem 8%',
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden',

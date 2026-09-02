@@ -1210,7 +1210,7 @@ export default function Home({ onNavigate }) {
             gap: '1rem',
             alignItems: 'stretch'
           }}>
-            {naturopathyCards.map((card) => (
+            {naturopathyCards.slice(0, 4).map((card) => (
               <motion.div
                 key={card.id}
                 whileHover={{ y: -5, scale: 1.02 }}
@@ -1277,7 +1277,7 @@ export default function Home({ onNavigate }) {
           {/* Secondary Modalities Indicator Bar */}
           <div style={{ textAlign: 'center', marginTop: '1.8rem' }}>
             <button
-              onClick={() => onNavigate('programmes')}
+              onClick={() => onNavigate('naturopathy')}
               style={{
                 backgroundColor: 'rgba(94, 39, 53, 0.06)',
                 border: '1.5px solid rgba(94, 39, 53, 0.2)',
@@ -1291,7 +1291,7 @@ export default function Home({ onNavigate }) {
               }}
               className="hover-gold"
             >
-              View All 8 Clinical Modalities &amp; Programmes →
+              Explore All 8 Clinical Modalities &amp; Programmes →
             </button>
           </div>
         </div>

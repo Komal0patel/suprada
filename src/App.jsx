@@ -204,7 +204,7 @@ function App() {
                   alignItems: 'center', 
                   gap: '0.75rem', 
                   cursor: 'pointer',
-                  marginRight: isMobile ? '0' : '1rem',
+                  marginRight: isMobile ? '0' : 'clamp(2.2rem, 3.5vw, 4rem)',
                   flexShrink: 0
                 }}
               >
@@ -235,9 +235,9 @@ function App() {
                 <div style={{ 
                   display: 'flex', 
                   alignItems: 'center', 
-                  gap: 'clamp(0.4rem, 0.8vw, 0.95rem)', 
+                  gap: 'clamp(0.5rem, 0.9vw, 1.1rem)', 
                   flexWrap: 'nowrap', 
-                  marginRight: '1.2rem',
+                  marginRight: '1.5rem',
                   flexShrink: 1
                 }}>
                   {menuItems.map((item) => (

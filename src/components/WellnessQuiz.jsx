@@ -229,6 +229,16 @@ export default function WellnessQuiz({ onNavigate }) {
   return (
     <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
       
+      {/* Section Header */}
+      <div style={{ textAlign: 'center', marginBottom: '1.8rem' }}>
+        <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.75rem', fontWeight: 700, display: 'block', marginBottom: '0.3rem' }}>
+          ✦ Instant Diagnostic Assessment
+        </span>
+        <h2 style={{ color: 'var(--wine)', margin: 0, lineHeight: 1.1, fontSize: 'clamp(2rem, 3.5vw, 2.6rem)' }}>
+          Discover Your <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Wellness Path</em>
+        </h2>
+      </div>
+
       {/* Top 3 Section Pill Tabs Navigation */}
       <div style={{ 
         display: 'flex', 

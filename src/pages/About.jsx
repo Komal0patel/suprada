@@ -697,7 +697,7 @@ export default function About({ onNavigate }) {
       {/* =========================================================================
           CHAPTER IV: Grand Interactive Monolith Exhibition Stage (Compact Edition)
           ========================================================================= */}
-      <section style={{ padding: '3.5rem 8%', position: 'relative', backgroundColor: 'var(--tea-green)' }}>
+      <section style={{ padding: '3.5rem 8%', position: 'relative', backgroundColor: 'var(--isabelline)' }}>
         <div style={{ maxWidth: '1020px', margin: '0 auto' }}>
           
           {/* Section Heading */}

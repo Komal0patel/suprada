@@ -218,7 +218,7 @@ function App() {
                   src="/assets/extracted/logo.svg" 
                   alt="Suprada Logo" 
                   style={{
-                    height: isMobile ? '28px' : '40px',
+                    height: isMobile ? '32px' : '46px',
                     filter: isLightHeader
                       ? 'drop-shadow(0 2px 6px rgba(94, 39, 53, 0.15))'
                       : 'drop-shadow(0 2px 8px rgba(0,0,0,0.5))'
@@ -228,7 +228,7 @@ function App() {
                   src="/assets/extracted/suprada-wellness.svg" 
                   alt="Suprada Wellness" 
                   style={{
-                    height: isMobile ? '15px' : '26px',
+                    height: isMobile ? '18px' : '30px',
                     filter: isLightHeader
                       ? 'brightness(0.22)'
                       : 'brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.5))'

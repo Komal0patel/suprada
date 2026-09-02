@@ -456,7 +456,7 @@ export default function About({ onNavigate }) {
       <section className="visionaries-section" style={{
         position: 'relative',
         overflow: 'hidden',
-        backgroundColor: 'var(--tea-green)',
+        background: 'linear-gradient(180deg, #ead9be 0%, #dce4d4 15%, var(--tea-green) 35%, var(--tea-green) 100%)',
         padding: '3.5rem 6%',
         minHeight: '100dvh',
         height: '100vh',

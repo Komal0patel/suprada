@@ -275,7 +275,7 @@ function App() {
 
               {/* Right Action: We're Hiring, Search Bar & Mobile Menu */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0, marginLeft: 'auto' }}>
-                {/* "We're Hiring" Aesthetic Pill Button */}
+                {/* "We're Hiring" Aesthetic Pill Button — Uniform Gold Style Across All Pages */}
                 <button
                   onClick={() => handlePageChange('careers')}
                   style={{
@@ -283,10 +283,10 @@ function App() {
                     alignItems: 'center',
                     gap: '0.35rem',
                     padding: '0.35rem 0.75rem',
-                    backgroundColor: isLightHeader ? 'rgba(184, 86, 69, 0.1)' : 'rgba(234, 169, 54, 0.18)',
-                    border: isLightHeader ? '1px solid rgba(184, 86, 69, 0.35)' : '1px solid rgba(234, 169, 54, 0.45)',
+                    backgroundColor: 'rgba(234, 169, 54, 0.18)',
+                    border: '1px solid rgba(234, 169, 54, 0.55)',
                     borderRadius: '50px',
-                    color: isLightHeader ? 'var(--redwood)' : 'var(--harvest-gold)',
+                    color: 'var(--harvest-gold)',
                     fontSize: '0.72rem',
                     letterSpacing: '0.03em',
                     fontWeight: 700,
@@ -294,18 +294,18 @@ function App() {
                     whiteSpace: 'nowrap',
                     flexShrink: 0,
                     transition: 'all 0.3s ease',
-                    boxShadow: isLightHeader ? '0 2px 8px rgba(184, 86, 69, 0.08)' : '0 2px 10px rgba(0,0,0,0.2)'
+                    boxShadow: '0 2px 10px rgba(0,0,0,0.2)'
                   }}
-                  className={isLightHeader ? 'hover-redwood' : 'hover-gold'}
+                  className="hover-gold"
                   aria-label="We are hiring - View Careers"
                 >
                   <span style={{
                     width: '6px',
                     height: '6px',
                     borderRadius: '50%',
-                    backgroundColor: isLightHeader ? 'var(--redwood)' : 'var(--harvest-gold)',
+                    backgroundColor: 'var(--harvest-gold)',
                     display: 'inline-block',
-                    boxShadow: isLightHeader ? '0 0 6px var(--redwood)' : '0 0 6px var(--harvest-gold)',
+                    boxShadow: '0 0 6px var(--harvest-gold)',
                     animation: 'pulse-dot 1.8s infinite ease-in-out'
                   }} />
                   <span>We're Hiring</span>

@@ -576,11 +576,14 @@ export default function About({ onNavigate }) {
       {/* =========================================================================
           CHAPTER III: Sacred Shloka Sanctum (Fitted to Screen Height)
           ========================================================================= */}
+      {/* =========================================================================
+          CHAPTER III: Sacred Shloka Sanctum (Fitted to Screen Height)
+          ========================================================================= */}
       <section style={{
         boxSizing: 'border-box',
         padding: '4rem 6%',
-        background: 'linear-gradient(135deg, #381420 0%, #220b13 60%, #15060b 100%)',
-        color: 'var(--isabelline)',
+        background: 'linear-gradient(135deg, #f5ebd9 0%, #f0e2cc 60%, #ead9be 100%)',
+        color: 'var(--wine)',
         position: 'relative',
         overflow: 'hidden',
         minHeight: '100dvh',
@@ -590,8 +593,8 @@ export default function About({ onNavigate }) {
         justifyContent: 'center',
         alignItems: 'center'
       }}>
-        {/* Ambient Golden Bokeh & Wine Radial Glows */}
-        <div style={{ position: 'absolute', top: '10%', left: '50%', transform: 'translateX(-50%)', maxWidth: '600px', width: '100%', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.16) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(90px)', pointerEvents: 'none', zIndex: 0 }} />
+        {/* Ambient Wine & Gold Radial Glows */}
+        <div style={{ position: 'absolute', top: '10%', left: '50%', transform: 'translateX(-50%)', maxWidth: '600px', width: '100%', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(94,39,53,0.08) 0%, rgba(94,39,53,0) 70%)', filter: 'blur(90px)', pointerEvents: 'none', zIndex: 0 }} />
 
         {/* Botanical Mandala Watermark */}
         <motion.div 
@@ -600,23 +603,23 @@ export default function About({ onNavigate }) {
             top: '50%', left: '50%',
             x: '-50%', y: '-50%',
             width: '650px', height: '650px',
-            opacity: 0.05, 
+            opacity: 0.06, 
             scale: shlokaMandalaScale,
             rotate: shlokaMandalaRotate,
             pointerEvents: 'none',
             zIndex: 1
           }}
         >
-          <Pattern25 style={{ width: '100%', height: '100%', color: 'var(--harvest-gold)' }} />
+          <Pattern25 style={{ width: '100%', height: '100%', color: 'var(--wine)' }} />
         </motion.div>
 
         <div style={{ maxWidth: '860px', width: '100%', margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           
-          <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.28em', fontSize: '0.72rem', fontWeight: 800, display: 'block', marginBottom: '0.8rem' }}>
+          <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.28em', fontSize: '0.72rem', fontWeight: 800, display: 'block', marginBottom: '0.8rem' }}>
             ✦ CHAPTER III • THE ETERNAL HARMONY
           </span>
 
-          <div style={{ display: 'inline-flex', gap: '0.4rem', backgroundColor: 'rgba(255, 255, 255, 0.06)', padding: '0.3rem 0.4rem', borderRadius: '30px', marginBottom: '1.6rem', border: '1px solid rgba(220, 160, 50, 0.25)', boxShadow: '0 8px 25px rgba(0,0,0,0.2)' }}>
+          <div style={{ display: 'inline-flex', gap: '0.4rem', backgroundColor: '#ffffff', padding: '0.3rem 0.4rem', borderRadius: '30px', marginBottom: '1.6rem', border: '1.5px solid rgba(94, 39, 53, 0.18)', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.06)' }}>
             {[
               { id: 'sanskrit', label: 'Sanskrit Original' },
               { id: 'phonetics', label: 'Phonetics' },
@@ -629,8 +632,8 @@ export default function About({ onNavigate }) {
                   padding: '0.5rem 1.4rem',
                   borderRadius: '24px',
                   border: 'none',
-                  backgroundColor: shlokaTab === tab.id ? 'var(--harvest-gold)' : 'transparent',
-                  color: shlokaTab === tab.id ? '#250c14' : 'var(--tan)',
+                  backgroundColor: shlokaTab === tab.id ? 'var(--wine)' : 'transparent',
+                  color: shlokaTab === tab.id ? '#ffffff' : 'var(--wine)',
                   fontSize: '0.78rem',
                   fontWeight: 700,
                   cursor: 'pointer',
@@ -642,8 +645,8 @@ export default function About({ onNavigate }) {
             ))}
           </div>
 
-          <h3 style={{color: 'var(--tan)', lineHeight: 1.5, marginBottom: '2rem', letterSpacing: '0.01em', maxWidth: '780px'}}>
-            At Suprada, your journey is no longer a series of separate stops. It is <span style={{ color: '#ffffff', borderBottom: '1.5px solid var(--harvest-gold)', paddingBottom: '3px' }}>The One Healing Journey</span> where you finally become one.
+          <h3 style={{color: 'var(--wine)', lineHeight: 1.5, marginBottom: '2rem', letterSpacing: '0.01em', maxWidth: '780px'}}>
+            At Suprada, your journey is no longer a series of separate stops. It is <span style={{ color: 'var(--redwood)', borderBottom: '1.5px solid var(--redwood)', paddingBottom: '3px', fontWeight: 700 }}>The One Healing Journey</span> where you finally become one.
           </h3>
 
           <motion.div 
@@ -652,7 +655,7 @@ export default function About({ onNavigate }) {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             style={{ 
-              border: '2px solid var(--harvest-gold)', 
+              border: '2px solid var(--wine)', 
               padding: '1.8rem 1.4rem', 
               borderRadius: '50%', 
               width: '100%', 
@@ -663,27 +666,27 @@ export default function About({ onNavigate }) {
               alignItems: 'center', 
               justifyContent: 'center',
               margin: '0 auto',
-              backgroundColor: 'rgba(32, 11, 19, 0.85)',
+              backgroundColor: 'rgba(255, 255, 255, 0.78)',
               backdropFilter: 'blur(16px)',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.45), inset 0 0 35px rgba(220,160,50,0.15)'
+              boxShadow: '0 15px 45px rgba(94, 39, 53, 0.12), inset 0 0 25px rgba(94, 39, 53, 0.04)'
             }}
           >
-            <span style={{ color: 'var(--harvest-gold)', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.18em', display: 'block', marginBottom: '0.6rem', fontWeight: 800 }}>Guiding Shloka</span>
+            <span style={{ color: 'var(--redwood)', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.18em', display: 'block', marginBottom: '0.6rem', fontWeight: 800 }}>Guiding Shloka</span>
             
             {shlokaTab === 'sanskrit' && (
-              <h4 className="gold-foil-text" style={{letterSpacing: '0.01em', margin: 0, lineHeight: 1.4, color: 'var(--harvest-gold)'}}>
+              <h4 style={{letterSpacing: '0.01em', margin: 0, lineHeight: 1.4, color: 'var(--wine)', fontWeight: 700, fontSize: '1.15rem'}}>
                 शरीरेन्द्रिय सत्त्वात्म संयोगे धारी जीवितम् इति आयुः
               </h4>
             )}
 
             {shlokaTab === 'phonetics' && (
-              <h5 style={{color: 'var(--tan)', fontStyle: 'italic', lineHeight: 1.4, margin: 0, maxWidth: '220px'}}>
+              <h5 style={{color: 'var(--wine)', fontStyle: 'italic', lineHeight: 1.4, margin: 0, maxWidth: '220px', fontWeight: 600}}>
                 "Sharirendriya satva atma samyoge dhari jivitam iti ayu"
               </h5>
             )}
 
             {shlokaTab === 'meaning' && (
-              <p style={{ fontSize: '0.78rem', color: '#ffffff', opacity: 0.95, maxWidth: '220px', lineHeight: 1.45, margin: 0 }}>
+              <p style={{ fontSize: '0.8rem', color: 'var(--raisin-black)', opacity: 0.92, maxWidth: '220px', lineHeight: 1.45, margin: 0, fontWeight: 500 }}>
                 "Life is the continuous, harmonious union of body, senses, mind, and soul."
               </p>
             )}

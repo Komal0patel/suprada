@@ -707,7 +707,7 @@ export default function Home({ onNavigate }) {
     }
   };
   const [activeExpert, setActiveExpert] = useState(0);
-  const [activeCareCategory, setActiveCareCategory] = useState('All Interventions');
+  const [activeCareCategory, setActiveCareCategory] = useState('detoxification');
   const [quizSelections, setQuizSelections] = useState({
     dosha: 'Vata',
     detox: 'Mild Fatigue',
@@ -2396,156 +2396,391 @@ export default function Home({ onNavigate }) {
         </div>
       </section>
 
-      {/* Section 2: Comprehensive Care (Split Interactive Clinical Showcase) */}
-      <section style={{ backgroundColor: 'var(--sage)', color: 'var(--wine)', padding: '2.5rem 5%', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+      {/* Section 2: Comprehensive Care (Split Interactive Clinical Showcase - 12 Disease Conditions) */}
+      <section style={{ backgroundColor: 'var(--sage)', color: 'var(--wine)', padding: '3.5rem 5%', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ maxWidth: '1320px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           
-          <div style={{ textAlign: 'center', marginBottom: '1.4rem' }}>
-            <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.7rem', fontWeight: 700, display: 'block', marginBottom: '0.2rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.72rem', fontWeight: 800, display: 'block', marginBottom: '0.3rem' }}>
               ✦ Targeted Clinical Interventions
             </span>
-            <h2 style={{color: 'var(--wine)', margin: 0, lineHeight: 1.1}}>
+            <h2 style={{color: 'var(--wine)', margin: 0, lineHeight: 1.15}}>
               Comprehensive <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Clinical Spectrum</em>
             </h2>
+            <p style={{ fontSize: '0.85rem', color: 'var(--wine)', opacity: 0.88, maxWidth: '640px', margin: '0.5rem auto 0 auto', lineHeight: 1.6 }}>
+              Select any of our 12 specialized doctor-supervised clinical conditions to explore active natural treatment protocols & core medical modalities.
+            </p>
           </div>
 
           {/* 2-Column Split Interactive Stage */}
-          <div className="clinical-stage-container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))', gap: '1.3rem', alignItems: 'stretch' }}>
+          <div className="clinical-stage-container" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '1.5rem', alignItems: 'start' }}>
             
-            {/* Left Interactive Category Selector */}
-            <div className="clinical-categories-selector" style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem', height: '100%' }}>
+            {/* Left Interactive 12 Cards Grid */}
+            <div className="clinical-categories-selector" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '0.75rem', maxHeight: '680px', overflowY: 'auto', paddingRight: '0.4rem' }}>
               {[
-                { id: 'Internal & Metabolic', title: 'Internal & Metabolic Health', count: '6 Therapies', desc: 'Cellular detox, diabetes reversal & metabolic restoration.' },
-                { id: 'Nervous System', title: 'Nervous System & Mind', count: '5 Therapies', desc: 'Shirodhara, insomnia recovery & neurological stress reset.' },
-                { id: 'Joints & Vitality', title: 'Joints & Spinal Rehab', count: '4 Therapies', desc: 'Hydro-kinesiology, herbal poultice & spinal realignments.' },
-                { id: 'Cardiovascular Care', title: 'Vascular & Cardiorespiratory', count: '4 Therapies', desc: 'Arterial cleansing pranayama & bio-monitored recovery.' }
+                {
+                  id: 'detoxification',
+                  num: '01',
+                  title: 'Detoxification & Renewal',
+                  tagline: 'Cellular detox, organ flushes & metabolic purification.',
+                  duration: '7 to 21 Days',
+                  protocolTitle: 'Deep Cellular Cleansing & Bio-Metabolic Flush',
+                  fullDesc: 'A doctor-supervised drugless clinical protocol designed to cleanse liver, kidneys, colon, and lymphatic systems through evidence-based hydrotherapy, therapeutic mud baths, bio-fasting, and raw botanical infusions.',
+                  modalities: ['Hydrotherapy Cleansing', 'Therapeutic Mud Packs', 'Raw Juice Fasting', 'Kunjal Kriya', 'Lymphatic Grounding']
+                },
+                {
+                  id: 'diabetes-management',
+                  num: '02',
+                  title: 'Diabetes Management',
+                  tagline: 'Insulin sensitivity restoration & glycemic stabilization.',
+                  duration: '14 to 28 Days',
+                  protocolTitle: 'Glycemic Re-education & Pancreatic Revitalization',
+                  fullDesc: 'Integrative glycemic management protocol focusing on reversing insulin resistance, regulating HbA1c, and rebuilding pancreatic vitality using targeted plant-based clinical nutrition, hydro-kinesiology, and specific yogic asanas.',
+                  modalities: ['Pancreatic Asana Series', 'Low-GI Satwik Nutrition', 'Herbal Hydro-Packs', 'Continuous Glucose Monitoring', 'Stress Cortisol Reset']
+                },
+                {
+                  id: 'neurological-disorders',
+                  num: '03',
+                  title: 'Neurological Disorders',
+                  tagline: 'Neuro-restorative therapies, Shirodhara & stress reset.',
+                  duration: '14 to 21 Days',
+                  protocolTitle: 'Neuro-Regenerative Rest & Shirodhara Rejuvenation',
+                  fullDesc: 'Specialized neurological rehabilitation protocol targeting Parkinson\'s support, neuropathies, insomnia, and chronic anxiety through rhythmic warm oil Shirodhara, cranial grounding, and deep autonomic nervous system reset.',
+                  modalities: ['Continuous Shirodhara', 'Cranial Grounding', 'Nadi Shodhana Pranayama', 'Neuro-Nutritional Therapy', 'Circadian Rhythm Reset']
+                },
+                {
+                  id: 'liver-diseases',
+                  num: '04',
+                  title: 'Liver Health & Hepatic Care',
+                  tagline: 'Fatty liver reversal, biliary flush & hepatic cleansing.',
+                  duration: '10 to 21 Days',
+                  protocolTitle: 'Hepatic Regeneration & Biliary Flush',
+                  fullDesc: 'Intensive hepatic restoration program designed to reduce liver inflammation, resolve non-alcoholic fatty liver (NAFLD), and optimize bile secretion through abdominal mud packs, hydro-poultices, and enzyme-rich botanical nutrition.',
+                  modalities: ['Abdominal Mud Compresses', 'Cold Hepatic Packs', 'Enzyme Juice Protocols', 'Castor Oil Packs', 'Gentle Liver Yoga']
+                },
+                {
+                  id: 'obesity-and-weight-imbalance',
+                  num: '05',
+                  title: 'Obesity & Weight Imbalance',
+                  tagline: 'Visceral fat reduction & metabolic acceleration.',
+                  duration: '14 to 28 Days',
+                  protocolTitle: 'Visceral Fat Reduction & Body Composition Reset',
+                  fullDesc: 'Holistic weight management program targeting stubborn visceral fat, leptin resistance, and metabolic slowdown using vigorous hydro-massage, thermal steam baths, bio-fasting, and daily high-burn yogic kriya.',
+                  modalities: ['Under-Water Jet Massage', 'Therapeutic Steam Baths', 'Udvarthana Herbal Scrub', 'Thermic Satwik Diet', 'Barefoot Riverland Walking']
+                },
+                {
+                  id: 'heart-and-cardiovascular-conditions',
+                  num: '06',
+                  title: 'Heart & Cardiovascular Care',
+                  tagline: 'Arterial health, blood pressure & vascular de-stressing.',
+                  duration: '14 to 21 Days',
+                  protocolTitle: 'Vascular De-Stressing & Arterial Tonification',
+                  fullDesc: 'Doctor-monitored cardiovascular wellness protocol designed to normalize hypertension, lower arterial stiffness, and enhance cardiac output through gentle hydro-baths, specialized pranayama, and heart-healthy bio-nutrition.',
+                  modalities: ['Arm & Foot Hydro-Baths', 'Cardio-Protective Herbs', 'Deep Cardiac Pranayama', 'Sodium-Balancing Diet', 'Stress Elimination Yoga']
+                },
+                {
+                  id: 'hormonal-disorders',
+                  num: '07',
+                  title: 'Hormonal Disorders & Endocrine',
+                  tagline: 'Thyroid balancing, PCOS/PCOD & adrenal exhaustion reset.',
+                  duration: '14 to 21 Days',
+                  protocolTitle: 'Endocrine System Synchronization & Adrenal Reset',
+                  fullDesc: 'Targeted endocrine realignment protocol for thyroid imbalances, PCOS/PCOD, and adrenal exhaustion. Combines glandular hydro-packs, endocrine-stimulating yoga postures, and adaptogenic botanical nutrition.',
+                  modalities: ['Thyroid Hydro Compresses', 'PCOS Pelvic Packs', 'Endocrine Asana Series', 'Seed Cycling Nutrition', 'Adrenal De-stress Yoga']
+                },
+                {
+                  id: 'rheumatoid-arthritis-and-joint-disorders',
+                  num: '08',
+                  title: 'Rheumatoid Arthritis & Joints',
+                  tagline: 'Cartilage lubrication, swelling reduction & mobility rehab.',
+                  duration: '14 to 28 Days',
+                  protocolTitle: 'Hydro-Kinesiology & Inflammatory Arthritis Relief',
+                  fullDesc: 'Specialized rheumatological protocol reducing joint swelling, morning stiffness, and autoimmune flare-ups through warm mineral hydrotherapy, herbal oil fomentation, anti-inflammatory nutrition, and pool exercise.',
+                  modalities: ['Warm Mineral Baths', 'Janu Basti Oil Reservoirs', 'Herbal Steam Poultice', 'Anti-Inflammatory Nutrition', 'Hydro-Kinesiology']
+                },
+                {
+                  id: 'respiratory-diseases',
+                  num: '09',
+                  title: 'Respiratory & Pulmonary Care',
+                  tagline: 'Lung capacity expansion, asthma relief & sinus clearing.',
+                  duration: '7 to 14 Days',
+                  protocolTitle: 'Bronchial Cleansing & Pulmonary Expansion',
+                  fullDesc: 'Clinical respiratory care protocol designed for asthma, chronic bronchitis, sinusitis, and post-viral pulmonary recovery using saline Neti, chest steam poultices, oxygenating pranayama, and pristine riverfront clean air.',
+                  modalities: ['Jala & Sutra Neti', 'Chest Herbal Steam Poultice', 'Kapalbhati Pulmonary Kriya', 'Bronchial Hydro Compresses', 'Eucalyptus Steam']
+                },
+                {
+                  id: 'stress-and-emotional-management',
+                  num: '10',
+                  title: 'Stress & Emotional Wellbeing',
+                  tagline: 'Burnout reversal, anxiety relief & forest immersion.',
+                  duration: '7 to 14 Days',
+                  protocolTitle: 'Autonomic Nervous System Reset & Mindful Healing',
+                  fullDesc: 'A deeply calming retreat protocol for mental exhaustion, occupational burnout, and emotional trauma. Combines forest bathing on our 54-acre estate, Yoga Nidra sound immersion, and therapeutic hydro-relaxation.',
+                  modalities: ['Yoga Nidra Sound Sanctum', 'Forest River Bathing', 'Shirodhara Oil Therapy', 'Silent Meditation', 'Mindful Organic Dining']
+                },
+                {
+                  id: 'cancer-care-and-recovery-support',
+                  num: '11',
+                  title: 'Cancer Care & Recovery Support',
+                  tagline: 'Post-oncology vitality rebuilding & immune fortification.',
+                  duration: '14 to 28 Days',
+                  protocolTitle: 'Integrative Vitality Rebuilding & Immune Fortification',
+                  fullDesc: 'Gentle, doctor-monitored supportive care protocol designed to alleviate chemotherapy/radiation side effects, boost natural killer cell activity, reduce systemic inflammation, and nourish body & spirit.',
+                  modalities: ['Gentle Detox Hydrotherapy', 'Immune-Boosting Bio-Nutrition', 'Pranic Healing & Yoga', 'Lymphatic Drainage', 'Emotional Sanctuary']
+                },
+                {
+                  id: 'digestion-and-gut-health',
+                  num: '12',
+                  title: 'Digestion & Gut Health',
+                  tagline: 'IBS reversal, acid reflux, leaky gut & microbiome reset.',
+                  duration: '7 to 21 Days',
+                  protocolTitle: 'Gastrointestinal Realignment & Microbiome Reset',
+                  fullDesc: 'Comprehensive gastrointestinal protocol restoring gut barrier integrity, digestive fire (Agni), and microbial diversity through mud packs, probiotic fermented Satwik elixirs, Enema hydro-cleansing, and digestive yoga.',
+                  modalities: ['Abdominal Mud Packs', 'Gastro Hydro-Enema', 'Probiotic Satwik Elixirs', 'Agni Deepana Spices', 'Digestive Asana Flow']
+                }
               ].map((item, idx) => {
-                const isActive = activeCareCategory === item.id || (activeCareCategory === 'All Conditions' && idx === 0);
+                const isActive = activeCareCategory === item.id;
                 return (
                   <motion.div 
-                    key={idx}
+                    key={item.id}
                     onClick={() => setActiveCareCategory(item.id)}
-                    whileHover={{ x: 4 }}
+                    whileHover={{ scale: 1.015, x: 2 }}
                     style={{
                       backgroundColor: isActive ? 'var(--wine)' : '#ffffff',
                       color: isActive ? 'var(--tan)' : 'var(--wine)',
-                      border: isActive ? '1.5px solid var(--harvest-gold)' : '1px solid rgba(94, 39, 53, 0.12)',
+                      border: isActive ? '1.5px solid var(--harvest-gold)' : '1px solid rgba(94, 39, 53, 0.14)',
                       borderRadius: '14px',
-                      padding: '0.9rem 1.1rem',
+                      padding: '1rem 1.15rem',
                       cursor: 'pointer',
                       transition: 'all 0.3s ease',
-                      boxShadow: isActive ? '0 8px 20px rgba(94, 39, 53, 0.18)' : '0 2px 10px rgba(94, 39, 53, 0.03)',
+                      boxShadow: isActive ? '0 10px 25px rgba(94, 39, 53, 0.2)' : '0 2px 10px rgba(94, 39, 53, 0.03)',
                       display: 'flex',
+                      flexDirection: 'column',
                       justifyContent: 'space-between',
-                      alignItems: 'center',
-                      flex: 1
+                      gap: '0.5rem'
                     }}
                   >
                     <div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.15rem' }}>
-                        <span style={{ fontSize: '0.65rem', color: isActive ? 'var(--harvest-gold)' : 'var(--redwood)', fontWeight: 800 }}>
-                          ✦ 0{idx + 1}
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.35rem' }}>
+                        <span style={{ fontSize: '0.65rem', color: isActive ? 'var(--harvest-gold)' : 'var(--redwood)', fontWeight: 800, letterSpacing: '0.08em' }}>
+                          ✦ {item.num}
                         </span>
-                        <h3 style={{margin: 0}}>
-                          {item.title}
-                        </h3>
+                        <span style={{
+                          fontSize: '0.6rem',
+                          fontWeight: 800,
+                          padding: '0.18rem 0.5rem',
+                          borderRadius: '8px',
+                          backgroundColor: isActive ? 'var(--harvest-gold)' : 'rgba(184, 94, 76, 0.12)',
+                          color: isActive ? '#2B1219' : 'var(--redwood)',
+                          flexShrink: 0
+                        }}>
+                          {item.duration}
+                        </span>
                       </div>
-                      <p style={{ fontSize: '0.78rem', opacity: isActive ? 0.9 : 0.75, margin: 0, lineHeight: 1.35 }}>
-                        {item.desc}
+
+                      <h3 style={{ margin: '0 0 0.25rem 0', fontSize: '0.92rem', lineHeight: 1.25, fontWeight: 700, color: isActive ? '#ffffff' : 'var(--wine)' }}>
+                        {item.title}
+                      </h3>
+                      
+                      <p style={{ fontSize: '0.76rem', opacity: isActive ? 0.9 : 0.78, margin: 0, lineHeight: 1.38 }}>
+                        {item.tagline}
                       </p>
                     </div>
-
-                    <span style={{
-                      fontSize: '0.62rem',
-                      fontWeight: 800,
-                      padding: '0.2rem 0.55rem',
-                      borderRadius: '10px',
-                      backgroundColor: isActive ? 'var(--harvest-gold)' : 'rgba(184, 94, 76, 0.12)',
-                      color: isActive ? '#2B1219' : 'var(--redwood)',
-                      flexShrink: 0,
-                      marginLeft: '0.6rem'
-                    }}>
-                      {item.count}
-                    </span>
                   </motion.div>
                 );
               })}
             </div>
 
-            {/* Right Active Clinical Protocol Feature Showcase Stage */}
-            <div style={{
-              backgroundColor: '#ffffff',
-              border: '1.5px solid rgba(94, 39, 53, 0.14)',
-              borderRadius: '16px',
-              padding: '1.6rem',
-              boxShadow: '0 10px 30px rgba(94, 39, 53, 0.05)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              gap: '1rem'
-            }}>
-              <div>
-                <div className="flex-stack-mobile" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.7rem' }}>
-                  <span style={{ fontSize: '0.68rem', color: 'var(--redwood)', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-                    <Star size={10} style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Active Clinical Protocol
-                  </span>
-                  <span style={{ fontSize: '0.65rem', backgroundColor: 'rgba(94, 39, 53, 0.08)', color: 'var(--wine)', padding: '0.25rem 0.7rem', borderRadius: '12px', fontWeight: 800 }}>
-                    7 to 21 Days Protocol
-                  </span>
-                </div>
+            {/* Right Active Clinical Protocol Feature Showcase Stage (Detail Card) */}
+            {(() => {
+              const allDiseases = [
+                {
+                  id: 'detoxification',
+                  num: '01',
+                  title: 'Detoxification & Renewal',
+                  duration: '7 to 21 Days',
+                  protocolTitle: 'Deep Cellular Cleansing & Bio-Metabolic Flush',
+                  fullDesc: 'A doctor-supervised drugless clinical protocol designed to cleanse liver, kidneys, colon, and lymphatic systems through evidence-based hydrotherapy, therapeutic mud baths, bio-fasting, and raw botanical infusions.',
+                  modalities: ['Hydrotherapy Cleansing', 'Therapeutic Mud Packs', 'Raw Juice Fasting', 'Kunjal Kriya', 'Lymphatic Grounding']
+                },
+                {
+                  id: 'diabetes-management',
+                  num: '02',
+                  title: 'Diabetes Management',
+                  duration: '14 to 28 Days',
+                  protocolTitle: 'Glycemic Re-education & Pancreatic Revitalization',
+                  fullDesc: 'Integrative glycemic management protocol focusing on reversing insulin resistance, regulating HbA1c, and rebuilding pancreatic vitality using targeted plant-based clinical nutrition, hydro-kinesiology, and specific yogic asanas.',
+                  modalities: ['Pancreatic Asana Series', 'Low-GI Satwik Nutrition', 'Herbal Hydro-Packs', 'Continuous Glucose Monitoring', 'Stress Cortisol Reset']
+                },
+                {
+                  id: 'neurological-disorders',
+                  num: '03',
+                  title: 'Neurological Disorders',
+                  duration: '14 to 21 Days',
+                  protocolTitle: 'Neuro-Regenerative Rest & Shirodhara Rejuvenation',
+                  fullDesc: 'Specialized neurological rehabilitation protocol targeting Parkinson\'s support, neuropathies, insomnia, and chronic anxiety through rhythmic warm oil Shirodhara, cranial grounding, and deep autonomic nervous system reset.',
+                  modalities: ['Continuous Shirodhara', 'Cranial Grounding', 'Nadi Shodhana Pranayama', 'Neuro-Nutritional Therapy', 'Circadian Rhythm Reset']
+                },
+                {
+                  id: 'liver-diseases',
+                  num: '04',
+                  title: 'Liver Health & Hepatic Care',
+                  duration: '10 to 21 Days',
+                  protocolTitle: 'Hepatic Regeneration & Biliary Flush',
+                  fullDesc: 'Intensive hepatic restoration program designed to reduce liver inflammation, resolve non-alcoholic fatty liver (NAFLD), and optimize bile secretion through abdominal mud packs, hydro-poultices, and enzyme-rich botanical nutrition.',
+                  modalities: ['Abdominal Mud Compresses', 'Cold Hepatic Packs', 'Enzyme Juice Protocols', 'Castor Oil Packs', 'Gentle Liver Yoga']
+                },
+                {
+                  id: 'obesity-and-weight-imbalance',
+                  num: '05',
+                  title: 'Obesity & Weight Imbalance',
+                  duration: '14 to 28 Days',
+                  protocolTitle: 'Visceral Fat Reduction & Body Composition Reset',
+                  fullDesc: 'Holistic weight management program targeting stubborn visceral fat, leptin resistance, and metabolic slowdown using vigorous hydro-massage, thermal steam baths, bio-fasting, and daily high-burn yogic kriya.',
+                  modalities: ['Under-Water Jet Massage', 'Therapeutic Steam Baths', 'Udvarthana Herbal Scrub', 'Thermic Satwik Diet', 'Barefoot Riverland Walking']
+                },
+                {
+                  id: 'heart-and-cardiovascular-conditions',
+                  num: '06',
+                  title: 'Heart & Cardiovascular Care',
+                  duration: '14 to 21 Days',
+                  protocolTitle: 'Vascular De-Stressing & Arterial Tonification',
+                  fullDesc: 'Doctor-monitored cardiovascular wellness protocol designed to normalize hypertension, lower arterial stiffness, and enhance cardiac output through gentle hydro-baths, specialized pranayama, and heart-healthy bio-nutrition.',
+                  modalities: ['Arm & Foot Hydro-Baths', 'Cardio-Protective Herbs', 'Deep Cardiac Pranayama', 'Sodium-Balancing Diet', 'Stress Elimination Yoga']
+                },
+                {
+                  id: 'hormonal-disorders',
+                  num: '07',
+                  title: 'Hormonal Disorders & Endocrine',
+                  duration: '14 to 21 Days',
+                  protocolTitle: 'Endocrine System Synchronization & Adrenal Reset',
+                  fullDesc: 'Targeted endocrine realignment protocol for thyroid imbalances, PCOS/PCOD, and adrenal exhaustion. Combines glandular hydro-packs, endocrine-stimulating yoga postures, and adaptogenic botanical nutrition.',
+                  modalities: ['Thyroid Hydro Compresses', 'PCOS Pelvic Packs', 'Endocrine Asana Series', 'Seed Cycling Nutrition', 'Adrenal De-stress Yoga']
+                },
+                {
+                  id: 'rheumatoid-arthritis-and-joint-disorders',
+                  num: '08',
+                  title: 'Rheumatoid Arthritis & Joints',
+                  duration: '14 to 28 Days',
+                  protocolTitle: 'Hydro-Kinesiology & Inflammatory Arthritis Relief',
+                  fullDesc: 'Specialized rheumatological protocol reducing joint swelling, morning stiffness, and autoimmune flare-ups through warm mineral hydrotherapy, herbal oil fomentation, anti-inflammatory nutrition, and pool exercise.',
+                  modalities: ['Warm Mineral Baths', 'Janu Basti Oil Reservoirs', 'Herbal Steam Poultice', 'Anti-Inflammatory Nutrition', 'Hydro-Kinesiology']
+                },
+                {
+                  id: 'respiratory-diseases',
+                  num: '09',
+                  title: 'Respiratory & Pulmonary Care',
+                  duration: '7 to 14 Days',
+                  protocolTitle: 'Bronchial Cleansing & Pulmonary Expansion',
+                  fullDesc: 'Clinical respiratory care protocol designed for asthma, chronic bronchitis, sinusitis, and post-viral pulmonary recovery using saline Neti, chest steam poultices, oxygenating pranayama, and pristine riverfront clean air.',
+                  modalities: ['Jala & Sutra Neti', 'Chest Herbal Steam Poultice', 'Kapalbhati Pulmonary Kriya', 'Bronchial Hydro Compresses', 'Eucalyptus Steam']
+                },
+                {
+                  id: 'stress-and-emotional-management',
+                  num: '10',
+                  title: 'Stress & Emotional Wellbeing',
+                  duration: '7 to 14 Days',
+                  protocolTitle: 'Autonomic Nervous System Reset & Mindful Healing',
+                  fullDesc: 'A deeply calming retreat protocol for mental exhaustion, occupational burnout, and emotional trauma. Combines forest bathing on our 54-acre estate, Yoga Nidra sound immersion, and therapeutic hydro-relaxation.',
+                  modalities: ['Yoga Nidra Sound Sanctum', 'Forest River Bathing', 'Shirodhara Oil Therapy', 'Silent Meditation', 'Mindful Organic Dining']
+                },
+                {
+                  id: 'cancer-care-and-recovery-support',
+                  num: '11',
+                  title: 'Cancer Care & Recovery Support',
+                  duration: '14 to 28 Days',
+                  protocolTitle: 'Integrative Vitality Rebuilding & Immune Fortification',
+                  fullDesc: 'Gentle, doctor-monitored supportive care protocol designed to alleviate chemotherapy/radiation side effects, boost natural killer cell activity, reduce systemic inflammation, and nourish body & spirit.',
+                  modalities: ['Gentle Detox Hydrotherapy', 'Immune-Boosting Bio-Nutrition', 'Pranic Healing & Yoga', 'Lymphatic Drainage', 'Emotional Sanctuary']
+                },
+                {
+                  id: 'digestion-and-gut-health',
+                  num: '12',
+                  title: 'Digestion & Gut Health',
+                  duration: '7 to 21 Days',
+                  protocolTitle: 'Gastrointestinal Realignment & Microbiome Reset',
+                  fullDesc: 'Comprehensive gastrointestinal protocol restoring gut barrier integrity, digestive fire (Agni), and microbial diversity through mud packs, probiotic fermented Satwik elixirs, Enema hydro-cleansing, and digestive yoga.',
+                  modalities: ['Abdominal Mud Packs', 'Gastro Hydro-Enema', 'Probiotic Satwik Elixirs', 'Agni Deepana Spices', 'Digestive Asana Flow']
+                }
+              ];
 
-                <h3 style={{color: 'var(--wine)', margin: '0 0 0.4rem 0', lineHeight: 1.25}}>
-                  {activeCareCategory === 'Nervous System' ? 'Neurological Rest & Shirodhara Rejuvenation' :
-                   activeCareCategory === 'Joints & Vitality' ? 'Spinal Rehabilitation & Joint Hydro-Kinesiology' :
-                   activeCareCategory === 'Cardiovascular Care' ? 'Vascular Pranayama & Metabolic Cleanse' :
-                   'Deep Cellular Detoxification & Metabolic Sync'}
-                </h3>
+              const activeDisease = allDiseases.find(d => d.id === activeCareCategory) || allDiseases[0];
+              return (
+                <div style={{
+                  backgroundColor: '#ffffff',
+                  border: '1.5px solid rgba(94, 39, 53, 0.16)',
+                  borderRadius: '20px',
+                  padding: '2rem',
+                  boxShadow: '0 15px 40px rgba(94, 39, 53, 0.08)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  gap: '1.2rem',
+                  position: 'sticky',
+                  top: '100px'
+                }}>
+                  <div>
+                    <div className="flex-stack-mobile" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood)', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
+                        <Star size={12} style={{ color: 'var(--redwood)' }} /> Active Clinical Protocol
+                      </span>
+                      <span style={{ fontSize: '0.68rem', backgroundColor: 'rgba(94, 39, 53, 0.08)', color: 'var(--wine)', padding: '0.3rem 0.8rem', borderRadius: '12px', fontWeight: 800 }}>
+                        {activeDisease.duration} Protocol
+                      </span>
+                    </div>
 
-                <p style={{ fontSize: '0.84rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
-                  A doctor-supervised drugless clinical protocol integrating target hydrotherapy, therapeutic mud applications, custom Satwik organic nutrition, and bio-feedback vital tracking.
-                </p>
-              </div>
+                    <h3 style={{ color: 'var(--wine)', margin: '0 0 0.6rem 0', lineHeight: 1.25, fontSize: '1.25rem', fontWeight: 700 }}>
+                      {activeDisease.protocolTitle}
+                    </h3>
 
-              {/* Modalities Chips */}
-              <div>
-                <span style={{ fontSize: '0.68rem', color: 'var(--wine)', fontWeight: 700, display: 'block', marginBottom: '0.45rem' }}>
-                  Core Medical Modalities Included:
-                </span>
-                <div style={{ display: 'flex', gap: '0.45rem', flexWrap: 'wrap' }}>
-                  {['Hydrotherapy Cleansing', 'Shirodhara Oil Flow', 'Satwik Organic Diet', 'Bio-Fasting Protocol', 'Barefoot Grounding'].map((m, mIdx) => (
-                    <span 
-                      key={mIdx}
-                      style={{
-                        padding: '0.28rem 0.7rem',
-                        borderRadius: '12px',
-                        backgroundColor: 'rgba(184, 94, 76, 0.08)',
-                        color: 'var(--redwood)',
-                        fontSize: '0.72rem',
-                        fontWeight: 700
-                      }}
-                    >
-                      ✦ {m}
+                    <p style={{ fontSize: '0.86rem', color: 'var(--raisin-black)', opacity: 0.88, lineHeight: 1.6, margin: '0 0 1.2rem 0' }}>
+                      {activeDisease.fullDesc}
+                    </p>
+                  </div>
+
+                  {/* Modalities Chips */}
+                  <div>
+                    <span style={{ fontSize: '0.72rem', color: 'var(--wine)', fontWeight: 800, display: 'block', marginBottom: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                      Core Medical Modalities Included:
                     </span>
-                  ))}
-                </div>
-              </div>
+                    <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                      {activeDisease.modalities.map((m, mIdx) => (
+                        <span 
+                          key={mIdx}
+                          style={{
+                            padding: '0.35rem 0.8rem',
+                            borderRadius: '12px',
+                            backgroundColor: 'rgba(184, 94, 76, 0.08)',
+                            color: 'var(--redwood)',
+                            fontSize: '0.75rem',
+                            fontWeight: 700,
+                            border: '1px solid rgba(184, 94, 76, 0.2)'
+                          }}
+                        >
+                          ✦ {m}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
 
-              {/* Action Button */}
-              <div className="flex-stack-mobile" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '1rem', borderTop: '1px solid rgba(94, 39, 53, 0.08)' }}>
-                <div>
-                  <span style={{ fontSize: '0.68rem', color: 'var(--wine)', opacity: 0.75, display: 'block' }}>Clinical Assessment</span>
-                  <span style={{ fontSize: '0.88rem', color: 'var(--wine)', fontWeight: 800 }}>100% Drugless Naturopathy</span>
-                </div>
-                <button 
-                  onClick={() => onNavigate('contact')}
-                  className="btn-luxury"
-                  style={{ padding: '0.75rem 1.8rem', fontSize: '0.75rem' }}
-                >
-                  Schedule Assessment &rarr;
-                </button>
-              </div>
+                  {/* Action Button & Doctor Note */}
+                  <div className="flex-stack-mobile" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '1.2rem', borderTop: '1px solid rgba(94, 39, 53, 0.1)', flexWrap: 'wrap', gap: '0.8rem' }}>
+                    <div>
+                      <span style={{ fontSize: '0.68rem', color: 'var(--wine)', opacity: 0.75, display: 'block' }}>Clinical Oversight</span>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--wine)', fontWeight: 800 }}>100% Drugless Naturopathy</span>
+                    </div>
+                    <button 
+                      onClick={() => onNavigate('contact')}
+                      className="btn-luxury"
+                      style={{ padding: '0.8rem 1.8rem', fontSize: '0.78rem' }}
+                    >
+                      Schedule Assessment &rarr;
+                    </button>
+                  </div>
 
-            </div>
+                </div>
+              );
+            })()}
 
           </div>
 

@@ -169,7 +169,8 @@ function App() {
         {/* --- UNIVERSAL DYNAMIC LIGHT/DARK ADAPTIVE HEADER NAVBAR --- */}
         {/* ========================================================================= */}
         {(() => {
-          const isLightHeader = currentPage !== 'home' || scrollYPos > 200;
+          const isDarkHeroPage = currentPage === 'home' || currentPage === 'contact';
+          const isLightHeader = !isDarkHeroPage || scrollYPos > 200;
 
           return (
             <nav 

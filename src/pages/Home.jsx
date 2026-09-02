@@ -708,7 +708,6 @@ export default function Home({ onNavigate }) {
   };
   const [activeExpert, setActiveExpert] = useState(0);
   const [activeCareCategory, setActiveCareCategory] = useState('All Interventions');
-  const [expandedPillar, setExpandedPillar] = useState(0);
   const [quizSelections, setQuizSelections] = useState({
     dosha: 'Vata',
     detox: 'Mild Fatigue',
@@ -2594,61 +2593,7 @@ export default function Home({ onNavigate }) {
         </div>
       </section>
 
-      {/* Section 4: Why Choose Suprada */}
-      <section style={{ backgroundColor: 'var(--isabelline)', color: 'var(--wine)', padding: '3.2rem 5%', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          
-          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-            <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.72rem', fontWeight: 700, display: 'block', marginBottom: '0.2rem' }}>
-              ✦ Core Differentiators
-            </span>
-            <h2 style={{color: 'var(--wine)', margin: 0}}>
-              The Suprada <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Distinction</em>
-            </h2>
-          </div>
 
-          <div className="spatial-monolith-container">
-            {[
-              { num: '01', title: '100% Drugless Naturopathy', desc: 'Evidence-based hydrotherapy, mud wraps, bio-fasting, and plant infusions.' },
-              { num: '02', title: '54 Riverfront Acres', desc: 'Nestled by the sacred Suvarnamukhi River with clean air and barefoot grounding tracks.' },
-              { num: '03', title: 'Holistic Medical Synergy', desc: 'Unified medical oversight integrating Naturopathy, Yogic Science & Iris Diagnosis.' },
-              { num: '04', title: '24/7 Resident Doctors', desc: 'Licensed physicians and yoga masters available on campus round-the-clock.' }
-            ].map((slab, idx) => {
-              const isActive = expandedPillar === idx;
-              return (
-                <div 
-                  key={idx}
-                  onClick={() => setExpandedPillar(idx)}
-                  onMouseEnter={() => setExpandedPillar(idx)}
-                  className={`spatial-monolith-slab ${isActive ? 'active' : ''}`}
-                  style={{
-                    padding: '1.8rem',
-                    background: isActive ? 'linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(220, 195, 175, 0.22) 100%)' : '#ffffff',
-                    backdropFilter: 'blur(12px)',
-                    WebkitBackdropFilter: 'blur(12px)',
-                    borderColor: isActive ? 'var(--wine)' : 'rgba(94, 39, 53, 0.15)',
-                    boxShadow: isActive ? '0 12px 30px rgba(94, 39, 53, 0.12)' : '0 4px 15px rgba(94, 39, 53, 0.03)',
-                    transition: 'all 0.4s ease'
-                  }}
-                >
-                  <div className="gold-foil-text" style={{ fontSize: '3.2rem', color: isActive ? 'var(--wine)' : 'var(--redwood)', fontWeight: 700, lineHeight: 1 }}>
-                    {slab.num}
-                  </div>
-                  <div>
-                    <h3 style={{color: 'var(--wine)', marginBottom: '0.4rem'}}>
-                      {slab.title}
-                    </h3>
-                    <p style={{ fontSize: '0.82rem', color: 'var(--wine)', opacity: isActive ? 0.95 : 0.8, lineHeight: 1.5, margin: 0 }}>
-                      {slab.desc}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-        </div>
-      </section>
 
       {/* Section 5: Discover Your Wellness Path (Instant Diagnostic Assessment) */}
       <section style={{ backgroundColor: 'var(--antique-white)', padding: '4.2rem 5%', position: 'relative', overflow: 'hidden' }}>

@@ -456,7 +456,7 @@ export default function About({ onNavigate }) {
       <section className="visionaries-section" style={{
         position: 'relative',
         overflow: 'hidden',
-        background: 'linear-gradient(180deg, #ead9be 0%, #dce4d4 15%, var(--tea-green) 35%, var(--tea-green) 100%)',
+        background: 'linear-gradient(180deg, #ead9be 0%, #FAF0E6 25%, var(--antique-white) 100%)',
         padding: '3.5rem 6%',
         minHeight: '100dvh',
         height: '100vh',
@@ -694,7 +694,7 @@ export default function About({ onNavigate }) {
       {/* =========================================================================
           CHAPTER IV: Grand Interactive Monolith Exhibition Stage (Compact Edition)
           ========================================================================= */}
-      <section style={{ padding: '3.5rem 8%', position: 'relative', backgroundColor: 'var(--antique-white)' }}>
+      <section style={{ padding: '3.5rem 8%', position: 'relative', backgroundColor: 'var(--tea-green)' }}>
         <div style={{ maxWidth: '1020px', margin: '0 auto' }}>
           
           {/* Section Heading */}

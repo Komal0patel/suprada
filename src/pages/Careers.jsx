@@ -678,7 +678,7 @@ export default function Careers({ onNavigate }) {
             </section>
 
             {/* Life at Suprada — Culture & Environment Section */}
-            <section style={{ padding: '4.5rem 6%', background: 'linear-gradient(180deg, #ead9be 0%, #e2e8e3 15%, var(--platinum) 35%, var(--platinum) 100%)', position: 'relative' }}>
+            <section style={{ padding: '4.5rem 6%', background: 'linear-gradient(180deg, #ead9be 0%, #FAF0E6 25%, var(--antique-white) 100%)', position: 'relative' }}>
               <div style={{ maxWidth: '1240px', margin: '0 auto', textAlign: 'center' }}>
                 <motion.span
                   initial={{ opacity: 0, y: 15 }}

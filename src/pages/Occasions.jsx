@@ -452,8 +452,8 @@ export default function Occasions({ onNavigate }) {
       <section className="mobile-hero-compact" style={{
         boxSizing: 'border-box',
         padding: '7rem 8% 3rem 8%',
-        background: 'linear-gradient(135deg, #c46c59 0%, #b85e4c 60%, #a24d3c 100%)',
-        color: '#ffffff',
+        background: 'linear-gradient(135deg, #c5cc9f 0%, #b3ba8e 60%, #9ea776 100%)',
+        color: 'var(--wine)',
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden',
@@ -464,12 +464,12 @@ export default function Occasions({ onNavigate }) {
         alignItems: 'center'
       }}>
         {/* Leaf SVG Watermark Overlays */}
-        <Pattern24 style={{ position: 'absolute', top: '-20px', left: '-40px', width: '280px', opacity: 0.16, color: '#ffffff', pointerEvents: 'none' }} />
-        <Pattern25 style={{ position: 'absolute', bottom: '-20px', right: '-40px', width: '280px', opacity: 0.16, color: '#ffffff', pointerEvents: 'none' }} />
+        <Pattern24 style={{ position: 'absolute', top: '-20px', left: '-40px', width: '280px', opacity: 0.12, color: 'var(--wine)', pointerEvents: 'none' }} />
+        <Pattern25 style={{ position: 'absolute', bottom: '-20px', right: '-40px', width: '280px', opacity: 0.12, color: 'var(--wine)', pointerEvents: 'none' }} />
 
-        {/* Ambient Golden Bokeh Glow Effects */}
-        <div style={{ position: 'absolute', top: '-10%', left: '-10%', maxWidth: '400px', width: '100%', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.22) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(65px)', zIndex: 0, pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', maxWidth: '500px', width: '100%', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%)', filter: 'blur(80px)', zIndex: 0, pointerEvents: 'none' }} />
+        {/* Ambient Wine & Gold Bokeh Glow Effects */}
+        <div style={{ position: 'absolute', top: '-10%', left: '10%', maxWidth: '450px', width: '100%', height: '450px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(94,39,53,0.08) 0%, rgba(94,39,53,0) 70%)', filter: 'blur(70px)', zIndex: 0, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-15%', right: '10%', maxWidth: '500px', width: '100%', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.12) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(80px)', zIndex: 0, pointerEvents: 'none' }} />
 
         {/* Background Rotating Mandala Watermark (Spaces Hero Animation) */}
         <motion.div
@@ -480,12 +480,12 @@ export default function Occasions({ onNavigate }) {
             top: '50%', left: '50%',
             x: '-50%', y: '-50%',
             width: '620px', height: '620px',
-            opacity: 0.12,
+            opacity: 0.1,
             pointerEvents: 'none',
             zIndex: 0
           }}
         >
-          <Pattern27 style={{ width: '100%', height: '100%', color: '#ffffff' }} />
+          <Pattern27 style={{ width: '100%', height: '100%', color: 'var(--wine)' }} />
         </motion.div>
 
         {/* ── BOTANICAL BLOOM (FINAL CHOSEN ANIMATION) ── */}
@@ -500,11 +500,11 @@ export default function Occasions({ onNavigate }) {
             <img 
               src="/assets/extracted/logo.svg" 
               alt="Suprada Official Emblem Logo" 
-              style={{ height: '85px', width: 'auto', filter: 'drop-shadow(0 4px 16px rgba(220, 160, 50, 0.35))' }} 
+              style={{ height: '85px', width: 'auto', filter: 'drop-shadow(0 4px 14px rgba(94, 39, 53, 0.18))' }} 
             />
           </motion.div>
 
-          <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.8rem', fontWeight: 800, display: 'block', marginBottom: '1.2rem' }}>
+          <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.8rem', fontWeight: 800, display: 'block', marginBottom: '1.2rem' }}>
             ✦ Elevated Gatherings ✦
           </span>
           <motion.h1
@@ -515,7 +515,7 @@ export default function Occasions({ onNavigate }) {
             initial="hidden"
             animate="visible"
             style={{
-              color: '#ffffff',
+              color: 'var(--wine)',
               lineHeight: 1.15, margin: 0, display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap'
             }}
           >
@@ -530,7 +530,7 @@ export default function Occasions({ onNavigate }) {
                   scale: [1, 1.015, 1],
                   transition: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: idx * 0.5 + 1.2 }
                 }}
-                style={{ display: 'inline-block', transformOrigin: 'center bottom', color: word === 'Suprada' ? 'var(--harvest-gold)' : '#ffffff', fontStyle: word === 'Suprada' ? 'italic' : 'normal' }}
+                style={{ display: 'inline-block', transformOrigin: 'center bottom', color: word === 'Suprada' ? 'var(--redwood)' : 'var(--wine)', fontStyle: word === 'Suprada' ? 'italic' : 'normal' }}
               >
                 {word}
               </motion.span>
@@ -540,7 +540,7 @@ export default function Occasions({ onNavigate }) {
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 0.95, scale: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            style={{ color: '#f5ebd9', maxWidth: '720px', margin: '1.8rem auto 0 auto', fontSize: 'var(--fs-body)', lineHeight: 1.8, fontWeight: 300 }}
+            style={{ color: 'rgba(40, 38, 37, 0.88)', maxWidth: '720px', margin: '1.8rem auto 0 auto', fontSize: 'var(--fs-body)', lineHeight: 1.8, fontWeight: 300 }}
           >
             From intimate moments to grand gatherings, we curate healthcations that infuse every occasion with transformative wellness experiences. Our versatile spaces accommodate groups from two to fifty guests.
           </motion.p>

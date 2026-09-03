@@ -2743,12 +2743,13 @@ export default function Home({ onNavigate }) {
             </h2>
           </div>
 
-          <div className="experts-carousel-mobile" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '0.9rem', width: '100%' }}>
+          <div className="experts-carousel-mobile" style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '0.9rem', width: '100%' }}>
             {[
+              { name: 'Acharya Dr. M. Nagaraju', role: 'Chairperson', creds: 'Suprada Wellness', img: '/assets/Founders/nagaraju_lady.jpg' },
+              { name: 'Acharya Dr. M. Nagaraju', role: 'Co-Chairman', creds: 'Suprada Wellness', img: '/assets/Founders/nagaraju_man.jpg' },
               { name: 'Mr. Sunil Jayaraj', role: 'Founder', creds: 'Suprada Wellness', img: '/assets/Founders/sunil_jayaraj.jpg' },
               { name: 'Dr. Prema Ramadas', role: 'Co-founder', creds: 'Suprada Wellness', img: '/assets/Founders/prema_ramadas.jpg' },
               { name: 'Srinivas Ramadas', role: 'Director Operations', creds: 'Suprada Wellness', img: '/assets/Founders/srinivas_ramadas.jpg' },
-              { name: 'Nagaraju', role: 'Chairman', creds: 'Suprada Wellness', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80' },
               { name: 'Dr. Vinaya, B.N.Y.S', role: 'Chief Medical Officer', creds: 'Suprada Wellness', img: '/assets/Founders/vinaya.jpg' }
             ].map((doc, idx) => (
               <div key={idx} className="editorial-master-card" style={{ height: '300px', width: '100%' }}>

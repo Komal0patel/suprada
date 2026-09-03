@@ -680,18 +680,18 @@ export default function Home({ onNavigate }) {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [scrollPercentage, setScrollPercentage] = useState(0);
-  const [activeProgFilter, setActiveProgFilter] = useState('All Retreats');
+  const [activeProgFilter, setActiveProgFilter] = useState('All Programmes');
 
   const signatureRetreatsList = React.useMemo(() => [
-    { days: '2/3 DAYS', title: 'Weekend Reset Retreat', tagline: 'Doctor consultation, 2 daily naturopathy cleanses & sound bath.', filterCat: '2/3 Days' },
-    { days: '5 DAYS', title: 'Rejuvenation & Vitality', tagline: 'Iris diagnosis, Shirodhara therapy & Satwik organic dining.', filterCat: '5 Days' },
-    { days: '7 DAYS', title: 'Holistic Transformation', tagline: 'Body mapping, hydrotherapy & vibrational sound sessions.', filterCat: '7 Days', popular: true },
-    { days: '14 DAYS', title: 'Deep Cellular Detox', tagline: 'Toxin evaluation, mud therapy packs, therapeutic fasting & juices.', filterCat: '14 Days' },
-    { days: '21 DAYS', title: 'Advanced Cellular Healing', tagline: 'Doctor-led clinical protocol, daily vitals & colon hydrotherapy.', filterCat: '21 Days' }
+    { progId: 'weekend', days: '2/3 DAYS', title: 'Weekend Reset Programme', tagline: 'Doctor consultation, 2 daily naturopathy cleanses & sound bath.', filterCat: '2/3 Days' },
+    { progId: 'rejuvenation', days: '5 DAYS', title: 'Rejuvenation & Vitality Programme', tagline: 'Iris diagnosis, Shirodhara therapy & Satwik organic dining.', filterCat: '5 Days' },
+    { progId: 'holistic', days: '7 DAYS', title: 'Holistic Transformation Programme', tagline: 'Body mapping, hydrotherapy & vibrational sound sessions.', filterCat: '7 Days', popular: true },
+    { progId: 'detox', days: '14 DAYS', title: 'Deep Cellular Detox Programme', tagline: 'Toxin evaluation, mud therapy packs, therapeutic fasting & juices.', filterCat: '14 Days' },
+    { progId: 'advanced', days: '21 DAYS', title: 'Advanced Cellular Healing Programme', tagline: 'Doctor-led clinical protocol, daily vitals & colon hydrotherapy.', filterCat: '21 Days' }
   ], []);
 
   const sortedRetreats = React.useMemo(() => {
-    if (activeProgFilter === 'All Retreats') return signatureRetreatsList;
+    if (activeProgFilter === 'All Programmes') return signatureRetreatsList;
     return [...signatureRetreatsList].sort((a, b) => {
       const aMatch = a.filterCat === activeProgFilter || a.days.includes(activeProgFilter);
       const bMatch = b.filterCat === activeProgFilter || b.days.includes(activeProgFilter);
@@ -2482,16 +2482,16 @@ export default function Home({ onNavigate }) {
           <div className="flex-stack-mobile" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '0.8rem' }}>
             <div>
               <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.15rem' }}>
-                ✦ Healing Retreats
+                ✦ Healing Programmes
               </span>
               <h2 style={{color: 'var(--wine)', margin: 0, lineHeight: 1.1, fontWeight: 700}}>
-                Holistic Wellness <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>Retreats</em>
+                Signature Wellness <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>Programmes</em>
               </h2>
             </div>
 
             {/* Duration Filter Pills */}
             <div style={{ display: 'flex', gap: '0.45rem', flexWrap: 'wrap' }}>
-              {['All Retreats', '2/3 Days', '5 Days', '7 Days', '14 Days', '21 Days'].map((filter, fIdx) => (
+              {['All Programmes', '2/3 Days', '5 Days', '7 Days', '14 Days', '21 Days'].map((filter, fIdx) => (
                 <button 
                   key={fIdx}
                   onClick={() => handleRetreatFilterClick(filter)}
@@ -2506,7 +2506,7 @@ export default function Home({ onNavigate }) {
           {/* Unified Responsive Flex Container */}
           <div ref={retreatsContainerRef} className="retreats-flex-container retreats-carousel-mobile">
             {sortedRetreats.map((prog, idx) => {
-              const isSpecificFilter = activeProgFilter !== 'All Retreats';
+              const isSpecificFilter = activeProgFilter !== 'All Programmes';
               const isMatch = !isSpecificFilter || prog.filterCat === activeProgFilter || prog.days.includes(activeProgFilter);
               return (
                 <motion.div 
@@ -2532,8 +2532,12 @@ export default function Home({ onNavigate }) {
                     cursor: 'pointer'
                   }}
                   onClick={() => {
-                    setActiveProgFilter('All Retreats');
-                    onNavigate('programmes');
+                    setActiveProgFilter('All Programmes');
+                    if (onNavigate) {
+                      onNavigate('programmes', { progId: prog.progId });
+                    } else {
+                      window.location.href = `/programmes?prog=${prog.progId}`;
+                    }
                   }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -2552,7 +2556,19 @@ export default function Home({ onNavigate }) {
                   <p style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
                     {prog.tagline}
                   </p>
-                  <button className="btn-luxury" style={{ alignSelf: 'flex-start', padding: '0.45rem 1.1rem', fontSize: '0.68rem', marginTop: 'auto' }}>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveProgFilter('All Programmes');
+                      if (onNavigate) {
+                        onNavigate('programmes', { progId: prog.progId });
+                      } else {
+                        window.location.href = `/programmes?prog=${prog.progId}`;
+                      }
+                    }}
+                    className="btn-luxury"
+                    style={{ alignSelf: 'flex-start', padding: '0.45rem 1.1rem', fontSize: '0.68rem', marginTop: 'auto' }}
+                  >
                     Explore &rarr;
                   </button>
                 </motion.div>

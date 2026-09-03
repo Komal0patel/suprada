@@ -161,10 +161,13 @@ function App() {
     }
   }, [currentPage]);
 
-  const handlePageChange = (page) => {
+  const handlePageChange = (page, extra) => {
     scrollPositionsRef.current[currentPage] = window.scrollY || document.documentElement.scrollTop || 0;
     setCurrentPage(page);
-    const path = page === 'home' ? '/' : `/${page}`;
+    let path = page === 'home' ? '/' : `/${page}`;
+    if (extra?.progId) {
+      path += `?prog=${extra.progId}`;
+    }
     navigate(path);
     setMobileMenuOpen(false);
   };

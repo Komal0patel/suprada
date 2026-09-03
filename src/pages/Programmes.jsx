@@ -54,6 +54,8 @@ function GoldEmberParticles({ count = 20 }) {
 export default function Programmes({ onNavigate }) {
   const [activeFilter, setActiveFilter] = useState('All');
   const [expandedProgram, setExpandedProgram] = useState(null);
+  const [activeModalProgram, setActiveModalProgram] = useState(null);
+  const [highlightedProgId, setHighlightedProgId] = useState(null);
 
   // Mobile Responsiveness States
   const [isMobile, setIsMobile] = useState(false);
@@ -84,6 +86,28 @@ export default function Programmes({ onNavigate }) {
     }, 4500);
     return () => clearInterval(interval);
   }, [isMobile, activePhilosophyIndex, philosophyList.length]);
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const progParam = searchParams.get('prog');
+    if (progParam) {
+      setActiveFilter('All');
+      setMobileProgLimit(10);
+      setHighlightedProgId(progParam);
+
+      const foundProg = programsList.find(p => p.id === progParam || p.id.includes(progParam) || progParam.includes(p.id));
+      if (foundProg) {
+        setActiveModalProgram(foundProg);
+      }
+
+      setTimeout(() => {
+        const targetEl = document.getElementById(`prog-card-${progParam}`);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 350);
+    }
+  }, [window.location.search]);
 
   // Program gradients now use proper palette colors
   const programsList = [
@@ -597,9 +621,11 @@ export default function Programmes({ onNavigate }) {
             <AnimatePresence>
               {(isMobile ? filteredPrograms.slice(0, mobileProgLimit) : filteredPrograms).map((prog, idx) => {
                 const isEven = idx % 2 === 0;
+                const isHighlighted = highlightedProgId === prog.id;
                 return (
                   <motion.div
                     key={prog.id}
+                    id={`prog-card-${prog.id}`}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-50px' }}
@@ -610,9 +636,10 @@ export default function Programmes({ onNavigate }) {
                       flexDirection: isEven ? 'row' : 'row-reverse',
                       borderRadius: '24px',
                       overflow: 'hidden',
-                      border: '1px solid rgba(94, 39, 53, 0.12)',
+                      border: isHighlighted ? '2.5px solid var(--harvest-gold)' : '1px solid rgba(94, 39, 53, 0.12)',
                       minHeight: '360px',
-                      boxShadow: '0 16px 40px rgba(94, 39, 53, 0.08)'
+                      boxShadow: isHighlighted ? '0 0 35px rgba(220,160,50,0.35)' : '0 16px 40px rgba(94, 39, 53, 0.08)',
+                      transition: 'all 0.4s ease'
                     }}
                   >
                     {/* Gradient Visual Panel (42%) — palette-based gradients */}
@@ -712,18 +739,18 @@ export default function Programmes({ onNavigate }) {
                       </div>
 
                       {/* Action Buttons */}
-                      <div style={{ display: 'flex', gap: '0.8rem', marginTop: '1.5rem' }}>
+                      <div style={{ display: 'flex', gap: '0.8rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
                         <button
-                          onClick={() => onNavigate('contact')}
+                          onClick={() => setActiveModalProgram(prog)}
                           className="btn-luxury"
-                          style={{ padding: '0.82rem 1.8rem', fontSize: '0.84rem', letterSpacing: '0.1em', fontWeight: 700 }}
+                          style={{ padding: '0.82rem 1.6rem', fontSize: '0.84rem', letterSpacing: '0.08em', fontWeight: 700 }}
                         >
-                          Book Programme
+                          Explore Details &rarr;
                         </button>
                         <button
                           onClick={() => onNavigate('contact')}
                           className="btn-secondary"
-                          style={{ padding: '0.82rem 1.5rem', fontSize: '0.84rem', letterSpacing: '0.08em', fontWeight: 700 }}
+                          style={{ padding: '0.82rem 1.4rem', fontSize: '0.84rem', letterSpacing: '0.08em', fontWeight: 700 }}
                         >
                           Speak to Doctor
                         </button>
@@ -1111,6 +1138,165 @@ export default function Programmes({ onNavigate }) {
           </div>
         </div>
       </section>
+
+      {/* Active Programme Detail Modal Overlay */}
+      <AnimatePresence>
+        {activeModalProgram && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            style={{
+              position: 'fixed',
+              inset: 0,
+              backgroundColor: 'rgba(0, 0, 0, 0.75)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              zIndex: 999999,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: isMobile ? '1rem' : '2rem'
+            }}
+            onClick={() => setActiveModalProgram(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.92, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.92, y: 20 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                width: '100%',
+                maxWidth: '780px',
+                maxHeight: '90vh',
+                overflowY: 'auto',
+                backgroundColor: '#ffffff',
+                borderRadius: '24px',
+                boxShadow: '0 25px 60px rgba(0,0,0,0.4)',
+                position: 'relative',
+                color: 'var(--raisin-black)'
+              }}
+            >
+              {/* Header Visual Bar */}
+              <div style={{
+                background: activeModalProgram.gradient,
+                padding: '2.5rem 2rem',
+                borderRadius: '24px 24px 0 0',
+                color: '#ffffff',
+                position: 'relative'
+              }}>
+                <button
+                  onClick={() => setActiveModalProgram(null)}
+                  style={{
+                    position: 'absolute',
+                    top: '1.2rem',
+                    right: '1.2rem',
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '50%',
+                    backgroundColor: 'rgba(255,255,255,0.2)',
+                    border: 'none',
+                    color: '#ffffff',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    fontSize: '1.4rem',
+                    lineHeight: 1
+                  }}
+                >
+                  &times;
+                </button>
+                
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '0.8rem' }}>
+                  <span style={{ fontSize: '2rem' }}>{activeModalProgram.icon}</span>
+                  <span style={{
+                    fontSize: '0.78rem', textTransform: 'uppercase', color: '#ffffff',
+                    backgroundColor: 'rgba(220,160,50,0.35)', padding: '0.35rem 1rem', borderRadius: '50px',
+                    fontWeight: 800, letterSpacing: '0.12em', border: '1.5px solid var(--harvest-gold)'
+                  }}>
+                    {activeModalProgram.days}
+                  </span>
+                </div>
+
+                <h2 style={{ color: 'var(--tan)', margin: '0 0 0.4rem 0', fontSize: '1.8rem' }}>
+                  {activeModalProgram.title}
+                </h2>
+                <p style={{ margin: 0, opacity: 0.95, fontSize: '0.95rem', lineHeight: 1.5, maxWidth: '600px', fontWeight: 400 }}>
+                  {activeModalProgram.desc}
+                </p>
+              </div>
+
+              {/* Modal Body Content */}
+              <div style={{ padding: '2rem 2.2rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                
+                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
+                  <span style={{
+                    fontSize: '0.82rem', fontWeight: 800, color: 'var(--wine)',
+                    backgroundColor: 'rgba(94,39,53,0.1)', padding: '0.4rem 1.1rem', borderRadius: '50px',
+                    border: '1.5px solid rgba(94,39,53,0.2)'
+                  }}>
+                    Focus: {activeModalProgram.focus}
+                  </span>
+                  <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--redwood)', backgroundColor: 'rgba(184,94,76,0.1)', padding: '0.4rem 1.1rem', borderRadius: '50px', border: '1.5px solid rgba(184,94,76,0.2)' }}>
+                    Intensity: {activeModalProgram.intensity}
+                  </span>
+                </div>
+
+                <div>
+                  <h4 style={{ color: 'var(--wine)', margin: '0 0 0.4rem 0', fontSize: '0.92rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 800 }}>
+                    Ideal For Guests Seeking:
+                  </h4>
+                  <p style={{ margin: 0, fontSize: '0.96rem', fontWeight: 600, color: 'var(--raisin-black)' }}>
+                    {activeModalProgram.ideal}
+                  </p>
+                </div>
+
+                <div>
+                  <h4 style={{ color: 'var(--wine)', margin: '0 0 0.8rem 0', fontSize: '0.92rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 800 }}>
+                    Comprehensive Programme Inclusions:
+                  </h4>
+                  <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '0.8rem' }}>
+                    {activeModalProgram.inclusions.map((inc, iidx) => (
+                      <div key={iidx} style={{ display: 'flex', gap: '0.6rem', alignItems: 'center', backgroundColor: 'rgba(94,39,53,0.04)', padding: '0.65rem 0.9rem', borderRadius: '12px', border: '1px solid rgba(94,39,53,0.08)' }}>
+                        <span style={{ color: 'var(--harvest-gold)', flexShrink: 0 }}><Check size={16} strokeWidth={3} /></span>
+                        <span style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--raisin-black)' }}>{inc}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Action CTAs */}
+                <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem', flexWrap: 'wrap' }}>
+                  <button
+                    onClick={() => {
+                      setActiveModalProgram(null);
+                      onNavigate('contact');
+                    }}
+                    className="btn-luxury"
+                    style={{ flex: 1, minWidth: '180px', padding: '0.9rem 1.5rem', textAlign: 'center', justifyContent: 'center' }}
+                  >
+                    Book {activeModalProgram.title} &rarr;
+                  </button>
+                  <button
+                    onClick={() => {
+                      setActiveModalProgram(null);
+                      onNavigate('contact');
+                    }}
+                    className="btn-secondary"
+                    style={{ flex: 1, minWidth: '180px', padding: '0.9rem 1.5rem', textAlign: 'center', justifyContent: 'center' }}
+                  >
+                    Speak to Doctor
+                  </button>
+                </div>
+
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </div>
   );

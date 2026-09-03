@@ -530,13 +530,12 @@ export default function WellnessQuiz({ onNavigate }) {
                 <form onSubmit={handleSubmitQuiz} style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
                   <div>
                     <label style={{ fontSize: '0.74rem', color: 'var(--wine)', fontWeight: 700, display: 'block', marginBottom: '0.3rem' }}>
-                      Full Name *
+                      Full Name <span style={{ fontWeight: 400, opacity: 0.7 }}>(Optional)</span>
                     </label>
                     <div style={{ position: 'relative' }}>
                       <User size={16} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--wine)', opacity: 0.5 }} />
                       <input 
                         type="text" 
-                        required 
                         placeholder="e.g. Ananya Sharma"
                         value={userInfo.name}
                         onChange={(e) => setUserInfo({ ...userInfo, name: e.target.value })}
@@ -550,13 +549,12 @@ export default function WellnessQuiz({ onNavigate }) {
 
                   <div>
                     <label style={{ fontSize: '0.74rem', color: 'var(--wine)', fontWeight: 700, display: 'block', marginBottom: '0.3rem' }}>
-                      Email Address *
+                      Email Address <span style={{ fontWeight: 400, opacity: 0.7 }}>(Optional)</span>
                     </label>
                     <div style={{ position: 'relative' }}>
                       <Mail size={16} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--wine)', opacity: 0.5 }} />
                       <input 
                         type="email" 
-                        required 
                         placeholder="e.g. ananya@example.com"
                         value={userInfo.email}
                         onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })}
@@ -643,10 +641,10 @@ export default function WellnessQuiz({ onNavigate }) {
 
                 <div style={{ backgroundColor: 'var(--isabelline)', padding: '0.9rem 1.4rem', borderRadius: '12px', border: '1px solid rgba(94,39,53,0.12)', maxWidth: '420px', width: '100%' }}>
                   <span style={{ fontSize: '0.72rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', display: 'block', marginBottom: '0.2rem' }}>
-                    ✦ RECORDED FOR: {userInfo.name}
+                    ✦ RECORDED FOR: {userInfo.name?.trim() ? userInfo.name : 'VALUED GUEST'}
                   </span>
                   <span style={{ fontSize: '0.82rem', color: 'var(--wine)', opacity: 0.85 }}>
-                    {userInfo.email} • {userInfo.phone}
+                    {userInfo.email ? `${userInfo.email} • ` : ''}{userInfo.phone}
                   </span>
                 </div>
 

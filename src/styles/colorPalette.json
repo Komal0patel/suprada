@@ -7,14 +7,7 @@
       "hex": "#5E2735",
       "rgb": "rgb(94, 39, 53)",
       "hsl": "hsl(345, 41%, 26%)",
-      "description": "Deep royal burgundy wine. Used for main brand headings, primary action buttons, dark accents, and regal brand identity."
-    },
-    "roseWine": {
-      "name": "Rose Wine",
-      "hex": "#943d53",
-      "rgb": "rgb(148, 61, 83)",
-      "hsl": "hsl(345, 42%, 41%)",
-      "description": "Vibrant rose burgundy wine. Used for scrolled sticky navbar background across sections."
+      "description": "Deep royal burgundy wine. Used for main brand headings, primary action buttons, dark accents, scrolled sticky navbar background, and regal brand identity."
     },
     "harvestGold": {
       "name": "Harvest Gold",

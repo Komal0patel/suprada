@@ -2848,9 +2848,9 @@ export default function Home({ onNavigate }) {
           </p>
 
           <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem', color: 'var(--wine)', borderColor: 'rgba(94,39,53,0.2)' }}>✦ 100% Drugless Naturopathy</div>
+            <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem', color: 'var(--wine)', borderColor: 'rgba(94,39,53,0.2)' }}>✦ Drugless Naturopathy</div>
             <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem', color: 'var(--wine)', borderColor: 'rgba(94,39,53,0.2)' }}>✦ Riverfront Haven</div>
-            <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem', color: 'var(--wine)', borderColor: 'rgba(94,39,53,0.2)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}><Stethoscope size={14} style={{ color: 'var(--redwood)' }} /> 24/7 Resident Doctors</div>
+            <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem', color: 'var(--wine)', borderColor: 'rgba(94,39,53,0.2)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}><Stethoscope size={14} style={{ color: 'var(--redwood)' }} /> Resident AYUSH Doctors</div>
           </div>
 
           <div style={{ display: 'flex', gap: '1.2rem', flexWrap: 'wrap', justifyContent: 'center', marginTop: '0.5rem' }}>

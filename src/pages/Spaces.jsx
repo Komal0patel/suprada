@@ -476,26 +476,6 @@ export default function Spaces({ onNavigate }) {
           />
 
 
-          {/* Centered Key Feature Pills */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            style={{ display: 'flex', gap: '0.8rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '1.5rem' }}
-          >
-            {[
-              { icon: <Trees size={20} />, label: '10-Acre Forest Estate' },
-              { icon: <Home size={20} />, label: '9 Cottage Clusters' },
-              { icon: <Leaf size={20} />, label: '5 Therapy Pavilions' },
-              { icon: <Waves size={20} />, label: '1 Suvarnamukhi River' }
-
-            ].map((pill, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(94,39,53,0.05)', border: '1px solid rgba(94,39,53,0.18)', padding: '0.4rem 1.1rem', borderRadius: '24px', fontSize: '0.78rem', color: 'var(--wine)' }}>
-                <span>{pill.icon}</span> <span>{pill.label}</span>
-              </div>
-            ))}
-          </motion.div>
-
           {/* Centered CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -574,78 +554,145 @@ export default function Spaces({ onNavigate }) {
       <div id="spaces-chapters" />
 
       {/* =========================================================================
-          CHAPTER I • Estate Metrics Vault
+          THE SPACES THAT SHAPE THE JOURNEY (Sanctum Zones Section in Sage Green)
           ========================================================================= */}
-      <section style={{ padding: '3.5rem 8%', position: 'relative' }}>
-        <div style={{ maxWidth: '1180px', margin: '0 auto' }}>
+      <section style={{
+        minHeight: '100dvh',
+        height: '100vh',
+        padding: '2.5rem 6%',
+        boxSizing: 'border-box',
+        background: 'linear-gradient(135deg, #c8ceaa 0%, #b3ba8e 60%, #a3aa7e 100%)',
+        color: 'var(--wine)',
+        position: 'relative',
+        overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        <div style={{ maxWidth: '1180px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           
-          <div style={{
-            background: 'linear-gradient(135deg, #c8ceaa 0%, #b3ba8e 60%, #a3aa7e 100%)',
-            borderRadius: '28px',
-            padding: '3rem 2.5rem',
-            border: '1px solid rgba(163,170,126,0.4)',
-            boxShadow: '0 20px 50px rgba(100,110,70,0.15)',
-          }}>
-            <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-              <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.68rem', fontWeight: 800, display: 'block', marginBottom: '0.3rem', opacity: 0.7 }}>
-                + CHAPTER I - ESTATE SCALE & PROPORTIONS
-              </span>
-              <h3 style={{color: 'var(--wine)', margin: 0,}}>
-                Architectural Metrics at a Glance
-              </h3>
-            </div>
+          <div style={{ textAlign: 'center', marginBottom: '1.8rem' }}>
+            <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.26em', fontSize: '0.82rem', fontWeight: 800, display: 'block', marginBottom: '0.35rem' }}>
+              ✦ THE SANCTUM ZONES
+            </span>
+            <h2 style={{color: 'var(--wine)', margin: 0}}>
+              The Spaces That Shape the Journey
+            </h2>
+            <p style={{ color: 'var(--wine)', opacity: 0.9, maxWidth: '600px', margin: '0.5rem auto 0 auto', fontSize: 'var(--fs-body)', fontWeight: 400 }}>
+              Explore the detailed architectural structures built to house each element of your natural healing formula.
+            </p>
+          </div>
 
-            <div className="spaces-metrics-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.2rem', textAlign: 'center' }}>
-              {[
-                { value: '10', unit: 'ACRES', label: 'Forest Estate' },
-                { value: '50', unit: 'GUESTS', label: 'Max Capacity' },
-                { value: '30', unit: 'SUITES', label: 'Therapy Zones' },
-                { value: '3', unit: 'HUBS', label: 'Bespoke Pavilions' },
-                { value: '1', unit: 'RIVER', label: 'Suvarnamukhi' },
-                { value: '1', unit: 'FARM', label: 'Satwik Harvest' }
-              ].map((stat, idx) => (
-                <div 
+          {/* Responsive Mobile 2-Per-Row Grid CSS */}
+          <style dangerouslySetInnerHTML={{__html: `
+            @media (max-width: 768px) {
+              .sanctum-category-tabs {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.5rem !important;
+                margin-bottom: 1.2rem !important;
+                width: 100% !important;
+              }
+              .sanctum-category-btn {
+                padding: 0.55rem 0.4rem !important;
+                font-size: 0.74rem !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 0.3rem !important;
+                text-align: center !important;
+                line-height: 1.2 !important;
+                border-radius: 20px !important;
+              }
+              .sanctum-category-btn:nth-child(5) {
+                grid-column: 1 / -1 !important;
+                max-width: 85% !important;
+                justify-self: center !important;
+              }
+            }
+          `}} />
+
+          {/* Category Selector Tabs */}
+          <div className="sanctum-category-tabs" style={{ display: 'flex', justifyContent: 'center', gap: '0.55rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
+            {spacesCategories.map((cat, idx) => {
+              const isActive = activeCategory === idx;
+              return (
+                <button
                   key={idx}
+                  onClick={() => setActiveCategory(idx)}
+                  className="sanctum-category-btn"
                   style={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.82)',
-                    borderRadius: '18px',
-                    border: '1px solid rgba(255,255,255,0.9)',
-                    padding: '1.6rem 1rem',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    backdropFilter: 'blur(8px)',
-                    boxShadow: '0 4px 16px rgba(100,110,70,0.1)'
+                    padding: '0.65rem 1.1rem',
+                    borderRadius: '24px',
+                    border: isActive ? '2px solid var(--wine)' : '1.5px solid rgba(94, 39, 53, 0.25)',
+                    backgroundColor: isActive ? 'var(--wine)' : 'rgba(255, 255, 255, 0.75)',
+                    color: isActive ? '#ffffff' : 'var(--wine)',
+                    fontSize: '0.85rem',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    boxShadow: isActive ? '0 6px 16px rgba(94, 39, 53, 0.18)' : 'none'
                   }}
                 >
-                  <div className="gold-foil-text" style={{ fontSize: '2.5rem', color: 'var(--wine)', fontWeight: 700, lineHeight: 1, marginBottom: '0.3rem' }}>
-                    <AnimatedCounter value={stat.value} />
-                  </div>
-                  <span style={{ fontSize: '0.65rem', color: 'var(--harvest-gold)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase' }}>
-                    {stat.unit}
-                  </span>
-                  <span style={{ fontSize: '0.8rem', color: 'var(--wine)', opacity: 0.75, marginTop: '0.2rem', fontWeight: 400 }}>
-                    {stat.label}
-                  </span>
+                  {cat.icon} &nbsp; {cat.title}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Category Exhibition Grid */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeCategory}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.35 }}
+              className="sanctum-zones-grid"
+              style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.2rem' }}
+            >
+              {spacesCategories[activeCategory].items.map((item, idx) => (
+                <div 
+                  key={idx}
+                  className="sanctum-zone-card"
+                  style={{
+                    border: '1.5px solid rgba(255, 255, 255, 0.9)',
+                    borderRadius: '18px',
+                    padding: '1.4rem 1.6rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.4rem',
+                    backgroundColor: 'rgba(255, 255, 255, 0.88)',
+                    backdropFilter: 'blur(10px)',
+                    boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)'
+                  }}
+                >
+                  <h3 style={{color: 'var(--wine)', margin: 0, fontSize: '1.18rem', fontWeight: 700}}>
+                    {item.name}
+                  </h3>
+                  <p style={{ fontSize: '0.95rem', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.55, margin: 0, fontWeight: 400 }}>
+                    {item.desc}
+                  </p>
                 </div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </AnimatePresence>
 
         </div>
       </section>
 
-
       {/* =========================================================================
-          CHAPTER III • Accommodations & Residences (Interactive 3D Glass Cards)
+          RESTING BLOCKS (Interactive Cottages & Residences)
           ========================================================================= */}
       <section style={{ padding: '5rem 8%', position: 'relative' }}>
         <div style={{ maxWidth: '1220px', margin: '0 auto' }}>
           
           <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
             <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.26em', fontSize: '0.78rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
-              + CHAPTER III - RESTING BLOCKS
+              ✦ RESTING BLOCKS
             </span>
             <h2 style={{color: 'var(--wine)', margin: 0}}>
               Suprada Residences & Cottages
@@ -719,137 +766,6 @@ export default function Spaces({ onNavigate }) {
               Explore Cottage Amenities &amp; Book Stay
             </button>
           </div>
-
-        </div>
-      </section>
-
-      {/* =========================================================================
-          CHAPTER IV • Therapeutic Sanctuaries & Sacred Zones (Category Exhibition)
-          ========================================================================= */}
-      <section style={{
-        minHeight: '100dvh',
-        height: '100vh',
-        padding: '2.5rem 6%',
-        boxSizing: 'border-box',
-        backgroundColor: 'var(--wine)',
-        color: 'var(--isabelline)',
-        position: 'relative',
-        overflow: 'hidden',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}>
-        <div style={{ maxWidth: '1180px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          
-          <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
-            <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.26em', fontSize: '0.82rem', fontWeight: 800, display: 'block', marginBottom: '0.35rem' }}>
-              ✦ CHAPTER IV • THE SANCTUM ZONES
-            </span>
-            <h2 style={{color: 'var(--tan)', margin: 0}}>
-              The Spaces That Shape the Journey
-            </h2>
-            <p style={{ color: '#ffffff', opacity: 0.95, maxWidth: '600px', margin: '0.5rem auto 0 auto', fontSize: 'var(--fs-body)', fontWeight: 400 }}>
-              Explore the detailed architectural structures built to house each element of your natural healing formula.
-            </p>
-          </div>
-
-          {/* Responsive Mobile 2-Per-Row Grid CSS */}
-          <style dangerouslySetInnerHTML={{__html: `
-            @media (max-width: 768px) {
-              .sanctum-category-tabs {
-                display: grid !important;
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 0.5rem !important;
-                margin-bottom: 1.2rem !important;
-                width: 100% !important;
-              }
-              .sanctum-category-btn {
-                padding: 0.55rem 0.4rem !important;
-                font-size: 0.74rem !important;
-                width: 100% !important;
-                box-sizing: border-box !important;
-                display: flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-                gap: 0.3rem !important;
-                text-align: center !important;
-                line-height: 1.2 !important;
-                border-radius: 20px !important;
-              }
-              .sanctum-category-btn:nth-child(5) {
-                grid-column: 1 / -1 !important;
-                max-width: 85% !important;
-                justify-self: center !important;
-              }
-            }
-          `}} />
-
-          {/* Category Selector Tabs */}
-          <div className="sanctum-category-tabs" style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
-            {spacesCategories.map((cat, idx) => {
-              const isActive = activeCategory === idx;
-              return (
-                <button
-                  key={idx}
-                  onClick={() => setActiveCategory(idx)}
-                  className="sanctum-category-btn"
-                  style={{
-                    padding: '0.6rem 1rem',
-                    borderRadius: '24px',
-                    border: isActive ? '2px solid var(--harvest-gold)' : '1.5px solid rgba(220, 160, 50, 0.4)',
-                    backgroundColor: isActive ? 'var(--harvest-gold)' : 'rgba(255, 255, 255, 0.1)',
-                    color: isActive ? 'var(--wine)' : '#ffffff',
-                    fontSize: '0.85rem',
-                    fontWeight: 700,
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    boxShadow: isActive ? '0 6px 16px rgba(0,0,0,0.2)' : 'none'
-                  }}
-                >
-                  {cat.icon} &nbsp; {cat.title}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Category Exhibition Grid */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeCategory}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.35 }}
-              className="sanctum-zones-grid"
-              style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}
-            >
-              {spacesCategories[activeCategory].items.map((item, idx) => (
-                <div 
-                  key={idx}
-                  className="sanctum-zone-card"
-                  style={{
-                    border: '1.5px solid rgba(220, 160, 50, 0.4)',
-                    borderRadius: '16px',
-                    padding: '1.2rem 1.4rem',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '0.4rem',
-                    backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                    backdropFilter: 'blur(10px)',
-                    boxShadow: '0 8px 24px rgba(0,0,0,0.15)'
-                  }}
-                >
-                  <h3 style={{color: 'var(--harvest-gold)', margin: 0,}}>
-                    {item.name}
-                  </h3>
-                  <p style={{ fontSize: '0.95rem', color: '#ffffff', opacity: 0.95, lineHeight: 1.55, margin: 0, fontWeight: 400 }}>
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
 
         </div>
       </section>

@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PolicyModal from './PolicyModal';
+import { policiesData } from '../data/policiesData';
 
 export default function Footer({ onNavigate }) {
+  const [activePolicy, setActivePolicy] = useState(null);
+
   return (
     <footer className="footer-normal-section">
       <div className="footer-normal-container">
@@ -84,27 +88,36 @@ export default function Footer({ onNavigate }) {
               </ul>
             </div>
 
-            {/* Column 3: Treatments */}
+            {/* Column 3: Policies & Information */}
             <div>
-              <h4 className="footer-normal-title">Treatments Focus</h4>
+              <h4 className="footer-normal-title">Policies &amp; Information</h4>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
                 <li>
-                  <span onClick={() => onNavigate('programmes')} className="footer-normal-link">Cellular Detoxification</span>
+                  <span onClick={() => setActivePolicy(policiesData.booking)} className="footer-normal-link">Booking Policy</span>
                 </li>
                 <li>
-                  <span onClick={() => onNavigate('programmes')} className="footer-normal-link">Weight Management</span>
+                  <span onClick={() => setActivePolicy(policiesData.payment)} className="footer-normal-link">Payment Policy</span>
                 </li>
                 <li>
-                  <span onClick={() => onNavigate('programmes')} className="footer-normal-link">Stress &amp; Sleep Restorative</span>
+                  <span onClick={() => setActivePolicy(policiesData.privacy)} className="footer-normal-link">Privacy Policy</span>
                 </li>
                 <li>
-                  <span onClick={() => onNavigate('programmes')} className="footer-normal-link">Diabetes Care</span>
+                  <span onClick={() => setActivePolicy(policiesData.cancellation)} className="footer-normal-link">Cancellation and Refund Policies</span>
                 </li>
                 <li>
-                  <span onClick={() => onNavigate('programmes')} className="footer-normal-link">Pain &amp; Joints Wellness</span>
+                  <span onClick={() => setActivePolicy(policiesData.terms)} className="footer-normal-link">Terms &amp; Conditions</span>
                 </li>
                 <li>
-                  <span onClick={() => onNavigate('programmes')} className="footer-normal-link">Digestive Health</span>
+                  <span onClick={() => setActivePolicy(policiesData.nonresident)} className="footer-normal-link">Non-Resident Guests Policy</span>
+                </li>
+                <li>
+                  <span onClick={() => setActivePolicy(policiesData.food)} className="footer-normal-link">Food, Beverage &amp; Intoxicants Policy</span>
+                </li>
+                <li>
+                  <span onClick={() => setActivePolicy(policiesData.refundCancellation)} className="footer-normal-link">Refund &amp; Cancellation Policy</span>
+                </li>
+                <li>
+                  <span onClick={() => setActivePolicy(policiesData.pricing)} className="footer-normal-link">Pricing Policy</span>
                 </li>
               </ul>
             </div>
@@ -134,13 +147,6 @@ export default function Footer({ onNavigate }) {
                 </svg>
                 <span>admissions@supradawellness.com</span>
               </li>
-              <li style={{ display: 'flex', gap: '0.6rem', alignItems: 'center', opacity: 0.88, fontSize: '0.86rem' }}>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--wine)" strokeWidth="2" style={{ flexShrink: 0 }}>
-                  <circle cx="12" cy="12" r="10"/>
-                  <polyline points="12 6 12 12 16 14"/>
-                </svg>
-                <span>Mon - Sun: 8:00 AM - 7:00 PM</span>
-              </li>
             </ul>
           </div>
 
@@ -152,18 +158,15 @@ export default function Footer({ onNavigate }) {
             © {new Date().getFullYear()} Suprada Wellness. All rights reserved.
           </div>
 
-          <div style={{ display: 'flex', gap: '1.5rem' }}>
-            <span onClick={() => onNavigate('contact')} className="footer-normal-link" style={{ fontSize: '0.86rem' }}>Privacy Policy</span>
-            <span onClick={() => onNavigate('contact')} className="footer-normal-link" style={{ fontSize: '0.86rem' }}>Terms of Service</span>
-            <span onClick={() => onNavigate('contact')} className="footer-normal-link" style={{ fontSize: '0.86rem' }}>Medical Disclaimer</span>
-          </div>
-
           <div>
-            Powered by <strong style={{ color: 'var(--wine)', fontWeight: 600 }}>Mahati Innovations Private Limited</strong>
+            Powered by <strong style={{ color: 'var(--wine)', fontWeight: 600 }}>TLOOMY</strong>
           </div>
         </div>
 
       </div>
+
+      {/* Interactive Policy Modal Overlay */}
+      <PolicyModal policy={activePolicy} onClose={() => setActivePolicy(null)} />
     </footer>
   );
 }

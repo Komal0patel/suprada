@@ -13,7 +13,7 @@ const naturopathyCards = [
     sanskritQuote: 'Prakṛtireva bheṣajam.',
     sanskritMeaning: 'Nature itself is the medicine.',
     description: 'Naturopathy is a holistic system of healing that harnesses the body\'s innate ability to heal itself through natural, drug-free therapies. At Suprada Wellness, our naturopathy programmes combine time-tested natural treatments with modern wellness practices to detoxify, restore balance, and rejuvenate your entire being.',
-    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80',
+    image: '/assets/generated/naturopathy.png',
     highlights: ['Iris & Facial Mapping', '15+ Therapeutic Massages', 'Hydrotherapy & Spinal Spray', 'Full Body Earth Mud Baths'],
     details: {
       diagnostics: [
@@ -38,7 +38,7 @@ const naturopathyCards = [
     sanskritQuote: 'Yogaś citta-vṛtti-nirodhaḥ.',
     sanskritMeaning: 'Yoga is the cessation of the modifications of the mind.',
     description: 'Yoga and meditation are transformative practices that unite the body, mind, and spirit. At Suprada Wellness, we offer authentic yoga sessions guided by experienced instructors, combining classical Asanas (postures), Pranayama (breath work), and meditation techniques to cultivate physical strength, mental clarity, and emotional balance.',
-    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80',
+    image: '/assets/generated/yoga_meditation.png',
     highlights: ['Classical Asana Flow', 'Pranayama Breath Control', 'Shatkarma Cleansing Kriyas', 'Yoga Nidra & Sound Rest'],
     details: {
       diagnostics: [
@@ -60,7 +60,7 @@ const naturopathyCards = [
     sanskritQuote: 'Sarvaṁ khalvidaṁ brahma.',
     sanskritMeaning: 'All this is indeed the universal consciousness.',
     description: 'Our holistic therapies integrate diverse healing modalities from around the world to address your health from multiple dimensions. Combining ancient wisdom with modern techniques, we offer acupuncture, acupressure, energy healing, cupping therapy, music & sound healing and other complementary treatments designed to restore balance and promote deep healing.',
-    image: 'https://images.unsplash.com/photo-1512290900673-40f4e3c50937?auto=format&fit=crop&w=1200&q=80',
+    image: '/assets/generated/holistic_therapies.png',
     highlights: ['Acupuncture & Reflexology', 'Tibetan Om Singing Bowls', 'Gong & Flute Sound Baths', 'Pranic & Reiki Energy Work'],
     details: {
       diagnostics: [
@@ -82,7 +82,7 @@ const naturopathyCards = [
     sanskritQuote: 'Āhāraśuddhau sattvaśuddhiḥ.',
     sanskritMeaning: 'When food is pure, the mind becomes pure.',
     description: 'True wellness begins with what you put on your plate and how you live your daily life. Our nutrition and lifestyle programmes combine ancient dietary wisdom with modern nutritional science to create personalized plans that support your health goals, enhance vitality, and promote long-term well-being.',
-    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80',
+    image: '/assets/generated/nutrition_lifestyle.png',
     highlights: ['Farm-to-Table Satwik Meals', 'Gut Microbiome Repair', 'Cold-Pressed Juices', 'Therapeutic Bio-Fasting'],
     details: {
       diagnostics: [
@@ -104,7 +104,7 @@ const naturopathyCards = [
     sanskritQuote: 'Mana eva manuṣyāṇāṁ kāraṇaṁ bandhamokṣayoḥ.',
     sanskritMeaning: 'The mind alone is the cause of bondage and liberation.',
     description: 'Mental and emotional health are foundational to overall wellness. Our comprehensive programmes combine professional counselling, stress management techniques, breathwork, and mindfulness practices to help you navigate life\'s challenges with greater resilience, clarity, and inner peace.',
-    image: 'https://images.unsplash.com/photo-1499209974431-9dac3ada00d7?auto=format&fit=crop&w=1200&q=80',
+    image: '/assets/generated/mental_wellbeing.png',
     highlights: ['Professional Counselling', 'Stress Resilience Training', 'Mindfulness & Meditation', 'Emotional Trauma Release'],
     details: {
       diagnostics: [
@@ -126,7 +126,7 @@ const naturopathyCards = [
     sanskritQuote: 'Śuddhireva paramaṁ dharmaḥ.',
     sanskritMeaning: 'Purity is the highest virtue.',
     description: 'In our modern world, toxins accumulate from environmental pollutants, processed foods, stress, and lifestyle factors. Our comprehensive detoxification programmes use time-tested authentic therapies protocols, therapeutic fasting, and natural cleansing methods to eliminate accumulated toxins, restore cellular health, and rejuvenate your entire system.',
-    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80',
+    image: '/assets/generated/detox_cleansing.png',
     highlights: ['Systemic Toxins Evaluation', 'Colon & Liver Cleansing', 'Herbal Bio-Steam Packs', 'Therapeutic Juice Fasting'],
     details: {
       diagnostics: [
@@ -148,7 +148,7 @@ const naturopathyCards = [
     sanskritQuote: 'Calanaṁ jīvanam.',
     sanskritMeaning: 'Movement is life.',
     description: 'Our physiotherapy programmes combine evidence-based rehabilitation techniques with holistic wellness principles to help you recover from injuries, manage chronic pain, and improve overall mobility. Our experienced physiotherapists create personalized treatment plans tailored to your specific condition and recovery goals.',
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80',
+    image: '/assets/generated/physiotherapy.png',
     highlights: ['Postural Correction', 'Joint & Spinal Rehabilitation', 'Myofascial Trigger Release', 'Therapeutic Exercise Protocols'],
     details: {
       diagnostics: [
@@ -170,7 +170,7 @@ const naturopathyCards = [
     sanskritQuote: 'Svasthasya svāsthyarakṣaṇaṁ.',
     sanskritMeaning: 'Preservation of health of the healthy.',
     description: 'Ayurveda, the 5,000-year-old "Science of Life," offers a comprehensive approach to health and wellness by balancing the three doshas—Vata, Pitta, and Kapha. At Suprada Wellness, our authentic Ayurvedic treatments combine classical therapies with personalized care to restore harmony, enhance immunity, and promote longevity.',
-    image: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=1200&q=80',
+    image: '/assets/generated/ayurveda.png',
     highlights: ['Nadi Pariksha Pulse Diagnosis', 'Shirodhara Oil Therapy', 'Abhyanga Oil Alignment', 'Kizhi Herbal Compress'],
     details: {
       diagnostics: [

@@ -462,7 +462,7 @@ export default function Spaces({ onNavigate }) {
 
           {/* Word-by-Word Revealed Paragraph */}
           <AnimatedParagraph
-            text="Crafted with sacred Indian spatial proportions, mud-plastered walls, and riverfront solitude — every corner of our 54-acre estate is designed to restore your nervous system to its natural rhythm."
+            text="Crafted with sacred Indian spatial proportions, mud-plastered walls, and riverfront solitude — every corner of our riverfront estate is designed to restore your nervous system to its natural rhythm."
             style={{
               color: 'rgba(94, 39, 53, 0.88)',
               maxWidth: '680px',

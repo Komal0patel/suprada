@@ -54,7 +54,7 @@ const naturopathyCards = [
   {
     id: 'holistic-therapies',
     number: '03',
-    category: 'VIBRATIONAL MEDICINE',
+    category: 'ENERGY MEDICINE',
     title: 'Holistic Therapies',
     tagline: 'Integrated Healing for Complete Wellness',
     sanskritQuote: 'Sarvaṁ khalvidaṁ brahma.',
@@ -211,95 +211,8 @@ export default function Naturopathy({ onNavigate }) {
   return (
     <div style={{ backgroundColor: 'var(--antique-white)', color: 'var(--wine)', minHeight: '100vh', position: 'relative' }}>
       
-      {/* Hero Section - Full Screen 100vh Video Background */}
-      <section style={{ 
-        boxSizing: 'border-box',
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: isMobile ? '6.5rem 5% 3rem 5%' : '7.5rem 8% 4rem 8%',
-        textAlign: 'center',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        {/* Background Video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            zIndex: 1
-          }}
-        >
-          <source src="/assets/heroSection/IMG_0224.MP4" type="video/mp4" />
-        </video>
-
-        {/* Ambient Dark Gradient Overlay */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(180deg, rgba(20, 15, 12, 0.48) 0%, rgba(20, 15, 12, 0.32) 50%, rgba(20, 15, 12, 0.65) 100%)',
-          zIndex: 1
-        }} />
-
-        <Pattern24 style={{ position: 'absolute', top: '-50px', left: '-50px', width: '260px', opacity: 0.15, color: 'var(--harvest-gold)', zIndex: 2 }} />
-        <Pattern25 style={{ position: 'absolute', bottom: '-50px', right: '-50px', width: '260px', opacity: 0.15, color: 'var(--harvest-gold)', zIndex: 2 }} />
-
-        <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          <span style={{ 
-            color: 'var(--harvest-gold)', 
-            textTransform: 'uppercase', 
-            letterSpacing: '0.24em', 
-            fontSize: '0.72rem', 
-            fontWeight: 800, 
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.4rem',
-            marginBottom: '0.6rem',
-            backgroundColor: 'rgba(20, 15, 12, 0.65)',
-            border: '1px solid rgba(220,160,50,0.35)',
-            padding: '0.35rem 0.9rem',
-            borderRadius: '20px',
-            backdropFilter: 'blur(8px)'
-          }}>
-            <Star size={12} style={{ color: 'var(--harvest-gold)' }} /> PRAKṚTIREVA BHEṢAJAM • NATURE IS THE MEDICINE
-          </span>
-
-          <h1 style={{ 
-            fontSize: 'clamp(2.2rem, 4vw, 3.4rem)', 
-            color: '#ffffff', 
-            fontWeight: 700, 
-            lineHeight: 1.15, 
-            margin: '0.4rem 0 1rem 0' 
-          }}>
-            Naturopathy <em style={{ fontStyle: 'italic', color: 'var(--harvest-gold)' }}>&amp; Holistic Wellness</em>
-          </h1>
-
-          <p style={{ 
-            fontSize: isMobile ? '0.95rem' : '1.1rem', 
-            color: '#ffffff', 
-            opacity: 0.92, 
-            lineHeight: 1.65, 
-            maxWidth: '760px', 
-            margin: '0 auto',
-            textShadow: '0 2px 10px rgba(0,0,0,0.5)' 
-          }}>
-            Explore our 8 core drugless medical modalities combining ancient Pancha Mahabhuta therapies, hydro-cleansing, iridology, and yogic science.
-          </p>
-        </div>
-      </section>
-
-      {/* Main 8 Cards Grid Section (Naturopathy Style) */}
-      <section className="naturopathy-section-container luxury-clay" style={{ position: 'relative', overflow: 'hidden', padding: isMobile ? '3rem 5%' : '4.5rem 7%', backgroundColor: 'var(--antique-white)' }}>
+      {/* Main Cards Grid Section (Naturopathy Style) */}
+      <section className="naturopathy-section-container luxury-clay" style={{ position: 'relative', overflow: 'hidden', padding: isMobile ? '7.5rem 5% 3rem 5%' : '8.5rem 7% 4.5rem 7%', backgroundColor: 'var(--antique-white)' }}>
         <Pattern28 style={{ position: 'absolute', top: '-40px', left: '-40px', width: '220px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
         
         <div style={{ maxWidth: '1280px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 2 }}>
@@ -308,11 +221,11 @@ export default function Naturopathy({ onNavigate }) {
             <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.18em', fontSize: '0.68rem', fontWeight: 800, display: 'block', marginBottom: '0.25rem' }}>
               ✦ CORE MEDICAL MODALITIES
             </span>
-            <h2 style={{ color: 'var(--wine)', lineHeight: 1.18, margin: 0, fontSize: 'clamp(1.5rem, 2.5vw, 2.1rem)', fontWeight: 700 }}>
-              The 8 Healing <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>Sciences &amp; Disciplines</em>
-            </h2>
-            <p style={{ fontSize: '0.86rem', color: 'var(--wine)', opacity: 0.88, margin: '0.5rem 0 0 0', lineHeight: 1.5 }}>
-              Click any modality card below to inspect diagnostic testing, therapeutic suites, sanskrit wisdom, and doctor oversight details.
+            <h1 style={{ color: 'var(--wine)', lineHeight: 1.15, margin: '0 0 0.5rem 0', fontSize: 'clamp(2.2rem, 3.8vw, 3.2rem)', fontWeight: 700 }}>
+              Naturopathy <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>&amp; Holistic Wellness</em>
+            </h1>
+            <p style={{ fontSize: isMobile ? '0.92rem' : '1.05rem', color: 'var(--wine)', opacity: 0.88, margin: '0.5rem 0 0 0', lineHeight: 1.6 }}>
+              Explore our core drugless medical modalities combining ancient Pancha Mahabhuta therapies, hydro-cleansing, iridology, and yogic science.
             </p>
           </div>
 

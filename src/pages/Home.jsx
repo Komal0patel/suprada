@@ -535,7 +535,7 @@ export default function Home({ onNavigate }) {
     {
       id: 'holistic-therapies',
       number: '03',
-      category: 'VIBRATIONAL MEDICINE',
+      category: 'ENERGY MEDICINE',
       title: 'Holistic Therapies',
       tagline: 'Integrated Healing for Complete Wellness',
       sanskritQuote: 'Sarvaṁ khalvidaṁ brahma.',
@@ -1129,7 +1129,6 @@ export default function Home({ onNavigate }) {
             </motion.div>
             <div style={{ textAlign: 'center' }} className="founders-badge-text">
               <h3 style={{color: 'var(--wine)', letterSpacing: '0.1em', margin: 0, fontWeight: 700}}>Suprada</h3>
-              <span style={{ color: 'var(--redwood)', opacity: 0.85, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginTop: '0.15rem', display: 'block', fontWeight: 700 }}>Est. 2026</span>
             </div>
           </motion.div>
 
@@ -1164,11 +1163,11 @@ export default function Home({ onNavigate }) {
             </motion.h4>
             
             <motion.p variants={foundersMistFadeVariant} className="founders-body" style={{ color: 'var(--raisin-black)', fontSize: 'var(--fs-body)', opacity: 0.88, lineHeight: 1.6, fontWeight: 400, margin: 0 }}>
-              Suprada is the realization of a vision shared by <strong>Sunil Jayaraj</strong> and <strong>Dr. Premasudha Ramadas</strong>. After spending 16 years in the United States, they returned to India with a singular purpose: to bridge the gap between advanced science and ancient Indian wisdom.
+              Suprada is the realization of a vision shared by <strong>Mr. Sunil Jayaraj</strong> and <strong>Dr. Premasudha Ramadas</strong>. After spending 16 years in the United States, they returned to India with a singular purpose: to bridge the gap between advanced science and ancient Indian wisdom.
             </motion.p>
             
             <motion.p variants={foundersMistFadeVariant} className="founders-body" style={{ color: 'var(--raisin-black)', fontSize: 'var(--fs-body)', opacity: 0.88, lineHeight: 1.6, fontWeight: 400, margin: 0 }}>
-              Sunil, known as a "Blue Planet Runner," brings the endurance and discipline of an elite athlete, while Dr. Premasudha, a US Board-certified physician, ensures our holistic integration is grounded in authenticity and clinical evidence.
+              Mr. Sunil Jayaraj, known as a "Blue Planet Runner," brings the endurance and discipline of an elite athlete, while Dr. Premasudha, a US Board-certified physician, ensures our holistic integration is grounded in authenticity and clinical evidence.
             </motion.p>
             
             <motion.p variants={foundersMistFadeVariant} className="founders-quote" style={{ color: 'var(--wine)', fontSize: 'var(--fs-body)', opacity: 0.95, lineHeight: 1.5, fontStyle: 'italic', marginTop: '0.2rem', margin: 0, fontWeight: 600 }}>
@@ -1253,16 +1252,6 @@ export default function Home({ onNavigate }) {
                   }}>
                     ✦ {card.category}
                   </span>
-
-                  <span style={{
-                    position: 'absolute', bottom: '6px', right: '8px',
-                    color: '#ffffff',
-                    fontSize: '0.95rem',
-                    fontWeight: 800,
-                    opacity: 0.85
-                  }}>
-                    {card.number}
-                  </span>
                 </div>
 
                 {/* Card Title Only */}
@@ -1275,7 +1264,7 @@ export default function Home({ onNavigate }) {
             ))}
           </div>
 
-          {/* Secondary Modalities & Brochure CTA Bar */}
+          {/* Secondary Modalities CTA Bar */}
           <div style={{ textAlign: 'center', marginTop: '1.8rem', display: 'flex', gap: '0.8rem', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
             <button
               onClick={() => onNavigate('naturopathy')}
@@ -1292,33 +1281,8 @@ export default function Home({ onNavigate }) {
               }}
               className="hover-gold"
             >
-              Explore All 8 Clinical Modalities &amp; Programmes →
+              Explore All Clinical Modalities &amp; Programmes →
             </button>
-
-            <a
-              href="/assets/Suprada_Wellness_Brochure.pdf"
-              download="Suprada_Wellness_Brochure.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                backgroundColor: 'var(--wine)',
-                border: '1.5px solid var(--wine)',
-                color: '#ffffff',
-                padding: '0.55rem 1.4rem',
-                borderRadius: '50px',
-                fontWeight: 700,
-                fontSize: '0.8rem',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.4rem',
-                textDecoration: 'none'
-              }}
-              className="hover-gold"
-            >
-              <Download size={15} /> Download Brochure
-            </a>
           </div>
         </div>
       </section>
@@ -2631,11 +2595,11 @@ export default function Home({ onNavigate }) {
               Comprehensive <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>Clinical Spectrum</em>
             </h2>
             <p style={{ fontSize: '0.84rem', color: 'var(--wine)', opacity: 0.88, margin: '0.4rem 0 0 0', lineHeight: 1.5 }}>
-              Click any of our 12 specialized clinical conditions to view doctor-supervised protocols, medical modalities, and treatment phases.
+              Click any of our specialized clinical conditions to view doctor-supervised protocols, medical modalities, and treatment phases.
             </p>
           </div>
 
-          {/* 12-Card Grid Layout (Matching Naturopathy Section) */}
+          {/* Card Grid Layout (Matching Naturopathy Section) */}
           <div style={{
             display: 'grid',
             gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
@@ -2741,16 +2705,6 @@ export default function Home({ onNavigate }) {
                   }}>
                     ✦ {card.category}
                   </span>
-
-                  <span style={{
-                    position: 'absolute', bottom: '6px', right: '8px',
-                    color: '#ffffff',
-                    fontSize: '0.95rem',
-                    fontWeight: 800,
-                    opacity: 0.85
-                  }}>
-                    {card.number}
-                  </span>
                 </div>
 
                 {/* Card Title */}
@@ -2763,14 +2717,14 @@ export default function Home({ onNavigate }) {
             ))}
           </div>
 
-          {/* Explore All 12 Clinical Conditions Button */}
+          {/* Explore All Clinical Conditions Button */}
           <div style={{ textAlign: 'center', marginTop: '2.2rem' }}>
             <button 
               onClick={() => onNavigate('comprehensivecare')}
               className="btn-luxury"
               style={{ padding: '0.85rem 2.4rem', fontSize: '0.8rem' }}
             >
-              Explore All 12 Clinical Conditions &rarr;
+              Explore All Clinical Conditions &rarr;
             </button>
           </div>
 
@@ -2792,7 +2746,7 @@ export default function Home({ onNavigate }) {
 
           <div className="experts-carousel-mobile" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '0.9rem', width: '100%' }}>
             {[
-              { name: 'Dr. Sunil Jayaraj', role: 'Founder', creds: 'Suprada Wellness', img: '/assets/Founders/sunil_jayaraj.jpg' },
+              { name: 'Mr. Sunil Jayaraj', role: 'Founder', creds: 'Suprada Wellness', img: '/assets/Founders/sunil_jayaraj.jpg' },
               { name: 'Dr. Prema Ramadas', role: 'Co-founder', creds: 'Suprada Wellness', img: '/assets/Founders/prema_ramadas.jpg' },
               { name: 'Srinivas Ramadas', role: 'Director Operations', creds: 'Suprada Wellness', img: '/assets/Founders/srinivas_ramadas.jpg' },
               { name: 'Nagaraju', role: 'Chairman', creds: 'Suprada Wellness', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80' },
@@ -2895,7 +2849,7 @@ export default function Home({ onNavigate }) {
 
           <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem', color: 'var(--wine)', borderColor: 'rgba(94,39,53,0.2)' }}>✦ 100% Drugless Naturopathy</div>
-            <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem', color: 'var(--wine)', borderColor: 'rgba(94,39,53,0.2)' }}>✦ 54 Riverfront Acres</div>
+            <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem', color: 'var(--wine)', borderColor: 'rgba(94,39,53,0.2)' }}>✦ Riverfront Sanctuary</div>
             <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem', color: 'var(--wine)', borderColor: 'rgba(94,39,53,0.2)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}><Stethoscope size={14} style={{ color: 'var(--redwood)' }} /> 24/7 Resident Doctors</div>
           </div>
 

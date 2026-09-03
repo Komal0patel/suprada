@@ -137,7 +137,7 @@ const clinicalDiseases = [
     category: '7 to 14 Days',
     image: 'https://images.unsplash.com/photo-1499209974431-9dac3ada00d7?auto=format&fit=crop&w=800&q=80',
     protocolTitle: 'Autonomic Nervous System Reset & Mindful Healing',
-    fullDesc: 'A deeply calming retreat protocol for mental exhaustion, occupational burnout, and emotional trauma. Combines forest bathing on our 54-acre estate, Yoga Nidra sound immersion, and therapeutic hydro-relaxation.',
+    fullDesc: 'A deeply calming retreat protocol for mental exhaustion, occupational burnout, and emotional trauma. Combines forest bathing on our riverfront estate, Yoga Nidra sound immersion, and therapeutic hydro-relaxation.',
     modalities: ['Yoga Nidra Sound Sanctum', 'Forest River Bathing', 'Shirodhara Oil Therapy', 'Silent Meditation', 'Mindful Organic Dining'],
     diagnostics: [
       { name: 'Heart Rate Variability (HRV)', desc: 'Bio-feedback tracking of vagal nerve activity and psychological resilience.' },
@@ -200,108 +200,21 @@ export default function ComprehensiveCare({ onNavigate }) {
   return (
     <div style={{ backgroundColor: 'var(--antique-white)', color: 'var(--wine)', minHeight: '100vh', position: 'relative' }}>
       
-      {/* Hero Section - Full Screen 100vh Video Background */}
-      <section style={{ 
-        boxSizing: 'border-box',
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: isMobile ? '6.5rem 5% 3rem 5%' : '7.5rem 8% 4rem 8%',
-        textAlign: 'center',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        {/* Background Video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            zIndex: 1
-          }}
-        >
-          <source src="/assets/heroSection/IMG_0224.MP4" type="video/mp4" />
-        </video>
-
-        {/* Ambient Dark Gradient Overlay */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(180deg, rgba(20, 15, 12, 0.48) 0%, rgba(20, 15, 12, 0.32) 50%, rgba(20, 15, 12, 0.65) 100%)',
-          zIndex: 1
-        }} />
-
-        <Pattern24 style={{ position: 'absolute', top: '-50px', left: '-50px', width: '260px', opacity: 0.15, color: 'var(--harvest-gold)', zIndex: 2 }} />
-        <Pattern25 style={{ position: 'absolute', bottom: '-50px', right: '-50px', width: '260px', opacity: 0.15, color: 'var(--harvest-gold)', zIndex: 2 }} />
-
-        <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          <span style={{ 
-            color: 'var(--harvest-gold)', 
-            textTransform: 'uppercase', 
-            letterSpacing: '0.24em', 
-            fontSize: '0.72rem', 
-            fontWeight: 800, 
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.4rem',
-            marginBottom: '0.6rem',
-            backgroundColor: 'rgba(20, 15, 12, 0.65)',
-            border: '1px solid rgba(220,160,50,0.35)',
-            padding: '0.35rem 0.9rem',
-            borderRadius: '20px',
-            backdropFilter: 'blur(8px)'
-          }}>
-            <Star size={12} style={{ color: 'var(--harvest-gold)' }} /> 100% DRUGLESS NATUROPATHIC CARE
-          </span>
-
-          <h1 style={{ 
-            fontSize: 'clamp(2.2rem, 4vw, 3.4rem)', 
-            color: '#ffffff', 
-            fontWeight: 700, 
-            lineHeight: 1.15, 
-            margin: '0.4rem 0 1rem 0' 
-          }}>
-            Comprehensive <em style={{ fontStyle: 'italic', color: 'var(--harvest-gold)' }}>Clinical Spectrum</em>
-          </h1>
-
-          <p style={{ 
-            fontSize: isMobile ? '0.95rem' : '1.1rem', 
-            color: '#ffffff', 
-            opacity: 0.92, 
-            lineHeight: 1.65, 
-            maxWidth: '760px', 
-            margin: '0 auto',
-            textShadow: '0 2px 10px rgba(0,0,0,0.5)' 
-          }}>
-            Our 12 specialized doctor-supervised clinical conditions integrate evidence-based Naturopathy, hydrotherapy, clinical nutrition, and yogic science for lasting drugless recovery.
-          </p>
-        </div>
-      </section>
-
-      {/* Main 12 Cards Grid Section (Naturopathy Style) */}
-      <section className="naturopathy-section-container luxury-clay" style={{ position: 'relative', overflow: 'hidden', padding: isMobile ? '3rem 5%' : '4.5rem 7%', backgroundColor: 'var(--antique-white)' }}>
+      {/* Main Cards Grid Section */}
+      <section className="naturopathy-section-container luxury-clay" style={{ position: 'relative', overflow: 'hidden', padding: isMobile ? '7.5rem 5% 3rem 5%' : '8.5rem 7% 4.5rem 7%', backgroundColor: 'var(--antique-white)' }}>
         <Pattern28 style={{ position: 'absolute', top: '-40px', left: '-40px', width: '220px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
         
         <div style={{ maxWidth: '1280px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           
           <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 2.2rem auto' }}>
             <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.18em', fontSize: '0.68rem', fontWeight: 800, display: 'block', marginBottom: '0.25rem' }}>
-              ✦ TARGETED DISEASE CONDITIONS
+              ✦ TARGETED CLINICAL INTERVENTIONS
             </span>
-            <h2 style={{ color: 'var(--wine)', lineHeight: 1.18, margin: 0, fontSize: 'clamp(1.5rem, 2.5vw, 2.1rem)', fontWeight: 700 }}>
-              Specialized <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>Clinical Protocols</em>
-            </h2>
-            <p style={{ fontSize: '0.86rem', color: 'var(--wine)', opacity: 0.88, margin: '0.5rem 0 0 0', lineHeight: 1.5 }}>
-              Select any of the 12 clinical conditions below to explore diagnostic testing, core medical modalities, and treatment phases.
+            <h1 style={{ color: 'var(--wine)', lineHeight: 1.15, margin: '0 0 0.5rem 0', fontSize: 'clamp(2.2rem, 3.8vw, 3.2rem)', fontWeight: 700 }}>
+              Comprehensive <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>Clinical Spectrum</em>
+            </h1>
+            <p style={{ fontSize: isMobile ? '0.92rem' : '1.05rem', color: 'var(--wine)', opacity: 0.88, margin: '0.5rem 0 0 0', lineHeight: 1.6 }}>
+              Select any of the specialized clinical conditions below to explore diagnostic testing, core medical modalities, and treatment phases.
             </p>
           </div>
 

@@ -196,7 +196,7 @@ export default function About({ onNavigate }) {
 
   const foundersData = {
     sunil: {
-      name: "Dr. Sunil Jayaraj",
+      name: "Mr. Sunil Jayaraj",
       role: "Founder & Chairman",
       badge: "Blue Planet Runner & PhD",
       quote: "Athletic endurance is the structural logic of stilling the mind and awakening biological resilience.",
@@ -216,7 +216,7 @@ export default function About({ onNavigate }) {
   };
 
   const teamMembers = [
-    { name: 'Dr. Sunil Jayaraj', role: 'Founder', company: 'Suprada Wellness', category: 'leadership', quote: 'Bringing athletic endurance and analytical systems to our sanctuary.', color: 'var(--wine)', initials: 'SJ' },
+    { name: 'Mr. Sunil Jayaraj', role: 'Founder', company: 'Suprada Wellness', category: 'leadership', quote: 'Bringing athletic endurance and analytical systems to our sanctuary.', color: 'var(--wine)', initials: 'SJ' },
     { name: 'Dr. Prema Ramadas', role: 'Co-Founder', company: 'Suprada Wellness', category: ['leadership', 'clinical'], quote: 'Merging US clinical protocols with alternative Vedic therapies.', color: 'var(--wine)', initials: 'PR' },
     { name: 'Nagaraju', role: 'Chairman', company: 'Suprada Wellness', category: 'leadership', quote: 'Guiding Suprada’s vision towards holistic living and community wellness.', color: 'var(--wine)', initials: 'N' },
     { name: 'Srinivas Ramadas', role: 'Director Operations', company: 'Suprada Wellness', category: 'leadership', quote: 'Crafting the standard of luxury wellness operations.', color: 'var(--redwood)', initials: 'SR' },
@@ -360,7 +360,7 @@ export default function About({ onNavigate }) {
 
           {/* Word-by-Word Revealed Paragraph */}
           <AnimatedParagraph 
-            text="Bridging advanced clinical science with ancient Indian wisdom — Suprada is a 54-acre riverfront sanctuary on Kanakapura Road, dedicated to the drugless cellular restoration of body, mind, and spirit."
+            text="Bridging advanced clinical science with ancient Indian wisdom — Suprada is a riverfront sanctuary on Kanakapura Road, dedicated to the drugless cellular restoration of body, mind, and spirit."
             style={{ 
               color: 'rgba(40, 38, 37, 0.88)', 
               maxWidth: '680px', 
@@ -381,7 +381,7 @@ export default function About({ onNavigate }) {
             style={{ display: 'flex', gap: '0.8rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '1.5rem' }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(94, 39, 53, 0.18)', padding: '0.4rem 1.1rem', borderRadius: '24px', fontSize: '0.78rem', color: 'var(--wine)' }}>
-              <span><Leaf size={14} style={{ color: 'var(--redwood)' }} /></span> <span>54-Acre Riverfront Estate</span>
+              <span><Leaf size={14} style={{ color: 'var(--redwood)' }} /></span> <span>Riverfront Sanctuary Estate</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(94, 39, 53, 0.18)', padding: '0.4rem 1.1rem', borderRadius: '24px', fontSize: '0.78rem', color: 'var(--wine)' }}>
               <span><Stethoscope size={14} style={{ color: 'var(--redwood)' }} /></span> <span>30+ Years Clinical Heritage</span>
@@ -491,7 +491,7 @@ export default function About({ onNavigate }) {
                   transition: 'all 0.3s ease'
                 }}
               >
-                Dr. Sunil Jayaraj (Founder)
+                Mr. Sunil Jayaraj (Founder)
               </button>
 
               <button
@@ -1193,7 +1193,7 @@ export default function About({ onNavigate }) {
             Nestled in the Heart of Nature
           </h2>
           <p style={{ opacity: 0.88, fontSize: 'var(--fs-body)', lineHeight: 1.7, fontWeight: 300 }}>
-            Suprada stretches across 54 acres of lush greens and fragrant herbal fields along the banks of the sacred Suvarnamukhi River on Kanakapura Road, Bangalore. The gentle murmur of flowing water and pure natural air create an ideal landscape for nervous system regulation.
+            Suprada stretches across acres of lush greens and fragrant herbal fields along the banks of the sacred Suvarnamukhi River on Kanakapura Road, Bangalore. The gentle murmur of flowing water and pure natural air create an ideal landscape for nervous system regulation.
           </p>
           <div style={{ display: 'flex', gap: '1.2rem', marginTop: '0.5rem' }}>
             <button 

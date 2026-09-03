@@ -23,13 +23,13 @@ import StarfieldBackground from './components/StarfieldBackground';
 
 const searchIndex = [
   { title: "Home Page", category: "Navigation", path: "home", desc: "Welcome to Suprada Sanctuary & Riverfront Wellness" },
-  { title: "About Us & Founders", category: "Navigation", path: "about", desc: "Discover Dr. Sunil Jayaraj, Dr. Prema Ramadas & our healing philosophy" },
+  { title: "About Us & Founders", category: "Navigation", path: "about", desc: "Discover Mr. Sunil Jayaraj, Dr. Prema Ramadas & our healing philosophy" },
   { title: "Naturopathy & Holistic Wellness", category: "Therapies", path: "home", desc: "Prakṛtireva bheṣajam — Nature's drug-free path to healing" },
   { title: "Iris & Facial Diagnosis", category: "Diagnostics", path: "home", desc: "Non-invasive organ analysis, iris mapping & facial markers" },
   { title: "Therapeutic Massages & Powders", category: "Therapies", path: "home", desc: "Powder Vibrio, Deep Tissue, Shiatsu, Reflexology, Swedish, Thai" },
   { title: "Hydrotherapy & Mud Baths", category: "Therapies", path: "home", desc: "Spinal Spray, Hip Bath, Jacuzzi, Full Body Mud Bath & Packs" },
   { title: "Yoga & Sunrise Breathwork", category: "Movement", path: "home", desc: "Asanas, Pranayama, Shatkarma Kriyas, Mudras & Bandhas" },
-  { title: "Sound Healing & Om Bowls", category: "Vibrational Medicine", path: "home", desc: "Tibetan singing bowls, Gong acoustic resonance, Flute therapy" },
+  { title: "Sound Healing & Om Bowls", category: "Energy Medicine", path: "home", desc: "Tibetan singing bowls, Gong acoustic resonance, Flute therapy" },
   { title: "Satwik Farm-to-Table Nutrition", category: "Nutrition", path: "home", desc: "Organic vegetarian meal plans, millet diets, detox juices & fasting" },
   { title: "Our Spaces & Sanctuaries", category: "Navigation", path: "spaces", desc: "Explore Swasthya, Sauhithya, Samiksha, Sukhada & Goshala" },
   { title: "Stay & Eco Cottages", category: "Sanctuaries", path: "stay", desc: "Guha, Samprapti, Subhiksha cottages & private sit-out verandas" },
@@ -39,8 +39,8 @@ const searchIndex = [
   { title: "Occasions & Events", category: "Navigation", path: "occasions", desc: "Weddings, anniversaries, family reunions & quiet retreats" },
   { title: "Careers & Opportunities", category: "Navigation", path: "careers", desc: "Join our team of doctors, therapists, hospitality & wellness leads" },
   { title: "Contact Us & Directions", category: "Navigation", path: "contact", desc: "Get in touch, location map by Suvarnamukhi river & booking" },
-  { title: "Comprehensive Clinical Spectrum", category: "Navigation", path: "comprehensivecare", desc: "Explore our 12 specialized doctor-supervised clinical conditions" },
-  { title: "Naturopathy & Holistic Wellness", category: "Navigation", path: "naturopathy", desc: "Explore our 8 core drugless medical modalities & natural therapies" }
+  { title: "Comprehensive Clinical Spectrum", category: "Navigation", path: "comprehensivecare", desc: "Explore our specialized doctor-supervised clinical conditions" },
+  { title: "Naturopathy & Holistic Wellness", category: "Navigation", path: "naturopathy", desc: "Explore our core drugless medical modalities & natural therapies" }
 ];
 
 function App() {
@@ -70,6 +70,16 @@ function App() {
   const lenisRef = useRef(null);
 
   const [scrollYPos, setScrollYPos] = useState(0);
+  const scrollPositionsRef = useRef({});
+  const isBackNavRef = useRef(false);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      isBackNavRef.current = true;
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrollYPos(latest);
@@ -133,15 +143,26 @@ function App() {
   }, []);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-    if (lenisRef.current) {
-      lenisRef.current.scrollTo(0, { immediate: true });
-      lenisRef.current.resize();
+    const savedPos = scrollPositionsRef.current[currentPage];
+    if (isBackNavRef.current && savedPos !== undefined) {
+      window.scrollTo({ top: savedPos, left: 0, behavior: 'instant' });
+      if (lenisRef.current) {
+        lenisRef.current.scrollTo(savedPos, { immediate: true });
+      }
+      setScrollYPos(savedPos);
+      isBackNavRef.current = false;
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      if (lenisRef.current) {
+        lenisRef.current.scrollTo(0, { immediate: true });
+        lenisRef.current.resize();
+      }
+      setScrollYPos(0);
     }
-    setScrollYPos(0);
   }, [currentPage]);
 
   const handlePageChange = (page) => {
+    scrollPositionsRef.current[currentPage] = window.scrollY || document.documentElement.scrollTop || 0;
     setCurrentPage(page);
     const path = page === 'home' ? '/' : `/${page}`;
     navigate(path);
@@ -152,7 +173,7 @@ function App() {
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'spaces', label: 'Our Spaces' },
-    { id: 'stay', label: 'Stay' },
+    { id: 'stay', label: 'Book Now' },
     { id: 'programmes', label: 'Programmes' },
     { id: 'gallery', label: 'Gallery' },
     { id: 'blog', label: 'Blog' },
@@ -273,44 +294,8 @@ function App() {
                 </div>
               )}
 
-              {/* Right Action: We're Hiring, Search Bar & Mobile Menu */}
+              {/* Right Action: Search Bar & Mobile Menu */}
               <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '0.35rem' : '0.5rem', flexShrink: 0, marginLeft: 'auto' }}>
-                {/* "We're Hiring" Aesthetic Pill Button — Compact on Mobile */}
-                <button
-                  onClick={() => handlePageChange('careers')}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.3rem',
-                    padding: isMobile ? '0.28rem 0.55rem' : '0.35rem 0.75rem',
-                    backgroundColor: 'rgba(234, 169, 54, 0.18)',
-                    border: '1px solid rgba(234, 169, 54, 0.55)',
-                    borderRadius: '50px',
-                    color: 'var(--harvest-gold)',
-                    fontSize: isMobile ? '0.65rem' : '0.72rem',
-                    letterSpacing: '0.02em',
-                    fontWeight: 700,
-                    cursor: 'pointer',
-                    whiteSpace: 'nowrap',
-                    flexShrink: 0,
-                    transition: 'all 0.3s ease',
-                    boxShadow: '0 2px 10px rgba(0,0,0,0.2)'
-                  }}
-                  className="hover-gold"
-                  aria-label="We are hiring - View Careers"
-                >
-                  <span style={{
-                    width: '5px',
-                    height: '5px',
-                    borderRadius: '50%',
-                    backgroundColor: 'var(--harvest-gold)',
-                    display: 'inline-block',
-                    boxShadow: '0 0 6px var(--harvest-gold)',
-                    animation: 'pulse-dot 1.8s infinite ease-in-out'
-                  }} />
-                  <span>{isMobile ? "Hiring" : "We're Hiring"}</span>
-                </button>
-
                 {/* Search Bar Button — Icon Only on Mobile */}
                 <button
                   onClick={() => setIsSearchOpen(true)}
@@ -581,7 +566,7 @@ function App() {
         {/* Global Footer */}
         <Footer onNavigate={handlePageChange} />
 
-        {/* Global Constant Floating Contact Actions (WhatsApp & Call Buttons) */}
+        {/* Global Constant Floating Contact Actions (Hiring, WhatsApp & Call Buttons) */}
         <div
           style={{
             position: 'fixed',
@@ -594,6 +579,41 @@ function App() {
             alignItems: 'center'
           }}
         >
+          {/* Floating "We're Hiring" Pill Button */}
+          <motion.button
+            onClick={() => handlePageChange('careers')}
+            whileHover={{ scale: 1.08, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.4rem',
+              padding: isMobile ? '0.4rem 0.8rem' : '0.45rem 0.95rem',
+              backgroundColor: 'var(--wine)',
+              border: '1.5px solid var(--harvest-gold)',
+              borderRadius: '50px',
+              color: 'var(--harvest-gold)',
+              fontSize: isMobile ? '0.7rem' : '0.76rem',
+              letterSpacing: '0.04em',
+              fontWeight: 700,
+              cursor: 'pointer',
+              whiteSpace: 'nowrap',
+              boxShadow: '0 8px 24px rgba(94, 39, 53, 0.4)'
+            }}
+            aria-label="We are hiring - View Careers"
+          >
+            <span style={{
+              width: '6px',
+              height: '6px',
+              borderRadius: '50%',
+              backgroundColor: 'var(--harvest-gold)',
+              display: 'inline-block',
+              boxShadow: '0 0 6px var(--harvest-gold)',
+              animation: 'pulse-dot 1.8s infinite ease-in-out'
+            }} />
+            <span>We're Hiring</span>
+          </motion.button>
+
           {/* WhatsApp Floating Button */}
           <motion.a
             href="https://wa.me/917892596969?text=Hello%20Suprada%20Wellness%2C%20I%20would%20like%20to%20inquire%20about%20your%20retreats"

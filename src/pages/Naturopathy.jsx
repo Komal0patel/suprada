@@ -278,16 +278,6 @@ export default function Naturopathy({ onNavigate }) {
                   }}>
                     ✦ {card.category}
                   </span>
-
-                  <span style={{
-                    position: 'absolute', bottom: '6px', right: '8px',
-                    color: '#ffffff',
-                    fontSize: '1rem',
-                    fontWeight: 800,
-                    opacity: 0.88
-                  }}>
-                    {card.number}
-                  </span>
                 </div>
 
                 {/* Card Title */}

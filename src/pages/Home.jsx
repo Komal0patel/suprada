@@ -1439,13 +1439,6 @@ export default function Home({ onNavigate }) {
                         display: 'flex',
                         alignItems: 'center'
                       }}>
-                        <span style={{ 
-                          color: isItemActive ? 'var(--redwood)' : 'var(--harvest-gold)', 
-                          marginRight: '0.8rem', 
-                          fontWeight: 700,
-                          }}>
-                          0{idx + 1}
-                        </span>
                         {menuTitle}
                       </div>
                     </div>
@@ -1606,16 +1599,6 @@ export default function Home({ onNavigate }) {
                             gap: '0.4rem'
                           }}
                         >
-                          <span style={{
-                            color: 'var(--redwood)',
-                            fontSize: 'var(--fs-small)',
-                            fontWeight: 500,
-                            textTransform: 'uppercase',
-                            letterSpacing: '0.25em'
-                          }}>
-                            Ritual {currentIdx + 1} of 6
-                          </span>
-                          
                           <h3 style={{color: 'var(--wine)',
                             margin: '0.2rem 0'}}>
                             {[
@@ -2502,7 +2485,7 @@ export default function Home({ onNavigate }) {
                 ✦ Healing Retreats
               </span>
               <h2 style={{color: 'var(--wine)', margin: 0, lineHeight: 1.1, fontWeight: 700}}>
-                The Sanctuary <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>Collection</em>
+                Sanctuary Wellness <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>Retreats</em>
               </h2>
             </div>
 

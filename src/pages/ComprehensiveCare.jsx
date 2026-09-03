@@ -79,7 +79,7 @@ const clinicalDiseases = [
     number: '06',
     title: 'Heart & Cardiovascular Care',
     category: '14 to 21 Days',
-    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=800&q=80',
     protocolTitle: 'Vascular De-Stressing & Arterial Tonification',
     fullDesc: 'Doctor-monitored cardiovascular wellness protocol designed to normalize hypertension, lower arterial stiffness, and enhance cardiac output through gentle hydro-baths, specialized pranayama, and heart-healthy bio-nutrition.',
     modalities: ['Arm & Foot Hydro-Baths', 'Cardio-Protective Herbs', 'Deep Cardiac Pranayama', 'Sodium-Balancing Diet', 'Stress Elimination Yoga'],
@@ -121,7 +121,7 @@ const clinicalDiseases = [
     number: '09',
     title: 'Respiratory & Pulmonary Care',
     category: '7 to 14 Days',
-    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=800&q=80',
     protocolTitle: 'Bronchial Cleansing & Pulmonary Expansion',
     fullDesc: 'Clinical respiratory care protocol designed for asthma, chronic bronchitis, sinusitis, and post-viral pulmonary recovery using saline Neti, chest steam poultices, oxygenating pranayama, and pristine riverfront clean air.',
     modalities: ['Jala & Sutra Neti', 'Chest Herbal Steam Poultice', 'Kapalbhati Pulmonary Kriya', 'Bronchial Hydro Compresses', 'Eucalyptus Steam'],
@@ -149,7 +149,7 @@ const clinicalDiseases = [
     number: '11',
     title: 'Cancer Care & Recovery Support',
     category: '14 to 28 Days',
-    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80',
     protocolTitle: 'Integrative Vitality Rebuilding & Immune Fortification',
     fullDesc: 'Gentle, doctor-monitored supportive care protocol designed to alleviate chemotherapy/radiation side effects, boost natural killer cell activity, reduce systemic inflammation, and nourish body & spirit.',
     modalities: ['Gentle Detox Hydrotherapy', 'Immune-Boosting Bio-Nutrition', 'Pranic Healing & Yoga', 'Lymphatic Drainage', 'Emotional Sanctuary'],
@@ -218,7 +218,7 @@ export default function ComprehensiveCare({ onNavigate }) {
             </p>
           </div>
 
-          {/* 12-Card Grid Layout (Naturopathy Style) */}
+          {/* Card Grid Layout */}
           <div style={{
             display: 'grid',
             gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
@@ -233,9 +233,9 @@ export default function ComprehensiveCare({ onNavigate }) {
                 onClick={() => setSelectedDiseaseModal(card)}
                 style={{
                   backgroundColor: '#ffffff',
-                  borderRadius: '16px',
+                  borderRadius: '14px',
                   border: '1.5px solid rgba(94, 39, 53, 0.12)',
-                  boxShadow: '0 8px 22px rgba(94, 39, 53, 0.06)',
+                  boxShadow: '0 6px 18px rgba(94, 39, 53, 0.06)',
                   overflow: 'hidden',
                   display: 'flex',
                   flexDirection: 'column',
@@ -266,16 +266,6 @@ export default function ComprehensiveCare({ onNavigate }) {
                     border: '1px solid rgba(220,160,50,0.25)'
                   }}>
                     ✦ {card.category}
-                  </span>
-
-                  <span style={{
-                    position: 'absolute', bottom: '6px', right: '8px',
-                    color: '#ffffff',
-                    fontSize: '1rem',
-                    fontWeight: 800,
-                    opacity: 0.88
-                  }}>
-                    {card.number}
                   </span>
                 </div>
 

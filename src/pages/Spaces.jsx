@@ -196,7 +196,7 @@ export default function Spaces({ onNavigate }) {
     { title: 'Sanjivani', sub: 'Nature & Regeneration', desc: 'Wander through the forest trails, walk barefoot on paths, and reconnect with nature\'s healing elements.', protocol: 'Barefoot Forest Grounding' },
     { title: 'Samiksha', sub: 'Reflection & Learning', desc: 'Participate in evening Satsangs, wellness workshops, and review your daily healing progress.', protocol: 'Satsang & Heritage Dialogue' },
     { title: 'Sukhada', sub: 'Vitality & Strengthening', desc: 'Build structural strength and conditioning in our wellness gym under therapeutic guidance.', protocol: 'Gentle Therapeutic Rebuilding' },
-    { title: 'Sankalpa', sub: 'Closure & Transition', desc: 'Complete your exit consultation with customized diet, lifestyle guidelines, and post-retreat routines.', protocol: 'Post-Sanctuary Lifestyle Plan' }
+    { title: 'Sankalpa', sub: 'Closure & Transition', desc: 'Complete your exit consultation with customized diet, lifestyle guidelines, and post-retreat routines.', protocol: 'Post-Retreat Lifestyle Plan' }
   ];
 
   const spacesCategories = [
@@ -237,7 +237,7 @@ export default function Spaces({ onNavigate }) {
       icon: <Heart size={20} />,
       subtitle: 'Pranayama Decks & Meditative Walking Tracks',
       items: [
-        { name: 'Mahabilva (Indoor Yoga Hall)', desc: 'An elegant, peaceful sanctuary for group asanas, breathwork, and sound bathing.' },
+        { name: 'Mahabilva (Indoor Yoga Hall)', desc: 'An elegant, peaceful haven for group asanas, breathwork, and sound bathing.' },
         { name: 'Outdoor Yoga Space (River Deck)', desc: 'Named after the sacred nine-leaved Mahabilva. An open-air deck for meditation by the river.' },
         { name: 'Sanmarga (Walking Track)', desc: 'An ornamental track designed for meditative barefoot walking and deep breathing.' },
         { name: 'Sukhada (Wellness Gym)', desc: 'Equipped with light conditioning gear for gentle strength building and rehabilitation.' }
@@ -264,12 +264,12 @@ export default function Spaces({ onNavigate }) {
       config: 'Deluxe Cottage (U1 & U2), Super Deluxe (L1)',
       bg: 'var(--tea-green)',
       borderColor: 'var(--sage)',
-      tag: '✦ GARDEN SANCTUARY',
+      tag: '✦ GARDEN HAVEN',
       img: 'https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=800&q=80'
     },
     { 
       name: 'Samrduddhi / Supritha Block', 
-      type: 'Exclusive Private Sanctuaries', 
+      type: 'Exclusive Private Enclaves', 
       desc: 'Elevated level of luxury and privacy for deep silence, solitude, and reflection.', 
       config: 'Premium Private Cottage (L2)',
       bg: 'rgba(184, 94, 76, 0.1)',
@@ -855,15 +855,15 @@ export default function Spaces({ onNavigate }) {
       </section>
 
       {/* =========================================================================
-          CHAPTER V • Closing CTA Sanctuary Invitation
+          CHAPTER V • Closing CTA Retreat Invitation
           ========================================================================= */}
       <section style={{ padding: '6.5rem 6%', textAlign: 'center', backgroundColor: 'var(--antique-white)' }}>
         <div style={{ maxWidth: '750px', margin: '0 auto' }}>
           <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.84rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
-            + SACRED SANCTUARY INVITE
+            + SACRED HAVEN INVITE
           </span>
           <h2 style={{color: 'var(--wine)', marginBottom: '1rem',}}>
-            A Sanctuary Designed to Heal as One
+            A Retreat Designed to Heal as One
           </h2>
           <p style={{ color: 'var(--raisin-black)', opacity: 0.95, margin: '0 auto 2.5rem auto', fontSize: 'var(--fs-body)', lineHeight: 1.75, fontWeight: 400 }}>
             Our caregivers, doctors, and specialists communicate directly under one roof across our 10-acre estate to coordinate your custom natural treatment paths.
@@ -874,7 +874,7 @@ export default function Spaces({ onNavigate }) {
               className="btn-luxury" 
               style={{ padding: '0.95rem 2.6rem', fontSize: '0.82rem' }}
             >
-              Plan Your Sanctuary Stay
+              Plan Your Stay
             </button>
             <button 
               onClick={() => onNavigate('programmes')}

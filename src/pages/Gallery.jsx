@@ -99,7 +99,7 @@ const getDescriptionForTitle = (title) => {
   if (t.includes("pottery")) return "Ground your touch by shaping raw, wet river clay into artistic, functional vessels.";
   if (t.includes("farming")) return "Learn organic permaculture techniques, planting seeds in rich forest soil.";
   if (t.includes("workshop") || t.includes("lessons")) return "Master clean culinary methods using medicinal herbs and local ingredients.";
-  return "Immerse yourself in our sanctuary, designed to balance your elements and restore your inner peace.";
+  return "Immerse yourself in our serene retreat, designed to balance your elements and restore your inner peace.";
 };
 
 // Preset grid coordinates and dispersal directions for 8 items

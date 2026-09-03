@@ -383,7 +383,7 @@ export default function Occasions({ onNavigate }) {
     {
       name: 'Chandra Paada',
       role: 'Yoga Hall & Gym',
-      desc: 'A quiet, glass-walled movement sanctuary with panoramic forest views for yoga, sound healing, and meditation.',
+      desc: 'A quiet, glass-walled movement studio with panoramic forest views for yoga, sound healing, and meditation.',
       capacity: 'Up to 40 Guests',
       img: '/assets/more_images/yoga-meditation.jpg'
     },
@@ -1630,7 +1630,7 @@ export default function Occasions({ onNavigate }) {
                   Estate Infrastructure
                 </span>
                 <h3 style={{ color: '#ffffff', margin: '0.4rem 0 0 0', }}>
-                  High-Ceiling Conference Sanctuary
+                  High-Ceiling Conference Hall
                 </h3>
               </div>
             </div>
@@ -1755,20 +1755,20 @@ export default function Occasions({ onNavigate }) {
       </section>
 
       {/* Spaces to Celebrate - All 8 Places Single-Screen Bento Grid Redesign */}
-      <section id="sanctuary-spaces-section" style={{ padding: '7rem 8%', backgroundColor: 'var(--isabelline)', position: 'relative', overflow: 'hidden' }}>
+      <section id="wellness-spaces-section" style={{ padding: '7rem 8%', backgroundColor: 'var(--isabelline)', position: 'relative', overflow: 'hidden' }}>
         <Pattern24 style={{ position: 'absolute', top: '15%', right: '-80px', maxWidth: '340px', width: '100%', height: 'auto', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
         <Pattern25 style={{ position: 'absolute', bottom: '10%', left: '-80px', maxWidth: '340px', width: '100%', height: 'auto', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
 
         <div style={{ maxWidth: '1300px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.72rem', fontWeight: 700, display: 'block', marginBottom: '0.6rem' }}>
-              SANCTUARY ARCHITECTURE
+              ESTATE ARCHITECTURE
             </span>
             <h2 style={{ color: 'var(--wine)', margin: 0 }}>
               Spaces to Celebrate
             </h2>
             <p style={{ color: 'var(--raisin-black)', opacity: 0.8, maxWidth: '680px', margin: '0.8rem auto 0 auto', fontSize: '0.96rem', lineHeight: 1.65 }}>
-              Our 10-acre estate includes 8 versatile indoor and outdoor sanctuaries — welcome lotus pavilions, high-ceiling wooden halls, glass yoga sanctuaries, open-air amphitheatre, and private courtyards — designed to elevate every occasion.
+              Our 10-acre estate includes 8 versatile indoor and outdoor spaces — welcome lotus pavilions, high-ceiling wooden halls, glass yoga sanctuaries, open-air amphitheatre, and private courtyards — designed to elevate every occasion.
             </p>
           </div>
 
@@ -1845,7 +1845,7 @@ export default function Occasions({ onNavigate }) {
                 desc: 'Movement and breath-led sessions to build resilience.',
                 fullDesc: 'Movement and breath-led sessions to build resilience and balance. Guided by senior therapists and doctors, aligned with your personalized wellness formula.',
                 features: ['Yoga and movement props', 'Breathwork and meditation', 'Strength and mobility zones', 'Group & private yoga'],
-                texturesAmbience: 'Glass-walled movement sanctuary with 360-degree forest views and natural rubber yoga mats.',
+                texturesAmbience: 'Glass-walled movement studio with 360-degree forest views and natural rubber yoga mats.',
                 sustainable: 'Semi-open, naturally ventilated design reduces energy use and enhances mindful practice.',
                 capacity: 'Up to 40 Guests',
                 setting: 'Glass-Enclosed Forest Deck',
@@ -1873,7 +1873,7 @@ export default function Occasions({ onNavigate }) {
                 slug: 'private-courtyards',
                 name: 'Private Courtyards',
                 role: 'Intimate Settings',
-                tagline: 'Stone-paved sanctuaries for sacred homams & rituals.',
+                tagline: 'Stone-paved courtyards for sacred homams & rituals.',
                 desc: 'Heritage stone courtyards for small homams & rituals.',
                 fullDesc: 'Our secluded open-air stone courtyards are encircled by carved granite pillars, flowering Frangipani trees, and lotus water urulis. Designed for sacred fire homams, Vedic poojas, and quiet morning meditation.',
                 features: ['Hand-carved granite pillars', 'Lotus water urulis', 'Central fire homam pit', 'Shaded Frangipani court'],
@@ -1920,9 +1920,9 @@ export default function Occasions({ onNavigate }) {
                 slug: 'pushpa',
                 name: 'Pushpa – Male Treatment Pavilion',
                 role: 'Therapy Spaces',
-                tagline: 'A sanctuary designed for deep, restorative healing.',
+                tagline: 'A wellness pavilion designed for deep, restorative healing.',
                 desc: 'Dedicated treatment spaces for personalised therapies.',
-                fullDesc: 'Pushpa is a sanctuary designed for deep, restorative healing. Dedicated treatment spaces for personalized therapies, therapeutic massages, acupuncture, physiotherapy, detox packs, and nature baths.',
+                fullDesc: 'Pushpa is a wellness pavilion designed for deep, restorative healing. Dedicated treatment spaces for personalized therapies, therapeutic massages, acupuncture, physiotherapy, detox packs, and nature baths.',
                 features: ['Dedicated therapy suites', 'Therapeutic Massages & Acupuncture', 'Physiotherapy & Hydrotherapy', 'Detox Packs & Nature Baths'],
                 texturesAmbience: 'Aromatic herbal steam, bamboo screens, natural stone, and tranquil bird songs.',
                 sustainable: 'Built using natural stone, lime plaster and mud elements for insulation and purity. Thoughtful ventilation ensures fresh air.',
@@ -2644,7 +2644,7 @@ export default function Occasions({ onNavigate }) {
                   <button
                     onClick={() => {
                       setActiveSpaceModal(null);
-                      const spacesSection = document.getElementById('sanctuary-spaces-section');
+                      const spacesSection = document.getElementById('wellness-spaces-section');
                       if (spacesSection) spacesSection.scrollIntoView({ behavior: 'smooth' });
                     }}
                     style={{
@@ -2723,7 +2723,7 @@ export default function Occasions({ onNavigate }) {
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
                       <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: isMobile ? '0.74rem' : '0.8rem', fontWeight: 800 }}>
-                        Sanctuary Photography &amp; Views
+                        Retreat Photography &amp; Views
                       </span>
                       <span style={{ fontSize: '0.85rem', color: 'var(--wine)', opacity: 0.75, fontWeight: 600 }}>
                         {(activeSpaceModal.galleryImages || [activeSpaceModal.img]).length} Gallery Shots
@@ -2844,7 +2844,7 @@ export default function Occasions({ onNavigate }) {
                         {/* 1. Overview */}
                         <div className="spaces-detail-card-item" style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '2rem 1.6rem', border: '1px solid rgba(94, 39, 53, 0.08)', boxShadow: '0 8px 25px rgba(94, 39, 53, 0.03)' }}>
                           <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.18em', fontSize: '0.72rem', fontWeight: 800, display: 'block', marginBottom: '0.8rem' }}>
-                            SANCTUARY OVERVIEW
+                            SPACE OVERVIEW
                           </span>
                           <p style={{ fontSize: '0.94rem', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.65, margin: 0, fontWeight: 400, overflowY: 'auto' }}>
                             {activeSpaceModal.fullDesc || activeSpaceModal.desc}
@@ -2981,7 +2981,7 @@ export default function Occasions({ onNavigate }) {
                         <button
                           onClick={() => {
                             setActiveSpaceModal(null);
-                            const spacesSection = document.getElementById('sanctuary-spaces-section');
+                            const spacesSection = document.getElementById('wellness-spaces-section');
                             if (spacesSection) spacesSection.scrollIntoView({ behavior: 'smooth' });
                           }}
                           style={{
@@ -3013,7 +3013,7 @@ export default function Occasions({ onNavigate }) {
                         {/* Overview Narrative */}
                         <div style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '2.5rem', border: '1px solid rgba(94, 39, 53, 0.08)', boxShadow: '0 8px 25px rgba(94, 39, 53, 0.03)' }}>
                           <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.18em', fontSize: '0.75rem', fontWeight: 800, display: 'block', marginBottom: '0.8rem' }}>
-                            SANCTUARY OVERVIEW
+                            SPACE OVERVIEW
                           </span>
                           <p style={{ fontSize: '1.1rem', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.85, margin: 0, fontWeight: 300 }}>
                             {activeSpaceModal.fullDesc || activeSpaceModal.desc}
@@ -3078,7 +3078,7 @@ export default function Occasions({ onNavigate }) {
                           gap: '1.5rem'
                         }}>
                           <h4 style={{color: 'var(--wine)', margin: 0, borderBottom: '1px solid rgba(94,39,53,0.15)', paddingBottom: '0.8rem'}}>
-                            Sanctuary Specifications
+                            Space Specifications
                           </h4>
 
                           <div>
@@ -3155,7 +3155,7 @@ export default function Occasions({ onNavigate }) {
                           <button
                             onClick={() => {
                               setActiveSpaceModal(null);
-                              const spacesSection = document.getElementById('sanctuary-spaces-section');
+                              const spacesSection = document.getElementById('wellness-spaces-section');
                               if (spacesSection) spacesSection.scrollIntoView({ behavior: 'smooth' });
                             }}
                             style={{

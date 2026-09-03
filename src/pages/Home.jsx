@@ -682,8 +682,8 @@ export default function Home({ onNavigate }) {
   const [scrollPercentage, setScrollPercentage] = useState(0);
   const [activeProgFilter, setActiveProgFilter] = useState('All Retreats');
 
-  const sanctuaryRetreatsList = React.useMemo(() => [
-    { days: '2/3 DAYS', title: 'Weekend Reset Sanctuary', tagline: 'Doctor consultation, 2 daily naturopathy cleanses & sound bath.', filterCat: '2/3 Days' },
+  const signatureRetreatsList = React.useMemo(() => [
+    { days: '2/3 DAYS', title: 'Weekend Reset Retreat', tagline: 'Doctor consultation, 2 daily naturopathy cleanses & sound bath.', filterCat: '2/3 Days' },
     { days: '5 DAYS', title: 'Rejuvenation & Vitality', tagline: 'Iris diagnosis, Shirodhara therapy & Satwik organic dining.', filterCat: '5 Days' },
     { days: '7 DAYS', title: 'Holistic Transformation', tagline: 'Body mapping, hydrotherapy & vibrational sound sessions.', filterCat: '7 Days', popular: true },
     { days: '14 DAYS', title: 'Deep Cellular Detox', tagline: 'Toxin evaluation, mud therapy packs, therapeutic fasting & juices.', filterCat: '14 Days' },
@@ -691,15 +691,15 @@ export default function Home({ onNavigate }) {
   ], []);
 
   const sortedRetreats = React.useMemo(() => {
-    if (activeProgFilter === 'All Retreats') return sanctuaryRetreatsList;
-    return [...sanctuaryRetreatsList].sort((a, b) => {
+    if (activeProgFilter === 'All Retreats') return signatureRetreatsList;
+    return [...signatureRetreatsList].sort((a, b) => {
       const aMatch = a.filterCat === activeProgFilter || a.days.includes(activeProgFilter);
       const bMatch = b.filterCat === activeProgFilter || b.days.includes(activeProgFilter);
       if (aMatch && !bMatch) return -1;
       if (!aMatch && bMatch) return 1;
       return 0;
     });
-  }, [activeProgFilter, sanctuaryRetreatsList]);
+  }, [activeProgFilter, signatureRetreatsList]);
 
   const handleRetreatFilterClick = (filter) => {
     setActiveProgFilter(filter);
@@ -2236,7 +2236,7 @@ export default function Home({ onNavigate }) {
               </h3>
 
               <p style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.88, lineHeight: 1.65, textAlign: 'center', margin: '0 0 0.8rem 0', fontWeight: 400 }}>
-                At Suprada, wellness is a transformative journey that nourishes your mind, body, and soul. Nestled in nature's embrace, our retreat offers a sanctuary to decompress, restore balance, and reconnect with your inner self through personalized holistic practices.
+                At Suprada, wellness is a transformative journey that nourishes your mind, body, and soul. Nestled in nature's embrace, our retreat offers a peaceful haven to decompress, restore balance, and reconnect with your inner self through personalized holistic practices.
               </p>
 
               <h5 style={{ marginTop: '0.6rem', color: 'var(--wine)', letterSpacing: '0.12em', textAlign: 'center', fontSize: 'var(--fs-h5)', fontWeight: 700 }}>
@@ -2474,7 +2474,7 @@ export default function Home({ onNavigate }) {
         </div>
       </section>
 
-      {/* Section 1: Signature Programmes (The Sanctuary Collection) */}
+      {/* Section 1: Signature Programmes */}
       <section style={{ backgroundColor: 'var(--antique-white)', color: 'var(--wine)', padding: '2.8rem 5%', minHeight: '440px', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
         <Pattern28 style={{ position: 'absolute', top: 0, left: 0, width: '280px', color: 'var(--wine)', opacity: 0.06, pointerEvents: 'none' }} />
         <div style={{ maxWidth: '1280px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 2 }}>
@@ -2485,7 +2485,7 @@ export default function Home({ onNavigate }) {
                 ✦ Healing Retreats
               </span>
               <h2 style={{color: 'var(--wine)', margin: 0, lineHeight: 1.1, fontWeight: 700}}>
-                Sanctuary Wellness <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>Retreats</em>
+                Holistic Wellness <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>Retreats</em>
               </h2>
             </div>
 
@@ -2793,7 +2793,7 @@ export default function Home({ onNavigate }) {
             <h4 style={{fontStyle: 'italic', color: 'var(--tan)', lineHeight: 1.6, maxWidth: '800px', margin: 0}}>
               {activeExpert === 0 && "“A truly transformative experience. The combination of authentic holistic therapies and the serene river setting created a space for deep healing. I left feeling lighter, clearer, and fully restored.”"}
               {activeExpert === 1 && "“The doctors here are exceptional. They took the time to understand my lifestyle and created a practical plan I could follow effortlessly. The organic food was delicious and deeply restorative.”"}
-              {activeExpert === 2 && "“Suprada is a hidden sanctuary. The sunrise yoga sessions by the river were pure magic. The therapists are highly skilled, and the entire team treated me like family.”"}
+              {activeExpert === 2 && "“Suprada is a hidden haven. The sunrise yoga sessions by the river were pure magic. The therapists are highly skilled, and the entire team treated me like family.”"}
               {activeExpert === 3 && "“After my 21-day cellular detox, my energy levels returned to where they were ten years ago. A benchmark in genuine naturopathic care.”"}
             </h4>
 
@@ -2823,7 +2823,7 @@ export default function Home({ onNavigate }) {
           </span>
 
           <h2 style={{color: 'var(--wine)', lineHeight: 1.15, margin: 0, fontWeight: 700}}>
-            The Sacred Sanctuary Gateway
+            The Sacred Wellness Gateway
           </h2>
 
           <p style={{ color: 'var(--raisin-black)', opacity: 0.88, fontSize: '1rem', lineHeight: 1.7, fontWeight: 400, maxWidth: '640px', margin: 0 }}>
@@ -2832,7 +2832,7 @@ export default function Home({ onNavigate }) {
 
           <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem', color: 'var(--wine)', borderColor: 'rgba(94,39,53,0.2)' }}>✦ 100% Drugless Naturopathy</div>
-            <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem', color: 'var(--wine)', borderColor: 'rgba(94,39,53,0.2)' }}>✦ Riverfront Sanctuary</div>
+            <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem', color: 'var(--wine)', borderColor: 'rgba(94,39,53,0.2)' }}>✦ Riverfront Haven</div>
             <div className="glass-metric-capsule" style={{ padding: '0.6rem 1.2rem', fontSize: '0.78rem', color: 'var(--wine)', borderColor: 'rgba(94,39,53,0.2)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}><Stethoscope size={14} style={{ color: 'var(--redwood)' }} /> 24/7 Resident Doctors</div>
           </div>
 
@@ -2842,7 +2842,7 @@ export default function Home({ onNavigate }) {
               className="btn-luxury" 
               style={{ padding: '0.95rem 2.6rem', fontSize: '0.82rem' }}
             >
-              Reserve Sanctuary Stay
+              Reserve Your Stay
             </button>
             <button 
               onClick={() => onNavigate('contact')}

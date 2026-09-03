@@ -238,7 +238,7 @@ function FeedbackCardTypewriter() {
 
 export default function Contact({ onNavigate }) {
   const TITLE = "Get in Touch";
-  const SUBTITLE = "A Sanctuary by the River";
+  const SUBTITLE = "A Haven by the River";
   const DESC = "Located just outside Bengaluru, Suprada rests on the serene banks of the Suvarnamukhi River. Far from the city's chaos, yet easily accessible, it is a haven where nature's silence speaks.";
 
   const [typedTitle, setTypedTitle] = useState("");
@@ -375,7 +375,7 @@ export default function Contact({ onNavigate }) {
             {phase === "title" && <span className="typewriter-cursor" />}
           </h1>
 
-          {/* "A Sanctuary by the River" — typewriter subtitle */}
+          {/* "A Haven by the River" — typewriter subtitle */}
           <h2 style={{color: 'var(--harvest-gold)',
             fontStyle: 'italic',
             margin: '0 0 2rem 0',

@@ -517,7 +517,7 @@ export default function Careers({ onNavigate }) {
     {
       tag: "Culture",
       title: "Why Work With Us?",
-      desc: "We don't just offer jobs; we offer a sanctuary where you can grow, learn, and be part of a meaningful purpose."
+      desc: "We don't just offer jobs; we offer a nurturing space where you can grow, learn, and be part of a meaningful purpose."
     }
   ];
 

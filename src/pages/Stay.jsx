@@ -160,8 +160,8 @@ export default function Stay({ onNavigate }) {
       roman: 'II',
       name: 'Samrduddhi / Supritha Block',
       titleName: 'Samrduddhi / Supritha',
-      category: 'Exclusive Private Sanctuary',
-      catGroup: 'Secluded Sanctuaries',
+      category: 'Exclusive Private Haven',
+      catGroup: 'Secluded Enclaves',
       zone: 'Forest Seclusion',
       tagline: 'Seclusion & Deeper Immersion in Silence',
       desc: 'Designed for exclusivity, these premium private cottages offer an elevated level of privacy and luxury. Ideal for guests who desire seclusion and a deeper immersion into silence.',
@@ -174,13 +174,13 @@ export default function Stay({ onNavigate }) {
         'https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=1200'
       ],
       privacyScore: 5.0,
-      viewType: 'Private Sanctuary View',
+      viewType: 'Private Garden View',
       areaSqFt: 750,
       material: 'Organic Lime Plaster & Reclaimed Wood',
       inRoomTherapy: true,
       bestFor: 'Deep Silence Seekers & Executive Wellness',
       highlights: [
-        'Enhanced privacy inside a quiet secluded sanctuary enclave',
+        'Enhanced privacy inside a quiet secluded private enclave',
         'Personal meditation corner for daily inner practice',
         'Spacious luxury interiors with premium organic linen',
         'Dedicated silent space for uninterrupted rest'
@@ -664,14 +664,14 @@ export default function Stay({ onNavigate }) {
               display: 'block',
               marginBottom: '1rem'
             }}>
-              ✦ Sanctuary Living ✦
+              ✦ Mindful Living ✦
             </span>
 
             <h1 style={{lineHeight: 1.08,
               color: 'var(--wine)',
               marginBottom: '1.5rem',
               letterSpacing: '-0.01em'}}>
-              A Sanctuary for Mindful Living
+              A Haven for Mindful Living
             </h1>
 
             {/* Thoughtful Words & Reflections */}
@@ -727,11 +727,11 @@ export default function Stay({ onNavigate }) {
         <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem', padding: '0.4rem 1.2rem', backgroundColor: 'rgba(94, 39, 53, 0.08)', borderRadius: '50px', marginBottom: '1.2rem' }}>
             <span style={{ fontSize: '0.86rem', textTransform: 'uppercase', letterSpacing: '0.2em', fontWeight: 800, color: 'var(--wine)' }}>
-              Sanctuary
+              Living Haven
             </span>
           </div>
           <h2 style={{color: 'var(--wine)', marginBottom: '1.2rem'}}>
-            Your Personal <span style={{ color: 'var(--harvest-gold)' }}>Sanctuary</span>
+            Your Personal <span style={{ color: 'var(--harvest-gold)' }}>Haven</span>
           </h2>
           <p style={{ fontSize: 'var(--fs-body)', lineHeight: 1.7, opacity: 0.88, maxWidth: '750px', margin: '0 auto', fontWeight: 400 }}>
             Our accommodations are designed to be an extension of your therapy. Built with natural materials and positioned to maximize natural light and ventilation, each room offers a serene environment for deep relaxation and healing.
@@ -750,13 +750,13 @@ export default function Stay({ onNavigate }) {
           {/* Section Header */}
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
             <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: 'var(--fs-small)', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
-              ✦ Sanctuary Portfolio ✦
+              ✦ Villa Portfolio ✦
             </span>
             <h2 style={{color: 'var(--wine)',}}>
               Distinctive Living Spaces
             </h2>
             <p style={{ opacity: 0.88, maxWidth: '650px', margin: '0.5rem auto 0 auto', fontSize: 'var(--fs-body)', lineHeight: 1.7, fontWeight: 400 }}>
-              Filter by estate campus location and explore our 9 handcrafted sanctuaries designed with organic eco-lime, warm timber, and private sit-out verandas.
+              Filter by estate campus location and explore our 9 handcrafted cottages designed with organic eco-lime, warm timber, and private sit-out verandas.
             </p>
           </div>
 
@@ -1746,7 +1746,7 @@ export default function Stay({ onNavigate }) {
               </button>
 
               <h2 style={{color: 'var(--wine)', marginBottom: '0.4rem'}}>
-                Sanctuary Comparison Matrix
+                Living Spaces Comparison Matrix
               </h2>
               <p style={{ fontSize: 'var(--fs-body)', opacity: 0.7, marginBottom: '2rem' }}>
                 Compare specs, materials, views, and privacy across your chosen blocks.

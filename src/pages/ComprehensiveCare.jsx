@@ -152,7 +152,7 @@ const clinicalDiseases = [
     image: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=1200&q=80',
     protocolTitle: 'Integrative Vitality Rebuilding & Immune Fortification',
     fullDesc: 'Gentle, doctor-monitored supportive care protocol designed to alleviate chemotherapy/radiation side effects, boost natural killer cell activity, reduce systemic inflammation, and nourish body & spirit.',
-    modalities: ['Gentle Detox Hydrotherapy', 'Immune-Boosting Bio-Nutrition', 'Pranic Healing & Yoga', 'Lymphatic Drainage', 'Emotional Sanctuary'],
+    modalities: ['Gentle Detox Hydrotherapy', 'Immune-Boosting Bio-Nutrition', 'Pranic Healing & Yoga', 'Lymphatic Drainage', 'Emotional Haven'],
     diagnostics: [
       { name: 'Immune & Vital Energy Mapping', desc: 'Gentle evaluation of stamina, appetite, peripheral neuropathy, and mood.' },
       { name: 'Systemic Toxicity & Fatigue Index', desc: 'Monitoring post-treatment recovery milestones and tissue regeneration.' }

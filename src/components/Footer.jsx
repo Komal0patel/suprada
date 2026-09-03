@@ -61,7 +61,7 @@ export default function Footer({ onNavigate }) {
               <h4 className="footer-normal-title">Explore Suprada</h4>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
                 <li>
-                  <span onClick={() => onNavigate('home')} className="footer-normal-link">Home Sanctuary</span>
+                  <span onClick={() => onNavigate('home')} className="footer-normal-link">Home</span>
                 </li>
                 <li>
                   <span onClick={() => onNavigate('about')} className="footer-normal-link">About Us</span>

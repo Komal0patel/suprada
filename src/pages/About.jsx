@@ -1,4 +1,4 @@
-// Suprada Wellness Sanctuary - About Us Page
+// Suprada Wellness - About Us Page
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView, useScroll, useTransform } from 'framer-motion';
 import { Pattern24, Pattern25, Pattern27, Pattern28 } from '../AnimatedPatterns';
@@ -216,7 +216,7 @@ export default function About({ onNavigate }) {
   };
 
   const teamMembers = [
-    { name: 'Mr. Sunil Jayaraj', role: 'Founder', company: 'Suprada Wellness', category: 'leadership', quote: 'Bringing athletic endurance and analytical systems to our sanctuary.', color: 'var(--wine)', initials: 'SJ' },
+    { name: 'Mr. Sunil Jayaraj', role: 'Founder', company: 'Suprada Wellness', category: 'leadership', quote: 'Bringing athletic endurance and analytical systems to our retreat.', color: 'var(--wine)', initials: 'SJ' },
     { name: 'Dr. Prema Ramadas', role: 'Co-Founder', company: 'Suprada Wellness', category: ['leadership', 'clinical'], quote: 'Merging US clinical protocols with alternative Vedic therapies.', color: 'var(--wine)', initials: 'PR' },
     { name: 'Nagaraju', role: 'Chairman', company: 'Suprada Wellness', category: 'leadership', quote: 'Guiding Suprada’s vision towards holistic living and community wellness.', color: 'var(--wine)', initials: 'N' },
     { name: 'Srinivas Ramadas', role: 'Director Operations', company: 'Suprada Wellness', category: 'leadership', quote: 'Crafting the standard of luxury wellness operations.', color: 'var(--redwood)', initials: 'SR' },
@@ -360,7 +360,7 @@ export default function About({ onNavigate }) {
 
           {/* Word-by-Word Revealed Paragraph */}
           <AnimatedParagraph 
-            text="Bridging advanced clinical science with ancient Indian wisdom — Suprada is a riverfront sanctuary on Kanakapura Road, dedicated to the drugless cellular restoration of body, mind, and spirit."
+            text="Bridging advanced clinical science with ancient Indian wisdom — Suprada is a riverfront haven on Kanakapura Road, dedicated to the drugless cellular restoration of body, mind, and spirit."
             style={{ 
               color: 'rgba(40, 38, 37, 0.88)', 
               maxWidth: '680px', 
@@ -381,7 +381,7 @@ export default function About({ onNavigate }) {
             style={{ display: 'flex', gap: '0.8rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '1.5rem' }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(94, 39, 53, 0.18)', padding: '0.4rem 1.1rem', borderRadius: '24px', fontSize: '0.78rem', color: 'var(--wine)' }}>
-              <span><Leaf size={14} style={{ color: 'var(--redwood)' }} /></span> <span>Riverfront Sanctuary Estate</span>
+              <span><Leaf size={14} style={{ color: 'var(--redwood)' }} /></span> <span>Riverfront Haven Estate</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(94, 39, 53, 0.18)', padding: '0.4rem 1.1rem', borderRadius: '24px', fontSize: '0.78rem', color: 'var(--wine)' }}>
               <span><Stethoscope size={14} style={{ color: 'var(--redwood)' }} /></span> <span>30+ Years Clinical Heritage</span>
@@ -403,7 +403,7 @@ export default function About({ onNavigate }) {
               className="btn-luxury"
               style={{ padding: '0.85rem 2.3rem', fontSize: '0.82rem', letterSpacing: '0.12em' }}
             >
-              Explore Sanctuary &rarr;
+              Explore Retreat &rarr;
             </button>
             <button
               onClick={() => onNavigate('programmes')}
@@ -925,7 +925,7 @@ export default function About({ onNavigate }) {
                   </div>
 
                   <p style={{ fontSize: 'var(--fs-body)', color: 'var(--wine)', opacity: 0.9, lineHeight: 1.65, margin: '0 0 1rem 0' }}>
-                    Every interaction at Suprada is guided by a caregiver’s heart. We honor sacred Indian heritage while maintaining an unwavering commitment to sanctuary privacy.
+                    Every interaction at Suprada is guided by a caregiver’s heart. We honor sacred Indian heritage while maintaining an unwavering commitment to guest privacy.
                   </p>
 
                   <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
@@ -982,7 +982,7 @@ export default function About({ onNavigate }) {
                 color: '#3d6346', 
                 bgTint: 'rgba(125, 155, 132, 0.16)',
                 borderColor: 'var(--sage)',
-                badge: "✦ FOREST SANCTUARY" 
+                badge: "✦ FOREST HAVEN" 
               },
               { 
                 target: "3", 

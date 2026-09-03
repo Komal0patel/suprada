@@ -144,7 +144,7 @@ export default function InteractiveBrandShowcase() {
                   
                   <div style={{ fontSize: '1.02rem', color: 'var(--raisin-black)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: '1rem', opacity: 0.85 }}>
                     <p>
-                      At Suprada, wellness is a transformative journey that nourishes your mind, body, and soul. Nestled in the serene embrace of nature, our retreat offers a sanctuary where you can escape the stresses of daily life and embark on a path of rejuvenation.
+                      At Suprada, wellness is a transformative journey that nourishes your mind, body, and soul. Nestled in the serene embrace of nature, our retreat offers a peaceful haven where you can escape the stresses of daily life and embark on a path of rejuvenation.
                     </p>
                     <p>
                       Through carefully curated programs and holistic practices, we guide you towards inner harmony and restored balance. Reconnect with your true vitality.

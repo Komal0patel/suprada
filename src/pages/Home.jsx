@@ -2746,7 +2746,7 @@ export default function Home({ onNavigate }) {
           <div className="experts-carousel-mobile" style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '0.9rem', width: '100%' }}>
             {[
               { name: 'Late Mrs. Renuka Nagaraju', role: 'Founder Inspiration', creds: 'Suprada Wellness', img: '/assets/Founders/nagaraju_lady.jpg' },
-              { name: 'Acharya Dr. M. Nagaraju', role: 'Chairman', creds: 'Suprada Wellness', img: '/assets/Founders/nagaraju_man.jpg' },
+              { name: 'Acharya Dr. M. Nagaraju', role: 'Chairperson', creds: 'Suprada Wellness', img: '/assets/Founders/nagaraju_man.jpg' },
               { name: 'Mr. Sunil Jayaraj', role: 'Founder', creds: 'Suprada Wellness', img: '/assets/Founders/sunil_jayaraj.jpg' },
               { name: 'Dr. Prema Ramadas', role: 'Co-founder', creds: 'Suprada Wellness', img: '/assets/Founders/prema_ramadas.jpg' },
               { name: 'Srinivas Ramadas', role: 'Director Operations', creds: 'Suprada Wellness', img: '/assets/Founders/srinivas_ramadas.jpg' },

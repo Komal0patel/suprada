@@ -193,12 +193,12 @@ function App() {
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 backgroundColor: isScrolled 
-                  ? 'rgba(24, 21, 23, 0.84)' 
+                  ? 'rgba(148, 61, 83, 0.94)' 
                   : 'transparent',
                 backdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
                 WebkitBackdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
-                boxShadow: isScrolled ? '0 8px 24px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.08)' : 'none',
-                borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.12)' : 'none',
+                boxShadow: isScrolled ? '0 8px 24px rgba(148, 61, 83, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)' : 'none',
+                borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.18)' : 'none',
                 transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
             >

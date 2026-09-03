@@ -9,6 +9,13 @@
       "hsl": "hsl(345, 41%, 26%)",
       "description": "Deep royal burgundy wine. Used for main brand headings, primary action buttons, dark accents, and regal brand identity."
     },
+    "roseWine": {
+      "name": "Rose Wine",
+      "hex": "#943d53",
+      "rgb": "rgb(148, 61, 83)",
+      "hsl": "hsl(345, 42%, 41%)",
+      "description": "Vibrant rose burgundy wine. Used for scrolled sticky navbar background across sections."
+    },
     "harvestGold": {
       "name": "Harvest Gold",
       "hex": "#EAA936",

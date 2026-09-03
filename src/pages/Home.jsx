@@ -494,7 +494,7 @@ export default function Home({ onNavigate }) {
       sanskritQuote: 'Prakṛtireva bheṣajam.',
       sanskritMeaning: 'Nature itself is the medicine.',
       description: 'Naturopathy is a holistic system of healing that harnesses the body\'s innate ability to heal itself through natural, drug-free therapies. At Suprada Wellness, our naturopathy programmes combine time-tested natural treatments with modern wellness practices to detoxify, restore balance, and rejuvenate your entire being.',
-      image: 'https://images.pexels.com/photos/4021775/pexels-photo-4021775.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop',
+      image: '/assets/generated/naturopathy.png',
       highlights: ['Iris & Facial Mapping', '15+ Therapeutic Massages', 'Hydrotherapy & Spinal Spray', 'Full Body Earth Mud Baths'],
       details: {
         diagnostics: [
@@ -519,7 +519,7 @@ export default function Home({ onNavigate }) {
       sanskritQuote: 'Yogaś citta-vṛtti-nirodhaḥ.',
       sanskritMeaning: 'Yoga is the cessation of the modifications of the mind.',
       description: 'Yoga and meditation are transformative practices that unite the body, mind, and spirit. At Suprada Wellness, we offer authentic yoga sessions guided by experienced instructors, combining classical Asanas (postures), Pranayama (breath work), and meditation techniques to cultivate physical strength, mental clarity, and emotional balance.',
-      image: 'https://images.pexels.com/photos/3822906/pexels-photo-3822906.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop',
+      image: '/assets/generated/yoga_meditation.png',
       highlights: ['Classical Asana Flow', 'Pranayama Breath Control', 'Shatkarma Cleansing Kriyas', 'Yoga Nidra & Sound Rest'],
       details: {
         diagnostics: [
@@ -541,7 +541,7 @@ export default function Home({ onNavigate }) {
       sanskritQuote: 'Sarvaṁ khalvidaṁ brahma.',
       sanskritMeaning: 'All this is indeed the universal consciousness.',
       description: 'Our holistic therapies integrate diverse healing modalities from around the world to address your health from multiple dimensions. Combining ancient wisdom with modern techniques, we offer acupuncture, acupressure, energy healing, cupping therapy, music & sound healing and other complementary treatments designed to restore balance and promote deep healing.',
-      image: 'https://images.pexels.com/photos/3865676/pexels-photo-3865676.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop',
+      image: '/assets/generated/holistic_therapies.png',
       highlights: ['Acupuncture & Reflexology', 'Tibetan Om Singing Bowls', 'Gong & Flute Sound Baths', 'Pranic & Reiki Energy Work'],
       details: {
         diagnostics: [
@@ -563,7 +563,7 @@ export default function Home({ onNavigate }) {
       sanskritQuote: 'Āhāraśuddhau sattvaśuddhiḥ.',
       sanskritMeaning: 'When food is pure, the mind becomes pure.',
       description: 'True wellness begins with what you put on your plate and how you live your daily life. Our nutrition and lifestyle programmes combine ancient dietary wisdom with modern nutritional science to create personalized plans that support your health goals, enhance vitality, and promote long-term well-being.',
-      image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop',
+      image: '/assets/generated/nutrition_lifestyle.png',
       highlights: ['Farm-to-Table Satwik Meals', 'Gut Microbiome Repair', 'Cold-Pressed Juices', 'Therapeutic Bio-Fasting'],
       details: {
         diagnostics: [
@@ -585,7 +585,7 @@ export default function Home({ onNavigate }) {
       sanskritQuote: 'Mana eva manuṣyāṇāṁ kāraṇaṁ bandhamokṣayoḥ.',
       sanskritMeaning: 'The mind alone is the cause of bondage and liberation.',
       description: 'Mental and emotional health are foundational to overall wellness. Our comprehensive programmes combine professional counselling, stress management techniques, breathwork, and mindfulness practices to help you navigate life\'s challenges with greater resilience, clarity, and inner peace.',
-      image: 'https://images.pexels.com/photos/3759657/pexels-photo-3759657.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop',
+      image: '/assets/generated/mental_wellbeing.png',
       highlights: ['Professional Counselling', 'Stress Resilience Training', 'Mindfulness & Meditation', 'Emotional Trauma Release'],
       details: {
         diagnostics: [
@@ -607,7 +607,7 @@ export default function Home({ onNavigate }) {
       sanskritQuote: 'Śuddhireva paramaṁ dharmaḥ.',
       sanskritMeaning: 'Purity is the highest virtue.',
       description: 'In our modern world, toxins accumulate from environmental pollutants, processed foods, stress, and lifestyle factors. Our comprehensive detoxification programmes use time-tested authentic therapies protocols, therapeutic fasting, and natural cleansing methods to eliminate accumulated toxins, restore cellular health, and rejuvenate your entire system.',
-      image: 'https://images.pexels.com/photos/1346347/pexels-photo-1346347.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop',
+      image: '/assets/generated/detox_cleansing.png',
       highlights: ['Systemic Toxins Evaluation', 'Colon & Liver Cleansing', 'Herbal Bio-Steam Packs', 'Therapeutic Juice Fasting'],
       details: {
         diagnostics: [
@@ -629,7 +629,7 @@ export default function Home({ onNavigate }) {
       sanskritQuote: 'Calanaṁ jīvanam.',
       sanskritMeaning: 'Movement is life.',
       description: 'Our physiotherapy programmes combine evidence-based rehabilitation techniques with holistic wellness principles to help you recover from injuries, manage chronic pain, and improve overall mobility. Our experienced physiotherapists create personalized treatment plans tailored to your specific condition and recovery goals.',
-      image: 'https://images.pexels.com/photos/6111619/pexels-photo-6111619.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop',
+      image: '/assets/generated/physiotherapy.png',
       highlights: ['Postural Correction', 'Joint & Spinal Rehabilitation', 'Myofascial Trigger Release', 'Therapeutic Exercise Protocols'],
       details: {
         diagnostics: [
@@ -651,7 +651,7 @@ export default function Home({ onNavigate }) {
       sanskritQuote: 'Svasthasya svāsthyarakṣaṇaṁ.',
       sanskritMeaning: 'Preservation of health of the healthy.',
       description: 'Ayurveda, the 5,000-year-old "Science of Life," offers a comprehensive approach to health and wellness by balancing the three doshas—Vata, Pitta, and Kapha. At Suprada Wellness, our authentic Ayurvedic treatments combine classical therapies with personalized care to restore harmony, enhance immunity, and promote longevity.',
-      image: 'https://images.pexels.com/photos/3997992/pexels-photo-3997992.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop',
+      image: '/assets/generated/ayurveda.png',
       highlights: ['Nadi Pariksha Pulse Diagnosis', 'Shirodhara Oil Therapy', 'Abhyanga Oil Alignment', 'Kizhi Herbal Compress'],
       details: {
         diagnostics: [
@@ -2595,7 +2595,7 @@ export default function Home({ onNavigate }) {
                 number: '01',
                 title: 'Detoxification & Renewal',
                 category: '7 to 21 Days',
-                image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80',
+                image: '/assets/generated/clinical_detoxification.png',
                 protocolTitle: 'Deep Cellular Cleansing & Bio-Metabolic Flush',
                 fullDesc: 'A doctor-supervised drugless clinical protocol designed to cleanse liver, kidneys, colon, and lymphatic systems through evidence-based hydrotherapy, therapeutic mud baths, bio-fasting, and raw botanical infusions.',
                 modalities: ['Hydrotherapy Cleansing', 'Therapeutic Mud Packs', 'Raw Juice Fasting', 'Kunjal Kriya', 'Lymphatic Grounding'],
@@ -2609,7 +2609,7 @@ export default function Home({ onNavigate }) {
                 number: '02',
                 title: 'Diabetes Management',
                 category: '14 to 28 Days',
-                image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80',
+                image: '/assets/generated/diabetes_glycemic_care.png',
                 protocolTitle: 'Glycemic Re-education & Pancreatic Revitalization',
                 fullDesc: 'Integrative glycemic management protocol focusing on reversing insulin resistance, regulating HbA1c, and rebuilding pancreatic vitality using targeted plant-based clinical nutrition, hydro-kinesiology, and specific yogic asanas.',
                 modalities: ['Pancreatic Asana Series', 'Low-GI Satwik Nutrition', 'Herbal Hydro-Packs', 'Continuous Glucose Monitoring', 'Stress Cortisol Reset'],
@@ -2623,7 +2623,7 @@ export default function Home({ onNavigate }) {
                 number: '03',
                 title: 'Neurological Disorders',
                 category: '14 to 21 Days',
-                image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80',
+                image: '/assets/generated/neurological_cranial_rest.png',
                 protocolTitle: 'Neuro-Regenerative Rest & Shirodhara Rejuvenation',
                 fullDesc: 'Specialized neurological rehabilitation protocol targeting Parkinson\'s support, neuropathies, insomnia, and chronic anxiety through rhythmic warm oil Shirodhara, cranial grounding, and deep autonomic nervous system reset.',
                 modalities: ['Continuous Shirodhara', 'Cranial Grounding', 'Nadi Shodhana Pranayama', 'Neuro-Nutritional Therapy', 'Circadian Rhythm Reset'],
@@ -2637,7 +2637,7 @@ export default function Home({ onNavigate }) {
                 number: '04',
                 title: 'Liver Health & Hepatic Care',
                 category: '10 to 21 Days',
-                image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80',
+                image: '/assets/generated/liver_hepatic_detox.png',
                 protocolTitle: 'Hepatic Regeneration & Biliary Flush',
                 fullDesc: 'Intensive hepatic restoration program designed to reduce liver inflammation, resolve non-alcoholic fatty liver (NAFLD), and optimize bile secretion through abdominal mud packs, hydro-poultices, and enzyme-rich botanical nutrition.',
                 modalities: ['Abdominal Mud Compresses', 'Cold Hepatic Packs', 'Enzyme Juice Protocols', 'Castor Oil Packs', 'Gentle Liver Yoga'],

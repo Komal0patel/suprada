@@ -216,7 +216,7 @@ export default function About({ onNavigate }) {
   };
 
   const teamMembers = [
-    { name: 'Acharya Dr. M. Nagaraju', role: 'Chairperson', company: 'Suprada Wellness', category: 'leadership', quote: 'Guiding Suprada’s vision towards holistic living and community wellness.', color: 'var(--wine)', initials: 'AN' },
+    { name: 'Late Mrs. Renuka Nagaraju', role: 'Founder Inspiration', company: 'Suprada Wellness', category: 'leadership', quote: 'Inspiring Suprada’s core vision of compassionate holistic living and sacred healing.', color: 'var(--wine)', initials: 'RN' },
     { name: 'Acharya Dr. M. Nagaraju', role: 'Chairman', company: 'Suprada Wellness', category: 'leadership', quote: 'Pioneering traditional Vedic wisdom and holistic health systems.', color: 'var(--wine)', initials: 'AN' },
     { name: 'Mr. Sunil Jayaraj', role: 'Founder', company: 'Suprada Wellness', category: 'leadership', quote: 'Bringing athletic endurance and analytical systems to our retreat.', color: 'var(--wine)', initials: 'SJ' },
     { name: 'Dr. Prema Ramadas', role: 'Co-Founder', company: 'Suprada Wellness', category: ['leadership', 'clinical'], quote: 'Merging US clinical protocols with alternative Vedic therapies.', color: 'var(--wine)', initials: 'PR' },

@@ -2743,31 +2743,57 @@ export default function Home({ onNavigate }) {
             </h2>
           </div>
 
-          <div className="experts-carousel-mobile" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: '0.9rem', width: '100%' }}>
-            {[
-              { name: 'Late Mrs. Renuka Nagaraju', role: 'Founder Inspiration', creds: 'Suprada Wellness', img: '/assets/Founders/nagaraju_lady.jpg' },
-              { name: 'Acharya Dr. M. Nagaraju', role: 'Chairperson', creds: 'Suprada Wellness', img: '/assets/Founders/nagaraju_man.jpg' },
-              { name: 'Mr. Sunil Jayaraj', role: 'Founder', creds: 'Suprada Wellness', img: '/assets/Founders/sunil_jayaraj.jpg' },
-              { name: 'Dr. Prema Ramadas', role: 'Co-founder', creds: 'Suprada Wellness', img: '/assets/Founders/prema_ramadas.jpg' },
-              { name: 'Smt. Priya Amaresh', role: 'Director, Yoga & Wellness', creds: 'Suprada Wellness', img: '/assets/Founders/priya_amaresh.jpg' },
-              { name: 'Srinivas Ramadas', role: 'Director Operations', creds: 'Suprada Wellness', img: '/assets/Founders/srinivas_ramadas.jpg' },
-              { name: 'Dr. Vinaya, B.N.Y.S', role: 'Chief Medical Officer', creds: 'Suprada Wellness', img: '/assets/Founders/vinaya.jpg', objectPosition: 'center 25%' }
-            ].map((doc, idx) => (
-              <div key={idx} className="editorial-master-card" style={{ height: '300px', width: '100%' }}>
-                <img src={doc.img} alt={doc.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: doc.objectPosition || 'center' }} />
-                <div className="editorial-master-overlay" style={{ padding: '1rem 0.9rem' }}>
-                  <span style={{ fontSize: '0.62rem', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                    {doc.creds}
-                  </span>
-                  <h3 style={{color: '#ffffff', margin: '0.1rem 0 0.15rem 0', fontSize: '1.05rem', lineHeight: 1.2}}>
-                    {doc.name}
-                  </h3>
-                  <span style={{ fontSize: '0.74rem', color: 'var(--tan)', opacity: 0.9, fontWeight: 500 }}>
-                    {doc.role}
-                  </span>
+          <div className="leadership-cards-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', width: '100%' }}>
+            
+            {/* Row 1: First 4 Cards */}
+            <div className="leadership-row-1" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.2rem', width: '100%' }}>
+              {[
+                { name: 'Late Mrs. Renuka Nagaraju', role: 'Founder Inspiration', creds: 'Suprada Wellness', img: '/assets/Founders/nagaraju_lady.jpg' },
+                { name: 'Acharya Dr. M. Nagaraju', role: 'Chairperson', creds: 'Suprada Wellness', img: '/assets/Founders/nagaraju_man.jpg' },
+                { name: 'Mr. Sunil Jayaraj', role: 'Founder', creds: 'Suprada Wellness', img: '/assets/Founders/sunil_jayaraj.jpg' },
+                { name: 'Dr. Prema Ramadas', role: 'Co-founder', creds: 'Suprada Wellness', img: '/assets/Founders/prema_ramadas.jpg' }
+              ].map((doc, idx) => (
+                <div key={idx} className="editorial-master-card" style={{ height: '330px', width: '100%' }}>
+                  <img src={doc.img} alt={doc.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: doc.objectPosition || 'center' }} />
+                  <div className="editorial-master-overlay" style={{ padding: '1.2rem 1rem' }}>
+                    <span style={{ fontSize: '0.64rem', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                      {doc.creds}
+                    </span>
+                    <h3 style={{ color: '#ffffff', margin: '0.1rem 0 0.15rem 0', fontSize: '1.1rem', lineHeight: 1.2 }}>
+                      {doc.name}
+                    </h3>
+                    <span style={{ fontSize: '0.78rem', color: 'var(--tan)', opacity: 0.9, fontWeight: 500 }}>
+                      {doc.role}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            {/* Row 2: Remaining 3 Cards Centered */}
+            <div className="leadership-row-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.2rem', width: '75%', margin: '0 auto' }}>
+              {[
+                { name: 'Smt. Priya Amaresh', role: 'Director, Yoga & Wellness', creds: 'Suprada Wellness', img: '/assets/Founders/priya_amaresh.jpg' },
+                { name: 'Srinivas Ramadas', role: 'Director Operations', creds: 'Suprada Wellness', img: '/assets/Founders/srinivas_ramadas.jpg' },
+                { name: 'Dr. Vinaya, B.N.Y.S', role: 'Chief Medical Officer', creds: 'Suprada Wellness', img: '/assets/Founders/vinaya.jpg', objectPosition: 'center 25%' }
+              ].map((doc, idx) => (
+                <div key={idx} className="editorial-master-card" style={{ height: '330px', width: '100%' }}>
+                  <img src={doc.img} alt={doc.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: doc.objectPosition || 'center' }} />
+                  <div className="editorial-master-overlay" style={{ padding: '1.2rem 1rem' }}>
+                    <span style={{ fontSize: '0.64rem', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                      {doc.creds}
+                    </span>
+                    <h3 style={{ color: '#ffffff', margin: '0.1rem 0 0.15rem 0', fontSize: '1.1rem', lineHeight: 1.2 }}>
+                      {doc.name}
+                    </h3>
+                    <span style={{ fontSize: '0.78rem', color: 'var(--tan)', opacity: 0.9, fontWeight: 500 }}>
+                      {doc.role}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
           </div>
 
         </div>

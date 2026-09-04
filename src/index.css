@@ -2871,7 +2871,13 @@ html, body {
     padding: 0.75rem 0.9rem !important;
   }
 
-  /* 3. Leadership & Clinical Authority (Founders & Experts): Horizontal Carousel */
+  .leadership-row-1,
+  .leadership-row-2 {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
   .experts-carousel-mobile {
     display: flex !important;
     flex-direction: row !important;

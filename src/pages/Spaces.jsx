@@ -265,7 +265,7 @@ export default function Spaces({ onNavigate }) {
       bg: 'var(--tea-green)',
       borderColor: 'var(--sage)',
       tag: '✦ GARDEN HAVEN',
-      img: 'https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=800&q=80'
+      img: '/assets/residences/samprada.png'
     },
     { 
       name: 'Samrduddhi / Supritha Block', 
@@ -275,7 +275,7 @@ export default function Spaces({ onNavigate }) {
       bg: 'rgba(184, 94, 76, 0.1)',
       borderColor: 'var(--redwood)',
       tag: '✦ ELEVATED SOLITUDE',
-      img: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80'
+      img: '/assets/residences/samrduddhi.png'
     },
     { 
       name: 'Spandana Block', 
@@ -285,7 +285,7 @@ export default function Spaces({ onNavigate }) {
       bg: 'rgba(220, 160, 50, 0.14)',
       borderColor: 'var(--harvest-gold)',
       tag: '✦ RIVER BREEZE',
-      img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80'
+      img: '/assets/residences/spandana.png'
     },
     { 
       name: 'Samprapti Block', 
@@ -295,7 +295,7 @@ export default function Spaces({ onNavigate }) {
       bg: 'var(--tea-green)',
       borderColor: 'var(--sage)',
       tag: '✦ DEEP SLEEP HAVEN',
-      img: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80'
+      img: '/assets/residences/samprapti.png'
     },
     { 
       name: 'Sphatika Block', 
@@ -305,7 +305,7 @@ export default function Spaces({ onNavigate }) {
       bg: 'rgba(184, 94, 76, 0.1)',
       borderColor: 'var(--redwood)',
       tag: '✦ FOREST VERANDA',
-      img: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80'
+      img: '/assets/residences/sphatika.png'
     },
     { 
       name: 'Sukruthi Block', 
@@ -315,7 +315,7 @@ export default function Spaces({ onNavigate }) {
       bg: 'rgba(220, 160, 50, 0.14)',
       borderColor: 'var(--harvest-gold)',
       tag: '✦ COURTYARD OASIS',
-      img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80'
+      img: '/assets/residences/sukruthi.png'
     },
     { 
       name: 'Samhita Block', 
@@ -325,7 +325,7 @@ export default function Spaces({ onNavigate }) {
       bg: 'var(--tea-green)',
       borderColor: 'var(--sage)',
       tag: '✦ GROUNDED EARTH',
-      img: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80'
+      img: '/assets/residences/samhita.png'
     },
     { 
       name: 'Subhiksha Block', 
@@ -335,7 +335,7 @@ export default function Spaces({ onNavigate }) {
       bg: 'rgba(184, 94, 76, 0.1)',
       borderColor: 'var(--redwood)',
       tag: '✦ IN-HOUSE THERAPY',
-      img: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80'
+      img: '/assets/residences/subhiksha.png'
     },
     { 
       name: 'Suyoga Block', 
@@ -345,7 +345,7 @@ export default function Spaces({ onNavigate }) {
       bg: 'rgba(220, 160, 50, 0.14)',
       borderColor: 'var(--harvest-gold)',
       tag: '✦ CANOPY PANORAMA',
-      img: 'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80'
+      img: '/assets/residences/suyoga.png'
     }
   ];
 

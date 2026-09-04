@@ -2743,12 +2743,13 @@ export default function Home({ onNavigate }) {
             </h2>
           </div>
 
-          <div className="experts-carousel-mobile" style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '0.9rem', width: '100%' }}>
+          <div className="experts-carousel-mobile" style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '0.9rem', width: '100%' }}>
             {[
               { name: 'Late Mrs. Renuka Nagaraju', role: 'Founder Inspiration', creds: 'Suprada Wellness', img: '/assets/Founders/nagaraju_lady.jpg' },
               { name: 'Acharya Dr. M. Nagaraju', role: 'Chairperson', creds: 'Suprada Wellness', img: '/assets/Founders/nagaraju_man.jpg' },
               { name: 'Mr. Sunil Jayaraj', role: 'Founder', creds: 'Suprada Wellness', img: '/assets/Founders/sunil_jayaraj.jpg' },
               { name: 'Dr. Prema Ramadas', role: 'Co-founder', creds: 'Suprada Wellness', img: '/assets/Founders/prema_ramadas.jpg' },
+              { name: 'Smt. Priya Amaresh', role: 'Director, Yoga & Wellness', creds: 'Suprada Wellness', img: '/assets/Founders/priya_amaresh.jpg' },
               { name: 'Srinivas Ramadas', role: 'Director Operations', creds: 'Suprada Wellness', img: '/assets/Founders/srinivas_ramadas.jpg' },
               { name: 'Dr. Vinaya, B.N.Y.S', role: 'Chief Medical Officer', creds: 'Suprada Wellness', img: '/assets/Founders/vinaya.jpg' }
             ].map((doc, idx) => (

@@ -2737,7 +2737,7 @@ export default function Home({ onNavigate }) {
               <Star size={12} style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Leadership &amp; Clinical Authority
             </span>
             <h2 style={{color: 'var(--wine)', margin: 0, fontWeight: 700}}>
-              Guided by Founders <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>&amp; Clinical Experts</em>
+              Guided by Founders <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>&amp; Medical Visionaries</em>
             </h2>
           </div>
 
@@ -2746,13 +2746,24 @@ export default function Home({ onNavigate }) {
             {/* Row 1: First 4 Cards */}
             <div className="leadership-row-1" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.2rem', width: '100%' }}>
               {[
-                { name: 'Late Mrs. Renuka Nagaraju', role: 'Founder Inspiration', creds: 'Suprada Wellness', img: '/assets/Founders/nagaraju_lady.jpg' },
-                { name: 'Acharya Dr. M. Nagaraju', role: 'Chairperson', creds: 'Suprada Wellness', img: '/assets/Founders/nagaraju_man.jpg' },
-                { name: 'Mr. Sunil Jayaraj', role: 'Founder', creds: 'Suprada Wellness', img: '/assets/Founders/sunil_jayaraj.jpg' },
-                { name: 'Dr. Prema Ramadas', role: 'Co-founder', creds: 'Suprada Wellness', img: '/assets/Founders/prema_ramadas.jpg' }
+                { name: 'Late Mrs. Renuka Nagaraju', role: 'Founder Inspiration', creds: 'Suprada Wellness', img: '/assets/Founders/nagaraju_lady.jpg', objectPosition: 'center 15%', scale: 1.02 },
+                { name: 'Acharya Dr. M. Nagaraju', role: 'Chairperson', creds: 'Suprada Wellness', img: '/assets/Founders/nagaraju_man.jpg', objectPosition: 'center 15%', scale: 1.0 },
+                { name: 'Mr. Sunil Jayaraj', role: 'Founder', creds: 'Suprada Wellness', img: '/assets/Founders/sunil_jayaraj.jpg', objectPosition: 'center 18%', scale: 1.02 },
+                { name: 'Dr. Prema Ramadas, MD', role: 'Co-founder', creds: 'Suprada Wellness', img: '/assets/Founders/prema_ramadas.jpg', objectPosition: 'center 15%', scale: 1.02 }
               ].map((doc, idx) => (
-                <div key={idx} className="editorial-master-card" style={{ height: '330px', width: '100%' }}>
-                  <img src={doc.img} alt={doc.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: doc.objectPosition || 'center' }} />
+                <div key={idx} className="editorial-master-card" style={{ height: '330px', width: '100%', overflow: 'hidden' }}>
+                  <img 
+                    src={doc.img} 
+                    alt={doc.name} 
+                    style={{ 
+                      width: '100%', 
+                      height: '100%', 
+                      objectFit: 'cover', 
+                      objectPosition: doc.objectPosition || 'center',
+                      transform: doc.scale ? `scale(${doc.scale})` : 'none',
+                      transition: 'transform 0.5s ease'
+                    }} 
+                  />
                   <div className="editorial-master-overlay" style={{ padding: '1.2rem 1rem' }}>
                     <span style={{ fontSize: '0.64rem', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                       {doc.creds}
@@ -2771,12 +2782,23 @@ export default function Home({ onNavigate }) {
             {/* Row 2: Remaining 3 Cards Centered */}
             <div className="leadership-row-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.2rem', width: '75%', margin: '0 auto' }}>
               {[
-                { name: 'Smt. Priya Amaresh', role: 'Director, Yoga & Wellness', creds: 'Suprada Wellness', img: '/assets/Founders/priya_amaresh.jpg' },
-                { name: 'Srinivas Ramadas', role: 'Director Operations', creds: 'Suprada Wellness', img: '/assets/Founders/srinivas_ramadas.jpg' },
-                { name: 'Dr. Vinaya, B.N.Y.S', role: 'Chief Medical Officer', creds: 'Suprada Wellness', img: '/assets/Founders/vinaya.jpg', objectPosition: 'center 25%' }
+                { name: 'Smt. Priya Amaresh', role: 'Director, Yoga & Wellness', creds: 'Suprada Wellness', img: '/assets/Founders/priya_amaresh.jpg', objectPosition: 'center 18%', scale: 1.02 },
+                { name: 'Srinivas Ramadas', role: 'Director Operations', creds: 'Suprada Wellness', img: '/assets/Founders/srinivas_ramadas.jpg', objectPosition: 'center 22%', scale: 1.0 },
+                { name: 'Dr. Vinaya, B.N.Y.S', role: 'Chief Medical Officer', creds: 'Suprada Wellness', img: '/assets/Founders/vinaya.jpg', objectPosition: 'center 18%', scale: 1.32 }
               ].map((doc, idx) => (
-                <div key={idx} className="editorial-master-card" style={{ height: '330px', width: '100%' }}>
-                  <img src={doc.img} alt={doc.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: doc.objectPosition || 'center' }} />
+                <div key={idx} className="editorial-master-card" style={{ height: '330px', width: '100%', overflow: 'hidden' }}>
+                  <img 
+                    src={doc.img} 
+                    alt={doc.name} 
+                    style={{ 
+                      width: '100%', 
+                      height: '100%', 
+                      objectFit: 'cover', 
+                      objectPosition: doc.objectPosition || 'center',
+                      transform: doc.scale ? `scale(${doc.scale})` : 'none',
+                      transition: 'transform 0.5s ease'
+                    }} 
+                  />
                   <div className="editorial-master-overlay" style={{ padding: '1.2rem 1rem' }}>
                     <span style={{ fontSize: '0.64rem', color: 'var(--harvest-gold)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                       {doc.creds}
@@ -2797,8 +2819,6 @@ export default function Home({ onNavigate }) {
         </div>
       </section>
 
-
-
       {/* Section 5: Discover Your Wellness Path (3-Tab Interactive Diagnostic Quiz - Fit to Screen) */}
       <section style={{ 
         backgroundColor: 'var(--antique-white)', 
@@ -2813,46 +2833,6 @@ export default function Home({ onNavigate }) {
         overflow: 'hidden' 
       }}>
         <WellnessQuiz onNavigate={onNavigate} />
-      </section>
-
-      {/* Section 6: Guest Stories */}
-      <section style={{ backgroundColor: 'var(--isabelline)', color: 'var(--wine)', padding: '3.2rem 5%', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          
-          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-            <span style={{ color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.22em', fontSize: '0.72rem', fontWeight: 700, display: 'block', marginBottom: '0.2rem' }}>
-              ✦ Verified Reflections
-            </span>
-            <h2 style={{color: 'var(--wine)', margin: 0}}>
-              Guest <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Journals</em>
-            </h2>
-          </div>
-
-          {/* Compact Single-Line Interactive Testimonial Slider */}
-          <div style={{ backgroundColor: 'var(--wine)', border: '1px solid var(--harvest-gold)', borderRadius: '20px', padding: '2.2rem', display: 'flex', flexDirection: 'column', gap: '1.2rem', alignItems: 'center', textAlign: 'center' }}>
-            <div style={{ color: 'var(--harvest-gold)', fontSize: '1.2rem', letterSpacing: '0.2em' }}>★★★★★</div>
-            
-            <h4 style={{fontStyle: 'italic', color: 'var(--tan)', lineHeight: 1.6, maxWidth: '800px', margin: 0}}>
-              {activeExpert === 0 && "“A truly transformative experience. The combination of authentic holistic therapies and the serene river setting created a space for deep healing. I left feeling lighter, clearer, and fully restored.”"}
-              {activeExpert === 1 && "“The doctors here are exceptional. They took the time to understand my lifestyle and created a practical plan I could follow effortlessly. The organic food was delicious and deeply restorative.”"}
-              {activeExpert === 2 && "“Suprada is a hidden haven. The sunrise yoga sessions by the river were pure magic. The therapists are highly skilled, and the entire team treated me like family.”"}
-              {activeExpert === 3 && "“After my 21-day cellular detox, my energy levels returned to where they were ten years ago. A benchmark in genuine naturopathic care.”"}
-            </h4>
-
-            <div style={{ display: 'flex', gap: '0.6rem', marginTop: '0.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-              {['Sarah Jenkins (London)', 'Rajesh Gupta (Mumbai)', 'Elena Rossi (Milan)', 'David Miller (New York)'].map((guest, gIdx) => (
-                <button 
-                  key={gIdx}
-                  onClick={() => setActiveExpert(gIdx)}
-                  className={`pill-luxury ${(activeExpert % 4) === gIdx ? 'active' : ''}`}
-                >
-                  {guest}
-                </button>
-              ))}
-            </div>
-          </div>
-
-        </div>
       </section>
 
       {/* Section 7: Begin Your Healing Journey */}

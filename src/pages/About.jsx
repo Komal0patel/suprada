@@ -206,7 +206,7 @@ export default function About({ onNavigate }) {
       tags: ["PhD Mechanical Engg.", "World Marathoner", "Chairman", "Systems Architect"]
     },
     premasudha: {
-      name: "Dr. Prema Ramadas",
+      name: "Dr. Prema Ramadas, MD",
       role: "Co-Founder & Medical Director",
       badge: "US Board Certified MD",
       quote: "Precision clinical science and ancient Indian heritage are not opposites — they are partners in restorative healing.",
@@ -221,7 +221,7 @@ export default function About({ onNavigate }) {
     { name: 'Late Mrs. Renuka Nagaraju', role: 'Founder Inspiration', company: 'Suprada Wellness', category: 'leadership', quote: 'Inspiring Suprada’s core vision of compassionate holistic living and sacred healing.', color: 'var(--wine)', initials: 'RN' },
     { name: 'Acharya Dr. M. Nagaraju', role: 'Chairperson', company: 'Suprada Wellness', category: 'leadership', quote: 'Pioneering traditional Vedic wisdom and holistic health systems.', color: 'var(--wine)', initials: 'AN' },
     { name: 'Mr. Sunil Jayaraj', role: 'Founder', company: 'Suprada Wellness', category: 'leadership', quote: 'Bringing athletic endurance and analytical systems to our retreat.', color: 'var(--wine)', initials: 'SJ' },
-    { name: 'Dr. Prema Ramadas', role: 'Co-Founder', company: 'Suprada Wellness', category: ['leadership', 'clinical'], quote: 'Merging US clinical protocols with alternative Vedic therapies.', color: 'var(--wine)', initials: 'PR' },
+    { name: 'Dr. Prema Ramadas, MD', role: 'Co-Founder', company: 'Suprada Wellness', category: ['leadership', 'clinical'], quote: 'Merging US clinical protocols with alternative Vedic therapies.', color: 'var(--wine)', initials: 'PR' },
     { name: 'Smt. Priya Amaresh', role: 'Director, Yoga & Wellness', company: 'Suprada Wellness', category: ['leadership', 'mindfulness'], quote: 'Guiding classical yoga practices, pranayama, and holistic lifestyle integration.', color: 'var(--wine)', initials: 'PA' },
     { name: 'Srinivas Ramadas', role: 'Director Operations', company: 'Suprada Wellness', category: 'leadership', quote: 'Crafting the standard of luxury wellness operations.', color: 'var(--redwood)', initials: 'SR' },
     { name: 'Dr. Vinaya, B.N.Y.S', role: 'Chief Medical Officer', company: 'Suprada Holistic Wellness', category: ['clinical', 'mindfulness'], quote: 'Pioneering natural healing and drugless integrative medical protocols.', color: 'var(--sage)', initials: 'V' }
@@ -512,7 +512,7 @@ export default function About({ onNavigate }) {
                   transition: 'all 0.3s ease'
                 }}
               >
-                Dr. Prema Ramadas (Co-Founder)
+                Dr. Prema Ramadas, MD (Co-Founder)
               </button>
             </div>
           </div>

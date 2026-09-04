@@ -23,7 +23,7 @@ import StarfieldBackground from './components/StarfieldBackground';
 
 const searchIndex = [
   { title: "Home Page", category: "Navigation", path: "home", desc: "Welcome to Suprada Sanctuary & Riverfront Wellness" },
-  { title: "About Us & Founders", category: "Navigation", path: "about", desc: "Discover Mr. Sunil Jayaraj, Dr. Prema Ramadas & our healing philosophy" },
+  { title: "About Us & Founders", category: "Navigation", path: "about", desc: "Discover Mr. Sunil Jayaraj, Dr. Prema Ramadas, MD & our healing philosophy" },
   { title: "Naturopathy & Holistic Wellness", category: "Therapies", path: "home", desc: "Prakṛtireva bheṣajam — Nature's drug-free path to healing" },
   { title: "Iris & Facial Diagnosis", category: "Diagnostics", path: "home", desc: "Non-invasive organ analysis, iris mapping & facial markers" },
   { title: "Therapeutic Massages & Powders", category: "Therapies", path: "home", desc: "Powder Vibrio, Deep Tissue, Shiatsu, Reflexology, Swedish, Thai" },
@@ -287,22 +287,22 @@ function App() {
                             gap: '0.4rem',
                             padding: '0.34rem 0.95rem',
                             borderRadius: '30px',
-                            background: 'linear-gradient(135deg, #F7D070 0%, #EAA936 50%, #C48210 100%)',
-                            color: '#3D141F',
-                            border: '1.5px solid #FFE08A',
-                            fontWeight: 900,
+                            background: 'linear-gradient(135deg, #B85645 0%, #8E2B38 50%, #5E2735 100%)',
+                            color: '#FFFFFF',
+                            border: '1.5px solid rgba(255, 255, 255, 0.4)',
+                            fontWeight: 800,
                             fontSize: '0.74rem',
                             letterSpacing: '0.07em',
                             textTransform: 'uppercase',
                             cursor: 'pointer',
                             whiteSpace: 'nowrap',
-                            boxShadow: '0 0 16px rgba(234, 169, 54, 0.75), 0 4px 14px rgba(0, 0, 0, 0.3)',
+                            boxShadow: '0 0 16px rgba(184, 86, 69, 0.6), 0 4px 14px rgba(0, 0, 0, 0.3)',
                             transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
                             animation: 'launchingPulseGlow 2s infinite ease-in-out',
                             margin: '0 0.2rem'
                           }}
                         >
-                          <span className="live-dot" style={{ backgroundColor: '#A81C2E', width: '7px', height: '7px', boxShadow: '0 0 8px #A81C2E' }} />
+                          <span className="live-dot" style={{ backgroundColor: '#4ADE80', width: '7px', height: '7px', boxShadow: '0 0 8px #4ADE80' }} />
                           <span>{item.label}</span>
                           <span style={{ fontSize: '0.85rem' }}>✨</span>
                         </button>
@@ -350,21 +350,21 @@ function App() {
                       gap: '0.35rem',
                       padding: '0.3rem 0.65rem',
                       borderRadius: '20px',
-                      background: 'linear-gradient(135deg, #F7D070 0%, #EAA936 100%)',
-                      color: '#3D141F',
-                      border: '1.5px solid #FFE08A',
-                      fontWeight: 900,
+                      background: 'linear-gradient(135deg, #B85645 0%, #8E2B38 50%, #5E2735 100%)',
+                      color: '#FFFFFF',
+                      border: '1.5px solid rgba(255, 255, 255, 0.4)',
+                      fontWeight: 800,
                       fontSize: '0.64rem',
                       letterSpacing: '0.04em',
                       textTransform: 'uppercase',
                       cursor: 'pointer',
                       whiteSpace: 'nowrap',
                       transition: 'all 0.3s ease',
-                      boxShadow: '0 0 14px rgba(234, 169, 54, 0.75), 0 2px 8px rgba(0,0,0,0.25)',
+                      boxShadow: '0 0 14px rgba(184, 86, 69, 0.6), 0 2px 8px rgba(0,0,0,0.25)',
                       animation: 'launchingPulseGlow 2s infinite ease-in-out'
                     }}
                   >
-                    <span className="live-dot" style={{ backgroundColor: '#A81C2E', width: '6px', height: '6px', boxShadow: '0 0 6px #A81C2E' }} />
+                    <span className="live-dot" style={{ backgroundColor: '#4ADE80', width: '6px', height: '6px', boxShadow: '0 0 6px #4ADE80' }} />
                     <span>Launching Soon</span>
                     <span style={{ fontSize: '0.75rem' }}>✨</span>
                   </button>
@@ -586,19 +586,19 @@ function App() {
                         }}
                         style={{
                           cursor: 'pointer',
-                          color: '#3D141F',
+                          color: '#FFFFFF',
                           display: 'inline-flex',
                           alignItems: 'center',
                           gap: '0.5rem',
                           padding: '0.45rem 1.2rem',
                           borderRadius: '30px',
-                          border: '1.5px solid #FFE08A',
-                          background: 'linear-gradient(135deg, #F7D070 0%, #EAA936 100%)',
-                          fontWeight: 900,
-                          boxShadow: '0 0 18px rgba(234, 169, 54, 0.6)'
+                          border: '1.5px solid rgba(255, 255, 255, 0.4)',
+                          background: 'linear-gradient(135deg, #B85645 0%, #8E2B38 50%, #5E2735 100%)',
+                          fontWeight: 800,
+                          boxShadow: '0 0 18px rgba(184, 86, 69, 0.6)'
                         }}
                       >
-                        <span className="live-dot" style={{ backgroundColor: '#A81C2E', width: '7px', height: '7px', boxShadow: '0 0 8px #A81C2E' }} />
+                        <span className="live-dot" style={{ backgroundColor: '#4ADE80', width: '7px', height: '7px', boxShadow: '0 0 8px #4ADE80' }} />
                         <span>{item.label}</span>
                         <span style={{ fontSize: '0.9rem' }}>✨</span>
                       </motion.li>

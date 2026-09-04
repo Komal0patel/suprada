@@ -2214,8 +2214,8 @@ export default function Home({ onNavigate }) {
               className="transformation-card transformation-card-photo"
             >
               <img 
-                src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80" 
-                alt="Organic Ayurvedic bowl and leaves representing transformation" 
+                src="/assets/transformation-retreat.jpg" 
+                alt="Suprada Wellness Retreat sanctuary surrounded by lush nature" 
               />
             </motion.div>
 

@@ -32,7 +32,7 @@ const searchIndex = [
   { title: "Sound Healing & Om Bowls", category: "Energy Medicine", path: "home", desc: "Tibetan singing bowls, Gong acoustic resonance, Flute therapy" },
   { title: "Satwik Farm-to-Table Nutrition", category: "Nutrition", path: "home", desc: "Organic vegetarian meal plans, millet diets, detox juices & fasting" },
   { title: "Our Spaces & Sanctuaries", category: "Navigation", path: "spaces", desc: "Explore Swasthya, Sauhithya, Samiksha, Sukhada & Goshala" },
-  { title: "Stay & Eco Cottages", category: "Sanctuaries", path: "stay", desc: "Guha, Samprapti, Subhiksha cottages & private sit-out verandas" },
+  { title: "Stay & Eco Cottages", category: "Sanctuaries", path: "spaces", desc: "Guha, Samprapti, Subhiksha cottages & private sit-out verandas" },
   { title: "Programmes & Packages", category: "Navigation", path: "programmes", desc: "2-Day Weekend Reset, 7-Day Renewal & 21-Day Chronic Recovery" },
   { title: "Gallery & Photo Tour", category: "Navigation", path: "gallery", desc: "Explore riverfront views, cottage interiors & treatment spaces" },
   { title: "Blog & Healing Journal", category: "Navigation", path: "blog", desc: "Articles on drugless health, iris diagnosis & naturopathic wisdom" },
@@ -176,7 +176,6 @@ function App() {
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'spaces', label: 'Our Spaces' },
-    { id: 'stay', label: 'Book Now' },
     { id: 'programmes', label: 'Programmes' },
     { id: 'gallery', label: 'Gallery' },
     { id: 'blog', label: 'Blog' },
@@ -555,7 +554,7 @@ function App() {
           {currentPage === 'home'       && <Home        onNavigate={handlePageChange} />}
           {currentPage === 'about'      && <About       onNavigate={handlePageChange} />}
           {currentPage === 'spaces'     && <Spaces      onNavigate={handlePageChange} />}
-          {currentPage === 'stay'       && <Stay        onNavigate={handlePageChange} />}
+          {currentPage === 'stay'       && <Spaces      onNavigate={handlePageChange} />}
           {currentPage === 'programmes' && <Programmes  onNavigate={handlePageChange} />}
           {currentPage === 'gallery'    && <Gallery     onNavigate={handlePageChange} />}
           {currentPage === 'blog'       && <Blog        onNavigate={handlePageChange} />}

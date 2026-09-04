@@ -852,12 +852,10 @@ export default function Home({ onNavigate }) {
     <div>
       {/* Hero Section — Side-Shifted Left Layout with Side Shadow Overlay */}
       <section style={{ height: '100vh', minHeight: '100dvh', width: '100%', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
-        {/* Background Video for Hero Section */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
+        {/* Background Image for Hero Section */}
+        <img
+          src="/assets/heroSection/HeroImage.jpeg"
+          alt="Suprada Wellness Retreat Hero"
           style={{
             position: 'absolute',
             top: 0,
@@ -867,9 +865,7 @@ export default function Home({ onNavigate }) {
             objectFit: 'cover',
             zIndex: 1
           }}
-        >
-          <source src="/assets/heroSection/IMG_0224.MP4" type="video/mp4" />
-        </video>
+        />
 
         {/* Directional Side Shadow Overlay — Softened Darker Behind Text, Fading Out towards Image */}
         <div 

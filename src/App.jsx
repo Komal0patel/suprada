@@ -216,7 +216,7 @@ function App() {
                 maxWidth: '100vw',
                 boxSizing: 'border-box',
                 zIndex: 99999,
-                padding: isMobile ? '0.75rem 1rem' : '0.85rem 1.6rem',
+                padding: isMobile ? '0.5rem 0.6rem' : '0.85rem 1.6rem',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
@@ -236,7 +236,7 @@ function App() {
                 style={{ 
                   display: 'flex', 
                   alignItems: 'center', 
-                  gap: isMobile ? '0.5rem' : '0.75rem', 
+                  gap: isMobile ? '0.3rem' : '0.75rem', 
                   cursor: 'pointer',
                   marginRight: isMobile ? '0' : 'clamp(2.2rem, 3.5vw, 4rem)',
                   flexShrink: 0
@@ -246,7 +246,7 @@ function App() {
                   src="/assets/extracted/logo.svg" 
                   alt="Suprada Logo" 
                   style={{
-                    height: isMobile ? '44px' : '48px',
+                    height: isMobile ? '34px' : '48px',
                     filter: isLightHeader
                       ? 'drop-shadow(0 2px 6px rgba(94, 39, 53, 0.15))'
                       : 'drop-shadow(0 2px 8px rgba(0,0,0,0.5))'
@@ -256,7 +256,7 @@ function App() {
                   src="/assets/extracted/suprada-wellness.svg" 
                   alt="Suprada Wellness" 
                   style={{
-                    height: isMobile ? '25px' : '30px',
+                    height: isMobile ? '19px' : '30px',
                     filter: isLightHeader
                       ? 'brightness(0.22)'
                       : 'brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.5))'
@@ -338,7 +338,7 @@ function App() {
               )}
 
               {/* Right Action: Search Bar & Mobile Menu */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '0.25rem' : '0.5rem', flexShrink: 0, marginLeft: 'auto' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '0.2rem' : '0.5rem', flexShrink: 0, marginLeft: 'auto' }}>
                 {/* Mobile Highlighted Launching Soon Button */}
                 {isMobile && (
                   <button
@@ -347,26 +347,27 @@ function App() {
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: '0.3rem',
-                      padding: '0.24rem 0.62rem',
-                      borderRadius: '20px',
+                      gap: '0.2rem',
+                      padding: '0.2rem 0.45rem',
+                      borderRadius: '16px',
                       backgroundColor: 'var(--antique-white)',
                       color: 'var(--wine)',
                       border: '1.2px solid rgba(255, 255, 255, 0.6)',
                       fontWeight: 800,
-                      fontSize: '0.6rem',
-                      letterSpacing: '0.05em',
+                      fontSize: '0.54rem',
+                      letterSpacing: '0.02em',
                       textTransform: 'uppercase',
                       cursor: 'pointer',
                       whiteSpace: 'nowrap',
+                      flexShrink: 0,
                       transition: 'all 0.3s ease',
                       boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
                       animation: 'launchingPulseGlow 2.5s infinite ease-in-out'
                     }}
                   >
-                    <span className="live-dot" style={{ backgroundColor: '#B85645', width: '4.5px', height: '4.5px', boxShadow: '0 0 4px rgba(184, 86, 69, 0.5)' }} />
+                    <span className="live-dot" style={{ backgroundColor: '#B85645', width: '4px', height: '4px', boxShadow: '0 0 4px rgba(184, 86, 69, 0.5)' }} />
                     <span>Launching Soon</span>
-                    <span style={{ fontSize: '0.7rem' }}>✨</span>
+                    <span style={{ fontSize: '0.62rem' }}>✨</span>
                   </button>
                 )}
 
@@ -378,7 +379,7 @@ function App() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     gap: '0.35rem',
-                    padding: isMobile ? '0.32rem 0.45rem' : '0.35rem 0.8rem',
+                    padding: isMobile ? '0.25rem 0.35rem' : '0.35rem 0.8rem',
                     backgroundColor: isLightHeader ? 'rgba(94, 39, 53, 0.06)' : 'rgba(255, 255, 255, 0.12)',
                     border: isLightHeader ? '1px solid rgba(94, 39, 53, 0.2)' : '1px solid rgba(255, 255, 255, 0.3)',
                     borderRadius: '50px',
@@ -395,7 +396,7 @@ function App() {
                   className={isLightHeader ? 'hover-wine' : 'hover-gold'}
                   aria-label="Search"
                 >
-                  <Search size={14} style={{ color: isLightHeader ? 'var(--wine)' : 'var(--harvest-gold)' }} />
+                  <Search size={13} style={{ color: isLightHeader ? 'var(--wine)' : 'var(--harvest-gold)' }} />
                   {!isMobile && <span>Search</span>}
                 </button>
 
@@ -408,17 +409,18 @@ function App() {
                       color: isLightHeader ? '#ffffff' : '#632633',
                       border: 'none',
                       borderRadius: '8px',
-                      padding: '0.38rem 0.65rem',
+                      padding: '0.32rem 0.52rem',
                       fontWeight: 800,
-                      fontSize: '0.72rem',
+                      fontSize: '0.68rem',
                       cursor: 'pointer',
+                      flexShrink: 0,
                       boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '0.25rem'
+                      gap: '0.2rem'
                     }}
                   >
-                    <Menu size={14} /> MENU
+                    <Menu size={13} /> MENU
                   </button>
                 )}
               </div>

@@ -335,7 +335,35 @@ function App() {
               )}
 
               {/* Right Action: Search Bar & Mobile Menu */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '0.35rem' : '0.5rem', flexShrink: 0, marginLeft: 'auto' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '0.25rem' : '0.5rem', flexShrink: 0, marginLeft: 'auto' }}>
+                {/* Mobile Highlighted Coming Soon Button */}
+                {isMobile && (
+                  <button
+                    onClick={() => setIsComingSoonOpen(true)}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.3rem',
+                      padding: '0.28rem 0.55rem',
+                      borderRadius: '20px',
+                      backgroundColor: isLightHeader ? 'rgba(184, 125, 117, 0.14)' : 'rgba(226, 160, 36, 0.16)',
+                      color: isLightHeader ? '#A46D65' : 'var(--harvest-gold)',
+                      border: isLightHeader ? '1px solid rgba(184, 125, 117, 0.5)' : '1px solid rgba(226, 160, 36, 0.5)',
+                      fontWeight: 700,
+                      fontSize: '0.62rem',
+                      letterSpacing: '0.03em',
+                      textTransform: 'uppercase',
+                      cursor: 'pointer',
+                      whiteSpace: 'nowrap',
+                      transition: 'all 0.3s ease',
+                      boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
+                    }}
+                  >
+                    <span className="live-dot" style={{ backgroundColor: isLightHeader ? '#A46D65' : 'var(--harvest-gold)', width: '5px', height: '5px' }} />
+                    <span>Coming Soon</span>
+                  </button>
+                )}
+
                 {/* Search Bar Button — Icon Only on Mobile */}
                 <button
                   onClick={() => setIsSearchOpen(true)}

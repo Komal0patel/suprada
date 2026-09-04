@@ -284,27 +284,27 @@ function App() {
                           style={{
                             display: 'inline-flex',
                             alignItems: 'center',
-                            gap: '0.45rem',
-                            padding: '0.36rem 1.05rem',
+                            gap: '0.35rem',
+                            padding: '0.26rem 0.8rem',
                             borderRadius: '30px',
                             backgroundColor: 'var(--antique-white)',
                             color: 'var(--wine)',
-                            border: '1.5px solid rgba(255, 255, 255, 0.6)',
+                            border: '1.2px solid rgba(255, 255, 255, 0.6)',
                             fontWeight: 800,
-                            fontSize: '0.74rem',
-                            letterSpacing: '0.08em',
+                            fontSize: '0.67rem',
+                            letterSpacing: '0.07em',
                             textTransform: 'uppercase',
                             cursor: 'pointer',
                             whiteSpace: 'nowrap',
-                            boxShadow: '0 2px 10px rgba(0, 0, 0, 0.2)',
+                            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.18)',
                             transition: 'all 0.3s ease',
                             animation: 'launchingPulseGlow 2.5s infinite ease-in-out',
-                            margin: '0 0.2rem'
+                            margin: '0 0.15rem'
                           }}
                         >
-                          <span className="live-dot" style={{ backgroundColor: '#B85645', width: '6px', height: '6px', boxShadow: '0 0 6px rgba(184, 86, 69, 0.5)' }} />
+                          <span className="live-dot" style={{ backgroundColor: '#B85645', width: '5px', height: '5px', boxShadow: '0 0 5px rgba(184, 86, 69, 0.5)' }} />
                           <span>{item.label}</span>
-                          <span style={{ fontSize: '0.82rem' }}>✨</span>
+                          <span style={{ fontSize: '0.75rem' }}>✨</span>
                         </button>
                       );
                     }
@@ -347,26 +347,26 @@ function App() {
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: '0.35rem',
-                      padding: '0.32rem 0.8rem',
+                      gap: '0.3rem',
+                      padding: '0.24rem 0.62rem',
                       borderRadius: '20px',
                       backgroundColor: 'var(--antique-white)',
                       color: 'var(--wine)',
-                      border: '1.5px solid rgba(255, 255, 255, 0.6)',
+                      border: '1.2px solid rgba(255, 255, 255, 0.6)',
                       fontWeight: 800,
-                      fontSize: '0.64rem',
-                      letterSpacing: '0.06em',
+                      fontSize: '0.6rem',
+                      letterSpacing: '0.05em',
                       textTransform: 'uppercase',
                       cursor: 'pointer',
                       whiteSpace: 'nowrap',
                       transition: 'all 0.3s ease',
-                      boxShadow: '0 2px 8px rgba(0,0,0,0.18)',
+                      boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
                       animation: 'launchingPulseGlow 2.5s infinite ease-in-out'
                     }}
                   >
-                    <span className="live-dot" style={{ backgroundColor: '#B85645', width: '5px', height: '5px', boxShadow: '0 0 5px rgba(184, 86, 69, 0.5)' }} />
+                    <span className="live-dot" style={{ backgroundColor: '#B85645', width: '4.5px', height: '4.5px', boxShadow: '0 0 4px rgba(184, 86, 69, 0.5)' }} />
                     <span>Launching Soon</span>
-                    <span style={{ fontSize: '0.75rem' }}>✨</span>
+                    <span style={{ fontSize: '0.7rem' }}>✨</span>
                   </button>
                 )}
 
@@ -589,18 +589,19 @@ function App() {
                           color: 'var(--wine)',
                           display: 'inline-flex',
                           alignItems: 'center',
-                          gap: '0.5rem',
-                          padding: '0.48rem 1.3rem',
+                          gap: '0.45rem',
+                          padding: '0.38rem 1.05rem',
                           borderRadius: '30px',
-                          border: '1.5px solid rgba(255, 255, 255, 0.6)',
+                          border: '1.2px solid rgba(255, 255, 255, 0.6)',
                           backgroundColor: 'var(--antique-white)',
                           fontWeight: 800,
-                          boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
+                          fontSize: '0.92rem',
+                          boxShadow: '0 4px 12px rgba(0,0,0,0.18)'
                         }}
                       >
-                        <span className="live-dot" style={{ backgroundColor: '#B85645', width: '6px', height: '6px', boxShadow: '0 0 6px rgba(184, 86, 69, 0.5)' }} />
+                        <span className="live-dot" style={{ backgroundColor: '#B85645', width: '5px', height: '5px', boxShadow: '0 0 5px rgba(184, 86, 69, 0.5)' }} />
                         <span>{item.label}</span>
-                        <span style={{ fontSize: '0.9rem' }}>✨</span>
+                        <span style={{ fontSize: '0.85rem' }}>✨</span>
                       </motion.li>
                     );
                   }

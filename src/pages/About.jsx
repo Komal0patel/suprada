@@ -202,6 +202,7 @@ export default function About({ onNavigate }) {
       quote: "Athletic endurance is the structural logic of stilling the mind and awakening biological resilience.",
       bio: "Doctorate in Mechanical Engineering (USA). Known globally as the Blue Planet Runner — the only Indian athlete to run around the entire world across continents. His analytical systems and endurance discipline anchor Suprada's retreat architecture.",
       image: "/assets/Founders/sunil_jayaraj.jpg",
+      objectPosition: "center 18%",
       tags: ["PhD Mechanical Engg.", "World Marathoner", "Chairman", "Systems Architect"]
     },
     premasudha: {
@@ -211,6 +212,7 @@ export default function About({ onNavigate }) {
       quote: "Precision clinical science and ancient Indian heritage are not opposites — they are partners in restorative healing.",
       bio: "US Board-Certified in Internal Medicine with 16+ years of hospital and clinical experience. Her passion for India's traditional healing sciences led to the creation of Suprada's integrative drugless medical protocols.",
       image: "/assets/Founders/prema_ramadas.jpg",
+      objectPosition: "center 15%",
       tags: ["MD Internal Medicine", "16+ Yrs Clinical", "Co-Founder", "Vedic Integration"]
     }
   };
@@ -529,17 +531,15 @@ export default function About({ onNavigate }) {
                 <img
                   src={foundersData[activeFounder].image}
                   alt={foundersData[activeFounder].name}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  style={{ 
+                    width: '100%', 
+                    height: '100%', 
+                    objectFit: 'cover',
+                    objectPosition: foundersData[activeFounder].objectPosition || 'center top'
+                  }}
                 />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, transparent 50%, rgba(255,255,255,0.9) 100%)' }} />
-                <div 
-                  className={`pill-luxury ${activeFounder === 'sunil' ? 'active' : ''}`}
-                  style={{
-                    position: 'absolute', top: '1.2rem', left: '1.2rem',
-                    textTransform: 'uppercase', letterSpacing: '0.15em',
-                    fontSize: '0.65rem', padding: '0.3rem 0.8rem'
-                  }}
-                >
+                <div className="founder-badge-overlay">
                   {foundersData[activeFounder].badge}
                 </div>
               </div>

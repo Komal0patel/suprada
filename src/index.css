@@ -2604,6 +2604,33 @@ html, body {
   overflow: hidden;
 }
 
+.founder-badge-overlay {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.65rem;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 30px;
+  background: rgba(94, 39, 53, 0.92);
+  color: #ffffff;
+  border: 1px solid rgba(226, 160, 36, 0.4);
+  box-shadow: 0 4px 14px rgba(94, 39, 53, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  white-space: nowrap;
+  pointer-events: none;
+  max-width: calc(100% - 1.5rem);
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .founder-card-content {
   padding: 2rem 2.5rem;
   display: flex;
@@ -2624,7 +2651,17 @@ html, body {
   }
 
   .founder-card-image-box {
-    height: 240px !important;
+    height: 270px !important;
+  }
+
+  .founder-badge-overlay {
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.52rem;
+    letter-spacing: 0.04em;
+    border-radius: 20px;
+    max-width: calc(100% - 1rem);
   }
 
   .founder-card-content {

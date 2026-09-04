@@ -181,7 +181,7 @@ function App() {
     { id: 'about', label: 'About' },
     { id: 'spaces', label: 'Our Spaces' },
     { id: 'programmes', label: 'Programmes' },
-    { id: 'coming-soon', label: 'Coming Soon', highlighted: true },
+    { id: 'launching-soon', label: 'Launching Soon', highlighted: true },
     { id: 'gallery', label: 'Gallery' },
     { id: 'blog', label: 'Blog' },
     { id: 'occasions', label: 'Occasions' },
@@ -280,28 +280,31 @@ function App() {
                         <button
                           key={item.id}
                           onClick={() => setIsComingSoonOpen(true)}
-                          className="nav-coming-soon-btn"
+                          className="nav-launching-soon-btn"
                           style={{
                             display: 'inline-flex',
                             alignItems: 'center',
-                            gap: '0.35rem',
-                            padding: '0.28rem 0.75rem',
+                            gap: '0.4rem',
+                            padding: '0.34rem 0.95rem',
                             borderRadius: '30px',
-                            backgroundColor: isLightHeader ? 'rgba(184, 125, 117, 0.1)' : 'rgba(226, 160, 36, 0.12)',
-                            color: isLightHeader ? '#A46D65' : 'var(--harvest-gold)',
-                            border: isLightHeader ? '1px solid rgba(184, 125, 117, 0.45)' : '1px solid rgba(226, 160, 36, 0.45)',
-                            fontWeight: 700,
-                            fontSize: '0.72rem',
-                            letterSpacing: '0.06em',
+                            background: 'linear-gradient(135deg, #F7D070 0%, #EAA936 50%, #C48210 100%)',
+                            color: '#3D141F',
+                            border: '1.5px solid #FFE08A',
+                            fontWeight: 900,
+                            fontSize: '0.74rem',
+                            letterSpacing: '0.07em',
                             textTransform: 'uppercase',
                             cursor: 'pointer',
                             whiteSpace: 'nowrap',
-                            transition: 'all 0.3s ease',
-                            margin: '0 0.15rem'
+                            boxShadow: '0 0 16px rgba(234, 169, 54, 0.75), 0 4px 14px rgba(0, 0, 0, 0.3)',
+                            transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
+                            animation: 'launchingPulseGlow 2s infinite ease-in-out',
+                            margin: '0 0.2rem'
                           }}
                         >
-                          <span className="live-dot" style={{ backgroundColor: isLightHeader ? '#A46D65' : 'var(--harvest-gold)', width: '6px', height: '6px' }} />
+                          <span className="live-dot" style={{ backgroundColor: '#A81C2E', width: '7px', height: '7px', boxShadow: '0 0 8px #A81C2E' }} />
                           <span>{item.label}</span>
+                          <span style={{ fontSize: '0.85rem' }}>✨</span>
                         </button>
                       );
                     }
@@ -336,31 +339,34 @@ function App() {
 
               {/* Right Action: Search Bar & Mobile Menu */}
               <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '0.25rem' : '0.5rem', flexShrink: 0, marginLeft: 'auto' }}>
-                {/* Mobile Highlighted Coming Soon Button */}
+                {/* Mobile Highlighted Launching Soon Button */}
                 {isMobile && (
                   <button
                     onClick={() => setIsComingSoonOpen(true)}
+                    className="nav-launching-soon-btn"
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: '0.3rem',
-                      padding: '0.28rem 0.55rem',
+                      gap: '0.35rem',
+                      padding: '0.3rem 0.65rem',
                       borderRadius: '20px',
-                      backgroundColor: isLightHeader ? 'rgba(184, 125, 117, 0.14)' : 'rgba(226, 160, 36, 0.16)',
-                      color: isLightHeader ? '#A46D65' : 'var(--harvest-gold)',
-                      border: isLightHeader ? '1px solid rgba(184, 125, 117, 0.5)' : '1px solid rgba(226, 160, 36, 0.5)',
-                      fontWeight: 700,
-                      fontSize: '0.62rem',
-                      letterSpacing: '0.03em',
+                      background: 'linear-gradient(135deg, #F7D070 0%, #EAA936 100%)',
+                      color: '#3D141F',
+                      border: '1.5px solid #FFE08A',
+                      fontWeight: 900,
+                      fontSize: '0.64rem',
+                      letterSpacing: '0.04em',
                       textTransform: 'uppercase',
                       cursor: 'pointer',
                       whiteSpace: 'nowrap',
                       transition: 'all 0.3s ease',
-                      boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
+                      boxShadow: '0 0 14px rgba(234, 169, 54, 0.75), 0 2px 8px rgba(0,0,0,0.25)',
+                      animation: 'launchingPulseGlow 2s infinite ease-in-out'
                     }}
                   >
-                    <span className="live-dot" style={{ backgroundColor: isLightHeader ? '#A46D65' : 'var(--harvest-gold)', width: '5px', height: '5px' }} />
-                    <span>Coming Soon</span>
+                    <span className="live-dot" style={{ backgroundColor: '#A81C2E', width: '6px', height: '6px', boxShadow: '0 0 6px #A81C2E' }} />
+                    <span>Launching Soon</span>
+                    <span style={{ fontSize: '0.75rem' }}>✨</span>
                   </button>
                 )}
 
@@ -580,19 +586,21 @@ function App() {
                         }}
                         style={{
                           cursor: 'pointer',
-                          color: '#B87D75',
+                          color: '#3D141F',
                           display: 'inline-flex',
                           alignItems: 'center',
                           gap: '0.5rem',
                           padding: '0.45rem 1.2rem',
                           borderRadius: '30px',
-                          border: '1px solid rgba(184, 125, 117, 0.5)',
-                          backgroundColor: 'rgba(184, 125, 117, 0.12)',
-                          fontWeight: 700
+                          border: '1.5px solid #FFE08A',
+                          background: 'linear-gradient(135deg, #F7D070 0%, #EAA936 100%)',
+                          fontWeight: 900,
+                          boxShadow: '0 0 18px rgba(234, 169, 54, 0.6)'
                         }}
                       >
-                        <span className="live-dot" style={{ backgroundColor: '#B87D75', width: '6px', height: '6px' }} />
+                        <span className="live-dot" style={{ backgroundColor: '#A81C2E', width: '7px', height: '7px', boxShadow: '0 0 8px #A81C2E' }} />
                         <span>{item.label}</span>
+                        <span style={{ fontSize: '0.9rem' }}>✨</span>
                       </motion.li>
                     );
                   }

@@ -887,18 +887,18 @@ export default function Home({ onNavigate }) {
             style={{ maxWidth: '640px', textAlign: 'left' }}
           >
             {/* Top Sub-Heading Badge — Symmetrical Gold Line + Star Accents on Both Sides */}
-            <motion.div variants={blurFadeIn} className="hero-badge-container" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.2rem', marginTop: '1.8rem', flexWrap: 'nowrap' }}>
+            <motion.div variants={blurFadeIn} className="hero-badge-container" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.2rem', marginTop: '1.8rem', flexWrap: 'nowrap' }}>
               <motion.div 
                 animate={{ scaleX: [0.9, 1.1, 0.9], opacity: [0.7, 1, 0.7] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 className="shiny-gold-line hero-badge-line" 
-                style={{ height: '1.5px', width: '36px', backgroundColor: 'var(--harvest-gold)', display: 'inline-block' }}
+                style={{ height: '2px', width: '44px', backgroundColor: 'var(--harvest-gold)', display: 'inline-block' }}
               />
               <motion.span 
                 animate={{ opacity: [0.4, 1, 0.4], scale: [0.8, 1.2, 0.8] }}
                 transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
                 className="hero-badge-star"
-                style={{ color: '#f7d070', fontSize: '0.8rem', textShadow: '0 0 12px rgba(247, 208, 112, 0.9)', display: 'inline-flex', alignItems: 'center' }}
+                style={{ color: '#f7d070', fontSize: '1.15rem', textShadow: '0 0 12px rgba(247, 208, 112, 0.9)', display: 'inline-flex', alignItems: 'center' }}
               >
                 ✦
               </motion.span>
@@ -906,13 +906,15 @@ export default function Home({ onNavigate }) {
                 className="shiny-gold-text hero-badge-text"
                 style={{ 
                   textTransform: 'uppercase', 
-                  letterSpacing: '0.35em', 
+                  letterSpacing: '0.28em', 
                   fontWeight: 800, 
-                  fontSize: '0.8rem',
+                  fontSize: 'clamp(1.2rem, 2.4vw, 1.65rem)',
+                  fontFamily: 'var(--font-heading)',
                   color: 'var(--harvest-gold)',
                   display: 'inline-flex',
                   alignItems: 'center',
-                  margin: '0 0.1rem'
+                  margin: '0 0.2rem',
+                  textShadow: '0 2px 14px rgba(0,0,0,0.7)'
                 }}
               >
                 Suprada Wellness
@@ -921,7 +923,7 @@ export default function Home({ onNavigate }) {
                 animate={{ opacity: [0.4, 1, 0.4], scale: [0.8, 1.2, 0.8] }}
                 transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
                 className="hero-badge-star"
-                style={{ color: '#f7d070', fontSize: '0.8rem', textShadow: '0 0 12px rgba(247, 208, 112, 0.9)', display: 'inline-flex', alignItems: 'center' }}
+                style={{ color: '#f7d070', fontSize: '1.15rem', textShadow: '0 0 12px rgba(247, 208, 112, 0.9)', display: 'inline-flex', alignItems: 'center' }}
               >
                 ✦
               </motion.span>
@@ -929,7 +931,7 @@ export default function Home({ onNavigate }) {
                 animate={{ scaleX: [0.9, 1.1, 0.9], opacity: [0.7, 1, 0.7] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 className="shiny-gold-line hero-badge-line" 
-                style={{ height: '1.5px', width: '36px', backgroundColor: 'var(--harvest-gold)', display: 'inline-block' }}
+                style={{ height: '2px', width: '44px', backgroundColor: 'var(--harvest-gold)', display: 'inline-block' }}
               />
             </motion.div>
 

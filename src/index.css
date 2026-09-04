@@ -3148,6 +3148,200 @@ html, body {
 /* Navbar Coming Soon Highlighted Button & Pulse Effects */
 .live-dot {
   width: 7px;
+  /* 5. Naturopathy Modalities Bento Layout on Mobile: Clamped Width Horizontal Card Track + Full Display Card */
+  .naturopathy-section-container {
+    min-height: auto !important;
+    height: auto !important;
+    max-height: none !important;
+    padding: 2.2rem 4% 3rem 4% !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+  .naturopathy-bento-layout {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  .naturopathy-left-column {
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  .naturopathy-tile-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: none !important;
+    gap: 0.7rem !important;
+    padding: 0.2rem 0.2rem 0.6rem 0.2rem !important;
+    -webkit-overflow-scrolling: touch;
+    touch-action: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .naturopathy-photo-tile,
+  .naturopathy-explore-tile {
+    flex: 0 0 155px !important;
+    width: 155px !important;
+    min-width: 155px !important;
+    height: 115px !important;
+    scroll-snap-align: none !important;
+  }
+  .naturopathy-right-card {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    flex: none !important;
+    overflow: visible !important;
+  }
+  .naturopathy-right-card-banner {
+    height: 190px !important;
+  }
+
+  /* 6. Suprada Rhythm Timeline Mobile Navigation Arrows (Placed BELOW Cards) */
+  .rhythm-arrow-btn {
+    top: auto !important;
+    bottom: -58px !important;
+    transform: none !important;
+    width: 44px !important;
+    height: 44px !important;
+    box-shadow: 0 4px 14px rgba(94, 39, 53, 0.25) !important;
+  }
+  .rhythm-arrow-left {
+    left: 15px !important;
+  }
+  .rhythm-arrow-right {
+    right: 15px !important;
+  }
+}
+
+/* Light Global Search Modal Styling */
+.search-modal-backdrop {
+  background-color: rgba(40, 38, 37, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.search-modal-card {
+  background-color: var(--antique-white); /* #FAF0E6 */
+  border: 1.5px solid rgba(94, 39, 53, 0.15);
+  box-shadow: 0 24px 60px rgba(40, 38, 37, 0.18), 0 8px 25px rgba(94, 39, 53, 0.08);
+}
+
+.search-modal-header {
+  background-color: var(--isabelline); /* #F2ECE4 */
+  border-bottom: 1px solid rgba(94, 39, 53, 0.12);
+}
+
+.search-input-field {
+  color: var(--raisin-black);
+}
+
+.search-input-field::placeholder {
+  color: rgba(40, 38, 37, 0.45);
+}
+
+.search-modal-close-btn {
+  background-color: rgba(94, 39, 53, 0.08);
+  color: var(--wine);
+  transition: all 0.2s ease;
+}
+
+.search-modal-close-btn:hover {
+  background-color: rgba(94, 39, 53, 0.16);
+  transform: scale(1.05);
+}
+
+.search-result-item {
+  background-color: #ffffff;
+  border: 1px solid rgba(94, 39, 53, 0.08);
+  box-shadow: 0 2px 8px rgba(40, 38, 37, 0.03);
+  transition: all 0.22s ease;
+}
+
+.search-result-item:hover {
+  background-color: #FAF4EE;
+  border-color: var(--wine);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(94, 39, 53, 0.1);
+}
+
+/* Custom Scrollbar for Search Modal Results */
+.custom-light-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-light-scrollbar::-webkit-scrollbar-track {
+  background: rgba(94, 39, 53, 0.04);
+  border-radius: 10px;
+}
+.custom-light-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(94, 39, 53, 0.2);
+  border-radius: 10px;
+}
+.custom-light-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--wine);
+}
+
+/* Header Navbar Hover Utility Classes */
+.hover-gold {
+  transition: all 0.3s ease;
+}
+.hover-gold:hover {
+  color: var(--harvest-gold) !important;
+}
+
+.hover-wine {
+  transition: all 0.3s ease;
+}
+.hover-wine:hover {
+  color: var(--wine) !important;
+}
+
+.hover-redwood {
+  transition: all 0.3s ease;
+}
+.hover-redwood:hover {
+  color: var(--redwood) !important;
+  border-color: var(--redwood) !important;
+}
+
+@keyframes pulse-dot {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+}
+
+/* Navbar Coming Soon Highlighted Button & Pulse Effects */
+.live-dot {
+  width: 7px;
   height: 7px;
   border-radius: 50%;
   background-color: var(--harvest-gold);
@@ -3172,4 +3366,24 @@ html, body {
 .nav-coming-soon-btn:hover {
   transform: translateY(-2px) scale(1.05) !important;
   box-shadow: 0 6px 20px rgba(226, 160, 36, 0.55) !important;
+}
+
+@keyframes launchingPulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(234, 169, 54, 0.85), 0 4px 14px rgba(0, 0, 0, 0.25);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 22px 7px rgba(234, 169, 54, 0.75), 0 6px 20px rgba(0, 0, 0, 0.35);
+    transform: scale(1.04);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(234, 169, 54, 0.85), 0 4px 14px rgba(0, 0, 0, 0.25);
+    transform: scale(1);
+  }
+}
+
+.nav-launching-soon-btn:hover {
+  transform: translateY(-2px) scale(1.08) !important;
+  box-shadow: 0 0 28px 10px rgba(234, 169, 54, 0.9), 0 8px 24px rgba(0, 0, 0, 0.4) !important;
 }

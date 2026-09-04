@@ -284,27 +284,27 @@ function App() {
                           style={{
                             display: 'inline-flex',
                             alignItems: 'center',
-                            gap: '0.4rem',
-                            padding: '0.34rem 0.95rem',
+                            gap: '0.45rem',
+                            padding: '0.36rem 1.05rem',
                             borderRadius: '30px',
-                            background: 'linear-gradient(135deg, #B85645 0%, #8E2B38 50%, #5E2735 100%)',
-                            color: '#FFFFFF',
-                            border: '1.5px solid rgba(255, 255, 255, 0.4)',
+                            backgroundColor: 'var(--antique-white)',
+                            color: 'var(--wine)',
+                            border: '1.5px solid rgba(255, 255, 255, 0.6)',
                             fontWeight: 800,
                             fontSize: '0.74rem',
-                            letterSpacing: '0.07em',
+                            letterSpacing: '0.08em',
                             textTransform: 'uppercase',
                             cursor: 'pointer',
                             whiteSpace: 'nowrap',
-                            boxShadow: '0 0 16px rgba(184, 86, 69, 0.6), 0 4px 14px rgba(0, 0, 0, 0.3)',
-                            transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
-                            animation: 'launchingPulseGlow 2s infinite ease-in-out',
+                            boxShadow: '0 2px 10px rgba(0, 0, 0, 0.2)',
+                            transition: 'all 0.3s ease',
+                            animation: 'launchingPulseGlow 2.5s infinite ease-in-out',
                             margin: '0 0.2rem'
                           }}
                         >
-                          <span className="live-dot" style={{ backgroundColor: '#4ADE80', width: '7px', height: '7px', boxShadow: '0 0 8px #4ADE80' }} />
+                          <span className="live-dot" style={{ backgroundColor: '#B85645', width: '6px', height: '6px', boxShadow: '0 0 6px rgba(184, 86, 69, 0.5)' }} />
                           <span>{item.label}</span>
-                          <span style={{ fontSize: '0.85rem' }}>✨</span>
+                          <span style={{ fontSize: '0.82rem' }}>✨</span>
                         </button>
                       );
                     }
@@ -348,23 +348,23 @@ function App() {
                       display: 'inline-flex',
                       alignItems: 'center',
                       gap: '0.35rem',
-                      padding: '0.3rem 0.65rem',
+                      padding: '0.32rem 0.8rem',
                       borderRadius: '20px',
-                      background: 'linear-gradient(135deg, #B85645 0%, #8E2B38 50%, #5E2735 100%)',
-                      color: '#FFFFFF',
-                      border: '1.5px solid rgba(255, 255, 255, 0.4)',
+                      backgroundColor: 'var(--antique-white)',
+                      color: 'var(--wine)',
+                      border: '1.5px solid rgba(255, 255, 255, 0.6)',
                       fontWeight: 800,
                       fontSize: '0.64rem',
-                      letterSpacing: '0.04em',
+                      letterSpacing: '0.06em',
                       textTransform: 'uppercase',
                       cursor: 'pointer',
                       whiteSpace: 'nowrap',
                       transition: 'all 0.3s ease',
-                      boxShadow: '0 0 14px rgba(184, 86, 69, 0.6), 0 2px 8px rgba(0,0,0,0.25)',
-                      animation: 'launchingPulseGlow 2s infinite ease-in-out'
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.18)',
+                      animation: 'launchingPulseGlow 2.5s infinite ease-in-out'
                     }}
                   >
-                    <span className="live-dot" style={{ backgroundColor: '#4ADE80', width: '6px', height: '6px', boxShadow: '0 0 6px #4ADE80' }} />
+                    <span className="live-dot" style={{ backgroundColor: '#B85645', width: '5px', height: '5px', boxShadow: '0 0 5px rgba(184, 86, 69, 0.5)' }} />
                     <span>Launching Soon</span>
                     <span style={{ fontSize: '0.75rem' }}>✨</span>
                   </button>
@@ -586,19 +586,19 @@ function App() {
                         }}
                         style={{
                           cursor: 'pointer',
-                          color: '#FFFFFF',
+                          color: 'var(--wine)',
                           display: 'inline-flex',
                           alignItems: 'center',
                           gap: '0.5rem',
-                          padding: '0.45rem 1.2rem',
+                          padding: '0.48rem 1.3rem',
                           borderRadius: '30px',
-                          border: '1.5px solid rgba(255, 255, 255, 0.4)',
-                          background: 'linear-gradient(135deg, #B85645 0%, #8E2B38 50%, #5E2735 100%)',
+                          border: '1.5px solid rgba(255, 255, 255, 0.6)',
+                          backgroundColor: 'var(--antique-white)',
                           fontWeight: 800,
-                          boxShadow: '0 0 18px rgba(184, 86, 69, 0.6)'
+                          boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
                         }}
                       >
-                        <span className="live-dot" style={{ backgroundColor: '#4ADE80', width: '7px', height: '7px', boxShadow: '0 0 8px #4ADE80' }} />
+                        <span className="live-dot" style={{ backgroundColor: '#B85645', width: '6px', height: '6px', boxShadow: '0 0 6px rgba(184, 86, 69, 0.5)' }} />
                         <span>{item.label}</span>
                         <span style={{ fontSize: '0.9rem' }}>✨</span>
                       </motion.li>

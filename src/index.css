@@ -3145,9 +3145,31 @@ html, body {
   }
 }
 
+/* Navbar Coming Soon Highlighted Button & Pulse Effects */
+.live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--harvest-gold);
+  display: inline-block;
+  box-shadow: 0 0 8px var(--harvest-gold);
+  animation: pulse-dot 1.8s infinite ease-in-out;
+  flex-shrink: 0;
+}
 
+@keyframes navPulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(226, 160, 36, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 16px 4px rgba(226, 160, 36, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(226, 160, 36, 0.6);
+  }
+}
 
-
-
-
-
+.nav-coming-soon-btn:hover {
+  transform: translateY(-2px) scale(1.05) !important;
+  box-shadow: 0 6px 20px rgba(226, 160, 36, 0.55) !important;
+}

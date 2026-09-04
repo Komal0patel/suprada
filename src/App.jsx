@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { X, Search, ChevronRight, Download, Menu } from 'lucide-react';
+import { X, Search, ChevronRight, Download, Menu, Sparkles } from 'lucide-react';
 
 // Import Pages
 import Home from './pages/Home';
@@ -66,6 +66,9 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [isComingSoonOpen, setIsComingSoonOpen] = useState(false);
+  const [waitlistEmail, setWaitlistEmail] = useState('');
+  const [waitlistSubmitted, setWaitlistSubmitted] = useState(false);
   const { scrollY } = useScroll();
   const lenisRef = useRef(null);
 
@@ -177,6 +180,7 @@ function App() {
     { id: 'about', label: 'About' },
     { id: 'spaces', label: 'Our Spaces' },
     { id: 'programmes', label: 'Programmes' },
+    { id: 'coming-soon', label: 'Coming Soon', highlighted: true },
     { id: 'gallery', label: 'Gallery' },
     { id: 'blog', label: 'Blog' },
     { id: 'occasions', label: 'Occasions' },
@@ -269,30 +273,68 @@ function App() {
                   marginRight: '1.5rem',
                   flexShrink: 1
                 }}>
-                  {menuItems.map((item) => (
-                    <span
-                      key={item.id}
-                      onClick={() => handlePageChange(item.id)}
-                      style={{
-                        cursor: 'pointer',
-                        color: currentPage === item.id 
-                          ? (isLightHeader ? 'var(--wine)' : 'var(--harvest-gold)')
-                          : (isLightHeader ? 'rgba(40, 38, 37, 0.85)' : 'rgba(255, 255, 255, 0.95)'),
-                        fontWeight: currentPage === item.id ? 800 : 600,
-                        fontSize: '0.75rem',
-                        letterSpacing: '0.05em',
-                        textTransform: 'uppercase',
-                        transition: 'all 0.3s ease',
-                        whiteSpace: 'nowrap',
-                        textShadow: isLightHeader ? 'none' : '0 2px 8px rgba(0,0,0,0.6)',
-                        borderBottom: currentPage === item.id && isLightHeader ? '2px solid var(--wine)' : '2px solid transparent',
-                        paddingBottom: '2px'
-                      }}
-                      className={isLightHeader ? 'hover-wine' : 'hover-gold'}
-                    >
-                      {item.label}
-                    </span>
-                  ))}
+                  {menuItems.map((item) => {
+                    if (item.highlighted) {
+                      return (
+                        <button
+                          key={item.id}
+                          onClick={() => setIsComingSoonOpen(true)}
+                          className="nav-coming-soon-btn"
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '0.4rem',
+                            padding: '0.32rem 0.85rem',
+                            borderRadius: '30px',
+                            backgroundColor: isLightHeader ? 'var(--wine)' : 'var(--harvest-gold)',
+                            color: isLightHeader ? '#ffffff' : 'var(--wine)',
+                            border: isLightHeader ? '1.5px solid var(--harvest-gold)' : '1.5px solid var(--wine)',
+                            fontWeight: 800,
+                            fontSize: '0.72rem',
+                            letterSpacing: '0.06em',
+                            textTransform: 'uppercase',
+                            cursor: 'pointer',
+                            whiteSpace: 'nowrap',
+                            boxShadow: isLightHeader 
+                              ? '0 4px 14px rgba(94, 39, 53, 0.3)' 
+                              : '0 4px 14px rgba(226, 160, 36, 0.4)',
+                            transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
+                            animation: 'navPulseGlow 2.5s infinite ease-in-out',
+                            margin: '0 0.15rem'
+                          }}
+                        >
+                          <span className="live-dot" style={{ backgroundColor: isLightHeader ? 'var(--harvest-gold)' : 'var(--wine)' }} />
+                          <span>{item.label}</span>
+                          <Sparkles size={13} style={{ color: isLightHeader ? 'var(--harvest-gold)' : 'var(--wine)' }} />
+                        </button>
+                      );
+                    }
+
+                    return (
+                      <span
+                        key={item.id}
+                        onClick={() => handlePageChange(item.id)}
+                        style={{
+                          cursor: 'pointer',
+                          color: currentPage === item.id 
+                            ? (isLightHeader ? 'var(--wine)' : 'var(--harvest-gold)')
+                            : (isLightHeader ? 'rgba(40, 38, 37, 0.85)' : 'rgba(255, 255, 255, 0.95)'),
+                          fontWeight: currentPage === item.id ? 800 : 600,
+                          fontSize: '0.75rem',
+                          letterSpacing: '0.05em',
+                          textTransform: 'uppercase',
+                          transition: 'all 0.3s ease',
+                          whiteSpace: 'nowrap',
+                          textShadow: isLightHeader ? 'none' : '0 2px 8px rgba(0,0,0,0.6)',
+                          borderBottom: currentPage === item.id && isLightHeader ? '2px solid var(--wine)' : '2px solid transparent',
+                          paddingBottom: '2px'
+                        }}
+                        className={isLightHeader ? 'hover-wine' : 'hover-gold'}
+                      >
+                        {item.label}
+                      </span>
+                    );
+                  })}
                 </div>
               )}
 
@@ -502,20 +544,52 @@ function App() {
                 <X size={28} />
               </button>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1.4rem', alignItems: 'center', fontSize: '1.15rem', fontFamily: 'var(--font-body)', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 600 }}>
-                {menuItems.map((item) => (
-                  <motion.li
-                    whileHover={{ scale: 1.08, color: 'var(--harvest-gold)' }}
-                    key={item.id}
-                    onClick={() => handlePageChange(item.id)}
-                    style={{
-                      cursor: 'pointer',
-                      color: currentPage === item.id ? 'var(--harvest-gold)' : 'var(--isabelline)',
-                      transition: 'color 0.3s ease'
-                    }}
-                  >
-                    {item.label}
-                  </motion.li>
-                ))}
+                {menuItems.map((item) => {
+                  if (item.highlighted) {
+                    return (
+                      <motion.li
+                        whileHover={{ scale: 1.08 }}
+                        key={item.id}
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          setIsComingSoonOpen(true);
+                        }}
+                        style={{
+                          cursor: 'pointer',
+                          color: 'var(--harvest-gold)',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.5rem',
+                          padding: '0.45rem 1.2rem',
+                          borderRadius: '30px',
+                          border: '1.5px solid var(--harvest-gold)',
+                          backgroundColor: 'rgba(226, 160, 36, 0.15)',
+                          fontWeight: 800,
+                          boxShadow: '0 4px 15px rgba(226, 160, 36, 0.3)'
+                        }}
+                      >
+                        <span className="live-dot" />
+                        <span>{item.label}</span>
+                        <Sparkles size={16} style={{ color: 'var(--harvest-gold)' }} />
+                      </motion.li>
+                    );
+                  }
+
+                  return (
+                    <motion.li
+                      whileHover={{ scale: 1.08, color: 'var(--harvest-gold)' }}
+                      key={item.id}
+                      onClick={() => handlePageChange(item.id)}
+                      style={{
+                        cursor: 'pointer',
+                        color: currentPage === item.id ? 'var(--harvest-gold)' : 'var(--isabelline)',
+                        transition: 'color 0.3s ease'
+                      }}
+                    >
+                      {item.label}
+                    </motion.li>
+                  );
+                })}
               </ul>
 
               {/* Mobile Drawer Action Buttons */}
@@ -545,6 +619,163 @@ function App() {
                   <Download size={15} /> Download Brochure
                 </a>
               </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Coming Soon Showcase & Priority Access Modal */}
+        <AnimatePresence>
+          {isComingSoonOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              style={{
+                position: 'fixed',
+                inset: 0,
+                zIndex: 9999999,
+                backgroundColor: 'rgba(20, 10, 15, 0.82)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '1.5rem'
+              }}
+              onClick={() => setIsComingSoonOpen(false)}
+            >
+              <motion.div
+                initial={{ scale: 0.9, y: 20, opacity: 0 }}
+                animate={{ scale: 1, y: 0, opacity: 1 }}
+                exit={{ scale: 0.9, y: 20, opacity: 0 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                onClick={(e) => e.stopPropagation()}
+                style={{
+                  width: '100%',
+                  maxWidth: '620px',
+                  backgroundColor: '#5E2735',
+                  color: '#ffffff',
+                  borderRadius: '28px',
+                  border: '1.5px solid var(--harvest-gold)',
+                  boxShadow: '0 25px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(226, 160, 36, 0.2)',
+                  padding: isMobile ? '1.8rem 1.4rem' : '2.5rem 2.2rem',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
+              >
+                {/* Close Button */}
+                <button
+                  onClick={() => setIsComingSoonOpen(false)}
+                  style={{
+                    position: 'absolute',
+                    top: '1.2rem',
+                    right: '1.2rem',
+                    background: 'rgba(255, 255, 255, 0.1)',
+                    border: 'none',
+                    color: 'var(--harvest-gold)',
+                    borderRadius: '50%',
+                    width: '36px',
+                    height: '36px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease'
+                  }}
+                  aria-label="Close modal"
+                >
+                  <X size={20} />
+                </button>
+
+                {/* Top Highlight Badge */}
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', backgroundColor: 'rgba(226, 160, 36, 0.15)', border: '1px solid var(--harvest-gold)', borderRadius: '20px', padding: '0.3rem 0.85rem', marginBottom: '1.2rem' }}>
+                  <Sparkles size={14} style={{ color: 'var(--harvest-gold)' }} />
+                  <span style={{ fontSize: '0.7rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--harvest-gold)' }}>
+                    ✦ Future Expansion & Unveilings ✦
+                  </span>
+                </div>
+
+                <h3 style={{ fontSize: isMobile ? '1.5rem' : '1.85rem', color: '#ffffff', margin: '0 0 0.5rem 0', fontFamily: 'var(--font-heading)', fontWeight: 700, lineHeight: 1.2 }}>
+                  Exciting New Sanctums <em style={{ color: 'var(--harvest-gold)', fontStyle: 'italic' }}>Coming Soon</em>
+                </h3>
+                <p style={{ fontSize: '0.9rem', opacity: 0.9, color: 'var(--tan)', lineHeight: 1.55, margin: '0 0 1.8rem 0' }}>
+                  Suprada Wellness is expanding its riverfront haven with specialized drugless medical facilities and acoustic sound domes.
+                </p>
+
+                {/* Teasers List */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem', marginBottom: '1.8rem' }}>
+                  {[
+                    { icon: '🌊', title: 'Vedic Hydro-Thermal Spa', desc: 'Floating herbal immersion baths, cold plunge therapy & riverfront saunas.' },
+                    { icon: '🎶', title: 'Solfeggio Sound Healing Dome', desc: '360° acoustic chamber tuned to 432Hz & 528Hz cellular resonance frequencies.' },
+                    { icon: '🌿', title: 'Botanical Elixir & Herb Bar', desc: 'Custom organ-detox teas & traditional cold-pressed herbal remedies.' }
+                  ].map((item, idx) => (
+                    <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.85rem', backgroundColor: 'rgba(255, 255, 255, 0.06)', borderRadius: '16px', padding: '0.85rem 1.1rem', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                      <span style={{ fontSize: '1.4rem', lineHeight: 1 }}>{item.icon}</span>
+                      <div>
+                        <h4 style={{ margin: 0, fontSize: '0.98rem', color: 'var(--harvest-gold)', fontWeight: 700 }}>{item.title}</h4>
+                        <p style={{ margin: '0.2rem 0 0 0', fontSize: '0.82rem', opacity: 0.85, lineHeight: 1.4 }}>{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Waitlist Form */}
+                <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.25)', borderRadius: '18px', padding: '1.2rem', border: '1px solid rgba(226, 160, 36, 0.3)' }}>
+                  {waitlistSubmitted ? (
+                    <div style={{ textAlign: 'center', padding: '0.5rem 0', color: 'var(--harvest-gold)', fontWeight: 700, fontSize: '0.92rem' }}>
+                      ✦ Thank you! You're on the priority access list for our new unveilings.
+                    </div>
+                  ) : (
+                    <form
+                      onSubmit={(e) => {
+                        e.preventDefault();
+                        if (waitlistEmail.trim()) {
+                          setWaitlistSubmitted(true);
+                        }
+                      }}
+                      style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: '0.6rem' }}
+                    >
+                      <input
+                        type="email"
+                        placeholder="Enter your email for priority access..."
+                        value={waitlistEmail}
+                        onChange={(e) => setWaitlistEmail(e.target.value)}
+                        required
+                        style={{
+                          flex: 1,
+                          padding: '0.65rem 1rem',
+                          borderRadius: '12px',
+                          border: '1px solid rgba(255, 255, 255, 0.2)',
+                          backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                          color: '#ffffff',
+                          fontSize: '0.85rem',
+                          outline: 'none'
+                        }}
+                      />
+                      <button
+                        type="submit"
+                        style={{
+                          backgroundColor: 'var(--harvest-gold)',
+                          color: 'var(--wine)',
+                          border: 'none',
+                          borderRadius: '12px',
+                          padding: '0.65rem 1.3rem',
+                          fontWeight: 800,
+                          fontSize: '0.82rem',
+                          cursor: 'pointer',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.05em',
+                          whiteSpace: 'nowrap'
+                        }}
+                      >
+                        Get Priority Access
+                      </button>
+                    </form>
+                  )}
+                </div>
+
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>

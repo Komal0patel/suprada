@@ -2782,7 +2782,7 @@ export default function Home({ onNavigate }) {
             {/* Row 2: Remaining 3 Cards Centered */}
             <div className="leadership-row-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.2rem', width: '75%', margin: '0 auto' }}>
               {[
-                { name: 'Smt. Priya Amaresh', role: 'Director, Yoga & Wellness', creds: 'Suprada Wellness', img: '/assets/Founders/priya_amaresh.jpg', objectPosition: 'center 18%', scale: 1.02 },
+                { name: 'Smt. Priya Amaresh', role: 'Chief Yoga and Wellness Advisor', creds: 'Suprada Wellness', img: '/assets/Founders/priya_amaresh.jpg', objectPosition: 'center 18%', scale: 1.02 },
                 { name: 'Srinivas Ramadas', role: 'Director Operations', creds: 'Suprada Wellness', img: '/assets/Founders/srinivas_ramadas.jpg', objectPosition: 'center 22%', scale: 1.0 },
                 { name: 'Dr. Vinaya, B.N.Y.S', role: 'Chief Medical Officer', creds: 'Suprada Wellness', img: '/assets/Founders/vinaya.jpg', objectPosition: 'center 18%', scale: 1.32 }
               ].map((doc, idx) => (

@@ -3018,11 +3018,48 @@ html, body {
     padding: 0.75rem 0.9rem !important;
   }
 
+  /* Mobile Leadership Grid: 2 cards per row, 7th card centered in the middle */
+  .leadership-cards-wrapper {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.8rem !important;
+    width: 100% !important;
+  }
+
   .leadership-row-1,
   .leadership-row-2 {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+    display: contents !important;
+  }
+
+  .leadership-cards-wrapper .editorial-master-card {
+    height: 230px !important;
     width: 100% !important;
-    margin: 0 !important;
+    border-radius: 18px !important;
+  }
+
+  .leadership-cards-wrapper .editorial-master-card img {
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 18% !important;
+    transform: none !important;
+  }
+
+  .leadership-cards-wrapper .editorial-master-card h3 {
+    font-size: 0.95rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .leadership-cards-wrapper .editorial-master-card span {
+    font-size: 0.72rem !important;
+  }
+
+  /* 7th remaining card is placed centered in the middle of the last row */
+  .leadership-cards-wrapper .editorial-master-card:nth-child(7),
+  .leadership-row-2 .editorial-master-card:last-child {
+    grid-column: 1 / -1 !important;
+    justify-self: center !important;
+    width: calc(50% - 0.4rem) !important;
+    max-width: calc(50% - 0.4rem) !important;
   }
 
   .experts-carousel-mobile {

@@ -604,15 +604,15 @@ export default function Careers({ onNavigate }) {
               <div style={{ position: 'absolute', top: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(94,39,53,0.08) 0%, rgba(94,39,53,0) 70%)', filter: 'blur(70px)', zIndex: 0, pointerEvents: 'none' }} />
               <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.12) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(80px)', zIndex: 0, pointerEvents: 'none' }} />
 
-              {/* Background Rotating Mandala Watermark */}
+              {/* Background Rotating Mandala Watermark (Spaces Hero Animation) */}
               <motion.div
                 animate={{ rotate: 360 }}
-                transition={{ duration: 100, repeat: Infinity, ease: 'linear' }}
+                transition={{ duration: 90, repeat: Infinity, ease: 'linear' }}
                 style={{
                   position: 'absolute',
                   top: '50%', left: '50%',
                   x: '-50%', y: '-50%',
-                  width: '620px', height: '620px',
+                  width: 'clamp(260px, 38vw, 440px)', height: 'clamp(260px, 38vw, 440px)',
                   opacity: 0.06,
                   pointerEvents: 'none',
                   zIndex: 0

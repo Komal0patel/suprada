@@ -283,14 +283,14 @@ export default function About({ onNavigate }) {
 
         {/* Background Mandala Watermark */}
         <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 90, repeat: Infinity, ease: 'linear' }}
           style={{
             position: 'absolute',
             top: '50%', left: '50%',
             x: '-50%', y: '-50%',
-            width: 'clamp(220px, 32vw, 360px)', height: 'clamp(220px, 32vw, 360px)',
-            opacity: 0.06,
-            scale: heroMandalaScale,
-            rotate: heroMandalaRotate,
+            width: 'clamp(260px, 38vw, 440px)', height: 'clamp(260px, 38vw, 440px)',
+            opacity: 0.08,
             pointerEvents: 'none',
             zIndex: 0
           }}

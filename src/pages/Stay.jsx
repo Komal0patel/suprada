@@ -611,12 +611,12 @@ export default function Stay({ onNavigate }) {
         {/* Background Rotating Mandala Watermark (Spaces Hero Animation) */}
         <motion.div
           animate={{ rotate: 360 }}
-          transition={{ duration: 100, repeat: Infinity, ease: 'linear' }}
+          transition={{ duration: 90, repeat: Infinity, ease: 'linear' }}
           style={{
             position: 'absolute',
             top: '50%', left: '50%',
             x: '-50%', y: '-50%',
-            width: 'clamp(220px, 32vw, 360px)', height: 'clamp(220px, 32vw, 360px)',
+            width: 'clamp(260px, 38vw, 440px)', height: 'clamp(260px, 38vw, 440px)',
             opacity: 0.08,
             pointerEvents: 'none',
             zIndex: 0

@@ -274,8 +274,8 @@ export default function About({ onNavigate }) {
         alignItems: 'center'
       }}>
         {/* Botanical Leaf SVG Watermarks */}
-        <Pattern24 style={{ position: 'absolute', top: '-20px', left: '-40px', width: '300px', opacity: 0.1, color: 'var(--wine)', pointerEvents: 'none' }} />
-        <Pattern25 style={{ position: 'absolute', bottom: '-20px', right: '-40px', width: '300px', opacity: 0.1, color: 'var(--wine)', pointerEvents: 'none' }} />
+        <Pattern24 className="pattern-side-left" style={{ position: 'absolute', top: '-20px', left: '-40px', width: '300px', opacity: 0.1, color: 'var(--wine)', pointerEvents: 'none' }} />
+        <Pattern25 className="pattern-side-right" style={{ position: 'absolute', bottom: '-20px', right: '-40px', width: '300px', opacity: 0.1, color: 'var(--wine)', pointerEvents: 'none' }} />
 
         {/* Ambient Wine Bokeh Glow Effects */}
         <div style={{ position: 'absolute', top: '-10%', left: '15%', maxWidth: '450px', width: '100%', height: '450px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(94,39,53,0.07) 0%, rgba(94,39,53,0) 70%)', filter: 'blur(70px)', zIndex: 0, pointerEvents: 'none' }} />
@@ -289,7 +289,7 @@ export default function About({ onNavigate }) {
             position: 'absolute',
             top: '50%', left: '50%',
             x: '-50%', y: '-50%',
-            width: 'clamp(260px, 38vw, 440px)', height: 'clamp(260px, 38vw, 440px)',
+            width: 'clamp(190px, 55vw, 440px)', height: 'clamp(190px, 55vw, 440px)',
             opacity: 0.08,
             pointerEvents: 'none',
             zIndex: 0

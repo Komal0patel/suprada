@@ -61,9 +61,52 @@ body, button, input, select, textarea {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Universal Background Decorative SVG Pattern Visibility Rules */
+/* Universal Background Decorative SVG Pattern & Mobile Un-congestion Rules */
 svg[class*="Pattern"], .bg-pattern-svg {
   overflow: visible !important;
+}
+
+.pattern-side-left {
+  position: absolute;
+  top: -20px;
+  left: -40px;
+  width: 300px;
+  opacity: 0.1;
+  color: var(--wine);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pattern-side-right {
+  position: absolute;
+  bottom: -20px;
+  right: -40px;
+  width: 300px;
+  opacity: 0.1;
+  color: var(--wine);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  /* On mobile views, scale side corner patterns and push to edges to keep center spacious */
+  .pattern-side-left,
+  .pattern-side-right,
+  .mobile-side-pattern {
+    width: 130px !important;
+    max-width: 130px !important;
+    opacity: 0.06 !important;
+  }
+
+  .pattern-side-left {
+    left: -35px !important;
+    top: -15px !important;
+  }
+
+  .pattern-side-right {
+    right: -35px !important;
+    bottom: -15px !important;
+  }
 }
 
 /* Typography Components - Bold, Powerful, Regal Headings */

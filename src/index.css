@@ -3045,8 +3045,8 @@ html, body {
   }
 
   .leadership-cards-wrapper .editorial-master-overlay {
-    padding: 0.6rem 0.6rem 0.7rem 0.6rem !important;
-    background: linear-gradient(to top, rgba(20, 8, 12, 0.96) 0%, rgba(20, 8, 12, 0.72) 42%, rgba(20, 8, 12, 0) 75%) !important;
+    padding: 0.55rem 0.6rem 0.65rem 0.6rem !important;
+    background: linear-gradient(to top, rgba(18, 6, 10, 0.88) 0%, rgba(18, 6, 10, 0.42) 28%, rgba(18, 6, 10, 0) 48%) !important;
     justify-content: flex-end !important;
   }
 
@@ -3056,6 +3056,7 @@ html, body {
     margin-bottom: 0.1rem !important;
     line-height: 1.1 !important;
     display: block !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.7) !important;
   }
 
   .leadership-cards-wrapper .editorial-master-card h3 {
@@ -3063,13 +3064,15 @@ html, body {
     font-weight: 700 !important;
     line-height: 1.15 !important;
     margin: 0.1rem 0 0.15rem 0 !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8) !important;
   }
 
   .leadership-cards-wrapper .editorial-master-overlay span:last-child {
     font-size: 0.64rem !important;
     line-height: 1.2 !important;
-    opacity: 0.9 !important;
+    opacity: 0.95 !important;
     display: block !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.7) !important;
   }
 
   /* 7th remaining card is placed centered in the middle of the last row */

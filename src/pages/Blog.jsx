@@ -613,7 +613,20 @@ export default function Blog({ onNavigate }) {
                 }
                 @media (max-width: 639px) {
                   .grid-4-laptop {
-                    grid-template-columns: 1fr !important;
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    gap: 0.85rem !important;
+                  }
+                  .grid-4-laptop > div {
+                    padding: 0.85rem !important;
+                    border-radius: 14px !important;
+                  }
+                  .grid-4-laptop img {
+                    height: 125px !important;
+                    border-radius: 10px !important;
+                  }
+                  .grid-4-laptop h3 {
+                    font-size: 0.95rem !important;
+                    line-height: 1.3 !important;
                   }
                 }
               `}} />

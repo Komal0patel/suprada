@@ -875,11 +875,23 @@ export default function Careers({ onNavigate }) {
                   }
                   @media (max-width: 680px) {
                     .careers-centered-row {
-                      flex-wrap: wrap;
+                      flex-wrap: wrap !important;
+                      gap: 0.8rem !important;
                     }
                     .careers-card-col {
-                      flex: 0 0 100% !important;
-                      max-width: 100% !important;
+                      flex: 0 0 calc(50% - 0.4rem) !important;
+                      max-width: calc(50% - 0.4rem) !important;
+                    }
+                    .careers-card-col > div {
+                      padding: 1.1rem 0.8rem !important;
+                      border-radius: 16px !important;
+                    }
+                    .careers-card-col h3 {
+                      font-size: 1.05rem !important;
+                    }
+                    .careers-card-col p {
+                      font-size: 0.82rem !important;
+                      line-height: 1.4 !important;
                     }
                   }
                 `}} />

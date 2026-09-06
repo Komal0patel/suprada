@@ -61,6 +61,18 @@ body, button, input, select, textarea {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Universal Background Decorative SVG Pattern Scaling & Visibility Rules */
+svg[class*="Pattern"], .bg-pattern-svg {
+  overflow: visible !important;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  svg[class*="Pattern"], .bg-pattern-svg {
+    max-width: 180px !important;
+  }
+}
+
 /* Typography Components - Bold, Powerful, Regal Headings */
 h1, h2, h3, h4, h5, h6,
 .gold-foil-text {

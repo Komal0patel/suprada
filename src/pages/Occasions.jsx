@@ -479,7 +479,7 @@ export default function Occasions({ onNavigate }) {
             position: 'absolute',
             top: '50%', left: '50%',
             x: '-50%', y: '-50%',
-            width: 'clamp(190px, 55vw, 440px)', height: 'clamp(190px, 55vw, 440px)',
+            width: 'clamp(340px, 80vw, 540px)', height: 'clamp(340px, 80vw, 540px)',
             opacity: 0.1,
             pointerEvents: 'none',
             zIndex: 0

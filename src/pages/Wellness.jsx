@@ -211,8 +211,8 @@ export default function Wellness({ onNavigate }) {
         boxSizing: 'border-box'
       }}>
         {/* Leaf SVG Watermark Overlays in Wine */}
-        <Pattern24 className="pattern-side-left" style={{ position: 'absolute', top: '-15px', left: '-30px', width: 'clamp(140px, 20vw, 220px)', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none' }} />
-        <Pattern25 className="pattern-side-right" style={{ position: 'absolute', bottom: '-15px', right: '-30px', width: 'clamp(140px, 20vw, 220px)', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none' }} />
+        <Pattern24 className="pattern-side-left" style={{ position: 'absolute', top: '-20px', left: '-40px', width: '300px', opacity: 0.1, color: 'var(--wine)', pointerEvents: 'none' }} />
+        <Pattern25 className="pattern-side-right" style={{ position: 'absolute', bottom: '-20px', right: '-40px', width: '300px', opacity: 0.1, color: 'var(--wine)', pointerEvents: 'none' }} />
 
         {/* Ambient Wine Bokeh Glow */}
         <div style={{ position: 'absolute', top: '-10%', left: '15%', width: '350px', height: '350px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(94,39,53,0.06) 0%, transparent 70%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
@@ -225,8 +225,8 @@ export default function Wellness({ onNavigate }) {
             position: 'absolute',
             top: '50%', left: '50%',
             x: '-50%', y: '-50%',
-            width: 'clamp(190px, 55vw, 440px)', height: 'clamp(190px, 55vw, 440px)',
-            opacity: 0.05,
+            width: 'clamp(340px, 80vw, 540px)', height: 'clamp(340px, 80vw, 540px)',
+            opacity: 0.08,
             pointerEvents: 'none',
             zIndex: 0
           }}

@@ -89,23 +89,23 @@ svg[class*="Pattern"], .bg-pattern-svg {
 }
 
 @media (max-width: 768px) {
-  /* On mobile views, scale side corner patterns and push to edges to keep center spacious */
+  /* On mobile views, display side corner patterns visibly and prominently */
   .pattern-side-left,
   .pattern-side-right,
   .mobile-side-pattern {
-    width: 130px !important;
-    max-width: 130px !important;
-    opacity: 0.06 !important;
+    width: clamp(250px, 68vw, 300px) !important;
+    max-width: 300px !important;
+    opacity: 0.1 !important;
   }
 
   .pattern-side-left {
     left: -35px !important;
-    top: -15px !important;
+    top: -20px !important;
   }
 
   .pattern-side-right {
     right: -35px !important;
-    bottom: -15px !important;
+    bottom: -20px !important;
   }
 }
 

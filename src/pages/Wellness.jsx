@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Pattern24, Pattern25, Pattern27 } from '../AnimatedPatterns';
-import { Sparkles, ArrowRight, HeartPulse, Stethoscope, Compass, Activity, ShieldCheck, Sun, Leaf, ChevronLeft, ChevronRight, Calendar, Phone, Mail, CheckCircle } from 'lucide-react';
+import { 
+  Sparkles, ArrowRight, HeartPulse, Stethoscope, Compass, Activity, 
+  ShieldCheck, Sun, Leaf, ChevronLeft, ChevronRight, Calendar, Phone, 
+  Mail, CheckCircle, Clock, CheckCircle2 
+} from 'lucide-react';
 
-function TypewriterQuote({ text = "“Wellness is not the absence of illness, but the discovery of harmony.”", speed = 40 }) {
+function TypewriterQuote({ text = "“Wellness is not the absence of illness, but the discovery of harmony.”", speed = 35 }) {
   const [displayedText, setDisplayedText] = useState("");
   const [hasStarted, setHasStarted] = useState(false);
 
@@ -28,14 +32,14 @@ function TypewriterQuote({ text = "“Wellness is not the absence of illness, bu
       viewport={{ once: false }}
       style={{
         fontFamily: 'var(--font-heading)',
-        fontSize: 'var(--fs-h3)',
+        fontSize: 'clamp(0.95rem, 1.3vw, 1.15rem)',
         fontStyle: 'italic',
-        color: 'var(--harvest-gold)',
-        lineHeight: 1.6,
+        color: 'var(--isabelline)',
+        lineHeight: 1.5,
         margin: 0,
         position: 'relative',
         zIndex: 2,
-        minHeight: '2.5em'
+        minHeight: '2.2em'
       }}
     >
       {displayedText}
@@ -44,76 +48,93 @@ function TypewriterQuote({ text = "“Wellness is not the absence of illness, bu
         transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
         style={{
           display: 'inline-block',
-          width: '2.5px',
-          height: '0.9em',
-          backgroundColor: 'var(--harvest-gold)',
+          width: '2px',
+          height: '0.85em',
+          backgroundColor: 'var(--tan)',
           marginLeft: '4px',
           verticalAlign: 'middle',
-          boxShadow: '0 0 8px rgba(234, 169, 54, 0.8)'
+          boxShadow: '0 0 6px rgba(230, 211, 192, 0.6)'
         }}
       />
     </motion.p>
   );
 }
 
+// 5-Step Process with matching locally saved images
 const processSteps = [
   {
     step: 'STEP 1',
     title: 'Comprehensive Assessment',
-    desc: 'Our team of experts will perform a detailed evaluation of your health, emphasizing body diagnostics and blood analysis, along with assessments of your exercise habits, diet, sleep patterns, and stress levels.',
-    image: '/assets/more_images/wellness.png'
+    desc: 'Our team of experts performs a detailed evaluation of your health, emphasizing body diagnostics, blood analysis, exercise habits, diet, sleep, and stress levels.',
+    image: '/assets/wellness/step-1-assessment.jpg'
   },
   {
     step: 'STEP 2',
     title: 'Imbalance Identification',
-    desc: 'Through careful observation and analysis, our team of doctors, nutritionists, therapists, and counsellors work together to pinpoint the underlying imbalances contributing to your health challenges.',
-    image: '/assets/more_images/nutrition.png'
+    desc: 'Through careful clinical observation, our doctors, nutritionists, and therapists collaborate to pinpoint the underlying imbalances at the root of your concerns.',
+    image: '/assets/wellness/step-2-imbalance.jpg'
   },
   {
     step: 'STEP 3',
     title: 'Personalised For You',
-    desc: 'Based on our comprehensive assessment, we develop a tailored plan incorporating Naturopathy, Yogic Sciences, Nutrition Sciences, Physiotherapy, Acupuncture, and other allied therapies.',
-    image: '/assets/more_images/yoga-meditation.jpg'
+    desc: 'We develop a tailored protocol incorporating Naturopathy, Yogic Sciences, Nutrition, Physiotherapy, Acupuncture, and drugless natural therapies.',
+    image: '/assets/wellness/step-3-personalised.jpg'
   },
   {
     step: 'STEP 4',
     title: 'Guided Therapies',
-    desc: 'Engage in guided therapies and movement sessions specifically aligned to your individualized wellness plan.',
-    image: '/assets/more_images/sound_healing.png'
+    desc: 'Engage in guided daily treatments, hydrotherapy, mud baths, and movement sessions specifically aligned to your individualized formula.',
+    image: '/assets/wellness/step-4-therapies.jpg'
   },
   {
     step: 'STEP 5',
     title: 'Ongoing Support',
-    desc: 'Track progress and continuously refine your wellness formula with ongoing physician support.',
-    image: '/assets/more_images/retreat.png'
+    desc: 'Track continuous progress and refine your formula with regular physician consultations and customized long-term lifestyle guidance.',
+    image: '/assets/wellness/step-5-support.jpg'
   }
 ];
 
+// Curated Programs Showcase with matching locally saved images
 const featuredPrograms = [
   {
     title: 'Rejuvenation Program',
     duration: 'Starting from 7 days',
-    desc: 'Doctor consultation, Diet counselling, Daily Yoga and Meditation, Daily naturopathy treatments, Shirodhara / Udhwartana, sound healing sessions.',
+    desc: 'Doctor consultation, Diet counselling, Daily Yoga & Meditation, Naturopathy treatments, Shirodhara, and Sound Healing sessions.',
+    image: '/assets/wellness/program-rejuvenation.jpg',
     path: 'programmes/rejuvenation'
   },
   {
     title: 'Holistic Wellness Program',
     duration: 'Starting from 7 / 14 / 21 days',
-    desc: 'Full wellness assessment, Daily Yoga, Pranayama, Meditation, Daily Naturopathy treatments, Shirodhara / Udhwartana, Group sound healing.',
+    desc: 'Full wellness assessment, Daily Yoga, Pranayama, Meditation, Daily Naturopathy therapies, Shirodhara, and Group sound baths.',
+    image: '/assets/wellness/program-holistic.jpg',
     path: 'programmes/holistic-wellness'
   },
   {
     title: 'Detox Program',
     duration: 'Starting from 5 days',
-    desc: 'Full Body Analysis, Iris diagnosis, Massage and steam baths, Detox diet, fasting therapy, Hydrotherapy, Colon hydrotherapy.',
+    desc: 'Full Body Analysis, Iris diagnosis, Massage and steam baths, Detox diet, fasting therapy, Hydrotherapy, and colon cleansing.',
+    image: '/assets/wellness/program-detox.jpg',
     path: 'programmes/detox'
   },
   {
     title: 'Weekend Reset',
     duration: 'Starting from 2 / 3 days',
-    desc: 'Consultation, 2 Naturopathy treatments per day, Group Yoga sessions, Group sound healing, Satwik meals.',
+    desc: 'Consultation, 2 Naturopathy treatments per day, Group Sunrise Yoga, Tibetan singing bowls, and organic Satwik meals.',
+    image: '/assets/wellness/program-weekend-reset.jpg',
     path: 'programmes/weekend-reset'
   }
+];
+
+const wellnessFormulaPills = [
+  'Naturopathy',
+  'Yoga & Meditation',
+  'Physiotherapy',
+  'Detox & Cleansing',
+  'Holistic Therapies',
+  'Nutrition & Lifestyle',
+  'Mental Well-Being',
+  'Acupuncture'
 ];
 
 export default function Wellness({ onNavigate }) {
@@ -141,6 +162,17 @@ export default function Wellness({ onNavigate }) {
     setIsBookingModalOpen(true);
   };
 
+  useEffect(() => {
+    if (isBookingModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isBookingModalOpen]);
+
   const prevStep = () => {
     setActiveStep(prev => (prev === 0 ? processSteps.length - 1 : prev - 1));
   };
@@ -149,34 +181,43 @@ export default function Wellness({ onNavigate }) {
     setActiveStep(prev => (prev === processSteps.length - 1 ? 0 : prev + 1));
   };
 
+  const handleDragEnd = (e, info) => {
+    const swipeThreshold = 40;
+    if (info.offset.x < -swipeThreshold) {
+      nextStep();
+    } else if (info.offset.x > swipeThreshold) {
+      prevStep();
+    }
+  };
+
   return (
     <div style={{ backgroundColor: 'var(--isabelline)', color: 'var(--raisin-black)', overflowX: 'hidden' }}>
       
-      {/* 1. BRAND HERO SECTION (Full Screen - Uniform Brand Style) */}
+      {/* ========================================================================= */}
+      {/* 1. BRAND HERO SECTION (Warm Champagne Linen Theme - Full Viewport Fit) */}
+      {/* ========================================================================= */}
       <section style={{
         position: 'relative',
         width: '100%',
         minHeight: '100vh',
-        maxHeight: '100dvh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
-        padding: '2rem 6%',
-        backgroundColor: 'var(--antique-white)',
+        padding: 'clamp(5.5rem, 12vh, 7.5rem) 5% clamp(2.5rem, 5vh, 3.5rem)',
+        background: 'linear-gradient(135deg, #f5ebd9 0%, #f0e2cc 60%, #ead9be 100%)',
         color: 'var(--wine)',
         overflow: 'hidden',
         boxSizing: 'border-box'
       }}>
-        {/* Ambient Wine & Gold Bokeh Glow Effects */}
-        <div style={{ position: 'absolute', top: '-10%', left: '10%', maxWidth: '450px', width: '100%', height: '450px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(94,39,53,0.08) 0%, rgba(94,39,53,0) 70%)', filter: 'blur(70px)', zIndex: 0, pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: '-15%', right: '10%', maxWidth: '500px', width: '100%', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.12) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(80px)', zIndex: 0, pointerEvents: 'none' }} />
+        {/* Leaf SVG Watermark Overlays in Wine */}
+        <Pattern24 style={{ position: 'absolute', top: '-15px', left: '-30px', width: 'clamp(140px, 20vw, 220px)', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none' }} />
+        <Pattern25 style={{ position: 'absolute', bottom: '-15px', right: '-30px', width: 'clamp(140px, 20vw, 220px)', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none' }} />
 
-        {/* Botanical Leaf SVG Watermarks */}
-        <Pattern24 className="watermark-pattern" style={{ position: 'absolute', top: '-20px', left: '-40px', width: '300px', opacity: 0.1, color: 'var(--wine)', pointerEvents: 'none' }} />
-        <Pattern25 className="watermark-pattern" style={{ position: 'absolute', bottom: '-20px', right: '-40px', width: '300px', opacity: 0.1, color: 'var(--wine)', pointerEvents: 'none' }} />
+        {/* Ambient Wine Bokeh Glow */}
+        <div style={{ position: 'absolute', top: '-10%', left: '15%', width: '350px', height: '350px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(94,39,53,0.06) 0%, transparent 70%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
 
-        {/* Background Rotating Mandala Watermark */}
+        {/* Background Rotating Mandala */}
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 100, repeat: Infinity, ease: 'linear' }}
@@ -184,8 +225,8 @@ export default function Wellness({ onNavigate }) {
             position: 'absolute',
             top: '50%', left: '50%',
             x: '-50%', y: '-50%',
-            width: '620px', height: '620px',
-            opacity: 0.08,
+            width: 'clamp(320px, 50vw, 480px)', height: 'clamp(320px, 50vw, 480px)',
+            opacity: 0.05,
             pointerEvents: 'none',
             zIndex: 0
           }}
@@ -195,7 +236,7 @@ export default function Wellness({ onNavigate }) {
 
         {/* Center Content */}
         <div style={{
-          maxWidth: '860px',
+          maxWidth: '750px',
           margin: '0 auto',
           position: 'relative',
           zIndex: 5,
@@ -204,41 +245,41 @@ export default function Wellness({ onNavigate }) {
           alignItems: 'center'
         }}>
           
-          {/* Suprada Official Emblem Logo */}
+          {/* Suprada Logo Emblem */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: 'easeOut' }}
-            style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            style={{ marginBottom: '0.7rem', display: 'flex', justifyContent: 'center' }}
           >
             <img 
               src="/assets/extracted/logo.svg" 
               alt="Suprada Official Emblem Logo" 
-              style={{ height: '90px', width: 'auto', filter: 'drop-shadow(0 4px 12px rgba(94, 39, 53, 0.15))' }} 
+              style={{ height: 'clamp(44px, 5vw, 55px)', width: 'auto', filter: 'drop-shadow(0 3px 10px rgba(94, 39, 53, 0.12))' }} 
             />
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.55, delay: 0.1 }}
           >
             <span style={{
-              color: 'var(--harvest-gold)',
-              fontSize: 'var(--fs-small)',
+              color: 'var(--redwood)',
+              fontSize: 'clamp(0.68rem, 1.5vw, 0.74rem)',
               textTransform: 'uppercase',
-              letterSpacing: '0.35em',
+              letterSpacing: '0.22em',
               fontWeight: 800,
               display: 'block',
-              marginBottom: '1rem'
+              marginBottom: '0.4rem'
             }}>
-              ✦ Holistic Wellness ✦
+              ✦ Holistic Wellness Sanctuary ✦
             </span>
 
             <motion.h1
               variants={{
                 hidden: {},
-                visible: { transition: { staggerChildren: 0.15 } }
+                visible: { transition: { staggerChildren: 0.12 } }
               }}
               initial="hidden"
               animate="visible"
@@ -251,7 +292,7 @@ export default function Wellness({ onNavigate }) {
                 lineHeight: 1.15, 
                 display: 'flex', 
                 justifyContent: 'center', 
-                gap: '0.75rem', 
+                gap: '0.55rem', 
                 flexWrap: 'wrap'
               }}
             >
@@ -259,50 +300,71 @@ export default function Wellness({ onNavigate }) {
                 <motion.span
                   key={idx}
                   variants={{
-                    hidden: { scale: 0.4, rotate: -12, opacity: 0, filter: 'blur(6px)' },
-                    visible: { scale: [0.4, 1.05, 1], rotate: 0, opacity: 1, filter: 'blur(0px)', transition: { duration: 0.8, ease: 'easeOut' } }
+                    hidden: { scale: 0.6, opacity: 0, filter: 'blur(4px)' },
+                    visible: { scale: 1, opacity: 1, filter: 'blur(0px)', transition: { duration: 0.6, ease: 'easeOut' } }
                   }}
-                  style={{ display: 'inline-block', transformOrigin: 'center bottom' }}
+                  style={{ display: 'inline-block' }}
                 >
-                  {word === "Programs" ? <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Programs</em> : word}
+                  {word}
                 </motion.span>
               ))}
             </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.88 }}
+              transition={{ delay: 0.35, duration: 0.6 }}
+              style={{
+                color: 'var(--raisin-black)',
+                maxWidth: '600px',
+                margin: '0.8rem auto 0',
+                fontSize: 'var(--fs-body)',
+                lineHeight: 1.6,
+                fontWeight: 400
+              }}
+            >
+              Immerse yourself in personalized natural therapies, yogic sciences, and elemental balance crafted to restore your body and soul.
+            </motion.p>
           </motion.div>
         </div>
       </section>
 
-      {/* 2. OUR APPROACH SECTION (2-Column Reference Layout) */}
+      {/* ========================================================================= */}
+      {/* 2. OUR APPROACH SECTION (Clean Linen Theme) */}
+      {/* ========================================================================= */}
       <section style={{
-        padding: '6rem 6%',
-        background: 'linear-gradient(180deg, #FAF5EE 0%, #F3EBDD 100%)',
+        padding: 'clamp(2.5rem, 5vh, 3.2rem) 5%',
+        backgroundColor: 'var(--isabelline)',
         position: 'relative',
         overflow: 'hidden'
       }}>
-        {/* Subtle Leaf SVG Watermarks */}
-        <Pattern24 className="watermark-pattern" style={{ position: 'absolute', top: '10px', right: '-60px', width: '280px', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none' }} />
-        <Pattern25 className="watermark-pattern" style={{ position: 'absolute', bottom: '10px', left: '-60px', width: '280px', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none' }} />
-
-        <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+        <div style={{ maxWidth: '1040px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           
-          {/* Top Badge & Section Title */}
-          <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+          {/* Section Header Badge */}
+          <motion.div 
+            initial={{ opacity: 0, y: -12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45 }}
+            style={{ textAlign: 'center', marginBottom: '1.8rem' }}
+          >
             <span style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.4rem',
-              color: '#421a23',
-              backgroundColor: 'var(--harvest-gold)',
-              fontSize: 'var(--fs-small)',
+              gap: '0.35rem',
+              color: 'var(--wine)',
+              backgroundColor: 'rgba(94, 39, 53, 0.08)',
+              fontSize: '0.7rem',
               fontWeight: 800,
-              letterSpacing: '0.2em',
+              letterSpacing: '0.14em',
               textTransform: 'uppercase',
-              padding: '0.45rem 1.4rem',
+              padding: '0.3rem 0.95rem',
               borderRadius: '50px',
-              marginBottom: '1.2rem',
-              boxShadow: '0 4px 15px rgba(234,169,54,0.25)'
+              marginBottom: '0.5rem',
+              border: '1px solid rgba(94, 39, 53, 0.18)',
+              boxShadow: '0 2px 5px rgba(94, 39, 53, 0.04)'
             }}>
-              <Leaf size={14} style={{ color: '#421a23' }} /> OUR APPROACH
+              <Leaf size={12} style={{ color: 'var(--wine)' }} /> OUR APPROACH
             </span>
 
             <h2 style={{
@@ -312,39 +374,41 @@ export default function Wellness({ onNavigate }) {
               color: 'var(--wine)',
               lineHeight: 1.2
             }}>
-              Rooted in Nature, <span style={{ color: 'var(--harvest-gold)', fontStyle: 'italic' }}>Designed for You</span>
+              Rooted in Nature, <span style={{ color: 'var(--redwood)', fontStyle: 'italic' }}>Designed for You</span>
             </h2>
-          </div>
+          </motion.div>
 
-          {/* 2-Column Content Layout */}
+          {/* 2-Column Content Layout with Sliding Animation */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '3.5rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+            gap: 'clamp(1.5rem, 3vw, 2.5rem)',
             alignItems: 'center'
           }}>
             
             {/* Left Column Text Content */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: '-30px' }}
+              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             >
               <p style={{
                 fontSize: 'var(--fs-body)',
-                lineHeight: 1.75,
+                lineHeight: 1.65,
                 color: 'var(--raisin-black)',
-                marginBottom: '1.2rem'
+                opacity: 0.9,
+                marginBottom: '0.8rem'
               }}>
                 At Suprada, our journey begins by listening — understanding your story, health challenges, and emotional rhythms.
               </p>
 
               <p style={{
                 fontSize: 'var(--fs-body)',
-                lineHeight: 1.75,
+                lineHeight: 1.65,
                 color: 'var(--raisin-black)',
-                marginBottom: '1.8rem'
+                opacity: 0.9,
+                marginBottom: '1rem'
               }}>
                 We observe, analyze, and connect the dots between your inner balance and the natural elements that surround you.
               </p>
@@ -354,7 +418,7 @@ export default function Wellness({ onNavigate }) {
                 fontSize: 'var(--fs-h4)',
                 fontWeight: 700,
                 color: 'var(--wine)',
-                marginBottom: '0.4rem'
+                marginBottom: '0.25rem'
               }}>
                 Our philosophy is simple yet profound:
               </h4>
@@ -364,58 +428,65 @@ export default function Wellness({ onNavigate }) {
                 fontStyle: 'italic',
                 color: 'var(--redwood)',
                 fontWeight: 600,
-                marginBottom: '1.8rem'
+                marginBottom: '1rem'
               }}>
                 The same elements that shape nature — shape us.
               </p>
 
               <p style={{
                 fontSize: 'var(--fs-body)',
-                lineHeight: 1.75,
+                lineHeight: 1.65,
                 color: 'var(--raisin-black)',
-                marginBottom: '2.5rem'
+                opacity: 0.9,
+                marginBottom: '1.4rem'
               }}>
                 By reconnecting with nature's intelligence, we craft your individualized <strong style={{ color: 'var(--wine)', fontWeight: 700 }}>WELLNESS FORMULA</strong> — a harmonious prescription for your body's unique needs.
               </p>
 
-              <button
+              <motion.button
                 onClick={() => onNavigate('contact')}
                 className="btn-luxury"
-                style={{ padding: '0.95rem 2.4rem', fontSize: '0.85rem' }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                style={{ padding: '0.65rem 1.4rem', fontSize: '0.78rem' }}
               >
-                Begin Your Journey <ArrowRight size={16} />
-              </button>
+                Begin Your Journey <ArrowRight size={14} />
+              </motion.button>
             </motion.div>
 
             {/* Right Column Image */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: '-30px' }}
+              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
               style={{ display: 'flex', justifyContent: 'center' }}
             >
-              <div style={{
-                position: 'relative',
-                borderRadius: '24px',
-                overflow: 'hidden',
-                boxShadow: '0 20px 45px rgba(94, 39, 53, 0.15)',
-                border: '3px solid rgba(234, 169, 54, 0.3)',
-                width: '100%',
-                maxHeight: '500px'
-              }}>
+              <motion.div 
+                whileHover={{ y: -3, scale: 1.01 }}
+                transition={{ duration: 0.3 }}
+                style={{
+                  position: 'relative',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  boxShadow: '0 10px 28px rgba(94, 39, 53, 0.08)',
+                  border: '1.5px solid rgba(94, 39, 53, 0.12)',
+                  width: '100%',
+                  maxHeight: '300px'
+                }}
+              >
                 <img
-                  src="/assets/more_images/wellness.png"
-                  alt="Suprada Wellness Courtyard & Architecture"
+                  src="/assets/wellness/private-courtyard.webp"
+                  alt="Nature-inspired wellness at Suprada"
                   style={{
                     width: '100%',
                     height: '100%',
-                    maxHeight: '500px',
+                    maxHeight: '300px',
                     objectFit: 'cover',
                     display: 'block'
                   }}
                 />
-              </div>
+              </motion.div>
             </motion.div>
 
           </div>
@@ -423,87 +494,84 @@ export default function Wellness({ onNavigate }) {
         </div>
       </section>
 
-      {/* 3. SACRED SHANTI MANTRA SECTION (Matching Reference Design) */}
+      {/* ========================================================================= */}
+      {/* 3. SACRED SHANTI MANTRA SECTION (Warm Silk Linen Background & Pearl Card) */}
+      {/* ========================================================================= */}
       <section style={{
-        padding: '5rem 6%',
-        backgroundColor: 'var(--antique-white)',
-        position: 'relative'
+        padding: 'clamp(2rem, 4vh, 2.6rem) 5%',
+        background: 'linear-gradient(135deg, #f0e6d6 0%, #e8dcbe 100%)',
+        position: 'relative',
+        overflow: 'hidden'
       }}>
-        <div style={{ maxWidth: '1080px', margin: '0 auto', position: 'relative' }}>
+        <div style={{ maxWidth: '720px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="mantra-card-padding"
+            initial={{ opacity: 0, scale: 0.96, y: 15 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, margin: '-25px' }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             style={{
               position: 'relative',
-              background: 'linear-gradient(145deg, #471926 0%, #2e0e17 100%)',
-              borderRadius: '28px',
-              padding: '4.5rem 3.5rem',
+              backgroundColor: '#FFFFFF',
+              borderRadius: '20px',
+              padding: 'clamp(1.5rem, 3vw, 2rem) clamp(1rem, 2.5vw, 1.8rem)',
               textAlign: 'center',
               overflow: 'hidden',
-              boxShadow: '0 25px 55px rgba(71, 25, 38, 0.3)',
-              border: '1px solid rgba(234, 169, 54, 0.3)'
+              boxShadow: '0 10px 28px rgba(94, 39, 53, 0.07)',
+              border: '1.5px solid rgba(94, 39, 53, 0.12)'
             }}
           >
-            {/* Flanking Glowing Gold Botanical Ornaments */}
+            {/* Subtle Brand Watermarks in Wine */}
             <Pattern24
-              className="watermark-mantra-left"
               style={{
                 position: 'absolute',
                 top: '50%',
-                left: '-25px',
+                left: '-15px',
                 transform: 'translateY(-50%)',
-                width: '240px',
+                width: 'clamp(80px, 15vw, 130px)',
                 height: 'auto',
-                color: 'var(--harvest-gold)',
-                opacity: 0.9,
-                pointerEvents: 'none',
-                filter: 'drop-shadow(0 0 14px rgba(234, 169, 54, 0.45))'
+                color: 'var(--wine)',
+                opacity: 0.07,
+                pointerEvents: 'none'
               }}
             />
 
             <Pattern25
-              className="watermark-mantra-right"
               style={{
                 position: 'absolute',
                 top: '50%',
-                right: '-25px',
+                right: '-15px',
                 transform: 'translateY(-50%)',
-                width: '240px',
+                width: 'clamp(80px, 15vw, 130px)',
                 height: 'auto',
-                color: 'var(--harvest-gold)',
-                opacity: 0.9,
-                pointerEvents: 'none',
-                filter: 'drop-shadow(0 0 14px rgba(234, 169, 54, 0.45))'
+                color: 'var(--wine)',
+                opacity: 0.07,
+                pointerEvents: 'none'
               }}
             />
 
-            {/* Inner Content Container */}
-            <div style={{ position: 'relative', zIndex: 3, maxWidth: '820px', margin: '0 auto' }}>
+            {/* Inner Content */}
+            <div style={{ position: 'relative', zIndex: 3, maxWidth: '580px', margin: '0 auto' }}>
               
               {/* Card Title */}
-              <h2 style={{
+              <h3 style={{
                 fontFamily: 'var(--font-heading)',
-                fontSize: 'var(--fs-h2)',
-                color: 'var(--harvest-gold)',
+                fontSize: 'clamp(1.05rem, 1.4vw, 1.22rem)',
+                color: 'var(--wine)',
                 fontWeight: 700,
-                marginBottom: '2.2rem',
-                textShadow: '0 2px 14px rgba(234, 169, 54, 0.35)'
+                marginBottom: '0.8rem',
+                letterSpacing: '0.02em'
               }}>
                 The Mantra That Inspires Our Approach
-              </h2>
+              </h3>
 
-              {/* Glowing Sanskrit Text */}
+              {/* Sanskrit Text in Wine & Charcoal */}
               <div style={{
                 fontFamily: 'var(--font-heading)',
-                fontSize: 'var(--fs-h1)',
-                color: 'var(--harvest-gold)',
-                lineHeight: 1.7,
+                fontSize: 'clamp(1.02rem, 3vw, 1.32rem)',
+                color: 'var(--raisin-black)',
+                lineHeight: 1.6,
                 fontWeight: 700,
-                marginBottom: '1.8rem',
-                textShadow: '0 0 16px rgba(234, 169, 54, 0.3)'
+                marginBottom: '0.8rem'
               }}>
                 ॐ पूर्णमदः पूर्णमिदम् पूर्णात् पूर्णमुदच्यते ।<br />
                 पूर्णस्य पूर्णमादाय पूर्णमेवावशिष्यते ॥<br />
@@ -512,12 +580,12 @@ export default function Wellness({ onNavigate }) {
 
               {/* Transliteration */}
               <p style={{
-                fontSize: 'var(--fs-body)',
+                fontSize: 'clamp(0.74rem, 1.8vw, 0.8rem)',
                 fontStyle: 'italic',
-                color: 'var(--harvest-gold)',
-                opacity: 0.9,
-                lineHeight: 1.7,
-                marginBottom: '2.2rem'
+                color: 'var(--wine)',
+                opacity: 0.85,
+                lineHeight: 1.55,
+                marginBottom: '0.8rem'
               }}>
                 om pūrṇamadaḥ pūrṇamidam pūrṇāt pūrṇamudacyate .<br />
                 pūrṇasya pūrṇamādāya pūrṇamevāvaśiṣyate .<br />
@@ -526,11 +594,11 @@ export default function Wellness({ onNavigate }) {
 
               {/* English Meaning */}
               <p style={{
-                fontSize: 'var(--fs-body)',
-                lineHeight: 1.75,
-                color: 'rgba(255, 255, 255, 0.9)',
-                fontWeight: 300,
-                maxWidth: '740px',
+                fontSize: 'clamp(0.72rem, 1.6vw, 0.78rem)',
+                lineHeight: 1.6,
+                color: 'var(--raisin-black)',
+                opacity: 0.8,
+                fontWeight: 400,
                 margin: '0 auto'
               }}>
                 That is Whole and this is Whole, the perfect has come out of the perfect; having taken the perfect from the perfect, only the perfect remains. Let there be Peace, Peace, Peace. (This shanti-sloka of the Isavasyopanishad indicates the relation of the individual's soul to the divine supreme spirit).
@@ -541,37 +609,42 @@ export default function Wellness({ onNavigate }) {
         </div>
       </section>
 
-      {/* 4. DISCOVERY: UNCOVERING YOUR INNER BALANCE (Reference Layout) */}
+      {/* ========================================================================= */}
+      {/* 4. DISCOVERY & WELLNESS FORMULA (Warm Linen Theme) */}
+      {/* ========================================================================= */}
       <section style={{
-        padding: '6rem 6%',
-        backgroundColor: 'var(--antique-white)',
+        padding: 'clamp(2.5rem, 5vh, 3.2rem) 5%',
+        backgroundColor: 'var(--isabelline)',
         position: 'relative',
         overflow: 'hidden'
       }}>
-        {/* Decorative Watermark Leaves */}
-        <Pattern24 className="watermark-pattern" style={{ position: 'absolute', top: '-10px', left: '-50px', width: '280px', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none' }} />
-        <Pattern25 className="watermark-pattern" style={{ position: 'absolute', bottom: '-10px', right: '-50px', width: '280px', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none' }} />
-
-        <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+        <div style={{ maxWidth: '1040px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           
-          {/* Part 1: Top Badge & Section Title */}
-          <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+          {/* Top Badge & Section Title */}
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45 }}
+            style={{ textAlign: 'center', marginBottom: '1.8rem' }}
+          >
             <span style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.4rem',
-              color: '#421a23',
-              backgroundColor: 'var(--harvest-gold)',
-              fontSize: 'var(--fs-small)',
+              gap: '0.35rem',
+              color: 'var(--wine)',
+              backgroundColor: 'rgba(94, 39, 53, 0.08)',
+              fontSize: '0.7rem',
               fontWeight: 800,
-              letterSpacing: '0.2em',
+              letterSpacing: '0.14em',
               textTransform: 'uppercase',
-              padding: '0.45rem 1.4rem',
+              padding: '0.3rem 0.95rem',
               borderRadius: '50px',
-              marginBottom: '1.2rem',
-              boxShadow: '0 4px 15px rgba(234,169,54,0.25)'
+              marginBottom: '0.5rem',
+              border: '1px solid rgba(94, 39, 53, 0.18)',
+              boxShadow: '0 2px 5px rgba(94, 39, 53, 0.04)'
             }}>
-              <Compass size={14} style={{ color: '#421a23' }} /> DISCOVER
+              <Compass size={12} style={{ color: 'var(--wine)' }} /> DISCOVER
             </span>
 
             <h2 style={{
@@ -581,87 +654,92 @@ export default function Wellness({ onNavigate }) {
               color: 'var(--wine)',
               lineHeight: 1.2
             }}>
-              Discover: <span style={{ color: 'var(--harvest-gold)', fontStyle: 'italic' }}>Uncovering Your Inner Balance</span>
+              Discover: <span style={{ color: 'var(--redwood)', fontStyle: 'italic' }}>Uncovering Your Inner Balance</span>
             </h2>
-          </div>
+          </motion.div>
 
           {/* Part 1: 2-Column Overview (Text Left, Image Right) */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '3.5rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+            gap: 'clamp(1.5rem, 3vw, 2.5rem)',
             alignItems: 'center',
-            marginBottom: '4.5rem'
+            marginBottom: '2.2rem'
           }}>
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: '-30px' }}
+              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             >
               <p style={{
                 fontSize: 'var(--fs-body)',
-                lineHeight: 1.75,
+                lineHeight: 1.65,
                 color: 'var(--raisin-black)',
-                marginBottom: '1.4rem'
+                opacity: 0.9,
+                marginBottom: '0.8rem'
               }}>
                 Our holistic discovery process delves deep into your physical and emotional health. Through consultations and diagnostics, we explore how your body, diet, activity, sleep, and stress interplay.
               </p>
 
               <p style={{
                 fontSize: 'var(--fs-body)',
-                lineHeight: 1.75,
-                color: 'var(--raisin-black)'
+                lineHeight: 1.65,
+                color: 'var(--raisin-black)',
+                opacity: 0.9
               }}>
                 Our multidisciplinary team — including doctors, nutritionists, counsellors, and therapists — collaboratively interprets these patterns to uncover the imbalances at the root of your concerns.
               </p>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: '-30px' }}
+              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
               style={{ display: 'flex', justifyContent: 'center' }}
             >
-              <div style={{
-                position: 'relative',
-                borderRadius: '24px',
-                overflow: 'hidden',
-                boxShadow: '0 20px 45px rgba(94, 39, 53, 0.15)',
-                border: '3px solid rgba(234, 169, 54, 0.3)',
-                width: '100%',
-                maxHeight: '400px'
-              }}>
+              <motion.div 
+                whileHover={{ y: -3, scale: 1.01 }}
+                transition={{ duration: 0.3 }}
+                style={{
+                  position: 'relative',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  boxShadow: '0 10px 28px rgba(94, 39, 53, 0.08)',
+                  border: '1.5px solid rgba(94, 39, 53, 0.12)',
+                  width: '100%',
+                  maxHeight: '270px'
+                }}
+              >
                 <img
                   src="/assets/more_images/wellness.png"
                   alt="Suprada Discovery & Holistic Assessment"
                   style={{
                     width: '100%',
                     height: '100%',
-                    maxHeight: '400px',
+                    maxHeight: '270px',
                     objectFit: 'cover',
                     display: 'block'
                   }}
                 />
-              </div>
+              </motion.div>
             </motion.div>
           </div>
 
-          {/* Part 2: Wellness Formula Badges & Quote Box */}
+          {/* Part 2: Wellness Formula Badges & Deep Wine Quote Box */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '3rem',
-            alignItems: 'center',
-            marginBottom: '4.5rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+            gap: 'clamp(1.4rem, 2.5vw, 2rem)',
+            alignItems: 'center'
           }}>
-            {/* Left Column: Wellness Formula Badges */}
+            {/* Left Column: Tan/Linen Badges */}
             <motion.div
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.5 }}
             >
               <h4 style={{
                 fontFamily: 'var(--font-heading)',
@@ -669,297 +747,383 @@ export default function Wellness({ onNavigate }) {
                 fontWeight: 700,
                 color: 'var(--wine)',
                 lineHeight: 1.35,
-                marginBottom: '1.5rem'
+                marginBottom: '0.75rem'
               }}>
-                From this, we create your personalized <span style={{ color: 'var(--redwood)', fontStyle: 'italic' }}>WELLNESS FORMULA</span>, integrating practices from:
+                From this, we create your personalized <span style={{ color: 'var(--redwood)', fontStyle: 'italic' }}>WELLNESS FORMULA</span>:
               </h4>
 
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
-                {[
-                  'Naturopathy',
-                  'Yoga & Meditation',
-                  'Physiotherapy',
-                  'Detox & Cleansing',
-                  'Holistic Therapies',
-                  'Nutrition & Lifestyle',
-                  'Mental & Emotional Well-Being',
-                  'Holistic'
-                ].map((item, idx) => (
-                  <span
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+                {wellnessFormulaPills.map((item, idx) => (
+                  <motion.span
                     key={idx}
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.25, delay: idx * 0.03 }}
+                    whileHover={{ scale: 1.05, backgroundColor: 'var(--tan)' }}
                     style={{
                       display: 'inline-block',
-                      backgroundColor: 'rgba(234, 169, 54, 0.18)',
-                      border: '1px solid rgba(220, 160, 50, 0.5)',
+                      backgroundColor: '#FAF0E6',
+                      border: '1px solid rgba(94, 39, 53, 0.18)',
                       color: 'var(--wine)',
                       fontWeight: 700,
-                      fontSize: 'var(--fs-small)',
-                      padding: '0.55rem 1.3rem',
+                      fontSize: '0.72rem',
+                      padding: '0.32rem 0.85rem',
                       borderRadius: '50px',
-                      boxShadow: '0 2px 8px rgba(94, 39, 53, 0.05)'
+                      cursor: 'default',
+                      boxShadow: '0 2px 5px rgba(94, 39, 53, 0.04)',
+                      transition: 'all 0.2s ease'
                     }}
                   >
                     {item}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </motion.div>
 
-            {/* Right Column: Wine Quote Callout Box */}
+            {/* Right Column: Deep Royal Wine Quote Box */}
             <motion.div
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.5 }}
             >
               <div style={{
                 position: 'relative',
-                background: 'linear-gradient(145deg, #4d1c29 0%, #35101a 100%)',
-                borderRadius: '24px',
-                padding: '3rem 2.5rem',
-                border: '2px solid var(--harvest-gold)',
-                boxShadow: '0 18px 40px rgba(71, 25, 38, 0.25)',
+                background: 'linear-gradient(145deg, #5E2735 0%, #3D1420 100%)',
+                borderRadius: '16px',
+                padding: 'clamp(1.4rem, 2.5vw, 1.8rem) clamp(1.2rem, 2vw, 1.5rem)',
+                border: '1.5px solid rgba(230, 211, 192, 0.25)',
+                boxShadow: '0 10px 28px rgba(94, 39, 53, 0.2)',
                 textAlign: 'center'
               }}>
                 <span style={{
                   position: 'absolute',
-                  top: '1rem',
-                  left: '1.5rem',
+                  top: '0.35rem',
+                  left: '0.85rem',
                   fontFamily: 'var(--font-heading)',
-                  fontSize: '3rem',
-                  color: 'var(--harvest-gold)',
-                  opacity: 0.4,
+                  fontSize: '1.8rem',
+                  color: 'var(--tan)',
+                  opacity: 0.35,
                   lineHeight: 1
                 }}>“</span>
 
-                <TypewriterQuote text="“Wellness is not the absence of illness, but the discovery of harmony.”" speed={40} />
+                <TypewriterQuote text="“Wellness is not the absence of illness, but the discovery of harmony.”" speed={35} />
 
                 <span style={{
                   position: 'absolute',
-                  bottom: '0.5rem',
-                  right: '1.5rem',
+                  bottom: '0.15rem',
+                  right: '0.85rem',
                   fontFamily: 'var(--font-heading)',
-                  fontSize: '3rem',
-                  color: 'var(--harvest-gold)',
-                  opacity: 0.4,
+                  fontSize: '1.8rem',
+                  color: 'var(--tan)',
+                  opacity: 0.35,
                   lineHeight: 1
                 }}>”</span>
               </div>
             </motion.div>
           </div>
 
-          {/* Part 3: Interactive Carousel / Process Step Slider Card */}
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 5. 5-STEP PROCESS SLIDER (Touch & Drag Responsive Carousel) */}
+      {/* ========================================================================= */}
+      <section style={{
+        padding: 'clamp(2rem, 4vh, 2.5rem) 4%',
+        backgroundColor: 'var(--antique-white)',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <div style={{ maxWidth: '720px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+          
+          {/* Header Title */}
+          <div style={{ textAlign: 'center', marginBottom: '1.1rem' }}>
+            <span style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.35rem',
+              color: 'var(--wine)',
+              backgroundColor: 'rgba(94, 39, 53, 0.08)',
+              fontSize: '0.68rem',
+              fontWeight: 800,
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              padding: '0.28rem 0.85rem',
+              borderRadius: '50px',
+              marginBottom: '0.45rem',
+              border: '1px solid rgba(94, 39, 53, 0.18)',
+              boxShadow: '0 2px 5px rgba(94, 39, 53, 0.04)'
+            }}>
+              <Activity size={11} style={{ color: 'var(--wine)' }} /> OUR METHODOLOGY
+            </span>
+
+            <h2 style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'var(--fs-h2)',
+              fontWeight: 700,
+              color: 'var(--wine)',
+              lineHeight: 1.2
+            }}>
+              Your 5-Step <span style={{ color: 'var(--redwood)', fontStyle: 'italic' }}>Healing Journey</span>
+            </h2>
+          </div>
+
+          {/* Step Selector Pills (Direct Navigation Tabs) */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '0.35rem',
+            flexWrap: 'wrap',
+            marginBottom: '1.1rem'
+          }}>
+            {processSteps.map((stepItem, sIdx) => {
+              const isActive = activeStep === sIdx;
+              return (
+                <button
+                  key={sIdx}
+                  onClick={() => setActiveStep(sIdx)}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.25rem',
+                    padding: '0.24rem 0.68rem',
+                    borderRadius: '50px',
+                    fontSize: '0.68rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.04em',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
+                    backgroundColor: isActive ? 'var(--wine)' : '#FFFFFF',
+                    color: isActive ? '#FFFFFF' : 'var(--wine)',
+                    border: isActive ? '1.2px solid var(--wine)' : '1px solid rgba(94, 39, 53, 0.2)',
+                    boxShadow: isActive ? '0 2px 8px rgba(94, 39, 53, 0.18)' : '0 1px 4px rgba(0, 0, 0, 0.03)'
+                  }}
+                >
+                  <span>{stepItem.step}</span>
+                  {isActive && <span style={{ color: 'var(--tan)' }}>✦</span>}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Non-Overlapping Interactive Carousel Container with Touch & Drag */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.15}
+            onDragEnd={handleDragEnd}
             style={{
               position: 'relative',
-              borderRadius: '28px',
+              backgroundColor: '#ffffff',
+              borderRadius: '16px',
               overflow: 'hidden',
-              boxShadow: '0 25px 55px rgba(94, 39, 53, 0.2)',
-              border: '2px solid rgba(234, 169, 54, 0.3)',
-              minHeight: '480px',
-              display: 'flex',
-              alignItems: 'flex-end',
-              background: '#2e0e17'
+              boxShadow: '0 8px 24px rgba(94, 39, 53, 0.07)',
+              border: '1.2px solid rgba(94, 39, 53, 0.14)',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))',
+              minHeight: '230px',
+              alignItems: 'stretch',
+              cursor: 'grab',
+              touchAction: 'pan-y'
             }}
+            whileTap={{ cursor: 'grabbing' }}
           >
-            {/* Background Image with Fade Animation */}
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={activeStep}
-                src={processSteps[activeStep].image}
-                alt={processSteps[activeStep].title}
-                initial={{ opacity: 0, scale: 1.05 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.7 }}
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover'
-                }}
-              />
-            </AnimatePresence>
-
-            {/* Dark Gradient Overlay */}
+            
+            {/* Left Side: Step Details & Book Now CTA */}
             <div style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'linear-gradient(to top, rgba(30, 10, 18, 0.75) 0%, rgba(30, 10, 18, 0.15) 60%)',
-              pointerEvents: 'none'
-            }} />
+              padding: 'clamp(1rem, 2.5vw, 1.3rem)',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              backgroundColor: 'var(--isabelline)',
+              position: 'relative',
+              zIndex: 5
+            }}>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.45rem' }}>
+                  <span style={{
+                    backgroundColor: 'var(--wine)',
+                    color: '#ffffff',
+                    fontSize: '0.64rem',
+                    fontWeight: 800,
+                    letterSpacing: '0.1em',
+                    padding: '0.2rem 0.68rem',
+                    borderRadius: '50px'
+                  }}>
+                    {processSteps[activeStep].step}
+                  </span>
 
-            {/* STEP Badge (Top Right) */}
-            <div style={{ position: 'absolute', top: '1.8rem', right: '1.8rem', zIndex: 10 }}>
-              <span style={{
-                backgroundColor: '#5E2735',
-                color: '#ffffff',
-                fontSize: '0.78rem',
-                fontWeight: 700,
-                letterSpacing: '0.15em',
-                padding: '0.5rem 1.3rem',
-                borderRadius: '50px',
-                boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
-                border: '1px solid rgba(234, 169, 54, 0.4)'
+                  <span style={{ fontSize: '0.7rem', color: 'var(--redwood)', fontWeight: 700 }}>
+                    Step {activeStep + 1} of {processSteps.length}
+                  </span>
+                </div>
+
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeStep}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    transition={{ duration: 0.22 }}
+                  >
+                    <h3 style={{
+                      fontFamily: 'var(--font-heading)',
+                      fontSize: 'clamp(1rem, 1.4vw, 1.18rem)',
+                      fontWeight: 700,
+                      color: 'var(--wine)',
+                      marginBottom: '0.35rem',
+                      lineHeight: 1.2
+                    }}>
+                      {processSteps[activeStep].title}
+                    </h3>
+
+                    <p style={{
+                      fontSize: '0.78rem',
+                      lineHeight: 1.5,
+                      color: 'var(--raisin-black)',
+                      opacity: 0.88,
+                      marginBottom: '0.75rem'
+                    }}>
+                      {processSteps[activeStep].desc}
+                    </p>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Bottom Actions: Book Now CTA + Prev/Next Controls */}
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: '0.5rem',
+                paddingTop: '0.55rem',
+                borderTop: '1px solid rgba(94, 39, 53, 0.1)'
               }}>
-                {processSteps[activeStep].step}
-              </span>
-            </div>
-
-            {/* Previous Arrow Button */}
-            <button
-              onClick={prevStep}
-              aria-label="Previous Step"
-              style={{
-                position: 'absolute',
-                left: '1.2rem',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                width: '46px',
-                height: '46px',
-                borderRadius: '50%',
-                backgroundColor: 'var(--harvest-gold)',
-                color: 'var(--wine)',
-                border: 'none',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                boxShadow: '0 6px 20px rgba(0,0,0,0.3)',
-                zIndex: 10,
-                transition: 'transform 0.2s ease'
-              }}
-            >
-              <ChevronLeft size={22} />
-            </button>
-
-            {/* Next Arrow Button */}
-            <button
-              onClick={nextStep}
-              aria-label="Next Step"
-              style={{
-                position: 'absolute',
-                right: '1.2rem',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                width: '46px',
-                height: '46px',
-                borderRadius: '50%',
-                backgroundColor: 'var(--harvest-gold)',
-                color: 'var(--wine)',
-                border: 'none',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                boxShadow: '0 6px 20px rgba(0,0,0,0.3)',
-                zIndex: 10,
-                transition: 'transform 0.2s ease'
-              }}
-            >
-              <ChevronRight size={22} />
-            </button>
-
-            {/* Overlay Glass Card (Bottom Left) */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeStep}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5 }}
-                className="step-slider-card"
-                style={{
-                  position: 'relative',
-                  zIndex: 10,
-                  margin: '2rem',
-                  maxWidth: '440px',
-                  backgroundColor: 'rgba(247, 238, 223, 0.92)',
-                  backdropFilter: 'blur(12px)',
-                  borderRadius: '20px',
-                  padding: '2.2rem 2rem',
-                  border: '1px solid rgba(234, 169, 54, 0.4)',
-                  boxShadow: '0 15px 35px rgba(0,0,0,0.25)'
-                }}
-              >
-                <h3 style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: 'var(--fs-h3)',
-                  fontWeight: 700,
-                  color: 'var(--wine)',
-                  marginBottom: '0.8rem'
-                }}>
-                  {processSteps[activeStep].title}
-                </h3>
-
-                <p style={{
-                  fontSize: 'var(--fs-body)',
-                  lineHeight: 1.75,
-                  color: 'var(--raisin-black)',
-                  marginBottom: '1.4rem'
-                }}>
-                  {processSteps[activeStep].desc}
-                </p>
-
-                <button
+                <motion.button
                   onClick={() => openBookingModal(processSteps[activeStep].title)}
                   className="btn-luxury"
-                  style={{ padding: '0.75rem 1.8rem', fontSize: '0.82rem' }}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  style={{ padding: '0.4rem 1rem', fontSize: '0.72rem' }}
                 >
-                  Book Now <ArrowRight size={14} />
-                </button>
-              </motion.div>
-            </AnimatePresence>
+                  Book Now <ArrowRight size={12} />
+                </motion.button>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                  <button
+                    onClick={prevStep}
+                    aria-label="Previous Step"
+                    style={{
+                      width: '28px',
+                      height: '28px',
+                      borderRadius: '50%',
+                      backgroundColor: 'var(--tan)',
+                      color: 'var(--wine)',
+                      border: '1px solid rgba(94, 39, 53, 0.2)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      cursor: 'pointer',
+                      boxShadow: '0 1px 4px rgba(0,0,0,0.04)',
+                      transition: 'transform 0.2s ease'
+                    }}
+                  >
+                    <ChevronLeft size={14} />
+                  </button>
+
+                  <button
+                    onClick={nextStep}
+                    aria-label="Next Step"
+                    style={{
+                      width: '28px',
+                      height: '28px',
+                      borderRadius: '50%',
+                      backgroundColor: 'var(--tan)',
+                      color: 'var(--wine)',
+                      border: '1px solid rgba(94, 39, 53, 0.2)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      cursor: 'pointer',
+                      boxShadow: '0 1px 4px rgba(0,0,0,0.04)',
+                      transition: 'transform 0.2s ease'
+                    }}
+                  >
+                    <ChevronRight size={14} />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side: High-Resolution Visual */}
+            <div style={{ position: 'relative', minHeight: '190px', maxHeight: '240px', overflow: 'hidden', backgroundColor: 'var(--raisin-black)' }}>
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={activeStep}
+                  src={processSteps[activeStep].image}
+                  alt={processSteps[activeStep].title}
+                  initial={{ opacity: 0, scale: 1.03 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.35, ease: 'easeOut' }}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block',
+                    pointerEvents: 'none',
+                    userSelect: 'none'
+                  }}
+                />
+              </AnimatePresence>
+
+              <div style={{
+                position: 'absolute',
+                inset: 0,
+                background: 'linear-gradient(to top, rgba(40, 38, 37, 0.25) 0%, transparent 50%)',
+                pointerEvents: 'none'
+              }} />
+            </div>
+
           </motion.div>
 
         </div>
       </section>
 
-      {/* 5. CURATED PROGRAMS SHOWCASE */}
+      {/* ========================================================================= */}
+      {/* 6. CURATED PROGRAMS SHOWCASE */}
+      {/* ========================================================================= */}
       <section style={{
-        padding: '6rem 6%',
-        background: 'linear-gradient(180deg, #FAF5EE 0%, #F4EBE0 100%)',
+        padding: 'clamp(2.5rem, 5vh, 3.2rem) 5%',
+        backgroundColor: 'var(--isabelline)',
         position: 'relative',
         overflow: 'hidden'
       }}>
-        {/* Left Side Botanical Watermark Artwork */}
-        <Pattern24 className="watermark-pattern" style={{
-          position: 'absolute',
-          top: '50%',
-          left: '-80px',
-          transform: 'translateY(-50%)',
-          width: '380px',
-          height: 'auto',
-          color: 'var(--wine)',
-          opacity: 0.08,
-          pointerEvents: 'none'
-        }} />
-
-        <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+        <div style={{ maxWidth: '1060px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           
-          {/* Header Area (Matching Reference Design - No Buttons) */}
-          <div style={{ textAlign: 'center', maxWidth: '840px', margin: '0 auto 4rem' }}>
+          {/* Header Area */}
+          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 2rem' }}>
             <span style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.5rem',
-              backgroundColor: 'var(--harvest-gold)',
-              color: '#421a23',
-              fontSize: 'var(--fs-small)',
+              gap: '0.35rem',
+              backgroundColor: 'rgba(94, 39, 53, 0.08)',
+              color: 'var(--wine)',
+              fontSize: '0.7rem',
               fontWeight: 800,
-              letterSpacing: '0.2em',
+              letterSpacing: '0.14em',
               textTransform: 'uppercase',
-              padding: '0.45rem 1.4rem',
+              padding: '0.3rem 0.95rem',
               borderRadius: '50px',
-              marginBottom: '1.4rem',
-              boxShadow: '0 4px 15px rgba(234,169,54,0.25)'
+              marginBottom: '0.55rem',
+              border: '1px solid rgba(94, 39, 53, 0.18)',
+              boxShadow: '0 2px 5px rgba(94, 39, 53, 0.04)'
             }}>
-              <Compass size={14} style={{ color: '#421a23' }} /> PROGRAMS
+              <Compass size={12} style={{ color: 'var(--wine)' }} /> PROGRAMS
             </span>
 
             <h2 style={{
@@ -967,92 +1131,127 @@ export default function Wellness({ onNavigate }) {
               fontSize: 'var(--fs-h1)',
               fontWeight: 700,
               color: 'var(--wine)',
-              lineHeight: 1.25,
-              marginBottom: '1.5rem'
+              lineHeight: 1.2,
+              marginBottom: '0.6rem'
             }}>
-              Discover the Right Path <span style={{ color: 'var(--harvest-gold)', fontStyle: 'italic' }}>for Your Well-Being</span>
+              Discover the Right Path <span style={{ color: 'var(--redwood)', fontStyle: 'italic' }}>for Your Well-Being</span>
             </h2>
 
             <p style={{
               fontSize: 'var(--fs-body)',
-              lineHeight: 1.75,
+              lineHeight: 1.65,
               color: 'var(--raisin-black)',
+              opacity: 0.88,
               fontWeight: 500,
               margin: '0 auto'
             }}>
-              At Suprada, every journey begins with understanding your body, your imbalances, and your goals. Whether you’re seeking deep relaxation, detoxification, targeted healing, or long-term transformation, our curated programs guide you toward a balanced lifestyle. Explore programs designed to support you at every stage of your wellness journey.
+              At Suprada, every journey begins with understanding your body, your imbalances, and your goals. Explore programs designed to support you at every stage of your wellness journey.
             </p>
           </div>
 
-          {/* Program Cards Grid (Horizontal scroll on mobile) */}
+          {/* Program Cards Grid */}
           <div
             className="program-cards-scroll-container"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
-              gap: '2rem'
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 230px), 1fr))',
+              gap: 'clamp(1rem, 2vw, 1.3rem)'
             }}
           >
             {featuredPrograms.map((prog, pIdx) => (
               <motion.div
                 key={prog.title}
-                initial={{ opacity: 0, y: 25 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: pIdx * 0.1 }}
+                transition={{ duration: 0.4, delay: pIdx * 0.06 }}
                 className="program-card-item"
                 style={{
                   backgroundColor: '#ffffff',
-                  borderRadius: '20px',
-                  padding: '2.2rem 1.8rem',
-                  border: '1.5px solid rgba(94,39,53,0.1)',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  border: '1.5px solid rgba(94, 39, 53, 0.12)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  boxShadow: '0 12px 35px rgba(94,39,53,0.06)'
+                  boxShadow: '0 8px 24px rgba(94, 39, 53, 0.05)'
                 }}
-                whileHover={{ y: -6, borderColor: 'var(--wine)' }}
+                whileHover={{ y: -4, borderColor: 'var(--wine)', boxShadow: '0 12px 28px rgba(94, 39, 53, 0.1)' }}
               >
-                <div>
-                  <span style={{
-                    display: 'inline-block',
-                    fontSize: 'var(--fs-small)',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.15em',
-                    color: 'var(--redwood)',
-                    backgroundColor: 'rgba(184,86,69,0.08)',
-                    padding: '0.3rem 0.8rem',
+                {/* Card Top Image */}
+                <div style={{ position: 'relative', height: '145px', overflow: 'hidden' }}>
+                  <img
+                    src={prog.image}
+                    alt={prog.title}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      display: 'block'
+                    }}
+                  />
+                  {/* Duration Tag */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '0.6rem',
+                    left: '0.6rem',
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                    backdropFilter: 'blur(6px)',
+                    padding: '0.22rem 0.6rem',
                     borderRadius: '50px',
-                    marginBottom: '1.2rem'
+                    boxShadow: '0 2px 6px rgba(0,0,0,0.08)',
+                    border: '1px solid rgba(94, 39, 53, 0.15)'
                   }}>
-                    {prog.duration}
-                  </span>
-
-                  <h3 className="card-heading" style={{ fontSize: 'var(--fs-h3)', marginBottom: '1rem' }}>
-                    {prog.title}
-                  </h3>
-
-                  <p className="body-paragraph" style={{ fontSize: 'var(--fs-body)', lineHeight: 1.65, marginBottom: '2rem' }}>
-                    {prog.desc}
-                  </p>
+                    <span style={{
+                      fontSize: '0.64rem',
+                      fontWeight: 800,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.04em',
+                      color: 'var(--wine)'
+                    }}>
+                      ✦ {prog.duration}
+                    </span>
+                  </div>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', flexWrap: 'wrap', marginTop: '1rem' }}>
-                  <button
-                    onClick={() => openBookingModal(prog.title)}
-                    className="btn-luxury"
-                    style={{ padding: '0.55rem 1.3rem', fontSize: '0.8rem' }}
-                  >
-                    Book Now
-                  </button>
-                  <button
-                    onClick={() => onNavigate(prog.path)}
-                    className="btn-luxury-text"
-                    style={{ fontSize: '0.82rem' }}
-                  >
-                    Explore Program <ArrowRight size={14} />
-                  </button>
+                {/* Card Body */}
+                <div style={{ padding: '1.1rem 1rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
+                  <div>
+                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', fontWeight: 700, marginBottom: '0.4rem', color: 'var(--wine)' }}>
+                      {prog.title}
+                    </h3>
+
+                    <p style={{ fontSize: '0.82rem', lineHeight: 1.55, marginBottom: '1rem', color: 'var(--raisin-black)', opacity: 0.8 }}>
+                      {prog.desc}
+                    </p>
+                  </div>
+
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', flexWrap: 'wrap', marginTop: 'auto', paddingTop: '0.65rem', borderTop: '1px solid rgba(94, 39, 53, 0.1)' }}>
+                    <button
+                      onClick={() => openBookingModal(prog.title)}
+                      className="btn-luxury"
+                      style={{ padding: '0.45rem 1rem', fontSize: '0.74rem' }}
+                    >
+                      Book Now
+                    </button>
+                    <button
+                      onClick={() => onNavigate(prog.path)}
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.25rem',
+                        fontSize: '0.76rem',
+                        fontWeight: 700,
+                        color: 'var(--wine)',
+                        background: 'none',
+                        border: 'none',
+                        cursor: 'pointer',
+                        padding: '0.3rem 0.2rem'
+                      }}
+                    >
+                      Explore Program <ArrowRight size={12} />
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -1061,34 +1260,37 @@ export default function Wellness({ onNavigate }) {
         </div>
       </section>
 
-      {/* 5. SALUTE THE SUN FEATURE */}
+      {/* ========================================================================= */}
+      {/* 7. SALUTE THE SUN FEATURE */}
+      {/* ========================================================================= */}
       <section style={{
-        padding: '6rem 5%',
-        backgroundImage: 'linear-gradient(to right, rgba(42, 14, 24, 0.9), rgba(42, 14, 24, 0.7)), url("/assets/more_images/yoga-meditation.jpg")',
+        padding: 'clamp(2.5rem, 5vh, 3.2rem) 5%',
+        backgroundImage: 'linear-gradient(to right, rgba(40, 20, 26, 0.94), rgba(40, 20, 26, 0.8)), url("/assets/wellness/salute-sun.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        color: '#ffffff'
+        color: '#ffffff',
+        position: 'relative'
       }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '920px', margin: '0 auto' }}>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '3rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
+            gap: '1.8rem',
             alignItems: 'center'
           }}>
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.55 }}
             >
               <span style={{
-                color: 'var(--harvest-gold)',
-                fontSize: 'var(--fs-small)',
+                color: 'var(--tan)',
+                fontSize: '0.68rem',
                 fontWeight: 800,
-                letterSpacing: '0.3em',
+                letterSpacing: '0.2em',
                 textTransform: 'uppercase',
-                marginBottom: '1rem',
+                marginBottom: '0.55rem',
                 display: 'block'
               }}>
                 ✦ Signature Morning Practice ✦
@@ -1098,7 +1300,7 @@ export default function Wellness({ onNavigate }) {
                 fontFamily: 'var(--font-heading)',
                 fontSize: 'var(--fs-h1)',
                 color: 'var(--tan)',
-                marginBottom: '1.2rem',
+                marginBottom: '0.75rem',
                 lineHeight: 1.2
               }}>
                 Salute the Sun
@@ -1106,9 +1308,10 @@ export default function Wellness({ onNavigate }) {
 
               <p style={{
                 fontSize: 'var(--fs-body)',
-                lineHeight: 1.75,
-                color: 'rgba(230,211,192,0.9)',
-                marginBottom: '2rem'
+                lineHeight: 1.65,
+                color: 'var(--isabelline)',
+                opacity: 0.92,
+                marginBottom: '1.2rem'
               }}>
                 Ease into your day with mindful movement, breath, and nature immersion. Our yoga spaces by the sacred Suvarnamukhi river create a sensory-rich start to your healing journey.
               </p>
@@ -1116,29 +1319,29 @@ export default function Wellness({ onNavigate }) {
               <ul style={{
                 listStyle: 'none',
                 padding: 0,
-                margin: '0 0 2.5rem 0',
+                margin: '0 0 1.5rem 0',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '0.8rem'
+                gap: '0.55rem'
               }}>
                 {[
                   'Nature baths & packs to enliven the body',
                   'Breath-led movement and grounding routines',
                   'Gentle sunlight, river soundscape, and awareness practice'
                 ].map((point, pIdx) => (
-                  <li key={pIdx} style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '0.95rem', color: 'var(--tan)' }}>
+                  <li key={pIdx} style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', fontSize: '0.84rem', color: 'var(--isabelline)' }}>
                     <div style={{
-                      width: '20px',
-                      height: '20px',
+                      width: '18px',
+                      height: '18px',
                       borderRadius: '50%',
-                      backgroundColor: 'rgba(234,169,54,0.2)',
+                      backgroundColor: 'rgba(230, 211, 192, 0.2)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: 'var(--harvest-gold)',
+                      color: 'var(--tan)',
                       flexShrink: 0
                     }}>
-                      <Sun size={12} />
+                      <Sun size={11} />
                     </div>
                     <span>{point}</span>
                   </li>
@@ -1146,9 +1349,15 @@ export default function Wellness({ onNavigate }) {
               </ul>
 
               <button
-                onClick={() => onNavigate('programmes')}
+                onClick={() => onNavigate('programmes/packages')}
                 className="btn-luxury"
-                style={{ padding: '0.9rem 2.2rem' }}
+                style={{
+                  padding: '0.7rem 1.6rem',
+                  fontSize: '0.8rem',
+                  backgroundColor: 'var(--wine)',
+                  color: 'var(--isabelline)',
+                  borderColor: 'var(--tan)'
+                }}
               >
                 View Programs & Packages
               </button>
@@ -1157,16 +1366,51 @@ export default function Wellness({ onNavigate }) {
         </div>
       </section>
 
-      {/* BOOK YOUR RETREAT MODAL POPUP */}
+      {/* ========================================================================= */}
+      {/* 8. BOOK YOUR RETREAT MODAL POPUP (Fully Scrollable, Touch & Mobile Responsive) */}
+      {/* ========================================================================= */}
       <AnimatePresence>
         {isBookingModalOpen && (
-          <div className="booking-modal-overlay">
+          <div 
+            className="booking-modal-overlay"
+            onClick={() => setIsBookingModalOpen(false)}
+            style={{
+              position: 'fixed',
+              inset: 0,
+              zIndex: 999999,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: 'clamp(0.5rem, 2vw, 1.2rem)',
+              backgroundColor: 'rgba(20, 10, 15, 0.82)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              overflowY: 'auto',
+              WebkitOverflowScrolling: 'touch'
+            }}
+          >
             <motion.div
-              className="booking-modal-card"
-              initial={{ opacity: 0, scale: 0.92, y: 20 }}
+              className="booking-modal-card custom-light-scrollbar"
+              initial={{ opacity: 0, scale: 0.94, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.92, y: 20 }}
-              transition={{ duration: 0.3 }}
+              exit={{ opacity: 0, scale: 0.94, y: 15 }}
+              transition={{ duration: 0.25 }}
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                position: 'relative',
+                width: '100%',
+                maxWidth: '520px',
+                maxHeight: '88vh',
+                backgroundColor: '#FFFFFF',
+                borderRadius: '20px',
+                padding: 'clamp(1.2rem, 3vw, 1.6rem) clamp(1rem, 2.5vw, 1.4rem)',
+                boxShadow: '0 25px 60px rgba(0,0,0,0.4)',
+                border: '1.5px solid rgba(94, 39, 53, 0.2)',
+                overflowY: 'auto',
+                WebkitOverflowScrolling: 'touch',
+                color: 'var(--wine)',
+                margin: 'auto'
+              }}
             >
               {/* Close Button X */}
               <button
@@ -1174,68 +1418,71 @@ export default function Wellness({ onNavigate }) {
                 aria-label="Close modal"
                 style={{
                   position: 'absolute',
-                  top: '1.2rem',
-                  right: '1.4rem',
-                  background: 'none',
+                  top: '1rem',
+                  right: '1.1rem',
+                  background: 'rgba(94, 39, 53, 0.06)',
                   border: 'none',
-                  fontSize: '1.3rem',
+                  borderRadius: '50%',
+                  width: '32px',
+                  height: '32px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '1.1rem',
                   fontWeight: 700,
-                  color: '#652331',
+                  color: 'var(--wine)',
                   cursor: 'pointer',
-                  opacity: 0.7,
-                  transition: 'opacity 0.2s',
+                  transition: 'background 0.2s',
                   zIndex: 10
                 }}
-                onMouseEnter={(e) => e.target.style.opacity = 1}
-                onMouseLeave={(e) => e.target.style.opacity = 0.7}
               >
                 ✕
               </button>
 
               {/* Modal Header */}
-              <div style={{ textAlign: 'center', marginBottom: '1.4rem', paddingRight: '1rem' }}>
+              <div style={{ textAlign: 'center', marginBottom: '1rem', paddingRight: '1.5rem', paddingLeft: '0.5rem' }}>
                 <h2 style={{
                   fontFamily: 'var(--font-heading)',
-                  fontSize: '1.9rem',
+                  fontSize: 'clamp(1.35rem, 2.5vw, 1.65rem)',
                   fontWeight: 700,
-                  color: '#652331',
-                  margin: '0 0 0.4rem 0'
+                  color: 'var(--wine)',
+                  margin: '0 0 0.25rem 0'
                 }}>
                   Book Your Retreat
                 </h2>
                 <p style={{
-                  fontSize: '0.88rem',
-                  color: '#8A4334',
+                  fontSize: '0.8rem',
+                  color: 'var(--redwood)',
                   margin: 0,
-                  lineHeight: 1.45,
+                  lineHeight: 1.35,
                   fontWeight: 500
                 }}>
-                  Begin your journey to wellness. Fill in the details below and we'll get back to you shortly.
+                  Begin your journey to wellness. Fill in the details below.
                 </p>
               </div>
 
               {/* Form Content Outer Container */}
               <div style={{
-                backgroundColor: 'rgba(238, 226, 212, 0.85)',
-                borderRadius: '16px',
-                padding: '1.4rem 1.2rem',
-                border: '1px solid rgba(180, 140, 100, 0.3)',
-                marginBottom: '1rem'
+                backgroundColor: 'var(--isabelline)',
+                borderRadius: '14px',
+                padding: '1rem 0.95rem',
+                border: '1px solid rgba(94, 39, 53, 0.15)',
+                marginBottom: '0.8rem'
               }}>
                 {bookingModalSubmitted ? (
-                  <div style={{ textAlign: 'center', padding: '1.5rem 0' }}>
+                  <div style={{ textAlign: 'center', padding: '1.2rem 0' }}>
                     <div style={{
-                      width: '54px', height: '54px', borderRadius: '50%',
-                      backgroundColor: 'rgba(234, 169, 54, 0.25)',
+                      width: '44px', height: '44px', borderRadius: '50%',
+                      backgroundColor: 'rgba(94, 39, 53, 0.12)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      margin: '0 auto 1rem', color: 'var(--wine)'
+                      margin: '0 auto 0.7rem', color: 'var(--wine)'
                     }}>
-                      <CheckCircle size={30} />
+                      <CheckCircle size={24} />
                     </div>
-                    <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine)', fontSize: '1.5rem', marginBottom: '0.5rem' }}>
+                    <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine)', fontSize: '1.25rem', marginBottom: '0.3rem' }}>
                       Request Submitted!
                     </h3>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black)', lineHeight: 1.6 }}>
+                    <p style={{ fontSize: '0.82rem', color: 'var(--raisin-black)', lineHeight: 1.5 }}>
                       Thank you, <strong>{bookingModalData.name || 'Valued Guest'}</strong>. Our wellness advisors will contact you shortly to finalize your retreat details.
                     </p>
                   </div>
@@ -1255,11 +1502,11 @@ export default function Wellness({ onNavigate }) {
                       return;
                     }
                     setBookingModalSubmitted(true);
-                  }} style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
+                  }} style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                     
                     {/* Select Programme */}
                     <div>
-                      <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#652331', display: 'block', marginBottom: '0.35rem' }}>
+                      <label style={{ fontSize: '0.74rem', fontWeight: 700, color: 'var(--wine)', display: 'block', marginBottom: '0.2rem' }}>
                         Select Programme *
                       </label>
                       <select
@@ -1267,10 +1514,10 @@ export default function Wellness({ onNavigate }) {
                         value={bookingModalData.programme}
                         onChange={(e) => setBookingModalData({ ...bookingModalData, programme: e.target.value })}
                         style={{
-                          width: '100%', padding: '0.75rem 0.9rem', borderRadius: '10px',
-                          border: bookingModalData.programme === 'Choose a programme' ? '1.5px solid #EAA936' : '1px solid rgba(100, 40, 50, 0.3)',
-                          backgroundColor: '#EFE5D7',
-                          fontSize: '0.88rem', color: '#5E2735', outline: 'none', fontWeight: 600, boxSizing: 'border-box'
+                          width: '100%', padding: '0.55rem 0.7rem', borderRadius: '8px',
+                          border: '1px solid rgba(94, 39, 53, 0.22)',
+                          backgroundColor: '#FFFFFF',
+                          fontSize: '0.82rem', color: 'var(--raisin-black)', outline: 'none', fontWeight: 600, boxSizing: 'border-box'
                         }}
                       >
                         <option value="Choose a programme" disabled>Choose a programme</option>
@@ -1284,7 +1531,7 @@ export default function Wellness({ onNavigate }) {
 
                     {/* Select Room Type */}
                     <div>
-                      <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#652331', display: 'block', marginBottom: '0.35rem' }}>
+                      <label style={{ fontSize: '0.74rem', fontWeight: 700, color: 'var(--wine)', display: 'block', marginBottom: '0.2rem' }}>
                         Select Room Type *
                       </label>
                       <select
@@ -1292,9 +1539,9 @@ export default function Wellness({ onNavigate }) {
                         value={bookingModalData.roomType}
                         onChange={(e) => setBookingModalData({ ...bookingModalData, roomType: e.target.value })}
                         style={{
-                          width: '100%', padding: '0.75rem 0.9rem', borderRadius: '10px',
-                          border: '1px solid rgba(100, 40, 50, 0.3)', backgroundColor: '#EFE5D7',
-                          fontSize: '0.88rem', color: '#5E2735', outline: 'none', boxSizing: 'border-box'
+                          width: '100%', padding: '0.55rem 0.7rem', borderRadius: '8px',
+                          border: '1px solid rgba(94, 39, 53, 0.22)', backgroundColor: '#FFFFFF',
+                          fontSize: '0.82rem', color: 'var(--raisin-black)', outline: 'none', boxSizing: 'border-box'
                         }}
                       >
                         <option value="Choose a room type" disabled>Choose a room type</option>
@@ -1305,9 +1552,9 @@ export default function Wellness({ onNavigate }) {
                     </div>
 
                     {/* Check-In Date & Check-Out Date */}
-                    <div className="booking-form-grid-2col">
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '0.6rem' }}>
                       <div>
-                        <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#652331', display: 'block', marginBottom: '0.35rem' }}>
+                        <label style={{ fontSize: '0.74rem', fontWeight: 700, color: 'var(--wine)', display: 'block', marginBottom: '0.2rem' }}>
                           Check-In Date *
                         </label>
                         <input
@@ -1316,14 +1563,14 @@ export default function Wellness({ onNavigate }) {
                           value={bookingModalData.checkIn}
                           onChange={(e) => setBookingModalData({ ...bookingModalData, checkIn: e.target.value })}
                           style={{
-                            width: '100%', padding: '0.7rem 0.8rem', borderRadius: '10px',
-                            border: '1px solid rgba(100, 40, 50, 0.3)', backgroundColor: '#EFE5D7',
-                            fontSize: '0.85rem', color: '#5E2735', outline: 'none', boxSizing: 'border-box'
+                            width: '100%', padding: '0.5rem 0.6rem', borderRadius: '8px',
+                            border: '1px solid rgba(94, 39, 53, 0.22)', backgroundColor: '#FFFFFF',
+                            fontSize: '0.8rem', color: 'var(--raisin-black)', outline: 'none', boxSizing: 'border-box'
                           }}
                         />
                       </div>
                       <div>
-                        <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#652331', display: 'block', marginBottom: '0.35rem' }}>
+                        <label style={{ fontSize: '0.74rem', fontWeight: 700, color: 'var(--wine)', display: 'block', marginBottom: '0.2rem' }}>
                           Check-Out Date *
                         </label>
                         <input
@@ -1332,9 +1579,9 @@ export default function Wellness({ onNavigate }) {
                           value={bookingModalData.checkOut}
                           onChange={(e) => setBookingModalData({ ...bookingModalData, checkOut: e.target.value })}
                           style={{
-                            width: '100%', padding: '0.7rem 0.8rem', borderRadius: '10px',
-                            border: '1px solid rgba(100, 40, 50, 0.3)', backgroundColor: '#EFE5D7',
-                            fontSize: '0.85rem', color: '#5E2735', outline: 'none', boxSizing: 'border-box'
+                            width: '100%', padding: '0.5rem 0.6rem', borderRadius: '8px',
+                            border: '1px solid rgba(94, 39, 53, 0.22)', backgroundColor: '#FFFFFF',
+                            fontSize: '0.8rem', color: 'var(--raisin-black)', outline: 'none', boxSizing: 'border-box'
                           }}
                         />
                       </div>
@@ -1342,7 +1589,7 @@ export default function Wellness({ onNavigate }) {
 
                     {/* Number of Guests */}
                     <div>
-                      <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#652331', display: 'block', marginBottom: '0.35rem' }}>
+                      <label style={{ fontSize: '0.74rem', fontWeight: 700, color: 'var(--wine)', display: 'block', marginBottom: '0.2rem' }}>
                         Number of Guests *
                       </label>
                       <input
@@ -1353,17 +1600,17 @@ export default function Wellness({ onNavigate }) {
                         value={bookingModalData.guests}
                         onChange={(e) => setBookingModalData({ ...bookingModalData, guests: e.target.value })}
                         style={{
-                          width: '100%', padding: '0.7rem 0.8rem', borderRadius: '10px',
-                          border: '1px solid rgba(100, 40, 50, 0.3)', backgroundColor: '#EFE5D7',
-                          fontSize: '0.88rem', color: '#5E2735', outline: 'none', boxSizing: 'border-box'
+                          width: '100%', padding: '0.5rem 0.6rem', borderRadius: '8px',
+                          border: '1px solid rgba(94, 39, 53, 0.22)', backgroundColor: '#FFFFFF',
+                          fontSize: '0.82rem', color: 'var(--raisin-black)', outline: 'none', boxSizing: 'border-box'
                         }}
                       />
                     </div>
 
                     {/* Full Name & Email */}
-                    <div className="booking-form-grid-2col">
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '0.6rem' }}>
                       <div>
-                        <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#652331', display: 'block', marginBottom: '0.35rem' }}>
+                        <label style={{ fontSize: '0.74rem', fontWeight: 700, color: 'var(--wine)', display: 'block', marginBottom: '0.2rem' }}>
                           Full Name *
                         </label>
                         <input
@@ -1373,14 +1620,14 @@ export default function Wellness({ onNavigate }) {
                           value={bookingModalData.name}
                           onChange={(e) => setBookingModalData({ ...bookingModalData, name: e.target.value })}
                           style={{
-                            width: '100%', padding: '0.7rem 0.8rem', borderRadius: '10px',
-                            border: '1px solid rgba(100, 40, 50, 0.3)', backgroundColor: '#EFE5D7',
-                            fontSize: '0.85rem', color: '#5E2735', outline: 'none', boxSizing: 'border-box'
+                            width: '100%', padding: '0.5rem 0.6rem', borderRadius: '8px',
+                            border: '1px solid rgba(94, 39, 53, 0.22)', backgroundColor: '#FFFFFF',
+                            fontSize: '0.8rem', color: 'var(--raisin-black)', outline: 'none', boxSizing: 'border-box'
                           }}
                         />
                       </div>
                       <div>
-                        <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#652331', display: 'block', marginBottom: '0.35rem' }}>
+                        <label style={{ fontSize: '0.74rem', fontWeight: 700, color: 'var(--wine)', display: 'block', marginBottom: '0.2rem' }}>
                           Email *
                         </label>
                         <input
@@ -1390,9 +1637,9 @@ export default function Wellness({ onNavigate }) {
                           value={bookingModalData.email}
                           onChange={(e) => setBookingModalData({ ...bookingModalData, email: e.target.value })}
                           style={{
-                            width: '100%', padding: '0.7rem 0.8rem', borderRadius: '10px',
-                            border: '1px solid rgba(100, 40, 50, 0.3)', backgroundColor: '#EFE5D7',
-                            fontSize: '0.85rem', color: '#5E2735', outline: 'none', boxSizing: 'border-box'
+                            width: '100%', padding: '0.5rem 0.6rem', borderRadius: '8px',
+                            border: '1px solid rgba(94, 39, 53, 0.22)', backgroundColor: '#FFFFFF',
+                            fontSize: '0.8rem', color: 'var(--raisin-black)', outline: 'none', boxSizing: 'border-box'
                           }}
                         />
                       </div>
@@ -1400,7 +1647,7 @@ export default function Wellness({ onNavigate }) {
 
                     {/* Phone Number */}
                     <div>
-                      <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#652331', display: 'block', marginBottom: '0.35rem' }}>
+                      <label style={{ fontSize: '0.74rem', fontWeight: 700, color: 'var(--wine)', display: 'block', marginBottom: '0.2rem' }}>
                         Phone Number *
                       </label>
                       <input
@@ -1410,27 +1657,27 @@ export default function Wellness({ onNavigate }) {
                         value={bookingModalData.phone}
                         onChange={(e) => setBookingModalData({ ...bookingModalData, phone: e.target.value })}
                         style={{
-                          width: '100%', padding: '0.7rem 0.8rem', borderRadius: '10px',
-                          border: '1px solid rgba(100, 40, 50, 0.3)', backgroundColor: '#EFE5D7',
-                          fontSize: '0.88rem', color: '#5E2735', outline: 'none', boxSizing: 'border-box'
+                          width: '100%', padding: '0.5rem 0.6rem', borderRadius: '8px',
+                          border: '1px solid rgba(94, 39, 53, 0.22)', backgroundColor: '#FFFFFF',
+                          fontSize: '0.82rem', color: 'var(--raisin-black)', outline: 'none', boxSizing: 'border-box'
                         }}
                       />
                     </div>
 
                     {/* Special Requests or Questions */}
                     <div>
-                      <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#652331', display: 'block', marginBottom: '0.35rem' }}>
+                      <label style={{ fontSize: '0.74rem', fontWeight: 700, color: 'var(--wine)', display: 'block', marginBottom: '0.2rem' }}>
                         Special Requests or Questions
                       </label>
                       <textarea
-                        rows="3"
-                        placeholder="Any dietary requirements, health concerns, or special requests..."
+                        rows="2"
+                        placeholder="Any dietary requirements, health concerns..."
                         value={bookingModalData.notes}
                         onChange={(e) => setBookingModalData({ ...bookingModalData, notes: e.target.value })}
                         style={{
-                          width: '100%', padding: '0.7rem 0.8rem', borderRadius: '10px',
-                          border: '1px solid rgba(100, 40, 50, 0.3)', backgroundColor: '#EFE5D7',
-                          fontSize: '0.85rem', color: '#5E2735', outline: 'none', resize: 'vertical', boxSizing: 'border-box'
+                          width: '100%', padding: '0.5rem 0.6rem', borderRadius: '8px',
+                          border: '1px solid rgba(94, 39, 53, 0.22)', backgroundColor: '#FFFFFF',
+                          fontSize: '0.8rem', color: 'var(--raisin-black)', outline: 'none', resize: 'vertical', boxSizing: 'border-box'
                         }}
                       />
                     </div>
@@ -1438,18 +1685,12 @@ export default function Wellness({ onNavigate }) {
                     {/* Submit Button */}
                     <button
                       type="submit"
+                      className="btn-luxury"
                       style={{
                         width: '100%',
-                        padding: '0.85rem',
-                        borderRadius: '12px',
-                        backgroundColor: '#EAA936',
-                        color: '#421a23',
-                        border: 'none',
-                        fontSize: '0.92rem',
-                        fontWeight: 700,
-                        cursor: 'pointer',
-                        marginTop: '0.4rem',
-                        boxShadow: '0 4px 14px rgba(234, 169, 54, 0.35)'
+                        padding: '0.65rem',
+                        fontSize: '0.82rem',
+                        marginTop: '0.2rem'
                       }}
                     >
                       Submit Booking Request
@@ -1463,12 +1704,12 @@ export default function Wellness({ onNavigate }) {
                 onClick={() => setIsBookingModalOpen(false)}
                 style={{
                   width: '100%',
-                  padding: '0.85rem',
-                  borderRadius: '12px',
-                  backgroundColor: '#EAA936',
-                  color: '#421a23',
-                  border: 'none',
-                  fontSize: '0.92rem',
+                  padding: '0.6rem',
+                  borderRadius: '10px',
+                  backgroundColor: 'transparent',
+                  color: 'var(--wine)',
+                  border: '1.5px solid rgba(94, 39, 53, 0.2)',
+                  fontSize: '0.82rem',
                   fontWeight: 700,
                   cursor: 'pointer'
                 }}

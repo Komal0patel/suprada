@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { X, Search, ChevronRight, Download, Menu, Sparkles } from 'lucide-react';
+import { X, Search, ChevronRight, ChevronDown, Download, Menu, Sparkles } from 'lucide-react';
 
 // Import Pages
 import Home from './pages/Home';
@@ -16,6 +16,11 @@ import Careers from './pages/Careers';
 import Contact from './pages/Contact';
 import ComprehensiveCare from './pages/ComprehensiveCare';
 import Naturopathy from './pages/Naturopathy';
+import Wellness from './pages/Wellness';
+import Nutrition from './pages/Nutrition';
+import Activities from './pages/Activities';
+import ProgrammeDetail from './pages/ProgrammeDetail';
+import PillarDetail from './pages/PillarDetail';
 
 // Import Global Components
 import Footer from './components/Footer';
@@ -33,7 +38,8 @@ const searchIndex = [
   { title: "Satwik Farm-to-Table Nutrition", category: "Nutrition", path: "home", desc: "Organic vegetarian meal plans, millet diets, detox juices & fasting" },
   { title: "Our Spaces & Sanctuaries", category: "Navigation", path: "spaces", desc: "Explore Swasthya, Sauhithya, Samiksha, Sukhada & Goshala" },
   { title: "Stay & Eco Cottages", category: "Sanctuaries", path: "spaces", desc: "Guha, Samprapti, Subhiksha cottages & private sit-out verandas" },
-  { title: "Programmes & Packages", category: "Navigation", path: "programmes", desc: "2-Day Weekend Reset, 7-Day Renewal & 21-Day Chronic Recovery" },
+  { title: "Programmes & Packages", category: "Navigation", path: "programmes/packages", desc: "2-Day Weekend Reset, 7-Day Renewal & 21-Day Chronic Recovery" },
+  { title: "Wellness & Healing Programmes", category: "Navigation", path: "programmes", desc: "Rooted in Nature, Our Approach, Discovery & Personalized Wellness Formula" },
   { title: "Gallery & Photo Tour", category: "Navigation", path: "gallery", desc: "Explore riverfront views, cottage interiors & treatment spaces" },
   { title: "Blog & Healing Journal", category: "Navigation", path: "blog", desc: "Articles on drugless health, iris diagnosis & naturopathic wisdom" },
   { title: "Occasions & Events", category: "Navigation", path: "occasions", desc: "Weddings, anniversaries, family reunions & quiet retreats" },
@@ -70,6 +76,62 @@ function App() {
   const [waitlistEmail, setWaitlistEmail] = useState('');
   const [waitlistSubmitted, setWaitlistSubmitted] = useState(false);
   const [showFloatingWidget, setShowFloatingWidget] = useState(true);
+
+  // Programmes dropdown state
+  const [programmesDropdownOpen, setProgrammesDropdownOpen] = useState(false);
+  const [pillarsSubOpen, setPillarsSubOpen] = useState(false);
+  const [mobileProgrammesOpen, setMobileProgrammesOpen] = useState(false);
+  const [mobilePillarsOpen, setMobilePillarsOpen] = useState(false);
+  const dropdownTimeoutRef = useRef(null);
+
+  const closeMobileMenu = useCallback(() => {
+    setMobileMenuOpen(false);
+    setMobileProgrammesOpen(false);
+    setMobilePillarsOpen(false);
+  }, []);
+
+  const openMobileMenu = useCallback(() => {
+    setMobileProgrammesOpen(false);
+    setMobilePillarsOpen(false);
+    setMobileMenuOpen(true);
+  }, []);
+
+  const handleDropdownEnter = useCallback(() => {
+    if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+    setProgrammesDropdownOpen(true);
+  }, []);
+
+  const handleDropdownLeave = useCallback(() => {
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setProgrammesDropdownOpen(false);
+      setPillarsSubOpen(false);
+    }, 200);
+  }, []);
+
+  // Programme sub-page definitions
+  const programmesDropdownItems = [
+    {
+      label: 'Pillars of Wellness',
+      hasChildren: true,
+      children: [
+        { id: 'programmes/naturopathy', label: 'Naturopathy' },
+        { id: 'programmes/yoga-meditation', label: 'Yoga & Meditation' },
+        { id: 'programmes/holistic-therapies', label: 'Holistic Therapies' },
+        { id: 'programmes/nutrition-lifestyle', label: 'Nutrition & Lifestyle' },
+        { id: 'programmes/mental-emotional', label: 'Mental & Emotional Well-Being' },
+        { id: 'programmes/detox-cleansing', label: 'Detox & Cleansing' },
+        { id: 'programmes/physiotherapy', label: 'Physiotherapy' },
+        { id: 'programmes/ayurveda', label: 'Ayurveda' }
+      ]
+    },
+    { id: 'programmes/packages', label: 'Programs & Packages' },
+    { id: 'programmes/wellness', label: 'Wellness Programs' },
+    { id: 'programmes/nutrition', label: 'Nutrition' },
+    { id: 'programmes/activities', label: 'Activities' },
+    { id: 'comprehensivecare', label: 'Comprehensive Care' },
+    { id: 'naturopathy', label: 'Naturopathy' }
+  ];
+
   const { scrollY } = useScroll();
   const lenisRef = useRef(null);
 
@@ -167,13 +229,17 @@ function App() {
 
   const handlePageChange = (page, extra) => {
     scrollPositionsRef.current[currentPage] = window.scrollY || document.documentElement.scrollTop || 0;
-    setCurrentPage(page);
-    let path = page === 'home' ? '/' : `/${page}`;
+    let targetPage = page;
+    if (page === 'programmes' && extra?.progId) {
+      targetPage = 'programmes/packages';
+    }
+    setCurrentPage(targetPage);
+    let path = targetPage === 'home' ? '/' : `/${targetPage}`;
     if (extra?.progId) {
       path += `?prog=${extra.progId}`;
     }
     navigate(path);
-    setMobileMenuOpen(false);
+    closeMobileMenu();
   };
 
   const menuItems = [
@@ -309,6 +375,147 @@ function App() {
                       );
                     }
 
+                    if (item.id === 'programmes') {
+                      const isProgActive = currentPage === 'programmes' || currentPage.startsWith('programmes/');
+                      return (
+                        <div
+                          key={item.id}
+                          className="nav-dropdown-wrapper"
+                          onMouseEnter={handleDropdownEnter}
+                          onMouseLeave={handleDropdownLeave}
+                          style={{ position: 'relative' }}
+                        >
+                          <span
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setProgrammesDropdownOpen(prev => !prev);
+                            }}
+                            style={{
+                              cursor: 'pointer',
+                              color: isProgActive 
+                                ? (isLightHeader ? 'var(--wine)' : 'var(--harvest-gold)')
+                                : (isLightHeader ? 'rgba(40, 38, 37, 0.85)' : 'rgba(255, 255, 255, 0.95)'),
+                              fontWeight: isProgActive ? 800 : 600,
+                              fontSize: '0.75rem',
+                              letterSpacing: '0.05em',
+                              textTransform: 'uppercase',
+                              transition: 'all 0.3s ease',
+                              whiteSpace: 'nowrap',
+                              textShadow: isLightHeader ? 'none' : '0 2px 8px rgba(0,0,0,0.6)',
+                              borderBottom: isProgActive && isLightHeader ? '2px solid var(--wine)' : '2px solid transparent',
+                              paddingBottom: '2px',
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '0.2rem'
+                            }}
+                            className={isLightHeader ? 'hover-wine' : 'hover-gold'}
+                          >
+                            {item.label}
+                            <motion.span
+                              animate={{ rotate: programmesDropdownOpen ? 180 : 0 }}
+                              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                              style={{ display: 'inline-flex', lineHeight: 1 }}
+                            >
+                              <ChevronDown size={12} />
+                            </motion.span>
+                          </span>
+
+                          {/* === PROGRAMMES MEGA-MENU DROPDOWN === */}
+                          <AnimatePresence>
+                            {programmesDropdownOpen && (
+                              <motion.div
+                                initial={{ opacity: 0, y: 8, scaleY: 0.95 }}
+                                animate={{ opacity: 1, y: 0, scaleY: 1 }}
+                                exit={{ opacity: 0, y: 5, scaleY: 0.97 }}
+                                transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                                className="nav-mega-dropdown"
+                                style={{
+                                  position: 'absolute',
+                                  top: 'calc(100% + 10px)',
+                                  left: '50%',
+                                  transform: 'translateX(-50%)',
+                                  transformOrigin: 'top center',
+                                  zIndex: 100000
+                                }}
+                              >
+                                {/* Level 1: Main dropdown panel */}
+                                <div className="nav-dropdown-panel">
+                                  <div style={{ position: 'absolute', top: 0, left: '10%', right: '10%', height: '2px', background: 'linear-gradient(90deg, transparent, var(--harvest-gold), transparent)', borderRadius: '2px' }} />
+                                  
+                                  {programmesDropdownItems.map((dropItem, idx) => (
+                                    <motion.div
+                                      key={dropItem.label}
+                                      initial={{ opacity: 0, x: -10 }}
+                                      animate={{ opacity: 1, x: 0 }}
+                                      transition={{ duration: 0.2, delay: idx * 0.04 }}
+                                      className={`nav-dropdown-item ${pillarsSubOpen && dropItem.hasChildren ? 'active' : ''}`}
+                                      onMouseEnter={() => dropItem.hasChildren && setPillarsSubOpen(true)}
+                                      onClick={() => {
+                                        if (!dropItem.hasChildren) {
+                                          handlePageChange(dropItem.id);
+                                          setProgrammesDropdownOpen(false);
+                                        }
+                                      }}
+                                      style={{
+                                        cursor: 'pointer',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'space-between'
+                                      }}
+                                    >
+                                      <span>{dropItem.label}</span>
+                                      {dropItem.hasChildren && (
+                                        <motion.span
+                                          animate={{ x: pillarsSubOpen ? 3 : 0 }}
+                                          transition={{ duration: 0.2 }}
+                                          style={{ color: 'var(--harvest-gold)', display: 'inline-flex', fontSize: '0.75rem' }}
+                                        >
+                                          <ChevronRight size={13} />
+                                        </motion.span>
+                                      )}
+                                    </motion.div>
+                                  ))}
+                                </div>
+
+                                {/* Level 2: Pillars of Wellness flyout sub-panel */}
+                                <AnimatePresence>
+                                  {pillarsSubOpen && (
+                                    <motion.div
+                                      initial={{ opacity: 0, x: -12, scaleX: 0.95 }}
+                                      animate={{ opacity: 1, x: 0, scaleX: 1 }}
+                                      exit={{ opacity: 0, x: -8, scaleX: 0.97 }}
+                                      transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                                      className="nav-dropdown-subpanel"
+                                      onMouseEnter={() => setPillarsSubOpen(true)}
+                                      onMouseLeave={() => setPillarsSubOpen(false)}
+                                    >
+                                      {programmesDropdownItems[0].children.map((sub, sIdx) => (
+                                        <motion.div
+                                          key={sub.id}
+                                          initial={{ opacity: 0, x: -8 }}
+                                          animate={{ opacity: 1, x: 0 }}
+                                          transition={{ duration: 0.18, delay: sIdx * 0.025 }}
+                                          className="nav-dropdown-item nav-dropdown-subitem"
+                                          onClick={() => {
+                                            handlePageChange(sub.id);
+                                            setProgrammesDropdownOpen(false);
+                                            setPillarsSubOpen(false);
+                                          }}
+                                          style={{ cursor: 'pointer' }}
+                                        >
+                                          <span>{sub.label}</span>
+                                        </motion.div>
+                                      ))}
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      );
+                    }
+
                     return (
                       <span
                         key={item.id}
@@ -403,7 +610,7 @@ function App() {
                 {/* Mobile Drawer Trigger */}
                 {isMobile && (
                   <button
-                    onClick={() => setMobileMenuOpen(true)}
+                    onClick={openMobileMenu}
                     style={{
                       backgroundColor: isLightHeader ? 'var(--wine)' : 'var(--harvest-gold)',
                       color: isLightHeader ? '#ffffff' : '#632633',
@@ -549,41 +756,112 @@ function App() {
           )}
         </AnimatePresence>
 
-        {/* Mobile Navigation Full-screen Drawer */}
+        {/* Mobile Navigation Full-screen Drawer (Fully Responsive & Scrollable) */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: '100vh' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               style={{
-                position: 'fixed', top: 0, left: 0, width: '100%',
-                backgroundColor: 'var(--raisin-black)', zIndex: 9999999,
-                display: 'flex', flexDirection: 'column', justifyItems: 'center',
-                justifyContent: 'center', alignItems: 'center', padding: '2rem'
+                position: 'fixed',
+                inset: 0,
+                width: '100%',
+                height: '100vh',
+                maxHeight: '100dvh',
+                backgroundColor: 'rgba(25, 12, 17, 0.98)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
+                zIndex: 9999999,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'flex-start',
+                padding: 'clamp(4.2rem, 8vh, 5.5rem) 1.2rem clamp(2rem, 4vh, 3.5rem) 1.2rem',
+                overflowY: 'auto',
+                WebkitOverflowScrolling: 'touch',
+                boxSizing: 'border-box'
               }}
             >
+              {/* Fixed Close Button Top Right */}
               <button
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={closeMobileMenu}
+                aria-label="Close navigation menu"
                 style={{
-                  position: 'absolute', top: '25px', right: '30px',
-                  background: 'none', border: 'none', color: 'var(--harvest-gold)',
-                  cursor: 'pointer', zIndex: 1000,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center'
+                  position: 'fixed',
+                  top: '1.2rem',
+                  right: '1.2rem',
+                  background: 'rgba(234, 169, 54, 0.15)',
+                  border: '1px solid rgba(234, 169, 54, 0.3)',
+                  color: 'var(--harvest-gold)',
+                  borderRadius: '50%',
+                  width: '38px',
+                  height: '38px',
+                  cursor: 'pointer',
+                  zIndex: 10000000,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+                  transition: 'transform 0.2s ease'
                 }}
               >
-                <X size={28} />
+                <X size={22} />
               </button>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1.4rem', alignItems: 'center', fontSize: '1.15rem', fontFamily: 'var(--font-body)', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 600 }}>
+
+              {/* Brand Logo Header inside Drawer */}
+              <div 
+                onClick={() => {
+                  handlePageChange('home');
+                }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.6rem',
+                  marginBottom: '1.8rem',
+                  cursor: 'pointer',
+                  flexShrink: 0
+                }}
+              >
+                <img 
+                  src="/assets/extracted/logo.svg" 
+                  alt="Suprada" 
+                  style={{ height: '38px', filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.4))' }} 
+                />
+                <img 
+                  src="/assets/extracted/suprada-wellness.svg" 
+                  alt="Suprada Wellness" 
+                  style={{ height: '22px', filter: 'brightness(0) invert(1) drop-shadow(0 2px 6px rgba(0,0,0,0.4))' }} 
+                />
+              </div>
+
+              {/* Menu List */}
+              <ul style={{
+                listStyle: 'none',
+                padding: 0,
+                margin: 0,
+                width: '100%',
+                maxWidth: '420px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1rem',
+                alignItems: 'center',
+                fontSize: '1rem',
+                fontFamily: 'var(--font-body)',
+                textTransform: 'uppercase',
+                letterSpacing: '0.12em',
+                fontWeight: 700
+              }}>
                 {menuItems.map((item) => {
                   if (item.highlighted) {
                     return (
                       <motion.li
-                        whileHover={{ scale: 1.08 }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         key={item.id}
                         onClick={() => {
-                          setMobileMenuOpen(false);
+                          closeMobileMenu();
                           setIsComingSoonOpen(true);
                         }}
                         style={{
@@ -592,13 +870,14 @@ function App() {
                           display: 'inline-flex',
                           alignItems: 'center',
                           gap: '0.45rem',
-                          padding: '0.38rem 1.05rem',
+                          padding: '0.35rem 1rem',
                           borderRadius: '30px',
                           border: '1.2px solid rgba(255, 255, 255, 0.6)',
                           backgroundColor: 'var(--antique-white)',
                           fontWeight: 800,
-                          fontSize: '0.92rem',
-                          boxShadow: '0 4px 12px rgba(0,0,0,0.18)'
+                          fontSize: '0.85rem',
+                          boxShadow: '0 4px 12px rgba(0,0,0,0.18)',
+                          margin: '0.2rem 0'
                         }}
                       >
                         <span className="live-dot" style={{ backgroundColor: '#B85645', width: '5px', height: '5px', boxShadow: '0 0 5px rgba(184, 86, 69, 0.5)' }} />
@@ -608,15 +887,201 @@ function App() {
                     );
                   }
 
+                  if (item.id === 'programmes') {
+                    const isProgActive = currentPage === 'programmes' || currentPage.startsWith('programmes/') || currentPage === 'nutrition' || currentPage === 'new-nutrition' || currentPage === 'comprehensivecare' || currentPage === 'naturopathy';
+                    return (
+                      <li key={item.id} style={{ width: '100%', textAlign: 'center' }}>
+                        <div
+                          onClick={() => setMobileProgrammesOpen(!mobileProgrammesOpen)}
+                          style={{
+                            cursor: 'pointer',
+                            color: isProgActive ? 'var(--harvest-gold)' : 'var(--isabelline)',
+                            padding: '0.45rem 1rem',
+                            borderRadius: '10px',
+                            backgroundColor: mobileProgrammesOpen ? 'rgba(234, 169, 54, 0.14)' : 'transparent',
+                            border: mobileProgrammesOpen ? '1px solid rgba(234, 169, 54, 0.35)' : '1px solid transparent',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            gap: '0.45rem',
+                            transition: 'all 0.3s ease',
+                            width: '100%',
+                            boxSizing: 'border-box'
+                          }}
+                        >
+                          <span>{item.label}</span>
+                          <motion.span
+                            animate={{ rotate: mobileProgrammesOpen ? 180 : 0 }}
+                            transition={{ duration: 0.2 }}
+                            style={{ display: 'inline-flex' }}
+                          >
+                            <ChevronDown size={16} style={{ color: 'var(--harvest-gold)' }} />
+                          </motion.span>
+                        </div>
+
+                        <AnimatePresence>
+                          {mobileProgrammesOpen && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                              style={{ overflow: 'hidden', marginTop: '0.5rem' }}
+                            >
+                              <div style={{
+                                backgroundColor: 'rgba(0, 0, 0, 0.45)',
+                                borderRadius: '14px',
+                                padding: '0.9rem 0.8rem',
+                                border: '1px solid rgba(234, 169, 54, 0.2)',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '0.75rem'
+                              }}>
+                                {/* Direct Programmes Category Links */}
+                                <div style={{
+                                  display: 'grid',
+                                  gridTemplateColumns: 'repeat(2, 1fr)',
+                                  gap: '0.45rem'
+                                }}>
+                                  {programmesDropdownItems.slice(1).map((dropItem) => {
+                                    const isSubActive = currentPage === dropItem.id || (dropItem.id === 'programmes/nutrition' && (currentPage === 'nutrition' || currentPage === 'new-nutrition'));
+                                    return (
+                                      <motion.div
+                                        key={dropItem.id}
+                                        whileTap={{ scale: 0.96 }}
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          handlePageChange(dropItem.id);
+                                        }}
+                                        style={{
+                                          fontSize: '0.74rem',
+                                          color: isSubActive ? '#ffffff' : 'rgba(255, 255, 255, 0.95)',
+                                          backgroundColor: isSubActive ? 'var(--wine)' : 'rgba(234, 169, 54, 0.1)',
+                                          border: isSubActive ? '1px solid var(--harvest-gold)' : '1px solid rgba(234, 169, 54, 0.25)',
+                                          borderRadius: '8px',
+                                          padding: '0.55rem 0.35rem',
+                                          cursor: 'pointer',
+                                          fontWeight: 700,
+                                          letterSpacing: '0.04em',
+                                          textAlign: 'center',
+                                          textTransform: 'uppercase',
+                                          boxShadow: isSubActive ? '0 2px 8px rgba(94, 39, 53, 0.5)' : 'none',
+                                          display: 'flex',
+                                          alignItems: 'center',
+                                          justifyContent: 'center',
+                                          minHeight: '38px'
+                                        }}
+                                      >
+                                        {dropItem.label}
+                                      </motion.div>
+                                    );
+                                  })}
+                                </div>
+
+                                {/* Pillars of Wellness nested accordion */}
+                                <div style={{ borderTop: '1px solid rgba(234, 169, 54, 0.18)', paddingTop: '0.65rem' }}>
+                                  <div
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      setMobilePillarsOpen(!mobilePillarsOpen);
+                                    }}
+                                    style={{
+                                      fontSize: '0.76rem',
+                                      color: 'var(--harvest-gold)',
+                                      fontWeight: 800,
+                                      cursor: 'pointer',
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      justifyContent: 'space-between',
+                                      letterSpacing: '0.08em',
+                                      padding: '0.45rem 0.75rem',
+                                      borderRadius: '8px',
+                                      backgroundColor: 'rgba(234, 169, 54, 0.12)',
+                                      border: '1px solid rgba(234, 169, 54, 0.25)'
+                                    }}
+                                  >
+                                    <span>✦ 8 Pillars of Wellness</span>
+                                    <motion.span
+                                      animate={{ rotate: mobilePillarsOpen ? 180 : 0 }}
+                                      transition={{ duration: 0.2 }}
+                                      style={{ display: 'inline-flex' }}
+                                    >
+                                      <ChevronDown size={14} />
+                                    </motion.span>
+                                  </div>
+
+                                  <AnimatePresence>
+                                    {mobilePillarsOpen && (
+                                      <motion.div
+                                        initial={{ height: 0, opacity: 0 }}
+                                        animate={{ height: 'auto', opacity: 1 }}
+                                        exit={{ height: 0, opacity: 0 }}
+                                        transition={{ duration: 0.2 }}
+                                        style={{
+                                          display: 'grid',
+                                          gridTemplateColumns: 'repeat(2, 1fr)',
+                                          gap: '0.4rem',
+                                          marginTop: '0.55rem'
+                                        }}
+                                      >
+                                        {programmesDropdownItems[0].children.map((sub) => {
+                                          const isPillarActive = currentPage === sub.id;
+                                          return (
+                                            <motion.div
+                                              key={sub.id}
+                                              whileTap={{ scale: 0.96 }}
+                                              onClick={(e) => {
+                                                e.stopPropagation();
+                                                handlePageChange(sub.id);
+                                              }}
+                                              style={{
+                                                fontSize: '0.68rem',
+                                                color: isPillarActive ? '#ffffff' : 'var(--tan)',
+                                                backgroundColor: isPillarActive ? 'var(--wine)' : 'rgba(255, 255, 255, 0.05)',
+                                                border: isPillarActive ? '1px solid var(--harvest-gold)' : '1px solid rgba(234, 169, 54, 0.2)',
+                                                borderRadius: '8px',
+                                                padding: '0.45rem 0.25rem',
+                                                cursor: 'pointer',
+                                                fontWeight: 600,
+                                                letterSpacing: '0.02em',
+                                                textAlign: 'center',
+                                                textTransform: 'none',
+                                                fontFamily: 'var(--font-body)',
+                                                boxShadow: isPillarActive ? '0 2px 8px rgba(94, 39, 53, 0.4)' : 'none',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                minHeight: '34px'
+                                              }}
+                                            >
+                                              {sub.label}
+                                            </motion.div>
+                                          );
+                                        })}
+                                      </motion.div>
+                                    )}
+                                  </AnimatePresence>
+                                </div>
+
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </li>
+                    );
+                  }
+
                   return (
                     <motion.li
-                      whileHover={{ scale: 1.08, color: 'var(--harvest-gold)' }}
+                      whileHover={{ scale: 1.05, color: 'var(--harvest-gold)' }}
+                      whileTap={{ scale: 0.95 }}
                       key={item.id}
                       onClick={() => handlePageChange(item.id)}
                       style={{
                         cursor: 'pointer',
                         color: currentPage === item.id ? 'var(--harvest-gold)' : 'var(--isabelline)',
-                        transition: 'color 0.3s ease'
+                        transition: 'color 0.2s ease',
+                        padding: '0.35rem 0.6rem'
                       }}
                     >
                       {item.label}
@@ -626,12 +1091,23 @@ function App() {
               </ul>
 
               {/* Mobile Drawer Action Buttons */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', marginTop: '2rem', width: '100%', maxWidth: '280px', alignItems: 'center' }}>
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.8rem',
+                marginTop: '2rem',
+                width: '100%',
+                maxWidth: '280px',
+                alignItems: 'center',
+                flexShrink: 0,
+                paddingBottom: '1rem'
+              }}>
                 <a
                   href="/assets/Suprada_Wellness_Brochure.pdf"
                   download="Suprada_Wellness_Brochure.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={closeMobileMenu}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -646,7 +1122,8 @@ function App() {
                     fontSize: '0.8rem',
                     fontWeight: 700,
                     textDecoration: 'none',
-                    letterSpacing: '0.05em'
+                    letterSpacing: '0.05em',
+                    boxShadow: '0 4px 14px rgba(0,0,0,0.25)'
                   }}
                 >
                   <Download size={15} /> Download Brochure
@@ -867,8 +1344,8 @@ function App() {
           {currentPage === 'home'       && <Home        onNavigate={handlePageChange} />}
           {currentPage === 'about'      && <About       onNavigate={handlePageChange} />}
           {currentPage === 'spaces'     && <Spaces      onNavigate={handlePageChange} />}
-          {currentPage === 'stay'       && <Spaces      onNavigate={handlePageChange} />}
-          {currentPage === 'programmes' && <Programmes  onNavigate={handlePageChange} />}
+          {currentPage === 'stay'       && <Stay        onNavigate={handlePageChange} />}
+          {currentPage === 'programmes' && <Wellness    onNavigate={handlePageChange} />}
           {currentPage === 'gallery'    && <Gallery     onNavigate={handlePageChange} />}
           {currentPage === 'blog'       && <Blog        onNavigate={handlePageChange} />}
           {currentPage === 'occasions'  && <Occasions   onNavigate={handlePageChange} />}
@@ -876,6 +1353,32 @@ function App() {
           {currentPage === 'contact'    && <Contact     onNavigate={handlePageChange} />}
           {currentPage === 'comprehensivecare' && <ComprehensiveCare onNavigate={handlePageChange} />}
           {currentPage === 'naturopathy' && <Naturopathy onNavigate={handlePageChange} />}
+
+          {/* Programme & Pillars Sub-Pages */}
+          {currentPage === 'programmes/packages'            && <Programmes onNavigate={handlePageChange} />}
+          {currentPage === 'packages'                       && <Programmes onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/wellness'            && <Wellness onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/nutrition'           && <Nutrition onNavigate={handlePageChange} />}
+          {currentPage === 'nutrition'                      && <Nutrition onNavigate={handlePageChange} />}
+          {currentPage === 'new-nutrition'                  && <Nutrition onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/activities'          && <Activities onNavigate={handlePageChange} />}
+          
+          {/* Pillars of Wellness Sub-Routes */}
+          {currentPage === 'programmes/naturopathy'         && <PillarDetail pillarId="naturopathy" onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/yoga-meditation'     && <PillarDetail pillarId="yoga-meditation" onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/holistic-therapies'   && <PillarDetail pillarId="holistic-therapies" onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/nutrition-lifestyle'  && <PillarDetail pillarId="nutrition-lifestyle" onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/mental-emotional'    && <PillarDetail pillarId="mental-emotional" onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/detox-cleansing'     && <PillarDetail pillarId="detox-cleansing" onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/physiotherapy'       && <PillarDetail pillarId="physiotherapy" onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/ayurveda'            && <PillarDetail pillarId="ayurveda" onNavigate={handlePageChange} />}
+
+          {/* Program Package Sub-Routes */}
+          {currentPage === 'programmes/weekend-reset'       && <ProgrammeDetail progId="weekend-reset" onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/rejuvenation'        && <ProgrammeDetail progId="rejuvenation" onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/holistic-wellness'   && <ProgrammeDetail progId="holistic-wellness" onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/detox'               && <ProgrammeDetail progId="detox" onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/advanced-healing'    && <ProgrammeDetail progId="advanced-healing" onNavigate={handlePageChange} />}
         </div>
 
         {/* Global Footer */}
@@ -928,7 +1431,7 @@ function App() {
                 <X size={12} />
               </button>
 
-              {/* Floating "We're Hiring" Pill Button (Bit Smaller) */}
+              {/* Floating "We're Hiring" Pill Button (2 Lines) */}
               <motion.button
                 onClick={() => handlePageChange('careers')}
                 whileHover={{ scale: 1.08, y: -2 }}
@@ -936,17 +1439,13 @@ function App() {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.35rem',
-                  padding: isMobile ? '0.3rem 0.65rem' : '0.35rem 0.78rem',
+                  gap: '0.4rem',
+                  padding: isMobile ? '0.32rem 0.62rem' : '0.38rem 0.72rem',
                   backgroundColor: 'var(--wine)',
                   border: '1.5px solid var(--harvest-gold)',
-                  borderRadius: '50px',
+                  borderRadius: '14px',
                   color: 'var(--harvest-gold)',
-                  fontSize: isMobile ? '0.62rem' : '0.68rem',
-                  letterSpacing: '0.04em',
-                  fontWeight: 700,
                   cursor: 'pointer',
-                  whiteSpace: 'nowrap',
                   boxShadow: '0 6px 18px rgba(94, 39, 53, 0.35)'
                 }}
                 aria-label="We are hiring - View Careers"
@@ -958,9 +1457,22 @@ function App() {
                   backgroundColor: 'var(--harvest-gold)',
                   display: 'inline-block',
                   boxShadow: '0 0 6px var(--harvest-gold)',
-                  animation: 'pulse-dot 1.8s infinite ease-in-out'
+                  animation: 'pulse-dot 1.8s infinite ease-in-out',
+                  flexShrink: 0
                 }} />
-                <span>We're Hiring</span>
+                <span style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  textAlign: 'left',
+                  lineHeight: 1.15,
+                  fontSize: isMobile ? '0.62rem' : '0.68rem',
+                  fontWeight: 800,
+                  letterSpacing: '0.04em',
+                  textTransform: 'uppercase'
+                }}>
+                  <span>We're</span>
+                  <span>Hiring</span>
+                </span>
               </motion.button>
 
               {/* WhatsApp Floating Button (Bit Smaller) */}

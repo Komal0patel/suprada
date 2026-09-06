@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, MapPin, Compass, Smile, Flame, Music, Palette, Mountain, Heart, Sun, Feather, TreePine } from 'lucide-react';
+import { Pattern24, Pattern25, Pattern27 } from '../AnimatedPatterns';
+import { Sparkles, MapPin, Compass, Smile, Flame, Music, Palette, Mountain, Heart, Sun, Feather, TreePine, ArrowRight } from 'lucide-react';
 
 const activitiesList = [
   { title: 'Mouna', desc: 'Therapeutic silence sessions for inner peace.', icon: Feather },
@@ -58,82 +59,130 @@ export default function Activities({ onNavigate }) {
   return (
     <div style={{ backgroundColor: 'var(--isabelline)', color: 'var(--raisin-black)', overflowX: 'hidden' }}>
       
-      {/* 1. HERO SECTION */}
+      {/* 1. HERO SECTION (Light Champagne Silk Theme — Full Viewport Fit) */}
       <section style={{
         position: 'relative',
-        minHeight: '80vh',
+        width: '100%',
+        minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
-        padding: '8rem 1.5rem 5rem',
-        backgroundImage: 'linear-gradient(to bottom, rgba(42, 14, 24, 0.78), rgba(42, 14, 24, 0.88)), url("/assets/more_images/art_therapy.png")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
-        color: '#ffffff'
+        padding: 'clamp(5.5rem, 12vh, 7.5rem) 5% clamp(2.5rem, 5vh, 3.5rem)',
+        background: 'linear-gradient(135deg, #f5ebd9 0%, #f0e2cc 60%, #ead9be 100%)',
+        color: 'var(--wine)',
+        overflow: 'hidden',
+        boxSizing: 'border-box'
       }}>
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundImage: 'radial-gradient(rgba(234,169,54,0.08) 1px, transparent 0)',
-          backgroundSize: '24px 24px',
-          pointerEvents: 'none'
-        }} />
+        {/* Leaf SVG Watermarks in Wine */}
+        <Pattern24 style={{ position: 'absolute', top: '-15px', left: '-30px', width: 'clamp(140px, 20vw, 220px)', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none' }} />
+        <Pattern25 style={{ position: 'absolute', bottom: '-15px', right: '-30px', width: 'clamp(140px, 20vw, 220px)', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none' }} />
 
+        {/* Ambient Wine Bokeh Glow */}
+        <div style={{ position: 'absolute', top: '-10%', left: '15%', width: '350px', height: '350px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(94,39,53,0.06) 0%, transparent 70%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
+
+        {/* Background Rotating Mandala */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          style={{ maxWidth: '850px', position: 'relative', zIndex: 2 }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 100, repeat: Infinity, ease: 'linear' }}
+          style={{
+            position: 'absolute',
+            top: '50%', left: '50%',
+            x: '-50%', y: '-50%',
+            width: 'clamp(320px, 50vw, 480px)', height: 'clamp(320px, 50vw, 480px)',
+            opacity: 0.05,
+            pointerEvents: 'none',
+            zIndex: 0
+          }}
         >
-          <span style={{
-            display: 'inline-block',
-            color: 'var(--harvest-gold)',
-            fontSize: '0.78rem',
-            fontWeight: 800,
-            letterSpacing: '0.3em',
-            textTransform: 'uppercase',
-            marginBottom: '1.5rem',
-            border: '1px solid rgba(234,169,54,0.3)',
-            padding: '0.4rem 1.2rem',
-            borderRadius: '50px',
-            background: 'rgba(94,39,53,0.4)',
-            backdropFilter: 'blur(8px)'
-          }}>
-            ✦ Activities & Local Attractions ✦
-          </span>
+          <Pattern27 style={{ width: '100%', height: '100%', color: 'var(--wine)' }} />
+        </motion.div>
 
-          <h1 style={{
-            fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(2.2rem, 4.2vw, 3.4rem)',
-            fontWeight: 700,
-            lineHeight: 1.2,
-            color: 'var(--tan)',
-            marginBottom: '1.8rem',
-            textShadow: '0 4px 16px rgba(0,0,0,0.6)'
-          }}>
-            Enrich Your Stay with Meaningful Engagement.
-          </h1>
+        {/* Center Content */}
+        <div style={{
+          maxWidth: '820px',
+          margin: '0 auto',
+          position: 'relative',
+          zIndex: 5,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
+        }}>
+          {/* Suprada Logo Emblem */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            style={{ marginBottom: '0.7rem', display: 'flex', justifyContent: 'center' }}
+          >
+            <img 
+              src="/assets/extracted/logo.svg" 
+              alt="Suprada Official Emblem Logo" 
+              style={{ height: 'clamp(44px, 5vw, 55px)', width: 'auto', filter: 'drop-shadow(0 3px 10px rgba(94, 39, 53, 0.12))' }} 
+            />
+          </motion.div>
 
-          <p style={{
-            fontSize: 'clamp(1rem, 1.3vw, 1.15rem)',
-            lineHeight: 1.8,
-            color: 'rgba(230,211,192,0.92)',
-            marginBottom: '2.5rem',
-            fontWeight: 400
-          }}>
-            Immerse yourself in a variety of curated activities designed to nurture your creativity, spirituality, physical vitality, and deep connection with nature.
-          </p>
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.1 }}
+          >
+            <span style={{
+              color: 'var(--redwood)',
+              fontSize: 'clamp(0.68rem, 1.5vw, 0.74rem)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.22em',
+              fontWeight: 800,
+              display: 'block',
+              marginBottom: '0.4rem'
+            }}>
+              ✦ Activities &amp; Local Attractions ✦
+            </span>
 
-          <button
+            <motion.h1
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, delay: 0.15 }}
+              style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: 'clamp(2.1rem, 4vw, 3.2rem)',
+                fontWeight: 700,
+                color: 'var(--wine)',
+                margin: '0 0 0.8rem 0',
+                lineHeight: 1.15
+              }}
+            >
+              Enrich Your Stay with <br />
+              <span style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Meaningful Engagement</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.88 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              style={{
+                color: 'var(--raisin-black)',
+                maxWidth: '640px',
+                margin: '0 auto 1.8rem auto',
+                fontSize: 'var(--fs-body)',
+                lineHeight: 1.65,
+                fontWeight: 400
+              }}
+            >
+              Immerse yourself in a variety of curated activities designed to nurture your creativity, spirituality, physical vitality, and deep connection with nature.
+            </motion.p>
+          </motion.div>
+
+          <motion.button
             onClick={() => onNavigate('contact')}
             className="btn-luxury"
-            style={{ padding: '0.9rem 2.4rem', fontSize: '0.85rem' }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            style={{ padding: '0.7rem 1.6rem', fontSize: '0.8rem' }}
           >
-            Plan Your Stay
-          </button>
-        </motion.div>
+            Book Your Stay <ArrowRight size={14} />
+          </motion.button>
+        </div>
       </section>
 
       {/* 2. 16 RETREAT ACTIVITIES GRID */}

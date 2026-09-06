@@ -790,7 +790,7 @@ export default function Spaces({ onNavigate }) {
               className="btn-luxury" 
               style={{ padding: '0.95rem 2.6rem', fontSize: '0.82rem' }}
             >
-              Plan Your Stay
+              Book Your Stay
             </button>
             <button 
               onClick={() => onNavigate('programmes')}

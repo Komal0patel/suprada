@@ -491,6 +491,107 @@ h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
   width: 100%;
 }
 
+/* ========================================================================= */
+/* --- PROGRAMMES MEGA-MENU DROPDOWN STYLES --- */
+/* ========================================================================= */
+
+/* Dropdown wrapper - ensures hover area extends to dropdown */
+.nav-dropdown-wrapper {
+  position: relative;
+  z-index: 100000;
+}
+
+/* Main dropdown panel - Glassy navbar background */
+.nav-dropdown-panel {
+  position: relative;
+  background: rgba(28, 20, 16, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(234, 169, 54, 0.25);
+  border-radius: 14px;
+  padding: 0.5rem 0;
+  min-width: 210px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+/* Flyout sub-panel - Independent floating position */
+.nav-dropdown-subpanel {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-left: 6px;
+  background: rgba(28, 20, 16, 0.88);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(234, 169, 54, 0.22);
+  border-radius: 14px;
+  padding: 0.4rem 0;
+  min-width: 195px;
+  box-shadow: 12px 20px 50px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  transform-origin: left top;
+  z-index: 100001;
+}
+
+/* Individual dropdown item */
+.nav-dropdown-item {
+  padding: 0.6rem 1.2rem;
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  cursor: pointer;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+/* Compact subpanel items */
+.nav-dropdown-subitem {
+  padding: 0.36rem 1rem !important;
+  font-size: 0.77rem !important;
+  letter-spacing: 0.02em !important;
+  color: var(--tan) !important;
+}
+
+.nav-dropdown-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: var(--harvest-gold);
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-dropdown-item:hover,
+.nav-dropdown-subitem:hover {
+  color: var(--harvest-gold) !important;
+  background: rgba(234, 169, 54, 0.12);
+}
+
+.nav-dropdown-item:hover::before {
+  width: 3px;
+}
+
+.nav-dropdown-item.active {
+  color: var(--harvest-gold) !important;
+  background: rgba(234, 169, 54, 0.18);
+  font-weight: 700;
+}
+
+.nav-dropdown-item.active::before {
+  width: 3px;
+  background: var(--harvest-gold);
+}
+
+/* Hover-gold utility for nav items */
+.hover-gold:hover {
+  color: var(--harvest-gold) !important;
+}
+
 /* Floating leaf animations */
 @keyframes floatLeaf {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -3388,3 +3489,65 @@ html, body {
   background-color: #FFFFFF !important;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.22) !important;
 }
+
+/* ========================================================================= */
+/* --- BOOKING MODAL & RETREAT WINDOW STYLES --- */
+/* ========================================================================= */
+
+.booking-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgba(20, 10, 15, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.booking-modal-card {
+  position: relative;
+  width: 94%;
+  max-width: 540px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #F4ECE1;
+  border-radius: 24px;
+  padding: 2rem 1.6rem 1.5rem;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  border: 1.5px solid rgba(234, 169, 54, 0.4);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  color: var(--wine);
+}
+
+.booking-form-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+@media (max-width: 640px) {
+  .booking-modal-overlay {
+    padding: 0.4rem;
+  }
+  .booking-modal-card {
+    width: 98%;
+    max-height: 92vh;
+    padding: 1.4rem 1rem 1.2rem;
+    border-radius: 18px;
+  }
+  .booking-form-grid-2col {
+    grid-template-columns: 1fr !important;
+    gap: 0.8rem !important;
+  }
+  .booking-modal-card input,
+  .booking-modal-card select,
+  .booking-modal-card textarea {
+    font-size: 16px !important; /* Prevents auto-zoom on mobile devices */
+  }
+}
+

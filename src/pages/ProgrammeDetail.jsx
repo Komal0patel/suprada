@@ -9,7 +9,7 @@ const programmeDataMap = {
     subtitle: 'A 2-3 Day Riverfront Panchamahabhuta Sanctuary Recharge',
     duration: '2 / 3 Days',
     tag: 'EXPRESS RETREAT',
-    image: '/assets/more_images/sound_healing.png',
+    image: '/assets/programmes/weekend-reset.jpg',
     desc: 'Unplug from daily stress, digital overload, and urban fatigue with our curated weekend retreat on the banks of the sacred Suvarnamukhi river. Designed to restore clarity, re-energize your digestive fire (Agni), and soothe your nervous system through drugless natural medicine.',
     idealFor: 'Busy professionals, couples seeking serenity, and individuals needing a rapid mental and physical reset.',
     schedule: [
@@ -33,9 +33,9 @@ const programmeDataMap = {
   'rejuvenation': {
     title: 'Rejuvenation Program',
     subtitle: 'Deep Physical, Cellular & Mental Revitalization',
-    duration: 'Starting from 7 Days',
+    duration: 'Starting from 5 Days',
     tag: 'SIGNATURE RECOVERY',
-    image: '/assets/more_images/wellness.png',
+    image: '/assets/programmes/rejuvenation.jpg',
     desc: 'Immerse yourself in authentic Naturopathic therapies and non-invasive diagnostic science. Tailored to replenish depleted energy reserves, balance cellular metabolism, nourish deep body tissues (Dhatus), and promote longevity.',
     idealFor: 'Individuals experiencing chronic fatigue, metabolic sluggishness, age-related vitality drop, or recovery after illness.',
     schedule: [
@@ -59,9 +59,9 @@ const programmeDataMap = {
   'holistic-wellness': {
     title: 'Holistic Wellness Program',
     subtitle: 'Total Mind-Body Realignment & Metabolic Transformation',
-    duration: '7 / 14 / 21 Days',
+    duration: '7 Days',
     tag: 'COMPLETE REALIGNMENT',
-    image: '/assets/more_images/yoga-meditation.jpg',
+    image: '/assets/programmes/holistic-wellness.jpg',
     desc: 'A signature transformation protocol addressing the root causes of physical imbalance, emotional stress, and metabolic stagnation through integrated natural medicine, Iris diagnostics, and Satwik nutrition.',
     idealFor: 'Long-term wellness transformation, stress elimination, weight optimization, and immunity boosting.',
     schedule: [
@@ -83,11 +83,11 @@ const programmeDataMap = {
     ]
   },
   'detox': {
-    title: 'Detox & Cleansing Program',
+    title: 'Detox Program',
     subtitle: 'Cellular Purification & Toxins (Ama) Elimination',
-    duration: 'Starting from 5 Days',
+    duration: '7 / 14 / 21 Days',
     tag: 'CELLULAR CLEANSING',
-    image: '/assets/more_images/nutrition.png',
+    image: '/assets/programmes/detox.jpg',
     desc: 'Release accumulated metabolic waste and toxins through non-invasive naturopathic cleansing, therapeutic juice fasting, gentle hydrotherapy, and intestinal cleansing. Restores gut microbiome balance and digestive fire.',
     idealFor: 'Digestive sluggishness, bloating, skin dullness, weight management, and systemic toxicity.',
     schedule: [
@@ -111,9 +111,9 @@ const programmeDataMap = {
   'advanced-healing': {
     title: 'Advanced Healing Program',
     subtitle: 'Clinical Naturopathic Care for Chronic & Lifestyle Conditions',
-    duration: '14 / 21 Days',
+    duration: '21 Days',
     tag: 'CLINICAL CARE',
-    image: '/assets/more_images/spa-interior.jpg',
+    image: '/assets/programmes/advanced-healing.jpg',
     desc: 'Specialized clinical naturopathy designed for individuals dealing with chronic lifestyle conditions, joint degeneration, hypertension, type-2 diabetes management, or executive burnout.',
     idealFor: 'Chronic pain management, hypertension, metabolic reset, autoimmune support, and executive burnout.',
     schedule: [
@@ -136,6 +136,41 @@ const programmeDataMap = {
   }
 };
 
+const roomTiers = [
+  {
+    id: 'Guha (Earth Sanctuary)',
+    name: 'Guha Sanctuary',
+    category: 'Earth Haven',
+    image: '/assets/stay/guha.jpg',
+    desc: 'Cool earthen eco-lime walls, serene garden outlook, and quiet natural ventilation.',
+    features: ['Queen Bed / Twin Setup', 'Attached Natural Stone Bath', 'Daily Satwik Dining Included', 'Access to Yoga Lawns']
+  },
+  {
+    id: 'Samprapti (Serenity Suite)',
+    name: 'Samprapti Suite',
+    category: 'Serenity Suite',
+    image: '/assets/stay/samprapti.jpg',
+    desc: 'Elevated riverfront views, spacious private sit-out veranda, and refined teak interiors.',
+    features: ['King Bed & Private Balcony', 'Riverfront Acoustic Views', 'All Inpatient Therapies Included', 'Dedicated Wellness Concierge']
+  },
+  {
+    id: 'Subhiksha (Heritage Cottage)',
+    name: 'Subhiksha Villa',
+    category: 'Heritage Luxury Villa',
+    image: '/assets/stay/subhiksha.jpg',
+    desc: 'Standalone private courtyard cottage with exclusive treatment deck and premium privacy.',
+    features: ['Master Suite & Private Courtyard', 'In-Cottage Herbal Steamer', 'Doctor-Tailored Daily Formulations', 'Personalized Ayurvedic Service']
+  }
+];
+
+const allProgrammesList = [
+  { id: 'weekend-reset', title: 'Weekend Reset', duration: '2 / 3 Days', tag: 'EXPRESS RETREAT', desc: 'A rapid 2-3 day riverfront Panchamahabhuta recharge to decompress the nervous system.', image: '/assets/wellness/program-weekend-reset.jpg' },
+  { id: 'rejuvenation', title: 'Rejuvenation Program', duration: 'Starting from 5 Days', tag: 'SIGNATURE RECOVERY', desc: 'Cellular recovery, Shirodhara, and vital tissue nourishment.', image: '/assets/wellness/program-rejuvenation.jpg' },
+  { id: 'holistic-wellness', title: 'Holistic Wellness Program', duration: 'Starting from 7 Days', tag: 'COMPLETE REALIGNMENT', desc: 'A week of complete biological reset, daily therapies, and mindfulness.', image: '/assets/wellness/program-holistic.jpg' },
+  { id: 'detox', title: 'Detox Program', duration: '7 / 14 / 21 Days', tag: 'CELLULAR CLEANSING', desc: 'Deep systemic cleansing, therapeutic juice fasting, and hydrotherapy.', image: '/assets/wellness/program-detox.jpg' },
+  { id: 'advanced-healing', title: 'Advanced Healing Program', duration: 'Starting from 21 Days', tag: 'CLINICAL CARE', desc: 'Physician-led clinical care for chronic lifestyle conditions.', image: '/assets/wellness/program-rejuvenation.jpg' }
+];
+
 export default function ProgrammeDetail({ progId, onNavigate }) {
   const data = programmeDataMap[progId] || programmeDataMap['rejuvenation'];
   
@@ -153,8 +188,8 @@ export default function ProgrammeDetail({ progId, onNavigate }) {
   });
   const [bookingModalSubmitted, setBookingModalSubmitted] = useState(false);
 
-  const openModal = () => {
-    setBookingModalData(prev => ({ ...prev, programme: data.title }));
+  const openModal = (roomName = 'Choose a room type') => {
+    setBookingModalData(prev => ({ ...prev, programme: data.title, roomType: roomName }));
     setBookingModalSubmitted(false);
     setIsBookingModalOpen(true);
   };
@@ -282,7 +317,7 @@ export default function ProgrammeDetail({ progId, onNavigate }) {
               transition={{ duration: 0.65, delay: 0.15 }}
               style={{
                 fontFamily: 'var(--font-heading)',
-                fontSize: 'clamp(2.1rem, 4vw, 3.2rem)',
+                fontSize: 'var(--fs-hero)',
                 fontWeight: 700,
                 color: 'var(--wine)',
                 margin: '0 0 0.8rem 0',
@@ -357,10 +392,10 @@ export default function ProgrammeDetail({ progId, onNavigate }) {
             
             {/* Overview Left */}
             <div>
-              <span className="section-badge" style={{ marginBottom: '0.8rem', fontSize: 'var(--fs-small)' }}>
+              <span className="section-badge" style={{ marginBottom: '0.8rem', fontSize: 'var(--fs-small)', letterSpacing: '0.22em' }}>
                 ✦ Program Philosophy ✦
               </span>
-              <h2 className="section-title" style={{ fontSize: 'var(--fs-h1)', marginBottom: '1.5rem', color: 'var(--wine)' }}>
+              <h2 className="section-title" style={{ fontSize: 'var(--fs-h2)', marginBottom: '1.5rem', color: 'var(--wine)' }}>
                 Overview &amp; Experience
               </h2>
               <p className="body-paragraph" style={{ fontSize: 'var(--fs-body)', lineHeight: 1.8, marginBottom: '1.8rem', color: 'var(--raisin-black)' }}>
@@ -394,18 +429,18 @@ export default function ProgrammeDetail({ progId, onNavigate }) {
                 boxShadow: '0 10px 30px rgba(94,39,53,0.04)'
               }}>
                 <div style={{
-                  width: '48px', height: '48px', borderRadius: '50%',
+                  width: '42px', height: '42px', borderRadius: '50%',
                   backgroundColor: 'rgba(234, 169, 54, 0.18)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   color: 'var(--wine)', flexShrink: 0
                 }}>
-                  <ShieldCheck size={24} />
+                  <ShieldCheck size={20} />
                 </div>
                 <div>
-                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', color: 'var(--wine)', marginBottom: '0.3rem', fontWeight: 700 }}>
+                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: 'var(--fs-h4)', color: 'var(--wine)', marginBottom: '0.3rem', fontWeight: 700 }}>
                     Doctor-Supervised Natural Care
                   </h4>
-                  <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black)', lineHeight: 1.6, margin: 0 }}>
+                  <p style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', lineHeight: 1.6, margin: 0, opacity: 0.9 }}>
                     Every treatment protocol is individually monitored and prescribed following your initial Iris diagnostic consultation with our resident Naturopathic physicians.
                   </p>
                 </div>
@@ -465,13 +500,13 @@ export default function ProgrammeDetail({ progId, onNavigate }) {
       <section style={{ padding: '6rem 6%', backgroundColor: 'var(--isabelline)', position: 'relative' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-            <span className="section-badge" style={{ fontSize: 'var(--fs-small)' }}>
+            <span className="section-badge" style={{ fontSize: 'var(--fs-small)', letterSpacing: '0.22em' }}>
               ✦ A DAY AT SUPRADA ✦
             </span>
-            <h2 className="section-title" style={{ fontSize: 'var(--fs-h1)', color: 'var(--wine)', marginTop: '0.5rem' }}>
+            <h2 className="section-title" style={{ fontSize: 'var(--fs-h2)', color: 'var(--wine)', marginTop: '0.5rem' }}>
               Sample Daily Healing Routine
             </h2>
-            <p className="body-paragraph" style={{ fontSize: 'var(--fs-body)', maxWidth: '600px', margin: '0 auto' }}>
+            <p className="body-paragraph" style={{ fontSize: 'var(--fs-body)', maxWidth: '600px', margin: '0 auto', color: 'var(--raisin-black)', opacity: 0.9 }}>
               A carefully structured daily rhythm designed to align your circadian cycle with nature's elements.
             </p>
           </div>
@@ -516,7 +551,272 @@ export default function ProgrammeDetail({ progId, onNavigate }) {
         </div>
       </section>
 
-      {/* BOOK YOUR RETREAT MODAL POPUP FOR PROGRAMME DETAILS */}
+      {/* ACCOMMODATION TIERS / INVESTMENT IN YOURSELF */}
+      <section style={{ padding: '6rem 6%', backgroundColor: 'var(--antique-white)', position: 'relative' }}>
+        <div style={{ maxWidth: '1180px', margin: '0 auto' }}>
+          
+          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 3.5rem' }}>
+            <span className="section-badge" style={{ marginBottom: '0.6rem', fontSize: 'var(--fs-small)', letterSpacing: '0.24em' }}>
+              ✦ INVESTMENT IN YOURSELF ✦
+            </span>
+            <h2 className="section-title" style={{ fontSize: 'var(--fs-h2)', marginBottom: '1rem', color: 'var(--wine)' }}>
+              Choose Your Accommodation Tier
+            </h2>
+            <p className="body-paragraph" style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.9 }}>
+              Every room category provides a serene healing sanctuary thoughtfully built with natural materials, cross-ventilation, and organic comforts.
+            </p>
+          </div>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))',
+            gap: '2rem'
+          }}>
+            {roomTiers.map((tier, idx) => (
+              <motion.div
+                key={tier.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: idx * 0.1 }}
+                style={{
+                  backgroundColor: '#ffffff',
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  border: '1.5px solid rgba(94, 39, 53, 0.12)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  boxShadow: '0 10px 30px rgba(94, 39, 53, 0.05)',
+                  transition: 'all 0.35s ease'
+                }}
+                whileHover={{ y: -6, borderColor: 'var(--wine)', boxShadow: '0 16px 40px rgba(94, 39, 53, 0.12)' }}
+              >
+                <div>
+                  <div style={{ height: '180px', position: 'relative', overflow: 'hidden' }}>
+                    <img
+                      src={tier.image}
+                      alt={tier.name}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                    <span style={{
+                      position: 'absolute',
+                      top: '12px',
+                      left: '12px',
+                      backgroundColor: 'rgba(94, 39, 53, 0.88)',
+                      color: 'var(--harvest-gold)',
+                      fontSize: '0.64rem',
+                      fontWeight: 800,
+                      letterSpacing: '0.1em',
+                      padding: '0.25rem 0.65rem',
+                      borderRadius: '50px',
+                      backdropFilter: 'blur(4px)',
+                      textTransform: 'uppercase'
+                    }}>
+                      ✦ {tier.category}
+                    </span>
+                  </div>
+
+                  <div style={{ padding: '1.6rem 1.6rem 1rem' }}>
+                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'var(--fs-h3)', color: 'var(--wine)', marginBottom: '0.4rem', fontWeight: 700 }}>
+                      {tier.name}
+                    </h3>
+                    <p style={{ fontSize: '0.85rem', color: 'var(--raisin-black)', opacity: 0.88, lineHeight: 1.55, marginBottom: '1.2rem' }}>
+                      {tier.desc}
+                    </p>
+
+                    <div style={{ borderTop: '1px solid rgba(94, 39, 53, 0.1)', paddingTop: '1rem' }}>
+                      <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
+                        {tier.features.map((feat, fIdx) => (
+                          <li key={fIdx} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.82rem', color: 'var(--raisin-black)' }}>
+                            <CheckCircle2 size={14} style={{ color: 'var(--harvest-gold)', flexShrink: 0 }} />
+                            <span>{feat}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ padding: '0 1.6rem 1.6rem' }}>
+                  <button
+                    onClick={() => openModal(tier.id)}
+                    className="btn-luxury"
+                    style={{ width: '100%', padding: '0.8rem', fontSize: '0.82rem' }}
+                  >
+                    Select {tier.name} &rarr;
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* EXPLORE OTHER PROGRAMMES */}
+      <section style={{ padding: '5.5rem 6%', backgroundColor: 'var(--isabelline)', position: 'relative' }}>
+        <div style={{ maxWidth: '1180px', margin: '0 auto' }}>
+          
+          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 3rem' }}>
+            <span className="section-badge" style={{ marginBottom: '0.6rem', fontSize: 'var(--fs-small)', letterSpacing: '0.24em' }}>
+              ✦ EXPLORE OTHER PROGRAMMES ✦
+            </span>
+            <h2 className="section-title" style={{ fontSize: 'var(--fs-h2)', marginBottom: '0.8rem', color: 'var(--wine)' }}>
+              Discover More Healing Journeys
+            </h2>
+            <p className="body-paragraph" style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.9 }}>
+              Every retreat is structured to meet specific physiological goals. Explore our full spectrum of wellness itineraries.
+            </p>
+          </div>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gap: '1.4rem'
+          }}>
+            {allProgrammesList
+              .filter(p => p.id !== progId)
+              .map((prog, pIdx) => (
+                <motion.div
+                  key={prog.id}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: pIdx * 0.06 }}
+                  style={{
+                    backgroundColor: '#ffffff',
+                    borderRadius: '16px',
+                    overflow: 'hidden',
+                    border: '1.2px solid rgba(94, 39, 53, 0.12)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    boxShadow: '0 6px 20px rgba(94, 39, 53, 0.04)'
+                  }}
+                  whileHover={{ y: -4, borderColor: 'var(--wine)', boxShadow: '0 12px 28px rgba(94, 39, 53, 0.1)' }}
+                >
+                  <div style={{ height: '140px', position: 'relative', overflow: 'hidden' }}>
+                    <img
+                      src={prog.image}
+                      alt={prog.title}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                    <span style={{
+                      position: 'absolute',
+                      top: '10px',
+                      left: '10px',
+                      backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                      color: 'var(--wine)',
+                      fontSize: '0.62rem',
+                      fontWeight: 800,
+                      padding: '0.2rem 0.55rem',
+                      borderRadius: '50px',
+                      backdropFilter: 'blur(4px)',
+                      textTransform: 'uppercase'
+                    }}>
+                      ✦ {prog.duration}
+                    </span>
+                  </div>
+
+                  <div style={{ padding: '1.2rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
+                    <div>
+                      <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', color: 'var(--wine)', margin: '0 0 0.35rem 0', fontWeight: 700 }}>
+                        {prog.title}
+                      </h4>
+                      <p style={{ fontSize: '0.78rem', color: 'var(--raisin-black)', opacity: 0.82, lineHeight: 1.5, margin: '0 0 1rem 0' }}>
+                        {prog.desc}
+                      </p>
+                    </div>
+
+                    <button
+                      onClick={() => {
+                        onNavigate('programmes/' + prog.id);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '0.3rem',
+                        fontSize: '0.78rem',
+                        fontWeight: 700,
+                        color: 'var(--wine)',
+                        backgroundColor: 'rgba(94, 39, 53, 0.06)',
+                        border: '1px solid rgba(94, 39, 53, 0.18)',
+                        borderRadius: '20px',
+                        padding: '0.45rem 0.9rem',
+                        cursor: 'pointer',
+                        transition: 'all 0.25s ease'
+                      }}
+                      onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--wine)'; e.currentTarget.style.color = '#ffffff'; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(94, 39, 53, 0.06)'; e.currentTarget.style.color = 'var(--wine)'; }}
+                    >
+                      Explore Program &rarr;
+                    </button>
+                  </div>
+                </motion.div>
+              ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* DOCTOR CONSULTATION & SUPPORT BANNER */}
+      <section style={{
+        padding: '5rem 6%',
+        backgroundColor: '#3a1520',
+        color: '#ffffff',
+        textAlign: 'center',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <div style={{ position: 'absolute', top: '-60px', right: '-60px', width: '260px', height: '260px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div style={{ maxWidth: '750px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+          <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.28em', fontSize: '0.74rem', fontWeight: 800, display: 'block', marginBottom: '0.6rem' }}>
+            ✦ PERSONALIZED GUIDANCE ✦
+          </span>
+          <h2 style={{ color: 'var(--tan)', fontSize: 'var(--fs-h2)', marginBottom: '0.8rem' }}>
+            Have Questions About {data.title}?
+          </h2>
+          <p style={{ color: 'rgba(244, 240, 236, 0.88)', fontSize: 'var(--fs-body)', lineHeight: 1.65, maxWidth: '620px', margin: '0 auto 2rem' }}>
+            Our resident physicians and retreat consultants are available to assist you in designing the ideal healing itinerary for your personal health goals.
+          </p>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
+            <button
+              onClick={() => onNavigate('contact')}
+              className="btn-luxury"
+              style={{ padding: '0.9rem 2.2rem', fontSize: '0.82rem' }}
+            >
+              Speak to Our Physicians &rarr;
+            </button>
+            <a
+              href="/assets/Suprada_Wellness_Brochure.pdf"
+              download="Suprada_Wellness_Brochure.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                background: 'rgba(234, 169, 54, 0.15)',
+                border: '1.5px solid var(--harvest-gold)',
+                color: 'var(--harvest-gold)',
+                padding: '0.9rem 2rem',
+                fontSize: '0.82rem',
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+                fontWeight: 700,
+                borderRadius: '8px',
+                textDecoration: 'none',
+                transition: 'all 0.3s ease'
+              }}
+            >
+              Download Brochure ↓
+            </a>
+          </div>
+        </div>
+      </section>
       <AnimatePresence>
         {isBookingModalOpen && (
           <div 

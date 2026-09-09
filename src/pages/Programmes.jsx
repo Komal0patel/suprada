@@ -111,6 +111,7 @@ export default function Programmes({ onNavigate }) {
       days: '2 / 3 Days',
       daysShort: '2-3',
       title: 'Weekend Reset',
+      path: 'programmes/weekend-reset',
       intensity: 'Moderate',
       intensityLevel: 2,
       focus: 'Quick Wellness Reset',
@@ -130,9 +131,10 @@ export default function Programmes({ onNavigate }) {
     },
     {
       id: 'rejuvenation',
-      days: '5 Days',
+      days: 'Starting from 5 Days',
       daysShort: '5',
       title: 'Rejuvenation Program',
+      path: 'programmes/rejuvenation',
       intensity: 'Medium',
       intensityLevel: 3,
       focus: 'Restoration & Vitality',
@@ -153,9 +155,10 @@ export default function Programmes({ onNavigate }) {
     },
     {
       id: 'holistic',
-      days: '7 Days',
+      days: 'Starting from 7 Days',
       daysShort: '7',
       title: 'Holistic Wellness Program',
+      path: 'programmes/holistic-wellness',
       intensity: 'Medium–High',
       intensityLevel: 4,
       focus: 'Comprehensive Wellness Reset',
@@ -179,6 +182,7 @@ export default function Programmes({ onNavigate }) {
       days: '7 / 14 / 21 Days',
       daysShort: '7-21',
       title: 'Detox Program',
+      path: 'programmes/detox',
       intensity: 'High',
       intensityLevel: 5,
       focus: 'Deep Cleansing & Purification',
@@ -199,9 +203,10 @@ export default function Programmes({ onNavigate }) {
     },
     {
       id: 'advanced',
-      days: '21 Days',
+      days: 'Starting from 21 Days',
       daysShort: '21',
       title: 'Advanced Healing Program',
+      path: 'programmes/advanced-healing',
       intensity: 'Very High',
       intensityLevel: 6,
       focus: 'Chronic Ailment Management',
@@ -324,36 +329,43 @@ export default function Programmes({ onNavigate }) {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <span style={{
-              color: 'var(--harvest-gold)',
-              fontSize: '0.78rem',
+              color: 'var(--redwood)',
+              fontSize: 'var(--fs-small)',
               textTransform: 'uppercase',
-              letterSpacing: '0.35em',
+              letterSpacing: '0.24em',
               fontWeight: 800,
               display: 'block',
-              marginBottom: '1rem'
+              marginBottom: '0.8rem'
             }}>
               ✦ Healing Journeys ✦
             </span>
 
-            <h1 style={{color: 'var(--wine)', 
-            margin: '0 0 0.9rem 0', 
-            lineHeight: 1.1, 
-            display: 'flex', 
-            justifyContent: 'center', 
-            gap: '0.7rem', 
-            flexWrap: 'wrap'}}>    Programs &amp; <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Packages</em>
+            <h1 style={{
+              color: 'var(--wine)',
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'var(--fs-hero)',
+              fontWeight: 700,
+              margin: '0 0 0.9rem 0', 
+              lineHeight: 1.15, 
+              display: 'flex', 
+              justifyContent: 'center', 
+              gap: '0.7rem', 
+              flexWrap: 'wrap'
+            }}>
+              Programs &amp; <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Packages</em>
             </h1>
 
             <p style={{
-              fontSize: isMobile ? '1.0rem' : '1.15rem',
+              fontFamily: 'var(--font-body)',
+              fontSize: 'var(--fs-body)',
               opacity: 0.9,
-              lineHeight: 1.85,
-              fontWeight: 300,
-              maxWidth: '740px',
-              margin: '0 auto 2.8rem auto',
+              lineHeight: 1.75,
+              fontWeight: 400,
+              maxWidth: '720px',
+              margin: '0 auto 2.2rem auto',
               color: 'var(--raisin-black)'
             }}>
-              "Structured, doctor-led wellness journeys tailored to cleanse, balance, and revitalize your biological clock — from weekend resets to 21-day clinical healing protocols."
+              Structured, doctor-led wellness journeys tailored to cleanse, balance, and revitalize your biological clock — from weekend resets to 21-day clinical healing protocols.
             </p>
 
             {/* Explore Programs CTA */}
@@ -734,20 +746,20 @@ export default function Programmes({ onNavigate }) {
                       </div>
 
                       {/* Action Buttons */}
-                      <div style={{ display: 'flex', gap: '0.8rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
+                      <div style={{ display: 'flex', gap: '0.7rem', marginTop: '1.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
                         <button
-                          onClick={() => onNavigate('contact')}
+                          onClick={() => onNavigate(prog.path)}
                           className="btn-luxury"
-                          style={{ padding: '0.82rem 1.8rem', fontSize: '0.84rem', letterSpacing: '0.1em', fontWeight: 700 }}
+                          style={{ padding: '0.82rem 1.6rem', fontSize: '0.84rem', letterSpacing: '0.08em', fontWeight: 700 }}
                         >
-                          Book Programme &rarr;
+                          Explore Details &rarr;
                         </button>
                         <button
                           onClick={() => onNavigate('contact')}
                           className="btn-secondary"
-                          style={{ padding: '0.82rem 1.5rem', fontSize: '0.84rem', letterSpacing: '0.08em', fontWeight: 700 }}
+                          style={{ padding: '0.82rem 1.4rem', fontSize: '0.84rem', letterSpacing: '0.06em', fontWeight: 700 }}
                         >
-                          Speak to Doctor
+                          Book / Inquire
                         </button>
                       </div>
                     </div>
@@ -820,11 +832,11 @@ export default function Programmes({ onNavigate }) {
             backdropFilter: 'blur(12px)'
           }}>
             <div style={{ overflowX: 'auto' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '800px', fontSize: 'var(--fs-body)' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '860px', fontSize: 'var(--fs-body)' }}>
                 <thead>
                   <tr style={{ borderBottom: '1.5px solid rgba(220,160,50,0.4)', backgroundColor: 'rgba(94,39,53,0.6)' }}>
-                    {['Program', 'Duration', 'Intensity', 'Focus', 'Key Therapies'].map((header) => (
-                      <th key={header} style={{ padding: '1.2rem 1.2rem', color: 'var(--harvest-gold)', fontWeight: 800, fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.12em', textAlign: header === 'Intensity' ? 'center' : 'left' }}>
+                    {['Program', 'Duration', 'Intensity', 'Focus', 'Key Therapies', 'Action'].map((header) => (
+                      <th key={header} style={{ padding: '1.2rem 1.2rem', color: 'var(--harvest-gold)', fontWeight: 800, fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.12em', textAlign: header === 'Intensity' || header === 'Action' ? 'center' : 'left' }}>
                         {header}
                       </th>
                     ))}
@@ -832,11 +844,11 @@ export default function Programmes({ onNavigate }) {
                 </thead>
                 <tbody>
                   {[
-                    { name: 'Weekend Reset', dur: '2/3 Days', int: 'Moderate', focus: 'Quick Stress Relief', therapies: 'Naturopathy, Satwik Meals, Sound Bath' },
-                    { name: 'Rejuvenation', dur: '5 Days', int: 'Medium', focus: 'Energy & Vitality', therapies: 'Shirodhara, Yoga, Massage' },
-                    { name: 'Holistic Wellness', dur: '7 Days', int: 'Medium–High', focus: 'Circadian Correction', therapies: 'Iris Diagnosis, Steam, Sound, Yoga' },
-                    { name: 'Detox Program', dur: '7/14/21 Days', int: 'High', focus: 'Deep Toxin Cleansing', therapies: 'Fasting, Colon Hydrotherapy, Mud' },
-                    { name: 'Advanced Healing', dur: '21 Days', int: 'Very High', focus: 'Chronic Care', therapies: 'Acupuncture, Physio, Custom Diet' }
+                    { name: 'Weekend Reset', path: 'programmes/weekend-reset', dur: '2/3 Days', int: 'Moderate', focus: 'Quick Stress Relief', therapies: 'Naturopathy, Satwik Meals, Sound Bath' },
+                    { name: 'Rejuvenation Program', path: 'programmes/rejuvenation', dur: 'Starting from 5 Days', int: 'Medium', focus: 'Energy & Vitality', therapies: 'Shirodhara, Yoga, Massage' },
+                    { name: 'Holistic Wellness Program', path: 'programmes/holistic-wellness', dur: 'Starting from 7 Days', int: 'Medium–High', focus: 'Circadian Correction', therapies: 'Iris Diagnosis, Steam, Sound, Yoga' },
+                    { name: 'Detox Program', path: 'programmes/detox', dur: '7/14/21 Days', int: 'High', focus: 'Deep Toxin Cleansing', therapies: 'Fasting, Colon Hydrotherapy, Mud' },
+                    { name: 'Advanced Healing Program', path: 'programmes/advanced-healing', dur: 'Starting from 21 Days', int: 'Very High', focus: 'Chronic Care', therapies: 'Acupuncture, Physio, Custom Diet' }
                   ].map((row, idx) => (
                     <tr
                       key={idx}
@@ -863,6 +875,27 @@ export default function Programmes({ onNavigate }) {
                       </td>
                       <td style={{ padding: '1.2rem', color: '#ffffff', fontWeight: 500 }}>{row.focus}</td>
                       <td style={{ padding: '1.2rem', color: 'rgba(244,240,236,0.92)', fontSize: 'var(--fs-body)', fontWeight: 400 }}>{row.therapies}</td>
+                      <td style={{ padding: '1.2rem', textAlign: 'center' }}>
+                        <button
+                          onClick={() => onNavigate(row.path)}
+                          style={{
+                            padding: '0.4rem 0.9rem',
+                            backgroundColor: 'rgba(234, 169, 54, 0.2)',
+                            border: '1px solid var(--harvest-gold)',
+                            color: 'var(--harvest-gold)',
+                            borderRadius: '20px',
+                            fontSize: '0.78rem',
+                            fontWeight: 700,
+                            cursor: 'pointer',
+                            whiteSpace: 'nowrap',
+                            transition: 'all 0.25s ease'
+                          }}
+                          onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--harvest-gold)'; e.currentTarget.style.color = '#3a1520'; }}
+                          onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(234, 169, 54, 0.2)'; e.currentTarget.style.color = 'var(--harvest-gold)'; }}
+                        >
+                          Explore &rarr;
+                        </button>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -1104,11 +1137,11 @@ export default function Programmes({ onNavigate }) {
           <p style={{ color: 'rgba(220,195,175,0.7)', fontSize: 'var(--fs-body)', lineHeight: 1.7, marginBottom: '2.5rem' }}>
             Our physicians are ready to design your personalized wellness protocol.
           </p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
             <button
               onClick={() => onNavigate('contact')}
               className="btn-luxury"
-              style={{ padding: '1rem 2.5rem', fontSize: '0.82rem', letterSpacing: '0.12em' }}
+              style={{ padding: '1rem 2.2rem', fontSize: '0.82rem', letterSpacing: '0.12em' }}
             >
               Speak to a Doctor
             </button>
@@ -1119,7 +1152,7 @@ export default function Programmes({ onNavigate }) {
                 border: '1.5px solid var(--tan)',
                 color: 'var(--tan)',
                 cursor: 'pointer',
-                padding: '1rem 2.5rem',
+                padding: '1rem 2.2rem',
                 fontSize: '0.82rem',
                 textTransform: 'uppercase',
                 letterSpacing: '0.12em',
@@ -1130,6 +1163,30 @@ export default function Programmes({ onNavigate }) {
             >
               View Accommodations
             </button>
+            <a
+              href="/assets/Suprada_Wellness_Brochure.pdf"
+              download="Suprada_Wellness_Brochure.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                background: 'rgba(234, 169, 54, 0.15)',
+                border: '1.5px solid var(--harvest-gold)',
+                color: 'var(--harvest-gold)',
+                padding: '1rem 2.2rem',
+                fontSize: '0.82rem',
+                textTransform: 'uppercase',
+                letterSpacing: '0.12em',
+                fontWeight: 700,
+                borderRadius: '8px',
+                textDecoration: 'none',
+                transition: 'all 0.3s ease'
+              }}
+            >
+              Download Brochure ↓
+            </a>
           </div>
         </div>
       </section>

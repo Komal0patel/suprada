@@ -436,13 +436,18 @@ export default function Spaces({ onNavigate }) {
           </motion.div>
 
           {/* Word-by-Word Revealed Main Headline */}
-          <h1 style={{color: 'var(--wine)', 
+          <h1 style={{
+            color: 'var(--wine)',
+            fontFamily: 'var(--font-heading)',
+            fontSize: 'var(--fs-hero)',
+            fontWeight: 700,
             margin: '0 0 0.9rem 0', 
-            lineHeight: 1.1, 
+            lineHeight: 1.15, 
             display: 'flex', 
             justifyContent: 'center', 
             gap: '0.7rem', 
-            flexWrap: 'wrap'}}>
+            flexWrap: 'wrap'
+          }}>
             {['Where', 'Every'].map((w, idx) => (
               <motion.span
                 key={idx}

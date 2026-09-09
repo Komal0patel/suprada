@@ -16,6 +16,7 @@ import Careers from './pages/Careers';
 import Contact from './pages/Contact';
 import ComprehensiveCare from './pages/ComprehensiveCare';
 import Naturopathy from './pages/Naturopathy';
+import YogaMeditation from './pages/YogaMeditation';
 import Wellness from './pages/Wellness';
 import Nutrition from './pages/Nutrition';
 import Activities from './pages/Activities';
@@ -108,7 +109,7 @@ function App() {
     }, 200);
   }, []);
 
-  // Programme sub-page definitions
+  // Programme sub-page definitions (Exact match to reference site)
   const programmesDropdownItems = [
     {
       label: 'Pillars of Wellness',
@@ -124,12 +125,10 @@ function App() {
         { id: 'programmes/ayurveda', label: 'Ayurveda' }
       ]
     },
+    { id: 'programmes/wellness', label: 'Wellness' },
     { id: 'programmes/packages', label: 'Programs & Packages' },
-    { id: 'programmes/wellness', label: 'Wellness Programs' },
     { id: 'programmes/nutrition', label: 'Nutrition' },
-    { id: 'programmes/activities', label: 'Activities' },
-    { id: 'comprehensivecare', label: 'Comprehensive Care' },
-    { id: 'naturopathy', label: 'Naturopathy' }
+    { id: 'programmes/activities', label: 'Activities' }
   ];
 
   const { scrollY } = useScroll();
@@ -1364,8 +1363,8 @@ function App() {
           {currentPage === 'programmes/activities'          && <Activities onNavigate={handlePageChange} />}
           
           {/* Pillars of Wellness Sub-Routes */}
-          {currentPage === 'programmes/naturopathy'         && <PillarDetail pillarId="naturopathy" onNavigate={handlePageChange} />}
-          {currentPage === 'programmes/yoga-meditation'     && <PillarDetail pillarId="yoga-meditation" onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/naturopathy'         && <Naturopathy onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/yoga-meditation'     && <YogaMeditation onNavigate={handlePageChange} />}
           {currentPage === 'programmes/holistic-therapies'   && <PillarDetail pillarId="holistic-therapies" onNavigate={handlePageChange} />}
           {currentPage === 'programmes/nutrition-lifestyle'  && <PillarDetail pillarId="nutrition-lifestyle" onNavigate={handlePageChange} />}
           {currentPage === 'programmes/mental-emotional'    && <PillarDetail pillarId="mental-emotional" onNavigate={handlePageChange} />}

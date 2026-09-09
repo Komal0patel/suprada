@@ -725,12 +725,18 @@ export default function Stay({ onNavigate }) {
       {/* --- OVERVIEW PHILOSOPHY SECTION --- */}
       <section style={{ padding: '6rem 8%', backgroundColor: 'var(--brand-bg)', color: 'var(--wine)', position: 'relative' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem', padding: '0.4rem 1.2rem', backgroundColor: 'rgba(94, 39, 53, 0.08)', borderRadius: '50px', marginBottom: '1.2rem' }}>
-            <span style={{ fontSize: '0.86rem', textTransform: 'uppercase', letterSpacing: '0.2em', fontWeight: 800, color: 'var(--wine)' }}>
-              Living Haven
-            </span>
-          </div>
-          <h2 style={{color: 'var(--wine)', marginBottom: '1.2rem'}}>
+          <span style={{
+            color: 'var(--wine)',
+            textTransform: 'uppercase',
+            letterSpacing: '0.24em',
+            fontSize: 'var(--fs-small)',
+            fontWeight: 800,
+            display: 'block',
+            marginBottom: '0.45rem'
+          }}>
+            ✦ LIVING HAVEN
+          </span>
+          <h2 style={{color: 'var(--wine)', marginBottom: '1.2rem', fontSize: 'var(--fs-h2)'}}>
             Your Personal <span style={{ color: 'var(--harvest-gold)' }}>Haven</span>
           </h2>
           <p style={{ fontSize: 'var(--fs-body)', lineHeight: 1.7, opacity: 0.88, maxWidth: '750px', margin: '0 auto', fontWeight: 400 }}>

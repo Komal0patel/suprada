@@ -98,29 +98,29 @@ const processSteps = [
 const featuredPrograms = [
   {
     title: 'Rejuvenation Program',
-    duration: 'Starting from 7 days',
-    desc: 'Doctor consultation, Diet counselling, Daily Yoga & Meditation, Naturopathy treatments, Shirodhara, and Sound Healing sessions.',
+    duration: 'Starting from 5 Days',
+    desc: 'Doctor consultation, Diet counselling, Daily Yoga and Meditation, Daily naturopathy treatments, Shirodhara / Udhwartana, sound healing sessions.',
     image: '/assets/wellness/program-rejuvenation.jpg',
     path: 'programmes/rejuvenation'
   },
   {
     title: 'Holistic Wellness Program',
-    duration: 'Starting from 7 / 14 / 21 days',
-    desc: 'Full wellness assessment, Daily Yoga, Pranayama, Meditation, Daily Naturopathy therapies, Shirodhara, and Group sound baths.',
+    duration: 'Starting from 7 Days',
+    desc: 'Full wellness assessment, Daily Yoga, Pranayama, Meditation, Daily Naturopathy treatments, Shirodhara/udhwartana, Group sound healing.',
     image: '/assets/wellness/program-holistic.jpg',
     path: 'programmes/holistic-wellness'
   },
   {
     title: 'Detox Program',
-    duration: 'Starting from 5 days',
-    desc: 'Full Body Analysis, Iris diagnosis, Massage and steam baths, Detox diet, fasting therapy, Hydrotherapy, and colon cleansing.',
+    duration: 'Starting from 7 / 14 / 21 Days',
+    desc: 'Full Body Analysis, Iris diagnosis, Massage and steam baths, Detox diet, fasting therapy, Hydrotherapy, and Colon hydrotherapy.',
     image: '/assets/wellness/program-detox.jpg',
     path: 'programmes/detox'
   },
   {
     title: 'Weekend Reset',
-    duration: 'Starting from 2 / 3 days',
-    desc: 'Consultation, 2 Naturopathy treatments per day, Group Sunrise Yoga, Tibetan singing bowls, and organic Satwik meals.',
+    duration: 'Starting from 2 / 3 Days',
+    desc: 'Consultation, 2 Naturopathy treatments per day, Group Yoga sessions, Group sound healing, Satwik meals.',
     image: '/assets/wellness/program-weekend-reset.jpg',
     path: 'programmes/weekend-reset'
   }
@@ -349,27 +349,20 @@ export default function Wellness({ onNavigate }) {
             style={{ textAlign: 'center', marginBottom: '1.8rem' }}
           >
             <span style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.35rem',
-              color: 'var(--wine)',
-              backgroundColor: 'rgba(94, 39, 53, 0.08)',
-              fontSize: '0.7rem',
+              color: 'var(--redwood)',
+              fontSize: 'var(--fs-small)',
               fontWeight: 800,
-              letterSpacing: '0.14em',
+              letterSpacing: '0.24em',
               textTransform: 'uppercase',
-              padding: '0.3rem 0.95rem',
-              borderRadius: '50px',
-              marginBottom: '0.5rem',
-              border: '1px solid rgba(94, 39, 53, 0.18)',
-              boxShadow: '0 2px 5px rgba(94, 39, 53, 0.04)'
+              display: 'block',
+              marginBottom: '0.45rem'
             }}>
-              <Leaf size={12} style={{ color: 'var(--wine)' }} /> OUR APPROACH
+              ✦ OUR APPROACH
             </span>
 
             <h2 style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: 'var(--fs-h1)',
+              fontSize: 'var(--fs-h2)',
               fontWeight: 700,
               color: 'var(--wine)',
               lineHeight: 1.2
@@ -629,27 +622,20 @@ export default function Wellness({ onNavigate }) {
             style={{ textAlign: 'center', marginBottom: '1.8rem' }}
           >
             <span style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.35rem',
-              color: 'var(--wine)',
-              backgroundColor: 'rgba(94, 39, 53, 0.08)',
-              fontSize: '0.7rem',
+              color: 'var(--redwood)',
+              fontSize: 'var(--fs-small)',
               fontWeight: 800,
-              letterSpacing: '0.14em',
+              letterSpacing: '0.24em',
               textTransform: 'uppercase',
-              padding: '0.3rem 0.95rem',
-              borderRadius: '50px',
-              marginBottom: '0.5rem',
-              border: '1px solid rgba(94, 39, 53, 0.18)',
-              boxShadow: '0 2px 5px rgba(94, 39, 53, 0.04)'
+              display: 'block',
+              marginBottom: '0.45rem'
             }}>
-              <Compass size={12} style={{ color: 'var(--wine)' }} /> DISCOVER
+              ✦ DISCOVER
             </span>
 
             <h2 style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: 'var(--fs-h1)',
+              fontSize: 'var(--fs-h2)',
               fontWeight: 700,
               color: 'var(--wine)',
               lineHeight: 1.2
@@ -841,22 +827,15 @@ export default function Wellness({ onNavigate }) {
           {/* Header Title */}
           <div style={{ textAlign: 'center', marginBottom: '1.1rem' }}>
             <span style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.35rem',
-              color: 'var(--wine)',
-              backgroundColor: 'rgba(94, 39, 53, 0.08)',
-              fontSize: '0.68rem',
+              color: 'var(--redwood)',
+              fontSize: 'var(--fs-small)',
               fontWeight: 800,
-              letterSpacing: '0.14em',
+              letterSpacing: '0.24em',
               textTransform: 'uppercase',
-              padding: '0.28rem 0.85rem',
-              borderRadius: '50px',
-              marginBottom: '0.45rem',
-              border: '1px solid rgba(94, 39, 53, 0.18)',
-              boxShadow: '0 2px 5px rgba(94, 39, 53, 0.04)'
+              display: 'block',
+              marginBottom: '0.45rem'
             }}>
-              <Activity size={11} style={{ color: 'var(--wine)' }} /> OUR METHODOLOGY
+              ✦ OUR METHODOLOGY
             </span>
 
             <h2 style={{
@@ -1108,27 +1087,20 @@ export default function Wellness({ onNavigate }) {
           {/* Header Area */}
           <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 2rem' }}>
             <span style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.35rem',
-              backgroundColor: 'rgba(94, 39, 53, 0.08)',
-              color: 'var(--wine)',
-              fontSize: '0.7rem',
+              color: 'var(--redwood)',
+              fontSize: 'var(--fs-small)',
               fontWeight: 800,
-              letterSpacing: '0.14em',
+              letterSpacing: '0.24em',
               textTransform: 'uppercase',
-              padding: '0.3rem 0.95rem',
-              borderRadius: '50px',
-              marginBottom: '0.55rem',
-              border: '1px solid rgba(94, 39, 53, 0.18)',
-              boxShadow: '0 2px 5px rgba(94, 39, 53, 0.04)'
+              display: 'block',
+              marginBottom: '0.45rem'
             }}>
-              <Compass size={12} style={{ color: 'var(--wine)' }} /> PROGRAMS
+              ✦ CURATED PROGRAMMES
             </span>
 
             <h2 style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: 'var(--fs-h1)',
+              fontSize: 'var(--fs-h2)',
               fontWeight: 700,
               color: 'var(--wine)',
               lineHeight: 1.2,
@@ -1217,7 +1189,7 @@ export default function Wellness({ onNavigate }) {
                 {/* Card Body */}
                 <div style={{ padding: '1.1rem 1rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
                   <div>
-                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', fontWeight: 700, marginBottom: '0.4rem', color: 'var(--wine)' }}>
+                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'var(--fs-h3)', fontWeight: 700, marginBottom: '0.4rem', color: 'var(--wine)' }}>
                       {prog.title}
                     </h3>
 
@@ -1298,7 +1270,7 @@ export default function Wellness({ onNavigate }) {
 
               <h2 style={{
                 fontFamily: 'var(--font-heading)',
-                fontSize: 'var(--fs-h1)',
+                fontSize: 'var(--fs-h2)',
                 color: 'var(--tan)',
                 marginBottom: '0.75rem',
                 lineHeight: 1.2

@@ -526,7 +526,7 @@ export default function HolisticTherapies({ onNavigate }) {
 
                 <div>
                   <button 
-                    onClick={() => onNavigate('contact')}
+                    onClick={() => onNavigate('book', { programme: 'holistic-therapies' })}
                     style={{
                       backgroundColor: 'var(--wine, #5E2735)',
                       color: '#ffffff',

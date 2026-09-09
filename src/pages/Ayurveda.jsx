@@ -3,9 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Pattern24, Pattern25, Pattern27 } from '../AnimatedPatterns';
 import { 
   Sparkles, ArrowRight, ArrowLeft, Check, Leaf, 
-  Utensils, ShieldCheck, Sprout, TrendingDown, CircleOff, 
-  ClipboardList, GlassWater, Hourglass, Bed, Carrot, 
-  Apple, CircleDot, Soup
+  Droplets, Soup, Layers, Waves, Sun, Activity, 
+  Droplet, Flame, Wind
 } from 'lucide-react';
 
 const wordRevealContainer = {
@@ -25,25 +24,34 @@ const wordVariant = {
   }
 };
 
-export default function NutritionLifestyle({ onNavigate }) {
-  const [activeTab, setActiveTab] = useState('healing');
+export default function Ayurveda({ onNavigate }) {
+  const [activeTab, setActiveTab] = useState('dhara');
 
-  const healingDiets = [
-    { name: "Satwik Meals", icon: Utensils, desc: "Pure, balanced vegetarian nutrition for mental clarity", color: "#6A7B66" },
-    { name: "Anti-Inflammatory", icon: ShieldCheck, desc: "Diet rich in antioxidants to reduce bodily inflammation", color: "#B85645" },
-    { name: "Millet Based", icon: Sprout, desc: "Ancient grains for sustained energy & fiber", color: "#B8860B" },
-    { name: "Diabetic Friendly", icon: TrendingDown, desc: "Low glycemic index meals for blood sugar control", color: "#5E2735" },
-    { name: "Grain Free", icon: CircleOff, desc: "Digestive reset excluding all cereal grains", color: "#6A7B66" },
-    { name: "Post Retreat Plan", icon: ClipboardList, desc: "Customized guidance for maintaining wellness at home", color: "#B8860B" }
+  const dharaModalities = [
+    { name: "Taila Shirodhara", icon: Sparkles, desc: "Oil flow on forehead for mental peace", color: "#B8860B" },
+    { name: "Thakradhara", icon: Droplets, desc: "Buttermilk flow for cooling effect", color: "#6A7B66" },
+    { name: "Ksheera Dhara", icon: Soup, desc: "Medicated milk for nervous system", color: "#5E2735" },
+    { name: "Dhanyamalaka", icon: Layers, desc: "Fermented grain liquid for inflammation", color: "#B85645" },
+    { name: "Sarvangadhara", icon: Waves, desc: "Full body oil bath (Pizhichil)", color: "#B8860B" },
+    { name: "Netradhara", icon: Sun, desc: "Cleansing eye wash therapy", color: "#6A7B66" },
+    { name: "Sandhidhara", icon: Activity, desc: "Localized oil pooling for joints", color: "#5E2735" },
+    { name: "Ashwagandha Dhara", icon: Leaf, desc: "Strengthening herbal flow", color: "#B85645" },
+    { name: "Partial Dhara", icon: Droplet, desc: "Targeted flow for specific pain areas", color: "#B8860B" }
   ];
 
-  const detoxProtocols = [
-    { name: "Detox Juices", icon: GlassWater, desc: "Freshly pressed vegetable & fruit elixirs", color: "#B8860B" },
-    { name: "Fasting Protocols", icon: Hourglass, desc: "Intermittent or prolonged therapeutic fasting", color: "#5E2735" },
-    { name: "Gut Rest", icon: Bed, desc: "Liquid & light diet to repair digestion", color: "#6A7B66" },
-    { name: "Raw Diet", icon: Carrot, desc: "Uncooked, enzyme-rich plant foods", color: "#B85645" },
-    { name: "Fruit Diet", icon: Apple, desc: "Monodiet of seasonal fruits for cleansing", color: "#B8860B" },
-    { name: "Mono Diet", icon: CircleDot, desc: "Single food focus for digestive simplicity and detox", color: "#5E2735" }
+  const massageModalities = [
+    { name: "Abhyangam", icon: Leaf, desc: "Full body oil massage", color: "#6A7B66" },
+    { name: "Udhwartana", icon: Layers, desc: "Herbal powder scrub", color: "#B8860B" },
+    { name: "Potli", icon: Flame, desc: "Warm herbal pouches", color: "#B85645" },
+    { name: "Marma", icon: Sparkles, desc: "Vital energy points", color: "#5E2735" }
+  ];
+
+  const specializedModalities = [
+    { name: "Kizhi (Bolus)", icon: Flame, desc: "Warm herbal poultice massage for pain", color: "#B85645" },
+    { name: "Nasya", icon: Wind, desc: "Nasal drops for head & neck clearing", color: "#6A7B66" },
+    { name: "Pozhichalur", icon: Sparkles, desc: "Soft beauty massage with herbal powder", color: "#B8860B" },
+    { name: "Udhwartana", icon: Leaf, desc: "Dry powder massage for weight loss", color: "#5E2735" },
+    { name: "Abhyangam", icon: Droplets, desc: "Traditional full body oil massage", color: "#6A7B66" }
   ];
 
   return (
@@ -142,9 +150,9 @@ export default function NutritionLifestyle({ onNavigate }) {
             gap: '0.6rem', 
             flexWrap: 'wrap'
           }}>
-            <motion.span variants={wordVariant}>Nutrition &amp;</motion.span>
+            <motion.span variants={wordVariant}>Ayur</motion.span>
             <motion.span variants={wordVariant} style={{ fontStyle: 'italic', color: 'var(--harvest-gold, #B8860B)' }}>
-              Lifestyle
+              veda
             </motion.span>
           </h1>
 
@@ -160,7 +168,7 @@ export default function NutritionLifestyle({ onNavigate }) {
             textAlign: 'center',
             letterSpacing: '0.01em'
           }}>
-            Nourish Your Body, Transform Your Life
+            Ancient Wisdom for Modern Wellness
           </p>
         </motion.div>
       </section>
@@ -168,7 +176,7 @@ export default function NutritionLifestyle({ onNavigate }) {
       {/* Main Content Area */}
       <div style={{ maxWidth: '1220px', margin: '0 auto', padding: '4.5rem 6%' }}>
         
-        {/* 2. ABOUT NUTRITION & LIFESTYLE SECTION - Exact verbatim paragraphs & exact reference image */}
+        {/* 2. ABOUT AYURVEDA SECTION - Exact verbatim paragraphs & exact reference image */}
         <section style={{ marginBottom: '5rem' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3.5rem', alignItems: 'center' }}>
             <motion.div 
@@ -187,8 +195,8 @@ export default function NutritionLifestyle({ onNavigate }) {
               }}
             >
               <img 
-                src="/assets/programmes/nutrition-lifestyle-about.jpg" 
-                alt="Healthy nutrition with fresh vegetables and fruits" 
+                src="/assets/programmes/ayurveda-about.jpg" 
+                alt="Holistic massage therapy with herbal oils" 
                 style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: '360px', maxHeight: '480px' }}
               />
             </motion.div>
@@ -201,18 +209,18 @@ export default function NutritionLifestyle({ onNavigate }) {
               style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
             >
               <h2 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: 'clamp(2.2rem, 3.8vw, 3.2rem)', margin: '0 0 1.2rem 0', fontWeight: 700, lineHeight: 1.2 }}>
-                About <span style={{ color: 'var(--harvest-gold, #B8860B)', fontStyle: 'italic' }}>Nutrition &amp; Lifestyle</span>
+                About <span style={{ color: 'var(--harvest-gold, #B8860B)', fontStyle: 'italic' }}>Ayurveda</span>
               </h2>
               <p style={{ fontSize: '1.02rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.88, lineHeight: 1.75, marginBottom: '1.2rem' }}>
-                True wellness begins with what you put on your plate and how you live your daily life. Our nutrition and lifestyle programmes combine ancient dietary wisdom with modern nutritional science to create personalized plans that support your health goals, enhance vitality, and promote long-term well-being.
+                Ayurveda, the 5,000-year-old &ldquo;Science of Life,&rdquo; offers a comprehensive approach to health and wellness by balancing the three doshas—Vata, Pitta, and Kapha. At Suprada Wellness, our authentic Holistic treatments combine classical therapies with personalized care to restore harmony, enhance immunity, and promote longevity.
               </p>
               <p style={{ fontSize: '1.02rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.88, lineHeight: 1.75, margin: 0 }}>
-                From satwik meal plans to gut-health optimization and sustainable lifestyle modifications, we guide you toward choices that nourish not just your body, but your mind and spirit as well.
+                Through therapeutic massages and lifestyle guidance, we help you achieve optimal health according to your unique constitution.
               </p>
             </motion.div>
           </div>
 
-          {/* 3. SANSKRIT WISDOM BANNER - "You are what you eat" */}
+          {/* 3. SANSKRIT WISDOM BANNER - Holistic Naturopathy Wisdom */}
           <motion.div 
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -236,17 +244,17 @@ export default function NutritionLifestyle({ onNavigate }) {
 
             <div style={{ position: 'relative', zIndex: 2, maxWidth: '700px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '0.7rem' }}>
               <span style={{ color: 'var(--wine, #5E2735)', fontFamily: 'var(--font-heading)', fontSize: '1.6rem', fontWeight: 700, fontStyle: 'italic', letterSpacing: '0.02em' }}>
-                &ldquo;You are what you eat&rdquo;
+                Holistic Naturopathy Wisdom
               </span>
               <p style={{ fontFamily: 'var(--font-heading)', color: 'var(--redwood, #B85645)', fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 600, margin: 0, lineHeight: 1.3 }}>
-                आहारशुद्धौ सत्त्वशुद्धिः।
+                स्वस्थस्य स्वास्थ्यरक्षणं।
               </p>
               <p style={{ color: 'var(--wine, #5E2735)', fontSize: '1.1rem', fontStyle: 'italic', fontWeight: 500, margin: 0 }}>
-                Ahāraśuddhau sattvaśuddhiḥ.
+                Svasthasya svāsthyarakṣaṇaṃ.
               </p>
               <div style={{ paddingTop: '0.8rem', borderTop: '1px solid rgba(94, 39, 53, 0.15)', width: '60%', margin: '0.5rem auto 0 auto' }}>
                 <p style={{ color: 'var(--raisin-black, #2B1B17)', opacity: 0.8, fontSize: '0.95rem', fontWeight: 500, margin: 0 }}>
-                  (When food is pure, the mind becomes pure.)
+                  (Preservation of health of the healthy.)
                 </p>
               </div>
             </div>
@@ -255,8 +263,8 @@ export default function NutritionLifestyle({ onNavigate }) {
 
       </div>
 
-      {/* 4. NOURISHMENT PROTOCOLS - Interactive Tabbed Section with Professional Lucide Icons */}
-      <section id="protocols" style={{
+      {/* 4. HEALING TRADITIONS - Interactive Tabbed Section with Lucide Icons */}
+      <section id="traditions" style={{
         padding: '5rem 6%',
         boxSizing: 'border-box',
         background: 'linear-gradient(135deg, #c8ceaa 0%, #b3ba8e 60%, #a3aa7e 100%)',
@@ -269,21 +277,21 @@ export default function NutritionLifestyle({ onNavigate }) {
           
           <div style={{ textAlign: 'center', marginBottom: '2.8rem' }}>
             <h2 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: 'clamp(2.2rem, 3.8vw, 3.4rem)', margin: '0 0 0.6rem 0', fontWeight: 700 }}>
-              Nourishment <span style={{ color: 'var(--harvest-gold, #B8860B)', fontStyle: 'italic' }}>Protocols</span>
+              Healing <span style={{ color: 'var(--harvest-gold, #B8860B)', fontStyle: 'italic' }}>Traditions</span>
             </h2>
             <p style={{ color: '#ffffff', fontSize: '1.05rem', maxWidth: '760px', margin: '0 auto', lineHeight: 1.6, fontWeight: 500 }}>
-              Scientifically designed dietary plans that heal, detoxify, and energize.
+              Authentic traditional therapies for complete rejuvenation
             </p>
 
             {/* Interactive Category Tabs */}
-            <div style={{ display: 'inline-flex', gap: '0.8rem', marginTop: '2.2rem', backgroundColor: 'rgba(255, 255, 255, 0.45)', padding: '0.4rem', borderRadius: '35px', backdropFilter: 'blur(10px)' }}>
+            <div style={{ display: 'inline-flex', gap: '0.6rem', marginTop: '2.2rem', backgroundColor: 'rgba(255, 255, 255, 0.45)', padding: '0.4rem', borderRadius: '35px', backdropFilter: 'blur(10px)', flexWrap: 'wrap', justifyContent: 'center' }}>
               <button
-                onClick={() => setActiveTab('healing')}
+                onClick={() => setActiveTab('dhara')}
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.5rem',
-                  padding: '0.7rem 2rem',
+                  padding: '0.7rem 1.6rem',
                   borderRadius: '30px',
                   fontSize: '0.85rem',
                   fontWeight: 800,
@@ -292,21 +300,21 @@ export default function NutritionLifestyle({ onNavigate }) {
                   border: 'none',
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
-                  backgroundColor: activeTab === 'healing' ? 'var(--wine, #5E2735)' : 'transparent',
-                  color: activeTab === 'healing' ? '#f5ebd9' : 'var(--wine, #5E2735)',
-                  boxShadow: activeTab === 'healing' ? '0 4px 15px rgba(94, 39, 53, 0.25)' : 'none'
+                  backgroundColor: activeTab === 'dhara' ? 'var(--wine, #5E2735)' : 'transparent',
+                  color: activeTab === 'dhara' ? '#f5ebd9' : 'var(--wine, #5E2735)',
+                  boxShadow: activeTab === 'dhara' ? '0 4px 15px rgba(94, 39, 53, 0.25)' : 'none'
                 }}
               >
-                <Soup size={16} />
-                Healing Diets
+                <Sparkles size={16} />
+                Dhara Therapies
               </button>
               <button
-                onClick={() => setActiveTab('detox')}
+                onClick={() => setActiveTab('massages')}
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.5rem',
-                  padding: '0.7rem 2rem',
+                  padding: '0.7rem 1.6rem',
                   borderRadius: '30px',
                   fontSize: '0.85rem',
                   fontWeight: 800,
@@ -315,29 +323,52 @@ export default function NutritionLifestyle({ onNavigate }) {
                   border: 'none',
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
-                  backgroundColor: activeTab === 'detox' ? 'var(--wine, #5E2735)' : 'transparent',
-                  color: activeTab === 'detox' ? '#f5ebd9' : 'var(--wine, #5E2735)',
-                  boxShadow: activeTab === 'detox' ? '0 4px 15px rgba(94, 39, 53, 0.25)' : 'none'
+                  backgroundColor: activeTab === 'massages' ? 'var(--wine, #5E2735)' : 'transparent',
+                  color: activeTab === 'massages' ? '#f5ebd9' : 'var(--wine, #5E2735)',
+                  boxShadow: activeTab === 'massages' ? '0 4px 15px rgba(94, 39, 53, 0.25)' : 'none'
                 }}
               >
-                <Apple size={16} />
-                Detox &amp; Reset
+                <Leaf size={16} />
+                Authentic Massages
+              </button>
+              <button
+                onClick={() => setActiveTab('specialized')}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  padding: '0.7rem 1.6rem',
+                  borderRadius: '30px',
+                  fontSize: '0.85rem',
+                  fontWeight: 800,
+                  letterSpacing: '0.06em',
+                  textTransform: 'uppercase',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  backgroundColor: activeTab === 'specialized' ? 'var(--wine, #5E2735)' : 'transparent',
+                  color: activeTab === 'specialized' ? '#f5ebd9' : 'var(--wine, #5E2735)',
+                  boxShadow: activeTab === 'specialized' ? '0 4px 15px rgba(94, 39, 53, 0.25)' : 'none'
+                }}
+              >
+                <Droplets size={16} />
+                Specialized Care
               </button>
             </div>
           </div>
 
-          {/* Cards Grid with Professional Lucide Icons */}
+          {/* Cards Content */}
           <AnimatePresence mode="wait">
-            {activeTab === 'healing' ? (
+            {activeTab === 'dhara' && (
               <motion.div 
-                key="healing-tab"
+                key="dhara-tab"
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.4 }}
-                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.4rem' }}
+                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '1.4rem' }}
               >
-                {healingDiets.map((item) => {
+                {dharaModalities.map((item) => {
                   const IconComp = item.icon;
                   return (
                     <motion.div
@@ -381,16 +412,73 @@ export default function NutritionLifestyle({ onNavigate }) {
                   );
                 })}
               </motion.div>
-            ) : (
+            )}
+
+            {activeTab === 'massages' && (
               <motion.div 
-                key="detox-tab"
+                key="massages-tab"
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.4 }}
-                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.4rem' }}
+                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '1.4rem' }}
               >
-                {detoxProtocols.map((item) => {
+                {massageModalities.map((item) => {
+                  const IconComp = item.icon;
+                  return (
+                    <motion.div
+                      key={item.name}
+                      whileHover={{ y: -5, boxShadow: '0 12px 30px rgba(94, 39, 53, 0.12)' }}
+                      transition={{ type: "spring", stiffness: 220, damping: 20 }}
+                      style={{
+                        backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                        borderRadius: '22px',
+                        padding: '1.6rem 1.4rem',
+                        border: '1.5px solid rgba(255, 255, 255, 0.9)',
+                        boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        textAlign: 'left'
+                      }}
+                    >
+                      <div>
+                        <div style={{
+                          width: '46px',
+                          height: '46px',
+                          borderRadius: '14px',
+                          backgroundColor: `${item.color}15`,
+                          color: item.color,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          marginBottom: '1rem'
+                        }}>
+                          <IconComp size={22} />
+                        </div>
+                        <h4 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.35rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>
+                          {item.name}
+                        </h4>
+                        <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.82, margin: 0, lineHeight: 1.5 }}>
+                          {item.desc}
+                        </p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
+            )}
+
+            {activeTab === 'specialized' && (
+              <motion.div 
+                key="specialized-tab"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.4 }}
+                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '1.4rem' }}
+              >
+                {specializedModalities.map((item) => {
                   const IconComp = item.icon;
                   return (
                     <motion.div
@@ -443,14 +531,14 @@ export default function NutritionLifestyle({ onNavigate }) {
       {/* Main Container Continued */}
       <div style={{ maxWidth: '1220px', margin: '0 auto', padding: '4.5rem 6%' }}>
         
-        {/* 5. FOOD AS MEDICINE & SIGNATURE FOCUS - Exact reference content & image */}
+        {/* 5. RESTORING YOUR DOSHA BALANCE & SIGNATURE PROGRAMME - Exact reference content & image */}
         <section style={{ marginBottom: '5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.8rem' }}>
             <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: 'clamp(2rem, 3.4vw, 2.8rem)', fontWeight: 700, margin: '0 0 0.8rem 0' }}>
-              Food as Medicine
+              Restoring Your Dosha Balance
             </h3>
             <p style={{ fontSize: '1rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, maxWidth: '820px', margin: '0 auto', lineHeight: 1.65 }}>
-              Our approach to nutrition transcends calorie counting. We view food as information that programs your biology. By combining the wisdom of holistic wellness with modern nutritional science, we create personalized dietary strategies that address the root cause of imbalances, optimize gut health, and fuel your vitality.
+              Ayurveda is more than just treatments; it is a way of life that aligns you with nature's rhythms. Our expert Vaidyas (doctors) assess your unique constitution (Prakriti) and imbalances (Vikriti) to curate a personalized healing journey. From soothing Shirodhara to detoxifying authentic therapies, every therapy is performed with traditional precision to restore health and harmony.
             </p>
           </div>
 
@@ -484,23 +572,22 @@ export default function NutritionLifestyle({ onNavigate }) {
                     borderRadius: '30px',
                     marginBottom: '1rem'
                   }}>
-                    <Sparkles size={13} style={{ color: 'var(--redwood, #B85645)' }} /> SIGNATURE FOCUS
+                    <Sparkles size={13} style={{ color: 'var(--redwood, #B85645)' }} /> SIGNATURE PROGRAMME
                   </span>
                   
                   <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '2.2rem', fontWeight: 700, margin: '0 0 0.7rem 0' }}>
-                    Gut Restoration Plan
+                    Rejuvenation Program
                   </h3>
 
                   <p style={{ fontSize: '0.96rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.65, marginBottom: '1.5rem' }}>
-                    A specialized nutritional protocol designed to heal the gut lining, restore microbiome balance, and improve digestion. Essential for those with IBS, bloating, or food sensitivities.
+                    Experience the ultimate renewal with our signature Rejuvenation therapy. This program focuses on anti-aging and vitality boosting through Nutritional treatments, daily massages like Abhyangam, and stress-relieving Shirodhara.
                   </p>
                   
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '0.8rem', marginBottom: '2rem' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: '0.8rem', marginBottom: '2rem' }}>
                     {[
-                      'Microbiome Analysis',
-                      'Anti-Inflammatory Meal Plan',
-                      'Probiotic Rich Foods',
-                      'Digestive Herbal Support'
+                      'Daily Abhyangam & Steam',
+                      'Shirodhara Sessions',
+                      'Yoga for Vitality'
                     ].map(check => (
                       <div key={check} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                         <div style={{ width: '20px', height: '20px', borderRadius: '50%', backgroundColor: 'rgba(94,39,53,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--wine, #5E2735)', flexShrink: 0 }}>
@@ -514,7 +601,7 @@ export default function NutritionLifestyle({ onNavigate }) {
 
                 <div>
                   <button 
-                    onClick={() => onNavigate('book', { programme: 'nutrition-lifestyle' })}
+                    onClick={() => onNavigate('book', { programme: 'ayurveda' })}
                     style={{
                       backgroundColor: 'var(--wine, #5E2735)',
                       color: '#ffffff',
@@ -539,13 +626,13 @@ export default function NutritionLifestyle({ onNavigate }) {
 
               <div style={{ borderRadius: '20px', overflow: 'hidden', position: 'relative', height: '350px', boxShadow: '0 10px 30px rgba(94, 39, 53, 0.1)', border: '1px solid rgba(94, 39, 53, 0.12)' }}>
                 <img 
-                  src="/assets/programmes/gut-restoration.jpg" 
-                  alt="Gut Restoration Nutrition" 
+                  src="/assets/programmes/ayurveda-sig.jpg" 
+                  alt="Holistic Rejuvenation" 
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
                 <div style={{ position: 'absolute', top: '15px', right: '15px', backgroundColor: 'rgba(255, 255, 255, 0.94)', backdropFilter: 'blur(8px)', borderRadius: '16px', padding: '0.8rem 1.2rem', boxShadow: '0 8px 24px rgba(0,0,0,0.1)', border: '1px solid rgba(94, 39, 53, 0.15)' }}>
-                  <p style={{ fontSize: '0.7rem', fontWeight: 800, color: 'var(--wine, #5E2735)', textTransform: 'uppercase', letterSpacing: '0.1em', margin: 0 }}>Targeted Care</p>
-                  <p style={{ fontFamily: 'var(--font-heading)', color: 'var(--harvest-gold, #B8860B)', fontSize: '1.25rem', fontWeight: 700, margin: 0 }}>Digestive Health</p>
+                  <p style={{ fontSize: '0.7rem', fontWeight: 800, color: 'var(--wine, #5E2735)', textTransform: 'uppercase', letterSpacing: '0.1em', margin: 0 }}>Starting from</p>
+                  <p style={{ fontFamily: 'var(--font-heading)', color: 'var(--harvest-gold, #B8860B)', fontSize: '1.25rem', fontWeight: 700, margin: 0 }}>5 / 7 / 14 days</p>
                 </div>
               </div>
             </div>
@@ -565,7 +652,7 @@ export default function NutritionLifestyle({ onNavigate }) {
             <motion.div
               whileHover={{ y: -4 }}
               onClick={() => {
-                onNavigate('programmes/holistic-therapies');
+                onNavigate('programmes/physiotherapy');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               style={{
@@ -588,7 +675,7 @@ export default function NutritionLifestyle({ onNavigate }) {
                   Previous
                 </span>
                 <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--wine, #5E2735)', margin: '0.1rem 0 0 0', fontWeight: 700 }}>
-                  Holistic Therapies
+                  Physiotherapy
                 </h4>
               </div>
             </motion.div>
@@ -596,7 +683,7 @@ export default function NutritionLifestyle({ onNavigate }) {
             <motion.div
               whileHover={{ y: -4 }}
               onClick={() => {
-                onNavigate('programmes/mental-emotional');
+                onNavigate('programmes/naturopathy');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               style={{
@@ -617,7 +704,7 @@ export default function NutritionLifestyle({ onNavigate }) {
                   Next
                 </span>
                 <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--wine, #5E2735)', margin: '0.1rem 0 0 0', fontWeight: 700 }}>
-                  Mental Wellbeing
+                  Naturopathy
                 </h4>
               </div>
               <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'rgba(94, 39, 53, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--wine, #5E2735)', flexShrink: 0 }}>

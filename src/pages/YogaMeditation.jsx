@@ -634,7 +634,7 @@ export default function YogaMeditation({ onNavigate }) {
 
                 <div>
                   <button 
-                    onClick={() => onNavigate('contact')}
+                    onClick={() => onNavigate('book', { programme: 'yoga-meditation' })}
                     style={{
                       backgroundColor: 'var(--wine, #5E2735)',
                       color: '#ffffff',

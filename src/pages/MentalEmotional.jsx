@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Pattern24, Pattern25, Pattern27 } from '../AnimatedPatterns';
 import { 
-  Sparkles, ArrowRight, ArrowLeft, Check, Leaf, 
-  Utensils, ShieldCheck, Sprout, TrendingDown, CircleOff, 
-  ClipboardList, GlassWater, Hourglass, Bed, Carrot, 
-  Apple, CircleDot, Soup
+  Sparkles, ArrowRight, ArrowLeft, Check, Heart, Brain,
+  MessageSquareHeart, HeartHandshake, Smile, Users, Flame,
+  RefreshCw, Wind, Sun, Palette, Bell, Trees, BookOpen, Moon
 } from 'lucide-react';
 
 const wordRevealContainer = {
@@ -25,25 +24,29 @@ const wordVariant = {
   }
 };
 
-export default function NutritionLifestyle({ onNavigate }) {
-  const [activeTab, setActiveTab] = useState('healing');
+export default function MentalEmotional({ onNavigate }) {
+  const [activeTab, setActiveTab] = useState('therapy');
 
-  const healingDiets = [
-    { name: "Satwik Meals", icon: Utensils, desc: "Pure, balanced vegetarian nutrition for mental clarity", color: "#6A7B66" },
-    { name: "Anti-Inflammatory", icon: ShieldCheck, desc: "Diet rich in antioxidants to reduce bodily inflammation", color: "#B85645" },
-    { name: "Millet Based", icon: Sprout, desc: "Ancient grains for sustained energy & fiber", color: "#B8860B" },
-    { name: "Diabetic Friendly", icon: TrendingDown, desc: "Low glycemic index meals for blood sugar control", color: "#5E2735" },
-    { name: "Grain Free", icon: CircleOff, desc: "Digestive reset excluding all cereal grains", color: "#6A7B66" },
-    { name: "Post Retreat Plan", icon: ClipboardList, desc: "Customized guidance for maintaining wellness at home", color: "#B8860B" }
+  const psychotherapyModalities = [
+    { name: "Counselling", icon: MessageSquareHeart, desc: "One-on-one talk therapy sessions", color: "#5E2735" },
+    { name: "CBT", icon: Brain, desc: "Cognitive Behavioral Therapy techniques", color: "#B85645" },
+    { name: "Trauma Release", icon: HeartHandshake, desc: "Safe processing of past emotional wounds", color: "#B8860B" },
+    { name: "Stress Mgmt", icon: Smile, desc: "Practical tools for daily stress reduction", color: "#6A7B66" },
+    { name: "Family Therapy", icon: Users, desc: "Healing relational dynamics & patterns", color: "#5E2735" },
+    { name: "Grief Support", icon: Flame, desc: "Compassionate guidance through loss", color: "#B85645" },
+    { name: "Inner Child", icon: Sparkles, desc: "Reconnecting with your authentic self", color: "#B8860B" },
+    { name: "NLP", icon: RefreshCw, desc: "Neuro-Linguistic Programming for change", color: "#6A7B66" }
   ];
 
-  const detoxProtocols = [
-    { name: "Detox Juices", icon: GlassWater, desc: "Freshly pressed vegetable & fruit elixirs", color: "#B8860B" },
-    { name: "Fasting Protocols", icon: Hourglass, desc: "Intermittent or prolonged therapeutic fasting", color: "#5E2735" },
-    { name: "Gut Rest", icon: Bed, desc: "Liquid & light diet to repair digestion", color: "#6A7B66" },
-    { name: "Raw Diet", icon: Carrot, desc: "Uncooked, enzyme-rich plant foods", color: "#B85645" },
-    { name: "Fruit Diet", icon: Apple, desc: "Monodiet of seasonal fruits for cleansing", color: "#B8860B" },
-    { name: "Mono Diet", icon: CircleDot, desc: "Single food focus for digestive simplicity and detox", color: "#5E2735" }
+  const mindfulnessModalities = [
+    { name: "Breathwork", icon: Wind, desc: "Conscious breathing for nervous system regulation", color: "#6A7B66" },
+    { name: "Meditation", icon: Sun, desc: "Guided practices for mental clarity", color: "#B8860B" },
+    { name: "Art Therapy", icon: Palette, desc: "Creative expression for emotional release", color: "#B85645" },
+    { name: "Sound Healing", icon: Bell, desc: "Vibrational therapy for deep relaxation", color: "#5E2735" },
+    { name: "Nature Walks", icon: Trees, desc: "Grounding connection with the outdoors", color: "#6A7B66" },
+    { name: "Journaling", icon: BookOpen, desc: "Reflective writing for self-discovery", color: "#B8860B" },
+    { name: "Gratitude", icon: Heart, desc: "Cultivating a positive mindset daily", color: "#B85645" },
+    { name: "Relaxation", icon: Moon, desc: "Progressive muscle relaxation techniques", color: "#5E2735" }
   ];
 
   return (
@@ -132,7 +135,7 @@ export default function NutritionLifestyle({ onNavigate }) {
           <h1 style={{
             color: 'var(--wine, #5E2735)',
             fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(2.5rem, 4.8vw, 3.8rem)',
+            fontSize: 'clamp(2.4rem, 4.6vw, 3.6rem)',
             fontWeight: 600,
             letterSpacing: '-0.01em',
             margin: '0 0 0.85rem 0', 
@@ -142,9 +145,9 @@ export default function NutritionLifestyle({ onNavigate }) {
             gap: '0.6rem', 
             flexWrap: 'wrap'
           }}>
-            <motion.span variants={wordVariant}>Nutrition &amp;</motion.span>
+            <motion.span variants={wordVariant}>Mental &amp; Emotional</motion.span>
             <motion.span variants={wordVariant} style={{ fontStyle: 'italic', color: 'var(--harvest-gold, #B8860B)' }}>
-              Lifestyle
+              Well-Being
             </motion.span>
           </h1>
 
@@ -160,7 +163,7 @@ export default function NutritionLifestyle({ onNavigate }) {
             textAlign: 'center',
             letterSpacing: '0.01em'
           }}>
-            Nourish Your Body, Transform Your Life
+            Nurture Your Mind, Heal Your Heart
           </p>
         </motion.div>
       </section>
@@ -168,7 +171,7 @@ export default function NutritionLifestyle({ onNavigate }) {
       {/* Main Content Area */}
       <div style={{ maxWidth: '1220px', margin: '0 auto', padding: '4.5rem 6%' }}>
         
-        {/* 2. ABOUT NUTRITION & LIFESTYLE SECTION - Exact verbatim paragraphs & exact reference image */}
+        {/* 2. ABOUT MENTAL & EMOTIONAL WELL-BEING SECTION - Exact verbatim paragraphs & exact reference image */}
         <section style={{ marginBottom: '5rem' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3.5rem', alignItems: 'center' }}>
             <motion.div 
@@ -187,8 +190,8 @@ export default function NutritionLifestyle({ onNavigate }) {
               }}
             >
               <img 
-                src="/assets/programmes/nutrition-lifestyle-about.jpg" 
-                alt="Healthy nutrition with fresh vegetables and fruits" 
+                src="/assets/programmes/mental-emotional-about.jpg" 
+                alt="Mental health and emotional wellbeing meditation" 
                 style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: '360px', maxHeight: '480px' }}
               />
             </motion.div>
@@ -201,18 +204,18 @@ export default function NutritionLifestyle({ onNavigate }) {
               style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
             >
               <h2 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: 'clamp(2.2rem, 3.8vw, 3.2rem)', margin: '0 0 1.2rem 0', fontWeight: 700, lineHeight: 1.2 }}>
-                About <span style={{ color: 'var(--harvest-gold, #B8860B)', fontStyle: 'italic' }}>Nutrition &amp; Lifestyle</span>
+                About <span style={{ color: 'var(--harvest-gold, #B8860B)', fontStyle: 'italic' }}>Mental &amp; Emotional Well-Being</span>
               </h2>
               <p style={{ fontSize: '1.02rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.88, lineHeight: 1.75, marginBottom: '1.2rem' }}>
-                True wellness begins with what you put on your plate and how you live your daily life. Our nutrition and lifestyle programmes combine ancient dietary wisdom with modern nutritional science to create personalized plans that support your health goals, enhance vitality, and promote long-term well-being.
+                Mental and emotional health are foundational to overall wellness. Our comprehensive programmes combine professional counselling, stress management techniques, breathwork, and mindfulness practices to help you navigate life's challenges with greater resilience, clarity, and inner peace.
               </p>
               <p style={{ fontSize: '1.02rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.88, lineHeight: 1.75, margin: 0 }}>
-                From satwik meal plans to gut-health optimization and sustainable lifestyle modifications, we guide you toward choices that nourish not just your body, but your mind and spirit as well.
+                In a safe, supportive environment, we address anxiety, stress, emotional trauma, and other mental health concerns through evidence-based therapies and holistic healing modalities.
               </p>
             </motion.div>
           </div>
 
-          {/* 3. SANSKRIT WISDOM BANNER - "You are what you eat" */}
+          {/* 3. SANSKRIT WISDOM BANNER - Mind & Liberation */}
           <motion.div 
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -234,19 +237,19 @@ export default function NutritionLifestyle({ onNavigate }) {
               <Pattern27 style={{ width: '100%', height: '100%', color: 'var(--wine, #5E2735)' }} />
             </div>
 
-            <div style={{ position: 'relative', zIndex: 2, maxWidth: '700px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '0.7rem' }}>
+            <div style={{ position: 'relative', zIndex: 2, maxWidth: '720px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '0.7rem' }}>
               <span style={{ color: 'var(--wine, #5E2735)', fontFamily: 'var(--font-heading)', fontSize: '1.6rem', fontWeight: 700, fontStyle: 'italic', letterSpacing: '0.02em' }}>
-                &ldquo;You are what you eat&rdquo;
+                Mind &amp; Liberation
               </span>
               <p style={{ fontFamily: 'var(--font-heading)', color: 'var(--redwood, #B85645)', fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 600, margin: 0, lineHeight: 1.3 }}>
-                आहारशुद्धौ सत्त्वशुद्धिः।
+                मन एव मनुष्याणां कारणं बन्धमोक्षयोः।
               </p>
               <p style={{ color: 'var(--wine, #5E2735)', fontSize: '1.1rem', fontStyle: 'italic', fontWeight: 500, margin: 0 }}>
-                Ahāraśuddhau sattvaśuddhiḥ.
+                Mana eva manuṣyāṇāṃ kāraṇaṃ bandhamokṣayoḥ.
               </p>
-              <div style={{ paddingTop: '0.8rem', borderTop: '1px solid rgba(94, 39, 53, 0.15)', width: '60%', margin: '0.5rem auto 0 auto' }}>
+              <div style={{ paddingTop: '0.8rem', borderTop: '1px solid rgba(94, 39, 53, 0.15)', width: '65%', margin: '0.5rem auto 0 auto' }}>
                 <p style={{ color: 'var(--raisin-black, #2B1B17)', opacity: 0.8, fontSize: '0.95rem', fontWeight: 500, margin: 0 }}>
-                  (When food is pure, the mind becomes pure.)
+                  (The mind alone is the cause of bondage and liberation.)
                 </p>
               </div>
             </div>
@@ -255,8 +258,8 @@ export default function NutritionLifestyle({ onNavigate }) {
 
       </div>
 
-      {/* 4. NOURISHMENT PROTOCOLS - Interactive Tabbed Section with Professional Lucide Icons */}
-      <section id="protocols" style={{
+      {/* 4. PATHWAYS TO EMOTIONAL BALANCE - Interactive Tabbed Section with Lucide Icons */}
+      <section id="pathways" style={{
         padding: '5rem 6%',
         boxSizing: 'border-box',
         background: 'linear-gradient(135deg, #c8ceaa 0%, #b3ba8e 60%, #a3aa7e 100%)',
@@ -269,16 +272,16 @@ export default function NutritionLifestyle({ onNavigate }) {
           
           <div style={{ textAlign: 'center', marginBottom: '2.8rem' }}>
             <h2 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: 'clamp(2.2rem, 3.8vw, 3.4rem)', margin: '0 0 0.6rem 0', fontWeight: 700 }}>
-              Nourishment <span style={{ color: 'var(--harvest-gold, #B8860B)', fontStyle: 'italic' }}>Protocols</span>
+              Pathways to <span style={{ color: 'var(--harvest-gold, #B8860B)', fontStyle: 'italic' }}>Emotional Balance</span>
             </h2>
             <p style={{ color: '#ffffff', fontSize: '1.05rem', maxWidth: '760px', margin: '0 auto', lineHeight: 1.6, fontWeight: 500 }}>
-              Scientifically designed dietary plans that heal, detoxify, and energize.
+              Integrative approaches to heal the mind, uplift the spirit, and restore inner harmony.
             </p>
 
             {/* Interactive Category Tabs */}
             <div style={{ display: 'inline-flex', gap: '0.8rem', marginTop: '2.2rem', backgroundColor: 'rgba(255, 255, 255, 0.45)', padding: '0.4rem', borderRadius: '35px', backdropFilter: 'blur(10px)' }}>
               <button
-                onClick={() => setActiveTab('healing')}
+                onClick={() => setActiveTab('therapy')}
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -292,16 +295,16 @@ export default function NutritionLifestyle({ onNavigate }) {
                   border: 'none',
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
-                  backgroundColor: activeTab === 'healing' ? 'var(--wine, #5E2735)' : 'transparent',
-                  color: activeTab === 'healing' ? '#f5ebd9' : 'var(--wine, #5E2735)',
-                  boxShadow: activeTab === 'healing' ? '0 4px 15px rgba(94, 39, 53, 0.25)' : 'none'
+                  backgroundColor: activeTab === 'therapy' ? 'var(--wine, #5E2735)' : 'transparent',
+                  color: activeTab === 'therapy' ? '#f5ebd9' : 'var(--wine, #5E2735)',
+                  boxShadow: activeTab === 'therapy' ? '0 4px 15px rgba(94, 39, 53, 0.25)' : 'none'
                 }}
               >
-                <Soup size={16} />
-                Healing Diets
+                <Brain size={16} />
+                Psychotherapy
               </button>
               <button
-                onClick={() => setActiveTab('detox')}
+                onClick={() => setActiveTab('mindfulness')}
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -315,29 +318,29 @@ export default function NutritionLifestyle({ onNavigate }) {
                   border: 'none',
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
-                  backgroundColor: activeTab === 'detox' ? 'var(--wine, #5E2735)' : 'transparent',
-                  color: activeTab === 'detox' ? '#f5ebd9' : 'var(--wine, #5E2735)',
-                  boxShadow: activeTab === 'detox' ? '0 4px 15px rgba(94, 39, 53, 0.25)' : 'none'
+                  backgroundColor: activeTab === 'mindfulness' ? 'var(--wine, #5E2735)' : 'transparent',
+                  color: activeTab === 'mindfulness' ? '#f5ebd9' : 'var(--wine, #5E2735)',
+                  boxShadow: activeTab === 'mindfulness' ? '0 4px 15px rgba(94, 39, 53, 0.25)' : 'none'
                 }}
               >
-                <Apple size={16} />
-                Detox &amp; Reset
+                <Sun size={16} />
+                Mindfulness
               </button>
             </div>
           </div>
 
           {/* Cards Grid with Professional Lucide Icons */}
           <AnimatePresence mode="wait">
-            {activeTab === 'healing' ? (
+            {activeTab === 'therapy' ? (
               <motion.div 
-                key="healing-tab"
+                key="therapy-tab"
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.4 }}
-                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.4rem' }}
+                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '1.4rem' }}
               >
-                {healingDiets.map((item) => {
+                {psychotherapyModalities.map((item) => {
                   const IconComp = item.icon;
                   return (
                     <motion.div
@@ -383,14 +386,14 @@ export default function NutritionLifestyle({ onNavigate }) {
               </motion.div>
             ) : (
               <motion.div 
-                key="detox-tab"
+                key="mindfulness-tab"
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.4 }}
-                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.4rem' }}
+                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '1.4rem' }}
               >
-                {detoxProtocols.map((item) => {
+                {mindfulnessModalities.map((item) => {
                   const IconComp = item.icon;
                   return (
                     <motion.div
@@ -443,14 +446,14 @@ export default function NutritionLifestyle({ onNavigate }) {
       {/* Main Container Continued */}
       <div style={{ maxWidth: '1220px', margin: '0 auto', padding: '4.5rem 6%' }}>
         
-        {/* 5. FOOD AS MEDICINE & SIGNATURE FOCUS - Exact reference content & image */}
+        {/* 5. HOLISTIC MENTAL HEALTH & SIGNATURE PROGRAMME - Exact reference content & image */}
         <section style={{ marginBottom: '5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.8rem' }}>
             <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: 'clamp(2rem, 3.4vw, 2.8rem)', fontWeight: 700, margin: '0 0 0.8rem 0' }}>
-              Food as Medicine
+              Holistic Mental Health
             </h3>
             <p style={{ fontSize: '1rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, maxWidth: '820px', margin: '0 auto', lineHeight: 1.65 }}>
-              Our approach to nutrition transcends calorie counting. We view food as information that programs your biology. By combining the wisdom of holistic wellness with modern nutritional science, we create personalized dietary strategies that address the root cause of imbalances, optimize gut health, and fuel your vitality.
+              We believe that mental well-being is not just the absence of illness, but the presence of vitality, purpose, and connection. Our integrative approach combines modern psychological insights with ancient wisdom traditions to support your journey towards emotional freedom and self-actualization.
             </p>
           </div>
 
@@ -484,23 +487,23 @@ export default function NutritionLifestyle({ onNavigate }) {
                     borderRadius: '30px',
                     marginBottom: '1rem'
                   }}>
-                    <Sparkles size={13} style={{ color: 'var(--redwood, #B85645)' }} /> SIGNATURE FOCUS
+                    <Sparkles size={13} style={{ color: 'var(--redwood, #B85645)' }} /> SIGNATURE PROGRAMME
                   </span>
                   
                   <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '2.2rem', fontWeight: 700, margin: '0 0 0.7rem 0' }}>
-                    Gut Restoration Plan
+                    Stress &amp; Emotional Management
                   </h3>
 
                   <p style={{ fontSize: '0.96rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.65, marginBottom: '1.5rem' }}>
-                    A specialized nutritional protocol designed to heal the gut lining, restore microbiome balance, and improve digestion. Essential for those with IBS, bloating, or food sensitivities.
+                    A compassionate, structured program designed to help you decompress, process emotions, and build resilience. Ideal for those facing burnout, anxiety, or life transitions.
                   </p>
                   
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '0.8rem', marginBottom: '2rem' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: '0.8rem', marginBottom: '2rem' }}>
                     {[
-                      'Microbiome Analysis',
-                      'Anti-Inflammatory Meal Plan',
-                      'Probiotic Rich Foods',
-                      'Digestive Herbal Support'
+                      'Personalized Counselling',
+                      'Daily Mindfulness Sessions',
+                      'Stress-Relief Therapies',
+                      'Emotional Wellness Workshops'
                     ].map(check => (
                       <div key={check} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                         <div style={{ width: '20px', height: '20px', borderRadius: '50%', backgroundColor: 'rgba(94,39,53,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--wine, #5E2735)', flexShrink: 0 }}>
@@ -514,7 +517,7 @@ export default function NutritionLifestyle({ onNavigate }) {
 
                 <div>
                   <button 
-                    onClick={() => onNavigate('book', { programme: 'nutrition-lifestyle' })}
+                    onClick={() => onNavigate('book', { programme: 'mental-emotional' })}
                     style={{
                       backgroundColor: 'var(--wine, #5E2735)',
                       color: '#ffffff',
@@ -539,13 +542,13 @@ export default function NutritionLifestyle({ onNavigate }) {
 
               <div style={{ borderRadius: '20px', overflow: 'hidden', position: 'relative', height: '350px', boxShadow: '0 10px 30px rgba(94, 39, 53, 0.1)', border: '1px solid rgba(94, 39, 53, 0.12)' }}>
                 <img 
-                  src="/assets/programmes/gut-restoration.jpg" 
-                  alt="Gut Restoration Nutrition" 
+                  src="/assets/programmes/stress-management.jpg" 
+                  alt="Stress Management Program" 
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
                 <div style={{ position: 'absolute', top: '15px', right: '15px', backgroundColor: 'rgba(255, 255, 255, 0.94)', backdropFilter: 'blur(8px)', borderRadius: '16px', padding: '0.8rem 1.2rem', boxShadow: '0 8px 24px rgba(0,0,0,0.1)', border: '1px solid rgba(94, 39, 53, 0.15)' }}>
-                  <p style={{ fontSize: '0.7rem', fontWeight: 800, color: 'var(--wine, #5E2735)', textTransform: 'uppercase', letterSpacing: '0.1em', margin: 0 }}>Targeted Care</p>
-                  <p style={{ fontFamily: 'var(--font-heading)', color: 'var(--harvest-gold, #B8860B)', fontSize: '1.25rem', fontWeight: 700, margin: 0 }}>Digestive Health</p>
+                  <p style={{ fontSize: '0.7rem', fontWeight: 800, color: 'var(--wine, #5E2735)', textTransform: 'uppercase', letterSpacing: '0.1em', margin: 0 }}>Starting from</p>
+                  <p style={{ fontFamily: 'var(--font-heading)', color: 'var(--harvest-gold, #B8860B)', fontSize: '1.25rem', fontWeight: 700, margin: 0 }}>5 / 7 / 14 days</p>
                 </div>
               </div>
             </div>
@@ -565,7 +568,7 @@ export default function NutritionLifestyle({ onNavigate }) {
             <motion.div
               whileHover={{ y: -4 }}
               onClick={() => {
-                onNavigate('programmes/holistic-therapies');
+                onNavigate('programmes/nutrition-lifestyle');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               style={{
@@ -588,7 +591,7 @@ export default function NutritionLifestyle({ onNavigate }) {
                   Previous
                 </span>
                 <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--wine, #5E2735)', margin: '0.1rem 0 0 0', fontWeight: 700 }}>
-                  Holistic Therapies
+                  Nutrition &amp; Lifestyle
                 </h4>
               </div>
             </motion.div>
@@ -596,7 +599,7 @@ export default function NutritionLifestyle({ onNavigate }) {
             <motion.div
               whileHover={{ y: -4 }}
               onClick={() => {
-                onNavigate('programmes/mental-emotional');
+                onNavigate('programmes/detox-cleansing');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               style={{
@@ -617,7 +620,7 @@ export default function NutritionLifestyle({ onNavigate }) {
                   Next
                 </span>
                 <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--wine, #5E2735)', margin: '0.1rem 0 0 0', fontWeight: 700 }}>
-                  Mental Wellbeing
+                  Detox &amp; Cleansing
                 </h4>
               </div>
               <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'rgba(94, 39, 53, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--wine, #5E2735)', flexShrink: 0 }}>

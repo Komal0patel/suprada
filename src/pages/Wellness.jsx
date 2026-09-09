@@ -437,7 +437,7 @@ export default function Wellness({ onNavigate }) {
               </p>
 
               <motion.button
-                onClick={() => onNavigate('contact')}
+                onClick={() => onNavigate('book')}
                 className="btn-luxury"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}

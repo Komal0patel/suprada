@@ -20,11 +20,16 @@ import YogaMeditation from './pages/YogaMeditation';
 import HolisticTherapies from './pages/HolisticTherapies';
 import HolisticWellness from './pages/HolisticWellness';
 import NutritionLifestyle from './pages/NutritionLifestyle';
+import MentalEmotional from './pages/MentalEmotional';
+import DetoxCleansing from './pages/DetoxCleansing';
+import Physiotherapy from './pages/Physiotherapy';
+import Ayurveda from './pages/Ayurveda';
 import Wellness from './pages/Wellness';
 import Nutrition from './pages/Nutrition';
 import Activities from './pages/Activities';
 import ProgrammeDetail from './pages/ProgrammeDetail';
 import PillarDetail from './pages/PillarDetail';
+import Book from './pages/Book';
 
 // Import Global Components
 import Footer from './components/Footer';
@@ -50,7 +55,8 @@ const searchIndex = [
   { title: "Careers & Opportunities", category: "Navigation", path: "careers", desc: "Join our team of doctors, therapists, hospitality & wellness leads" },
   { title: "Contact Us & Directions", category: "Navigation", path: "contact", desc: "Get in touch, location map by Suvarnamukhi river & booking" },
   { title: "Comprehensive Clinical Spectrum", category: "Navigation", path: "comprehensivecare", desc: "Explore our specialized doctor-supervised clinical conditions" },
-  { title: "Naturopathy & Holistic Wellness", category: "Navigation", path: "naturopathy", desc: "Explore our core drugless medical modalities & natural therapies" }
+  { title: "Naturopathy & Holistic Wellness", category: "Navigation", path: "naturopathy", desc: "Explore our core drugless medical modalities & natural therapies" },
+  { title: "Book Retreat & Reservation", category: "Navigation", path: "book", desc: "Reserve your customized wellness programme, stay & dates by Suvarnamukhi river" }
 ];
 
 function App() {
@@ -60,10 +66,18 @@ function App() {
   const pathToPage = (pathname) => pathname.replace(/^\//, '') || 'home';
 
   const [currentPage, setCurrentPage] = useState(() => pathToPage(location.pathname));
+  const [bookingProgramme, setBookingProgramme] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('prog') || '';
+  });
 
   useEffect(() => {
     setCurrentPage(pathToPage(location.pathname));
-  }, [location.pathname]);
+    const params = new URLSearchParams(location.search);
+    if (params.get('prog')) {
+      setBookingProgramme(params.get('prog'));
+    }
+  }, [location.pathname, location.search]);
 
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -235,10 +249,17 @@ function App() {
     if (page === 'programmes' && extra?.progId) {
       targetPage = 'programmes/packages';
     }
+    if (page === 'book' || page === 'booking') {
+      if (extra?.programme) {
+        setBookingProgramme(extra.programme);
+      }
+    }
     setCurrentPage(targetPage);
     let path = targetPage === 'home' ? '/' : `/${targetPage}`;
     if (extra?.progId) {
       path += `?prog=${extra.progId}`;
+    } else if (extra?.programme) {
+      path += `?prog=${extra.programme}`;
     }
     navigate(path);
     closeMobileMenu();
@@ -1371,18 +1392,33 @@ function App() {
           {currentPage === 'programmes/holistic-therapies'   && <HolisticTherapies onNavigate={handlePageChange} />}
           {currentPage === 'programmes/nutrition-lifestyle'  && <NutritionLifestyle onNavigate={handlePageChange} />}
           {currentPage === 'nutrition-lifestyle'             && <NutritionLifestyle onNavigate={handlePageChange} />}
-          {currentPage === 'programmes/mental-emotional'    && <PillarDetail pillarId="mental-emotional" onNavigate={handlePageChange} />}
-          {currentPage === 'programmes/detox-cleansing'     && <PillarDetail pillarId="detox-cleansing" onNavigate={handlePageChange} />}
-          {currentPage === 'programmes/physiotherapy'       && <PillarDetail pillarId="physiotherapy" onNavigate={handlePageChange} />}
-          {currentPage === 'programmes/ayurveda'            && <PillarDetail pillarId="ayurveda" onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/mental-emotional'    && <MentalEmotional onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/mental-wellbeing'    && <MentalEmotional onNavigate={handlePageChange} />}
+          {currentPage === 'mental-emotional'               && <MentalEmotional onNavigate={handlePageChange} />}
+          {currentPage === 'mental-wellbeing'               && <MentalEmotional onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/detox-cleansing'     && <DetoxCleansing onNavigate={handlePageChange} />}
+          {currentPage === 'detox-cleansing'                && <DetoxCleansing onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/physiotherapy'       && <Physiotherapy onNavigate={handlePageChange} />}
+          {currentPage === 'physiotherapy'                  && <Physiotherapy onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/ayurveda'            && <Ayurveda onNavigate={handlePageChange} />}
+          {currentPage === 'ayurveda'                       && <Ayurveda onNavigate={handlePageChange} />}
 
           {/* Program Package Sub-Routes */}
           {currentPage === 'programmes/weekend-reset'       && <ProgrammeDetail progId="weekend-reset" onNavigate={handlePageChange} />}
+          {currentPage === 'weekend-reset'                  && <ProgrammeDetail progId="weekend-reset" onNavigate={handlePageChange} />}
           {currentPage === 'programmes/rejuvenation'        && <ProgrammeDetail progId="rejuvenation" onNavigate={handlePageChange} />}
-          {currentPage === 'programmes/holistic-wellness'   && <HolisticWellness onNavigate={handlePageChange} />}
-          {currentPage === 'holistic-wellness'              && <HolisticWellness onNavigate={handlePageChange} />}
+          {currentPage === 'rejuvenation'                   && <ProgrammeDetail progId="rejuvenation" onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/holistic-wellness'   && <ProgrammeDetail progId="holistic-wellness" onNavigate={handlePageChange} />}
+          {currentPage === 'holistic-wellness'              && <ProgrammeDetail progId="holistic-wellness" onNavigate={handlePageChange} />}
           {currentPage === 'programmes/detox'               && <ProgrammeDetail progId="detox" onNavigate={handlePageChange} />}
+          {currentPage === 'detox'                          && <ProgrammeDetail progId="detox" onNavigate={handlePageChange} />}
           {currentPage === 'programmes/advanced-healing'    && <ProgrammeDetail progId="advanced-healing" onNavigate={handlePageChange} />}
+          {currentPage === 'advanced-healing'               && <ProgrammeDetail progId="advanced-healing" onNavigate={handlePageChange} />}
+
+          {/* Booking & Reservation Sanctuary Wizard */}
+          {(currentPage === 'book' || currentPage === 'booking') && (
+            <Book onNavigate={handlePageChange} preselectedProgramme={bookingProgramme} />
+          )}
         </div>
 
         {/* Global Footer */}

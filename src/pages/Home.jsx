@@ -1286,10 +1286,13 @@ export default function Home({ onNavigate }) {
       </section>
 
       {/* Unique Experiences Section */}
-      <section style={{ backgroundColor: 'var(--isabelline)', padding: '4rem 8% 5rem 8%', position: 'relative', overflow: 'hidden' }}>
+      <section className="exclusive-rituals-section" style={{ backgroundColor: 'var(--isabelline)', position: 'relative', overflow: 'hidden' }}>
         <Pattern28 style={{ position: 'absolute', top: '-10px', left: '-50px', width: '260px', color: 'var(--wine)', opacity: 0.16, pointerEvents: 'none', zIndex: 1 }} />
         {/* Responsive CSS Stylesheet injection for the split layout */}
         <style>{`
+          .exclusive-rituals-section {
+            padding: 4rem 8% 5rem 8%;
+          }
           .rituals-split-container {
             display: flex;
             flex-direction: row;
@@ -1311,6 +1314,8 @@ export default function Home({ onNavigate }) {
             align-items: center;
             position: relative;
             margin-top: -2.5rem;
+            margin-left: auto;
+            margin-right: auto;
           }
           .ritual-menu-item {
             display: flex;
@@ -1327,8 +1332,12 @@ export default function Home({ onNavigate }) {
             border-color: rgba(94, 39, 53, 0.08);
           }
           @media (max-width: 991px) {
+            .exclusive-rituals-section {
+              padding: 3.5rem 4% 4.5rem 4% !important;
+            }
             .rituals-split-container {
               flex-direction: column;
+              align-items: center;
               gap: 2rem;
             }
             .rituals-left-col {
@@ -1339,10 +1348,14 @@ export default function Home({ onNavigate }) {
               align-items: center;
             }
             .rituals-right-col {
-              transform: scale(0.85);
+              transform: scale(0.78);
               transform-origin: center center;
+              margin-left: auto !important;
+              margin-right: auto !important;
               margin-top: -1rem;
-              height: 420px !important;
+              margin-bottom: -0.5rem;
+              height: 400px !important;
+              width: 100% !important;
             }
             .ritual-menu-list {
               display: flex;
@@ -1355,21 +1368,42 @@ export default function Home({ onNavigate }) {
             }
           }
           @media (max-width: 768px) {
+            .exclusive-rituals-section {
+              padding: 3rem 2% 4rem 2% !important;
+            }
             .rituals-right-col {
-              transform: scale(0.72);
+              transform: scale(0.60);
               transform-origin: center center;
+              margin-left: auto !important;
+              margin-right: auto !important;
               margin-top: -2.5rem;
-              margin-bottom: -1.5rem;
-              height: 350px !important;
+              margin-bottom: -2rem;
+              height: 310px !important;
             }
           }
           @media (max-width: 480px) {
+            .exclusive-rituals-section {
+              padding: 2.5rem 10px 3.5rem 10px !important;
+            }
             .rituals-right-col {
-              transform: scale(0.58);
+              transform: scale(0.46);
               transform-origin: center center;
-              margin-top: -3.5rem;
-              margin-bottom: -3rem;
-              height: 280px !important;
+              margin-left: auto !important;
+              margin-right: auto !important;
+              margin-top: -3.8rem;
+              margin-bottom: -3.2rem;
+              height: 240px !important;
+            }
+          }
+          @media (max-width: 375px) {
+            .rituals-right-col {
+              transform: scale(0.41);
+              transform-origin: center center;
+              margin-left: auto !important;
+              margin-right: auto !important;
+              margin-top: -4.2rem;
+              margin-bottom: -3.6rem;
+              height: 210px !important;
             }
           }
         `}</style>

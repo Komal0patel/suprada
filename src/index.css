@@ -3747,3 +3747,49 @@ html, body {
   }
 }
 
+/* ==========================================================================
+   UNIVERSAL LEFTOVER CARD & ODD ITEM CENTERING RULES
+   Centers 1 or 2 leftover cards in the final row across all page grids
+   ========================================================================== */
+
+/* 2-Column Grids (Mobile & Desktop): Single Odd Leftover Card Centering */
+.spaces-residences-grid > *:nth-child(odd):last-child,
+.sanctum-zones-grid > *:nth-child(odd):last-child,
+.detail-cards-mobile-2col > *:nth-child(odd):last-child,
+.inclusions-unified-grid > *:nth-child(odd):last-child,
+.amenities-unified-grid > *:nth-child(odd):last-child,
+.explore-pillars-grid > *:nth-child(odd):last-child,
+.grid-2col-centered > *:nth-child(odd):last-child {
+  grid-column: 1 / -1 !important;
+  justify-self: center !important;
+  width: calc(50% - 0.375rem) !important;
+  max-width: calc(50% - 0.375rem) !important;
+}
+
+/* Desktop 3-Column / Auto-fit Grids: 1 Leftover Item in Final Row (e.g., 4th, 7th, 10th card) */
+@media (min-width: 769px) {
+  .spaces-residences-grid > *:nth-child(3n+1):last-child,
+  .inclusions-unified-grid > *:nth-child(3n+1):last-child,
+  .amenities-unified-grid > *:nth-child(3n+1):last-child,
+  .explore-pillars-grid > *:nth-child(3n+1):last-child {
+    grid-column: 1 / -1 !important;
+    justify-self: center !important;
+    width: calc(33.333% - 1.33rem) !important;
+    max-width: calc(33.333% - 1.33rem) !important;
+  }
+}
+
+/* Small mobile screens (<= 480px): Single leftover card expands to 100% width centered */
+@media (max-width: 480px) {
+  .spaces-residences-grid > *:nth-child(odd):last-child,
+  .sanctum-zones-grid > *:nth-child(odd):last-child,
+  .detail-cards-mobile-2col > *:nth-child(odd):last-child,
+  .inclusions-unified-grid > *:nth-child(odd):last-child,
+  .amenities-unified-grid > *:nth-child(odd):last-child,
+  .explore-pillars-grid > *:nth-child(odd):last-child,
+  .grid-2col-centered > *:nth-child(odd):last-child {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+

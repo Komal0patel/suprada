@@ -128,74 +128,20 @@ export default function HolisticWellness({ onNavigate }) {
             </motion.span>
           </h1>
 
-          {/* Exact Subtitle from reference site */}
+          {/* Exact Subtitle from reference site with Suprada font styling */}
           <p style={{
-            color: 'rgba(94, 39, 53, 0.88)',
-            maxWidth: '680px',
-            margin: '0 auto 1.8rem auto',
-            fontSize: 'clamp(1.05rem, 1.6vw, 1.28rem)',
+            color: 'rgba(94, 39, 53, 0.85)',
+            fontFamily: 'var(--font-body)',
+            maxWidth: '640px',
+            margin: '0 auto',
+            fontSize: 'clamp(1.05rem, 1.4vw, 1.22rem)',
             lineHeight: 1.6,
-            fontWeight: 500,
-            textAlign: 'center'
+            fontWeight: 400,
+            textAlign: 'center',
+            letterSpacing: '0.01em'
           }}>
             7 Days of Complete Balance
           </p>
-
-          {/* Action Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            style={{ display: 'flex', gap: '1.2rem', justifyContent: 'center', flexWrap: 'wrap' }}
-          >
-            <a
-              href="#integrative-healing"
-              style={{
-                display: 'inline-block',
-                padding: '0.85rem 2.2rem',
-                fontSize: '0.82rem',
-                letterSpacing: '0.12em',
-                textDecoration: 'none',
-                textTransform: 'uppercase',
-                fontWeight: 700,
-                backgroundColor: 'var(--wine, #5E2735)',
-                color: '#f5ebd9',
-                border: '1.5px solid var(--wine, #5E2735)',
-                borderRadius: '30px',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                boxShadow: '0 4px 18px rgba(94,39,53,0.22)'
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#3a1520'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--wine, #5E2735)'; e.currentTarget.style.transform = 'translateY(0)'; }}
-            >
-              Explore Program ↓
-            </a>
-            <button
-              onClick={() => onNavigate('contact')}
-              style={{
-                background: 'transparent',
-                border: '1.5px solid rgba(94,39,53,0.35)',
-                color: 'var(--wine, #5E2735)',
-                cursor: 'pointer',
-                padding: '0.85rem 2.1rem',
-                fontSize: '0.82rem',
-                letterSpacing: '0.08em',
-                fontWeight: 600,
-                borderRadius: '30px',
-                transition: 'all 0.3s ease'
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(94,39,53,0.07)'; e.currentTarget.style.borderColor = 'var(--wine, #5E2735)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.borderColor = 'rgba(94,39,53,0.35)'; }}
-            >
-              Reserve Your Spot
-            </button>
-          </motion.div>
-
-          {/* Scroll Indicator */}
-          <div style={{ marginTop: '2.5rem', fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.22em', color: 'var(--wine, #5E2735)', opacity: 0.6, fontWeight: 700 }}>
-            Scroll ↓
-          </div>
         </motion.div>
       </section>
 

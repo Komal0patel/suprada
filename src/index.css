@@ -3107,7 +3107,7 @@ html, body {
   .leadership-cards-wrapper .editorial-master-card img {
     height: 100% !important;
     object-fit: cover !important;
-    object-position: center 10% !important;
+    object-position: center top !important;
     transform: none !important;
   }
 

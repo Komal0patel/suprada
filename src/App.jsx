@@ -18,6 +18,7 @@ import ComprehensiveCare from './pages/ComprehensiveCare';
 import Naturopathy from './pages/Naturopathy';
 import YogaMeditation from './pages/YogaMeditation';
 import HolisticTherapies from './pages/HolisticTherapies';
+import HolisticWellness from './pages/HolisticWellness';
 import Wellness from './pages/Wellness';
 import Nutrition from './pages/Nutrition';
 import Activities from './pages/Activities';
@@ -1376,7 +1377,8 @@ function App() {
           {/* Program Package Sub-Routes */}
           {currentPage === 'programmes/weekend-reset'       && <ProgrammeDetail progId="weekend-reset" onNavigate={handlePageChange} />}
           {currentPage === 'programmes/rejuvenation'        && <ProgrammeDetail progId="rejuvenation" onNavigate={handlePageChange} />}
-          {currentPage === 'programmes/holistic-wellness'   && <ProgrammeDetail progId="holistic-wellness" onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/holistic-wellness'   && <HolisticWellness onNavigate={handlePageChange} />}
+          {currentPage === 'holistic-wellness'              && <HolisticWellness onNavigate={handlePageChange} />}
           {currentPage === 'programmes/detox'               && <ProgrammeDetail progId="detox" onNavigate={handlePageChange} />}
           {currentPage === 'programmes/advanced-healing'    && <ProgrammeDetail progId="advanced-healing" onNavigate={handlePageChange} />}
         </div>

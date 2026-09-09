@@ -1,0 +1,634 @@
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Pattern24, Pattern25, Pattern27 } from '../AnimatedPatterns';
+import { 
+  Sparkles, ArrowRight, ArrowLeft, Check, Leaf, 
+  Utensils, ShieldCheck, Sprout, TrendingDown, CircleOff, 
+  ClipboardList, GlassWater, Hourglass, Bed, Carrot, 
+  Apple, CircleDot, Soup
+} from 'lucide-react';
+
+const wordRevealContainer = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.08, delayChildren: 0.1 }
+  }
+};
+
+const wordVariant = {
+  hidden: { opacity: 0, y: 18, filter: "blur(4px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
+  }
+};
+
+export default function NutritionLifestyle({ onNavigate }) {
+  const [activeTab, setActiveTab] = useState('healing');
+
+  const healingDiets = [
+    { name: "Satwik Meals", icon: Utensils, desc: "Pure, balanced vegetarian nutrition for mental clarity", color: "#6A7B66" },
+    { name: "Anti-Inflammatory", icon: ShieldCheck, desc: "Diet rich in antioxidants to reduce bodily inflammation", color: "#B85645" },
+    { name: "Millet Based", icon: Sprout, desc: "Ancient grains for sustained energy & fiber", color: "#B8860B" },
+    { name: "Diabetic Friendly", icon: TrendingDown, desc: "Low glycemic index meals for blood sugar control", color: "#5E2735" },
+    { name: "Grain Free", icon: CircleOff, desc: "Digestive reset excluding all cereal grains", color: "#6A7B66" },
+    { name: "Post Retreat Plan", icon: ClipboardList, desc: "Customized guidance for maintaining wellness at home", color: "#B8860B" }
+  ];
+
+  const detoxProtocols = [
+    { name: "Detox Juices", icon: GlassWater, desc: "Freshly pressed vegetable & fruit elixirs", color: "#B8860B" },
+    { name: "Fasting Protocols", icon: Hourglass, desc: "Intermittent or prolonged therapeutic fasting", color: "#5E2735" },
+    { name: "Gut Rest", icon: Bed, desc: "Liquid & light diet to repair digestion", color: "#6A7B66" },
+    { name: "Raw Diet", icon: Carrot, desc: "Uncooked, enzyme-rich plant foods", color: "#B85645" },
+    { name: "Fruit Diet", icon: Apple, desc: "Monodiet of seasonal fruits for cleansing", color: "#B8860B" },
+    { name: "Mono Diet", icon: CircleDot, desc: "Single food focus for digestive simplicity and detox", color: "#5E2735" }
+  ];
+
+  return (
+    <div style={{ backgroundColor: 'var(--antique-white, #FAF6F0)', color: 'var(--raisin-black, #2B1B17)', overflowX: 'hidden' }}>
+      
+      {/* 1. HERO SECTION - /spaces Centered Luxury Theme (No Buttons, Refined Typography) */}
+      <section style={{
+        boxSizing: 'border-box',
+        padding: '5.5rem 6% 3.5rem 6%',
+        background: 'linear-gradient(135deg, #f5ebd9 0%, #f0e2cc 60%, #ead9be 100%)',
+        color: 'var(--wine, #5E2735)',
+        textAlign: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+        minHeight: '75vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        {/* Botanical Leaf SVG Watermarks */}
+        <Pattern24 className="pattern-side-left" style={{ position: 'absolute', top: '-20px', left: '-40px', width: '300px', opacity: 0.12, color: 'var(--wine, #5E2735)', pointerEvents: 'none' }} />
+        <Pattern25 className="pattern-side-right" style={{ position: 'absolute', bottom: '-20px', right: '-40px', width: '300px', opacity: 0.12, color: 'var(--wine, #5E2735)', pointerEvents: 'none' }} />
+
+        {/* Ambient Glow Effects */}
+        <div style={{ position: 'absolute', top: '-10%', left: '15%', maxWidth: '450px', width: '100%', height: '450px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(94,39,53,0.08) 0%, rgba(94,39,53,0) 70%)', filter: 'blur(70px)', zIndex: 0, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-15%', right: '15%', maxWidth: '500px', width: '100%', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.1) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(80px)', zIndex: 0, pointerEvents: 'none' }} />
+
+        {/* Background Mandala Watermark */}
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 90, repeat: Infinity, ease: 'linear' }}
+          style={{
+            position: 'absolute',
+            top: '50%', left: '50%',
+            x: '-50%', y: '-50%',
+            width: 'clamp(340px, 75vw, 540px)', height: 'clamp(340px, 75vw, 540px)',
+            opacity: 0.08,
+            pointerEvents: 'none',
+            zIndex: 0
+          }}
+        >
+          <Pattern27 style={{ width: '100%', height: '100%', color: 'var(--wine, #5E2735)' }} />
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={wordRevealContainer}
+          style={{ position: 'relative', zIndex: 2, maxWidth: '840px', width: '100%', margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+        >
+          {/* Suprada Emblem Logo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+            style={{ marginBottom: '1.2rem', display: 'flex', justifyContent: 'center' }}
+          >
+            <img 
+              src="/assets/extracted/logo.svg" 
+              alt="Suprada Official Emblem Logo" 
+              style={{ height: '75px', width: 'auto', filter: 'drop-shadow(0 4px 12px rgba(94, 39, 53, 0.15))' }} 
+            />
+          </motion.div>
+
+          {/* Centered Pill Badge */}
+          <motion.div
+            initial={{ letterSpacing: '0.1em', opacity: 0, y: -10 }}
+            animate={{ letterSpacing: '0.22em', opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
+              backgroundColor: 'rgba(94, 39, 53, 0.08)',
+              padding: '0.35rem 1.3rem', borderRadius: '30px',
+              border: '1px solid rgba(94, 39, 53, 0.2)',
+              marginBottom: '1.1rem'
+            }}
+          >
+            <span style={{ color: 'var(--harvest-gold, #B8860B)', fontSize: '0.75rem' }}>✦</span>
+            <span style={{ color: 'var(--wine, #5E2735)', textTransform: 'uppercase', fontSize: '0.72rem', fontWeight: 800 }}>
+              Pillar of Wellness
+            </span>
+          </motion.div>
+
+          {/* Main Title - Suprada Luxury Typography */}
+          <h1 style={{
+            color: 'var(--wine, #5E2735)',
+            fontFamily: 'var(--font-heading)',
+            fontSize: 'clamp(2.5rem, 4.8vw, 3.8rem)',
+            fontWeight: 600,
+            letterSpacing: '-0.01em',
+            margin: '0 0 0.85rem 0', 
+            lineHeight: 1.15, 
+            display: 'flex', 
+            justifyContent: 'center', 
+            gap: '0.6rem', 
+            flexWrap: 'wrap'
+          }}>
+            <motion.span variants={wordVariant}>Nutrition &amp;</motion.span>
+            <motion.span variants={wordVariant} style={{ fontStyle: 'italic', color: 'var(--harvest-gold, #B8860B)' }}>
+              Lifestyle
+            </motion.span>
+          </h1>
+
+          {/* Exact Subtitle from reference site */}
+          <p style={{
+            color: 'rgba(94, 39, 53, 0.85)',
+            fontFamily: 'var(--font-body)',
+            maxWidth: '640px',
+            margin: '0 auto',
+            fontSize: 'clamp(1.05rem, 1.4vw, 1.22rem)',
+            lineHeight: 1.6,
+            fontWeight: 400,
+            textAlign: 'center',
+            letterSpacing: '0.01em'
+          }}>
+            Nourish Your Body, Transform Your Life
+          </p>
+        </motion.div>
+      </section>
+
+      {/* Main Content Area */}
+      <div style={{ maxWidth: '1220px', margin: '0 auto', padding: '4.5rem 6%' }}>
+        
+        {/* 2. ABOUT NUTRITION & LIFESTYLE SECTION - Exact verbatim paragraphs & exact reference image */}
+        <section style={{ marginBottom: '5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3.5rem', alignItems: 'center' }}>
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              style={{
+                borderRadius: '24px',
+                overflow: 'hidden',
+                boxShadow: '0 12px 35px rgba(94, 39, 53, 0.08)',
+                border: '1.5px solid rgba(94, 39, 53, 0.12)',
+                backgroundColor: '#ffffff',
+                height: '100%',
+                minHeight: '360px'
+              }}
+            >
+              <img 
+                src="/assets/programmes/nutrition-lifestyle-about.jpg" 
+                alt="Healthy nutrition with fresh vegetables and fruits" 
+                style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: '360px', maxHeight: '480px' }}
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
+            >
+              <h2 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: 'clamp(2.2rem, 3.8vw, 3.2rem)', margin: '0 0 1.2rem 0', fontWeight: 700, lineHeight: 1.2 }}>
+                About <span style={{ color: 'var(--harvest-gold, #B8860B)', fontStyle: 'italic' }}>Nutrition &amp; Lifestyle</span>
+              </h2>
+              <p style={{ fontSize: '1.02rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.88, lineHeight: 1.75, marginBottom: '1.2rem' }}>
+                True wellness begins with what you put on your plate and how you live your daily life. Our nutrition and lifestyle programmes combine ancient dietary wisdom with modern nutritional science to create personalized plans that support your health goals, enhance vitality, and promote long-term well-being.
+              </p>
+              <p style={{ fontSize: '1.02rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.88, lineHeight: 1.75, margin: 0 }}>
+                From satwik meal plans to gut-health optimization and sustainable lifestyle modifications, we guide you toward choices that nourish not just your body, but your mind and spirit as well.
+              </p>
+            </motion.div>
+          </div>
+
+          {/* 3. SANSKRIT WISDOM BANNER - "You are what you eat" */}
+          <motion.div 
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            style={{
+              position: 'relative',
+              marginTop: '4.5rem',
+              borderRadius: '24px',
+              padding: '3rem 2rem',
+              textAlign: 'center',
+              boxShadow: '0 10px 30px rgba(94, 39, 53, 0.06)',
+              border: '1.5px solid rgba(94, 39, 53, 0.15)',
+              background: 'linear-gradient(135deg, #FAF0E6 0%, #F5EBD9 100%)',
+              overflow: 'hidden'
+            }}
+          >
+            <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '380px', height: '380px', opacity: 0.05, pointerEvents: 'none' }}>
+              <Pattern27 style={{ width: '100%', height: '100%', color: 'var(--wine, #5E2735)' }} />
+            </div>
+
+            <div style={{ position: 'relative', zIndex: 2, maxWidth: '700px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '0.7rem' }}>
+              <span style={{ color: 'var(--wine, #5E2735)', fontFamily: 'var(--font-heading)', fontSize: '1.6rem', fontWeight: 700, fontStyle: 'italic', letterSpacing: '0.02em' }}>
+                &ldquo;You are what you eat&rdquo;
+              </span>
+              <p style={{ fontFamily: 'var(--font-heading)', color: 'var(--redwood, #B85645)', fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 600, margin: 0, lineHeight: 1.3 }}>
+                आहारशुद्धौ सत्त्वशुद्धिः।
+              </p>
+              <p style={{ color: 'var(--wine, #5E2735)', fontSize: '1.1rem', fontStyle: 'italic', fontWeight: 500, margin: 0 }}>
+                Ahāraśuddhau sattvaśuddhiḥ.
+              </p>
+              <div style={{ paddingTop: '0.8rem', borderTop: '1px solid rgba(94, 39, 53, 0.15)', width: '60%', margin: '0.5rem auto 0 auto' }}>
+                <p style={{ color: 'var(--raisin-black, #2B1B17)', opacity: 0.8, fontSize: '0.95rem', fontWeight: 500, margin: 0 }}>
+                  (When food is pure, the mind becomes pure.)
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
+      </div>
+
+      {/* 4. NOURISHMENT PROTOCOLS - Interactive Tabbed Section with Professional Lucide Icons */}
+      <section id="protocols" style={{
+        padding: '5rem 6%',
+        boxSizing: 'border-box',
+        background: 'linear-gradient(135deg, #c8ceaa 0%, #b3ba8e 60%, #a3aa7e 100%)',
+        color: 'var(--wine, #5E2735)',
+        position: 'relative',
+        overflow: 'hidden',
+        scrollMarginTop: '5rem'
+      }}>
+        <div style={{ maxWidth: '1180px', width: '100%', margin: '0 auto' }}>
+          
+          <div style={{ textAlign: 'center', marginBottom: '2.8rem' }}>
+            <h2 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: 'clamp(2.2rem, 3.8vw, 3.4rem)', margin: '0 0 0.6rem 0', fontWeight: 700 }}>
+              Nourishment <span style={{ color: 'var(--harvest-gold, #B8860B)', fontStyle: 'italic' }}>Protocols</span>
+            </h2>
+            <p style={{ color: '#ffffff', fontSize: '1.05rem', maxWidth: '760px', margin: '0 auto', lineHeight: 1.6, fontWeight: 500 }}>
+              Scientifically designed dietary plans that heal, detoxify, and energize.
+            </p>
+
+            {/* Interactive Category Tabs */}
+            <div style={{ display: 'inline-flex', gap: '0.8rem', marginTop: '2.2rem', backgroundColor: 'rgba(255, 255, 255, 0.45)', padding: '0.4rem', borderRadius: '35px', backdropFilter: 'blur(10px)' }}>
+              <button
+                onClick={() => setActiveTab('healing')}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  padding: '0.7rem 2rem',
+                  borderRadius: '30px',
+                  fontSize: '0.85rem',
+                  fontWeight: 800,
+                  letterSpacing: '0.06em',
+                  textTransform: 'uppercase',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  backgroundColor: activeTab === 'healing' ? 'var(--wine, #5E2735)' : 'transparent',
+                  color: activeTab === 'healing' ? '#f5ebd9' : 'var(--wine, #5E2735)',
+                  boxShadow: activeTab === 'healing' ? '0 4px 15px rgba(94, 39, 53, 0.25)' : 'none'
+                }}
+              >
+                <Soup size={16} />
+                Healing Diets
+              </button>
+              <button
+                onClick={() => setActiveTab('detox')}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  padding: '0.7rem 2rem',
+                  borderRadius: '30px',
+                  fontSize: '0.85rem',
+                  fontWeight: 800,
+                  letterSpacing: '0.06em',
+                  textTransform: 'uppercase',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  backgroundColor: activeTab === 'detox' ? 'var(--wine, #5E2735)' : 'transparent',
+                  color: activeTab === 'detox' ? '#f5ebd9' : 'var(--wine, #5E2735)',
+                  boxShadow: activeTab === 'detox' ? '0 4px 15px rgba(94, 39, 53, 0.25)' : 'none'
+                }}
+              >
+                <Apple size={16} />
+                Detox &amp; Reset
+              </button>
+            </div>
+          </div>
+
+          {/* Cards Grid with Professional Lucide Icons */}
+          <AnimatePresence mode="wait">
+            {activeTab === 'healing' ? (
+              <motion.div 
+                key="healing-tab"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.4 }}
+                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.4rem' }}
+              >
+                {healingDiets.map((item) => {
+                  const IconComp = item.icon;
+                  return (
+                    <motion.div
+                      key={item.name}
+                      whileHover={{ y: -5, boxShadow: '0 12px 30px rgba(94, 39, 53, 0.12)' }}
+                      transition={{ type: "spring", stiffness: 220, damping: 20 }}
+                      style={{
+                        backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                        borderRadius: '22px',
+                        padding: '1.6rem 1.4rem',
+                        border: '1.5px solid rgba(255, 255, 255, 0.9)',
+                        boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        textAlign: 'left'
+                      }}
+                    >
+                      <div>
+                        <div style={{
+                          width: '46px',
+                          height: '46px',
+                          borderRadius: '14px',
+                          backgroundColor: `${item.color}15`,
+                          color: item.color,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          marginBottom: '1rem'
+                        }}>
+                          <IconComp size={22} />
+                        </div>
+                        <h4 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.35rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>
+                          {item.name}
+                        </h4>
+                        <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.82, margin: 0, lineHeight: 1.5 }}>
+                          {item.desc}
+                        </p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
+            ) : (
+              <motion.div 
+                key="detox-tab"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.4 }}
+                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.4rem' }}
+              >
+                {detoxProtocols.map((item) => {
+                  const IconComp = item.icon;
+                  return (
+                    <motion.div
+                      key={item.name}
+                      whileHover={{ y: -5, boxShadow: '0 12px 30px rgba(94, 39, 53, 0.12)' }}
+                      transition={{ type: "spring", stiffness: 220, damping: 20 }}
+                      style={{
+                        backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                        borderRadius: '22px',
+                        padding: '1.6rem 1.4rem',
+                        border: '1.5px solid rgba(255, 255, 255, 0.9)',
+                        boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        textAlign: 'left'
+                      }}
+                    >
+                      <div>
+                        <div style={{
+                          width: '46px',
+                          height: '46px',
+                          borderRadius: '14px',
+                          backgroundColor: `${item.color}15`,
+                          color: item.color,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          marginBottom: '1rem'
+                        }}>
+                          <IconComp size={22} />
+                        </div>
+                        <h4 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.35rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>
+                          {item.name}
+                        </h4>
+                        <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.82, margin: 0, lineHeight: 1.5 }}>
+                          {item.desc}
+                        </p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+        </div>
+      </section>
+
+      {/* Main Container Continued */}
+      <div style={{ maxWidth: '1220px', margin: '0 auto', padding: '4.5rem 6%' }}>
+        
+        {/* 5. FOOD AS MEDICINE & SIGNATURE FOCUS - Exact reference content & image */}
+        <section style={{ marginBottom: '5rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '2.8rem' }}>
+            <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: 'clamp(2rem, 3.4vw, 2.8rem)', fontWeight: 700, margin: '0 0 0.8rem 0' }}>
+              Food as Medicine
+            </h3>
+            <p style={{ fontSize: '1rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, maxWidth: '820px', margin: '0 auto', lineHeight: 1.65 }}>
+              Our approach to nutrition transcends calorie counting. We view food as information that programs your biology. By combining the wisdom of holistic wellness with modern nutritional science, we create personalized dietary strategies that address the root cause of imbalances, optimize gut health, and fuel your vitality.
+            </p>
+          </div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            style={{
+              backgroundColor: '#ffffff',
+              borderRadius: '28px',
+              padding: '2.5rem',
+              border: '1.5px solid rgba(94, 39, 53, 0.15)',
+              boxShadow: '0 14px 40px rgba(94, 39, 53, 0.08)'
+            }}
+          >
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem', alignItems: 'center' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
+                <div>
+                  <span style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.4rem',
+                    color: 'var(--wine, #5E2735)',
+                    backgroundColor: 'rgba(94, 39, 53, 0.08)',
+                    fontSize: '0.72rem',
+                    fontWeight: 800,
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    padding: '0.35rem 1rem',
+                    borderRadius: '30px',
+                    marginBottom: '1rem'
+                  }}>
+                    <Sparkles size={13} style={{ color: 'var(--redwood, #B85645)' }} /> SIGNATURE FOCUS
+                  </span>
+                  
+                  <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '2.2rem', fontWeight: 700, margin: '0 0 0.7rem 0' }}>
+                    Gut Restoration Plan
+                  </h3>
+
+                  <p style={{ fontSize: '0.96rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.65, marginBottom: '1.5rem' }}>
+                    A specialized nutritional protocol designed to heal the gut lining, restore microbiome balance, and improve digestion. Essential for those with IBS, bloating, or food sensitivities.
+                  </p>
+                  
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '0.8rem', marginBottom: '2rem' }}>
+                    {[
+                      'Microbiome Analysis',
+                      'Anti-Inflammatory Meal Plan',
+                      'Probiotic Rich Foods',
+                      'Digestive Herbal Support'
+                    ].map(check => (
+                      <div key={check} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                        <div style={{ width: '20px', height: '20px', borderRadius: '50%', backgroundColor: 'rgba(94,39,53,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--wine, #5E2735)', flexShrink: 0 }}>
+                          <Check size={13} />
+                        </div>
+                        <span style={{ color: 'var(--wine, #5E2735)', fontWeight: 700, fontSize: '0.88rem' }}>{check}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <button 
+                    onClick={() => onNavigate('contact')}
+                    style={{
+                      backgroundColor: 'var(--wine, #5E2735)',
+                      color: '#ffffff',
+                      padding: '0.85rem 2.2rem',
+                      borderRadius: '30px',
+                      fontSize: '0.8rem',
+                      fontWeight: 800,
+                      letterSpacing: '0.1em',
+                      textTransform: 'uppercase',
+                      border: 'none',
+                      cursor: 'pointer',
+                      boxShadow: '0 6px 20px rgba(94, 39, 53, 0.22)',
+                      transition: 'all 0.3s ease'
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#3a1520'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--wine, #5E2735)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                  >
+                    BEGIN YOUR JOURNEY &rarr;
+                  </button>
+                </div>
+              </div>
+
+              <div style={{ borderRadius: '20px', overflow: 'hidden', position: 'relative', height: '350px', boxShadow: '0 10px 30px rgba(94, 39, 53, 0.1)', border: '1px solid rgba(94, 39, 53, 0.12)' }}>
+                <img 
+                  src="/assets/programmes/gut-restoration.jpg" 
+                  alt="Gut Restoration Nutrition" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+                <div style={{ position: 'absolute', top: '15px', right: '15px', backgroundColor: 'rgba(255, 255, 255, 0.94)', backdropFilter: 'blur(8px)', borderRadius: '16px', padding: '0.8rem 1.2rem', boxShadow: '0 8px 24px rgba(0,0,0,0.1)', border: '1px solid rgba(94, 39, 53, 0.15)' }}>
+                  <p style={{ fontSize: '0.7rem', fontWeight: 800, color: 'var(--wine, #5E2735)', textTransform: 'uppercase', letterSpacing: '0.1em', margin: 0 }}>Targeted Care</p>
+                  <p style={{ fontFamily: 'var(--font-heading)', color: 'var(--harvest-gold, #B8860B)', fontSize: '1.25rem', fontWeight: 700, margin: 0 }}>Digestive Health</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
+        {/* 6. EXPLORE OTHER PROGRAMMES NAVIGATION (Exact reference) */}
+        <div style={{ paddingTop: '1rem', borderTop: '1px solid rgba(94, 39, 53, 0.12)' }}>
+          <h3 style={{ color: 'var(--wine, #5E2735)', textAlign: 'center', fontSize: '0.76rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.22em', marginBottom: '1.5rem' }}>
+            Explore Other Programmes
+          </h3>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '1.5rem'
+          }}>
+            <motion.div
+              whileHover={{ y: -4 }}
+              onClick={() => {
+                onNavigate('programmes/holistic-therapies');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              style={{
+                backgroundColor: '#ffffff',
+                borderRadius: '20px',
+                padding: '1.5rem 1.8rem',
+                border: '1.5px solid rgba(94, 39, 53, 0.12)',
+                cursor: 'pointer',
+                boxShadow: '0 6px 18px rgba(94, 39, 53, 0.04)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '1rem'
+              }}
+            >
+              <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'rgba(94, 39, 53, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--wine, #5E2735)', flexShrink: 0 }}>
+                <ArrowLeft size={18} />
+              </div>
+              <div>
+                <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', display: 'block' }}>
+                  Previous
+                </span>
+                <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--wine, #5E2735)', margin: '0.1rem 0 0 0', fontWeight: 700 }}>
+                  Holistic Therapies
+                </h4>
+              </div>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ y: -4 }}
+              onClick={() => {
+                onNavigate('programmes/mental-emotional');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              style={{
+                backgroundColor: '#ffffff',
+                borderRadius: '20px',
+                padding: '1.5rem 1.8rem',
+                border: '1.5px solid rgba(94, 39, 53, 0.12)',
+                cursor: 'pointer',
+                boxShadow: '0 6px 18px rgba(94, 39, 53, 0.04)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: '1rem'
+              }}
+            >
+              <div>
+                <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', display: 'block' }}>
+                  Next
+                </span>
+                <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--wine, #5E2735)', margin: '0.1rem 0 0 0', fontWeight: 700 }}>
+                  Mental Wellbeing
+                </h4>
+              </div>
+              <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'rgba(94, 39, 53, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--wine, #5E2735)', flexShrink: 0 }}>
+                <ArrowRight size={18} />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  );
+}

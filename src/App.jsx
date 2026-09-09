@@ -19,6 +19,7 @@ import Naturopathy from './pages/Naturopathy';
 import YogaMeditation from './pages/YogaMeditation';
 import HolisticTherapies from './pages/HolisticTherapies';
 import HolisticWellness from './pages/HolisticWellness';
+import NutritionLifestyle from './pages/NutritionLifestyle';
 import Wellness from './pages/Wellness';
 import Nutrition from './pages/Nutrition';
 import Activities from './pages/Activities';
@@ -1368,7 +1369,8 @@ function App() {
           {currentPage === 'programmes/naturopathy'         && <Naturopathy onNavigate={handlePageChange} />}
           {currentPage === 'programmes/yoga-meditation'     && <YogaMeditation onNavigate={handlePageChange} />}
           {currentPage === 'programmes/holistic-therapies'   && <HolisticTherapies onNavigate={handlePageChange} />}
-          {currentPage === 'programmes/nutrition-lifestyle'  && <PillarDetail pillarId="nutrition-lifestyle" onNavigate={handlePageChange} />}
+          {currentPage === 'programmes/nutrition-lifestyle'  && <NutritionLifestyle onNavigate={handlePageChange} />}
+          {currentPage === 'nutrition-lifestyle'             && <NutritionLifestyle onNavigate={handlePageChange} />}
           {currentPage === 'programmes/mental-emotional'    && <PillarDetail pillarId="mental-emotional" onNavigate={handlePageChange} />}
           {currentPage === 'programmes/detox-cleansing'     && <PillarDetail pillarId="detox-cleansing" onNavigate={handlePageChange} />}
           {currentPage === 'programmes/physiotherapy'       && <PillarDetail pillarId="physiotherapy" onNavigate={handlePageChange} />}

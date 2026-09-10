@@ -455,7 +455,7 @@ export default function About({ onNavigate }) {
       {/* =========================================================================
           CHAPTER II: Interactive Founders Spotlight Stage (Responsive Fit)
           ========================================================================= */}
-      <section className="visionaries-section" style={{
+      <section className="visionaries-section" id="founders-section" style={{
         position: 'relative',
         background: 'linear-gradient(180deg, #ead9be 0%, #FAF0E6 25%, var(--antique-white) 100%)',
         padding: '4.5rem 6%',

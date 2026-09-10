@@ -44,8 +44,8 @@ const searchIndex = [
   },
   { 
     type: 'page', title: "About Us & Founders", category: "Page", pageName: "About Us", path: "about", 
-    desc: "Meet Sunil Jayaraj, Dr. Prema Ramadas, MD & our drugless healing philosophy",
-    keywords: ["about", "about us", "founder", "founders", "sunil", "sunil jayaraj", "prema", "dr prema", "dr. prema ramadas", "ramadas", "md", "managing trustee", "medical director", "leadership", "team", "philosophy", "story", "mission"]
+    desc: "Meet Renuka Nagaraju, Sunil Jayaraj, Dr. Prema Ramadas, MD & our drugless healing philosophy",
+    keywords: ["about", "about us", "founder", "founders", "renuka", "renuka nagaraju", "nagaraju", "sunil", "sunil jayaraj", "prema", "dr prema", "dr. prema ramadas", "ramadas", "md", "managing trustee", "medical director", "leadership", "team", "philosophy", "story", "mission"]
   },
   { 
     type: 'page', title: "Spaces & Sanctuaries", category: "Page", pageName: "Spaces", path: "spaces", 
@@ -115,14 +115,39 @@ const searchIndex = [
 
   // ================= FOUNDERS & LEADERSHIP =================
   { 
-    type: 'card', title: "Sunil Jayaraj (Founder & Managing Trustee)", cardName: "Sunil Jayaraj", sectionName: "Founders & Leadership", pageName: "About Us", path: "about#founders-section", 
-    desc: "Visionary founder of Suprada Sanctuary, dedicating life to riverfront drugless healing & nature preservation",
-    keywords: ["sunil", "jayaraj", "sunil jayaraj", "founder", "managing trustee", "trustee", "leadership", "visionary", "creator", "owner"]
+    type: 'card', title: "Late Mrs. Renuka Nagaraju (Founder Inspiration)", cardName: "Late Mrs. Renuka Nagaraju", sectionName: "Founders & Leadership", pageName: "About Us", path: "about#founders-section", 
+    desc: "Inspiring Suprada's core vision of compassionate holistic living and sacred healing",
+    keywords: ["renuka", "renuka nagaraju", "nagaraju", "late mrs renuka nagaraju", "founder inspiration", "inspiration", "founders", "leadership", "founder"]
   },
   { 
-    type: 'card', title: "Dr. Prema Ramadas, MD (Chief Medical Director & Founder)", cardName: "Dr. Prema Ramadas", sectionName: "Founders & Leadership", pageName: "About Us", path: "about#founders-section", 
+    type: 'card', title: "Acharya Dr. M. Nagaraju (Chairperson)", cardName: "Acharya Dr. M. Nagaraju", sectionName: "Founders & Leadership", pageName: "About Us", path: "about#founders-section", 
+    desc: "Pioneering traditional Vedic wisdom and holistic health systems",
+    keywords: ["acharya", "m nagaraju", "dr nagaraju", "acharya dr m nagaraju", "nagaraju", "chairperson", "chairman", "founders", "leadership"]
+  },
+  { 
+    type: 'card', title: "Mr. Sunil Jayaraj (Founder & Managing Trustee)", cardName: "Sunil Jayaraj", sectionName: "Founders & Leadership", pageName: "About Us", path: "about#founders-section", 
+    desc: "Visionary founder of Suprada Sanctuary, dedicating life to riverfront drugless healing & nature preservation",
+    keywords: ["sunil", "jayaraj", "sunil jayaraj", "mr sunil jayaraj", "founder", "managing trustee", "trustee", "leadership", "visionary", "creator", "owner"]
+  },
+  { 
+    type: 'card', title: "Dr. Prema Ramadas, MD (Chief Medical Director & Co-Founder)", cardName: "Dr. Prema Ramadas", sectionName: "Founders & Leadership", pageName: "About Us", path: "about#founders-section", 
     desc: "Pioneer in BNYS & MD Naturopathy, leading doctor consultations, iris diagnostics & natural healing protocols",
-    keywords: ["prema", "dr prema", "dr. prema", "ramadas", "dr prema ramadas", "dr. prema ramadas", "medical director", "chief doctor", "doctor", "physician", "naturopath", "bnys", "md", "founder"]
+    keywords: ["prema", "dr prema", "dr. prema", "ramadas", "dr prema ramadas", "dr. prema ramadas", "medical director", "chief doctor", "doctor", "physician", "naturopath", "bnys", "md", "co-founder", "founder"]
+  },
+  { 
+    type: 'card', title: "Smt. Priya Amaresh (Chief Yoga and Wellness Advisor)", cardName: "Smt. Priya Amaresh", sectionName: "Founders & Leadership", pageName: "About Us", path: "about#founders-section", 
+    desc: "Guiding classical yoga practices, pranayama, and holistic lifestyle integration",
+    keywords: ["priya", "amaresh", "priya amaresh", "smt priya amaresh", "yoga advisor", "wellness advisor", "yoga", "leadership"]
+  },
+  { 
+    type: 'card', title: "Srinivas Ramadas (Director Operations)", cardName: "Srinivas Ramadas", sectionName: "Founders & Leadership", pageName: "About Us", path: "about#founders-section", 
+    desc: "Crafting the standard of luxury wellness operations and guest experience",
+    keywords: ["srinivas", "ramadas", "srinivas ramadas", "director operations", "operations", "leadership"]
+  },
+  { 
+    type: 'card', title: "Dr. Vinaya, B.N.Y.S (Chief Medical Officer)", cardName: "Dr. Vinaya", sectionName: "Founders & Leadership", pageName: "About Us", path: "about#founders-section", 
+    desc: "Pioneering natural healing and drugless integrative medical protocols",
+    keywords: ["vinaya", "dr vinaya", "cmo", "chief medical officer", "medical officer", "doctor", "bnys", "leadership"]
   },
 
   // ================= SECTIONS =================
@@ -158,8 +183,8 @@ const searchIndex = [
   },
   { 
     type: 'section', title: "Our Founders & Leadership Vision", sectionName: "Founders & Leadership", pageName: "About Us", path: "about#founders-section", 
-    desc: "Meet Sunil Jayaraj & Dr. Prema Ramadas, MD",
-    keywords: ["founders section", "leadership vision", "our founders", "founders", "leadership team"]
+    desc: "Meet Late Mrs. Renuka Nagaraju, Acharya Dr. M. Nagaraju, Sunil Jayaraj & Dr. Prema Ramadas",
+    keywords: ["founders section", "leadership vision", "our founders", "founders", "leadership team", "renuka", "sunil", "prema"]
   },
   { 
     type: 'section', title: "Sacred Events & Mindful Gatherings", sectionName: "Sacred Events", pageName: "Occasions", path: "occasions#sacred-occasions", 
@@ -960,7 +985,8 @@ function App() {
                     }
 
                     const qRaw = searchQuery.toLowerCase().trim();
-                    const tokens = qRaw.split(/\s+/).filter(Boolean);
+                    const rawTokens = qRaw.split(/\s+/).filter(Boolean);
+                    const cleanTokens = rawTokens.map(t => t.replace(/[^a-z0-9]/g, '')).filter(Boolean);
 
                     const filtered = searchIndex.filter(item => {
                       const searchableParts = [
@@ -973,10 +999,17 @@ function App() {
                         ...(item.keywords || [])
                       ].filter(Boolean).map(s => String(s).toLowerCase());
 
-                      const fullBlob = searchableParts.join(' ');
+                      const rawBlob = searchableParts.join(' ');
+                      const cleanBlob = rawBlob.replace(/[^a-z0-9]/g, ' ');
 
-                      // Returns true if EVERY token typed by user matches somewhere in the item's searchable text
-                      return tokens.every(token => fullBlob.includes(token));
+                      // Returns true if EVERY token typed by user matches somewhere in raw or normalized searchable text
+                      return rawTokens.every((rawToken, idx) => {
+                        const cleanToken = cleanTokens[idx];
+                        return (
+                          rawBlob.includes(rawToken) ||
+                          (cleanToken && cleanBlob.includes(cleanToken))
+                        );
+                      });
                     });
 
                     if (filtered.length === 0) {

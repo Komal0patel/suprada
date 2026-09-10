@@ -2763,7 +2763,7 @@ export default function Home({ onNavigate }) {
       </section>
 
       {/* Section 3: Guided by Experts */}
-      <section style={{ backgroundColor: 'var(--antique-white)', color: 'var(--wine)', padding: '3.2rem 4%', position: 'relative', overflow: 'hidden' }}>
+      <section id="founders-section" style={{ backgroundColor: 'var(--antique-white)', color: 'var(--wine)', padding: '3.2rem 4%', position: 'relative', overflow: 'hidden' }}>
         <div style={{ maxWidth: '1380px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>

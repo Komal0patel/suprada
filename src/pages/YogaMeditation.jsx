@@ -46,7 +46,7 @@ export default function YogaMeditation({ onNavigate }) {
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden',
-        minHeight: '85vh',
+        minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',

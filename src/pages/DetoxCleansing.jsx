@@ -68,7 +68,7 @@ export default function DetoxCleansing({ onNavigate }) {
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden',
-        minHeight: '75vh',
+        minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',

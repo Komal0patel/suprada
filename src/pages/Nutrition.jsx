@@ -196,7 +196,7 @@ export default function Nutrition({ onNavigate }) {
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden',
-        minHeight: '85dvh',
+        minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',

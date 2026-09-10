@@ -460,7 +460,7 @@ export default function ProgrammeDetail({ progId, onNavigate }) {
       <section style={{
         position: 'relative',
         width: '100%',
-        minHeight: '60vh',
+        minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',

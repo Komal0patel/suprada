@@ -201,7 +201,7 @@ export default function ComprehensiveCare({ onNavigate }) {
     <div style={{ backgroundColor: 'var(--antique-white)', color: 'var(--wine)', minHeight: '100vh', position: 'relative' }}>
       
       {/* Main Cards Grid Section */}
-      <section className="naturopathy-section-container luxury-clay" style={{ position: 'relative', overflow: 'hidden', padding: isMobile ? '7.5rem 5% 3rem 5%' : '8.5rem 7% 4.5rem 7%', backgroundColor: 'var(--antique-white)' }}>
+      <section className="naturopathy-section-container luxury-clay" style={{ position: 'relative', overflow: 'hidden', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: isMobile ? '7.5rem 5% 3rem 5%' : '8.5rem 7% 4.5rem 7%', backgroundColor: 'var(--antique-white)' }}>
         <Pattern28 style={{ position: 'absolute', top: '-40px', left: '-40px', width: '220px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
         
         <div style={{ maxWidth: '1280px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 2 }}>

@@ -260,14 +260,12 @@ export default function About({ onNavigate }) {
           ========================================================================= */}
       <section style={{
         boxSizing: 'border-box',
-        padding: '5rem 6% 2.5rem 6%',
+        padding: 'clamp(6.5rem, 12vh, 8.5rem) 6% 3.5rem 6%',
         background: 'linear-gradient(135deg, #f5ebd9 0%, #f0e2cc 60%, #ead9be 100%)',
         color: 'var(--wine)',
         textAlign: 'center',
         position: 'relative',
-        overflow: 'hidden',
-        minHeight: '100dvh',
-        height: '100vh',
+        minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -459,11 +457,9 @@ export default function About({ onNavigate }) {
           ========================================================================= */}
       <section className="visionaries-section" style={{
         position: 'relative',
-        overflow: 'hidden',
         background: 'linear-gradient(180deg, #ead9be 0%, #FAF0E6 25%, var(--antique-white) 100%)',
-        padding: '3.5rem 6%',
-        minHeight: '100dvh',
-        height: '100vh',
+        padding: '4.5rem 6%',
+        minHeight: 'auto',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',

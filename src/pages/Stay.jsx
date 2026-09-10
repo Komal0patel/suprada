@@ -588,16 +588,14 @@ export default function Stay({ onNavigate }) {
       {/* ========================================================================= */}
       <section style={{
         position: 'relative',
-        height: '100vh',
-        maxHeight: '100dvh',
+        minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
-        padding: '2rem 6%',
-        backgroundColor: '#f5ebd9', // Light cotton paper / antique white background
+        padding: 'clamp(6.5rem, 12vh, 8.5rem) 6% 4rem 6%',
+        backgroundColor: '#f5ebd9',
         color: 'var(--wine)',
-        overflow: 'hidden',
         boxSizing: 'border-box'
       }}>
         {/* Ambient Wine & Gold Bokeh Glow Effects */}

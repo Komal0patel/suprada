@@ -4971,6 +4971,77 @@ html, body {
   height: 0 !important;
 }
 
+/* =========================================================================
+   STANDARD RESPONSIVE GRID & HEADER CLEARANCE UTILITIES
+   ========================================================================= */
+
+/* Header Safe Top Padding for Hero Sections */
+.nav-safe-hero {
+  padding-top: clamp(6.5rem, 12vh, 8.5rem) !important;
+}
+
+/* 3-Column Responsive Grid (Desktop: 3-col, Tablet: 2-col, Mobile: 1-col) */
+.grid-responsive-3 {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 1.8rem !important;
+  width: 100% !important;
+}
+
+/* 2-Column Responsive Grid (Desktop/Tablet: 2-col, Mobile: 1-col) */
+.grid-responsive-2 {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+}
+
+/* Responsive Grid Media Breakpoints */
+@media (max-width: 1024px) {
+  .grid-responsive-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.4rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid-responsive-3,
+  .grid-responsive-2 {
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem !important;
+  }
+}
+
+/* Spaces Residences Grid Specific Breakpoints */
+.spaces-residences-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 2rem !important;
+  width: 100% !important;
+  align-items: stretch !important;
+}
+
+@media (max-width: 1024px) {
+  .spaces-residences-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .spaces-residences-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem !important;
+  }
+}
+
+.residence-card {
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
 
 
 

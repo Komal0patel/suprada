@@ -445,16 +445,14 @@ export default function Programmes({ onNavigate }) {
       {/* ========================================================================= */}
       <section style={{
         position: 'relative',
-        height: '100vh',
-        maxHeight: '100dvh',
+        minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
-        padding: '2rem 6%',
+        padding: 'clamp(6.5rem, 12vh, 8.5rem) 6% 4rem 6%',
         backgroundColor: 'var(--antique-white)',
         color: 'var(--wine)',
-        overflow: 'hidden',
         boxSizing: 'border-box'
       }}>
         {/* Ambient Wine & Gold Bokeh Glow Effects */}

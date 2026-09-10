@@ -357,14 +357,12 @@ export default function Spaces({ onNavigate }) {
           ========================================================================= */}
       <section style={{
         boxSizing: 'border-box',
-        padding: '5rem 6% 2.5rem 6%',
+        padding: 'clamp(6.5rem, 12vh, 8.5rem) 6% 3.5rem 6%',
         background: 'linear-gradient(135deg, #f5ebd9 0%, #f0e2cc 60%, #ead9be 100%)',
         color: 'var(--wine)',
         textAlign: 'center',
         position: 'relative',
-        overflow: 'hidden',
-        minHeight: '100dvh',
-        height: '100vh',
+        minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -562,14 +560,12 @@ export default function Spaces({ onNavigate }) {
           THE SPACES THAT SHAPE THE JOURNEY (Sanctum Zones Section in Sage Green)
           ========================================================================= */}
       <section style={{
-        minHeight: '100dvh',
-        height: '100vh',
-        padding: '2.5rem 6%',
+        minHeight: 'auto',
+        padding: '5rem 6%',
         boxSizing: 'border-box',
         background: 'linear-gradient(135deg, #c8ceaa 0%, #b3ba8e 60%, #a3aa7e 100%)',
         color: 'var(--wine)',
         position: 'relative',
-        overflow: 'hidden',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -656,8 +652,7 @@ export default function Spaces({ onNavigate }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.35 }}
-              className="sanctum-zones-grid"
-              style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.2rem' }}
+              className="sanctum-zones-grid grid-responsive-2"
             >
               {spacesCategories[activeCategory].items.map((item, idx) => (
                 <div 
@@ -707,7 +702,7 @@ export default function Spaces({ onNavigate }) {
             </p>
           </div>
 
-          <div className="spaces-residences-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))', gap: '2rem' }}>
+          <div className="spaces-residences-grid">
             {accommodationBlocks.map((block, idx) => (
               <TiltCard key={idx} style={{ height: '100%' }}>
                 <motion.div 

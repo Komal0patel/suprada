@@ -851,7 +851,7 @@ export default function Home({ onNavigate }) {
   return (
     <div>
       {/* Hero Section — Side-Shifted Left Layout with Side Shadow Overlay */}
-      <section style={{ height: '100vh', minHeight: '100dvh', width: '100%', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
+      <section style={{ minHeight: '100vh', width: '100%', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
         {/* Background Image for Hero Section */}
         <img
           src="/assets/heroSection/HeroImage.jpeg"

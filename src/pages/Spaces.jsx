@@ -239,6 +239,7 @@ export default function Spaces({ onNavigate }) {
       items: [
         { name: 'Suyoga (Indoor Yoga Hall)', desc: 'An elegant, peaceful haven for group asanas, breathwork, and sound bathing.' },
         { name: 'Mahabilva (Traditional Outdoor Sitting)', desc: 'Named after the sacred nine-leaved Mahabilva. An open-air deck for meditation by the river.' },
+        { name: 'Aqua Yoga', desc: 'Yogic movement designed for pool yoga.' },
         { name: 'Sanmarga (Walking Track)', desc: 'An ornamental track designed for meditative barefoot walking and deep breathing.' },
         { name: 'Sukhada (Wellness Gym)', desc: 'Equipped with light conditioning gear for gentle strength building and rehabilitation.' }
       ]

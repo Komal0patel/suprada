@@ -143,7 +143,7 @@ function BlogCard({ art, colors, imageUrl, onSelect }) {
         flexDirection: 'column',
         cursor: 'pointer',
         position: 'relative',
-        height: '460px',
+        height: '420px',
         transition: 'border 0.35s ease, box-shadow 0.35s ease'
       }}
     >
@@ -185,40 +185,10 @@ function BlogCard({ art, colors, imageUrl, onSelect }) {
         }}>
           {art.category}
         </div>
-
-        {/* Read Time Glassmorphism Pill */}
-        <div style={{
-          position: 'absolute',
-          top: '1rem',
-          right: '1rem',
-          backgroundColor: 'rgba(255, 255, 255, 0.88)',
-          color: 'var(--wine)',
-          padding: '0.35rem 0.75rem',
-          borderRadius: '20px',
-          fontSize: '0.68rem',
-          fontWeight: 700,
-          backdropFilter: 'blur(8px)',
-          WebkitBackdropFilter: 'blur(8px)',
-          border: '1px solid rgba(255, 255, 255, 0.6)',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.3rem',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.12)',
-          zIndex: 2
-        }}>
-          <span style={{ fontSize: '0.72rem', opacity: 0.8 }}>⏱</span>
-          <span>{art.readTime}</span>
-        </div>
       </div>
 
       {/* 2. Base Card Body Content */}
       <div style={{ padding: '1.5rem 1.6rem 1.4rem 1.6rem', display: 'flex', flexDirection: 'column', flexGrow: 1, minWidth: 0 }}>
-        {/* Date Row */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.74rem', color: 'var(--redwood)', fontWeight: 700, letterSpacing: '0.04em', marginBottom: '0.45rem' }}>
-          <span>📅</span>
-          <span>{art.date}</span>
-        </div>
-
         {/* Article Title */}
         <h3 style={{
           color: isHovered ? 'var(--redwood)' : 'var(--wine)',

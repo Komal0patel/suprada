@@ -1146,14 +1146,14 @@ export default function Careers({ onNavigate }) {
             style={{
               position: 'fixed',
               top: 0, left: 0, right: 0, bottom: 0,
-              backgroundColor: 'rgba(25, 12, 18, 0.65)',
-              backdropFilter: 'blur(8px)',
-              WebkitBackdropFilter: 'blur(8px)',
-              zIndex: 10000,
+              backgroundColor: 'rgba(25, 12, 18, 0.72)',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
+              zIndex: 999999,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: '1.5rem',
+              padding: '4.5rem 1.5rem 2rem 1.5rem',
               boxSizing: 'border-box'
             }}
             onClick={() => { setSelectedJob(null); setApplied(false); }}
@@ -1170,8 +1170,8 @@ export default function Careers({ onNavigate }) {
                 borderRadius: '24px',
                 width: '100%',
                 maxWidth: '580px',
-                maxHeight: '88vh',
-                boxShadow: '0 25px 60px rgba(0, 0, 0, 0.3)',
+                maxHeight: '82vh',
+                boxShadow: '0 30px 70px rgba(0, 0, 0, 0.4)',
                 border: '1.5px solid rgba(220, 160, 50, 0.35)',
                 display: 'flex',
                 flexDirection: 'column',

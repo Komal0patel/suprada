@@ -37,88 +37,193 @@ import StarfieldBackground from './components/StarfieldBackground';
 
 const searchIndex = [
   // ================= PAGES =================
-  { type: 'page', title: "Spaces & Sanctuaries", category: "Page", pageName: "Spaces", path: "spaces", desc: "Explore Swasthya, Sauhithya, Samiksha, Sukhada, Goshala & Cottages" },
-  { type: 'page', title: "Retreat Packages & Pricing", category: "Page", pageName: "Programmes/Packages", path: "programmes/packages", desc: "2-Day Weekend Reset, 7-Day Renewal & 21-Day Chronic Recovery" },
-  { type: 'page', title: "Programmes & Approach", category: "Page", pageName: "Programmes", path: "programmes", desc: "Personalized Wellness Formula, Rooted in Nature approach" },
-  { type: 'page', title: "Naturopathy & Drugless Modalities", category: "Page", pageName: "Naturopathy", path: "naturopathy", desc: "Iris diagnosis, hydrotherapy, abhyanga, mud baths, acoustic sound" },
-  { type: 'page', title: "Comprehensive Clinical Care", category: "Page", pageName: "Comprehensive Care", path: "comprehensivecare", desc: "Doctor-supervised treatments for diabetes, arthritis, IBS, anxiety & PCOS" },
-  { type: 'page', title: "Satwik Nutrition & Organic Dining", category: "Page", pageName: "Nutrition", path: "nutrition", desc: "Farm-to-table organic meals, custom dosha diets, detox juices & decoctions" },
-  { type: 'page', title: "Careers & Join Our Team", category: "Page", pageName: "Careers", path: "careers", desc: "Open positions for Naturopathy Doctors, Therapists & Culinary Heads" },
-  { type: 'page', title: "About Us & Founders", category: "Page", pageName: "About Us", path: "about", desc: "Learn about Sunil Jayaraj, Dr. Prema Ramadas & our healing vision" },
-  { type: 'page', title: "Photo Gallery & Moments", category: "Page", pageName: "Gallery", path: "gallery", desc: "Explore riverfront views, cottage interiors, treatment suites & grounds" },
-  { type: 'page', title: "Healing Journal & Blog", category: "Page", pageName: "Blog", path: "blog", desc: "Educational articles on gut-brain axis, iris diagnostics & natural health" },
-  { type: 'page', title: "Occasions & Sacred Events", category: "Page", pageName: "Occasions", path: "occasions", desc: "Weddings, executive retreats, family reunions & quiet celebrations" },
-  { type: 'page', title: "Stay & Accommodations", category: "Page", pageName: "Stay", path: "stay", desc: "Heritage garden cottages, river breeze retreats & canopy suites" },
-  { type: 'page', title: "Book Retreat & Reservation", category: "Page", pageName: "Book", path: "book", desc: "Reserve your customized retreat programme and stay" },
-  { type: 'page', title: "Contact Us & Location Map", category: "Page", pageName: "Contact", path: "contact", desc: "Location map by Suvarnamukhi river, directions & contact form" },
+  { 
+    type: 'page', title: "Home Page", category: "Page", pageName: "Home", path: "home", 
+    desc: "Welcome to Suprada Sanctuary & Riverfront Wellness",
+    keywords: ["home", "homepage", "welcome", "suprada", "sanctuary", "suvarnamukhi", "river", "riverfront", "wellness", "natural", "healing", "drugless", "main"]
+  },
+  { 
+    type: 'page', title: "About Us & Founders", category: "Page", pageName: "About Us", path: "about", 
+    desc: "Meet Sunil Jayaraj, Dr. Prema Ramadas, MD & our drugless healing philosophy",
+    keywords: ["about", "about us", "founder", "founders", "sunil", "sunil jayaraj", "prema", "dr prema", "dr. prema ramadas", "ramadas", "md", "managing trustee", "medical director", "leadership", "team", "philosophy", "story", "mission"]
+  },
+  { 
+    type: 'page', title: "Spaces & Sanctuaries", category: "Page", pageName: "Spaces", path: "spaces", 
+    desc: "Explore Swasthya, Sauhithya, Samiksha, Sukhada, Goshala & Cottages",
+    keywords: ["spaces", "sanctuary", "sanctuaries", "cottages", "residences", "blocks", "architecture", "swasthya", "sankalpa", "sauhithya", "suyoga", "prakruti", "salila"]
+  },
+  { 
+    type: 'page', title: "Retreat Packages & Pricing", category: "Page", pageName: "Programmes/Packages", path: "programmes/packages", 
+    desc: "2-Day Weekend Reset, 7-Day Renewal & 21-Day Chronic Recovery",
+    keywords: ["packages", "pricing", "plans", "retreat", "weekend reset", "7 day renewal", "21 day chronic recovery", "rates", "cost", "programs", "package"]
+  },
+  { 
+    type: 'page', title: "Programmes & Approach", category: "Page", pageName: "Programmes", path: "programmes", 
+    desc: "Personalized Wellness Formula, Rooted in Nature approach",
+    keywords: ["programmes", "programs", "approach", "formula", "wellness formula", "rooted in nature", "discovery", "custom", "personalized"]
+  },
+  { 
+    type: 'page', title: "Naturopathy & Drugless Modalities", category: "Page", pageName: "Naturopathy", path: "naturopathy", 
+    desc: "Iris diagnosis, hydrotherapy, abhyanga, mud baths, acoustic sound",
+    keywords: ["naturopathy", "drugless", "modalities", "therapies", "iris diagnosis", "hydrotherapy", "abhyanga", "mud bath", "massage", "sound healing", "natural medicine"]
+  },
+  { 
+    type: 'page', title: "Comprehensive Clinical Care", category: "Page", pageName: "Comprehensive Care", path: "comprehensivecare", 
+    desc: "Doctor-supervised treatments for diabetes, arthritis, IBS, anxiety & PCOS",
+    keywords: ["clinical", "comprehensive care", "conditions", "medical", "doctor supervised", "diabetes", "arthritis", "ibs", "anxiety", "pcos", "diseases", "treatment"]
+  },
+  { 
+    type: 'page', title: "Satwik Nutrition & Organic Dining", category: "Page", pageName: "Nutrition", path: "nutrition", 
+    desc: "Farm-to-table organic meals, custom dosha diets, detox juices & decoctions",
+    keywords: ["nutrition", "dining", "satwik", "food", "organic", "meals", "farm to table", "detox", "juices", "diet", "ayurvedic kitchen", "culinary"]
+  },
+  { 
+    type: 'page', title: "Careers & Join Our Team", category: "Page", pageName: "Careers", path: "careers", 
+    desc: "Open positions for Naturopathy Doctors, Therapists & Culinary Heads",
+    keywords: ["careers", "jobs", "hiring", "openings", "join our team", "vacancies", "doctor jobs", "therapist jobs", "positions", "employment"]
+  },
+  { 
+    type: 'page', title: "Photo Gallery & Moments", category: "Page", pageName: "Gallery", path: "gallery", 
+    desc: "Explore riverfront views, cottage interiors, treatment suites & grounds",
+    keywords: ["gallery", "photos", "pictures", "images", "tour", "moments", "album", "visuals"]
+  },
+  { 
+    type: 'page', title: "Healing Journal & Blog", category: "Page", pageName: "Blog", path: "blog", 
+    desc: "Educational articles on gut-brain axis, iris diagnostics & natural health",
+    keywords: ["blog", "journal", "articles", "news", "insights", "read", "education", "gut brain", "health articles"]
+  },
+  { 
+    type: 'page', title: "Occasions & Sacred Events", category: "Page", pageName: "Occasions", path: "occasions", 
+    desc: "Weddings, executive retreats, family reunions & quiet celebrations",
+    keywords: ["occasions", "events", "weddings", "reunions", "corporate retreats", "celebrations", "gatherings", "venue"]
+  },
+  { 
+    type: 'page', title: "Stay & Accommodations", category: "Page", pageName: "Stay", path: "stay", 
+    desc: "Heritage garden cottages, river breeze retreats & canopy suites",
+    keywords: ["stay", "accommodations", "rooms", "booking stay", "lodging", "veranda", "suites", "comfort"]
+  },
+  { 
+    type: 'page', title: "Book Retreat & Reservation", category: "Page", pageName: "Book", path: "book", 
+    desc: "Reserve your customized retreat programme and stay",
+    keywords: ["book", "booking", "reservation", "reserve", "dates", "register", "apply"]
+  },
+  { 
+    type: 'page', title: "Contact Us & Location Map", category: "Page", pageName: "Contact", path: "contact", 
+    desc: "Location map by Suvarnamukhi river, directions & contact form",
+    keywords: ["contact", "location", "map", "directions", "address", "phone", "email", "reach us", "suvarnamukhi river"]
+  },
+
+  // ================= FOUNDERS & LEADERSHIP =================
+  { 
+    type: 'card', title: "Sunil Jayaraj (Founder & Managing Trustee)", cardName: "Sunil Jayaraj", sectionName: "Founders & Leadership", pageName: "About Us", path: "about#founders-section", 
+    desc: "Visionary founder of Suprada Sanctuary, dedicating life to riverfront drugless healing & nature preservation",
+    keywords: ["sunil", "jayaraj", "sunil jayaraj", "founder", "managing trustee", "trustee", "leadership", "visionary", "creator", "owner"]
+  },
+  { 
+    type: 'card', title: "Dr. Prema Ramadas, MD (Chief Medical Director & Founder)", cardName: "Dr. Prema Ramadas", sectionName: "Founders & Leadership", pageName: "About Us", path: "about#founders-section", 
+    desc: "Pioneer in BNYS & MD Naturopathy, leading doctor consultations, iris diagnostics & natural healing protocols",
+    keywords: ["prema", "dr prema", "dr. prema", "ramadas", "dr prema ramadas", "dr. prema ramadas", "medical director", "chief doctor", "doctor", "physician", "naturopath", "bnys", "md", "founder"]
+  },
 
   // ================= SECTIONS =================
-  { type: 'section', title: "The Sanctum Zones (The Spaces That Shape the Journey)", sectionName: "The Sanctum Zones", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Architectural structures built for reception, therapies, dining & yoga" },
-  { type: 'section', title: "Suprada Residences & Cottages (Resting Blocks)", sectionName: "Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "9 lodging blocks crafted with mud plaster, local granite & teakwood" },
-  { type: 'section', title: "Current Openings & Career Roles", sectionName: "Current Openings", pageName: "Careers", path: "careers#current-openings", desc: "Apply for Naturopathy Doctors, Hydro Therapists & Satwik Chefs" },
-  { type: 'section', title: "Specialized Doctor-Supervised Clinical Spectrum", sectionName: "Clinical Care Spectrum", pageName: "Comprehensive Care", path: "comprehensivecare#clinical-spectrum", desc: "Therapeutic care for metabolic, musculoskeletal, gastrointestinal & nervous disorders" },
-  { type: 'section', title: "Core Drugless Medical Modalities", sectionName: "Drugless Modalities", pageName: "Naturopathy", path: "naturopathy#drugless-modalities", desc: "Iris diagnosis, hydrotherapy, mud packs, acupuncture & sound healing" },
-  { type: 'section', title: "Satwik Culinary Philosophy & Kitchen", sectionName: "Satwik Dining", pageName: "Nutrition", path: "nutrition#satwik-philosophy", desc: "Organic vegetarian food curated according to Ayurvedic principles" },
-  { type: 'section', title: "Our Founders & Leadership Vision", sectionName: "Founders & Leadership", pageName: "About Us", path: "about#founders-section", desc: "Meet Sunil Jayaraj & Dr. Prema Ramadas, MD" },
-  { type: 'section', title: "Sacred Events & Mindful Gatherings", sectionName: "Sacred Events", pageName: "Occasions", path: "occasions#sacred-occasions", desc: "Eco-friendly weddings, corporate retreats & family milestones" },
+  { 
+    type: 'section', title: "The Sanctum Zones (The Spaces That Shape the Journey)", sectionName: "The Sanctum Zones", pageName: "Spaces", path: "spaces#sanctum-zones", 
+    desc: "Architectural structures built for reception, therapies, dining & yoga",
+    keywords: ["sanctum", "sanctum zones", "journey", "spaces that shape the journey", "reception", "therapies", "dining", "yoga", "sacred spaces"]
+  },
+  { 
+    type: 'section', title: "Suprada Residences & Cottages (Resting Blocks)", sectionName: "Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", 
+    desc: "9 lodging blocks crafted with mud plaster, local granite & teakwood",
+    keywords: ["residences", "cottages", "resting blocks", "lodging", "suites", "rooms", "blocks", "mud plaster"]
+  },
+  { 
+    type: 'section', title: "Current Openings & Career Roles", sectionName: "Current Openings", pageName: "Careers", path: "careers#current-openings", 
+    desc: "Apply for Naturopathy Doctors, Hydro Therapists & Satwik Chefs",
+    keywords: ["current openings", "openings", "roles", "jobs list", "hiring now", "vacancies list", "career roles"]
+  },
+  { 
+    type: 'section', title: "Specialized Doctor-Supervised Clinical Spectrum", sectionName: "Clinical Care Spectrum", pageName: "Comprehensive Care", path: "comprehensivecare#clinical-spectrum", 
+    desc: "Therapeutic care for metabolic, musculoskeletal, gastrointestinal & nervous disorders",
+    keywords: ["clinical spectrum", "specialized care", "doctor supervised", "diseases care", "medical conditions", "spectrum"]
+  },
+  { 
+    type: 'section', title: "Core Drugless Medical Modalities", sectionName: "Drugless Modalities", pageName: "Naturopathy", path: "naturopathy#drugless-modalities", 
+    desc: "Iris diagnosis, hydrotherapy, mud packs, acupuncture & sound healing",
+    keywords: ["drugless modalities", "core modalities", "naturopathic methods", "natural therapies", "treatments list"]
+  },
+  { 
+    type: 'section', title: "Satwik Culinary Philosophy & Kitchen", sectionName: "Satwik Dining", pageName: "Nutrition", path: "nutrition#satwik-philosophy", 
+    desc: "Organic vegetarian food curated according to Ayurvedic principles",
+    keywords: ["satwik philosophy", "satwik kitchen", "ayurvedic dining", "organic culinary", "nutrition philosophy"]
+  },
+  { 
+    type: 'section', title: "Our Founders & Leadership Vision", sectionName: "Founders & Leadership", pageName: "About Us", path: "about#founders-section", 
+    desc: "Meet Sunil Jayaraj & Dr. Prema Ramadas, MD",
+    keywords: ["founders section", "leadership vision", "our founders", "founders", "leadership team"]
+  },
+  { 
+    type: 'section', title: "Sacred Events & Mindful Gatherings", sectionName: "Sacred Events", pageName: "Occasions", path: "occasions#sacred-occasions", 
+    desc: "Eco-friendly weddings, corporate retreats & family milestones",
+    keywords: ["sacred events", "mindful gatherings", "events section", "occasions section"]
+  },
 
   // ================= CARDS & ITEMS =================
   // Sanctum Zone Cards (Spaces)
-  { type: 'card', title: "Sankalpa (Reception)", cardName: "Sankalpa", sectionName: "The Sanctum Zones (Reception & Admin)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Welcoming entry point where guests register, orient, and set healing intentions" },
-  { type: 'card', title: "Swasthya (Consultation Block)", cardName: "Swasthya", sectionName: "The Sanctum Zones (Reception & Admin)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Diagnostic heart of Suprada for iris assessments & doctor consultations" },
-  { type: 'card', title: "Samanvaya (Admin Block)", cardName: "Samanvaya", sectionName: "The Sanctum Zones (Reception & Admin)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Operational backbone coordinating a seamless, undisturbed healing experience" },
-  { type: 'card', title: "Samiksha (Conference Hall)", cardName: "Samiksha", sectionName: "The Sanctum Zones (Reception & Admin)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Indoor learning theater for health workshops, talks, and community dialogues" },
+  { type: 'card', title: "Sankalpa (Reception)", cardName: "Sankalpa", sectionName: "The Sanctum Zones (Reception & Admin)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Welcoming entry point where guests register, orient, and set healing intentions", keywords: ["sankalpa", "reception", "welcome", "entry", "checkin", "arrival"] },
+  { type: 'card', title: "Swasthya (Consultation Block)", cardName: "Swasthya", sectionName: "The Sanctum Zones (Reception & Admin)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Diagnostic heart of Suprada for iris assessments & doctor consultations", keywords: ["swasthya", "consultation", "doctor block", "iris diagnosis", "diagnostics", "checkup"] },
+  { type: 'card', title: "Samanvaya (Admin Block)", cardName: "Samanvaya", sectionName: "The Sanctum Zones (Reception & Admin)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Operational backbone coordinating a seamless, undisturbed healing experience", keywords: ["samanvaya", "admin", "office", "operations"] },
+  { type: 'card', title: "Samiksha (Conference Hall)", cardName: "Samiksha", sectionName: "The Sanctum Zones (Reception & Admin)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Indoor learning theater for health workshops, talks, and community dialogues", keywords: ["samiksha", "conference", "hall", "theater", "workshop", "auditorium"] },
   
-  { type: 'card', title: "Prakruti (Female Treatment Block)", cardName: "Prakruti", sectionName: "The Sanctum Zones (Therapeutic Sanctuaries)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Private therapeutic haven dedicated to women's care, cleansing, and rejuvenation" },
-  { type: 'card', title: "Prakriya (Male Treatment Block)", cardName: "Prakriya", sectionName: "The Sanctum Zones (Therapeutic Sanctuaries)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Dedicated block offering strength, detoxification, and deep-tissue recovery for men" },
-  { type: 'card', title: "Salila (Aqua Block)", cardName: "Salila", sectionName: "The Sanctum Zones (Therapeutic Sanctuaries)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Hydrotherapy suites featuring separate male/female zones, steam, sauna & mud therapies" },
-  { type: 'card', title: "Samvardhana (Salon & Personal Care)", cardName: "Samvardhana", sectionName: "The Sanctum Zones (Therapeutic Sanctuaries)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Space for organic beauty treatments and hair health using botanical elements" },
+  { type: 'card', title: "Prakruti (Female Treatment Block)", cardName: "Prakruti", sectionName: "The Sanctum Zones (Therapeutic Sanctuaries)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Private therapeutic haven dedicated to women's care, cleansing, and rejuvenation", keywords: ["prakruti", "female treatment", "women therapy", "ladies spa", "female block"] },
+  { type: 'card', title: "Prakriya (Male Treatment Block)", cardName: "Prakriya", sectionName: "The Sanctum Zones (Therapeutic Sanctuaries)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Dedicated block offering strength, detoxification, and deep-tissue recovery for men", keywords: ["prakriya", "male treatment", "men therapy", "gentlemen spa", "male block"] },
+  { type: 'card', title: "Salila (Aqua Block)", cardName: "Salila", sectionName: "The Sanctum Zones (Therapeutic Sanctuaries)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Hydrotherapy suites featuring separate male/female zones, steam, sauna & mud therapies", keywords: ["salila", "aqua block", "hydrotherapy pool", "steam", "sauna", "water therapy"] },
+  { type: 'card', title: "Samvardhana (Salon & Personal Care)", cardName: "Samvardhana", sectionName: "The Sanctum Zones (Therapeutic Sanctuaries)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Space for organic beauty treatments and hair health using botanical elements", keywords: ["samvardhana", "salon", "beauty", "hair care", "botanical care"] },
 
-  { type: 'card', title: "Sauhithya (Indoor Dining)", cardName: "Sauhithya", sectionName: "The Sanctum Zones (Nourishment & Dining)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Primary dining hall serving customized satwik diets with floor seating" },
-  { type: 'card', title: "Santrupthi (Outdoor Riverfront Dining)", cardName: "Santrupthi", sectionName: "The Sanctum Zones (Nourishment & Dining)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Mindful eating by the banks of the river under a canopy of trees" },
-  { type: 'card', title: "Surasa (Juice & Elixir Bar)", cardName: "Surasa", sectionName: "The Sanctum Zones (Nourishment & Dining)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Freshly extracted organic juices, herbal infusions, and cleansing detox decoctions" },
+  { type: 'card', title: "Sauhithya (Indoor Dining)", cardName: "Sauhithya", sectionName: "The Sanctum Zones (Nourishment & Dining)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Primary dining hall serving customized satwik diets with floor seating", keywords: ["sauhithya", "indoor dining", "dining hall", "food hall", "satwik meals", "restaurant"] },
+  { type: 'card', title: "Santrupthi (Outdoor Riverfront Dining)", cardName: "Santrupthi", sectionName: "The Sanctum Zones (Nourishment & Dining)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Mindful eating by the banks of the river under a canopy of trees", keywords: ["santrupthi", "outdoor dining", "riverfront dining", "eating", "river bank food"] },
+  { type: 'card', title: "Surasa (Juice & Elixir Bar)", cardName: "Surasa", sectionName: "The Sanctum Zones (Nourishment & Dining)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Freshly extracted organic juices, herbal infusions, and cleansing detox decoctions", keywords: ["surasa", "juice bar", "elixir", "detox drinks", "herbal tea", "smoothies"] },
 
-  { type: 'card', title: "Suyoga (Indoor Yoga Hall)", cardName: "Suyoga", sectionName: "The Sanctum Zones (Yoga & Movement)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Peaceful haven for group asanas, breathwork, and sound bathing" },
-  { type: 'card', title: "Mahabilva (Traditional Outdoor Sitting)", cardName: "Mahabilva", sectionName: "The Sanctum Zones (Yoga & Movement)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Open-air deck for meditation by the river under the sacred nine-leaved Mahabilva" },
-  { type: 'card', title: "Aqua Yoga", cardName: "Aqua Yoga", sectionName: "The Sanctum Zones (Yoga & Movement)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Yogic movement designed for pool yoga and gentle joint mobilization" },
-  { type: 'card', title: "Sanmarga (Walking Track)", cardName: "Sanmarga", sectionName: "The Sanctum Zones (Yoga & Movement)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Ornamental track designed for meditative barefoot walking and deep breathing" },
-  { type: 'card', title: "Sukhada (Wellness Gym)", cardName: "Sukhada", sectionName: "The Sanctum Zones (Yoga & Movement)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Equipped with light conditioning gear for gentle strength building" },
+  { type: 'card', title: "Suyoga (Indoor Yoga Hall)", cardName: "Suyoga", sectionName: "The Sanctum Zones (Yoga & Movement)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Peaceful haven for group asanas, breathwork, and sound bathing", keywords: ["suyoga", "yoga hall", "indoor yoga", "asanas", "breathwork hall", "meditation room"] },
+  { type: 'card', title: "Mahabilva (Traditional Outdoor Sitting)", cardName: "Mahabilva", sectionName: "The Sanctum Zones (Yoga & Movement)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Open-air deck for meditation by the river under the sacred nine-leaved Mahabilva", keywords: ["mahabilva", "outdoor deck", "river deck", "meditation deck", "sitting"] },
+  { type: 'card', title: "Aqua Yoga", cardName: "Aqua Yoga", sectionName: "The Sanctum Zones (Yoga & Movement)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Yogic movement designed for pool yoga and gentle joint mobilization", keywords: ["aqua yoga", "water yoga", "pool yoga", "hydro yoga"] },
+  { type: 'card', title: "Sanmarga (Walking Track)", cardName: "Sanmarga", sectionName: "The Sanctum Zones (Yoga & Movement)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Ornamental track designed for meditative barefoot walking and deep breathing", keywords: ["sanmarga", "walking track", "barefoot walking", "reflexology path", "trail"] },
+  { type: 'card', title: "Sukhada (Wellness Gym)", cardName: "Sukhada", sectionName: "The Sanctum Zones (Yoga & Movement)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Equipped with light conditioning gear for gentle strength building", keywords: ["sukhada", "gym", "fitness", "conditioning", "rehab"] },
 
-  { type: 'card', title: "Antara Gange (Sacred Kalyani)", cardName: "Antara Gange", sectionName: "The Sanctum Zones (Nature & Sacred Spaces)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Stepped water tank inspired by ancient architecture with Nandi idol" },
-  { type: 'card', title: "Sanjivani Vatika (Herbal Garden)", cardName: "Sanjivani Vatika", sectionName: "The Sanctum Zones (Nature & Sacred Spaces)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Living library of medicinal herbs and shrubs used in teas, packs & oils" },
-  { type: 'card', title: "Saparya (Goshala)", cardName: "Saparya", sectionName: "The Sanctum Zones (Nature & Sacred Spaces)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Traditional cow shelter promoting grounding, compassion & Gograsa care" },
-  { type: 'card', title: "Sanidhya (Amphitheatre)", cardName: "Sanidhya", sectionName: "The Sanctum Zones (Nature & Sacred Spaces)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Open-air stone theater for evening musical performances and Satsang" },
+  { type: 'card', title: "Antara Gange (Sacred Kalyani)", cardName: "Antara Gange", sectionName: "The Sanctum Zones (Nature & Sacred Spaces)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Stepped water tank inspired by ancient architecture with Nandi idol", keywords: ["antara gange", "kalyani", "water tank", "stepped tank", "sacred pond", "nandi"] },
+  { type: 'card', title: "Sanjivani Vatika (Herbal Garden)", cardName: "Sanjivani Vatika", sectionName: "The Sanctum Zones (Nature & Sacred Spaces)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Living library of medicinal herbs and shrubs used in teas, packs & oils", keywords: ["sanjivani vatika", "herbal garden", "medicinal plants", "botanical garden", "herbs"] },
+  { type: 'card', title: "Saparya (Goshala)", cardName: "Saparya", sectionName: "The Sanctum Zones (Nature & Sacred Spaces)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Traditional cow shelter promoting grounding, compassion & Gograsa care", keywords: ["saparya", "goshala", "cow shelter", "cows", "gograsa", "cattle"] },
+  { type: 'card', title: "Sanidhya (Amphitheatre)", cardName: "Sanidhya", sectionName: "The Sanctum Zones (Nature & Sacred Spaces)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Open-air stone theater for evening musical performances and Satsang", keywords: ["sanidhya", "amphitheatre", "open air theater", "satsang stage", "stone theater"] },
 
   // Residence Cards (Spaces)
-  { type: 'card', title: "Samprada Block (Heritage Garden Cottages)", cardName: "Samprada Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Rustic garden cottage close to dining and herbal gardens" },
-  { type: 'card', title: "Samrduddhi / Supritha Block (Private Enclaves)", cardName: "Samrduddhi Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Elevated luxury and privacy for deep silence and solitude" },
-  { type: 'card', title: "Spandana Block (River Breeze Retreats)", cardName: "Spandana Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Captures morning sunlight and cooling Suvarnamukhi river breeze" },
-  { type: 'card', title: "Samprapti Block (Wellness Restoration Cottages)", cardName: "Samprapti Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Quiet zones designed to support deep sleep after daily therapies" },
-  { type: 'card', title: "Sphatika Block (Prismatic Nature Suites)", cardName: "Sphatika Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Bright airy structure with large veranda facing the forest" },
-  { type: 'card', title: "Sukruthi Block (Traditional Courtyard Living)", cardName: "Sukruthi Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Units opening onto a shared green courtyard with central water feature" },
-  { type: 'card', title: "Samhita Block (Grounded Earth Cottages)", cardName: "Samhita Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Ground floor cottages with direct garden access" },
-  { type: 'card', title: "Subhiksha Block (Private Treatment Residence)", cardName: "Subhiksha Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Ultra-private cottage featuring in-house treatment area" },
-  { type: 'card', title: "Suyoga Block (Elevated Canopy Suites)", cardName: "Suyoga Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Upper floor executive rooms offering sweeping views of tree canopy" },
+  { type: 'card', title: "Samprada Block (Heritage Garden Cottages)", cardName: "Samprada Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Rustic garden cottage close to dining and herbal gardens", keywords: ["samprada", "garden cottage", "cottage 1", "samprada block"] },
+  { type: 'card', title: "Samrduddhi / Supritha Block (Private Enclaves)", cardName: "Samrduddhi Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Elevated luxury and privacy for deep silence and solitude", keywords: ["samrduddhi", "supritha", "private enclave", "luxury cottage"] },
+  { type: 'card', title: "Spandana Block (River Breeze Retreats)", cardName: "Spandana Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Captures morning sunlight and cooling Suvarnamukhi river breeze", keywords: ["spandana", "river breeze", "breeze cottage"] },
+  { type: 'card', title: "Samprapti Block (Wellness Restoration Cottages)", cardName: "Samprapti Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Quiet zones designed to support deep sleep after daily therapies", keywords: ["samprapti", "sleep cottage", "restoration cottage"] },
+  { type: 'card', title: "Sphatika Block (Prismatic Nature Suites)", cardName: "Sphatika Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Bright airy structure with large veranda facing the forest", keywords: ["sphatika", "forest veranda", "nature suite"] },
+  { type: 'card', title: "Sukruthi Block (Traditional Courtyard Living)", cardName: "Sukruthi Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Units opening onto a shared green courtyard with central water feature", keywords: ["sukruthi", "courtyard living", "courtyard cottage"] },
+  { type: 'card', title: "Samhita Block (Grounded Earth Cottages)", cardName: "Samhita Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Ground floor cottages with direct garden access", keywords: ["samhita", "grounded earth", "earth cottage", "garden access"] },
+  { type: 'card', title: "Subhiksha Block (Private Treatment Residence)", cardName: "Subhiksha Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Ultra-private cottage featuring in-house treatment area", keywords: ["subhiksha", "treatment residence", "private suite", "in house therapy"] },
+  { type: 'card', title: "Suyoga Block (Elevated Canopy Suites)", cardName: "Suyoga Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Upper floor executive rooms offering sweeping views of tree canopy", keywords: ["suyoga block", "canopy suite", "executive cottage", "tree view"] },
 
   // Package Cards (Programmes)
-  { type: 'card', title: "Weekend Reset (2 Days / 1 Night)", cardName: "Weekend Reset", sectionName: "Retreat Packages & Pricing", pageName: "Programmes", path: "programmes/packages#pricing-plans", desc: "Quick mental detox, circadian realignment & hydrotherapy" },
-  { type: 'card', title: "7-Day Renewal (7 Days / 6 Nights)", cardName: "7-Day Renewal", sectionName: "Retreat Packages & Pricing", pageName: "Programmes", path: "programmes/packages#pricing-plans", desc: "Deep tissue detox, metabolic reset & customized satwik diet" },
-  { type: 'card', title: "21-Day Chronic Disease Recovery", cardName: "21-Day Chronic Recovery", sectionName: "Retreat Packages & Pricing", pageName: "Programmes", path: "programmes/packages#pricing-plans", desc: "Comprehensive doctor-supervised reversal for diabetes, hypertension & arthritis" },
+  { type: 'card', title: "Weekend Reset (2 Days / 1 Night)", cardName: "Weekend Reset", sectionName: "Retreat Packages & Pricing", pageName: "Programmes", path: "programmes/packages#pricing-plans", desc: "Quick mental detox, circadian realignment & hydrotherapy", keywords: ["weekend reset", "2 days", "short retreat", "weekend package", "mini detox"] },
+  { type: 'card', title: "7-Day Renewal (7 Days / 6 Nights)", cardName: "7-Day Renewal", sectionName: "Retreat Packages & Pricing", pageName: "Programmes", path: "programmes/packages#pricing-plans", desc: "Deep tissue detox, metabolic reset & customized satwik diet", keywords: ["7 day renewal", "7 days", "one week retreat", "renewal package", "detox week"] },
+  { type: 'card', title: "21-Day Chronic Disease Recovery", cardName: "21-Day Chronic Recovery", sectionName: "Retreat Packages & Pricing", pageName: "Programmes", path: "programmes/packages#pricing-plans", desc: "Comprehensive doctor-supervised reversal for diabetes, hypertension & arthritis", keywords: ["21 day recovery", "21 days", "chronic disease", "diabetes reversal", "arthritis package", "long retreat"] },
 
   // Modality Cards (Naturopathy)
-  { type: 'card', title: "Iris & Facial Diagnosis", cardName: "Iris Diagnosis", sectionName: "Core Drugless Modalities", pageName: "Naturopathy", path: "naturopathy#drugless-modalities", desc: "Non-invasive organ analysis, iris mapping & facial markers" },
-  { type: 'card', title: "Therapeutic Massages & Powders", cardName: "Therapeutic Massages", sectionName: "Core Drugless Modalities", pageName: "Naturopathy", path: "naturopathy#drugless-modalities", desc: "Powder Vibrio, Deep Tissue, Shiatsu & Thai massages" },
-  { type: 'card', title: "Hydrotherapy & Mud Baths", cardName: "Hydrotherapy", sectionName: "Core Drugless Modalities", pageName: "Naturopathy", path: "naturopathy#drugless-modalities", desc: "Spinal Spray, Hip Bath, Jacuzzi & Full Body Mud Packs" },
+  { type: 'card', title: "Iris & Facial Diagnosis", cardName: "Iris Diagnosis", sectionName: "Core Drugless Modalities", pageName: "Naturopathy", path: "naturopathy#drugless-modalities", desc: "Non-invasive organ analysis, iris mapping & facial markers", keywords: ["iris diagnosis", "facial diagnosis", "iris mapping", "nadi pariksha", "body typing"] },
+  { type: 'card', title: "Therapeutic Massages & Powders", cardName: "Therapeutic Massages", sectionName: "Core Drugless Modalities", pageName: "Naturopathy", path: "naturopathy#drugless-modalities", desc: "Powder Vibrio, Deep Tissue, Shiatsu & Thai massages", keywords: ["massages", "abhyanga", "powder massage", "deep tissue", "shiatsu", "thai massage"] },
+  { type: 'card', title: "Hydrotherapy & Mud Baths", cardName: "Hydrotherapy", sectionName: "Core Drugless Modalities", pageName: "Naturopathy", path: "naturopathy#drugless-modalities", desc: "Spinal Spray, Hip Bath, Jacuzzi & Full Body Mud Packs", keywords: ["hydrotherapy", "mud bath", "mud pack", "spinal spray", "hip bath", "jacuzzi"] },
 
   // Career Cards (Careers)
-  { type: 'card', title: "Chief Resident Medical Officer (BNYS / MD)", cardName: "Medical Officer", sectionName: "Current Openings", pageName: "Careers", path: "careers#current-openings", desc: "Lead clinical diagnostics, patient care & naturopathy protocols" },
-  { type: 'card', title: "Senior Naturopathy & Yoga Physician", cardName: "Naturopathy Physician", sectionName: "Current Openings", pageName: "Careers", path: "careers#current-openings", desc: "Conduct consultations, iris diagnosis & prescribe wellness plans" },
-  { type: 'card', title: "Satwik Organic Culinary Head", cardName: "Culinary Head", sectionName: "Current Openings", pageName: "Careers", path: "careers#current-openings", desc: "Curate farm-to-table organic satwik menus aligned with Ayurvedic principles" },
+  { type: 'card', title: "Chief Resident Medical Officer (BNYS / MD)", cardName: "Medical Officer", sectionName: "Current Openings", pageName: "Careers", path: "careers#current-openings", desc: "Lead clinical diagnostics, patient care & naturopathy protocols", keywords: ["medical officer", "chief doctor", "bnys doctor", "md naturopathy", "doctor job"] },
+  { type: 'card', title: "Senior Naturopathy & Yoga Physician", cardName: "Naturopathy Physician", sectionName: "Current Openings", pageName: "Careers", path: "careers#current-openings", desc: "Conduct consultations, iris diagnosis & prescribe wellness plans", keywords: ["naturopathy physician", "yoga doctor", "physician job", "consulting doctor"] },
+  { type: 'card', title: "Satwik Organic Culinary Head", cardName: "Culinary Head", sectionName: "Current Openings", pageName: "Careers", path: "careers#current-openings", desc: "Curate farm-to-table organic satwik menus aligned with Ayurvedic principles", keywords: ["culinary head", "satwik chef", "organic cook", "head chef job", "kitchen lead"] },
 
   // Clinical Spectrum Cards (Comprehensive Care)
-  { type: 'card', title: "Metabolic & Lifestyle Diseases", cardName: "Metabolic Care", sectionName: "Specialized Clinical Spectrum", pageName: "Comprehensive Care", path: "comprehensivecare#clinical-spectrum", desc: "Drugless protocols for Type-2 Diabetes, Hypertension & Obesity" },
-  { type: 'card', title: "Musculoskeletal & Rheumatic Disorders", cardName: "Musculoskeletal Care", sectionName: "Specialized Clinical Spectrum", pageName: "Comprehensive Care", path: "comprehensivecare#clinical-spectrum", desc: "Relief for Osteoarthritis, Spondylosis, Sciatica & Chronic Joint Pain" },
-  { type: 'card', title: "Digestive & Gastrointestinal Health", cardName: "Digestive Health", sectionName: "Specialized Clinical Spectrum", pageName: "Comprehensive Care", path: "comprehensivecare#clinical-spectrum", desc: "Treatments for IBS, Acidity, Fatty Liver & Chronic Constipation" }
+  { type: 'card', title: "Metabolic & Lifestyle Diseases", cardName: "Metabolic Care", sectionName: "Specialized Clinical Spectrum", pageName: "Comprehensive Care", path: "comprehensivecare#clinical-spectrum", desc: "Drugless protocols for Type-2 Diabetes, Hypertension & Obesity", keywords: ["metabolic", "diabetes", "hypertension", "obesity", "blood pressure", "sugar"] },
+  { type: 'card', title: "Musculoskeletal & Rheumatic Disorders", cardName: "Musculoskeletal Care", sectionName: "Specialized Clinical Spectrum", pageName: "Comprehensive Care", path: "comprehensivecare#clinical-spectrum", desc: "Relief for Osteoarthritis, Spondylosis, Sciatica & Chronic Joint Pain", keywords: ["arthritis", "spondylosis", "sciatica", "back pain", "joint pain", "knee pain"] },
+  { type: 'card', title: "Digestive & Gastrointestinal Health", cardName: "Digestive Health", sectionName: "Specialized Clinical Spectrum", pageName: "Comprehensive Care", path: "comprehensivecare#clinical-spectrum", desc: "Treatments for IBS, Acidity, Fatty Liver & Chronic Constipation", keywords: ["ibs", "acidity", "fatty liver", "constipation", "gut health", "digestion"] }
 ];
 
 function App() {
@@ -854,15 +959,24 @@ function App() {
                       );
                     }
 
-                    const q = searchQuery.toLowerCase().trim();
+                    const qRaw = searchQuery.toLowerCase().trim();
+                    const tokens = qRaw.split(/\s+/).filter(Boolean);
+
                     const filtered = searchIndex.filter(item => {
-                      const matchTitle = item.title?.toLowerCase().includes(q);
-                      const matchDesc = item.desc?.toLowerCase().includes(q);
-                      const matchCategory = item.category?.toLowerCase().includes(q);
-                      const matchCard = item.cardName?.toLowerCase().includes(q);
-                      const matchSection = item.sectionName?.toLowerCase().includes(q);
-                      const matchPage = item.pageName?.toLowerCase().includes(q);
-                      return matchTitle || matchDesc || matchCategory || matchCard || matchSection || matchPage;
+                      const searchableParts = [
+                        item.title,
+                        item.desc,
+                        item.cardName,
+                        item.sectionName,
+                        item.pageName,
+                        item.category,
+                        ...(item.keywords || [])
+                      ].filter(Boolean).map(s => String(s).toLowerCase());
+
+                      const fullBlob = searchableParts.join(' ');
+
+                      // Returns true if EVERY token typed by user matches somewhere in the item's searchable text
+                      return tokens.every(token => fullBlob.includes(token));
                     });
 
                     if (filtered.length === 0) {

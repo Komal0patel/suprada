@@ -74,31 +74,27 @@ function TiltCard({ children, onClick, style, ...props }) {
 // Helper to get luxury description for each gallery title
 const getDescriptionForTitle = (title) => {
   const t = title.toLowerCase();
-  if (t.includes("yoga")) return "Connect mind and body with the river breeze, centering your energy under the gentle morning light.";
-  if (t.includes("meditation")) return "Rest in tranquil silence as the forest dusk guides you deep into mindful, restorative stillness.";
-  if (t.includes("walks") || t.includes("exploration")) return "Discover healing local flora and quiet pathways along the soothing sounds of the flowing river.";
-  if (t.includes("satsang")) return "Gather in sacred community, sharing ancient chants, spiritual songs, and warm wellness energy.";
-  if (t.includes("ritual")) return "Experience the purifying power of Vedic fire ceremonies, cleansing the atmosphere and spirit.";
+  if (t.includes("yoga") || t.includes("asana")) return "Connect mind and body with the river breeze, centering your energy under gentle morning light.";
+  if (t.includes("meditation") || t.includes("reflection")) return "Rest in tranquil silence as the forest dusk guides you deep into mindful, restorative stillness.";
+  if (t.includes("walk") || t.includes("exploration") || t.includes("track")) return "Discover healing local flora and quiet pathways along the soothing sounds of the flowing river.";
+  if (t.includes("satsang") || t.includes("chanting")) return "Gather in sacred community, sharing ancient chants, spiritual songs, and warm wellness energy.";
+  if (t.includes("fire") || t.includes("agnihotra")) return "Experience the purifying power of Vedic fire ceremonies, cleansing the atmosphere and spirit.";
   if (t.includes("breathwork")) return "Harness your life-force energy through guided deep breathing sessions under the green canopy.";
   if (t.includes("massage") || t.includes("abhyanga")) return "Rejuvenate with synchronized warm herbal oil application, promoting lymphatic drainage and peace.";
   if (t.includes("shirodhara")) return "Experience deep neurological rest as a continuous warm oil stream flows onto your forehead.";
   if (t.includes("steam") || t.includes("swedana")) return "Sweat out impurities in our organic wood herbal steam chambers, opening your energy channels.";
-  if (t.includes("cleansing") || t.includes("basti")) return "Restore your gut-brain axis and elemental balance through traditional cleansing therapies.";
-  if (t.includes("diagnosis")) return "Gain deep insights into your physical constitution and dosha balance through pulse reading.";
-  if (t.includes("meal") || t.includes("satwik")) return "Nourish your body with farm-fresh organic ingredients, curated according to Ayurvedic principles.";
-  if (t.includes("produce") || t.includes("herbs")) return "Freshly harvested organic vegetables and herbs from our estate's clean forest garden.";
-  if (t.includes("recipes")) return "Custom culinary preparations designed to balance your specific biological energies.";
-  if (t.includes("kitchari")) return "Enjoy a warm, comforting bowl of split mung dal and rice, spiced for optimal digestion.";
-  if (t.includes("cottage")) return "Luxury timber architecture blending seamlessly with the riverbanks, featuring natural ventilation.";
-  if (t.includes("room")) return "Earthy spa spaces styled with warm lights, clay plasters, and natural forest ventilation.";
-  if (t.includes("pavilion")) return "High-ceiling bamboo structures providing a breathing space for yoga and quiet reflection.";
-  if (t.includes("pathway") || t.includes("courtyard")) return "Pristine stone pathways walking you through sacred geometric landscape courtyards.";
-  if (t.includes("material")) return "Organic clay, sustainable timber, and local stone crafted to ground your senses.";
-  if (t.includes("interior")) return "Warm minimalist aesthetic with cozy lighting, natural fibers, and soft neutral tones.";
-  if (t.includes("sand garden")) return "Calm your mind by tracing geometric wave lines in our outdoor silent gravel garden.";
-  if (t.includes("pottery")) return "Ground your touch by shaping raw, wet river clay into artistic, functional vessels.";
-  if (t.includes("farming")) return "Learn organic permaculture techniques, planting seeds in rich forest soil.";
-  if (t.includes("workshop") || t.includes("lessons")) return "Master clean culinary methods using medicinal herbs and local ingredients.";
+  if (t.includes("hydrotherapy") || t.includes("aqua")) return "Restore your elemental balance through traditional hydrotherapy and cleansing water suites.";
+  if (t.includes("consultation") || t.includes("suite") || t.includes("treatment")) return "Gain deep insights into your physical constitution and dosha balance through therapeutic consultations.";
+  if (t.includes("dining") || t.includes("satwik") || t.includes("meals")) return "Nourish your body with farm-fresh organic ingredients, curated according to Ayurvedic principles.";
+  if (t.includes("produce") || t.includes("herbs") || t.includes("botanical") || t.includes("decoctions")) return "Freshly harvested organic vegetables and herbs from our estate's clean forest garden.";
+  if (t.includes("cottage") || t.includes("residence") || t.includes("architecture") || t.includes("quarters")) return "Luxury timber and mud plaster architecture blending seamlessly with the riverbanks.";
+  if (t.includes("courtyard") || t.includes("interior")) return "Pristine stone pathways walking you through sacred geometric landscape courtyards.";
+  if (t.includes("amphitheatre")) return "An open-air stone theater for evening musical performances, kirtans, and community gatherings.";
+  if (t.includes("goshala") || t.includes("cow")) return "Caring for cows (Gograsa) promotes grounding, compassion, and emotional warmth.";
+  if (t.includes("clay") || t.includes("art")) return "Ground your touch by shaping raw, wet river clay into artistic, functional vessels.";
+  if (t.includes("planting") || t.includes("permaculture")) return "Learn organic permaculture techniques, planting seeds in rich forest soil.";
+  if (t.includes("sound") || t.includes("vibrational")) return "Harmonize your biological nervous system with healing sound bath frequencies.";
+  if (t.includes("landscape") || t.includes("panoramic") || t.includes("sanctuary")) return "Pristine forest views and riverfront solitude designed to calm your nervous system.";
   return "Immerse yourself in our serene retreat, designed to balance your elements and restore your inner peace.";
 };
 
@@ -196,47 +192,52 @@ export default function Gallery({ onNavigate }) {
 
   const categories = ['All', 'Retreat', 'Therapies', 'Nutrition', 'Architecture', 'Activities'];
 
-  // Exact gallery items mapped from reference website source
+  // Exact gallery items mapped from authentic public/assets/gallery directory & retreat assets
   const galleryItems = [
     // Retreat
-    { title: "Retreat – Sunrise yoga by the river", cat: "Retreat", img: "/assets/gallery/gallery_3822622.jpg" },
-    { title: "Retreat – Evening meditation in nature", cat: "Retreat", img: "/assets/gallery/gallery_4056535.jpg" },
-    { title: "Retreat – Guided riverfront walks", cat: "Retreat", img: "/assets/gallery/gallery_1552242.jpg" },
-    { title: "Retreat – Community satsang and kirtan", cat: "Retreat", img: "/assets/gallery/gallery_3759657.jpg" },
-    { title: "Retreat – Sacred fire rituals", cat: "Retreat", img: "/assets/gallery/gallery_1346347.jpg" },
-    { title: "Retreat – Mindful breathwork sessions", cat: "Retreat", img: "/assets/gallery/gallery_3992216.jpg" },
-    { title: "Retreat – Sunrise yoga by the river (alternative)", cat: "Retreat", img: "/assets/gallery/gallery_1547248.jpg" },
-    { title: "Retreat – Evening meditation in nature (alternative)", cat: "Retreat", img: "/assets/gallery/gallery_417074.jpg" },
+    { title: "Retreat – Riverfront Sanctuary & Forest Grounds", cat: "Retreat", img: "/assets/gallery/IMG_0583.JPEG" },
+    { title: "Retreat – Panoramic River View & Sunset Rest", cat: "Retreat", img: "/assets/gallery/IMG_0587.JPEG" },
+    { title: "Retreat – Scenic Landscape & Nature Immersion", cat: "Retreat", img: "/assets/gallery/IMG_0592.JPEG" },
+    { title: "Retreat – Evening Ambient Rest & Tranquility", cat: "Retreat", img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.50 AM.jpeg" },
+    { title: "Retreat – Riverfront Meditation & Reflection", cat: "Retreat", img: "/assets/gallery/gallery_4056535.jpg" },
+    { title: "Retreat – Sunrise Yoga & Breathwork Deck", cat: "Retreat", img: "/assets/more_images/yoga-meditation.jpg" },
+    { title: "Retreat – Community Satsang & Vedic Chanting", cat: "Retreat", img: "/assets/more_images/satsang.png" },
+    { title: "Retreat – Sacred Agnihotra Fire Ritual", cat: "Retreat", img: "/assets/more_images/agnihotra.png" },
 
     // Therapies
-    { title: "Therapies – Traditional authentic therapies", cat: "Therapies", img: "/assets/gallery/gallery_4021775.jpg" },
-    { title: "Therapies – Abhyanga (warm oil massage)", cat: "Therapies", img: "/assets/gallery/gallery_3997991.jpg" },
-    { title: "Therapies – Shirodhara (oil flow therapy)", cat: "Therapies", img: "/assets/gallery/gallery_2356045.jpg" },
-    { title: "Therapies – Herbal steam (Swedana)", cat: "Therapies", img: "/assets/gallery/gallery_1624438.jpg" },
-    { title: "Therapies – Basti and cleansing routines", cat: "Therapies", img: "/assets/gallery/gallery_3822622.jpg" },
-    { title: "Therapies – Pulse diagnosis consultations", cat: "Therapies", img: "/assets/gallery/gallery_3759657.jpg" },
+    { title: "Therapies – Holistic Treatment Suite & Consultation", cat: "Therapies", img: "/assets/gallery/IMG_0586.JPEG" },
+    { title: "Therapies – Deep Rejuvenation Treatment Room", cat: "Therapies", img: "/assets/gallery/IMG_0590.JPEG" },
+    { title: "Therapies – Aqua Hydrotherapy & Cleansing Suite", cat: "Therapies", img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM (2).jpeg" },
+    { title: "Therapies – Abhyanga Warm Oil Application", cat: "Therapies", img: "/assets/gallery/gallery_3997991.jpg" },
+    { title: "Therapies – Herbal Steam & Swedana Detox", cat: "Therapies", img: "/assets/gallery/gallery_4021775.jpg" },
+    { title: "Therapies – Organic Botanical Spa Interior", cat: "Therapies", img: "/assets/more_images/spa-interior.jpg" },
+    { title: "Therapies – Sound Bath & Vibrational Healing", cat: "Therapies", img: "/assets/more_images/sound_healing.png" },
 
     // Nutrition
-    { title: "Nutrition – Farm-to-table satwik meals", cat: "Nutrition", img: "/assets/gallery/gallery_1640777.jpg" },
-    { title: "Nutrition – Seasonal produce and herbs", cat: "Nutrition", img: "/assets/gallery/gallery_1640770.jpg" },
-    { title: "Nutrition – Body Type-balanced recipes", cat: "Nutrition", img: "/assets/gallery/gallery_1640774.jpg" },
-    { title: "Nutrition – Healing kitchari bowls", cat: "Nutrition", img: "/assets/gallery/gallery_1640771.jpg" },
+    { title: "Nutrition – Organic Satwik Dining & Farm Produce", cat: "Nutrition", img: "/assets/gallery/IMG_0591.JPEG" },
+    { title: "Nutrition – Mindful Farm-to-Table Meals", cat: "Nutrition", img: "/assets/more_images/nutrition.png" },
+    { title: "Nutrition – Seasonal Botanical Decoctions & Teas", cat: "Nutrition", img: "/assets/more_images/occasions.png" },
 
     // Architecture
-    { title: "Architecture – Eco-friendly river cottages", cat: "Architecture", img: "/assets/gallery/gallery_2356045.jpg" },
-    { title: "Architecture – Holistic treatment rooms", cat: "Architecture", img: "/assets/gallery/gallery_1624438.jpg" },
-    { title: "Architecture – Open-air yoga pavilion", cat: "Architecture", img: "/assets/gallery/gallery_3822622.jpg" },
-    { title: "Architecture – Courtyards and pathways", cat: "Architecture", img: "/assets/gallery/gallery_3759657.jpg" },
-    { title: "Architecture – Natural materials and textures", cat: "Architecture", img: "/assets/gallery/gallery_1346347.jpg" },
-    { title: "Architecture – Soothing interior design", cat: "Architecture", img: "/assets/gallery/gallery_4056535.jpg" },
+    { title: "Architecture – Mud-Plastered Heritage Cottages", cat: "Architecture", img: "/assets/gallery/IMG_0584.JPEG" },
+    { title: "Architecture – Reclaimed Teak & Stone Architecture", cat: "Architecture", img: "/assets/gallery/IMG_0585.JPEG" },
+    { title: "Architecture – Natural Light Interior Courtyard", cat: "Architecture", img: "/assets/gallery/IMG_0588.JPEG" },
+    { title: "Architecture – Sacred Geometric Central Courtyard", cat: "Architecture", img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM.jpeg" },
+    { title: "Architecture – Deluxe Living Quarters & Balcony", cat: "Architecture", img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.48 AM.jpeg" },
+    { title: "Architecture – Private Cottage Exterior & Veranda", cat: "Architecture", img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.49 AM.jpeg" },
+    { title: "Architecture – Samprada Heritage Cottage Block", cat: "Architecture", img: "/assets/residences/samprada.png" },
+    { title: "Architecture – Suyoga Canopy Panorama Suite", cat: "Architecture", img: "/assets/residences/suyoga.png" },
+    { title: "Architecture – Samhita Grounded Earth Cottage", cat: "Architecture", img: "/assets/residences/samhita.png" },
+    { title: "Architecture – Subhiksha Private Treatment Residence", cat: "Architecture", img: "/assets/residences/subhiksha.png" },
+    { title: "Architecture – Open-Air Stone Amphitheatre", cat: "Architecture", img: "/assets/more_images/open-air-amphitheatre.png" },
 
     // Activities
-    { title: "Activities – Zen Sand Garden meditation", cat: "Activities", img: "/assets/gallery/gallery_4056535.jpg" },
-    { title: "Activities – Pottery and creative expression", cat: "Activities", img: "/assets/gallery/gallery_3822622.jpg" },
-    { title: "Activities – Village walks and nature exploration", cat: "Activities", img: "/assets/gallery/gallery_1552242.jpg" },
-    { title: "Activities – Gardening and organic farming", cat: "Activities", img: "/assets/gallery/gallery_3759657.jpg" },
-    { title: "Activities – Cooking lessons and workshops", cat: "Activities", img: "/assets/gallery/gallery_1640777.jpg" },
-    { title: "Activities – Group activities and community gatherings", cat: "Activities", img: "/assets/gallery/gallery_1346347.jpg" }
+    { title: "Activities – Community Gathering & Outdoor Dialogue", cat: "Activities", img: "/assets/gallery/IMG_0589.JPEG" },
+    { title: "Activities – Morning Circadian Yoga & Asana Flow", cat: "Activities", img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM (1).jpeg" },
+    { title: "Activities – Guided Forest Barefoot Walking Track", cat: "Activities", img: "/assets/more_images/walking_track.png" },
+    { title: "Activities – Art & Expressive Clay Therapy", cat: "Activities", img: "/assets/more_images/art_therapy.png" },
+    { title: "Activities – Gograsa Cow Care at Goshala", cat: "Activities", img: "/assets/more_images/gograsa.png" },
+    { title: "Activities – Medicinal Herb Planting & Permaculture", cat: "Activities", img: "/assets/more_images/planting_trees.png" }
   ];
 
   const filteredItems = activeTab === 'All'

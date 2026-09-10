@@ -2968,50 +2968,46 @@ html, body {
   }
 }
 
-/* ── Spaces Chapter III • Residences Grid Mobile (3 in a row) ── */
+/* ── Spaces Chapter III • Residences Grid Mobile (2 in a row) ── */
 @media (max-width: 768px) {
   .spaces-residences-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 0.5rem !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
   }
   .residence-card {
-    padding: 0.7rem 0.5rem !important;
-    border-radius: 12px !important;
+    padding: 1rem 0.85rem !important;
+    border-radius: 16px !important;
   }
   .residence-card-img {
-    height: 80px !important;
-    margin-bottom: 0.5rem !important;
-    border-radius: 8px !important;
+    height: 110px !important;
+    margin-bottom: 0.75rem !important;
+    border-radius: 12px !important;
   }
   .residence-card-tag {
-    font-size: 0.6rem !important;
-    padding: 0.15rem 0.35rem !important;
-    top: 4px !important;
-    right: 4px !important;
-    letter-spacing: 0 !important;
+    font-size: 0.62rem !important;
+    padding: 0.25rem 0.55rem !important;
+    top: 6px !important;
+    right: 6px !important;
+    letter-spacing: 0.02em !important;
   }
   .residence-card-type {
-    font-size: 0.65rem !important;
-    letter-spacing: 0.04em !important;
-    margin-bottom: 0.1rem !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.05em !important;
+    margin-bottom: 0.2rem !important;
   }
   .residence-card-title {
-    font-size: 0.85rem !important;
-    margin-bottom: 0.25rem !important;
-    line-height: 1.2 !important;
+    font-size: 1rem !important;
+    margin-bottom: 0.35rem !important;
+    line-height: 1.25 !important;
   }
   .residence-card-desc {
-    font-size: 0.78rem !important;
-    line-height: 1.35 !important;
-    margin-bottom: 0.5rem !important;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2 !important;
-    -webkit-box-orient: vertical !important;
-    overflow: hidden !important;
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 0.65rem !important;
   }
   .residence-card-config {
-    font-size: 0.7rem !important;
-    padding-top: 0.4rem !important;
+    font-size: 0.75rem !important;
+    padding-top: 0.5rem !important;
   }
 }
 
@@ -5028,8 +5024,8 @@ html, body {
 
 @media (max-width: 640px) {
   .spaces-residences-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1.2rem !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
   }
 }
 

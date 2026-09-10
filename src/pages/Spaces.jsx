@@ -237,8 +237,8 @@ export default function Spaces({ onNavigate }) {
       icon: <Heart size={20} />,
       subtitle: 'Pranayama Decks & Meditative Walking Tracks',
       items: [
-        { name: 'Mahabilva (Indoor Yoga Hall)', desc: 'An elegant, peaceful haven for group asanas, breathwork, and sound bathing.' },
-        { name: 'Outdoor Yoga Space (River Deck)', desc: 'Named after the sacred nine-leaved Mahabilva. An open-air deck for meditation by the river.' },
+        { name: 'Suyoga (Indoor Yoga Hall)', desc: 'An elegant, peaceful haven for group asanas, breathwork, and sound bathing.' },
+        { name: 'Mahabilva (Traditional Outdoor Sitting)', desc: 'Named after the sacred nine-leaved Mahabilva. An open-air deck for meditation by the river.' },
         { name: 'Sanmarga (Walking Track)', desc: 'An ornamental track designed for meditative barefoot walking and deep breathing.' },
         { name: 'Sukhada (Wellness Gym)', desc: 'Equipped with light conditioning gear for gentle strength building and rehabilitation.' }
       ]

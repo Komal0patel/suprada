@@ -484,6 +484,25 @@ export default function Careers({ onNavigate }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDept, setSelectedDept] = useState("All");
 
+  const handleOpenDetails = (jobId) => {
+    setDetailJobId(jobId);
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    if (window.lenis) {
+      window.lenis.scrollTo(0, { immediate: true });
+      window.lenis.resize();
+    }
+  };
+
+  useEffect(() => {
+    if (detailJobId) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      if (window.lenis) {
+        window.lenis.scrollTo(0, { immediate: true });
+        window.lenis.resize();
+      }
+    }
+  }, [detailJobId]);
+
   const filteredJobs = jobOpenings.filter(job => {
     const matchesSearch = job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                           job.dept.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -494,7 +513,6 @@ export default function Careers({ onNavigate }) {
   });
 
   const departments = ["All", ...new Set(jobOpenings.map(j => j.dept))];
-
 
   const handleApplySubmit = (e) => {
     e.preventDefault();
@@ -914,7 +932,7 @@ export default function Careers({ onNavigate }) {
                           >
                             <JobOpeningCard
                               job={job}
-                              onDetailClick={() => setDetailJobId(job.id)}
+                              onDetailClick={() => handleOpenDetails(job.id)}
                               onApplyClick={() => setSelectedJob(job)}
                             />
                           </motion.div>
@@ -937,7 +955,7 @@ export default function Careers({ onNavigate }) {
                             >
                               <JobOpeningCard
                                 job={job}
-                                onDetailClick={() => setDetailJobId(job.id)}
+                                onDetailClick={() => handleOpenDetails(job.id)}
                                 onApplyClick={() => setSelectedJob(job)}
                               />
                             </motion.div>
@@ -1121,124 +1139,159 @@ export default function Careers({ onNavigate }) {
         )}
       </AnimatePresence>
 
-      {/* Side-Drawer Slide-in Application Modal (Kept clean and matching project style) */}
+      {/* Centered Luxury Pop-up Window Application Modal */}
       <AnimatePresence>
         {selectedJob && (
           <div
             style={{
-              position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
-              backgroundColor: 'rgba(37, 36, 37, 0.65)', zIndex: 10000,
-              display: 'flex', justifyContent: 'flex-end', backdropFilter: 'blur(5px)'
+              position: 'fixed',
+              top: 0, left: 0, right: 0, bottom: 0,
+              backgroundColor: 'rgba(25, 12, 18, 0.65)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              zIndex: 10000,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '1.5rem',
+              boxSizing: 'border-box'
             }}
             onClick={() => { setSelectedJob(null); setApplied(false); }}
           >
-            {/* Slide-in container */}
+            {/* Pop-up Window Card */}
             <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 30, stiffness: 220 }}
+              initial={{ opacity: 0, scale: 0.92, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 280 }}
               onClick={(e) => e.stopPropagation()}
               style={{
-                backgroundColor: '#ffffff', height: '100vh', width: '100%',
-                maxWidth: '560px', boxShadow: '-15px 0 40px rgba(0,0,0,0.15)',
-                display: 'flex', flexDirection: 'column', position: 'relative',
-                borderLeft: '1px solid rgba(220,160,50,0.2)',
+                backgroundColor: '#ffffff',
+                borderRadius: '24px',
+                width: '100%',
+                maxWidth: '580px',
+                maxHeight: '88vh',
+                boxShadow: '0 25px 60px rgba(0, 0, 0, 0.3)',
+                border: '1.5px solid rgba(220, 160, 50, 0.35)',
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative',
                 overflow: 'hidden'
               }}
             >
-              
-              {/* Drawer content area */}
-              <div style={{ padding: '3.5rem 3rem', overflowY: 'scroll', flexGrow: 1, display: 'flex', flexDirection: 'column', height: 0, minHeight: 0 }}>
+              {/* Header Bar */}
+              <div style={{
+                padding: '1.4rem 2rem',
+                borderBottom: '1px solid rgba(94, 39, 53, 0.1)',
+                backgroundColor: 'rgba(250, 240, 230, 0.55)',
+                display: 'flex',
+                justify: 'space-between',
+                alignItems: 'center',
+                flexShrink: 0
+              }}>
+                <div>
+                  <span style={{ fontSize: '0.7rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                    {selectedJob.dept} • {selectedJob.type}
+                  </span>
+                  <h2 style={{ color: 'var(--wine)', margin: '0.2rem 0 0 0', fontSize: '1.3rem', fontWeight: 700 }}>
+                    Apply for {selectedJob.title}
+                  </h2>
+                </div>
+                <button
+                  onClick={() => { setSelectedJob(null); setApplied(false); }}
+                  style={{
+                    border: 'none',
+                    backgroundColor: 'rgba(94, 39, 53, 0.08)',
+                    borderRadius: '50%',
+                    width: '36px',
+                    height: '36px',
+                    cursor: 'pointer',
+                    color: 'var(--wine)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    transition: 'all 0.2s ease',
+                    flexShrink: 0
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--wine)'; e.currentTarget.style.color = '#ffffff'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(94, 39, 53, 0.08)'; e.currentTarget.style.color = 'var(--wine)'; }}
+                >
+                  <X size={18} />
+                </button>
+              </div>
+
+              {/* Scrollable Form Body */}
+              <div style={{ padding: '1.8rem 2rem', overflowY: 'auto', flexGrow: 1 }}>
                 {applied ? (
-                  <motion.div 
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    style={{ textAlign: 'center', margin: 'auto 0' }}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    style={{ textAlign: 'center', padding: '2rem 1rem' }}
                   >
-                    <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.2rem' }}><Leaf size={48} style={{ color: 'var(--harvest-gold)' }} /></div>
-                    <h3 style={{color: 'var(--wine)', marginBottom: '0.8rem',}}>Application Received</h3>
-                    <p style={{ fontSize: 'var(--fs-body)', opacity: 0.85, lineHeight: 1.6, maxWidth: '360px', margin: '0 auto' }}>
-                      Thank you for applying. Your credentials have been registered and our HR director will connect with you via email shortly.
+                    <div style={{ width: '64px', height: '64px', borderRadius: '50%', backgroundColor: 'rgba(220,160,50,0.15)', color: 'var(--harvest-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.2rem auto' }}>
+                      <Leaf size={32} />
+                    </div>
+                    <h3 style={{ color: 'var(--wine)', marginBottom: '0.8rem', fontSize: '1.4rem' }}>Application Submitted</h3>
+                    <p style={{ fontSize: 'var(--fs-body)', opacity: 0.85, lineHeight: 1.65, maxWidth: '400px', margin: '0 auto', color: 'var(--raisin-black)' }}>
+                      Thank you for applying for the <strong>{selectedJob.title}</strong> role at Suprada Wellness. Our HR team will review your application and reach out shortly.
                     </p>
-                    <button 
+                    <button
                       onClick={() => { setSelectedJob(null); setApplied(false); }}
-                      className="btn-luxury" 
-                      style={{ padding: '0.8rem 2.2rem', fontSize: 'var(--fs-small)', marginTop: '2.5rem', width: '100%', textAlign: 'center' }}
+                      className="btn-luxury"
+                      style={{ padding: '0.85rem 2.4rem', fontSize: 'var(--fs-small)', marginTop: '2rem', textAlign: 'center' }}
                     >
                       Close Window
                     </button>
                   </motion.div>
                 ) : (
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                      <div>
-                        <span style={{ fontSize: '0.72rem', color: 'var(--redwood)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>{selectedJob.dept}</span>
-                        <h2 style={{color: 'var(--wine)', margin: '0.2rem 0 0 0',}}>{selectedJob.title}</h2>
-                      </div>
-                      <button 
-                        onClick={() => setSelectedJob(null)}
-                        style={{ border: 'none', background: 'none', cursor: 'pointer', color: 'var(--wine)', opacity: 0.6, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                      >
-                        <X size={20} />
-                      </button>
+                  <form onSubmit={handleApplySubmit} className="luxury-form" style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+                    <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                      <label htmlFor="app-name" style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--wine)' }}>Full Name *</label>
+                      <input
+                        type="text" id="app-name" name="name" required placeholder="e.g. Dr. Ramesh Rao"
+                        value={applyData.name} onChange={handleInputChange}
+                        style={{ width: '100%', padding: '0.78rem 1rem', borderRadius: '10px', border: '1px solid rgba(94,39,53,0.18)', fontSize: '0.9rem', outline: 'none', boxSizing: 'border-box' }}
+                      />
+                    </div>
+                    <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                      <label htmlFor="app-email" style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--wine)' }}>Email Address *</label>
+                      <input
+                        type="email" id="app-email" name="email" required placeholder="e.g. ramesh@example.com"
+                        value={applyData.email} onChange={handleInputChange}
+                        style={{ width: '100%', padding: '0.78rem 1rem', borderRadius: '10px', border: '1px solid rgba(94,39,53,0.18)', fontSize: '0.9rem', outline: 'none', boxSizing: 'border-box' }}
+                      />
+                    </div>
+                    <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                      <label htmlFor="app-phone" style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--wine)' }}>Phone Number *</label>
+                      <input
+                        type="tel" id="app-phone" name="phone" required placeholder="e.g. +91 98765 43210"
+                        value={applyData.phone} onChange={handleInputChange}
+                        style={{ width: '100%', padding: '0.78rem 1rem', borderRadius: '10px', border: '1px solid rgba(94,39,53,0.18)', fontSize: '0.9rem', outline: 'none', boxSizing: 'border-box' }}
+                      />
+                    </div>
+                    <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                      <label htmlFor="app-cv" style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--wine)' }}>Resume Link (Google Drive / Dropbox / Cloud Link) *</label>
+                      <input
+                        type="url" id="app-cv" name="cv" required placeholder="e.g. https://drive.google.com/.../cv.pdf"
+                        value={applyData.cv} onChange={handleInputChange}
+                        style={{ width: '100%', padding: '0.78rem 1rem', borderRadius: '10px', border: '1px solid rgba(94,39,53,0.18)', fontSize: '0.9rem', outline: 'none', boxSizing: 'border-box' }}
+                      />
+                    </div>
+                    <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                      <label htmlFor="app-msg" style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--wine)' }}>Cover Note (Optional)</label>
+                      <textarea
+                        id="app-msg" name="message" rows="3" placeholder="Tell us why you would love to work by the riverbanks..."
+                        value={applyData.message} onChange={handleInputChange}
+                        style={{ width: '100%', padding: '0.78rem 1rem', borderRadius: '10px', border: '1px solid rgba(94,39,53,0.18)', fontSize: '0.9rem', outline: 'none', boxSizing: 'border-box', resize: 'vertical' }}
+                      />
                     </div>
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.85rem', color: 'var(--raisin-black)', opacity: 0.9, borderBottom: '1px solid rgba(94,39,53,0.08)', paddingBottom: '1.8rem' }}>
-                      <p style={{ margin: 0, lineHeight: 1.6 }}><strong>Type:</strong> {selectedJob.type}</p>
-                      <p style={{ margin: 0, lineHeight: 1.6 }}><strong>Role:</strong> {selectedJob.overview}</p>
-                    </div>
-
-                    <form onSubmit={handleApplySubmit} className="luxury-form" style={{ display: 'flex', flexDirection: 'column', gap: '1.4rem' }}>
-                      <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                        <label htmlFor="app-name" style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--wine)' }}>Your Full Name</label>
-                        <input 
-                          type="text" id="app-name" name="name" required placeholder="e.g. Dr. Ramesh Rao" 
-                          value={applyData.name} onChange={handleInputChange}
-                          style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.12)', fontSize: '0.9rem', outline: 'none' }}
-                        />
-                      </div>
-                      <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                        <label htmlFor="app-email" style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--wine)' }}>Email Address</label>
-                        <input 
-                          type="email" id="app-email" name="email" required placeholder="e.g. ramesh@example.com" 
-                          value={applyData.email} onChange={handleInputChange}
-                          style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.12)', fontSize: '0.9rem', outline: 'none' }}
-                        />
-                      </div>
-                      <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                        <label htmlFor="app-phone" style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--wine)' }}>Phone Number</label>
-                        <input 
-                          type="tel" id="app-phone" name="phone" required placeholder="e.g. +91 98765 43210" 
-                          value={applyData.phone} onChange={handleInputChange}
-                          style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.12)', fontSize: '0.9rem', outline: 'none' }}
-                        />
-                      </div>
-                      <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                        <label htmlFor="app-cv" style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--wine)' }}>Resume Link (Google Drive / Dropbox)</label>
-                        <input 
-                          type="url" id="app-cv" name="cv" required placeholder="e.g. https://drive.google.com/.../cv.pdf" 
-                          value={applyData.cv} onChange={handleInputChange}
-                          style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.12)', fontSize: '0.9rem', outline: 'none' }}
-                        />
-                      </div>
-                      <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                        <label htmlFor="app-msg" style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--wine)' }}>Cover Note (Optional)</label>
-                        <textarea 
-                          id="app-msg" name="message" rows="4" placeholder="Tell us why you would love to work by the riverbanks..."
-                          value={applyData.message} onChange={handleInputChange}
-                          style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.12)', fontSize: '0.9rem', outline: 'none', }}
-                        />
-                      </div>
-
-                      <button type="submit" className="btn-luxury" style={{ padding: '1rem', width: '100%', fontSize: '0.82rem', marginTop: '0.5rem', textAlign: 'center' }}>
-                        Submit Application
-                      </button>
-                    </form>
-                  </div>
+                    <button type="submit" className="btn-luxury" style={{ padding: '0.9rem', width: '100%', fontSize: '0.84rem', marginTop: '0.4rem', textAlign: 'center' }}>
+                      Submit Application
+                    </button>
+                  </form>
                 )}
               </div>
-
             </motion.div>
           </div>
         )}

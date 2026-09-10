@@ -36,27 +36,89 @@ import Footer from './components/Footer';
 import StarfieldBackground from './components/StarfieldBackground';
 
 const searchIndex = [
-  { title: "Home Page", category: "Navigation", path: "home", desc: "Welcome to Suprada Sanctuary & Riverfront Wellness" },
-  { title: "About Us & Founders", category: "Navigation", path: "about", desc: "Discover Mr. Sunil Jayaraj, Dr. Prema Ramadas, MD & our healing philosophy" },
-  { title: "Naturopathy & Holistic Wellness", category: "Therapies", path: "home", desc: "Prakṛtireva bheṣajam — Nature's drug-free path to healing" },
-  { title: "Iris & Facial Diagnosis", category: "Diagnostics", path: "home", desc: "Non-invasive organ analysis, iris mapping & facial markers" },
-  { title: "Therapeutic Massages & Powders", category: "Therapies", path: "home", desc: "Powder Vibrio, Deep Tissue, Shiatsu, Reflexology, Swedish, Thai" },
-  { title: "Hydrotherapy & Mud Baths", category: "Therapies", path: "home", desc: "Spinal Spray, Hip Bath, Jacuzzi, Full Body Mud Bath & Packs" },
-  { title: "Yoga & Sunrise Breathwork", category: "Movement", path: "home", desc: "Asanas, Pranayama, Shatkarma Kriyas, Mudras & Bandhas" },
-  { title: "Sound Healing & Om Bowls", category: "Energy Medicine", path: "home", desc: "Tibetan singing bowls, Gong acoustic resonance, Flute therapy" },
-  { title: "Satwik Farm-to-Table Nutrition", category: "Nutrition", path: "home", desc: "Organic vegetarian meal plans, millet diets, detox juices & fasting" },
-  { title: "Our Spaces & Sanctuaries", category: "Navigation", path: "spaces", desc: "Explore Swasthya, Sauhithya, Samiksha, Sukhada & Goshala" },
-  { title: "Stay & Eco Cottages", category: "Sanctuaries", path: "spaces", desc: "Guha, Samprapti, Subhiksha cottages & private sit-out verandas" },
-  { title: "Programmes & Packages", category: "Navigation", path: "programmes/packages", desc: "2-Day Weekend Reset, 7-Day Renewal & 21-Day Chronic Recovery" },
-  { title: "Wellness & Healing Programmes", category: "Navigation", path: "programmes", desc: "Rooted in Nature, Our Approach, Discovery & Personalized Wellness Formula" },
-  { title: "Gallery & Photo Tour", category: "Navigation", path: "gallery", desc: "Explore riverfront views, cottage interiors & treatment spaces" },
-  { title: "Blog & Healing Journal", category: "Navigation", path: "blog", desc: "Articles on drugless health, iris diagnosis & naturopathic wisdom" },
-  { title: "Occasions & Events", category: "Navigation", path: "occasions", desc: "Weddings, anniversaries, family reunions & quiet retreats" },
-  { title: "Careers & Opportunities", category: "Navigation", path: "careers", desc: "Join our team of doctors, therapists, hospitality & wellness leads" },
-  { title: "Contact Us & Directions", category: "Navigation", path: "contact", desc: "Get in touch, location map by Suvarnamukhi river & booking" },
-  { title: "Comprehensive Clinical Spectrum", category: "Navigation", path: "comprehensivecare", desc: "Explore our specialized doctor-supervised clinical conditions" },
-  { title: "Naturopathy & Holistic Wellness", category: "Navigation", path: "naturopathy", desc: "Explore our core drugless medical modalities & natural therapies" },
-  { title: "Book Retreat & Reservation", category: "Navigation", path: "book", desc: "Reserve your customized wellness programme, stay & dates by Suvarnamukhi river" }
+  // ================= PAGES =================
+  { type: 'page', title: "Spaces & Sanctuaries", category: "Page", pageName: "Spaces", path: "spaces", desc: "Explore Swasthya, Sauhithya, Samiksha, Sukhada, Goshala & Cottages" },
+  { type: 'page', title: "Retreat Packages & Pricing", category: "Page", pageName: "Programmes/Packages", path: "programmes/packages", desc: "2-Day Weekend Reset, 7-Day Renewal & 21-Day Chronic Recovery" },
+  { type: 'page', title: "Programmes & Approach", category: "Page", pageName: "Programmes", path: "programmes", desc: "Personalized Wellness Formula, Rooted in Nature approach" },
+  { type: 'page', title: "Naturopathy & Drugless Modalities", category: "Page", pageName: "Naturopathy", path: "naturopathy", desc: "Iris diagnosis, hydrotherapy, abhyanga, mud baths, acoustic sound" },
+  { type: 'page', title: "Comprehensive Clinical Care", category: "Page", pageName: "Comprehensive Care", path: "comprehensivecare", desc: "Doctor-supervised treatments for diabetes, arthritis, IBS, anxiety & PCOS" },
+  { type: 'page', title: "Satwik Nutrition & Organic Dining", category: "Page", pageName: "Nutrition", path: "nutrition", desc: "Farm-to-table organic meals, custom dosha diets, detox juices & decoctions" },
+  { type: 'page', title: "Careers & Join Our Team", category: "Page", pageName: "Careers", path: "careers", desc: "Open positions for Naturopathy Doctors, Therapists & Culinary Heads" },
+  { type: 'page', title: "About Us & Founders", category: "Page", pageName: "About Us", path: "about", desc: "Learn about Sunil Jayaraj, Dr. Prema Ramadas & our healing vision" },
+  { type: 'page', title: "Photo Gallery & Moments", category: "Page", pageName: "Gallery", path: "gallery", desc: "Explore riverfront views, cottage interiors, treatment suites & grounds" },
+  { type: 'page', title: "Healing Journal & Blog", category: "Page", pageName: "Blog", path: "blog", desc: "Educational articles on gut-brain axis, iris diagnostics & natural health" },
+  { type: 'page', title: "Occasions & Sacred Events", category: "Page", pageName: "Occasions", path: "occasions", desc: "Weddings, executive retreats, family reunions & quiet celebrations" },
+  { type: 'page', title: "Stay & Accommodations", category: "Page", pageName: "Stay", path: "stay", desc: "Heritage garden cottages, river breeze retreats & canopy suites" },
+  { type: 'page', title: "Book Retreat & Reservation", category: "Page", pageName: "Book", path: "book", desc: "Reserve your customized retreat programme and stay" },
+  { type: 'page', title: "Contact Us & Location Map", category: "Page", pageName: "Contact", path: "contact", desc: "Location map by Suvarnamukhi river, directions & contact form" },
+
+  // ================= SECTIONS =================
+  { type: 'section', title: "The Sanctum Zones (The Spaces That Shape the Journey)", sectionName: "The Sanctum Zones", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Architectural structures built for reception, therapies, dining & yoga" },
+  { type: 'section', title: "Suprada Residences & Cottages (Resting Blocks)", sectionName: "Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "9 lodging blocks crafted with mud plaster, local granite & teakwood" },
+  { type: 'section', title: "Current Openings & Career Roles", sectionName: "Current Openings", pageName: "Careers", path: "careers#current-openings", desc: "Apply for Naturopathy Doctors, Hydro Therapists & Satwik Chefs" },
+  { type: 'section', title: "Specialized Doctor-Supervised Clinical Spectrum", sectionName: "Clinical Care Spectrum", pageName: "Comprehensive Care", path: "comprehensivecare#clinical-spectrum", desc: "Therapeutic care for metabolic, musculoskeletal, gastrointestinal & nervous disorders" },
+  { type: 'section', title: "Core Drugless Medical Modalities", sectionName: "Drugless Modalities", pageName: "Naturopathy", path: "naturopathy#drugless-modalities", desc: "Iris diagnosis, hydrotherapy, mud packs, acupuncture & sound healing" },
+  { type: 'section', title: "Satwik Culinary Philosophy & Kitchen", sectionName: "Satwik Dining", pageName: "Nutrition", path: "nutrition#satwik-philosophy", desc: "Organic vegetarian food curated according to Ayurvedic principles" },
+  { type: 'section', title: "Our Founders & Leadership Vision", sectionName: "Founders & Leadership", pageName: "About Us", path: "about#founders-section", desc: "Meet Sunil Jayaraj & Dr. Prema Ramadas, MD" },
+  { type: 'section', title: "Sacred Events & Mindful Gatherings", sectionName: "Sacred Events", pageName: "Occasions", path: "occasions#sacred-occasions", desc: "Eco-friendly weddings, corporate retreats & family milestones" },
+
+  // ================= CARDS & ITEMS =================
+  // Sanctum Zone Cards (Spaces)
+  { type: 'card', title: "Sankalpa (Reception)", cardName: "Sankalpa", sectionName: "The Sanctum Zones (Reception & Admin)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Welcoming entry point where guests register, orient, and set healing intentions" },
+  { type: 'card', title: "Swasthya (Consultation Block)", cardName: "Swasthya", sectionName: "The Sanctum Zones (Reception & Admin)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Diagnostic heart of Suprada for iris assessments & doctor consultations" },
+  { type: 'card', title: "Samanvaya (Admin Block)", cardName: "Samanvaya", sectionName: "The Sanctum Zones (Reception & Admin)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Operational backbone coordinating a seamless, undisturbed healing experience" },
+  { type: 'card', title: "Samiksha (Conference Hall)", cardName: "Samiksha", sectionName: "The Sanctum Zones (Reception & Admin)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Indoor learning theater for health workshops, talks, and community dialogues" },
+  
+  { type: 'card', title: "Prakruti (Female Treatment Block)", cardName: "Prakruti", sectionName: "The Sanctum Zones (Therapeutic Sanctuaries)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Private therapeutic haven dedicated to women's care, cleansing, and rejuvenation" },
+  { type: 'card', title: "Prakriya (Male Treatment Block)", cardName: "Prakriya", sectionName: "The Sanctum Zones (Therapeutic Sanctuaries)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Dedicated block offering strength, detoxification, and deep-tissue recovery for men" },
+  { type: 'card', title: "Salila (Aqua Block)", cardName: "Salila", sectionName: "The Sanctum Zones (Therapeutic Sanctuaries)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Hydrotherapy suites featuring separate male/female zones, steam, sauna & mud therapies" },
+  { type: 'card', title: "Samvardhana (Salon & Personal Care)", cardName: "Samvardhana", sectionName: "The Sanctum Zones (Therapeutic Sanctuaries)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Space for organic beauty treatments and hair health using botanical elements" },
+
+  { type: 'card', title: "Sauhithya (Indoor Dining)", cardName: "Sauhithya", sectionName: "The Sanctum Zones (Nourishment & Dining)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Primary dining hall serving customized satwik diets with floor seating" },
+  { type: 'card', title: "Santrupthi (Outdoor Riverfront Dining)", cardName: "Santrupthi", sectionName: "The Sanctum Zones (Nourishment & Dining)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Mindful eating by the banks of the river under a canopy of trees" },
+  { type: 'card', title: "Surasa (Juice & Elixir Bar)", cardName: "Surasa", sectionName: "The Sanctum Zones (Nourishment & Dining)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Freshly extracted organic juices, herbal infusions, and cleansing detox decoctions" },
+
+  { type: 'card', title: "Suyoga (Indoor Yoga Hall)", cardName: "Suyoga", sectionName: "The Sanctum Zones (Yoga & Movement)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Peaceful haven for group asanas, breathwork, and sound bathing" },
+  { type: 'card', title: "Mahabilva (Traditional Outdoor Sitting)", cardName: "Mahabilva", sectionName: "The Sanctum Zones (Yoga & Movement)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Open-air deck for meditation by the river under the sacred nine-leaved Mahabilva" },
+  { type: 'card', title: "Aqua Yoga", cardName: "Aqua Yoga", sectionName: "The Sanctum Zones (Yoga & Movement)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Yogic movement designed for pool yoga and gentle joint mobilization" },
+  { type: 'card', title: "Sanmarga (Walking Track)", cardName: "Sanmarga", sectionName: "The Sanctum Zones (Yoga & Movement)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Ornamental track designed for meditative barefoot walking and deep breathing" },
+  { type: 'card', title: "Sukhada (Wellness Gym)", cardName: "Sukhada", sectionName: "The Sanctum Zones (Yoga & Movement)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Equipped with light conditioning gear for gentle strength building" },
+
+  { type: 'card', title: "Antara Gange (Sacred Kalyani)", cardName: "Antara Gange", sectionName: "The Sanctum Zones (Nature & Sacred Spaces)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Stepped water tank inspired by ancient architecture with Nandi idol" },
+  { type: 'card', title: "Sanjivani Vatika (Herbal Garden)", cardName: "Sanjivani Vatika", sectionName: "The Sanctum Zones (Nature & Sacred Spaces)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Living library of medicinal herbs and shrubs used in teas, packs & oils" },
+  { type: 'card', title: "Saparya (Goshala)", cardName: "Saparya", sectionName: "The Sanctum Zones (Nature & Sacred Spaces)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Traditional cow shelter promoting grounding, compassion & Gograsa care" },
+  { type: 'card', title: "Sanidhya (Amphitheatre)", cardName: "Sanidhya", sectionName: "The Sanctum Zones (Nature & Sacred Spaces)", pageName: "Spaces", path: "spaces#sanctum-zones", desc: "Open-air stone theater for evening musical performances and Satsang" },
+
+  // Residence Cards (Spaces)
+  { type: 'card', title: "Samprada Block (Heritage Garden Cottages)", cardName: "Samprada Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Rustic garden cottage close to dining and herbal gardens" },
+  { type: 'card', title: "Samrduddhi / Supritha Block (Private Enclaves)", cardName: "Samrduddhi Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Elevated luxury and privacy for deep silence and solitude" },
+  { type: 'card', title: "Spandana Block (River Breeze Retreats)", cardName: "Spandana Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Captures morning sunlight and cooling Suvarnamukhi river breeze" },
+  { type: 'card', title: "Samprapti Block (Wellness Restoration Cottages)", cardName: "Samprapti Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Quiet zones designed to support deep sleep after daily therapies" },
+  { type: 'card', title: "Sphatika Block (Prismatic Nature Suites)", cardName: "Sphatika Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Bright airy structure with large veranda facing the forest" },
+  { type: 'card', title: "Sukruthi Block (Traditional Courtyard Living)", cardName: "Sukruthi Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Units opening onto a shared green courtyard with central water feature" },
+  { type: 'card', title: "Samhita Block (Grounded Earth Cottages)", cardName: "Samhita Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Ground floor cottages with direct garden access" },
+  { type: 'card', title: "Subhiksha Block (Private Treatment Residence)", cardName: "Subhiksha Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Ultra-private cottage featuring in-house treatment area" },
+  { type: 'card', title: "Suyoga Block (Elevated Canopy Suites)", cardName: "Suyoga Block", sectionName: "Suprada Residences & Cottages", pageName: "Spaces", path: "spaces#resting-blocks", desc: "Upper floor executive rooms offering sweeping views of tree canopy" },
+
+  // Package Cards (Programmes)
+  { type: 'card', title: "Weekend Reset (2 Days / 1 Night)", cardName: "Weekend Reset", sectionName: "Retreat Packages & Pricing", pageName: "Programmes", path: "programmes/packages#pricing-plans", desc: "Quick mental detox, circadian realignment & hydrotherapy" },
+  { type: 'card', title: "7-Day Renewal (7 Days / 6 Nights)", cardName: "7-Day Renewal", sectionName: "Retreat Packages & Pricing", pageName: "Programmes", path: "programmes/packages#pricing-plans", desc: "Deep tissue detox, metabolic reset & customized satwik diet" },
+  { type: 'card', title: "21-Day Chronic Disease Recovery", cardName: "21-Day Chronic Recovery", sectionName: "Retreat Packages & Pricing", pageName: "Programmes", path: "programmes/packages#pricing-plans", desc: "Comprehensive doctor-supervised reversal for diabetes, hypertension & arthritis" },
+
+  // Modality Cards (Naturopathy)
+  { type: 'card', title: "Iris & Facial Diagnosis", cardName: "Iris Diagnosis", sectionName: "Core Drugless Modalities", pageName: "Naturopathy", path: "naturopathy#drugless-modalities", desc: "Non-invasive organ analysis, iris mapping & facial markers" },
+  { type: 'card', title: "Therapeutic Massages & Powders", cardName: "Therapeutic Massages", sectionName: "Core Drugless Modalities", pageName: "Naturopathy", path: "naturopathy#drugless-modalities", desc: "Powder Vibrio, Deep Tissue, Shiatsu & Thai massages" },
+  { type: 'card', title: "Hydrotherapy & Mud Baths", cardName: "Hydrotherapy", sectionName: "Core Drugless Modalities", pageName: "Naturopathy", path: "naturopathy#drugless-modalities", desc: "Spinal Spray, Hip Bath, Jacuzzi & Full Body Mud Packs" },
+
+  // Career Cards (Careers)
+  { type: 'card', title: "Chief Resident Medical Officer (BNYS / MD)", cardName: "Medical Officer", sectionName: "Current Openings", pageName: "Careers", path: "careers#current-openings", desc: "Lead clinical diagnostics, patient care & naturopathy protocols" },
+  { type: 'card', title: "Senior Naturopathy & Yoga Physician", cardName: "Naturopathy Physician", sectionName: "Current Openings", pageName: "Careers", path: "careers#current-openings", desc: "Conduct consultations, iris diagnosis & prescribe wellness plans" },
+  { type: 'card', title: "Satwik Organic Culinary Head", cardName: "Culinary Head", sectionName: "Current Openings", pageName: "Careers", path: "careers#current-openings", desc: "Curate farm-to-table organic satwik menus aligned with Ayurvedic principles" },
+
+  // Clinical Spectrum Cards (Comprehensive Care)
+  { type: 'card', title: "Metabolic & Lifestyle Diseases", cardName: "Metabolic Care", sectionName: "Specialized Clinical Spectrum", pageName: "Comprehensive Care", path: "comprehensivecare#clinical-spectrum", desc: "Drugless protocols for Type-2 Diabetes, Hypertension & Obesity" },
+  { type: 'card', title: "Musculoskeletal & Rheumatic Disorders", cardName: "Musculoskeletal Care", sectionName: "Specialized Clinical Spectrum", pageName: "Comprehensive Care", path: "comprehensivecare#clinical-spectrum", desc: "Relief for Osteoarthritis, Spondylosis, Sciatica & Chronic Joint Pain" },
+  { type: 'card', title: "Digestive & Gastrointestinal Health", cardName: "Digestive Health", sectionName: "Specialized Clinical Spectrum", pageName: "Comprehensive Care", path: "comprehensivecare#clinical-spectrum", desc: "Treatments for IBS, Acidity, Fatty Liver & Chronic Constipation" }
 ];
 
 function App() {
@@ -245,24 +307,51 @@ function App() {
 
   const handlePageChange = (page, extra) => {
     scrollPositionsRef.current[currentPage] = window.scrollY || document.documentElement.scrollTop || 0;
+    
     let targetPage = page;
-    if (page === 'programmes' && extra?.progId) {
+    let targetSection = extra?.sectionId || null;
+
+    if (typeof page === 'string' && page.includes('#')) {
+      const parts = page.split('#');
+      targetPage = parts[0];
+      targetSection = parts[1];
+    }
+
+    if (targetPage === 'programmes' && extra?.progId) {
       targetPage = 'programmes/packages';
     }
-    if (page === 'book' || page === 'booking') {
+    if (targetPage === 'book' || targetPage === 'booking') {
       if (extra?.programme) {
         setBookingProgramme(extra.programme);
       }
     }
+
     setCurrentPage(targetPage);
+
     let path = targetPage === 'home' ? '/' : `/${targetPage}`;
     if (extra?.progId) {
       path += `?prog=${extra.progId}`;
     } else if (extra?.programme) {
       path += `?prog=${extra.programme}`;
     }
+    if (targetSection) {
+      path += `#${targetSection}`;
+    }
+
     navigate(path);
     closeMobileMenu();
+
+    if (targetSection) {
+      setTimeout(() => {
+        const el = document.getElementById(targetSection);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (window.lenis) {
+            window.lenis.scrollTo(el, { duration: 1.2 });
+          }
+        }
+      }, 150);
+    }
   };
 
   const menuItems = [
@@ -734,49 +823,129 @@ function App() {
                 {/* Filtered Search Results */}
                 <div className="custom-light-scrollbar" style={{ maxHeight: '60vh', overflowY: 'auto', padding: '1rem' }}>
                   {(() => {
-                    const filtered = searchIndex.filter(item => 
-                      item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                      item.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                      item.category.toLowerCase().includes(searchQuery.toLowerCase())
-                    );
-
-                    if (filtered.length === 0) {
+                    if (!searchQuery.trim()) {
                       return (
-                        <div style={{ textAlign: 'center', padding: '3rem 1rem', color: 'rgba(40, 38, 37, 0.6)' }}>
-                          <p style={{ fontSize: '1rem', fontWeight: 500 }}>No results found for "{searchQuery}"</p>
+                        <div style={{ padding: '1.2rem 1rem', color: 'rgba(40, 38, 37, 0.65)' }}>
+                          <span style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.14em', fontWeight: 800, color: 'var(--wine)', display: 'block', marginBottom: '0.8rem' }}>
+                            ✦ QUICK SEARCH SUGGESTIONS
+                          </span>
+                          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                            {['Sanctum Zones', 'Suyoga Block', 'Sankalpa', 'Packages', 'Naturopathy', 'Iris Diagnosis', 'Current Openings', 'Ayurvedic Meals'].map((keyword) => (
+                              <button
+                                key={keyword}
+                                onClick={() => setSearchQuery(keyword)}
+                                style={{
+                                  padding: '0.45rem 0.85rem',
+                                  borderRadius: '20px',
+                                  border: '1.5px solid rgba(94, 39, 53, 0.18)',
+                                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                                  color: 'var(--wine)',
+                                  fontSize: '0.78rem',
+                                  fontWeight: 700,
+                                  cursor: 'pointer',
+                                  transition: 'all 0.2s ease'
+                                }}
+                              >
+                                {keyword}
+                              </button>
+                            ))}
+                          </div>
                         </div>
                       );
                     }
 
-                    return filtered.map((item, idx) => (
-                      <div
-                        key={idx}
-                        onClick={() => {
-                          handlePageChange(item.path);
-                          setIsSearchOpen(false);
-                          setSearchQuery('');
-                        }}
-                        className="search-result-item"
-                        style={{
-                          padding: '1rem 1.25rem',
-                          borderRadius: '16px',
-                          marginBottom: '0.65rem',
-                          cursor: 'pointer',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between'
-                        }}
-                      >
-                        <div>
-                          <span style={{ fontSize: '0.7rem', color: 'var(--wine)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700, display: 'block', marginBottom: '0.25rem' }}>
-                            {item.category}
-                          </span>
-                          <h4 style={{ color: 'var(--raisin-black)', fontSize: '1.08rem', margin: 0, fontWeight: 700, fontFamily: 'var(--font-heading)' }}>{item.title}</h4>
-                          <p style={{ color: 'rgba(40, 38, 37, 0.72)', fontSize: '0.84rem', margin: '0.25rem 0 0 0', lineHeight: 1.45 }}>{item.desc}</p>
+                    const q = searchQuery.toLowerCase().trim();
+                    const filtered = searchIndex.filter(item => {
+                      const matchTitle = item.title?.toLowerCase().includes(q);
+                      const matchDesc = item.desc?.toLowerCase().includes(q);
+                      const matchCategory = item.category?.toLowerCase().includes(q);
+                      const matchCard = item.cardName?.toLowerCase().includes(q);
+                      const matchSection = item.sectionName?.toLowerCase().includes(q);
+                      const matchPage = item.pageName?.toLowerCase().includes(q);
+                      return matchTitle || matchDesc || matchCategory || matchCard || matchSection || matchPage;
+                    });
+
+                    if (filtered.length === 0) {
+                      return (
+                        <div style={{ textAlign: 'center', padding: '3rem 1rem', color: 'rgba(40, 38, 37, 0.65)' }}>
+                          <p style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--wine)', margin: 0 }}>No matches found for "{searchQuery}"</p>
+                          <p style={{ fontSize: '0.82rem', opacity: 0.8, marginTop: '0.4rem', lineHeight: 1.5 }}>
+                            Try searching for a page (e.g. <em>Spaces</em>), a section (e.g. <em>Sanctum Zones</em>), or a card name (e.g. <em>Suyoga Block</em>, <em>Sankalpa</em>, <em>Iris Diagnosis</em>).
+                          </p>
                         </div>
-                        <ChevronRight size={18} style={{ color: 'var(--wine)', flexShrink: 0, marginLeft: '1rem' }} />
-                      </div>
-                    ));
+                      );
+                    }
+
+                    return filtered.map((item, idx) => {
+                      const isCard = item.type === 'card';
+                      const isSection = item.type === 'section';
+
+                      return (
+                        <div
+                          key={idx}
+                          onClick={() => {
+                            handlePageChange(item.path);
+                            setIsSearchOpen(false);
+                            setSearchQuery('');
+                          }}
+                          className="search-result-item"
+                          style={{
+                            padding: '1rem 1.25rem',
+                            borderRadius: '16px',
+                            marginBottom: '0.65rem',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            backgroundColor: '#ffffff',
+                            border: '1.5px solid rgba(94, 39, 53, 0.08)',
+                            transition: 'all 0.25s ease'
+                          }}
+                        >
+                          <div style={{ paddingRight: '1rem' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem', flexWrap: 'wrap' }}>
+                              <span style={{
+                                fontSize: '0.65rem',
+                                color: isCard ? '#ffffff' : isSection ? 'var(--wine)' : 'var(--redwood)',
+                                backgroundColor: isCard ? 'var(--wine)' : isSection ? 'rgba(94, 39, 53, 0.12)' : 'rgba(184, 94, 76, 0.12)',
+                                padding: '0.2rem 0.6rem',
+                                borderRadius: '12px',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.08em',
+                                fontWeight: 800
+                              }}>
+                                {isCard ? '🂠 Card Result' : isSection ? '📌 Section Suggestion' : '📄 Page'}
+                              </span>
+
+                              {isCard && item.sectionName && (
+                                <span style={{ fontSize: '0.72rem', color: 'var(--redwood)', fontWeight: 700 }}>
+                                  Belongs to section: <strong style={{ color: 'var(--wine)' }}>{item.sectionName}</strong> ({item.pageName} Page)
+                                </span>
+                              )}
+
+                              {isSection && item.pageName && (
+                                <span style={{ fontSize: '0.72rem', color: 'var(--redwood)', fontWeight: 700 }}>
+                                  Section in <strong style={{ color: 'var(--wine)' }}>{item.pageName} Page</strong>
+                                </span>
+                              )}
+                            </div>
+
+                            <h4 style={{ color: 'var(--wine)', fontSize: '1.08rem', margin: 0, fontWeight: 700, fontFamily: 'var(--font-heading)' }}>
+                              {item.title}
+                            </h4>
+
+                            <p style={{ color: 'rgba(40, 38, 37, 0.78)', fontSize: '0.84rem', margin: '0.3rem 0 0 0', lineHeight: 1.45 }}>
+                              {item.desc}
+                            </p>
+                          </div>
+
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', color: 'var(--wine)', flexShrink: 0, fontSize: '0.78rem', fontWeight: 800 }}>
+                            <span>Open</span>
+                            <ChevronRight size={18} />
+                          </div>
+                        </div>
+                      );
+                    });
                   })()}
                 </div>
               </motion.div>

@@ -771,7 +771,7 @@ export default function Careers({ onNavigate }) {
             </section>
 
             {/* Current Openings — Search, Filter & Interactive Cards */}
-            <section style={{ padding: '3.5rem 5% 5rem 5%', backgroundColor: 'var(--tea-green)' }}>
+            <section id="current-openings" style={{ padding: '3.5rem 5% 5rem 5%', backgroundColor: 'var(--tea-green)' }}>
               <div style={{ maxWidth: '1320px', margin: '0 auto' }}>
 
                 {/* Section Header */}

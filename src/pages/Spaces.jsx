@@ -556,6 +556,7 @@ export default function Spaces({ onNavigate }) {
       </section>
 
       <div id="spaces-chapters" />
+      <div id="sanctum-zones" />
 
       {/* =========================================================================
           THE SPACES THAT SHAPE THE JOURNEY (Sanctum Zones Section in Sage Green)
@@ -723,7 +724,7 @@ export default function Spaces({ onNavigate }) {
       {/* =========================================================================
           RESTING BLOCKS (Interactive Cottages & Residences)
           ========================================================================= */}
-      <section style={{ padding: '5rem 8%', position: 'relative' }}>
+      <section id="resting-blocks" style={{ padding: '5rem 8%', position: 'relative' }}>
         <div style={{ maxWidth: '1220px', margin: '0 auto' }}>
           
           <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>

@@ -164,11 +164,14 @@ export default function Wellness({ onNavigate }) {
 
   useEffect(() => {
     if (isBookingModalOpen) {
+      if (window.lenis) window.lenis.stop();
       document.body.style.overflow = 'hidden';
     } else {
+      if (window.lenis) window.lenis.start();
       document.body.style.overflow = '';
     }
     return () => {
+      if (window.lenis) window.lenis.start();
       document.body.style.overflow = '';
     };
   }, [isBookingModalOpen]);
@@ -1345,44 +1348,21 @@ export default function Wellness({ onNavigate }) {
         {isBookingModalOpen && (
           <div 
             className="booking-modal-overlay"
+            data-lenis-prevent="true"
             onClick={() => setIsBookingModalOpen(false)}
-            style={{
-              position: 'fixed',
-              inset: 0,
-              zIndex: 999999,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: 'clamp(0.5rem, 2vw, 1.2rem)',
-              backgroundColor: 'rgba(20, 10, 15, 0.82)',
-              backdropFilter: 'blur(8px)',
-              WebkitBackdropFilter: 'blur(8px)',
-              overflowY: 'auto',
-              WebkitOverflowScrolling: 'touch'
-            }}
+            onWheel={(e) => e.stopPropagation()}
+            onTouchMove={(e) => e.stopPropagation()}
           >
             <motion.div
               className="booking-modal-card custom-light-scrollbar"
+              data-lenis-prevent="true"
               initial={{ opacity: 0, scale: 0.94, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.94, y: 15 }}
               transition={{ duration: 0.25 }}
               onClick={(e) => e.stopPropagation()}
-              style={{
-                position: 'relative',
-                width: '100%',
-                maxWidth: '520px',
-                maxHeight: '88vh',
-                backgroundColor: '#FFFFFF',
-                borderRadius: '20px',
-                padding: 'clamp(1.2rem, 3vw, 1.6rem) clamp(1rem, 2.5vw, 1.4rem)',
-                boxShadow: '0 25px 60px rgba(0,0,0,0.4)',
-                border: '1.5px solid rgba(94, 39, 53, 0.2)',
-                overflowY: 'auto',
-                WebkitOverflowScrolling: 'touch',
-                color: 'var(--wine)',
-                margin: 'auto'
-              }}
+              onWheel={(e) => e.stopPropagation()}
+              onTouchMove={(e) => e.stopPropagation()}
             >
               {/* Close Button X */}
               <button

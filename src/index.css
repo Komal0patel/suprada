@@ -3793,3 +3793,43 @@ html, body {
   }
 }
 
+/* ==========================================================================
+   BOOKING MODAL SCROLLING & TOUCH INTERACTION RULES
+   Ensures modal overlay and inner cards scroll directly without interference
+   ========================================================================== */
+.booking-modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 999999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: clamp(0.75rem, 2vw, 1.5rem) !important;
+  background-color: rgba(20, 10, 15, 0.82) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  overscroll-behavior: contain !important;
+  touch-action: pan-y !important;
+}
+
+.booking-modal-card {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 540px !important;
+  max-height: 88vh !important;
+  background-color: #FFFFFF !important;
+  border-radius: 20px !important;
+  padding: clamp(1.2rem, 3vw, 1.8rem) clamp(1rem, 2.5vw, 1.5rem) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4) !important;
+  border: 1.5px solid rgba(94, 39, 53, 0.2) !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  overscroll-behavior: contain !important;
+  touch-action: pan-y !important;
+  color: var(--wine, #5E2735) !important;
+  margin: auto !important;
+}
+
+

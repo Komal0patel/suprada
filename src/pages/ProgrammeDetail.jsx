@@ -431,6 +431,20 @@ export default function ProgrammeDetail({ progId, onNavigate }) {
     setIsBookingModalOpen(true);
   };
 
+  useEffect(() => {
+    if (isBookingModalOpen) {
+      if (window.lenis) window.lenis.stop();
+      document.body.style.overflow = 'hidden';
+    } else {
+      if (window.lenis) window.lenis.start();
+      document.body.style.overflow = '';
+    }
+    return () => {
+      if (window.lenis) window.lenis.start();
+      document.body.style.overflow = '';
+    };
+  }, [isBookingModalOpen]);
+
   const handleBookNow = () => {
     onNavigate('book', { programme: data.progKey });
   };
@@ -1086,6 +1100,8 @@ export default function ProgrammeDetail({ progId, onNavigate }) {
             className="booking-modal-overlay"
             data-lenis-prevent="true"
             onClick={() => setIsBookingModalOpen(false)}
+            onWheel={(e) => e.stopPropagation()}
+            onTouchMove={(e) => e.stopPropagation()}
           >
             <motion.div
               className="booking-modal-card custom-light-scrollbar"
@@ -1095,6 +1111,8 @@ export default function ProgrammeDetail({ progId, onNavigate }) {
               exit={{ opacity: 0, scale: 0.94, y: 15 }}
               transition={{ duration: 0.25 }}
               onClick={(e) => e.stopPropagation()}
+              onWheel={(e) => e.stopPropagation()}
+              onTouchMove={(e) => e.stopPropagation()}
             >
               {/* Close Button X */}
               <button

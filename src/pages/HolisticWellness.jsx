@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Pattern24, Pattern25, Pattern27 } from '../AnimatedPatterns';
 import { 
   Sparkles, ArrowRight, ArrowLeft, Check, Leaf, 
   Activity, Heart, User, Sun, Wind, Volume2, 
-  ShieldCheck, Clock, Calendar, CheckCircle2
+  ShieldCheck, Clock, Calendar, CheckCircle2,
+  ChevronLeft, ChevronRight
 } from 'lucide-react';
 
 const wordRevealContainer = {
@@ -26,6 +27,14 @@ const wordVariant = {
 
 export default function HolisticWellness({ onNavigate }) {
   const [activeTab, setActiveTab] = useState('therapies');
+  const cardsRef = useRef(null);
+
+  const scrollCards = (direction) => {
+    if (cardsRef && cardsRef.current) {
+      const scrollAmount = direction === 'left' ? -260 : 260;
+      cardsRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   return (
     <div style={{ backgroundColor: 'var(--antique-white, #FAF6F0)', color: 'var(--raisin-black, #2B1B17)', overflowX: 'hidden' }}>
@@ -146,14 +155,14 @@ export default function HolisticWellness({ onNavigate }) {
       </section>
 
       {/* Main Content Area */}
-      <div style={{ maxWidth: '1220px', margin: '0 auto', padding: '4.5rem 6%' }}>
+      <div className="pillar-main-container" style={{ maxWidth: '1220px', margin: '0 auto', padding: '4.5rem 6%' }}>
         
-        {/* 2. ABOUT HOLISTIC WELLNESS SECTION - Exact verbatim copy and image */}
+        {/* 2. ABOUT HOLISTIC WELLNESS SECTION */}
         <section style={{ marginBottom: '5rem' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3.5rem', alignItems: 'center' }}>
+          <div className="pillar-about-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '3.5rem', alignItems: 'center' }}>
             <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               style={{
@@ -162,23 +171,24 @@ export default function HolisticWellness({ onNavigate }) {
                 boxShadow: '0 12px 35px rgba(94, 39, 53, 0.08)',
                 border: '1.5px solid rgba(94, 39, 53, 0.12)',
                 backgroundColor: '#ffffff',
-                height: '100%',
-                minHeight: '360px'
+                width: '100%',
+                minHeight: '320px',
+                margin: '0 auto'
               }}
             >
               <img 
                 src="/assets/programmes/holistic-wellness-about.jpg" 
                 alt="Holistic Wellness" 
-                style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: '360px', maxHeight: '480px' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: '320px', maxHeight: '480px', display: 'block' }}
               />
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
+              style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%' }}
             >
               <h2 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: 'clamp(2.2rem, 3.8vw, 3.2rem)', margin: '0 0 1.2rem 0', fontWeight: 700, lineHeight: 1.2 }}>
                 About <span style={{ color: 'var(--harvest-gold, #B8860B)', fontStyle: 'italic' }}>Holistic Wellness</span>
@@ -203,11 +213,33 @@ export default function HolisticWellness({ onNavigate }) {
               A synergistic blend of therapies for total well-being.
             </p>
 
-            {/* Interactive Tab Switcher */}
-            <div style={{ display: 'inline-flex', gap: '0.8rem', marginTop: '2.2rem', backgroundColor: 'rgba(94, 39, 53, 0.08)', padding: '0.4rem', borderRadius: '35px' }}>
+            {/* Interactive Tab Switcher - Single Line for Mobile & Laptop */}
+            <div 
+              className="single-line-horizontal-tabs no-scrollbar" 
+              style={{ 
+                display: 'flex', 
+                flexDirection: 'row',
+                flexWrap: 'nowrap',
+                overflowX: 'auto',
+                WebkitOverflowScrolling: 'touch',
+                gap: '0.6rem', 
+                marginTop: '2.2rem', 
+                backgroundColor: 'rgba(94, 39, 53, 0.08)', 
+                padding: '0.4rem', 
+                borderRadius: '35px',
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+                width: 'max-content',
+                maxWidth: '100%',
+                margin: '2.2rem auto 0 auto',
+                boxSizing: 'border-box'
+              }}
+            >
               <button
                 onClick={() => setActiveTab('therapies')}
                 style={{
+                  flexShrink: 0,
+                  whiteSpace: 'nowrap',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.5rem',
@@ -231,6 +263,8 @@ export default function HolisticWellness({ onNavigate }) {
               <button
                 onClick={() => setActiveTab('mindfulness')}
                 style={{
+                  flexShrink: 0,
+                  whiteSpace: 'nowrap',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.5rem',
@@ -337,6 +371,8 @@ export default function HolisticWellness({ onNavigate }) {
             ) : (
               <motion.div 
                 key="mindfulness-tab"
+                ref={cardsRef}
+                className="pillar-modality-cards-track no-scrollbar"
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
@@ -436,6 +472,7 @@ export default function HolisticWellness({ onNavigate }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="pillar-signature-card"
             style={{
               backgroundColor: '#ffffff',
               borderRadius: '32px',
@@ -536,6 +573,7 @@ export default function HolisticWellness({ onNavigate }) {
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <button 
                 onClick={() => onNavigate('contact')}
+                className="pillar-signature-btn"
                 style={{
                   backgroundColor: 'var(--wine, #5E2735)',
                   color: '#ffffff',
@@ -550,8 +588,6 @@ export default function HolisticWellness({ onNavigate }) {
                   boxShadow: '0 8px 25px rgba(94, 39, 53, 0.25)',
                   transition: 'all 0.3s ease'
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#3a1520'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--wine, #5E2735)'; e.currentTarget.style.transform = 'translateY(0)'; }}
               >
                 Reserve Your Spot
               </button>
@@ -564,7 +600,7 @@ export default function HolisticWellness({ onNavigate }) {
           <h3 style={{ color: 'var(--wine, #5E2735)', textAlign: 'center', fontSize: '0.76rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.22em', marginBottom: '1.5rem' }}>
             Explore Other Programmes
           </h3>
-          <div style={{
+          <div className="pillar-bottom-nav-grid" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '1.5rem'
@@ -578,23 +614,23 @@ export default function HolisticWellness({ onNavigate }) {
               style={{
                 backgroundColor: '#ffffff',
                 borderRadius: '20px',
-                padding: '1.5rem 1.8rem',
+                padding: '1.2rem 1.4rem',
                 border: '1.5px solid rgba(94, 39, 53, 0.12)',
                 cursor: 'pointer',
                 boxShadow: '0 6px 18px rgba(94, 39, 53, 0.04)',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '1rem'
+                gap: '0.7rem'
               }}
             >
-              <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'rgba(94, 39, 53, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--wine, #5E2735)', flexShrink: 0 }}>
-                <ArrowLeft size={18} />
+              <div style={{ width: '36px', height: '36px', borderRadius: '50%', backgroundColor: 'rgba(94, 39, 53, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--wine, #5E2735)', flexShrink: 0 }}>
+                <ArrowLeft size={16} />
               </div>
               <div>
-                <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', display: 'block' }}>
+                <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', display: 'block' }}>
                   Previous
                 </span>
-                <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--wine, #5E2735)', margin: '0.1rem 0 0 0', fontWeight: 700 }}>
+                <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', color: 'var(--wine, #5E2735)', margin: '0.1rem 0 0 0', fontWeight: 700 }}>
                   Rejuvenation Program
                 </h4>
               </div>
@@ -609,26 +645,26 @@ export default function HolisticWellness({ onNavigate }) {
               style={{
                 backgroundColor: '#ffffff',
                 borderRadius: '20px',
-                padding: '1.5rem 1.8rem',
+                padding: '1.2rem 1.4rem',
                 border: '1.5px solid rgba(94, 39, 53, 0.12)',
                 cursor: 'pointer',
                 boxShadow: '0 6px 18px rgba(94, 39, 53, 0.04)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                gap: '1rem'
+                gap: '0.7rem'
               }}
             >
               <div>
-                <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', display: 'block' }}>
+                <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', display: 'block' }}>
                   Next
                 </span>
-                <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--wine, #5E2735)', margin: '0.1rem 0 0 0', fontWeight: 700 }}>
+                <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', color: 'var(--wine, #5E2735)', margin: '0.1rem 0 0 0', fontWeight: 700 }}>
                   Advanced Healing Program
                 </h4>
               </div>
-              <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'rgba(94, 39, 53, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--wine, #5E2735)', flexShrink: 0 }}>
-                <ArrowRight size={18} />
+              <div style={{ width: '36px', height: '36px', borderRadius: '50%', backgroundColor: 'rgba(94, 39, 53, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--wine, #5E2735)', flexShrink: 0 }}>
+                <ArrowRight size={16} />
               </div>
             </motion.div>
           </div>

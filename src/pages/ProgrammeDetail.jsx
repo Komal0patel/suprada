@@ -597,8 +597,11 @@ export default function ProgrammeDetail({ progId, onNavigate }) {
             </p>
           </div>
 
-          {/* Tab Navigation Chips (Single row horizontal on mobile & desktop) */}
-          <div className="programme-tab-chips-container">
+          {/* Tab Navigation Chips (Single row horizontal on mobile & desktop with touch scroll) */}
+          <div 
+            className="programme-tab-chips-container custom-light-scrollbar"
+            data-lenis-prevent="true"
+          >
             {data.tabs.map(tab => {
               const IconComp = tab.icon;
               const isActive = activeTab === tab.id;
@@ -608,7 +611,7 @@ export default function ProgrammeDetail({ progId, onNavigate }) {
                   onClick={() => setActiveTab(tab.id)}
                   className={`programme-tab-chip ${isActive ? 'active' : ''}`}
                 >
-                  <IconComp size={16} />
+                  <IconComp size={15} />
                   <span>{tab.label}</span>
                 </button>
               );
@@ -989,28 +992,29 @@ export default function ProgrammeDetail({ progId, onNavigate }) {
             Explore Other Programmes
           </h4>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem' }}>
+          <div className="explore-other-programmes-grid">
             {data.prevProg && (
               <div
                 onClick={() => onNavigate(data.prevProg.id)}
+                className="explore-prog-nav-card"
                 style={{
                   backgroundColor: '#ffffff',
-                  padding: '1.4rem 1.8rem',
+                  padding: '1.2rem 1.5rem',
                   borderRadius: '16px',
                   border: '1.5px solid rgba(94, 39, 53, 0.1)',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '1rem',
+                  gap: '0.8rem',
                   transition: 'all 0.25s ease'
                 }}
                 onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--harvest-gold, #B8860B)'; e.currentTarget.style.transform = 'translateX(-3px)'; }}
                 onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(94, 39, 53, 0.1)'; e.currentTarget.style.transform = 'translateX(0)'; }}
               >
-                <ArrowLeft size={22} color="var(--wine, #5E2735)" />
+                <ArrowLeft size={20} color="var(--wine, #5E2735)" style={{ flexShrink: 0 }} />
                 <div>
-                  <span style={{ fontSize: '0.72rem', color: 'rgba(40, 38, 37, 0.6)', textTransform: 'uppercase', letterSpacing: '0.06em', display: 'block' }}>Previous</span>
-                  <strong style={{ fontSize: '1rem', color: 'var(--wine, #5E2735)', fontFamily: 'var(--font-heading)' }}>{data.prevProg.name}</strong>
+                  <span style={{ fontSize: '0.68rem', color: 'rgba(40, 38, 37, 0.6)', textTransform: 'uppercase', letterSpacing: '0.06em', display: 'block' }}>Previous</span>
+                  <strong style={{ fontSize: '0.94rem', color: 'var(--wine, #5E2735)', fontFamily: 'var(--font-heading)' }}>{data.prevProg.name}</strong>
                 </div>
               </div>
             )}
@@ -1018,25 +1022,27 @@ export default function ProgrammeDetail({ progId, onNavigate }) {
             {data.nextProg && (
               <div
                 onClick={() => onNavigate(data.nextProg.id)}
+                className="explore-prog-nav-card"
                 style={{
                   backgroundColor: '#ffffff',
-                  padding: '1.4rem 1.8rem',
+                  padding: '1.2rem 1.5rem',
                   borderRadius: '16px',
                   border: '1.5px solid rgba(94, 39, 53, 0.1)',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
+                  gap: '0.8rem',
                   transition: 'all 0.25s ease'
                 }}
                 onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--harvest-gold, #B8860B)'; e.currentTarget.style.transform = 'translateX(3px)'; }}
                 onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(94, 39, 53, 0.1)'; e.currentTarget.style.transform = 'translateX(0)'; }}
               >
                 <div style={{ textAlign: 'left' }}>
-                  <span style={{ fontSize: '0.72rem', color: 'rgba(40, 38, 37, 0.6)', textTransform: 'uppercase', letterSpacing: '0.06em', display: 'block' }}>Next</span>
-                  <strong style={{ fontSize: '1rem', color: 'var(--wine, #5E2735)', fontFamily: 'var(--font-heading)' }}>{data.nextProg.name}</strong>
+                  <span style={{ fontSize: '0.68rem', color: 'rgba(40, 38, 37, 0.6)', textTransform: 'uppercase', letterSpacing: '0.06em', display: 'block' }}>Next</span>
+                  <strong style={{ fontSize: '0.94rem', color: 'var(--wine, #5E2735)', fontFamily: 'var(--font-heading)' }}>{data.nextProg.name}</strong>
                 </div>
-                <ArrowRight size={22} color="var(--wine, #5E2735)" />
+                <ArrowRight size={20} color="var(--wine, #5E2735)" style={{ flexShrink: 0 }} />
               </div>
             )}
           </div>

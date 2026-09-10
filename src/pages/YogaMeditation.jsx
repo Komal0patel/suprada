@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Pattern24, Pattern25, Pattern27 } from '../AnimatedPatterns';
 import { 
-  User, Sun, Moon, Heart, ArrowRight, ArrowLeft, Check, Sparkles
+  User, Sun, Moon, Heart, ArrowRight, ArrowLeft, Check, Sparkles,
+  ChevronLeft, ChevronRight
 } from 'lucide-react';
 
 const wordRevealContainer = {
@@ -24,6 +25,14 @@ const wordVariant = {
 
 export default function YogaMeditation({ onNavigate }) {
   const [activeTab, setActiveTab] = useState('core');
+  const cardsRef = useRef(null);
+
+  const scrollCards = (direction) => {
+    if (cardsRef && cardsRef.current) {
+      const scrollAmount = direction === 'left' ? -260 : 260;
+      cardsRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   return (
     <div style={{ backgroundColor: 'var(--antique-white, #FAF6F0)', color: 'var(--raisin-black, #2B1B17)', overflowX: 'hidden' }}>
@@ -130,82 +139,26 @@ export default function YogaMeditation({ onNavigate }) {
           <p style={{
             color: 'rgba(94, 39, 53, 0.88)',
             maxWidth: '680px',
-            margin: '0 auto 1.8rem auto',
+            margin: '0 auto',
             fontSize: 'clamp(1rem, 1.6vw, 1.25rem)',
             lineHeight: 1.65,
             fontWeight: 400,
             textAlign: 'center'
           }}>
-            Cultivate inner stillness, physical strength, and mental clarity through classical yogic discipline, breathwork, and deep restorative meditation.
+            Harmonizing body, breath, and mind through traditional yogic disciplines, therapeutic movement, and deep meditative practices.
           </p>
-
-          {/* Action Buttons - Matching /spaces Hero Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            style={{ display: 'flex', gap: '1.2rem', justifyContent: 'center', flexWrap: 'wrap' }}
-          >
-            <a
-              href="#pathways"
-              style={{
-                display: 'inline-block',
-                padding: '0.85rem 2.2rem',
-                fontSize: '0.82rem',
-                letterSpacing: '0.12em',
-                textDecoration: 'none',
-                textTransform: 'uppercase',
-                fontWeight: 700,
-                backgroundColor: 'var(--wine, #5E2735)',
-                color: '#f5ebd9',
-                border: '1.5px solid var(--wine, #5E2735)',
-                borderRadius: '30px',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                boxShadow: '0 4px 18px rgba(94,39,53,0.22)'
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#3a1520'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--wine, #5E2735)'; e.currentTarget.style.transform = 'translateY(0)'; }}
-            >
-              Explore Practices ↓
-            </a>
-            <button
-              onClick={() => onNavigate('contact')}
-              style={{
-                background: 'transparent',
-                border: '1.5px solid rgba(94,39,53,0.35)',
-                color: 'var(--wine, #5E2735)',
-                cursor: 'pointer',
-                padding: '0.85rem 2.1rem',
-                fontSize: '0.82rem',
-                letterSpacing: '0.08em',
-                fontWeight: 600,
-                borderRadius: '30px',
-                transition: 'all 0.3s ease'
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(94,39,53,0.07)'; e.currentTarget.style.borderColor = 'var(--wine, #5E2735)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.borderColor = 'rgba(94,39,53,0.35)'; }}
-            >
-              Book Consultation
-            </button>
-          </motion.div>
-
-          {/* Scroll Indicator */}
-          <div style={{ marginTop: '2.5rem', fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.22em', color: 'var(--wine, #5E2735)', opacity: 0.6, fontWeight: 700 }}>
-            Scroll ↓
-          </div>
         </motion.div>
       </section>
 
       {/* Main Content Area */}
-      <div style={{ maxWidth: '1220px', margin: '0 auto', padding: '4rem 6%' }}>
+      <div className="pillar-main-container" style={{ maxWidth: '1220px', margin: '0 auto', padding: '4rem 6%' }}>
         
         {/* 2. ABOUT YOGA & MEDITATION SECTION */}
         <section style={{ marginBottom: '5rem' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'center' }}>
+          <div className="pillar-about-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '3rem', alignItems: 'center' }}>
             <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               style={{
@@ -214,23 +167,24 @@ export default function YogaMeditation({ onNavigate }) {
                 boxShadow: '0 12px 35px rgba(94, 39, 53, 0.08)',
                 border: '1.5px solid rgba(94, 39, 53, 0.12)',
                 backgroundColor: '#ffffff',
-                height: '100%',
-                minHeight: '350px'
+                width: '100%',
+                minHeight: '320px',
+                margin: '0 auto'
               }}
             >
               <img 
                 src="https://images.pexels.com/photos/3822906/pexels-photo-3822906.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop" 
                 alt="Peaceful yoga and meditation practice" 
-                style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: '350px', maxHeight: '460px' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: '320px', maxHeight: '460px', display: 'block' }}
               />
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
+              style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%' }}
             >
               <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'var(--redwood, #B85645)', marginBottom: '0.5rem', display: 'block' }}>
                 ANCIENT MIND-BODY DISCIPLINE
@@ -315,8 +269,25 @@ export default function YogaMeditation({ onNavigate }) {
             </p>
           </div>
 
-          {/* Category Selector Tabs (Matching /spaces Pill Buttons) */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '0.6rem', flexWrap: 'wrap', marginBottom: '2.2rem' }}>
+          {/* Category Selector Tabs */}
+          <div 
+            className="single-line-horizontal-tabs"
+            style={{ 
+              display: 'flex', 
+              justifyContent: 'center', 
+              flexWrap: 'nowrap',
+              overflowX: 'auto',
+              WebkitOverflowScrolling: 'touch',
+              gap: '0.6rem', 
+              padding: '0.4rem 0.5rem',
+              marginBottom: '1.2rem',
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+              width: '100%',
+              maxWidth: '100%',
+              boxSizing: 'border-box'
+            }}
+          >
             {[
               { id: 'core', label: 'Core Practices', icon: Sun },
               { id: 'therapeutic', label: 'Therapeutic & Restorative', icon: Moon },
@@ -329,6 +300,8 @@ export default function YogaMeditation({ onNavigate }) {
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
                   style={{
+                    flexShrink: 0,
+                    whiteSpace: 'nowrap',
                     padding: '0.65rem 1.4rem',
                     borderRadius: '24px',
                     border: isActive ? '2px solid var(--wine, #5E2735)' : '1.5px solid rgba(94, 39, 53, 0.25)',
@@ -353,10 +326,40 @@ export default function YogaMeditation({ onNavigate }) {
             })}
           </div>
 
+          {/* Arrows for mobile scrolling */}
+          <div className="carousel-nav-arrows-container" style={{ display: 'none', justifyContent: 'center', gap: '1rem', marginTop: '0.5rem', marginBottom: '1.5rem' }}>
+            <button
+              onClick={() => scrollCards('left')}
+              style={{
+                width: '38px', height: '38px', borderRadius: '50%',
+                backgroundColor: '#ffffff', border: '1.5px solid rgba(94, 39, 53, 0.2)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                color: 'var(--wine, #5E2735)', cursor: 'pointer', boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
+              }}
+              aria-label="Scroll left"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              onClick={() => scrollCards('right')}
+              style={{
+                width: '38px', height: '38px', borderRadius: '50%',
+                backgroundColor: '#ffffff', border: '1.5px solid rgba(94, 39, 53, 0.2)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                color: 'var(--wine, #5E2735)', cursor: 'pointer', boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
+              }}
+              aria-label="Scroll right"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+
           {/* Pure White Rounded Cards Grid */}
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
+              ref={cardsRef}
+              className="pillar-modality-cards-track no-scrollbar"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
@@ -569,6 +572,7 @@ export default function YogaMeditation({ onNavigate }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="pillar-signature-card"
             style={{
               backgroundColor: '#ffffff',
               borderRadius: '28px',
@@ -577,7 +581,7 @@ export default function YogaMeditation({ onNavigate }) {
               boxShadow: '0 14px 40px rgba(94, 39, 53, 0.08)'
             }}
           >
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem', alignItems: 'center' }}>
+            <div className="pillar-signature-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem', alignItems: 'center' }}>
               <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
                 <div>
                   <span style={{
@@ -635,6 +639,7 @@ export default function YogaMeditation({ onNavigate }) {
                 <div>
                   <button 
                     onClick={() => onNavigate('book', { programme: 'yoga-meditation' })}
+                    className="pillar-signature-btn"
                     style={{
                       backgroundColor: 'var(--wine, #5E2735)',
                       color: '#ffffff',
@@ -655,13 +660,13 @@ export default function YogaMeditation({ onNavigate }) {
                 </div>
               </div>
 
-              <div style={{ borderRadius: '20px', overflow: 'hidden', position: 'relative', height: '350px', boxShadow: '0 10px 30px rgba(94, 39, 53, 0.1)', border: '1px solid rgba(94, 39, 53, 0.12)' }}>
+              <div className="pillar-signature-img-box" style={{ borderRadius: '20px', overflow: 'hidden', position: 'relative', height: '350px', boxShadow: '0 10px 30px rgba(94, 39, 53, 0.1)', border: '1px solid rgba(94, 39, 53, 0.12)' }}>
                 <img 
                   src="https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=1200" 
                   alt="Holistic Wellness Yoga" 
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
-                <div style={{ position: 'absolute', top: '15px', right: '15px', backgroundColor: 'rgba(255, 255, 255, 0.94)', backdropFilter: 'blur(8px)', borderRadius: '16px', padding: '0.8rem 1.2rem', boxShadow: '0 8px 24px rgba(0,0,0,0.1)', border: '1px solid rgba(94, 39, 53, 0.15)' }}>
+                <div className="pillar-signature-price-badge" style={{ position: 'absolute', top: '15px', right: '15px', backgroundColor: 'rgba(255, 255, 255, 0.94)', backdropFilter: 'blur(8px)', borderRadius: '16px', padding: '0.8rem 1.2rem', boxShadow: '0 8px 24px rgba(0,0,0,0.1)', border: '1px solid rgba(94, 39, 53, 0.15)' }}>
                   <p style={{ fontSize: '0.7rem', fontWeight: 800, color: 'var(--wine, #5E2735)', textTransform: 'uppercase', letterSpacing: '0.1em', margin: 0 }}>Starting from</p>
                   <p style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: 0 }}>7 / 14 / 21 days</p>
                 </div>
@@ -671,60 +676,73 @@ export default function YogaMeditation({ onNavigate }) {
         </section>
 
         {/* 5. EXPLORE OTHER PROGRAMMES */}
-        <div style={{ paddingTop: '1.5rem' }}>
+        <div style={{ paddingTop: '1.5rem', borderTop: '1px solid rgba(94, 39, 53, 0.12)' }}>
           <h3 style={{ color: 'var(--wine, #5E2735)', textAlign: 'center', fontSize: '0.76rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.22em', marginBottom: '1.5rem' }}>
             Explore Other Programmes
           </h3>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
-            <button
+          <div className="pillar-bottom-nav-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+            <motion.div
+              whileHover={{ y: -4 }}
               onClick={() => {
                 onNavigate('programmes/naturopathy');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               style={{
                 backgroundColor: '#ffffff',
-                padding: '1.4rem 1.8rem',
+                padding: '1.2rem 1.4rem',
                 borderRadius: '20px',
-                border: '1.5px solid rgba(94, 39, 53, 0.15)',
-                textAlign: 'left',
+                border: '1.5px solid rgba(94, 39, 53, 0.12)',
                 cursor: 'pointer',
-                transition: 'all 0.3s ease',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.7rem',
                 boxShadow: '0 6px 18px rgba(94, 39, 53, 0.04)'
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <ArrowLeft style={{ color: 'var(--wine, #5E2735)' }} size={24} />
-                <div>
-                  <p style={{ fontSize: '0.75rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.6, fontWeight: 600, margin: 0 }}>Previous</p>
-                  <p style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.35rem', fontWeight: 700, margin: 0 }}>Naturopathy</p>
-                </div>
+              <div style={{ width: '36px', height: '36px', borderRadius: '50%', backgroundColor: 'rgba(94, 39, 53, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--wine, #5E2735)', flexShrink: 0 }}>
+                <ArrowLeft size={16} />
               </div>
-            </button>
+              <div>
+                <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', display: 'block' }}>
+                  Previous
+                </span>
+                <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', color: 'var(--wine, #5E2735)', margin: '0.1rem 0 0 0', fontWeight: 700 }}>
+                  Naturopathy
+                </h4>
+              </div>
+            </motion.div>
 
-            <button
+            <motion.div
+              whileHover={{ y: -4 }}
               onClick={() => {
                 onNavigate('programmes/holistic-therapies');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               style={{
                 backgroundColor: '#ffffff',
-                padding: '1.4rem 1.8rem',
+                padding: '1.2rem 1.4rem',
                 borderRadius: '20px',
-                border: '1.5px solid rgba(94, 39, 53, 0.15)',
-                textAlign: 'right',
+                border: '1.5px solid rgba(94, 39, 53, 0.12)',
                 cursor: 'pointer',
-                transition: 'all 0.3s ease',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: '0.7rem',
                 boxShadow: '0 6px 18px rgba(94, 39, 53, 0.04)'
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '1rem' }}>
-                <div>
-                  <p style={{ fontSize: '0.75rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.6, fontWeight: 600, margin: 0 }}>Next</p>
-                  <p style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.35rem', fontWeight: 700, margin: 0 }}>Holistic Therapies</p>
-                </div>
-                <ArrowRight style={{ color: 'var(--wine, #5E2735)' }} size={24} />
+              <div>
+                <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', display: 'block' }}>
+                  Next
+                </span>
+                <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', color: 'var(--wine, #5E2735)', margin: '0.1rem 0 0 0', fontWeight: 700 }}>
+                  Holistic Therapies
+                </h4>
               </div>
-            </button>
+              <div style={{ width: '36px', height: '36px', borderRadius: '50%', backgroundColor: 'rgba(94, 39, 53, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--wine, #5E2735)', flexShrink: 0 }}>
+                <ArrowRight size={16} />
+              </div>
+            </motion.div>
           </div>
         </div>
 

@@ -488,7 +488,7 @@ export default function Nutrition({ onNavigate }) {
       {/* 4. ANCIENT SANSKRIT CARD: YOU ARE WHAT YOU EAT (Soft Clean Luxury) */}
       {/* ========================================================================= */}
       <section style={{
-        padding: 'clamp(2rem, 4vh, 3rem) 1.5rem',
+        padding: 'clamp(1.5rem, 3.5vh, 2.5rem) 1.5rem',
         backgroundColor: '#F7F5F0'
       }}>
         <div style={{ maxWidth: '980px', margin: '0 auto' }}>
@@ -497,6 +497,7 @@ export default function Nutrition({ onNavigate }) {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65 }}
+            className="nutrition-shloka-card"
             style={{
               position: 'relative',
               background: '#FFFFFF',
@@ -504,81 +505,85 @@ export default function Nutrition({ onNavigate }) {
               border: '1.5px solid rgba(212, 175, 55, 0.45)',
               boxShadow: '0 12px 35px rgba(94, 39, 53, 0.06)',
               overflow: 'hidden',
-              padding: 'clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3rem)',
+              padding: 'clamp(1.2rem, 4vw, 3rem) clamp(1rem, 3.5vw, 2.5rem)',
               display: 'flex',
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'space-between',
-              gap: '1.5rem'
+              gap: '1rem'
             }}
           >
             {/* Left Decorative Corner SVG */}
-            <CornerFlourish style={{ width: 'clamp(50px, 9vw, 90px)', height: 'clamp(100px, 18vw, 180px)', color: 'var(--harvest-gold)', opacity: 0.65, flexShrink: 0 }} />
+            <CornerFlourish className="shloka-flourish" style={{ width: 'clamp(40px, 7vw, 80px)', height: 'clamp(80px, 14vw, 160px)', color: 'var(--harvest-gold)', opacity: 0.65, flexShrink: 0 }} />
 
             {/* Center Sanskrit Quote Content */}
-            <div style={{
+            <div className="shloka-center-content" style={{
               flexGrow: 1,
               textAlign: 'center',
               maxWidth: '680px',
               position: 'relative',
-              padding: '0 0.5rem'
+              padding: '0 0.4rem'
             }}>
-              <p style={{
+              <p className="shloka-title-text" style={{
                 fontFamily: 'var(--font-heading)',
                 fontSize: 'var(--fs-h3)',
                 color: 'var(--wine)',
                 fontWeight: 600,
                 fontStyle: 'italic',
-                marginBottom: '1rem',
-                margin: 0
+                margin: '0 0 0.5rem 0'
               }}>
                 You are what you eat
               </p>
 
-              <div style={{ margin: '1.2rem 0' }}>
-                <p style={{
+              {/* Shloka Line in 1 Single Line */}
+              <div className="shloka-sanskrit-container" style={{ margin: '0.6rem 0' }}>
+                <p className="shloka-sanskrit-line" style={{
                   fontFamily: 'serif',
-                  fontSize: 'clamp(1.3rem, 2.5vw, 1.85rem)',
+                  fontSize: 'clamp(1.15rem, 2.2vw, 1.85rem)',
                   color: 'var(--wine)',
                   fontWeight: 600,
-                  lineHeight: 1.4,
-                  margin: '0 0 0.4rem 0'
+                  lineHeight: 1.3,
+                  margin: '0 0 0.2rem 0',
+                  whiteSpace: 'nowrap'
                 }}>
                   आहारशुद्धौ सत्त्वशुद्धिः।
                 </p>
-                <p style={{
-                  fontSize: 'var(--fs-body)',
+                <p className="shloka-translit-line" style={{
+                  fontSize: 'clamp(0.72rem, 1.3vw, 0.88rem)',
                   color: 'var(--redwood)',
                   fontStyle: 'italic',
                   fontWeight: 500,
                   letterSpacing: '0.04em',
-                  margin: 0
+                  margin: 0,
+                  whiteSpace: 'nowrap'
                 }}>
                   Ahāraśuddhau sattvaśuddhiḥ.
                 </p>
               </div>
 
-              <div style={{
-                paddingTop: '0.8rem',
+              {/* Explanation in 2 Lines: Total 3 Lines */}
+              <div className="shloka-explanation-container" style={{
+                paddingTop: '0.6rem',
                 borderTop: '1px solid rgba(212, 175, 55, 0.25)',
-                width: '80%',
-                margin: '1rem auto 0'
+                width: '85%',
+                margin: '0.6rem auto 0'
               }}>
-                <p style={{
+                <p className="shloka-explanation-text" style={{
                   fontFamily: 'var(--font-body)',
                   color: 'var(--wine)',
-                  fontSize: 'var(--fs-body)',
+                  fontSize: 'clamp(0.82rem, 1.4vw, 0.95rem)',
                   letterSpacing: '0.02em',
                   fontWeight: 500,
+                  lineHeight: 1.45,
                   margin: 0
                 }}>
-                  (When food is pure, the mind becomes pure.)
+                  (When food is pure,<br />the mind becomes pure.)
                 </p>
               </div>
             </div>
 
             {/* Right Decorative Corner SVG */}
-            <CornerFlourish style={{ width: 'clamp(50px, 9vw, 90px)', height: 'clamp(100px, 18vw, 180px)', color: 'var(--harvest-gold)', opacity: 0.65, flexShrink: 0 }} inverted />
+            <CornerFlourish className="shloka-flourish" style={{ width: 'clamp(40px, 7vw, 80px)', height: 'clamp(80px, 14vw, 160px)', color: 'var(--harvest-gold)', opacity: 0.65, flexShrink: 0 }} inverted />
           </motion.div>
         </div>
       </section>
@@ -631,32 +636,25 @@ export default function Nutrition({ onNavigate }) {
             </p>
           </motion.div>
 
-          {/* Responsive Mobile Tabs CSS */}
-          <style dangerouslySetInnerHTML={{__html: `
-            @media (max-width: 768px) {
-              .journey-phase-tabs {
-                display: grid !important;
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 0.5rem !important;
-                margin-bottom: 1.5rem !important;
-                width: 100% !important;
-              }
-              .journey-phase-btn {
-                padding: 0.65rem 0.5rem !important;
-                font-size: 0.78rem !important;
-                width: 100% !important;
-                box-sizing: border-box !important;
-                display: flex !important;
-                align-items: center !important;
-                justifyContent: center !important;
-                text-align: center !important;
-                border-radius: 20px !important;
-              }
-            }
-          `}} />
-
-          {/* Horizontal Step Selector Tabs (Sanctum Zones Style) */}
-          <div className="journey-phase-tabs" style={{ display: 'flex', justifyContent: 'center', gap: '0.6rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
+          {/* Horizontal Step Selector Tabs (Sanctum Zones Style) - Single Line for Mobile & Laptop */}
+          <div 
+            className="journey-phase-tabs single-line-horizontal-tabs no-scrollbar" 
+            style={{ 
+              display: 'flex', 
+              flexDirection: 'row',
+              flexWrap: 'nowrap',
+              overflowX: 'auto',
+              WebkitOverflowScrolling: 'touch',
+              gap: '0.55rem', 
+              padding: '0.4rem 0.5rem',
+              marginBottom: '2rem',
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+              width: '100%',
+              maxWidth: '100%',
+              boxSizing: 'border-box'
+            }}
+          >
             {journeySteps.map((step, idx) => {
               const isActive = activeStep === idx;
               return (
@@ -665,31 +663,33 @@ export default function Nutrition({ onNavigate }) {
                   onClick={() => setActiveStep(idx)}
                   className="journey-phase-btn"
                   style={{
-                    padding: '0.65rem 1.2rem',
+                    flexShrink: 0,
+                    whiteSpace: 'nowrap',
+                    padding: '0.6rem 1.15rem',
                     borderRadius: '24px',
                     border: isActive ? '2px solid var(--wine)' : '1.5px solid rgba(94, 39, 53, 0.25)',
-                    backgroundColor: isActive ? 'var(--wine)' : 'rgba(255, 255, 255, 0.75)',
+                    backgroundColor: isActive ? 'var(--wine)' : 'rgba(255, 255, 255, 0.85)',
                     color: isActive ? '#ffffff' : 'var(--wine)',
-                    fontSize: '0.85rem',
+                    fontSize: '0.82rem',
                     fontWeight: 700,
                     cursor: 'pointer',
                     transition: 'all 0.3s ease',
                     boxShadow: isActive ? '0 6px 18px rgba(94, 39, 53, 0.2)' : 'none',
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '0.5rem'
+                    gap: '0.45rem'
                   }}
                 >
                   <span style={{ 
-                    width: '20px', 
-                    height: '20px', 
+                    width: '19px', 
+                    height: '19px', 
                     borderRadius: '50%', 
                     backgroundColor: isActive ? '#ffffff' : 'var(--wine)', 
                     color: isActive ? 'var(--wine)' : '#ffffff',
                     display: 'flex', 
                     alignItems: 'center', 
                     justifyContent: 'center', 
-                    fontSize: '0.7rem', 
+                    fontSize: '0.68rem', 
                     fontWeight: 800 
                   }}>
                     {step.phase}
@@ -1044,8 +1044,25 @@ export default function Nutrition({ onNavigate }) {
             </p>
           </motion.div>
 
-          {/* Dining Space Tabs (Clean 1-Section Switcher matching Sanctum Zones style) */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '0.65rem', flexWrap: 'wrap', marginBottom: '2.2rem' }}>
+          {/* Dining Space Tabs (Clean 1-Section Switcher matching Sanctum Zones style) - Single Line for Mobile & Laptop */}
+          <div 
+            className="dining-space-tabs single-line-horizontal-tabs no-scrollbar" 
+            style={{ 
+              display: 'flex', 
+              flexDirection: 'row',
+              flexWrap: 'nowrap',
+              overflowX: 'auto',
+              WebkitOverflowScrolling: 'touch',
+              gap: '0.55rem', 
+              padding: '0.4rem 0.5rem',
+              marginBottom: '2.2rem',
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+              width: '100%',
+              maxWidth: '100%',
+              boxSizing: 'border-box'
+            }}
+          >
             {diningSpacesList.map((space, idx) => {
               const isActive = activeDiningSpace === idx;
               return (
@@ -1053,12 +1070,14 @@ export default function Nutrition({ onNavigate }) {
                   key={space.pill}
                   onClick={() => setActiveDiningSpace(idx)}
                   style={{
-                    padding: '0.65rem 1.3rem',
+                    flexShrink: 0,
+                    whiteSpace: 'nowrap',
+                    padding: '0.6rem 1.25rem',
                     borderRadius: '30px',
                     border: isActive ? '2px solid var(--wine)' : '1.5px solid rgba(94, 39, 53, 0.22)',
-                    backgroundColor: isActive ? 'var(--wine)' : 'rgba(255, 255, 255, 0.8)',
+                    backgroundColor: isActive ? 'var(--wine)' : 'rgba(255, 255, 255, 0.85)',
                     color: isActive ? '#ffffff' : 'var(--wine)',
-                    fontSize: '0.85rem',
+                    fontSize: '0.82rem',
                     fontWeight: 700,
                     cursor: 'pointer',
                     transition: 'all 0.3s ease',
@@ -1316,14 +1335,8 @@ export default function Nutrition({ onNavigate }) {
             </p>
           </motion.div>
 
-          {/* 6 Grid Cards */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-            gap: '1.25rem',
-            textAlign: 'left',
-            marginBottom: '2.5rem'
-          }}>
+          {/* 6 Grid Cards - Horizontally scrollable on mobile */}
+          <div className="nutrition-cuisines-grid no-scrollbar">
             {cuisinesList.map((item, idx) => (
               <motion.div
                 key={idx}
@@ -1411,13 +1424,8 @@ export default function Nutrition({ onNavigate }) {
             </p>
           </motion.div>
 
-          {/* 6 Principle Cards */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '1.5rem',
-            textAlign: 'left'
-          }}>
+          {/* 6 Principle Cards - Horizontally scrollable on mobile */}
+          <div className="nutrition-principles-grid no-scrollbar">
             {nutritionPrinciplesList.map((principle, idx) => {
               const PrincipleIcon = principle.icon;
               return (

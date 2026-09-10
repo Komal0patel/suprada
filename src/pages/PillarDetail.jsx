@@ -246,7 +246,7 @@ export default function PillarDetail({ pillarId, onNavigate }) {
           <p style={{
             color: 'rgba(94, 39, 53, 0.88)',
             maxWidth: '680px',
-            margin: '0 auto 1.8rem auto',
+            margin: '0 auto',
             fontSize: 'clamp(1rem, 1.6vw, 1.25rem)',
             lineHeight: 1.65,
             fontWeight: 400,
@@ -254,74 +254,18 @@ export default function PillarDetail({ pillarId, onNavigate }) {
           }}>
             {data.subtitle}
           </p>
-
-          {/* Action Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            style={{ display: 'flex', gap: '1.2rem', justifyContent: 'center', flexWrap: 'wrap' }}
-          >
-            <a
-              href="#therapies"
-              style={{
-                display: 'inline-block',
-                padding: '0.85rem 2.2rem',
-                fontSize: '0.82rem',
-                letterSpacing: '0.12em',
-                textDecoration: 'none',
-                textTransform: 'uppercase',
-                fontWeight: 700,
-                backgroundColor: 'var(--wine, #5E2735)',
-                color: '#f5ebd9',
-                border: '1.5px solid var(--wine, #5E2735)',
-                borderRadius: '30px',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                boxShadow: '0 4px 18px rgba(94,39,53,0.22)'
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#3a1520'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--wine, #5E2735)'; e.currentTarget.style.transform = 'translateY(0)'; }}
-            >
-              Explore Therapies ↓
-            </a>
-            <button
-              onClick={() => onNavigate('contact')}
-              style={{
-                background: 'transparent',
-                border: '1.5px solid rgba(94,39,53,0.35)',
-                color: 'var(--wine, #5E2735)',
-                cursor: 'pointer',
-                padding: '0.85rem 2.1rem',
-                fontSize: '0.82rem',
-                letterSpacing: '0.08em',
-                fontWeight: 600,
-                borderRadius: '30px',
-                transition: 'all 0.3s ease'
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(94,39,53,0.07)'; e.currentTarget.style.borderColor = 'var(--wine, #5E2735)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.borderColor = 'rgba(94,39,53,0.35)'; }}
-            >
-              Book Consultation
-            </button>
-          </motion.div>
-
-          {/* Scroll Indicator */}
-          <div style={{ marginTop: '2.5rem', fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.22em', color: 'var(--wine, #5E2735)', opacity: 0.6, fontWeight: 700 }}>
-            Scroll ↓
-          </div>
         </div>
       </section>
 
       {/* Main Content Area */}
-      <div style={{ maxWidth: '1220px', margin: '0 auto', padding: '4rem 6%' }}>
+      <div className="pillar-main-container" style={{ maxWidth: '1220px', margin: '0 auto', padding: '4rem 6%' }}>
         
         {/* 2. ABOUT PILLAR SECTION */}
         <section style={{ marginBottom: '5rem' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'center' }}>
+          <div className="pillar-about-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '3rem', alignItems: 'center' }}>
             <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               style={{
@@ -330,23 +274,24 @@ export default function PillarDetail({ pillarId, onNavigate }) {
                 boxShadow: '0 12px 35px rgba(94, 39, 53, 0.08)',
                 border: '1.5px solid rgba(94, 39, 53, 0.12)',
                 backgroundColor: '#ffffff',
-                height: '100%',
-                minHeight: '350px'
+                width: '100%',
+                minHeight: '320px',
+                margin: '0 auto'
               }}
             >
               <img 
                 src={data.image} 
                 alt={data.title} 
-                style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: '350px', maxHeight: '460px' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: '320px', maxHeight: '460px', display: 'block' }}
               />
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
+              style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%' }}
             >
               <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'var(--redwood, #B85645)', marginBottom: '0.5rem', display: 'block' }}>
                 HEALING PHILOSOPHY
@@ -466,6 +411,7 @@ export default function PillarDetail({ pillarId, onNavigate }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="pillar-signature-card"
             style={{
               backgroundColor: '#ffffff',
               borderRadius: '28px',
@@ -474,7 +420,7 @@ export default function PillarDetail({ pillarId, onNavigate }) {
               boxShadow: '0 14px 40px rgba(94, 39, 53, 0.08)'
             }}
           >
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem', alignItems: 'center' }}>
+            <div className="pillar-signature-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem', alignItems: 'center' }}>
               <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
                 <div>
                   <span style={{
@@ -516,6 +462,7 @@ export default function PillarDetail({ pillarId, onNavigate }) {
                 <div>
                   <button 
                     onClick={() => onNavigate('book', { programme: pillarId })}
+                    className="pillar-signature-btn"
                     style={{
                       backgroundColor: 'var(--wine, #5E2735)',
                       color: '#ffffff',
@@ -536,13 +483,13 @@ export default function PillarDetail({ pillarId, onNavigate }) {
                 </div>
               </div>
 
-              <div style={{ borderRadius: '20px', overflow: 'hidden', position: 'relative', height: '350px', boxShadow: '0 10px 30px rgba(94, 39, 53, 0.1)', border: '1px solid rgba(94, 39, 53, 0.12)' }}>
+              <div className="pillar-signature-img-box" style={{ borderRadius: '20px', overflow: 'hidden', position: 'relative', height: '350px', boxShadow: '0 10px 30px rgba(94, 39, 53, 0.1)', border: '1px solid rgba(94, 39, 53, 0.12)' }}>
                 <img 
                   src={data.image} 
                   alt={data.title} 
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
-                <div style={{ position: 'absolute', top: '15px', right: '15px', backgroundColor: 'rgba(255, 255, 255, 0.94)', backdropFilter: 'blur(8px)', borderRadius: '16px', padding: '0.8rem 1.2rem', boxShadow: '0 8px 24px rgba(0,0,0,0.1)', border: '1px solid rgba(94, 39, 53, 0.15)' }}>
+                <div className="pillar-signature-price-badge" style={{ position: 'absolute', top: '15px', right: '15px', backgroundColor: 'rgba(255, 255, 255, 0.94)', backdropFilter: 'blur(8px)', borderRadius: '16px', padding: '0.8rem 1.2rem', boxShadow: '0 8px 24px rgba(0,0,0,0.1)', border: '1px solid rgba(94, 39, 53, 0.15)' }}>
                   <p style={{ fontSize: '0.7rem', fontWeight: 800, color: 'var(--wine, #5E2735)', textTransform: 'uppercase', letterSpacing: '0.1em', margin: 0 }}>Starting from</p>
                   <p style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: 0 }}>7 / 14 / 21 days</p>
                 </div>

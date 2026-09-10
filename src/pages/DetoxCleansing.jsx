@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Pattern24, Pattern25, Pattern27 } from '../AnimatedPatterns';
 import { 
   Sparkles, ArrowRight, ArrowLeft, Check, Droplets, 
   Waves, Hourglass, Flame, Wind, Leaf, Coffee, 
-  Apple, Flower2, Candy, Mountain, Sun, Soup, ShieldCheck
+  Apple, Flower2, Candy, Mountain, Sun, Soup, ShieldCheck,
+  ChevronLeft, ChevronRight
 } from 'lucide-react';
 
 const wordRevealContainer = {
@@ -26,6 +27,14 @@ const wordVariant = {
 
 export default function DetoxCleansing({ onNavigate }) {
   const [activeTab, setActiveTab] = useState('internal');
+  const cardsRef = useRef(null);
+
+  const scrollCards = (direction) => {
+    if (cardsRef.current) {
+      const scrollAmount = direction === 'left' ? -260 : 260;
+      cardsRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   const internalModalities = [
     { name: "Therapeutic Enema", icon: Droplets, desc: "Herbal or oil based rectal cleansing", color: "#B85645" },
@@ -167,14 +176,14 @@ export default function DetoxCleansing({ onNavigate }) {
       </section>
 
       {/* Main Content Area */}
-      <div style={{ maxWidth: '1220px', margin: '0 auto', padding: '4.5rem 6%' }}>
+      <div className="pillar-main-container" style={{ maxWidth: '1220px', margin: '0 auto', padding: '4.5rem 6%' }}>
         
-        {/* 2. ABOUT DETOX & CLEANSING SECTION - Exact verbatim paragraphs & exact reference image */}
+        {/* 2. ABOUT DETOX & CLEANSING SECTION */}
         <section style={{ marginBottom: '5rem' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3.5rem', alignItems: 'center' }}>
+          <div className="pillar-about-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '3.5rem', alignItems: 'center' }}>
             <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               style={{
@@ -183,23 +192,24 @@ export default function DetoxCleansing({ onNavigate }) {
                 boxShadow: '0 12px 35px rgba(94, 39, 53, 0.08)',
                 border: '1.5px solid rgba(94, 39, 53, 0.12)',
                 backgroundColor: '#ffffff',
-                height: '100%',
-                minHeight: '360px'
+                width: '100%',
+                minHeight: '320px',
+                margin: '0 auto'
               }}
             >
               <img 
                 src="/assets/programmes/detox-cleansing-about.jpg" 
                 alt="Detox cleansing with fresh water and healthy ingredients" 
-                style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: '360px', maxHeight: '480px' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: '320px', maxHeight: '480px', display: 'block' }}
               />
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
+              style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%' }}
             >
               <h2 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: 'clamp(2.2rem, 3.8vw, 3.2rem)', margin: '0 0 1.2rem 0', fontWeight: 700, lineHeight: 1.2 }}>
                 About <span style={{ color: 'var(--harvest-gold, #B8860B)', fontStyle: 'italic' }}>Detox &amp; Cleansing</span>
@@ -276,11 +286,34 @@ export default function DetoxCleansing({ onNavigate }) {
               Deep cleansing therapies to eliminate toxins and rejuvenate from within.
             </p>
 
-            {/* Interactive Category Tabs */}
-            <div style={{ display: 'inline-flex', gap: '0.8rem', marginTop: '2.2rem', backgroundColor: 'rgba(255, 255, 255, 0.45)', padding: '0.4rem', borderRadius: '35px', backdropFilter: 'blur(10px)' }}>
+            {/* Interactive Category Tabs - Single Line for Mobile & Laptop */}
+            <div 
+              className="single-line-horizontal-tabs no-scrollbar" 
+              style={{ 
+                display: 'flex', 
+                flexDirection: 'row',
+                flexWrap: 'nowrap',
+                overflowX: 'auto',
+                WebkitOverflowScrolling: 'touch',
+                gap: '0.6rem', 
+                marginTop: '2.2rem', 
+                backgroundColor: 'rgba(255, 255, 255, 0.45)', 
+                padding: '0.4rem', 
+                borderRadius: '35px', 
+                backdropFilter: 'blur(10px)',
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+                width: 'max-content',
+                maxWidth: '100%',
+                margin: '2.2rem auto 0 auto',
+                boxSizing: 'border-box'
+              }}
+            >
               <button
                 onClick={() => setActiveTab('internal')}
                 style={{
+                  flexShrink: 0,
+                  whiteSpace: 'nowrap',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.5rem',
@@ -304,6 +337,8 @@ export default function DetoxCleansing({ onNavigate }) {
               <button
                 onClick={() => setActiveTab('scrubs')}
                 style={{
+                  flexShrink: 0,
+                  whiteSpace: 'nowrap',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.5rem',
@@ -327,6 +362,48 @@ export default function DetoxCleansing({ onNavigate }) {
             </div>
           </div>
 
+          {/* Mobile Arrows Controls for Modality Cards */}
+          <div className="carousel-nav-arrows-container" style={{ justifyContent: 'center', gap: '1rem', marginBottom: '1.2rem' }}>
+            <button
+              onClick={() => scrollCards('left')}
+              aria-label="Scroll left"
+              style={{
+                width: '38px',
+                height: '38px',
+                borderRadius: '50%',
+                backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                border: '1px solid rgba(94, 39, 53, 0.2)',
+                color: 'var(--wine, #5E2735)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                boxShadow: '0 4px 10px rgba(0,0,0,0.08)'
+              }}
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              onClick={() => scrollCards('right')}
+              aria-label="Scroll right"
+              style={{
+                width: '38px',
+                height: '38px',
+                borderRadius: '50%',
+                backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                border: '1px solid rgba(94, 39, 53, 0.2)',
+                color: 'var(--wine, #5E2735)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                boxShadow: '0 4px 10px rgba(0,0,0,0.08)'
+              }}
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+
           {/* Cards Content */}
           <AnimatePresence mode="wait">
             {activeTab === 'internal' ? (
@@ -339,14 +416,14 @@ export default function DetoxCleansing({ onNavigate }) {
                 style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}
               >
                 {/* Featured Card: Colon Hydrotherapy */}
-                <div style={{
+                <div className="pillar-featured-card" style={{
                   backgroundColor: 'rgba(255, 255, 255, 0.96)',
                   borderRadius: '24px',
                   padding: '2.2rem',
                   border: '1.5px solid rgba(255, 255, 255, 0.9)',
                   boxShadow: '0 8px 30px rgba(94, 39, 53, 0.08)'
                 }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', alignItems: 'center' }}>
+                  <div className="pillar-featured-card-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', alignItems: 'center' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                       <div>
                         <span style={{
@@ -371,7 +448,7 @@ export default function DetoxCleansing({ onNavigate }) {
                         <p style={{ fontSize: '0.94rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.65, marginBottom: '1.4rem' }}>
                           A gentle yet powerful method to cleanse the large intestine. Using warm, filtered water, this therapy flushes out accumulated waste, toxins, and bacteria, promoting better digestion, clearer skin, and enhanced immunity.
                         </p>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: '0.7rem' }}>
+                        <div className="pillar-featured-card-points" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: '0.7rem' }}>
                           {[
                             'Deep Internal Cleanse',
                             'Rehydrates the Bowel',
@@ -389,7 +466,7 @@ export default function DetoxCleansing({ onNavigate }) {
                       </div>
                     </div>
 
-                    <div style={{ borderRadius: '18px', overflow: 'hidden', height: '240px', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.1)', border: '1px solid rgba(94, 39, 53, 0.12)' }}>
+                    <div className="pillar-featured-card-img" style={{ borderRadius: '18px', overflow: 'hidden', height: '240px', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.1)', border: '1px solid rgba(94, 39, 53, 0.12)' }}>
                       <img 
                         src="/assets/programmes/colon-hydrotherapy.jpg" 
                         alt="Colon Hydrotherapy" 
@@ -400,7 +477,7 @@ export default function DetoxCleansing({ onNavigate }) {
                 </div>
 
                 {/* Other 5 Internal Modalities */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '1.2rem' }}>
+                <div ref={cardsRef} className="pillar-modality-cards-track no-scrollbar" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '1.2rem' }}>
                   {internalModalities.map((item) => {
                     const IconComp = item.icon;
                     return (
@@ -450,6 +527,8 @@ export default function DetoxCleansing({ onNavigate }) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.4 }}
+                ref={cardsRef}
+                className="pillar-modality-cards-track no-scrollbar"
                 style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '1.4rem' }}
               >
                 {naturalScrubs.map((item) => {
@@ -505,7 +584,7 @@ export default function DetoxCleansing({ onNavigate }) {
       {/* Main Container Continued */}
       <div style={{ maxWidth: '1220px', margin: '0 auto', padding: '4.5rem 6%' }}>
         
-        {/* 5. TOTAL SYSTEM RESET & SIGNATURE PROGRAMME - Exact reference content & image */}
+        {/* 5. TOTAL SYSTEM RESET & SIGNATURE PROGRAMME */}
         <section style={{ marginBottom: '5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.8rem' }}>
             <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: 'clamp(2rem, 3.4vw, 2.8rem)', fontWeight: 700, margin: '0 0 0.8rem 0' }}>
@@ -521,6 +600,7 @@ export default function DetoxCleansing({ onNavigate }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="pillar-signature-card"
             style={{
               backgroundColor: '#ffffff',
               borderRadius: '28px',
@@ -529,7 +609,7 @@ export default function DetoxCleansing({ onNavigate }) {
               boxShadow: '0 14px 40px rgba(94, 39, 53, 0.08)'
             }}
           >
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem', alignItems: 'center' }}>
+            <div className="pillar-signature-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem', alignItems: 'center' }}>
               <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
                 <div>
                   <span style={{
@@ -575,7 +655,8 @@ export default function DetoxCleansing({ onNavigate }) {
 
                 <div>
                   <button 
-                    onClick={() => onNavigate('book', { programme: 'detox-cleansing' })}
+                    onClick={() => onNavigate('book', { programme: 'detox' })}
+                    className="pillar-signature-btn"
                     style={{
                       backgroundColor: 'var(--wine, #5E2735)',
                       color: '#ffffff',
@@ -598,13 +679,13 @@ export default function DetoxCleansing({ onNavigate }) {
                 </div>
               </div>
 
-              <div style={{ borderRadius: '20px', overflow: 'hidden', position: 'relative', height: '350px', boxShadow: '0 10px 30px rgba(94, 39, 53, 0.1)', border: '1px solid rgba(94, 39, 53, 0.12)' }}>
+              <div className="pillar-signature-img-box" style={{ borderRadius: '20px', overflow: 'hidden', position: 'relative', height: '350px', boxShadow: '0 10px 30px rgba(94, 39, 53, 0.1)', border: '1px solid rgba(94, 39, 53, 0.12)' }}>
                 <img 
                   src="/assets/programmes/detox-cleansing-sig.jpg" 
                   alt="Detox & Cleansing Program" 
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
-                <div style={{ position: 'absolute', top: '15px', right: '15px', backgroundColor: 'rgba(255, 255, 255, 0.94)', backdropFilter: 'blur(8px)', borderRadius: '16px', padding: '0.8rem 1.2rem', boxShadow: '0 8px 24px rgba(0,0,0,0.1)', border: '1px solid rgba(94, 39, 53, 0.15)' }}>
+                <div className="pillar-signature-price-badge" style={{ position: 'absolute', top: '15px', right: '15px', backgroundColor: 'rgba(255, 255, 255, 0.94)', backdropFilter: 'blur(8px)', borderRadius: '16px', padding: '0.8rem 1.2rem', boxShadow: '0 8px 24px rgba(0,0,0,0.1)', border: '1px solid rgba(94, 39, 53, 0.15)' }}>
                   <p style={{ fontSize: '0.7rem', fontWeight: 800, color: 'var(--wine, #5E2735)', textTransform: 'uppercase', letterSpacing: '0.1em', margin: 0 }}>Starting from</p>
                   <p style={{ fontFamily: 'var(--font-heading)', color: 'var(--harvest-gold, #B8860B)', fontSize: '1.25rem', fontWeight: 700, margin: 0 }}>7 / 14 / 21 days</p>
                 </div>
@@ -618,13 +699,14 @@ export default function DetoxCleansing({ onNavigate }) {
           <h3 style={{ color: 'var(--wine, #5E2735)', textAlign: 'center', fontSize: '0.76rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.22em', marginBottom: '1.5rem' }}>
             Explore Other Programmes
           </h3>
-          <div style={{
+          <div className="pillar-bottom-nav-grid" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '1.5rem'
           }}>
             <motion.div
               whileHover={{ y: -4 }}
+              className="pillar-nav-box"
               onClick={() => {
                 onNavigate('programmes/mental-emotional');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -641,14 +723,14 @@ export default function DetoxCleansing({ onNavigate }) {
                 gap: '1rem'
               }}
             >
-              <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'rgba(94, 39, 53, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--wine, #5E2735)', flexShrink: 0 }}>
+              <div className="pillar-nav-icon" style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'rgba(94, 39, 53, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--wine, #5E2735)', flexShrink: 0 }}>
                 <ArrowLeft size={18} />
               </div>
               <div>
                 <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', display: 'block' }}>
                   Previous
                 </span>
-                <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--wine, #5E2735)', margin: '0.1rem 0 0 0', fontWeight: 700 }}>
+                <h4 className="pillar-nav-title" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--wine, #5E2735)', margin: '0.1rem 0 0 0', fontWeight: 700 }}>
                   Mental Wellbeing
                 </h4>
               </div>
@@ -656,6 +738,7 @@ export default function DetoxCleansing({ onNavigate }) {
 
             <motion.div
               whileHover={{ y: -4 }}
+              className="pillar-nav-box"
               onClick={() => {
                 onNavigate('programmes/physiotherapy');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -677,11 +760,11 @@ export default function DetoxCleansing({ onNavigate }) {
                 <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', display: 'block' }}>
                   Next
                 </span>
-                <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--wine, #5E2735)', margin: '0.1rem 0 0 0', fontWeight: 700 }}>
+                <h4 className="pillar-nav-title" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--wine, #5E2735)', margin: '0.1rem 0 0 0', fontWeight: 700 }}>
                   Physiotherapy
                 </h4>
               </div>
-              <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'rgba(94, 39, 53, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--wine, #5E2735)', flexShrink: 0 }}>
+              <div className="pillar-nav-icon" style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'rgba(94, 39, 53, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--wine, #5E2735)', flexShrink: 0 }}>
                 <ArrowRight size={18} />
               </div>
             </motion.div>

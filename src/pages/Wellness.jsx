@@ -440,13 +440,13 @@ export default function Wellness({ onNavigate }) {
               </p>
 
               <motion.button
-                onClick={() => onNavigate('book')}
+                onClick={() => onNavigate('contact')}
                 className="btn-luxury"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                style={{ padding: '0.65rem 1.4rem', fontSize: '0.78rem' }}
+                style={{ padding: '0.52rem 1.2rem', fontSize: '0.74rem' }}
               >
-                Begin Your Journey <ArrowRight size={14} />
+                Begin Your Journey <ArrowRight size={13} />
               </motion.button>
             </motion.div>
 
@@ -853,15 +853,22 @@ export default function Wellness({ onNavigate }) {
             </h2>
           </div>
 
-          {/* Step Selector Pills (Direct Navigation Tabs) */}
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '0.35rem',
-            flexWrap: 'wrap',
-            marginBottom: '1.1rem'
-          }}>
+          {/* Step Selector Pills (Single Horizontal Row with Touch Scroll) */}
+          <div 
+            className="custom-light-scrollbar"
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '0.35rem',
+              flexWrap: 'nowrap',
+              overflowX: 'auto',
+              maxWidth: '100%',
+              padding: '0.2rem 0.4rem',
+              marginBottom: '1.1rem',
+              WebkitOverflowScrolling: 'touch'
+            }}
+          >
             {processSteps.map((stepItem, sIdx) => {
               const isActive = activeStep === sIdx;
               return (
@@ -871,10 +878,10 @@ export default function Wellness({ onNavigate }) {
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '0.25rem',
-                    padding: '0.24rem 0.68rem',
+                    gap: '0.2rem',
+                    padding: '0.22rem 0.6rem',
                     borderRadius: '50px',
-                    fontSize: '0.68rem',
+                    fontSize: '0.66rem',
                     fontWeight: 700,
                     letterSpacing: '0.04em',
                     cursor: 'pointer',
@@ -882,7 +889,9 @@ export default function Wellness({ onNavigate }) {
                     backgroundColor: isActive ? 'var(--wine)' : '#FFFFFF',
                     color: isActive ? '#FFFFFF' : 'var(--wine)',
                     border: isActive ? '1.2px solid var(--wine)' : '1px solid rgba(94, 39, 53, 0.2)',
-                    boxShadow: isActive ? '0 2px 8px rgba(94, 39, 53, 0.18)' : '0 1px 4px rgba(0, 0, 0, 0.03)'
+                    boxShadow: isActive ? '0 2px 8px rgba(94, 39, 53, 0.18)' : '0 1px 4px rgba(0, 0, 0, 0.03)',
+                    flexShrink: 0,
+                    whiteSpace: 'nowrap'
                   }}
                 >
                   <span>{stepItem.step}</span>
@@ -991,9 +1000,9 @@ export default function Wellness({ onNavigate }) {
                   className="btn-luxury"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  style={{ padding: '0.4rem 1rem', fontSize: '0.72rem' }}
+                  style={{ padding: '0.32rem 0.75rem', fontSize: '0.68rem' }}
                 >
-                  Book Now <ArrowRight size={12} />
+                  Book Now <ArrowRight size={11} />
                 </motion.button>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>

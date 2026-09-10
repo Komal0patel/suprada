@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Tent, Sparkles, Palette, Music, Footprints, Mountain, 
   Landmark, HandHeart, Sprout, ChefHat, Activity as ActivityIcon, 
-  Users, Music2, MapPin, Car, Waves
+  Users, Music2, MapPin, Car, Waves, ChevronLeft, ChevronRight
 } from 'lucide-react';
 
 const activitiesList = [
@@ -71,6 +71,21 @@ const localAttractions = [
 ];
 
 export default function Activities({ onNavigate }) {
+  const activitiesScrollRef = useRef(null);
+  const attractionsScrollRef = useRef(null);
+
+  const scrollActivities = (direction) => {
+    if (activitiesScrollRef.current) {
+      activitiesScrollRef.current.scrollBy({ left: direction * 270, behavior: 'smooth' });
+    }
+  };
+
+  const scrollAttractions = (direction) => {
+    if (attractionsScrollRef.current) {
+      attractionsScrollRef.current.scrollBy({ left: direction * 330, behavior: 'smooth' });
+    }
+  };
+
   return (
     <div style={{ backgroundColor: '#fff5e9', color: 'var(--raisin-black)', overflowX: 'hidden' }}>
       
@@ -157,11 +172,11 @@ export default function Activities({ onNavigate }) {
         </div>
       </section>
 
-      {/* 2. DAILY ACTIVITIES SECTION (No pictures, 16 Icon Cards in 4-column Grid) */}
-      <section style={{ padding: 'clamp(4rem, 8vh, 6rem) 5%', backgroundColor: '#e7cfb5' }}>
+      {/* 2. DAILY ACTIVITIES SECTION (No pictures, 16 Icon Cards - Horizontally Scrollable with Arrows on Mobile) */}
+      <section style={{ padding: 'clamp(3.5rem, 7vh, 5.5rem) 5%', backgroundColor: '#e7cfb5' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           
-          <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto clamp(2.5rem, 5vh, 3.5rem)' }}>
+          <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto clamp(2rem, 4vh, 3rem)' }}>
             <h2 style={{
               fontFamily: 'var(--font-heading)',
               fontSize: 'clamp(1.85rem, 3vw, 2.5rem)',
@@ -181,11 +196,32 @@ export default function Activities({ onNavigate }) {
             </p>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
-            gap: '1.5rem'
-          }}>
+          {/* Mobile Arrow Navigation Header */}
+          <div className="carousel-nav-arrows-container">
+            <span style={{ fontSize: '0.74rem', fontWeight: 700, color: '#632633', letterSpacing: '0.05em', marginRight: 'auto' }}>
+              ✦ Swipe to explore
+            </span>
+            <button
+              onClick={() => scrollActivities(-1)}
+              aria-label="Previous activities"
+              className="carousel-arrow-btn"
+            >
+              <ChevronLeft size={18} />
+            </button>
+            <button
+              onClick={() => scrollActivities(1)}
+              aria-label="Next activities"
+              className="carousel-arrow-btn"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
+
+          {/* Cards Track */}
+          <div 
+            ref={activitiesScrollRef}
+            className="activities-horizontal-grid no-scrollbar"
+          >
             {activitiesList.map((act, idx) => {
               const IconComp = act.icon;
               return (
@@ -220,7 +256,8 @@ export default function Activities({ onNavigate }) {
                     alignItems: 'center',
                     justifyContent: 'center',
                     marginBottom: '1rem',
-                    color: '#632633'
+                    color: '#632633',
+                    flexShrink: 0
                   }}>
                     <IconComp size={22} />
                   </div>
@@ -251,11 +288,11 @@ export default function Activities({ onNavigate }) {
         </div>
       </section>
 
-      {/* 3. PLACES OF INTEREST SECTION (Pictures, Distances, Time, No Button) */}
-      <section style={{ padding: 'clamp(4rem, 8vh, 6rem) 5%', backgroundColor: '#fff5e9' }}>
+      {/* 3. PLACES OF INTEREST SECTION (Pictures, Distances, Time - Horizontally Scrollable with Arrows on Mobile) */}
+      <section style={{ padding: 'clamp(3.5rem, 7vh, 5.5rem) 5%', backgroundColor: '#fff5e9' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           
-          <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto clamp(2.5rem, 5vh, 3.5rem)' }}>
+          <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto clamp(2rem, 4vh, 3rem)' }}>
             <h2 style={{
               fontFamily: 'var(--font-heading)',
               fontSize: 'clamp(1.85rem, 3vw, 2.5rem)',
@@ -275,11 +312,32 @@ export default function Activities({ onNavigate }) {
             </p>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '2rem'
-          }}>
+          {/* Mobile Arrow Navigation Header */}
+          <div className="carousel-nav-arrows-container">
+            <span style={{ fontSize: '0.74rem', fontWeight: 700, color: '#632633', letterSpacing: '0.05em', marginRight: 'auto' }}>
+              ✦ Swipe to explore
+            </span>
+            <button
+              onClick={() => scrollAttractions(-1)}
+              aria-label="Previous attractions"
+              className="carousel-arrow-btn"
+            >
+              <ChevronLeft size={18} />
+            </button>
+            <button
+              onClick={() => scrollAttractions(1)}
+              aria-label="Next attractions"
+              className="carousel-arrow-btn"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
+
+          {/* Cards Track */}
+          <div 
+            ref={attractionsScrollRef}
+            className="attractions-horizontal-grid no-scrollbar"
+          >
             {localAttractions.map((att, aIdx) => (
               <motion.div
                 key={att.name}
@@ -370,3 +428,4 @@ export default function Activities({ onNavigate }) {
     </div>
   );
 }
+

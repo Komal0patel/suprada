@@ -3756,7 +3756,6 @@ html, body {
 .spaces-residences-grid > *:nth-child(odd):last-child,
 .sanctum-zones-grid > *:nth-child(odd):last-child,
 .detail-cards-mobile-2col > *:nth-child(odd):last-child,
-.inclusions-unified-grid > *:nth-child(odd):last-child,
 .amenities-unified-grid > *:nth-child(odd):last-child,
 .explore-pillars-grid > *:nth-child(odd):last-child,
 .grid-2col-centered > *:nth-child(odd):last-child {
@@ -3769,7 +3768,6 @@ html, body {
 /* Desktop 3-Column / Auto-fit Grids: 1 Leftover Item in Final Row (e.g., 4th, 7th, 10th card) */
 @media (min-width: 769px) {
   .spaces-residences-grid > *:nth-child(3n+1):last-child,
-  .inclusions-unified-grid > *:nth-child(3n+1):last-child,
   .amenities-unified-grid > *:nth-child(3n+1):last-child,
   .explore-pillars-grid > *:nth-child(3n+1):last-child {
     grid-column: 1 / -1 !important;
@@ -3784,7 +3782,6 @@ html, body {
   .spaces-residences-grid > *:nth-child(odd):last-child,
   .sanctum-zones-grid > *:nth-child(odd):last-child,
   .detail-cards-mobile-2col > *:nth-child(odd):last-child,
-  .inclusions-unified-grid > *:nth-child(odd):last-child,
   .amenities-unified-grid > *:nth-child(odd):last-child,
   .explore-pillars-grid > *:nth-child(odd):last-child,
   .grid-2col-centered > *:nth-child(odd):last-child {
@@ -3893,12 +3890,19 @@ html, body {
   .programme-tab-chips-container {
     gap: 0.45rem !important;
     margin-bottom: 1.4rem !important;
-    justify-content: center !important;
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-x !important;
+    padding: 0.35rem 0.85rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .programme-tab-chip {
-    padding: 0.5rem 1.05rem !important;
-    font-size: 0.8rem !important;
-    gap: 0.4rem !important;
+    padding: 0.46rem 0.95rem !important;
+    font-size: 0.76rem !important;
+    gap: 0.35rem !important;
+    flex-shrink: 0 !important;
   }
 }
 
@@ -4107,13 +4111,13 @@ html, body {
   }
 }
 
-/* 5. Schedule Grid (Weekend Reset) */
+/* 5. Schedule Grid (Weekend Reset - Day 1 as one card, Day 2 as one card, Scrollable on Mobile) */
 .schedule-grid-horizontal-container {
   display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  gap: clamp(0.8rem, 2.5vw, 2rem) !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 1.4rem !important;
   background-color: #FFFFFF !important;
-  padding: clamp(1.2rem, 3vw, 2.5rem) !important;
+  padding: clamp(1.4rem, 3vw, 2.5rem) !important;
   border-radius: 24px !important;
   box-shadow: 0 12px 35px rgba(94, 39, 53, 0.06) !important;
   border: 1.5px solid rgba(94, 39, 53, 0.1) !important;
@@ -4151,14 +4155,29 @@ html, body {
   opacity: 0.88 !important;
 }
 
-@media (max-width: 580px) {
+@media (max-width: 680px) {
   .schedule-grid-horizontal-container {
-    grid-template-columns: 1fr 1fr !important;
-    padding: 1rem 0.85rem !important;
-    gap: 0.75rem !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 0.85rem !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 1.1rem 0.85rem !important;
+  }
+  .schedule-col-card {
+    flex: 0 0 85% !important;
+    scroll-snap-align: start !important;
+    background-color: var(--isabelline, #FAF6F0) !important;
+    border: 1.5px solid rgba(94, 39, 53, 0.12) !important;
+    border-radius: 18px !important;
+    padding: 1.1rem 1rem !important;
   }
   .schedule-col-title {
-    font-size: 0.95rem !important;
+    font-size: 1.02rem !important;
+    margin-bottom: 0.75rem !important;
+    padding-bottom: 0.45rem !important;
+    border-bottom: 1px solid rgba(94, 39, 53, 0.1) !important;
   }
 }
 
@@ -4214,7 +4233,7 @@ html, body {
     gap: 0.75rem !important;
   }
   .program-card-item .btn-luxury {
-    padding: 0.35rem 0.65rem !important;
+    padding: 0.32rem 0.65rem !important;
     font-size: 0.68rem !important;
   }
   .program-card-item h3 {
@@ -4241,6 +4260,720 @@ html, body {
     padding: 0.75rem 0.6rem !important;
   }
 }
+
+/* 8. Explore Other Programmes Navigation Grid (Horizontal Side-by-Side on Mobile) */
+.explore-other-programmes-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+  gap: 1.2rem !important;
+}
+@media (max-width: 600px) {
+  .explore-other-programmes-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.55rem !important;
+  }
+  .explore-prog-nav-card {
+    padding: 0.85rem 0.65rem !important;
+    border-radius: 12px !important;
+    gap: 0.35rem !important;
+  }
+  .explore-prog-nav-card strong {
+    font-size: 0.76rem !important;
+    line-height: 1.2 !important;
+    display: block !important;
+  }
+  .explore-prog-nav-card span {
+    font-size: 0.6rem !important;
+  }
+  .explore-prog-nav-card svg {
+    width: 14px !important;
+    height: 14px !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+/* 9. Universal Single-Line Horizontal Tabs & Pill Bar for Mobile & Laptop */
+.single-line-horizontal-tabs {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+.single-line-horizontal-tabs::-webkit-scrollbar {
+  display: none !important;
+  height: 0 !important;
+  width: 0 !important;
+}
+.single-line-horizontal-tabs button,
+.single-line-horizontal-tabs > div,
+.single-line-horizontal-tabs > a {
+  flex-shrink: 0 !important;
+  white-space: nowrap !important;
+}
+@media (min-width: 769px) {
+  .single-line-horizontal-tabs {
+    justify-content: center !important;
+  }
+}
+@media (max-width: 768px) {
+  .single-line-horizontal-tabs {
+    justify-content: flex-start !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  .single-line-horizontal-tabs button {
+    padding: 0.55rem 0.95rem !important;
+    font-size: 0.76rem !important;
+  }
+}
+
+/* 10. Nutrition Shloka Card Mobile Compact Layout */
+@media (max-width: 768px) {
+  .nutrition-shloka-card {
+    padding: 1rem 0.75rem !important;
+    border-radius: 1rem !important;
+    gap: 0.35rem !important;
+  }
+  .shloka-flourish {
+    display: none !important;
+  }
+  .shloka-title-text {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.35rem !important;
+  }
+  .shloka-sanskrit-container {
+    margin: 0.35rem 0 !important;
+  }
+  .shloka-sanskrit-line {
+    font-size: 1.05rem !important;
+    line-height: 1.25 !important;
+    white-space: nowrap !important;
+    margin-bottom: 0.15rem !important;
+  }
+  .shloka-translit-line {
+    font-size: 0.72rem !important;
+    white-space: nowrap !important;
+  }
+  .shloka-explanation-container {
+    padding-top: 0.4rem !important;
+    margin-top: 0.4rem !important;
+    width: 95% !important;
+  }
+  .shloka-explanation-text {
+    font-size: 0.78rem !important;
+    line-height: 1.35 !important;
+  }
+}
+
+/* 11. Nutrition Mobile Horizontal Scroll Cards (Cuisines & Principles) */
+.nutrition-cuisines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+
+.nutrition-principles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .nutrition-cuisines-grid,
+  .nutrition-principles-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    gap: 0.85rem !important;
+    padding-bottom: 0.8rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    scroll-snap-type: x mandatory !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .nutrition-cuisines-grid::-webkit-scrollbar,
+  .nutrition-principles-grid::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  .nutrition-cuisines-grid > div {
+    flex: 0 0 75vw !important;
+    max-width: 270px !important;
+    scroll-snap-align: center !important;
+    padding: 1.25rem 1.1rem !important;
+    border-radius: 14px !important;
+    box-sizing: border-box !important;
+  }
+
+  .nutrition-principles-grid > div {
+    flex: 0 0 80vw !important;
+    max-width: 295px !important;
+    scroll-snap-align: center !important;
+    padding: 1.25rem 1.15rem !important;
+    border-radius: 16px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* 12. Activities & Places of Interest Mobile Horizontal Carousel with Arrows */
+.activities-horizontal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.attractions-horizontal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.carousel-nav-arrows-container {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .carousel-nav-arrows-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 0.55rem !important;
+    margin-bottom: 1.2rem !important;
+  }
+  
+  .carousel-arrow-btn {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    border: 1.5px solid var(--wine, #632633) !important;
+    background-color: rgba(255, 255, 255, 0.92) !important;
+    color: var(--wine, #632633) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 2px 8px rgba(99, 38, 51, 0.12) !important;
+  }
+  .carousel-arrow-btn:active {
+    background-color: var(--wine, #632633) !important;
+    color: #ffffff !important;
+    transform: scale(0.94) !important;
+  }
+
+  .activities-horizontal-grid,
+  .attractions-horizontal-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    gap: 0.95rem !important;
+    padding-bottom: 1rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    scroll-snap-type: x mandatory !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .activities-horizontal-grid::-webkit-scrollbar,
+  .attractions-horizontal-grid::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  .activities-horizontal-grid > div {
+    flex: 0 0 72vw !important;
+    max-width: 265px !important;
+    scroll-snap-align: start !important;
+    padding: 1.3rem !important;
+    border-radius: 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .attractions-horizontal-grid > div {
+    flex: 0 0 82vw !important;
+    max-width: 320px !important;
+    scroll-snap-align: start !important;
+    border-radius: 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Pillar Main Container & Centered About Section (Fix sticky to one side on mobile) */
+  .pillar-main-container {
+    padding: 2.2rem 1rem !important;
+  }
+
+  .pillar-about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.8rem !important;
+    text-align: center !important;
+    justify-items: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  .pillar-about-grid > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .pillar-about-grid p,
+  .pillar-about-grid h2,
+  .pillar-about-grid h3,
+  .pillar-about-grid span {
+    text-align: center !important;
+  }
+
+  /* Universal Single Line Horizontal Tabs */
+  .single-line-horizontal-tabs {
+    justify-content: flex-start !important;
+    padding-left: 0.4rem !important;
+    padding-right: 0.4rem !important;
+    gap: 0.5rem !important;
+  }
+  
+  .single-line-horizontal-tabs button {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    padding: 0.55rem 1.15rem !important;
+    font-size: 0.76rem !important;
+  }
+
+  /* Naturopathy Horizontal Grids & Carousels for Mobile */
+  .diagnosis-horizontal-grid,
+  .massage-horizontal-grid,
+  .earth-horizontal-grid,
+  .hydro-horizontal-grid,
+  .solar-horizontal-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    gap: 1rem !important;
+    padding-bottom: 1rem !important;
+    padding-left: 0.4rem !important;
+    padding-right: 0.4rem !important;
+    scroll-snap-type: x mandatory !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .diagnosis-horizontal-grid::-webkit-scrollbar,
+  .massage-horizontal-grid::-webkit-scrollbar,
+  .earth-horizontal-grid::-webkit-scrollbar,
+  .hydro-horizontal-grid::-webkit-scrollbar,
+  .solar-horizontal-grid::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  .diagnosis-horizontal-grid > div {
+    flex: 0 0 85vw !important;
+    max-width: 325px !important;
+    scroll-snap-align: start !important;
+    box-sizing: border-box !important;
+  }
+
+  .massage-horizontal-grid > div {
+    flex: 0 0 82vw !important;
+    max-width: 315px !important;
+    scroll-snap-align: start !important;
+    box-sizing: border-box !important;
+  }
+
+  .earth-horizontal-grid > div {
+    flex: 0 0 82vw !important;
+    max-width: 315px !important;
+    scroll-snap-align: start !important;
+    box-sizing: border-box !important;
+  }
+
+  .hydro-horizontal-grid > div {
+    flex: 0 0 76vw !important;
+    max-width: 290px !important;
+    scroll-snap-align: start !important;
+    box-sizing: border-box !important;
+  }
+
+  .solar-horizontal-grid > div {
+    flex: 0 0 82vw !important;
+    max-width: 315px !important;
+    scroll-snap-align: start !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Modality / Dhara / Treatment Square Cards for Mobile */
+  .pillar-modality-cards-track {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    gap: 0.85rem !important;
+    padding-bottom: 0.8rem !important;
+    padding-left: 0.2rem !important;
+    padding-right: 0.2rem !important;
+    scroll-snap-type: x mandatory !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .pillar-modality-cards-track::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  .pillar-modality-cards-track > *,
+  .pillar-modality-cards-track > div {
+    flex: 0 0 72vw !important;
+    max-width: 240px !important;
+    min-width: 180px !important;
+    scroll-snap-align: start !important;
+    padding: 1.2rem 1.1rem !important;
+    border-radius: 18px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+    min-height: 155px !important;
+  }
+
+  .pillar-modality-cards-track h4 {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.25rem !important;
+    line-height: 1.25 !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .pillar-modality-cards-track p {
+    font-size: 0.82rem !important;
+    line-height: 1.4 !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* Featured Therapy Card (e.g., Colon Hydrotherapy) Mobile Responsiveness */
+  .pillar-featured-card {
+    padding: 1.3rem 1.1rem !important;
+    border-radius: 20px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .pillar-featured-card-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.3rem !important;
+  }
+
+  .pillar-featured-card h3 {
+    font-size: 1.55rem !important;
+    margin: 0 0 0.5rem 0 !important;
+    line-height: 1.25 !important;
+  }
+
+  .pillar-featured-card p {
+    font-size: 0.86rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .pillar-featured-card-points {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
+
+  .pillar-featured-card-img {
+    height: 190px !important;
+    max-height: 190px !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+  }
+
+  /* Signature Programme Card Mobile Responsiveness */
+  .pillar-signature-card {
+    padding: 1.4rem 1.1rem !important;
+    border-radius: 20px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .pillar-signature-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.3rem !important;
+  }
+
+  .pillar-signature-grid h3 {
+    font-size: 1.55rem !important;
+    margin-bottom: 0.5rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .pillar-signature-grid p {
+    font-size: 0.86rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .pillar-signature-img-box {
+    height: 200px !important;
+    min-height: 180px !important;
+    border-radius: 16px !important;
+  }
+
+  .pillar-signature-price-badge {
+    top: 10px !important;
+    right: 10px !important;
+    padding: 0.45rem 0.8rem !important;
+    border-radius: 12px !important;
+  }
+
+  .pillar-signature-price-badge p:first-child {
+    font-size: 0.62rem !important;
+  }
+
+  .pillar-signature-price-badge p:last-child {
+    font-size: 1rem !important;
+  }
+
+  .pillar-signature-btn {
+    width: 100% !important;
+    padding: 0.75rem 1.4rem !important;
+    font-size: 0.76rem !important;
+    text-align: center !important;
+  }
+
+  /* Bottom Navigation (Previous / Next) in 1 Single Line with 2-Line Text Wrapping */
+  .pillar-bottom-nav-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .pillar-bottom-nav-grid > button,
+  .pillar-bottom-nav-grid > div,
+  .pillar-nav-box {
+    padding: 0.75rem 0.55rem !important;
+    border-radius: 14px !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+  }
+
+  .pillar-nav-icon {
+    width: 26px !important;
+    height: 26px !important;
+    min-width: 26px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  .pillar-nav-icon svg {
+    width: 13px !important;
+    height: 13px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .pillar-bottom-nav-grid span,
+  .pillar-bottom-nav-grid p:first-child {
+    font-size: 0.58rem !important;
+    letter-spacing: 0.06em !important;
+    line-height: 1.1 !important;
+    margin-bottom: 0.15rem !important;
+    display: block !important;
+    text-transform: uppercase !important;
+  }
+
+  .pillar-bottom-nav-grid h4,
+  .pillar-nav-title {
+    font-size: 0.75rem !important;
+    line-height: 1.25 !important;
+    font-weight: 700 !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    max-width: 100% !important;
+  }
+
+  /* Booking Stepper Track Single Line */
+  .booking-stepper-track {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 auto !important;
+    max-width: 100% !important;
+    gap: 0.35rem !important;
+    padding: 0.2rem 0.2rem 0.5rem 0.2rem !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+
+  .booking-stepper-track::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .booking-stepper-track > div {
+    padding: 0.35rem 0.75rem !important;
+    font-size: 0.7rem !important;
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    border-radius: 20px !important;
+    gap: 0.35rem !important;
+  }
+
+  .booking-stepper-track span:first-child {
+    width: 17px !important;
+    height: 17px !important;
+    font-size: 0.65rem !important;
+  }
+
+  /* Booking Programme Cards Horizontal Scroll Track */
+  .booking-prog-cards-track {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    gap: 0.85rem !important;
+    padding-bottom: 0.8rem !important;
+    padding-left: 0.2rem !important;
+    padding-right: 0.2rem !important;
+    scroll-snap-type: x mandatory !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .booking-prog-cards-track::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  .booking-prog-cards-track > div {
+    flex: 0 0 76vw !important;
+    max-width: 290px !important;
+    min-width: 240px !important;
+    scroll-snap-align: start !important;
+    padding: 1.15rem 1rem !important;
+    border-radius: 18px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* Laptop Balanced Grid (2 columns for even 4-item grids, centered if odd) */
+@media (min-width: 769px) {
+  .pillar-balanced-grid-2col {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.8rem !important;
+    max-width: 1000px !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* Global Modality / Dhara / Treatment Cards Track */
+.pillar-modality-cards-track {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.4rem;
+  width: 100%;
+}
+
+/* Global Bottom Navigation (default for desktop/laptop) */
+.pillar-bottom-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Global Single Line Horizontal Tabs for all screens */
+.single-line-horizontal-tabs {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 2.2rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.single-line-horizontal-tabs::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+
+
+
 
 
 

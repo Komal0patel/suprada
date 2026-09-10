@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Pattern24, Pattern25, Pattern27 } from '../AnimatedPatterns';
 import TwinklingLights from '../components/TwinklingLights';
-import { Sunrise, Leaf, Activity, Droplet, Dna, Stethoscope, Soup, Globe, Flame, Brain, ClipboardList, Check } from 'lucide-react';
+import { 
+  Sunrise, Leaf, Activity, Droplet, Dna, Stethoscope, Soup, Globe, Flame, Brain, ClipboardList, Check,
+  Heart, ShieldCheck, Users, Sparkles, Waves, Flower2, BookOpen, Clock, ChevronLeft, ChevronRight, ArrowRight
+} from 'lucide-react';
 
 // --- Sub-Component: Ambient Gold Ember Dust Particles ---
 function GoldEmberParticles({ count = 20 }) {
@@ -62,14 +65,28 @@ export default function Programmes({ onNavigate }) {
   const [mobileProgLimit, setMobileProgLimit] = useState(3);
   const [mobileInclusionLimit, setMobileInclusionLimit] = useState(4);
 
-  // Philosophy Interactive State & Points
+  // Horizontal Comparison Scroll Ref
+  const compareScrollRef = useRef(null);
+
+  const scrollCompare = (direction) => {
+    if (compareScrollRef.current) {
+      const scrollAmount = isMobile ? 310 : 380;
+      compareScrollRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Philosophy Interactive State & Points (6 updated points from reference)
   const [activePhilosophyIndex, setActivePhilosophyIndex] = useState(0);
   const philosophyList = [
-    'Teach the absolute importance of prevention over cure.',
+    'Teach the importance of prevention over cure.',
     'Identify your unique, custom biological Wellness Formula.',
-    'Introduce daily rhythms that align with nature\'s cycles.',
-    'Offer structured, intensive healing paths for chronic ailments.',
-    'Provide continuous virtual support after you return home.'
+    'Introduce you to daily rituals that nurture harmony.',
+    'Offer structured healing for deeper ailments.',
+    'Support you with long-term guidance after your retreat.',
+    'Detailed consultation & diagnostic assessment.'
   ];
 
   useEffect(() => {
@@ -85,7 +102,9 @@ export default function Programmes({ onNavigate }) {
       setActivePhilosophyIndex((prev) => (prev + 1) % philosophyList.length);
     }, 4500);
     return () => clearInterval(interval);
-  }, [isMobile, activePhilosophyIndex, philosophyList.length]);
+  }, [isMobile, philosophyList.length]);
+
+
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
@@ -239,11 +258,177 @@ export default function Programmes({ onNavigate }) {
     { title: 'Post-Retreat Guidance', desc: 'Exit blueprint and remote expert follow-ups for home integration.', icon: <ClipboardList size={20} /> }
   ];
 
-  const advantages = [
-    { title: 'Multidisciplinary Experts', desc: 'Physicians, naturopaths, yoga masters, and chefs working as a single coordinated team.' },
-    { title: 'Science Meets Wisdom', desc: 'Ancient scriptures combined with modern clinical check-ups for safe, measurable healing.' },
-    { title: 'Serene Riverbank Setting', desc: 'Nestled by the Suvarnamukhi river, utilizing natural ambient sound for therapy.' },
-    { title: 'Intimate Care Ratios', desc: 'High staff-to-guest ratios ensuring constant support and attention.' }
+  const advantageCards = [
+    {
+      title: 'Located on the Riverbank',
+      desc: 'A serene natural setting that amplifies healing and inner grounding.',
+      icon: <Waves size={24} />,
+      bg: '#cfd7b7', // Sage
+      textColor: 'var(--wine)',
+      subColor: 'var(--raisin-black)'
+    },
+    {
+      title: 'Personalized Guest-to-Staff Ratios',
+      desc: 'More attention. More care. More personal transformation.',
+      icon: <Users size={24} />,
+      bg: '#e9b54e', // Harvest gold / amber
+      textColor: 'var(--wine)',
+      subColor: 'var(--wine)'
+    },
+    {
+      title: 'Sustainable, Natural Materials',
+      desc: 'Mud plaster, lime plaster, recycled stone architecture that breathes with nature.',
+      icon: <Leaf size={24} />,
+      bg: '#e8dfd3', // Sand / almond
+      textColor: 'var(--wine)',
+      subColor: 'var(--raisin-black)'
+    },
+    {
+      title: 'Seamless Therapy Integration',
+      desc: 'Your Wellness Formula connects all modalities so nothing is random, everything is intentional.',
+      icon: <Sparkles size={24} />,
+      bg: '#4f1a27', // Deep Wine
+      textColor: '#ffffff',
+      subColor: 'rgba(255, 255, 255, 0.92)'
+    },
+    {
+      title: 'Doctor-Led Sattvik Nutrition',
+      desc: 'Medicinal farm-to-table cuisine prepared in alignment with your personal dosha and clinical goals.',
+      icon: <Soup size={24} />,
+      bg: '#cfd7b7', // Sage
+      textColor: 'var(--wine)',
+      subColor: 'var(--raisin-black)'
+    },
+    {
+      title: 'Lifelong Wellness Education',
+      desc: 'Personalized blueprints, post-retreat follow-ups, and habits to sustain vital longevity.',
+      icon: <BookOpen size={24} />,
+      bg: '#e9b54e', // Amber
+      textColor: 'var(--wine)',
+      subColor: 'var(--wine)'
+    }
+  ];
+
+  const comparisonPrograms = [
+    {
+      id: 'weekend',
+      title: 'Weekend Reset',
+      duration: '2/3 Days',
+      intensity: 'Moderate Intensity',
+      intensityBg: 'rgba(94, 39, 53, 0.08)',
+      intensityColor: 'var(--wine)',
+      focusArea: 'Quick wellness reset',
+      idealFor: 'Busy professionals, Weekend seekers',
+      includes: [
+        'Consultation',
+        '2 Naturopathy treatments/day',
+        'Group Yoga sessions',
+        'Sound healing',
+        'Satwik meals'
+      ],
+      price: 'Starting from ₹X,XXX',
+      path: 'programmes/weekend-reset',
+      cardBg: '#faf7f2',
+      textColor: 'var(--raisin-black)',
+      titleColor: 'var(--wine)',
+      isAmber: false
+    },
+    {
+      id: 'rejuvenation',
+      title: 'Rejuvenation Program',
+      duration: '5 Days',
+      intensity: 'Medium Intensity',
+      intensityBg: 'rgba(94, 39, 53, 0.12)',
+      intensityColor: 'var(--wine)',
+      focusArea: 'Restoration & vitality',
+      idealFor: 'First-time guests, Stress relief, Energy restoration',
+      includes: [
+        'Doctor consultation',
+        'Diet counselling',
+        'Daily Yoga & Meditation',
+        'Naturopathy treatments',
+        'Shirodhara/Udhwartana',
+        'Sound healing sessions'
+      ],
+      price: 'Starting from ₹XX,XXX',
+      path: 'programmes/rejuvenation',
+      cardBg: '#e9b54e', // Highlighted amber card from reference
+      textColor: 'var(--wine)',
+      titleColor: 'var(--wine)',
+      isAmber: true
+    },
+    {
+      id: 'holistic',
+      title: 'Holistic Wellness Program',
+      duration: '7+ Days',
+      intensity: 'Medium–High Intensity',
+      intensityBg: 'rgba(94, 39, 53, 0.08)',
+      intensityColor: 'var(--wine)',
+      focusArea: 'Comprehensive wellness reset',
+      idealFor: 'Overall wellness seekers, Lifestyle reset, Chronic fatigue',
+      includes: [
+        'Full biological assessment',
+        'Daily Yoga & Meditation',
+        'Daily Naturopathy treatments',
+        'Bespoke Shirodhara oil flow',
+        'Satwik therapeutic meals',
+        'Group sound bath sessions'
+      ],
+      price: 'Starting from ₹XX,XXX',
+      path: 'programmes/holistic-wellness',
+      cardBg: '#faf7f2',
+      textColor: 'var(--raisin-black)',
+      titleColor: 'var(--wine)',
+      isAmber: false
+    },
+    {
+      id: 'detox',
+      title: 'Detox Program',
+      duration: '7 / 14 / 21 Days',
+      intensity: 'High Intensity',
+      intensityBg: 'rgba(94, 39, 53, 0.08)',
+      intensityColor: 'var(--wine)',
+      focusArea: 'Deep cleansing & purification',
+      idealFor: 'Metabolic concerns, Chronic toxicity, Weight issues',
+      includes: [
+        'Body composition analysis',
+        'Iris diagnosis & evaluation',
+        'Naturopathic massage & steam',
+        'Therapeutic fasting & juices',
+        'Hydrotherapy & Mud therapy',
+        'Colon hydrotherapy (on prescription)'
+      ],
+      price: 'Starting from ₹XX,XXX',
+      path: 'programmes/detox',
+      cardBg: '#faf7f2',
+      textColor: 'var(--raisin-black)',
+      titleColor: 'var(--wine)',
+      isAmber: false
+    },
+    {
+      id: 'advanced',
+      title: 'Advanced Healing Program',
+      duration: 'Starting from 21 Days',
+      intensity: 'Very High Intensity',
+      intensityBg: 'rgba(94, 39, 53, 0.08)',
+      intensityColor: 'var(--wine)',
+      focusArea: 'Chronic ailment management',
+      idealFor: 'Chronic conditions, Medical concerns, Rehabilitation',
+      includes: [
+        'Doctor-led clinical protocol',
+        'Daily detailed assessments',
+        'Custom therapeutic diets',
+        'Intensive Naturopathy therapies',
+        'Acupuncture & physiotherapy',
+        'Continuous clinical monitoring'
+      ],
+      price: 'Starting from ₹XX,XXX',
+      path: 'programmes/advanced-healing',
+      cardBg: '#faf7f2',
+      textColor: 'var(--raisin-black)',
+      titleColor: 'var(--wine)',
+      isAmber: false
+    }
   ];
 
   const filters = ['All', '2-3 Days', '5 Days', '7 Days', '7-21 Days', '21 Days'];
@@ -417,12 +602,12 @@ export default function Programmes({ onNavigate }) {
         <div style={{ position: 'absolute', top: '-100px', right: '-60px', maxWidth: '350px', width: '100%', height: '350px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(244,240,236,0.6) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
         {isMobile ? (
-          /* Premium Interactive Radial Flower/Leaf Layout for Mobile */
+          /* Premium Interactive Radial Flower/Leaf Layout for Mobile (Exact Original Design with 6 points) */
           <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: '100%' }}>
             <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.72rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
               ✦ Our Philosophy
             </span>
-            <h2 style={{color: 'var(--wine)', lineHeight: 1.25, margin: '0 0 1rem 0', fontSize: 'var(--fs-h2)'}}>
+            <h2 style={{ color: 'var(--wine)', lineHeight: 1.25, margin: '0 0 1rem 0', fontSize: 'var(--fs-h2)' }}>
               Rooted in Nature.<br />Guided by Tradition.
             </h2>
 
@@ -499,11 +684,11 @@ export default function Programmes({ onNavigate }) {
                 </AnimatePresence>
               </div>
 
-              {/* 5 Revolving Points (styled like smaller leaves or gold circles) */}
+              {/* 6 Revolving Points */}
               {philosophyList.map((item, idx) => {
                 const isActive = activePhilosophyIndex === idx;
-                // Calculate position around a 105px radius circle (42% bounds)
-                const theta = (idx * 2 * Math.PI) / 5 - Math.PI / 2; // Start from top
+                // Calculate position around circle for 6 items
+                const theta = (idx * 2 * Math.PI) / philosophyList.length - Math.PI / 2;
                 const x = Math.round(50 + 42 * Math.cos(theta));
                 const y = Math.round(50 + 42 * Math.sin(theta));
 
@@ -516,14 +701,14 @@ export default function Programmes({ onNavigate }) {
                       top: `${y}%`,
                       left: `${x}%`,
                       transform: 'translate(-50%, -50%)',
-                      width: '42px',
-                      height: '42px',
+                      width: '38px',
+                      height: '38px',
                       borderRadius: '50%',
                       background: isActive ? 'var(--harvest-gold)' : 'rgba(255, 255, 255, 0.9)',
                       border: `1.5px solid ${isActive ? 'var(--wine)' : 'rgba(94, 39, 53, 0.25)'}`,
                       color: isActive ? '#ffffff' : 'var(--wine)',
                       fontWeight: 800,
-                      fontSize: '1rem',
+                      fontSize: '0.92rem',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -538,27 +723,44 @@ export default function Programmes({ onNavigate }) {
                 );
               })}
             </div>
+
+            {/* Bottom Diagnostic Note */}
+            <p style={{
+              marginTop: '1rem',
+              fontSize: '0.84rem',
+              color: 'var(--wine)',
+              lineHeight: 1.5,
+              fontWeight: 600,
+              maxWidth: '340px'
+            }}>
+              Every program begins with a detailed consultation and diagnostic assessment by our medical team to tailor a personalized wellness plan.
+            </p>
           </div>
         ) : (
-          /* Present screen layout for desktop/laptop/tablet (remains unchanged) */
+          /* Original Desktop 2-Column Layout with 6 updated items */
           <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center', position: 'relative', zIndex: 2 }}>
             <div>
               <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.7rem', fontWeight: 800, display: 'block', marginBottom: '0.8rem' }}>
                 ✦ Our Philosophy
               </span>
-              <h2 style={{color: 'var(--wine)', lineHeight: 1.2, margin: 0}}>
+              <h2 style={{ color: 'var(--wine)', lineHeight: 1.2, margin: 0 }}>
                 Rooted in Nature.<br />Guided by Tradition.
               </h2>
               <p style={{ marginTop: '1.2rem', fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', lineHeight: 1.85, opacity: 0.75, fontWeight: 300 }}>
                 Leading a life rooted in holistic wellness requires mindful living and the consistent practice of daily routines that align with nature's intelligence.
               </p>
+              <div style={{ marginTop: '1.5rem', padding: '1rem 1.4rem', backgroundColor: 'rgba(94,39,53,0.05)', borderRadius: '12px', borderLeft: '3px solid var(--harvest-gold)' }}>
+                <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--wine)', fontWeight: 600, lineHeight: 1.6 }}>
+                  Every program begins with a detailed consultation and diagnostic assessment by our medical team to tailor a personalized wellness plan for your needs.
+                </p>
+              </div>
             </div>
             <div>
-              <ul style={{ paddingLeft: '0', listStyle: 'none', fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', lineHeight: 1.75, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+              <ul style={{ paddingLeft: '0', listStyle: 'none', fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', lineHeight: 1.75, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                 {philosophyList.map((item, i) => (
-                  <li key={i} style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start', padding: '0.8rem 1rem', backgroundColor: 'rgba(94,39,53,0.05)', borderRadius: '12px', borderLeft: '3px solid var(--harvest-gold)' }}>
+                  <li key={i} style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start', padding: '0.75rem 1rem', backgroundColor: 'rgba(94,39,53,0.05)', borderRadius: '12px', borderLeft: '3px solid var(--harvest-gold)' }}>
                     <span style={{ color: 'var(--harvest-gold)', flexShrink: 0, marginTop: '2px' }}>✦</span>
-                    <span>{item}</span>
+                    <span style={{ fontWeight: 500 }}>{item}</span>
                   </li>
                 ))}
               </ul>
@@ -804,103 +1006,278 @@ export default function Programmes({ onNavigate }) {
       </section>
 
       {/* ========================================================================= */}
-      {/* --- SECTION 4: COMPARISON TABLE (Wine-deep bg with brand tones) --- */}
+      {/* --- SECTION 4: COMPARISON CARDS (Horizontal Scrollable with Controls) --- */}
       {/* ========================================================================= */}
-      <section style={{ padding: '6rem 6%', backgroundColor: '#3a1520', position: 'relative', overflow: 'hidden' }}>
-        {/* Twinkling Lights particle layer for this dark wine section */}
-        <TwinklingLights count={14} />
-        <GoldEmberParticles count={12} />
+      <section style={{ padding: isMobile ? '4rem 5%' : '6rem 6%', backgroundColor: 'var(--brand-bg)', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: '-60px', right: '-60px', width: '320px', height: '320px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-80px', left: '-60px', width: '300px', height: '300px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(179,186,142,0.15) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
-        <div style={{ position: 'absolute', bottom: '-80px', right: '-60px', width: '300px', height: '300px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.12) 0%, transparent 70%)', pointerEvents: 'none', zIndex: 1 }} />
-        <div style={{ position: 'absolute', top: '-80px', left: '-60px', width: '280px', height: '280px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(179,186,142,0.08) 0%, transparent 70%)', pointerEvents: 'none', zIndex: 1 }} />
-        
         <div style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.88rem', fontWeight: 800, display: 'block', marginBottom: '0.6rem' }}>
-              ✦ Compare
-            </span>
-            <h2 style={{color: 'var(--tan)',}}>
-              Programs at a Glance
-            </h2>
+          {/* Section Header & Horizontal Arrows */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'flex-end',
+            marginBottom: '2.5rem',
+            flexWrap: 'wrap',
+            gap: '1.2rem'
+          }}>
+            <div style={{ maxWidth: '680px' }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', backgroundColor: 'rgba(220,160,50,0.18)', padding: '0.35rem 1rem', borderRadius: '50px', marginBottom: '0.8rem', border: '1px solid rgba(220,160,50,0.4)' }}>
+                <span style={{ color: 'var(--wine)', fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em' }}>
+                  ✦ Signature Programs
+                </span>
+              </div>
+              <h2 style={{ color: 'var(--wine)', margin: '0 0 0.5rem 0', lineHeight: 1.2 }}>
+                Compare our programs and find the perfect wellness journey for you
+              </h2>
+            </div>
+
+            {/* Scroll Navigation Arrows */}
+            <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
+              <button
+                onClick={() => scrollCompare('left')}
+                aria-label="Scroll left"
+                style={{
+                  width: '44px',
+                  height: '44px',
+                  borderRadius: '50%',
+                  backgroundColor: '#ffffff',
+                  border: '1.5px solid rgba(94, 39, 53, 0.25)',
+                  color: 'var(--wine)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.06)',
+                  transition: 'all 0.25s ease'
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--wine)'; e.currentTarget.style.color = '#ffffff'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#ffffff'; e.currentTarget.style.color = 'var(--wine)'; }}
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button
+                onClick={() => scrollCompare('right')}
+                aria-label="Scroll right"
+                style={{
+                  width: '44px',
+                  height: '44px',
+                  borderRadius: '50%',
+                  backgroundColor: '#ffffff',
+                  border: '1.5px solid rgba(94, 39, 53, 0.25)',
+                  color: 'var(--wine)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.06)',
+                  transition: 'all 0.25s ease'
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--wine)'; e.currentTarget.style.color = '#ffffff'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#ffffff'; e.currentTarget.style.color = 'var(--wine)'; }}
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
           </div>
 
-          <div style={{
-            backgroundColor: 'rgba(244,240,236,0.08)',
-            borderRadius: '20px',
-            border: '1.5px solid rgba(220,160,50,0.3)',
-            overflow: 'hidden',
-            backdropFilter: 'blur(12px)'
-          }}>
-            <div style={{ overflowX: 'auto' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '860px', fontSize: 'var(--fs-body)' }}>
-                <thead>
-                  <tr style={{ borderBottom: '1.5px solid rgba(220,160,50,0.4)', backgroundColor: 'rgba(94,39,53,0.6)' }}>
-                    {['Program', 'Duration', 'Intensity', 'Focus', 'Key Therapies', 'Action'].map((header) => (
-                      <th key={header} style={{ padding: '1.2rem 1.2rem', color: 'var(--harvest-gold)', fontWeight: 800, fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.12em', textAlign: header === 'Intensity' || header === 'Action' ? 'center' : 'left' }}>
-                        {header}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    { name: 'Weekend Reset', path: 'programmes/weekend-reset', dur: '2/3 Days', int: 'Moderate', focus: 'Quick Stress Relief', therapies: 'Naturopathy, Satwik Meals, Sound Bath' },
-                    { name: 'Rejuvenation Program', path: 'programmes/rejuvenation', dur: 'Starting from 5 Days', int: 'Medium', focus: 'Energy & Vitality', therapies: 'Shirodhara, Yoga, Massage' },
-                    { name: 'Holistic Wellness Program', path: 'programmes/holistic-wellness', dur: 'Starting from 7 Days', int: 'Medium–High', focus: 'Circadian Correction', therapies: 'Iris Diagnosis, Steam, Sound, Yoga' },
-                    { name: 'Detox Program', path: 'programmes/detox', dur: '7/14/21 Days', int: 'High', focus: 'Deep Toxin Cleansing', therapies: 'Fasting, Colon Hydrotherapy, Mud' },
-                    { name: 'Advanced Healing Program', path: 'programmes/advanced-healing', dur: 'Starting from 21 Days', int: 'Very High', focus: 'Chronic Care', therapies: 'Acupuncture, Physio, Custom Diet' }
-                  ].map((row, idx) => (
-                    <tr
-                      key={idx}
-                      style={{ borderBottom: '1px solid rgba(220,160,50,0.15)', transition: 'background 0.3s' }}
-                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(94,39,53,0.3)'}
-                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
-                    >
-                      <td style={{ padding: '1.2rem', fontWeight: 700, color: 'var(--tan)' }}>{row.name}</td>
-                      <td style={{ padding: '1.2rem', color: '#ffffff', fontWeight: 500 }}>{row.dur}</td>
-                      <td style={{ padding: '1.2rem', textAlign: 'center' }}>
-                        <span style={{
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          width: '120px',
-                          fontSize: '0.82rem', padding: '0.35rem 0.5rem', borderRadius: '50px',
-                          backgroundColor: row.int === 'Very High' ? 'rgba(184,94,76,0.35)' : row.int === 'High' ? 'rgba(220,160,50,0.25)' : 'rgba(179,186,142,0.28)',
-                          color: row.int === 'Very High' ? '#ff9e8c' : row.int === 'High' ? '#f7d070' : '#d8e2aa',
-                          fontWeight: 800,
-                          border: `1.5px solid ${row.int === 'Very High' ? 'rgba(184,94,76,0.5)' : row.int === 'High' ? 'rgba(220,160,50,0.4)' : 'rgba(179,186,142,0.4)'}`
-                        }}>
-                          {row.int}
-                        </span>
-                      </td>
-                      <td style={{ padding: '1.2rem', color: '#ffffff', fontWeight: 500 }}>{row.focus}</td>
-                      <td style={{ padding: '1.2rem', color: 'rgba(244,240,236,0.92)', fontSize: 'var(--fs-body)', fontWeight: 400 }}>{row.therapies}</td>
-                      <td style={{ padding: '1.2rem', textAlign: 'center' }}>
-                        <button
-                          onClick={() => onNavigate(row.path)}
-                          style={{
-                            padding: '0.4rem 0.9rem',
-                            backgroundColor: 'rgba(234, 169, 54, 0.2)',
-                            border: '1px solid var(--harvest-gold)',
-                            color: 'var(--harvest-gold)',
-                            borderRadius: '20px',
-                            fontSize: '0.78rem',
-                            fontWeight: 700,
-                            cursor: 'pointer',
-                            whiteSpace: 'nowrap',
-                            transition: 'all 0.25s ease'
-                          }}
-                          onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--harvest-gold)'; e.currentTarget.style.color = '#3a1520'; }}
-                          onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(234, 169, 54, 0.2)'; e.currentTarget.style.color = 'var(--harvest-gold)'; }}
-                        >
-                          Explore &rarr;
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+          {/* Horizontal Scrollable Comparison Cards Track */}
+          <div
+            ref={compareScrollRef}
+            style={{
+              display: 'flex',
+              gap: isMobile ? '1.2rem' : '1.5rem',
+              overflowX: 'auto',
+              scrollSnapType: 'x mandatory',
+              paddingBottom: '1.8rem',
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+              WebkitOverflowScrolling: 'touch'
+            }}
+          >
+            {comparisonPrograms.map((prog, idx) => {
+              const isAmber = prog.isAmber;
+              return (
+                <motion.div
+                  key={prog.id}
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  style={{
+                    flex: isMobile ? '0 0 295px' : '0 0 350px',
+                    scrollSnapAlign: 'start',
+                    backgroundColor: prog.cardBg,
+                    borderRadius: '24px',
+                    border: isAmber ? '2px solid rgba(220,160,50,0.8)' : '1.5px solid rgba(94, 39, 53, 0.12)',
+                    padding: isMobile ? '1.8rem 1.4rem' : '2.2rem 1.8rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    boxShadow: isAmber ? '0 16px 36px rgba(220, 160, 50, 0.22)' : '0 10px 30px rgba(94, 39, 53, 0.06)',
+                    boxSizing: 'border-box',
+                    transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
+                  }}
+                >
+                  <div>
+                    {/* Header: Title & Duration */}
+                    <div style={{ marginBottom: '1rem' }}>
+                      <h3 style={{
+                        fontFamily: 'var(--font-heading)',
+                        color: prog.titleColor,
+                        fontSize: isMobile ? '1.25rem' : '1.45rem',
+                        fontWeight: 700,
+                        margin: '0 0 0.4rem 0',
+                        lineHeight: 1.2
+                      }}>
+                        {prog.title}
+                      </h3>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: isAmber ? 'var(--wine)' : 'var(--raisin-black)', opacity: 0.85, fontSize: '0.86rem', fontWeight: 600 }}>
+                        <Clock size={15} />
+                        <span>{prog.duration}</span>
+                      </div>
+                    </div>
+
+                    {/* Intensity Badge */}
+                    <div style={{ marginBottom: '1.4rem' }}>
+                      <span style={{
+                        display: 'inline-block',
+                        padding: '0.35rem 0.95rem',
+                        borderRadius: '50px',
+                        backgroundColor: isAmber ? 'rgba(94,39,53,0.15)' : 'rgba(94,39,53,0.08)',
+                        color: 'var(--wine)',
+                        fontSize: '0.78rem',
+                        fontWeight: 800,
+                        letterSpacing: '0.04em'
+                      }}>
+                        {prog.intensity}
+                      </span>
+                    </div>
+
+                    {/* Focus Area */}
+                    <div style={{ marginBottom: '1.2rem' }}>
+                      <span style={{
+                        display: 'block',
+                        fontSize: '0.74rem',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.12em',
+                        color: isAmber ? 'var(--wine)' : 'var(--redwood)',
+                        fontWeight: 800,
+                        marginBottom: '0.2rem'
+                      }}>
+                        Focus Area
+                      </span>
+                      <p style={{ margin: 0, fontSize: '0.92rem', color: prog.textColor, fontWeight: 600, lineHeight: 1.4 }}>
+                        {prog.focusArea}
+                      </p>
+                    </div>
+
+                    {/* Ideal For */}
+                    <div style={{ marginBottom: '1.4rem' }}>
+                      <span style={{
+                        display: 'block',
+                        fontSize: '0.74rem',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.12em',
+                        color: isAmber ? 'var(--wine)' : 'var(--redwood)',
+                        fontWeight: 800,
+                        marginBottom: '0.2rem'
+                      }}>
+                        Ideal For
+                      </span>
+                      <p style={{ margin: 0, fontSize: '0.88rem', color: prog.textColor, opacity: 0.9, lineHeight: 1.45, fontWeight: 500 }}>
+                        {prog.idealFor}
+                      </p>
+                    </div>
+
+                    {/* Includes List */}
+                    <div style={{
+                      borderTop: `1px solid ${isAmber ? 'rgba(94,39,53,0.2)' : 'rgba(94,39,53,0.1)'}`,
+                      paddingTop: '1.2rem',
+                      marginBottom: '1.5rem'
+                    }}>
+                      <span style={{
+                        display: 'block',
+                        fontSize: '0.74rem',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.12em',
+                        color: isAmber ? 'var(--wine)' : 'var(--wine)',
+                        fontWeight: 800,
+                        marginBottom: '0.6rem'
+                      }}>
+                        Includes
+                      </span>
+                      <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                        {prog.includes.map((inc, i) => (
+                          <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.85rem', color: prog.textColor, lineHeight: 1.4 }}>
+                            <span style={{ color: isAmber ? 'var(--wine)' : 'var(--harvest-gold)', flexShrink: 0, marginTop: '2px' }}>
+                              <Check size={14} strokeWidth={3} />
+                            </span>
+                            <span>{inc}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Price Tag & Action Buttons */}
+                  <div>
+                    <div style={{
+                      borderTop: `1px solid ${isAmber ? 'rgba(94,39,53,0.2)' : 'rgba(94,39,53,0.1)'}`,
+                      paddingTop: '1rem',
+                      marginBottom: '1.2rem'
+                    }}>
+                      <span style={{
+                        fontFamily: 'var(--font-heading)',
+                        fontSize: '1.05rem',
+                        fontWeight: 800,
+                        color: prog.titleColor
+                      }}>
+                        {prog.price}
+                      </span>
+                    </div>
+
+                    <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+                      <button
+                        onClick={() => onNavigate(prog.path)}
+                        style={{
+                          flex: 1,
+                          padding: '0.75rem 1rem',
+                          borderRadius: '8px',
+                          backgroundColor: isAmber ? 'var(--wine)' : 'var(--wine)',
+                          color: '#ffffff',
+                          border: 'none',
+                          fontWeight: 700,
+                          fontSize: '0.82rem',
+                          cursor: 'pointer',
+                          textAlign: 'center',
+                          transition: 'all 0.25s ease'
+                        }}
+                      >
+                        Explore &rarr;
+                      </button>
+                      <button
+                        onClick={() => onNavigate('contact')}
+                        style={{
+                          padding: '0.75rem 1rem',
+                          borderRadius: '8px',
+                          backgroundColor: 'transparent',
+                          border: `1.5px solid ${isAmber ? 'var(--wine)' : 'rgba(94,39,53,0.3)'}`,
+                          color: 'var(--wine)',
+                          fontWeight: 700,
+                          fontSize: '0.82rem',
+                          cursor: 'pointer',
+                          transition: 'all 0.25s ease'
+                        }}
+                      >
+                        Inquire
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -1038,7 +1415,7 @@ export default function Programmes({ onNavigate }) {
       {/* ========================================================================= */}
       {/* --- SECTION 6: SUPRADA ADVANTAGE (Brand-bg warm clay with Wine accents) --- */}
       {/* ========================================================================= */}
-      <section style={{ padding: '6rem 6%', backgroundColor: 'var(--brand-bg)', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ padding: isMobile ? '4rem 6%' : '6rem 6%', backgroundColor: 'var(--brand-bg)', position: 'relative', overflow: 'hidden' }}>
         {/* Redwood blob */}
         <div style={{ position: 'absolute', top: '-80px', right: '-50px', width: '300px', height: '300px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(184,94,76,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
         
@@ -1047,26 +1424,26 @@ export default function Programmes({ onNavigate }) {
             <span style={{ color: 'var(--harvest-gold)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.84rem', fontWeight: 800, display: 'block', marginBottom: '0.6rem' }}>
               ✦ The Advantage
             </span>
-            <h2 style={{color: 'var(--wine)',}}>
+            <h2 style={{ color: 'var(--wine)', margin: 0 }}>
               The Suprada Advantage
             </h2>
           </div>
 
-          {/* Timeline — Wine accented */}
-          <div style={{ position: 'relative', paddingLeft: '4rem' }}>
+          {/* Timeline — Wine accented (Original timeline design with all 6 items) */}
+          <div style={{ position: 'relative', paddingLeft: isMobile ? '3.2rem' : '4rem' }}>
             {/* Vertical wine-to-harvest gold line */}
             <div style={{ position: 'absolute', left: '18px', top: '8px', bottom: '8px', width: '2px', background: 'linear-gradient(to bottom, var(--wine), var(--harvest-gold), rgba(220,160,50,0.15))', borderRadius: '2px' }} />
 
-            {advantages.map((adv, idx) => (
+            {advantageCards.map((adv, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.15 }}
+                transition={{ duration: 0.5, delay: idx * 0.12 }}
                 style={{
                   position: 'relative',
-                  paddingBottom: idx === advantages.length - 1 ? 0 : '2.5rem',
+                  paddingBottom: idx === advantageCards.length - 1 ? 0 : '2.5rem',
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '0.4rem'
@@ -1075,7 +1452,7 @@ export default function Programmes({ onNavigate }) {
                 {/* Numbered circle — wine bg with harvest gold border */}
                 <div style={{
                   position: 'absolute',
-                  left: '-4rem',
+                  left: isMobile ? '-3.2rem' : '-4rem',
                   top: '2px',
                   width: '38px',
                   height: '38px',
@@ -1093,7 +1470,7 @@ export default function Programmes({ onNavigate }) {
                   {String(idx + 1).padStart(2, '0')}
                 </div>
 
-                <h3 style={{color: 'var(--wine)', margin: 0}}>
+                <h3 style={{ color: 'var(--wine)', margin: 0, fontSize: isMobile ? '1.15rem' : '1.35rem' }}>
                   {adv.title}
                 </h3>
                 <p style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.7, margin: 0, fontWeight: 400 }}>

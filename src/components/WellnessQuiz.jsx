@@ -239,13 +239,20 @@ export default function WellnessQuiz({ onNavigate }) {
         </h2>
       </div>
 
-      {/* Top 3 Section Pill Tabs Navigation */}
+      {/* Top 3 Section Pill Tabs Navigation - Single Horizontal Line */}
       <div style={{ 
         display: 'flex', 
-        justifyContent: 'center', 
-        gap: '0.6rem', 
-        flexWrap: 'wrap', 
-        marginBottom: '1.8rem' 
+        justifyContent: 'flex-start', 
+        gap: '0.5rem', 
+        flexWrap: 'nowrap', 
+        overflowX: 'auto',
+        scrollbarWidth: 'none',
+        msOverflowStyle: 'none',
+        WebkitOverflowScrolling: 'touch',
+        padding: '0.2rem 0.4rem 0.6rem 0.4rem',
+        marginBottom: '1.4rem',
+        width: '100%',
+        boxSizing: 'border-box'
       }}>
         {quizTabs.map((tab, idx) => {
           const isActive = activeTabIdx === idx;
@@ -257,12 +264,14 @@ export default function WellnessQuiz({ onNavigate }) {
                 backgroundColor: isActive ? '#C2BA90' : '#FAF0E6',
                 color: 'var(--wine)',
                 border: isActive ? '2px solid var(--wine)' : '1px solid rgba(94, 39, 53, 0.15)',
-                borderRadius: '12px',
-                padding: '0.6rem 1.2rem',
+                borderRadius: '30px',
+                padding: '0.55rem 1.1rem',
                 fontSize: '0.72rem',
                 fontWeight: 800,
-                letterSpacing: '0.06em',
+                letterSpacing: '0.04em',
                 cursor: 'pointer',
+                flexShrink: 0,
+                whiteSpace: 'nowrap',
                 transition: 'all 0.3s ease',
                 boxShadow: isActive ? '0 4px 14px rgba(194, 186, 144, 0.45)' : 'none'
               }}

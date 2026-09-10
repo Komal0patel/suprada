@@ -290,6 +290,11 @@ function App() {
         {/* --- UNIVERSAL DYNAMIC LIGHT/DARK ADAPTIVE HEADER NAVBAR --- */}
         {/* ========================================================================= */}
         {(() => {
+          const isBookPage = currentPage === 'book' || currentPage === 'booking';
+          if (isBookPage) {
+            return null;
+          }
+
           const isScrolled = scrollYPos > 200;
           const isDarkHeroPage = currentPage === 'home' || currentPage === 'contact' || currentPage === 'comprehensivecare' || currentPage === 'naturopathy';
           const isLightHeader = !isDarkHeroPage && !isScrolled;

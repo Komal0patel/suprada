@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Pattern24, Pattern25, Pattern27 } from '../AnimatedPatterns';
 import { 
   Sparkles, Calendar, Clock, CheckCircle2, ArrowRight, ArrowLeft, 
   ShieldCheck, HeartPulse, Leaf, Sun, Moon, Flower2, Heart, User, 
-  Activity, Droplets, Sunrise, Check, Phone, Mail, CheckCircle, Compass, X
+  Activity, Droplets, Sunrise, Check, Phone, Mail, CheckCircle, Compass, X,
+  ChevronLeft, ChevronRight
 } from 'lucide-react';
 
 const programmeDataMap = {
@@ -410,6 +411,9 @@ export default function ProgrammeDetail({ progId, onNavigate }) {
     window.scrollTo(0, 0);
   }, [progId]);
 
+  // Refs
+  const timelineScrollRef = useRef(null);
+
   // Modal State
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [bookingModalData, setBookingModalData] = useState({
@@ -593,14 +597,8 @@ export default function ProgrammeDetail({ progId, onNavigate }) {
             </p>
           </div>
 
-          {/* Tab Navigation Chips */}
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '1rem',
-            flexWrap: 'wrap',
-            marginBottom: '2.5rem'
-          }}>
+          {/* Tab Navigation Chips (Single row horizontal on mobile & desktop) */}
+          <div className="programme-tab-chips-container">
             {data.tabs.map(tab => {
               const IconComp = tab.icon;
               const isActive = activeTab === tab.id;
@@ -608,23 +606,9 @@ export default function ProgrammeDetail({ progId, onNavigate }) {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.6rem',
-                    padding: '0.85rem 1.8rem',
-                    borderRadius: '50px',
-                    border: isActive ? '2px solid var(--wine, #5E2735)' : '1.5px solid rgba(94, 39, 53, 0.15)',
-                    backgroundColor: isActive ? 'var(--wine, #5E2735)' : '#ffffff',
-                    color: isActive ? '#ffffff' : 'var(--wine, #5E2735)',
-                    fontSize: '0.92rem',
-                    fontWeight: 700,
-                    cursor: 'pointer',
-                    boxShadow: isActive ? '0 8px 24px rgba(94, 39, 53, 0.18)' : '0 2px 8px rgba(0,0,0,0.04)',
-                    transition: 'all 0.25s ease'
-                  }}
+                  className={`programme-tab-chip ${isActive ? 'active' : ''}`}
                 >
-                  <IconComp size={18} />
+                  <IconComp size={16} />
                   <span>{tab.label}</span>
                 </button>
               );
@@ -636,40 +620,23 @@ export default function ProgrammeDetail({ progId, onNavigate }) {
             const currentTabObj = data.tabs.find(t => t.id === activeTab) || data.tabs[0];
             if (!currentTabObj) return null;
 
+            // 1. TWO-COL / INCLUSIONS & THERAPIES (Horizontal 2-Column Responsive Layout)
             if (currentTabObj.type === 'two-col') {
               const Icon1 = currentTabObj.col1.icon;
               const Icon2 = currentTabObj.col2.icon;
               return (
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                  gap: '2rem',
-                  backgroundColor: '#ffffff',
-                  padding: '2.5rem',
-                  borderRadius: '24px',
-                  boxShadow: '0 12px 35px rgba(94, 39, 53, 0.06)',
-                  border: '1.5px solid rgba(94, 39, 53, 0.1)'
-                }}>
+                <div className="two-col-horizontal-container">
                   {/* Column 1 */}
-                  <div>
-                    <h4 style={{
-                      fontFamily: 'var(--font-heading)',
-                      fontSize: '1.45rem',
-                      fontWeight: 700,
-                      color: 'var(--wine, #5E2735)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.5rem',
-                      margin: '0 0 1.2rem 0'
-                    }}>
-                      <Icon1 size={20} color="var(--harvest-gold, #B8860B)" />
-                      {currentTabObj.col1.title}
+                  <div className="two-col-item-box">
+                    <h4 className="two-col-title">
+                      <Icon1 size={18} color="var(--harvest-gold, #B8860B)" />
+                      <span>{currentTabObj.col1.title}</span>
                     </h4>
-                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                    <ul className="two-col-items-list">
                       {currentTabObj.col1.items.map((item, idx) => (
-                        <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '0.94rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.88 }}>
-                          <div style={{ width: '20px', height: '20px', borderRadius: '50%', backgroundColor: 'rgba(94, 39, 53, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: 'var(--wine, #5E2735)' }}>
-                            <Check size={12} strokeWidth={3} />
+                        <li key={idx}>
+                          <div className="two-col-check-icon">
+                            <Check size={11} strokeWidth={3} />
                           </div>
                           <span>{item}</span>
                         </li>
@@ -678,25 +645,16 @@ export default function ProgrammeDetail({ progId, onNavigate }) {
                   </div>
 
                   {/* Column 2 */}
-                  <div>
-                    <h4 style={{
-                      fontFamily: 'var(--font-heading)',
-                      fontSize: '1.45rem',
-                      fontWeight: 700,
-                      color: 'var(--wine, #5E2735)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.5rem',
-                      margin: '0 0 1.2rem 0'
-                    }}>
-                      <Icon2 size={20} color="var(--harvest-gold, #B8860B)" />
-                      {currentTabObj.col2.title}
+                  <div className="two-col-item-box">
+                    <h4 className="two-col-title">
+                      <Icon2 size={18} color="var(--harvest-gold, #B8860B)" />
+                      <span>{currentTabObj.col2.title}</span>
                     </h4>
-                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                    <ul className="two-col-items-list">
                       {currentTabObj.col2.items.map((item, idx) => (
-                        <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '0.94rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.88 }}>
-                          <div style={{ width: '20px', height: '20px', borderRadius: '50%', backgroundColor: 'rgba(94, 39, 53, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: 'var(--wine, #5E2735)' }}>
-                            <Check size={12} strokeWidth={3} />
+                        <li key={idx}>
+                          <div className="two-col-check-icon">
+                            <Check size={11} strokeWidth={3} />
                           </div>
                           <span>{item}</span>
                         </li>
@@ -707,62 +665,82 @@ export default function ProgrammeDetail({ progId, onNavigate }) {
               );
             }
 
+            // 2. TIMELINE / DAILY RHYTHM (Horizontal Flow Carousel with Left/Right Arrows)
             if (currentTabObj.type === 'timeline') {
+              const scrollTimeline = (dir) => {
+                if (timelineScrollRef.current) {
+                  timelineScrollRef.current.scrollBy({ left: dir * 280, behavior: 'smooth' });
+                }
+              };
+
               return (
-                <div style={{
-                  backgroundColor: '#ffffff',
-                  padding: '2.5rem',
-                  borderRadius: '24px',
-                  boxShadow: '0 12px 35px rgba(94, 39, 53, 0.06)',
-                  border: '1.5px solid rgba(94, 39, 53, 0.1)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '1.5rem'
-                }}>
-                  {currentTabObj.items.map((item, idx) => (
-                    <div key={idx} style={{
-                      display: 'flex',
-                      gap: '1.5rem',
-                      paddingBottom: idx < currentTabObj.items.length - 1 ? '1.5rem' : '0',
-                      borderBottom: idx < currentTabObj.items.length - 1 ? '1px solid rgba(94, 39, 53, 0.08)' : 'none'
-                    }}>
-                      <div style={{ minWidth: '95px', fontWeight: 800, color: 'var(--harvest-gold, #B8860B)', fontSize: '0.95rem' }}>
-                        {item.time}
-                      </div>
-                      <div>
-                        <h5 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', fontWeight: 700, color: 'var(--wine, #5E2735)', margin: '0 0 0.25rem 0' }}>
+                <div className="timeline-horizontal-wrapper">
+                  {/* Controls Header */}
+                  <div className="timeline-nav-header">
+                    <span className="timeline-nav-hint">
+                      ✦ Daily Schedule Flow
+                    </span>
+                    <div className="timeline-arrows-group">
+                      <button
+                        onClick={() => scrollTimeline(-1)}
+                        aria-label="Previous step"
+                        className="timeline-nav-arrow"
+                      >
+                        <ChevronLeft size={16} />
+                      </button>
+                      <button
+                        onClick={() => scrollTimeline(1)}
+                        aria-label="Next step"
+                        className="timeline-nav-arrow"
+                      >
+                        <ChevronRight size={16} />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Horizontal Scroll Track */}
+                  <div 
+                    ref={timelineScrollRef}
+                    className="timeline-horizontal-track custom-light-scrollbar"
+                    data-lenis-prevent="true"
+                    onWheel={(e) => {
+                      if (timelineScrollRef.current) {
+                        e.stopPropagation();
+                        timelineScrollRef.current.scrollLeft += e.deltaY;
+                      }
+                    }}
+                  >
+                    {currentTabObj.items.map((item, idx) => (
+                      <div key={idx} className="timeline-horizontal-card">
+                        <div className="timeline-card-header">
+                          <div className="timeline-time-badge">
+                            {item.time}
+                          </div>
+                          <span className="timeline-step-index">0{idx + 1}</span>
+                        </div>
+                        <h5 className="timeline-card-title">
                           {item.title}
                         </h5>
-                        <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.8, margin: 0 }}>
+                        <p className="timeline-card-desc">
                           {item.desc}
                         </p>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               );
             }
 
+            // 3. GRID-CARDS / MINDFULNESS
             if (currentTabObj.type === 'grid-cards') {
               return (
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                  gap: '1.5rem'
-                }}>
+                <div className="programme-grid-cards-container">
                   {currentTabObj.items.map((item, idx) => (
-                    <div key={idx} style={{
-                      backgroundColor: '#ffffff',
-                      padding: '2rem',
-                      borderRadius: '20px',
-                      boxShadow: '0 8px 25px rgba(94, 39, 53, 0.06)',
-                      border: '1.5px solid rgba(94, 39, 53, 0.1)',
-                      textAlign: 'center'
-                    }}>
-                      <h5 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: 700, color: 'var(--wine, #5E2735)', margin: '0 0 0.6rem 0' }}>
+                    <div key={idx} className="programme-grid-card-item">
+                      <h5 className="programme-grid-card-title">
                         {item.title}
                       </h5>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.8, lineHeight: 1.6, margin: 0 }}>
+                      <p className="programme-grid-card-desc">
                         {item.desc}
                       </p>
                     </div>
@@ -771,39 +749,19 @@ export default function ProgrammeDetail({ progId, onNavigate }) {
               );
             }
 
+            // 4. DURATION-CARDS / DETOX
             if (currentTabObj.type === 'duration-cards') {
               return (
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                  gap: '1.5rem'
-                }}>
+                <div className="duration-cards-horizontal-container">
                   {currentTabObj.items.map((item, idx) => (
-                    <div key={idx} style={{
-                      backgroundColor: '#ffffff',
-                      padding: '2.2rem 1.8rem',
-                      borderRadius: '20px',
-                      boxShadow: '0 8px 25px rgba(94, 39, 53, 0.06)',
-                      border: '1.5px solid rgba(94, 39, 53, 0.1)',
-                      textAlign: 'center'
-                    }}>
-                      <span style={{
-                        display: 'inline-block',
-                        padding: '0.35rem 1.1rem',
-                        borderRadius: '30px',
-                        backgroundColor: 'var(--wine, #5E2735)',
-                        color: '#ffffff',
-                        fontSize: '0.82rem',
-                        fontWeight: 800,
-                        letterSpacing: '0.06em',
-                        marginBottom: '0.9rem'
-                      }}>
+                    <div key={idx} className="duration-item-card">
+                      <span className="duration-pill-tag">
                         {item.duration}
                       </span>
-                      <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', fontWeight: 700, color: 'var(--wine, #5E2735)', margin: '0 0 0.6rem 0' }}>
+                      <h4 className="duration-intensity-title">
                         {item.intensity}
                       </h4>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.8, lineHeight: 1.6, margin: 0 }}>
+                      <p className="duration-desc">
                         {item.desc}
                       </p>
                     </div>
@@ -812,28 +770,20 @@ export default function ProgrammeDetail({ progId, onNavigate }) {
               );
             }
 
+            // 5. SCHEDULE-GRID / WEEKEND RESET
             if (currentTabObj.type === 'schedule-grid') {
               return (
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                  gap: '2rem',
-                  backgroundColor: '#ffffff',
-                  padding: '2.5rem',
-                  borderRadius: '24px',
-                  boxShadow: '0 12px 35px rgba(94, 39, 53, 0.06)',
-                  border: '1.5px solid rgba(94, 39, 53, 0.1)'
-                }}>
+                <div className="schedule-grid-horizontal-container">
                   {currentTabObj.cols.map((col, cIdx) => (
-                    <div key={cIdx}>
-                      <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: 700, color: 'var(--wine, #5E2735)', margin: '0 0 1.2rem 0' }}>
+                    <div key={cIdx} className="schedule-col-card">
+                      <h4 className="schedule-col-title">
                         {col.dayTitle}
                       </h4>
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
+                      <div className="schedule-col-items">
                         {col.items.map((it, itIdx) => (
-                          <div key={itIdx} style={{ display: 'flex', gap: '1rem', fontSize: '0.92rem' }}>
-                            <span style={{ fontWeight: 800, color: 'var(--harvest-gold, #B8860B)', minWidth: '75px' }}>{it.time}</span>
-                            <span style={{ color: 'var(--raisin-black, #2B1B17)', opacity: 0.85 }}>{it.desc}</span>
+                          <div key={itIdx} className="schedule-item-row">
+                            <span className="schedule-time">{it.time}</span>
+                            <span className="schedule-desc">{it.desc}</span>
                           </div>
                         ))}
                       </div>

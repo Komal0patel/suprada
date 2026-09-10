@@ -723,8 +723,9 @@ export default function Wellness({ onNavigate }) {
             gap: 'clamp(1.4rem, 2.5vw, 2rem)',
             alignItems: 'center'
           }}>
-            {/* Left Column: Tan/Linen Badges */}
+            {/* Left Column: Tan/Linen Badges (Hidden on mobile as requested) */}
             <motion.div
+              className="hide-mobile-wellness-formula"
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

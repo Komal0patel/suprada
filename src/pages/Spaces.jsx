@@ -588,6 +588,18 @@ export default function Spaces({ onNavigate }) {
 
           {/* Responsive Mobile 2-Per-Row Grid CSS */}
           <style dangerouslySetInnerHTML={{__html: `
+            .sanctum-zones-grid {
+              display: grid !important;
+              grid-template-columns: repeat(2, 1fr) !important;
+              gap: 1.25rem !important;
+              width: 100% !important;
+            }
+            .sanctum-zones-grid > *:nth-child(odd):last-child {
+              grid-column: 1 / -1 !important;
+              justify-self: center !important;
+              width: calc(50% - 0.625rem) !important;
+              max-width: calc(50% - 0.625rem) !important;
+            }
             @media (max-width: 768px) {
               .sanctum-category-tabs {
                 display: grid !important;
@@ -613,6 +625,29 @@ export default function Spaces({ onNavigate }) {
                 grid-column: 1 / -1 !important;
                 max-width: 85% !important;
                 justify-self: center !important;
+              }
+              .sanctum-zones-grid {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.65rem !important;
+              }
+              .sanctum-zones-grid > *:nth-child(odd):last-child {
+                grid-column: 1 / -1 !important;
+                justify-self: center !important;
+                width: calc(50% - 0.325rem) !important;
+                max-width: calc(50% - 0.325rem) !important;
+              }
+              .sanctum-zone-card {
+                padding: 1rem 0.75rem !important;
+                border-radius: 14px !important;
+              }
+              .sanctum-zone-card h3 {
+                font-size: 0.95rem !important;
+                line-height: 1.3 !important;
+              }
+              .sanctum-zone-card p {
+                font-size: 0.78rem !important;
+                line-height: 1.4 !important;
               }
             }
           `}} />

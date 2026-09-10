@@ -1179,49 +1179,62 @@ export default function Careers({ onNavigate }) {
                 overflow: 'hidden'
               }}
             >
+              {/* Absolute Floating Close Button */}
+              <button
+                onClick={() => { setSelectedJob(null); setApplied(false); }}
+                style={{
+                  position: 'absolute',
+                  top: '1.2rem',
+                  right: '1.2rem',
+                  zIndex: 20,
+                  border: 'none',
+                  backgroundColor: 'rgba(94, 39, 53, 0.08)',
+                  borderRadius: '50%',
+                  width: '36px',
+                  height: '36px',
+                  cursor: 'pointer',
+                  color: 'var(--wine)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all 0.25s ease',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.06)'
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--wine)'; e.currentTarget.style.color = '#ffffff'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(94, 39, 53, 0.08)'; e.currentTarget.style.color = 'var(--wine)'; }}
+              >
+                <X size={18} />
+              </button>
+
               {/* Header Bar */}
               <div style={{
-                padding: '1.4rem 2rem',
+                padding: '1.6rem 3.8rem 1.4rem 2rem',
                 borderBottom: '1px solid rgba(94, 39, 53, 0.1)',
                 backgroundColor: 'rgba(250, 240, 230, 0.55)',
-                display: 'flex',
-                justify: 'space-between',
-                alignItems: 'center',
                 flexShrink: 0
               }}>
-                <div>
-                  <span style={{ fontSize: '0.7rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                    {selectedJob.dept} • {selectedJob.type}
-                  </span>
-                  <h2 style={{ color: 'var(--wine)', margin: '0.2rem 0 0 0', fontSize: '1.3rem', fontWeight: 700 }}>
-                    Apply for {selectedJob.title}
-                  </h2>
-                </div>
-                <button
-                  onClick={() => { setSelectedJob(null); setApplied(false); }}
-                  style={{
-                    border: 'none',
-                    backgroundColor: 'rgba(94, 39, 53, 0.08)',
-                    borderRadius: '50%',
-                    width: '36px',
-                    height: '36px',
-                    cursor: 'pointer',
-                    color: 'var(--wine)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    transition: 'all 0.2s ease',
-                    flexShrink: 0
-                  }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--wine)'; e.currentTarget.style.color = '#ffffff'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(94, 39, 53, 0.08)'; e.currentTarget.style.color = 'var(--wine)'; }}
-                >
-                  <X size={18} />
-                </button>
+                <span style={{ fontSize: '0.7rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                  {selectedJob.dept} • {selectedJob.type}
+                </span>
+                <h2 style={{ color: 'var(--wine)', margin: '0.2rem 0 0 0', fontSize: '1.3rem', fontWeight: 700 }}>
+                  Apply for {selectedJob.title}
+                </h2>
               </div>
 
-              {/* Scrollable Form Body */}
-              <div style={{ padding: '1.8rem 2rem', overflowY: 'auto', flexGrow: 1 }}>
+              {/* Scrollable Form Body with mouse wheel scrolling */}
+              <style dangerouslySetInnerHTML={{__html: `
+                .modal-form-scrollable {
+                  overflow-y: auto !important;
+                  scrollbar-width: none !important;
+                  -ms-overflow-style: none !important;
+                }
+                .modal-form-scrollable::-webkit-scrollbar {
+                  display: none !important;
+                  width: 0 !important;
+                  height: 0 !important;
+                }
+              `}} />
+              <div className="modal-form-scrollable" style={{ padding: '1.8rem 2rem', flexGrow: 1 }}>
                 {applied ? (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}

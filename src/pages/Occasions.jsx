@@ -729,12 +729,12 @@ export default function Occasions({ onNavigate }) {
           {!isMobileChart && (
             <div style={{
               position: 'relative',
-              height: '400px',
-              marginTop: '2.5rem',
+              height: '490px',
+              marginTop: '2rem',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              margin: '2.5rem auto 0 auto'
+              margin: '2rem auto 0 auto'
             }}>
               {/* Background Orbital Dashed Motion Ring */}
               <motion.div
@@ -742,10 +742,10 @@ export default function Occasions({ onNavigate }) {
                 transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
                 style={{
                   position: 'absolute',
-                  width: '340px',
-                  height: '340px',
+                  width: '430px',
+                  height: '430px',
                   borderRadius: '50%',
-                  border: '1.5px dashed rgba(220, 160, 50, 0.35)',
+                  border: '1.5px dashed rgba(220, 160, 50, 0.4)',
                   pointerEvents: 'none',
                   zIndex: 0
                 }}
@@ -754,8 +754,8 @@ export default function Occasions({ onNavigate }) {
               {/* Featured Center Card */}
               <div style={{
                 position: 'relative',
-                width: '310px',
-                height: '310px',
+                width: '320px',
+                height: '320px',
                 borderRadius: '50%',
                 backgroundColor: 'var(--wine)',
                 color: 'var(--isabelline)',
@@ -764,7 +764,7 @@ export default function Occasions({ onNavigate }) {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                padding: '1.8rem',
+                padding: '2.2rem 1.8rem',
                 textAlign: 'center',
                 zIndex: 10,
                 overflow: 'hidden'
@@ -790,10 +790,10 @@ export default function Occasions({ onNavigate }) {
                     <span style={{ fontSize: '1.8rem', marginBottom: '0.3rem' }}>
                       {wellnessDiffList[diffSlideIdx].icon}
                     </span>
-                    <h3 style={{ color: 'var(--harvest-gold)', margin: '0 0 0.5rem 0', lineHeight: 1.25 }}>
+                    <h3 style={{ color: 'var(--harvest-gold)', margin: '0 0 0.4rem 0', lineHeight: 1.25, fontSize: '1.15rem' }}>
                       {wellnessDiffList[diffSlideIdx].title}
                     </h3>
-                    <p style={{ fontSize: 'var(--fs-body)', color: 'var(--isabelline)', opacity: 0.92, lineHeight: 1.5, margin: 0, fontWeight: 300 }}>
+                    <p style={{ fontSize: '0.84rem', color: 'var(--isabelline)', opacity: 0.92, lineHeight: 1.5, margin: 0, fontWeight: 300 }}>
                       {wellnessDiffList[diffSlideIdx].desc}
                     </p>
                   </motion.div>
@@ -805,7 +805,7 @@ export default function Occasions({ onNavigate }) {
                 const totalItems = 3;
                 const angleDeg = (360 / totalItems) * idx - 90;
                 const angleRad = (angleDeg * Math.PI) / 180;
-                const radius = 170;
+                const radius = 215;
                 const xPos = Math.cos(angleRad) * radius;
                 const yPos = Math.sin(angleRad) * radius;
                 const isActive = diffSlideIdx === idx;
@@ -818,20 +818,20 @@ export default function Occasions({ onNavigate }) {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{
                       opacity: 1,
-                      scale: isActive ? 1.12 : 0.95,
+                      scale: isActive ? 1.1 : 0.95,
                       x: xPos,
                       y: yPos
                     }}
                     transition={{ type: 'spring', stiffness: 220, damping: 22 }}
                     style={{
                       position: 'absolute',
-                      width: '95px',
-                      height: '95px',
+                      width: '90px',
+                      height: '90px',
                       borderRadius: '50%',
-                      backgroundColor: isActive ? 'var(--wine)' : 'rgba(255, 255, 255, 0.92)',
+                      backgroundColor: isActive ? 'var(--wine)' : 'rgba(255, 255, 255, 0.95)',
                       color: isActive ? 'var(--harvest-gold)' : 'var(--wine)',
-                      border: isActive ? '2.5px solid var(--harvest-gold)' : '1.5px solid rgba(94, 39, 53, 0.15)',
-                      boxShadow: isActive ? '0 10px 25px rgba(94, 39, 53, 0.25), 0 0 15px rgba(220, 160, 50, 0.3)' : '0 4px 15px rgba(0,0,0,0.06)',
+                      border: isActive ? '2.5px solid var(--harvest-gold)' : '1.5px solid rgba(94, 39, 53, 0.18)',
+                      boxShadow: isActive ? '0 10px 25px rgba(94, 39, 53, 0.25), 0 0 15px rgba(220, 160, 50, 0.3)' : '0 4px 15px rgba(0,0,0,0.08)',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
@@ -843,7 +843,7 @@ export default function Occasions({ onNavigate }) {
                       transition: 'background-color 0.3s, border-color 0.3s, color 0.3s'
                     }}
                   >
-                    <span style={{ fontSize: '1.2rem', marginBottom: '0.1rem' }}>{item.icon}</span>
+                    <span style={{ fontSize: '1.15rem', marginBottom: '0.1rem' }}>{item.icon}</span>
                     <span style={{ fontSize: '0.58rem', fontWeight: 700, lineHeight: 1.15, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                       {item.title.split(' ')[0]}
                     </span>

@@ -503,6 +503,27 @@ export default function Careers({ onNavigate }) {
     }
   }, [detailJobId]);
 
+  // Lock background page scroll and pause Lenis smooth scroll when modal is open
+  useEffect(() => {
+    if (selectedJob) {
+      document.body.style.overflow = 'hidden';
+      if (window.lenis) {
+        window.lenis.stop();
+      }
+    } else {
+      document.body.style.overflow = '';
+      if (window.lenis) {
+        window.lenis.start();
+      }
+    }
+    return () => {
+      document.body.style.overflow = '';
+      if (window.lenis) {
+        window.lenis.start();
+      }
+    };
+  }, [selectedJob]);
+
   const filteredJobs = jobOpenings.filter(job => {
     const matchesSearch = job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                           job.dept.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -1157,6 +1178,7 @@ export default function Careers({ onNavigate }) {
               boxSizing: 'border-box'
             }}
             onClick={() => { setSelectedJob(null); setApplied(false); }}
+            onWheel={(e) => e.stopPropagation()}
           >
             {/* Pop-up Window Card */}
             <motion.div
@@ -1165,6 +1187,7 @@ export default function Careers({ onNavigate }) {
               exit={{ opacity: 0, scale: 0.92, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 280 }}
               onClick={(e) => e.stopPropagation()}
+              onWheel={(e) => e.stopPropagation()}
               style={{
                 backgroundColor: '#ffffff',
                 borderRadius: '24px',
@@ -1225,6 +1248,8 @@ export default function Careers({ onNavigate }) {
               <style dangerouslySetInnerHTML={{__html: `
                 .modal-form-scrollable {
                   overflow-y: auto !important;
+                  overscroll-behavior: contain !important;
+                  -webkit-overflow-scrolling: touch !important;
                   scrollbar-width: none !important;
                   -ms-overflow-style: none !important;
                 }
@@ -1234,7 +1259,7 @@ export default function Careers({ onNavigate }) {
                   height: 0 !important;
                 }
               `}} />
-              <div className="modal-form-scrollable" style={{ padding: '1.8rem 2rem', flexGrow: 1 }}>
+              <div className="modal-form-scrollable" onWheel={(e) => e.stopPropagation()} style={{ padding: '1.8rem 2rem', flexGrow: 1 }}>
                 {applied ? (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}

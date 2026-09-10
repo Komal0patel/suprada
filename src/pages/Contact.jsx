@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Pattern24, Pattern25 } from '../AnimatedPatterns';
 import { Car, Train, Plane, Calendar, MapPin, Mail, Star } from 'lucide-react';
 
 const blurFadeIn = {
@@ -362,9 +361,6 @@ export default function Contact({ onNavigate }) {
             />
           </motion.div>
 
-          {/* Leaf SVG Watermark Overlay */}
-          <Pattern24 style={{ position: 'absolute', top: '1rem', left: '-20px', width: '260px', opacity: 0.15, color: 'var(--harvest-gold)', pointerEvents: 'none' }} />
-
           {/* "Get in Touch" — typewriter title */}
           <h1 style={{color: '#ffffff',
             lineHeight: 1.1,
@@ -399,83 +395,6 @@ export default function Contact({ onNavigate }) {
             {typedDesc}
             {phase === "desc" && <span className="typewriter-cursor" />}
           </p>
-
-          {/* Dual CTAs — appear after typing */}
-          <AnimatePresence>
-            {(phase === "done") && (
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}
-              >
-                <button
-                  onClick={() => {
-                    document.getElementById('contact-map')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  style={{
-                    background: 'none',
-                    border: '1.5px solid var(--wine)',
-                    color: 'var(--wine)',
-                    borderRadius: '8px',
-                    padding: '0.9rem 2rem',
-                    fontSize: '0.82rem',
-                    fontWeight: 700,
-                    cursor: 'pointer',
-                    letterSpacing: '0.08em',
-                    textTransform: 'uppercase',
-                    backdropFilter: 'blur(6px)',
-                    transition: 'all 0.3s'
-                  }}
-                  onMouseEnter={e => {
-                    e.target.style.backgroundColor = 'var(--wine)';
-                    e.target.style.borderColor = 'var(--wine)';
-                    e.target.style.color = '#ffffff';
-                  }}
-                  onMouseLeave={e => {
-                    e.target.style.backgroundColor = 'transparent';
-                    e.target.style.borderColor = 'var(--wine)';
-                    e.target.style.color = 'var(--wine)';
-                  }}
-                >
-                  Get Directions ↓
-                </button>
-
-                <button
-                  onClick={() => {
-                    const footerElement = document.querySelector('footer') || document.getElementById('footer');
-                    if (footerElement) {
-                      footerElement.scrollIntoView({ behavior: 'smooth' });
-                    } else {
-                      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-                    }
-                  }}
-                  style={{
-                    backgroundColor: 'var(--harvest-gold)',
-                    border: '1.5px solid var(--harvest-gold)',
-                    color: '#ffffff',
-                    borderRadius: '8px',
-                    padding: '0.9rem 2rem',
-                    fontSize: '0.82rem',
-                    fontWeight: 700,
-                    cursor: 'pointer',
-                    letterSpacing: '0.08em',
-                    textTransform: 'uppercase',
-                    transition: 'all 0.3s',
-                    boxShadow: '0 4px 15px rgba(220,160,50,0.3)'
-                  }}
-                  onMouseEnter={e => {
-                    e.target.style.transform = 'translateY(-2px)';
-                  }}
-                  onMouseLeave={e => {
-                    e.target.style.transform = 'translateY(0)';
-                  }}
-                >
-                  Contact Details ↓
-                </button>
-              </motion.div>
-            )}
-          </AnimatePresence>
         </div>
 
         {/* Floating location badge — bottom right of image */}

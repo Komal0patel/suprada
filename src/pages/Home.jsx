@@ -2298,7 +2298,7 @@ export default function Home({ onNavigate }) {
       </section>
 
       {/* The Suprada Rhythm Timeline */}
-      <section ref={timelineRef} className="timeline-section dot-grid" style={{ backgroundColor: 'var(--isabelline)', overflow: 'hidden', position: 'relative' }}>
+      <section id="rhythm-schedule" ref={timelineRef} className="timeline-section dot-grid" style={{ backgroundColor: 'var(--isabelline)', overflow: 'hidden', position: 'relative' }}>
         <TwinklingLights />
         <Pattern28 style={{ position: 'absolute', top: 0, left: 0, width: '250px', color: 'var(--wine)', opacity: 0.1, pointerEvents: 'none', zIndex: 1 }} />
         <Pattern25 style={{ position: 'absolute', bottom: 0, right: 0, width: '250px', color: 'var(--wine)', opacity: 0.1, pointerEvents: 'none', zIndex: 1 }} />
@@ -2507,7 +2507,7 @@ export default function Home({ onNavigate }) {
       </section>
 
       {/* Section 1: Signature Programmes */}
-      <section style={{ backgroundColor: 'var(--antique-white)', color: 'var(--wine)', padding: '2.8rem 5%', minHeight: '440px', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
+      <section id="signature-programmes" style={{ backgroundColor: 'var(--antique-white)', color: 'var(--wine)', padding: '2.8rem 5%', minHeight: '440px', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
         <Pattern28 style={{ position: 'absolute', top: 0, left: 0, width: '280px', color: 'var(--wine)', opacity: 0.06, pointerEvents: 'none' }} />
         <div style={{ maxWidth: '1280px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           
@@ -2612,7 +2612,7 @@ export default function Home({ onNavigate }) {
       </section>
 
       {/* Section 2: Comprehensive Care (Naturopathy-Style 12 Card Grid Layout) */}
-      <section className="naturopathy-section-container luxury-clay" style={{ position: 'relative', overflow: 'hidden', padding: isMobile ? '3rem 5%' : '3.5rem 6%', backgroundColor: 'var(--sage)' }}>
+      <section id="clinical-spectrum-home" className="naturopathy-section-container luxury-clay" style={{ position: 'relative', overflow: 'hidden', padding: isMobile ? '3rem 5%' : '3.5rem 6%', backgroundColor: 'var(--sage)' }}>
         <Pattern28 style={{ position: 'absolute', top: '-40px', left: '-40px', width: '220px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
         <Pattern25 style={{ position: 'absolute', bottom: '-40px', right: '-40px', width: '220px', color: 'var(--wine)', opacity: 0.08, pointerEvents: 'none', zIndex: 1 }} />
         
@@ -2852,7 +2852,7 @@ export default function Home({ onNavigate }) {
       </section>
 
       {/* Section 5: Discover Your Wellness Path (3-Tab Interactive Diagnostic Quiz - Fit to Screen) */}
-      <section style={{ 
+      <section id="wellness-quiz-section" style={{ 
         backgroundColor: 'var(--antique-white)', 
         minHeight: '100vh',
         boxSizing: 'border-box',
@@ -2868,7 +2868,7 @@ export default function Home({ onNavigate }) {
       </section>
 
       {/* Section 7: Begin Your Healing Journey */}
-      <section style={{ backgroundColor: 'var(--tan)', color: 'var(--wine)', padding: '3.8rem 5%', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+      <section id="transformation-gateway" style={{ backgroundColor: 'var(--tan)', color: 'var(--wine)', padding: '3.8rem 5%', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', maxWidth: '600px', width: '100%', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(184,86,69,0.15) 0%, transparent 70%)', pointerEvents: 'none' }} />
         
         <div style={{ position: 'relative', zIndex: 10, maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center' }}>

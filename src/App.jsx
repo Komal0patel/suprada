@@ -152,6 +152,36 @@ const searchIndex = [
 
   // ================= SECTIONS =================
   { 
+    type: 'section', title: "The Suprada Rhythm (15-Step Daily Schedule)", sectionName: "The Suprada Rhythm", pageName: "Home", path: "home#rhythm-schedule", 
+    desc: "Nature-led daily Dinacharya schedule from 5:30 AM Brahma Muhurta to 9:30 PM sleep",
+    keywords: ["rhythm", "suprada rhythm", "daily rhythm", "schedule", "daily schedule", "dinacharya", "circadian rhythm", "15 step", "brahma muhurta", "sunrise yoga", "gograsa", "mud pack", "nature immersion"]
+  },
+  { 
+    type: 'section', title: "Signature Wellness Programmes", sectionName: "Signature Programmes", pageName: "Home", path: "home#signature-programmes", 
+    desc: "Personalized retreat packages ranging from 2-day weekend reset to 21-day chronic disease recovery",
+    keywords: ["signature programmes", "signature wellness", "healing programmes", "retreats list", "programmes section", "weekend reset", "renewal", "recovery"]
+  },
+  { 
+    type: 'section', title: "Targeted Clinical Spectrum & Interventions", sectionName: "Clinical Spectrum", pageName: "Home", path: "home#clinical-spectrum-home", 
+    desc: "Doctor-supervised protocols for detoxification, diabetes, neurological & liver health",
+    keywords: ["clinical spectrum", "clinical interventions", "targeted clinical", "detoxification", "diabetes management", "neurological disorders", "liver health"]
+  },
+  { 
+    type: 'section', title: "Guided by Founders & Medical Visionaries", sectionName: "Founders & Leadership", pageName: "Home", path: "home#founders-section", 
+    desc: "Meet Late Mrs. Renuka Nagaraju, Acharya Dr. M. Nagaraju, Sunil Jayaraj & Dr. Prema Ramadas, MD",
+    keywords: ["guided by founders", "medical visionaries", "founders section", "leadership authority", "renuka", "sunil", "prema", "nagaraju"]
+  },
+  { 
+    type: 'section', title: "Discover Your Wellness Path (Health Diagnostic Quiz)", sectionName: "Wellness Quiz", pageName: "Home", path: "home#wellness-quiz-section", 
+    desc: "Interactive 3-tab wellness assessment quiz to customize your retreat journey",
+    keywords: ["wellness quiz", "discover path", "health quiz", "diagnostic quiz", "assessment quiz", "dosha test", "quiz"]
+  },
+  { 
+    type: 'section', title: "The Sacred Wellness Gateway & Stay Reservation", sectionName: "Wellness Gateway", pageName: "Home", path: "home#transformation-gateway", 
+    desc: "Reserve your stay and schedule medical consultations by Suvarnamukhi river",
+    keywords: ["wellness gateway", "transformation", "reserve stay", "schedule medical consultation", "gateway", "booking"]
+  },
+  { 
     type: 'section', title: "The Sanctum Zones (The Spaces That Shape the Journey)", sectionName: "The Sanctum Zones", pageName: "Spaces", path: "spaces#sanctum-zones", 
     desc: "Architectural structures built for reception, therapies, dining & yoga",
     keywords: ["sanctum", "sanctum zones", "journey", "spaces that shape the journey", "reception", "therapies", "dining", "yoga", "sacred spaces"]
@@ -960,7 +990,7 @@ function App() {
                             ✦ QUICK SEARCH SUGGESTIONS
                           </span>
                           <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                            {['Sanctum Zones', 'Suyoga Block', 'Sankalpa', 'Packages', 'Naturopathy', 'Iris Diagnosis', 'Current Openings', 'Ayurvedic Meals'].map((keyword) => (
+                            {['Suprada Rhythm', 'Founders & Leadership', 'Sanctum Zones', 'Retreat Packages', 'Iris Diagnosis', 'Current Openings', 'Clinical Spectrum', 'Suyoga Block'].map((keyword) => (
                               <button
                                 key={keyword}
                                 onClick={() => setSearchQuery(keyword)}

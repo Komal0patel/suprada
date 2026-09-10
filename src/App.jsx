@@ -985,30 +985,97 @@ function App() {
                   {(() => {
                     if (!searchQuery.trim()) {
                       return (
-                        <div style={{ padding: '1.2rem 1rem', color: 'rgba(40, 38, 37, 0.65)' }}>
-                          <span style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.14em', fontWeight: 800, color: 'var(--wine)', display: 'block', marginBottom: '0.8rem' }}>
-                            ✦ QUICK SEARCH SUGGESTIONS
-                          </span>
-                          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                            {['Suprada Rhythm', 'Founders & Leadership', 'Sanctum Zones', 'Retreat Packages', 'Iris Diagnosis', 'Current Openings', 'Clinical Spectrum', 'Suyoga Block'].map((keyword) => (
-                              <button
-                                key={keyword}
-                                onClick={() => setSearchQuery(keyword)}
-                                style={{
-                                  padding: '0.45rem 0.85rem',
-                                  borderRadius: '20px',
-                                  border: '1.5px solid rgba(94, 39, 53, 0.18)',
-                                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                                  color: 'var(--wine)',
-                                  fontSize: '0.78rem',
-                                  fontWeight: 700,
-                                  cursor: 'pointer',
-                                  transition: 'all 0.2s ease'
-                                }}
-                              >
-                                {keyword}
-                              </button>
-                            ))}
+                        <div style={{ padding: '1rem 0.8rem', display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+                          <div>
+                            <span style={{ fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.14em', fontWeight: 800, color: 'var(--wine)', display: 'block', marginBottom: '0.5rem' }}>
+                              📌 POPULAR SECTIONS TO EXPLORE
+                            </span>
+                            <div style={{ display: 'flex', gap: '0.45rem', flexWrap: 'wrap' }}>
+                              {[
+                                { label: 'Suprada Rhythm', query: 'Suprada Rhythm' },
+                                { label: 'Founders & Leadership', query: 'Founders & Leadership' },
+                                { label: 'Sanctum Zones', query: 'Sanctum Zones' },
+                                { label: 'Clinical Spectrum', query: 'Clinical Spectrum' },
+                                { label: 'Current Openings', query: 'Current Openings' }
+                              ].map(item => (
+                                <button
+                                  key={item.label}
+                                  onClick={() => setSearchQuery(item.query)}
+                                  style={{
+                                    padding: '0.4rem 0.8rem',
+                                    borderRadius: '20px',
+                                    border: '1.5px solid rgba(94, 39, 53, 0.2)',
+                                    backgroundColor: 'rgba(94, 39, 53, 0.06)',
+                                    color: 'var(--wine)',
+                                    fontSize: '0.76rem',
+                                    fontWeight: 700,
+                                    cursor: 'pointer',
+                                    transition: 'all 0.2s ease'
+                                  }}
+                                >
+                                  📌 {item.label}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+
+                          <div>
+                            <span style={{ fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.14em', fontWeight: 800, color: 'var(--redwood)', display: 'block', marginBottom: '0.5rem' }}>
+                              🂠 FEATURED CARDS & SANCTUARIES
+                            </span>
+                            <div style={{ display: 'flex', gap: '0.45rem', flexWrap: 'wrap' }}>
+                              {[
+                                { label: 'Sankalpa', query: 'Sankalpa' },
+                                { label: 'Suyoga Block', query: 'Suyoga Block' },
+                                { label: 'Iris Diagnosis', query: 'Iris Diagnosis' },
+                                { label: 'Weekend Reset', query: 'Weekend Reset' },
+                                { label: 'Saparya (Goshala)', query: 'Goshala' }
+                              ].map(item => (
+                                <button
+                                  key={item.label}
+                                  onClick={() => setSearchQuery(item.query)}
+                                  style={{
+                                    padding: '0.4rem 0.8rem',
+                                    borderRadius: '20px',
+                                    border: '1.5px solid rgba(184, 94, 76, 0.2)',
+                                    backgroundColor: '#ffffff',
+                                    color: 'var(--wine)',
+                                    fontSize: '0.76rem',
+                                    fontWeight: 700,
+                                    cursor: 'pointer',
+                                    transition: 'all 0.2s ease'
+                                  }}
+                                >
+                                  🂠 {item.label}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+
+                          <div>
+                            <span style={{ fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.14em', fontWeight: 800, color: 'var(--raisin-black)', opacity: 0.7, display: 'block', marginBottom: '0.5rem' }}>
+                              📄 QUICK PAGE LINKS
+                            </span>
+                            <div style={{ display: 'flex', gap: '0.45rem', flexWrap: 'wrap' }}>
+                              {['Spaces', 'Programmes', 'Naturopathy', 'Stay', 'About Us', 'Careers'].map(pName => (
+                                <button
+                                  key={pName}
+                                  onClick={() => setSearchQuery(pName)}
+                                  style={{
+                                    padding: '0.4rem 0.8rem',
+                                    borderRadius: '20px',
+                                    border: '1px solid rgba(40, 38, 37, 0.15)',
+                                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                                    color: 'var(--raisin-black)',
+                                    fontSize: '0.76rem',
+                                    fontWeight: 600,
+                                    cursor: 'pointer'
+                                  }}
+                                >
+                                  📄 {pName}
+                                </button>
+                              ))}
+                            </div>
                           </div>
                         </div>
                       );
@@ -1032,7 +1099,6 @@ function App() {
                       const rawBlob = searchableParts.join(' ');
                       const cleanBlob = rawBlob.replace(/[^a-z0-9]/g, ' ');
 
-                      // Returns true if EVERY token typed by user matches somewhere in raw or normalized searchable text
                       return rawTokens.every((rawToken, idx) => {
                         const cleanToken = cleanTokens[idx];
                         return (
@@ -1047,82 +1113,227 @@ function App() {
                         <div style={{ textAlign: 'center', padding: '3rem 1rem', color: 'rgba(40, 38, 37, 0.65)' }}>
                           <p style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--wine)', margin: 0 }}>No matches found for "{searchQuery}"</p>
                           <p style={{ fontSize: '0.82rem', opacity: 0.8, marginTop: '0.4rem', lineHeight: 1.5 }}>
-                            Try searching for a page (e.g. <em>Spaces</em>), a section (e.g. <em>Sanctum Zones</em>), or a card name (e.g. <em>Suyoga Block</em>, <em>Sankalpa</em>, <em>Iris Diagnosis</em>).
+                            Try searching for a section (e.g. <em>Sanctum Zones</em>), card (e.g. <em>Suyoga Block</em>, <em>Sankalpa</em>, <em>Renuka</em>), or page.
                           </p>
                         </div>
                       );
                     }
 
-                    return filtered.map((item, idx) => {
-                      const isCard = item.type === 'card';
-                      const isSection = item.type === 'section';
+                    // Split into distinct groups
+                    const sectionResults = filtered.filter(item => item.type === 'section');
+                    const cardResults = filtered.filter(item => item.type === 'card');
+                    const pageResults = filtered.filter(item => item.type === 'page');
 
-                      return (
-                        <div
-                          key={idx}
-                          onClick={() => {
-                            handlePageChange(item.path);
-                            setIsSearchOpen(false);
-                            setSearchQuery('');
-                          }}
-                          className="search-result-item"
-                          style={{
-                            padding: '1rem 1.25rem',
-                            borderRadius: '16px',
-                            marginBottom: '0.65rem',
-                            cursor: 'pointer',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'space-between',
-                            backgroundColor: '#ffffff',
-                            border: '1.5px solid rgba(94, 39, 53, 0.08)',
-                            transition: 'all 0.25s ease'
-                          }}
-                        >
-                          <div style={{ paddingRight: '1rem' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem', flexWrap: 'wrap' }}>
-                              <span style={{
-                                fontSize: '0.65rem',
-                                color: isCard ? '#ffffff' : isSection ? 'var(--wine)' : 'var(--redwood)',
-                                backgroundColor: isCard ? 'var(--wine)' : isSection ? 'rgba(94, 39, 53, 0.12)' : 'rgba(184, 94, 76, 0.12)',
-                                padding: '0.2rem 0.6rem',
-                                borderRadius: '12px',
-                                textTransform: 'uppercase',
-                                letterSpacing: '0.08em',
-                                fontWeight: 800
-                              }}>
-                                {isCard ? '🂠 Card Result' : isSection ? '📌 Section Suggestion' : '📄 Page'}
+                    // Deduce matching parent section suggestions from cards if sectionResults is empty
+                    const deducedSectionSuggestions = [];
+                    if (sectionResults.length === 0 && cardResults.length > 0) {
+                      const sectionNamesSeen = new Set();
+                      cardResults.forEach(card => {
+                        if (card.sectionName && !sectionNamesSeen.has(card.sectionName)) {
+                          sectionNamesSeen.add(card.sectionName);
+                          const matchedSec = searchIndex.find(s => s.type === 'section' && (s.sectionName === card.sectionName || s.title.includes(card.sectionName)));
+                          if (matchedSec) {
+                            deducedSectionSuggestions.push(matchedSec);
+                          } else {
+                            deducedSectionSuggestions.push({
+                              type: 'section',
+                              title: card.sectionName,
+                              sectionName: card.sectionName,
+                              pageName: card.pageName,
+                              path: card.path,
+                              desc: `Suggested section containing ${card.cardName || 'this feature'} in ${card.pageName}`
+                            });
+                          }
+                        }
+                      });
+                    }
+
+                    const allSectionsToDisplay = [...sectionResults, ...deducedSectionSuggestions];
+
+                    return (
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+                        
+                        {/* CATEGORY 1: SECTION SUGGESTIONS */}
+                        {allSectionsToDisplay.length > 0 && (
+                          <div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.6rem', paddingLeft: '0.2rem' }}>
+                              <span style={{ fontSize: '0.7rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--wine)', backgroundColor: 'rgba(234, 169, 54, 0.25)', padding: '0.25rem 0.75rem', borderRadius: '12px', border: '1px solid rgba(234, 169, 54, 0.5)' }}>
+                                📌 SECTION SUGGESTIONS ({allSectionsToDisplay.length})
                               </span>
-
-                              {isCard && item.sectionName && (
-                                <span style={{ fontSize: '0.72rem', color: 'var(--redwood)', fontWeight: 700 }}>
-                                  Belongs to section: <strong style={{ color: 'var(--wine)' }}>{item.sectionName}</strong> ({item.pageName} Page)
-                                </span>
-                              )}
-
-                              {isSection && item.pageName && (
-                                <span style={{ fontSize: '0.72rem', color: 'var(--redwood)', fontWeight: 700 }}>
-                                  Section in <strong style={{ color: 'var(--wine)' }}>{item.pageName} Page</strong>
-                                </span>
-                              )}
+                              <span style={{ fontSize: '0.74rem', color: 'rgba(40, 38, 37, 0.65)', fontWeight: 500 }}>
+                                Click to jump directly to this section
+                              </span>
                             </div>
 
-                            <h4 style={{ color: 'var(--wine)', fontSize: '1.08rem', margin: 0, fontWeight: 700, fontFamily: 'var(--font-heading)' }}>
-                              {item.title}
-                            </h4>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                              {allSectionsToDisplay.map((item, idx) => (
+                                <div
+                                  key={`sec-${idx}`}
+                                  onClick={() => {
+                                    handlePageChange(item.path);
+                                    setIsSearchOpen(false);
+                                    setSearchQuery('');
+                                  }}
+                                  style={{
+                                    padding: '1rem 1.25rem',
+                                    borderRadius: '16px',
+                                    cursor: 'pointer',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'space-between',
+                                    backgroundColor: '#FFFDF9',
+                                    border: '2px solid var(--harvest-gold)',
+                                    boxShadow: '0 4px 15px rgba(94, 39, 53, 0.08)',
+                                    transition: 'all 0.25s ease'
+                                  }}
+                                >
+                                  <div style={{ paddingRight: '1rem' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.3rem', flexWrap: 'wrap' }}>
+                                      <span style={{ fontSize: '0.68rem', backgroundColor: 'var(--wine)', color: 'var(--harvest-gold)', fontWeight: 800, padding: '0.2rem 0.6rem', borderRadius: '10px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                                        📌 Section Suggestion
+                                      </span>
+                                      {item.pageName && (
+                                        <span style={{ fontSize: '0.74rem', color: 'var(--redwood)', fontWeight: 700 }}>
+                                          Located in: <strong style={{ color: 'var(--wine)' }}>{item.pageName} Page</strong>
+                                        </span>
+                                      )}
+                                    </div>
 
-                            <p style={{ color: 'rgba(40, 38, 37, 0.78)', fontSize: '0.84rem', margin: '0.3rem 0 0 0', lineHeight: 1.45 }}>
-                              {item.desc}
-                            </p>
-                          </div>
+                                    <h4 style={{ color: 'var(--wine)', fontSize: '1.1rem', margin: 0, fontWeight: 700, fontFamily: 'var(--font-heading)' }}>
+                                      {item.title}
+                                    </h4>
+                                    <p style={{ color: 'rgba(40, 38, 37, 0.8)', fontSize: '0.84rem', margin: '0.25rem 0 0 0', lineHeight: 1.45 }}>
+                                      {item.desc}
+                                    </p>
+                                  </div>
 
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', color: 'var(--wine)', flexShrink: 0, fontSize: '0.78rem', fontWeight: 800 }}>
-                            <span>Open</span>
-                            <ChevronRight size={18} />
+                                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', color: 'var(--wine)', flexShrink: 0, fontSize: '0.78rem', fontWeight: 800, backgroundColor: 'rgba(234, 169, 54, 0.2)', padding: '0.4rem 0.85rem', borderRadius: '20px', border: '1px solid rgba(234, 169, 54, 0.5)' }}>
+                                    <span>Open Section</span>
+                                    <ChevronRight size={16} />
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
                           </div>
-                        </div>
-                      );
-                    });
+                        )}
+
+                        {/* CATEGORY 2: CARDS & SPECIFIC FEATURES */}
+                        {cardResults.length > 0 && (
+                          <div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.6rem', paddingLeft: '0.2rem' }}>
+                              <span style={{ fontSize: '0.7rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--wine)', backgroundColor: 'rgba(94, 39, 53, 0.08)', padding: '0.25rem 0.75rem', borderRadius: '12px' }}>
+                                🂠 CARDS & SPECIFIC FEATURES ({cardResults.length})
+                              </span>
+                            </div>
+
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                              {cardResults.map((item, idx) => (
+                                <div
+                                  key={`card-${idx}`}
+                                  onClick={() => {
+                                    handlePageChange(item.path);
+                                    setIsSearchOpen(false);
+                                    setSearchQuery('');
+                                  }}
+                                  style={{
+                                    padding: '0.9rem 1.2rem',
+                                    borderRadius: '14px',
+                                    cursor: 'pointer',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'space-between',
+                                    backgroundColor: '#ffffff',
+                                    border: '1.5px solid rgba(94, 39, 53, 0.1)',
+                                    transition: 'all 0.25s ease'
+                                  }}
+                                >
+                                  <div style={{ paddingRight: '1rem' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem', flexWrap: 'wrap' }}>
+                                      <span style={{ fontSize: '0.65rem', backgroundColor: 'var(--wine)', color: '#ffffff', fontWeight: 800, padding: '0.18rem 0.55rem', borderRadius: '10px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                                        🂠 Card Result
+                                      </span>
+                                      {item.sectionName && (
+                                        <span style={{ fontSize: '0.72rem', color: 'var(--redwood)', fontWeight: 700 }}>
+                                          Belongs to section: <strong style={{ color: 'var(--wine)' }}>{item.sectionName}</strong> ({item.pageName} Page)
+                                        </span>
+                                      )}
+                                    </div>
+
+                                    <h4 style={{ color: 'var(--wine)', fontSize: '1.02rem', margin: 0, fontWeight: 700, fontFamily: 'var(--font-heading)' }}>
+                                      {item.title}
+                                    </h4>
+                                    <p style={{ color: 'rgba(40, 38, 37, 0.76)', fontSize: '0.82rem', margin: '0.2rem 0 0 0', lineHeight: 1.4 }}>
+                                      {item.desc}
+                                    </p>
+                                  </div>
+
+                                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.2rem', color: 'var(--wine)', flexShrink: 0, fontSize: '0.75rem', fontWeight: 700 }}>
+                                    <span>Open</span>
+                                    <ChevronRight size={16} />
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* CATEGORY 3: MATCHING PAGES */}
+                        {pageResults.length > 0 && (
+                          <div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.6rem', paddingLeft: '0.2rem' }}>
+                              <span style={{ fontSize: '0.7rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--raisin-black)', opacity: 0.7, backgroundColor: 'rgba(40, 38, 37, 0.06)', padding: '0.25rem 0.75rem', borderRadius: '12px' }}>
+                                📄 PAGES ({pageResults.length})
+                              </span>
+                            </div>
+
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                              {pageResults.map((item, idx) => (
+                                <div
+                                  key={`page-${idx}`}
+                                  onClick={() => {
+                                    handlePageChange(item.path);
+                                    setIsSearchOpen(false);
+                                    setSearchQuery('');
+                                  }}
+                                  style={{
+                                    padding: '0.85rem 1.15rem',
+                                    borderRadius: '14px',
+                                    cursor: 'pointer',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'space-between',
+                                    backgroundColor: '#ffffff',
+                                    border: '1.5px solid rgba(40, 38, 37, 0.08)',
+                                    transition: 'all 0.25s ease'
+                                  }}
+                                >
+                                  <div style={{ paddingRight: '1rem' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.2rem' }}>
+                                      <span style={{ fontSize: '0.64rem', backgroundColor: 'rgba(184, 94, 76, 0.12)', color: 'var(--redwood)', fontWeight: 800, padding: '0.18rem 0.5rem', borderRadius: '10px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                                        📄 Page
+                                      </span>
+                                    </div>
+
+                                    <h4 style={{ color: 'var(--wine)', fontSize: '1rem', margin: 0, fontWeight: 700, fontFamily: 'var(--font-heading)' }}>
+                                      {item.title}
+                                    </h4>
+                                    <p style={{ color: 'rgba(40, 38, 37, 0.75)', fontSize: '0.81rem', margin: '0.2rem 0 0 0', lineHeight: 1.4 }}>
+                                      {item.desc}
+                                    </p>
+                                  </div>
+
+                                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.2rem', color: 'var(--wine)', flexShrink: 0, fontSize: '0.75rem', fontWeight: 700 }}>
+                                    <span>Go to Page</span>
+                                    <ChevronRight size={16} />
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                      </div>
+                    );
                   })()}
                 </div>
               </motion.div>

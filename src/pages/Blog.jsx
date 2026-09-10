@@ -143,7 +143,7 @@ function BlogCard({ art, colors, imageUrl, onSelect }) {
         flexDirection: 'column',
         cursor: 'pointer',
         position: 'relative',
-        height: '420px',
+        height: '100%',
         transition: 'border 0.35s ease, box-shadow 0.35s ease'
       }}
     >
@@ -645,20 +645,12 @@ export default function Blog({ onNavigate }) {
                 }
                 @media (max-width: 639px) {
                   .grid-4-laptop {
-                    grid-template-columns: repeat(2, 1fr) !important;
-                    gap: 0.85rem !important;
-                  }
-                  .grid-4-laptop > div {
-                    padding: 0.85rem !important;
-                    border-radius: 14px !important;
-                  }
-                  .grid-4-laptop img {
-                    height: 125px !important;
-                    border-radius: 10px !important;
+                    grid-template-columns: repeat(1, 1fr) !important;
+                    gap: 1.2rem !important;
                   }
                   .grid-4-laptop h3 {
-                    font-size: 0.95rem !important;
-                    line-height: 1.3 !important;
+                    font-size: 1.05rem !important;
+                    line-height: 1.35 !important;
                   }
                 }
               `}} />

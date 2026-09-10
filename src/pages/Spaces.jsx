@@ -653,7 +653,7 @@ export default function Spaces({ onNavigate }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.35 }}
-              className="sanctum-zones-grid grid-responsive-2"
+              className="sanctum-zones-grid"
             >
               {spacesCategories[activeCategory].items.map((item, idx) => (
                 <div 

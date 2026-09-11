@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Pattern24, Pattern25, Pattern27 } from '../AnimatedPatterns';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Custom interactive 3D Mouse Tilt Card Wrapper
 function TiltCard({ children, onClick, style, ...props }) {
@@ -72,7 +71,6 @@ const getDescriptionForTitle = (title) => {
 
 export default function Gallery({ onNavigate }) {
   const [activeTab, setActiveTab] = useState('All');
-  const [selectedIdx, setSelectedIdx] = useState(null);
   const [width, setWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
 
   useEffect(() => {
@@ -222,31 +220,6 @@ export default function Gallery({ onNavigate }) {
     }
     masonryColumns[colIdx].push({ ...item, filteredIdx: idx });
   });
-
-  const handlePrev = (e) => {
-    e?.stopPropagation();
-    if (selectedIdx > 0) setSelectedIdx(selectedIdx - 1);
-  };
-
-  const handleNext = (e) => {
-    e?.stopPropagation();
-    if (selectedIdx < filteredItems.length - 1) setSelectedIdx(selectedIdx + 1);
-  };
-
-  useEffect(() => {
-    setSelectedIdx(null);
-  }, [activeTab]);
-
-  useEffect(() => {
-    if (selectedIdx === null) return;
-    const handleKeyDown = (e) => {
-      if (e.key === 'ArrowRight') handleNext();
-      if (e.key === 'ArrowLeft') handlePrev();
-      if (e.key === 'Escape') setSelectedIdx(null);
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedIdx, filteredItems.length]);
 
   return (
     <div style={{ backgroundColor: 'var(--isabelline)', minHeight: '100vh', position: 'relative', overflowX: 'hidden' }}>
@@ -444,8 +417,7 @@ export default function Gallery({ onNavigate }) {
               {colItems.map((item) => (
                 <TiltCard
                   key={item.id}
-                  onClick={() => setSelectedIdx(item.filteredIdx)}
-                  style={{ cursor: 'pointer', width: '100%' }}
+                  style={{ cursor: 'default', width: '100%' }}
                 >
                   <div style={{
                     position: 'relative',
@@ -529,162 +501,6 @@ export default function Gallery({ onNavigate }) {
           Schedule a Private Visit
         </button>
       </section>
-
-      {/* Lightbox Modal Overlay */}
-      <AnimatePresence>
-        {selectedIdx !== null && filteredItems[selectedIdx] && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedIdx(null)}
-            style={{
-              position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
-              backgroundColor: 'rgba(15, 13, 14, 0.95)', zIndex: 10000,
-              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-              padding: '1.5rem', backdropFilter: 'blur(12px)'
-            }}
-          >
-            <motion.div
-              initial={{ scale: 0.93, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.93, opacity: 0 }}
-              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-              onClick={(e) => e.stopPropagation()}
-              style={{
-                backgroundColor: '#ffffff', borderRadius: '20px', overflow: 'hidden',
-                maxWidth: '960px', width: '100%', boxShadow: '0 35px 80px rgba(0,0,0,0.6)',
-                border: '1.5px solid rgba(220,160,50,0.3)', position: 'relative'
-              }}
-            >
-              {/* Photo Viewer Frame */}
-              <div style={{ height: width < 768 ? '320px' : '480px', overflow: 'hidden', backgroundColor: '#0a0909', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                
-                {/* Counter Badge */}
-                <div style={{
-                  position: 'absolute',
-                  top: '1.2rem',
-                  right: '1.2rem',
-                  backgroundColor: 'rgba(25, 23, 24, 0.75)',
-                  backdropFilter: 'blur(8px)',
-                  border: '1.5px solid rgba(220, 160, 50, 0.3)',
-                  padding: '0.4rem 0.9rem',
-                  borderRadius: '30px',
-                  color: 'var(--harvest-gold)',
-                  fontSize: '0.78rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.08em',
-                  pointerEvents: 'none',
-                  zIndex: 10
-                }}>
-                  {selectedIdx + 1} / {filteredItems.length}
-                </div>
-
-                <AnimatePresence mode="wait">
-                  <motion.img
-                    key={selectedIdx}
-                    src={filteredItems[selectedIdx].img}
-                    alt={filteredItems[selectedIdx].title}
-                    initial={{ opacity: 0, scale: 1.08 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.96 }}
-                    transition={{ duration: 0.45 }}
-                    style={{ width: '100%', height: '100%', objectFit: 'contain' }}
-                  />
-                </AnimatePresence>
-
-                {/* Left Arrow Button */}
-                {selectedIdx > 0 && (
-                  <button
-                    onClick={handlePrev}
-                    style={{
-                      position: 'absolute', left: '1.2rem', top: '50%', transform: 'translateY(-50%)',
-                      backgroundColor: 'rgba(25, 23, 24, 0.7)', backdropFilter: 'blur(8px)',
-                      border: '1px solid rgba(255,255,255,0.2)', color: '#ffffff',
-                      width: '44px', height: '44px', borderRadius: '50%', cursor: 'pointer',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      transition: 'all 0.25s'
-                    }}
-                  >
-                    <ChevronLeft size={22} />
-                  </button>
-                )}
-
-                {/* Right Arrow Button */}
-                {selectedIdx < filteredItems.length - 1 && (
-                  <button
-                    onClick={handleNext}
-                    style={{
-                      position: 'absolute', right: '1.2rem', top: '50%', transform: 'translateY(-50%)',
-                      backgroundColor: 'rgba(25, 23, 24, 0.7)', backdropFilter: 'blur(8px)',
-                      border: '1px solid rgba(255,255,255,0.2)', color: '#ffffff',
-                      width: '44px', height: '44px', borderRadius: '50%', cursor: 'pointer',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      transition: 'all 0.25s'
-                    }}
-                  >
-                    <ChevronRight size={22} />
-                  </button>
-                )}
-              </div>
-
-              {/* Bottom Caption & Details Bar */}
-              <div style={{ padding: '1.8rem 2.2rem 1.4rem 2.2rem', backgroundColor: '#ffffff' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.8rem' }}>
-                  <div>
-                    <span style={{ fontSize: '0.68rem', color: 'var(--redwood)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '0.3rem' }}>
-                      {filteredItems[selectedIdx].cat}
-                    </span>
-                    <h3 style={{ color: 'var(--wine)', margin: 0, fontFamily: 'serif', fontSize: '1.35rem', fontWeight: 700 }}>
-                      {filteredItems[selectedIdx].title}
-                    </h3>
-                  </div>
-                  
-                  <button
-                    onClick={() => setSelectedIdx(null)}
-                    style={{
-                      border: 'none', background: 'var(--wine)', color: '#ffffff',
-                      width: '38px', height: '38px', borderRadius: '50%', cursor: 'pointer',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      flexShrink: 0, transition: 'all 0.2s'
-                    }}
-                  >
-                    <X size={18} />
-                  </button>
-                </div>
-
-                <p style={{ fontSize: '0.92rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.7, margin: '0 0 1.4rem 0', fontWeight: 300 }}>
-                  {getDescriptionForTitle(filteredItems[selectedIdx].title)}
-                </p>
-
-                {/* Bottom Lightbox Thumbnail Strip */}
-                <div style={{ display: 'flex', gap: '0.6rem', overflowX: 'auto', paddingTop: '0.5rem', borderTop: '1px solid rgba(94, 39, 53, 0.08)' }}>
-                  {filteredItems.map((item, thumbIdx) => (
-                    <div
-                      key={item.id}
-                      onClick={() => setSelectedIdx(thumbIdx)}
-                      style={{
-                        width: '56px',
-                        height: '42px',
-                        borderRadius: '8px',
-                        overflow: 'hidden',
-                        cursor: 'pointer',
-                        flexShrink: 0,
-                        border: selectedIdx === thumbIdx ? '2.5px solid var(--wine)' : '2px solid transparent',
-                        outline: selectedIdx === thumbIdx ? '2px solid var(--harvest-gold)' : 'none',
-                        opacity: selectedIdx === thumbIdx ? 1 : 0.5,
-                        transition: 'all 0.2s'
-                      }}
-                    >
-                      <img src={item.img} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
     </div>
   );

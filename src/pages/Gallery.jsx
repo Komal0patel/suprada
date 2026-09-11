@@ -250,11 +250,12 @@ export default function Gallery({ onNavigate }) {
       <Pattern24 style={{ position: 'absolute', top: '18%', left: '-80px', width: '320px', height: 'auto', opacity: 0.07, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
       <Pattern25 style={{ position: 'absolute', top: '55%', right: '-80px', width: '320px', height: 'auto', opacity: 0.07, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
 
-      {/* Hero Section */}
+      {/* Unified Typewriter Hero Section */}
       <section
+        className="mobile-hero-compact"
         style={{
           boxSizing: 'border-box',
-          padding: '6rem 8% 3.5rem 8%',
+          padding: '6rem 8% 3rem 8%',
           background: 'linear-gradient(135deg, #c5cc9f 0%, #b3ba8e 60%, #9ea776 100%)',
           color: 'var(--wine)',
           textAlign: 'center',
@@ -264,20 +265,27 @@ export default function Gallery({ onNavigate }) {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          minHeight: '45vh'
+          minHeight: '100vh',
+          marginBottom: '0'
         }}
       >
-        <Pattern24 style={{ position: 'absolute', top: '-20px', left: '-40px', width: '280px', opacity: 0.12, color: 'var(--wine)', pointerEvents: 'none' }} />
-        <Pattern25 style={{ position: 'absolute', bottom: '-20px', right: '-40px', width: '280px', opacity: 0.12, color: 'var(--wine)', pointerEvents: 'none' }} />
+        {/* Leaf SVG Watermark Overlays */}
+        <Pattern24 className="pattern-side-left" style={{ position: 'absolute', top: '-20px', left: '-40px', width: '280px', opacity: 0.12, color: 'var(--wine)', pointerEvents: 'none' }} />
+        <Pattern25 className="pattern-side-right" style={{ position: 'absolute', bottom: '-20px', right: '-40px', width: '280px', opacity: 0.12, color: 'var(--wine)', pointerEvents: 'none' }} />
 
+        {/* Ambient Wine & Gold Bokeh Glow Effects */}
+        <div style={{ position: 'absolute', top: '-10%', left: '10%', maxWidth: '450px', width: '100%', height: '450px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(94,39,53,0.08) 0%, rgba(94,39,53,0) 70%)', filter: 'blur(70px)', zIndex: 0, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-15%', right: '10%', maxWidth: '500px', width: '100%', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.12) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(80px)', zIndex: 0, pointerEvents: 'none' }} />
+
+        {/* Background Rotating Mandala Watermark (Spaces Hero Animation) */}
         <motion.div
           animate={{ rotate: 360 }}
-          transition={{ duration: 100, repeat: Infinity, ease: 'linear' }}
+          transition={{ duration: 90, repeat: Infinity, ease: 'linear' }}
           style={{
             position: 'absolute',
             top: '50%', left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: 'clamp(320px, 75vw, 520px)', height: 'clamp(320px, 75vw, 520px)',
+            x: '-50%', y: '-50%',
+            width: 'clamp(340px, 80vw, 540px)', height: 'clamp(340px, 80vw, 540px)',
             opacity: 0.08,
             pointerEvents: 'none',
             zIndex: 0
@@ -286,31 +294,65 @@ export default function Gallery({ onNavigate }) {
           <Pattern27 style={{ width: '100%', height: '100%', color: 'var(--wine)' }} />
         </motion.div>
 
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: '820px', width: '100%', textAlign: 'center' }}>
+        {/* ── BOTANICAL BLOOM (FINAL CHOSEN ANIMATION) ── */}
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', width: '100%', textAlign: 'center', marginTop: '-2.5rem' }}>
+          {/* Official Suprada Emblem Logo */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
+            initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
-            style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}
+            transition={{ duration: 1.2, ease: 'easeOut' }}
+            style={{ marginBottom: '1.2rem', display: 'flex', justifyContent: 'center' }}
           >
             <img 
               src="/assets/extracted/logo.svg" 
-              alt="Suprada Official Emblem" 
-              style={{ height: '80px', width: 'auto', filter: 'drop-shadow(0 4px 12px rgba(94, 39, 53, 0.15))' }} 
+              alt="Suprada Official Emblem Logo" 
+              style={{ height: '85px', width: 'auto', filter: 'drop-shadow(0 4px 12px rgba(94, 39, 53, 0.15))' }} 
             />
           </motion.div>
 
-          <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.78rem', fontWeight: 800, display: 'block', marginBottom: '0.8rem' }}>
-            Authentic Visual Journal
+          <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.8rem', fontWeight: 800, display: 'block', marginBottom: '1.2rem' }}>
+            Moments
           </span>
-          
-          <h1 style={{ color: 'var(--wine)', margin: '0 0 1rem 0', fontSize: 'clamp(2.2rem, 5vw, 3.4rem)', fontFamily: 'serif', fontWeight: 700, lineHeight: 1.15 }}>
-            Photo Gallery & Moments
-          </h1>
-          
-          <p style={{ color: 'var(--raisin-black)', maxWidth: '680px', margin: '0 auto', fontSize: '1rem', lineHeight: 1.8, fontWeight: 300, opacity: 0.9 }}>
-            Immerse yourself in authentic captures of our riverfront sanctuary, therapeutic suites, mud-plastered heritage architecture, and organic farm meals.
-          </p>
+          <motion.h1
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.2 } }
+            }}
+            initial="hidden"
+            animate="visible"
+            style={{color: 'var(--wine)', 
+            margin: '0 0 0.9rem 0', 
+            lineHeight: 1.1, 
+            display: 'flex', 
+            justifyContent: 'center', 
+            gap: '0.7rem', 
+            flexWrap: 'wrap'}}
+          >
+            {["Our", "Gallery"].map((word, idx) => (
+              <motion.span
+                key={idx}
+                variants={{
+                  hidden: { scale: 0.4, rotate: -15, opacity: 0, filter: 'blur(8px)' },
+                  visible: { scale: [0.4, 1.05, 1], rotate: 0, opacity: 1, filter: 'blur(0px)', transition: { duration: 0.8, ease: 'easeOut' } }
+                }}
+                animate={{
+                  scale: [1, 1.015, 1],
+                  transition: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: idx * 0.5 + 1.2 }
+                }}
+                style={{ display: 'inline-block', transformOrigin: 'center bottom' }}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 0.85, scale: 1 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            style={{ color: 'var(--raisin-black)', maxWidth: '700px', margin: '1.8rem auto 0 auto', fontSize: 'var(--fs-body)', lineHeight: 1.85, fontWeight: 300 }}
+          >
+            Discover the serene beauty and transformative experiences that await you at Suprada Wellness. Explore our retreat spaces, therapeutic treatments, nutritious cuisine, and peaceful architecture.
+          </motion.p>
         </div>
       </section>
 

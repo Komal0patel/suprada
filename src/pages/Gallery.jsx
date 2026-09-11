@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Pattern24, Pattern25, Pattern27 } from '../AnimatedPatterns';
-import { X, LayoutGrid, Grid, Maximize2, ChevronLeft, ChevronRight, Eye, Sparkles } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Eye } from 'lucide-react';
 
 // Custom interactive 3D Mouse Tilt Card Wrapper
 function TiltCard({ children, onClick, style, ...props }) {
@@ -72,9 +72,7 @@ const getDescriptionForTitle = (title) => {
 
 export default function Gallery({ onNavigate }) {
   const [activeTab, setActiveTab] = useState('All');
-  const [viewLayout, setViewLayout] = useState('masonry'); // 'masonry' | 'bento' | 'spotlight'
   const [selectedIdx, setSelectedIdx] = useState(null);
-  const [spotlightIdx, setSpotlightIdx] = useState(0);
   const [width, setWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
 
   useEffect(() => {
@@ -92,7 +90,6 @@ export default function Gallery({ onNavigate }) {
       title: "Retreat – Riverfront Sanctuary & Forest Grounds",
       cat: "Retreat",
       img: "/assets/gallery/IMG_0583.JPEG",
-      bentoSpan: "col-span-1 md:col-span-2 row-span-2",
       height: 380,
       featured: true
     },
@@ -101,7 +98,6 @@ export default function Gallery({ onNavigate }) {
       title: "Architecture – Mud-Plastered Heritage Cottages",
       cat: "Architecture",
       img: "/assets/gallery/IMG_0584.JPEG",
-      bentoSpan: "col-span-1 row-span-1",
       height: 280
     },
     {
@@ -109,7 +105,6 @@ export default function Gallery({ onNavigate }) {
       title: "Architecture – Reclaimed Teak & Stone Architecture",
       cat: "Architecture",
       img: "/assets/gallery/IMG_0585.JPEG",
-      bentoSpan: "col-span-1 row-span-1",
       height: 320
     },
     {
@@ -117,7 +112,6 @@ export default function Gallery({ onNavigate }) {
       title: "Therapies – Holistic Ayurvedic Treatment Suite",
       cat: "Therapies",
       img: "/assets/gallery/IMG_0586.JPEG",
-      bentoSpan: "col-span-1 md:col-span-2 row-span-1",
       height: 340,
       featured: true
     },
@@ -126,7 +120,6 @@ export default function Gallery({ onNavigate }) {
       title: "Retreat – Panoramic River View & Sunset Pavilion",
       cat: "Retreat",
       img: "/assets/gallery/IMG_0587.JPEG",
-      bentoSpan: "col-span-1 row-span-1",
       height: 290
     },
     {
@@ -134,7 +127,6 @@ export default function Gallery({ onNavigate }) {
       title: "Architecture – Natural Light Interior Courtyard",
       cat: "Architecture",
       img: "/assets/gallery/IMG_0588.JPEG",
-      bentoSpan: "col-span-1 row-span-1",
       height: 310
     },
     {
@@ -142,7 +134,6 @@ export default function Gallery({ onNavigate }) {
       title: "Activities – Outdoor Community Dialogue & Gathering",
       cat: "Activities",
       img: "/assets/gallery/IMG_0589.JPEG",
-      bentoSpan: "col-span-1 row-span-1",
       height: 300
     },
     {
@@ -150,7 +141,6 @@ export default function Gallery({ onNavigate }) {
       title: "Therapies – Deep Rejuvenation Treatment Room",
       cat: "Therapies",
       img: "/assets/gallery/IMG_0590.JPEG",
-      bentoSpan: "col-span-1 row-span-1",
       height: 330
     },
     {
@@ -158,7 +148,6 @@ export default function Gallery({ onNavigate }) {
       title: "Nutrition – Organic Satwik Dining & Farm Produce",
       cat: "Nutrition",
       img: "/assets/gallery/IMG_0591.JPEG",
-      bentoSpan: "col-span-1 md:col-span-2 row-span-1",
       height: 350,
       featured: true
     },
@@ -167,7 +156,6 @@ export default function Gallery({ onNavigate }) {
       title: "Retreat – Scenic Landscape & Nature Immersion",
       cat: "Retreat",
       img: "/assets/gallery/IMG_0592.JPEG",
-      bentoSpan: "col-span-1 row-span-1",
       height: 300
     },
     {
@@ -175,7 +163,6 @@ export default function Gallery({ onNavigate }) {
       title: "Architecture – Sacred Geometric Central Courtyard",
       cat: "Architecture",
       img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM.jpeg",
-      bentoSpan: "col-span-1 md:col-span-2 row-span-2",
       height: 370,
       featured: true
     },
@@ -184,7 +171,6 @@ export default function Gallery({ onNavigate }) {
       title: "Activities – Morning Yoga & Asana Flow",
       cat: "Activities",
       img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM (1).jpeg",
-      bentoSpan: "col-span-1 row-span-1",
       height: 290
     },
     {
@@ -192,7 +178,6 @@ export default function Gallery({ onNavigate }) {
       title: "Therapies – Aqua Hydrotherapy & Cleansing Suite",
       cat: "Therapies",
       img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM (2).jpeg",
-      bentoSpan: "col-span-1 row-span-1",
       height: 310
     },
     {
@@ -200,7 +185,6 @@ export default function Gallery({ onNavigate }) {
       title: "Architecture – Deluxe Living Quarters & Balcony",
       cat: "Architecture",
       img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.48 AM.jpeg",
-      bentoSpan: "col-span-1 row-span-1",
       height: 280
     },
     {
@@ -208,7 +192,6 @@ export default function Gallery({ onNavigate }) {
       title: "Architecture – Private Cottage Exterior & Veranda",
       cat: "Architecture",
       img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.49 AM.jpeg",
-      bentoSpan: "col-span-1 row-span-1",
       height: 320
     },
     {
@@ -216,7 +199,6 @@ export default function Gallery({ onNavigate }) {
       title: "Retreat – Evening Ambient Rest & Sanctuary Dusk",
       cat: "Retreat",
       img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.50 AM.jpeg",
-      bentoSpan: "col-span-1 row-span-1",
       height: 290
     }
   ];
@@ -248,7 +230,6 @@ export default function Gallery({ onNavigate }) {
 
   useEffect(() => {
     setSelectedIdx(null);
-    setSpotlightIdx(0);
   }, [activeTab]);
 
   useEffect(() => {
@@ -333,21 +314,18 @@ export default function Gallery({ onNavigate }) {
         </div>
       </section>
 
-      {/* Control Bar: Categories & Layout Switcher */}
+      {/* Category Filter Bar */}
       <section style={{ padding: '2.5rem 8% 1.5rem 8%', maxWidth: '1350px', margin: '0 auto' }}>
         <div style={{
           display: 'flex',
-          flexDirection: width < 768 ? 'column' : 'row',
+          justifyContent: 'center',
           alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: '1.5rem',
           backgroundColor: '#ffffff',
           padding: '1.2rem 1.8rem',
           borderRadius: '24px',
           boxShadow: '0 12px 35px rgba(94, 39, 53, 0.06)',
           border: '1.5px solid rgba(220, 160, 50, 0.2)'
         }}>
-          
           {/* Category Filter Pills */}
           <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             {categories.map((cat) => {
@@ -390,401 +368,120 @@ export default function Gallery({ onNavigate }) {
               );
             })}
           </div>
-
-          {/* View Mode Toggle Buttons */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', backgroundColor: 'var(--isabelline)', padding: '0.35rem', borderRadius: '16px', border: '1px solid rgba(94, 39, 53, 0.1)' }}>
-            <button
-              onClick={() => setViewLayout('masonry')}
-              title="Masonry Grid View"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.4rem',
-                padding: '0.5rem 0.85rem',
-                borderRadius: '12px',
-                border: 'none',
-                backgroundColor: viewLayout === 'masonry' ? '#ffffff' : 'transparent',
-                color: viewLayout === 'masonry' ? 'var(--wine)' : 'rgba(94, 39, 53, 0.6)',
-                boxShadow: viewLayout === 'masonry' ? '0 4px 12px rgba(0,0,0,0.08)' : 'none',
-                fontWeight: 600,
-                fontSize: '0.76rem',
-                cursor: 'pointer',
-                transition: 'all 0.25s'
-              }}
-            >
-              <LayoutGrid size={15} />
-              <span>Masonry</span>
-            </button>
-
-            <button
-              onClick={() => setViewLayout('bento')}
-              title="Editorial Bento View"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.4rem',
-                padding: '0.5rem 0.85rem',
-                borderRadius: '12px',
-                border: 'none',
-                backgroundColor: viewLayout === 'bento' ? '#ffffff' : 'transparent',
-                color: viewLayout === 'bento' ? 'var(--wine)' : 'rgba(94, 39, 53, 0.6)',
-                boxShadow: viewLayout === 'bento' ? '0 4px 12px rgba(0,0,0,0.08)' : 'none',
-                fontWeight: 600,
-                fontSize: '0.76rem',
-                cursor: 'pointer',
-                transition: 'all 0.25s'
-              }}
-            >
-              <Grid size={15} />
-              <span>Bento</span>
-            </button>
-
-            <button
-              onClick={() => setViewLayout('spotlight')}
-              title="Spotlight Showcase View"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.4rem',
-                padding: '0.5rem 0.85rem',
-                borderRadius: '12px',
-                border: 'none',
-                backgroundColor: viewLayout === 'spotlight' ? '#ffffff' : 'transparent',
-                color: viewLayout === 'spotlight' ? 'var(--wine)' : 'rgba(94, 39, 53, 0.6)',
-                boxShadow: viewLayout === 'spotlight' ? '0 4px 12px rgba(0,0,0,0.08)' : 'none',
-                fontWeight: 600,
-                fontSize: '0.76rem',
-                cursor: 'pointer',
-                transition: 'all 0.25s'
-              }}
-            >
-              <Sparkles size={15} />
-              <span>Showcase</span>
-            </button>
-          </div>
-
         </div>
       </section>
 
-      {/* Main Gallery Display Section */}
+      {/* Main Gallery Display Section - Staggered Masonry Grid */}
       <section style={{ padding: '1rem 8% 5rem 8%', maxWidth: '1350px', margin: '0 auto' }}>
-        
-        {/* VIEW MODE 1: Dynamic Staggered Masonry Grid */}
-        {viewLayout === 'masonry' && (
-          <motion.div
-            key={`masonry-${activeTab}`}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            style={{
-              display: 'flex',
-              gap: '1.5rem',
-              width: '100%'
-            }}
-          >
-            {masonryColumns.map((colItems, colIdx) => (
-              <div
-                key={`col-${colIdx}`}
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '1.5rem',
-                  flex: 1
-                }}
-              >
-                {colItems.map((item) => (
-                  <TiltCard
-                    key={item.id}
-                    onClick={() => setSelectedIdx(item.filteredIdx)}
-                    style={{ cursor: 'pointer', width: '100%' }}
-                  >
-                    <div style={{
-                      position: 'relative',
-                      borderRadius: '20px',
-                      overflow: 'hidden',
-                      backgroundColor: '#191718',
-                      boxShadow: '0 10px 30px rgba(94, 39, 53, 0.08)',
-                      border: '2px solid rgba(220, 160, 50, 0.2)',
-                      height: `${item.height}px`
-                    }}>
-                      <motion.img
-                        src={item.img}
-                        alt={item.title}
-                        whileHover={{ scale: 1.06 }}
-                        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                      />
-                      
-                      {/* Category Badge Top Left */}
-                      <div style={{
-                        position: 'absolute',
-                        top: '1rem',
-                        left: '1rem',
-                        backgroundColor: 'rgba(94, 39, 53, 0.85)',
-                        backdropFilter: 'blur(8px)',
-                        color: 'var(--harvest-gold)',
-                        padding: '0.35rem 0.85rem',
-                        borderRadius: '20px',
-                        fontSize: '0.66rem',
-                        fontWeight: 700,
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.1em',
-                        border: '1px solid rgba(220, 160, 50, 0.3)',
-                        zIndex: 2
-                      }}>
-                        {item.cat}
-                      </div>
-
-                      {/* Expand Eye Icon Top Right */}
-                      <div style={{
-                        position: 'absolute',
-                        top: '1rem',
-                        right: '1rem',
-                        backgroundColor: 'rgba(255, 255, 255, 0.25)',
-                        backdropFilter: 'blur(8px)',
-                        color: '#ffffff',
-                        width: '34px',
-                        height: '34px',
-                        borderRadius: '50%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        border: '1px solid rgba(255, 255, 255, 0.4)',
-                        zIndex: 2
-                      }}>
-                        <Eye size={16} />
-                      </div>
-
-                      {/* Hover Overlay Gradient */}
-                      <div style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        padding: '3rem 1.4rem 1.2rem 1.4rem',
-                        background: 'linear-gradient(to top, rgba(25, 23, 24, 0.95) 0%, rgba(25, 23, 24, 0.6) 60%, rgba(25, 23, 24, 0) 100%)',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'flex-end',
-                        zIndex: 2
-                      }}>
-                        <h3 style={{ color: '#ffffff', margin: 0, fontSize: '1.05rem', fontFamily: 'serif', fontWeight: 600, lineHeight: 1.3 }}>
-                          {item.title.split(' – ')[1] || item.title}
-                        </h3>
-                      </div>
-                    </div>
-                  </TiltCard>
-                ))}
-              </div>
-            ))}
-          </motion.div>
-        )}
-
-        {/* VIEW MODE 2: Editorial Bento Grid Layout */}
-        {viewLayout === 'bento' && (
-          <motion.div
-            key={`bento-${activeTab}`}
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            style={{
-              display: 'grid',
-              gridTemplateColumns: width >= 1024 ? 'repeat(3, 1fr)' : width >= 640 ? 'repeat(2, 1fr)' : '1fr',
-              gap: '1.5rem',
-              width: '100%'
-            }}
-          >
-            {filteredItems.map((item, idx) => (
-              <TiltCard
-                key={item.id}
-                onClick={() => setSelectedIdx(idx)}
-                style={{ cursor: 'pointer', gridColumn: item.featured && width >= 1024 ? 'span 2' : 'span 1' }}
-              >
-                <div style={{
-                  position: 'relative',
-                  borderRadius: '20px',
-                  overflow: 'hidden',
-                  backgroundColor: '#191718',
-                  boxShadow: '0 12px 32px rgba(94, 39, 53, 0.09)',
-                  border: '2px solid rgba(220, 160, 50, 0.25)',
-                  height: item.featured ? '380px' : '300px'
-                }}>
-                  <motion.img
-                    src={item.img}
-                    alt={item.title}
-                    whileHover={{ scale: 1.06 }}
-                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-
-                  <div style={{
-                    position: 'absolute',
-                    top: '1.1rem',
-                    left: '1.1rem',
-                    backgroundColor: 'rgba(94, 39, 53, 0.85)',
-                    backdropFilter: 'blur(8px)',
-                    color: 'var(--harvest-gold)',
-                    padding: '0.35rem 0.85rem',
-                    borderRadius: '20px',
-                    fontSize: '0.68rem',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.1em',
-                    border: '1px solid rgba(220, 160, 50, 0.3)',
-                    zIndex: 2
-                  }}>
-                    {item.cat}
-                  </div>
-
-                  <div style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    padding: '3rem 1.5rem 1.4rem 1.5rem',
-                    background: 'linear-gradient(to top, rgba(25, 23, 24, 0.95) 0%, rgba(25, 23, 24, 0.5) 60%, rgba(25, 23, 24, 0) 100%)',
-                    zIndex: 2
-                  }}>
-                    <h3 style={{ color: '#ffffff', margin: 0, fontSize: item.featured ? '1.25rem' : '1.05rem', fontFamily: 'serif', fontWeight: 600, lineHeight: 1.3 }}>
-                      {item.title.split(' – ')[1] || item.title}
-                    </h3>
-                  </div>
-                </div>
-              </TiltCard>
-            ))}
-          </motion.div>
-        )}
-
-        {/* VIEW MODE 3: Interactive Spotlight Showcase Slider */}
-        {viewLayout === 'spotlight' && (
-          <motion.div
-            key={`spotlight-${activeTab}`}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '2rem' }}
-          >
-            {/* Spotlight Main Showcase Tile */}
-            {filteredItems.length > 0 && (
-              <div style={{
-                position: 'relative',
-                borderRadius: '24px',
-                overflow: 'hidden',
-                backgroundColor: '#191718',
-                boxShadow: '0 20px 50px rgba(94, 39, 53, 0.15)',
-                border: '3px solid var(--harvest-gold)',
-                minHeight: '480px',
+        <motion.div
+          key={`masonry-${activeTab}`}
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          style={{
+            display: 'flex',
+            gap: '1.5rem',
+            width: '100%'
+          }}
+        >
+          {masonryColumns.map((colItems, colIdx) => (
+            <div
+              key={`col-${colIdx}`}
+              style={{
                 display: 'flex',
-                flexDirection: width < 768 ? 'column' : 'row'
-              }}>
-                {/* Image Section */}
-                <div style={{ flex: 1.3, position: 'relative', minHeight: '340px', overflow: 'hidden' }}>
-                  <motion.img
-                    key={spotlightIdx}
-                    src={filteredItems[spotlightIdx]?.img}
-                    alt={filteredItems[spotlightIdx]?.title}
-                    initial={{ opacity: 0, scale: 1.08 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6 }}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                  
-                  {/* Previous / Next Overlay Controls */}
-                  <button
-                    onClick={() => setSpotlightIdx((prev) => (prev > 0 ? prev - 1 : filteredItems.length - 1))}
-                    style={{
-                      position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)',
-                      backgroundColor: 'rgba(25, 23, 24, 0.65)', backdropFilter: 'blur(8px)',
-                      color: '#ffffff', border: '1px solid rgba(220,160,50,0.3)',
-                      width: '42px', height: '42px', borderRadius: '50%', cursor: 'pointer',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 5
-                    }}
-                  >
-                    <ChevronLeft size={20} />
-                  </button>
-
-                  <button
-                    onClick={() => setSpotlightIdx((prev) => (prev < filteredItems.length - 1 ? prev + 1 : 0))}
-                    style={{
-                      position: 'absolute', right: '1rem', top: '50%', transform: 'translateY(-50%)',
-                      backgroundColor: 'rgba(25, 23, 24, 0.65)', backdropFilter: 'blur(8px)',
-                      color: '#ffffff', border: '1px solid rgba(220,160,50,0.3)',
-                      width: '42px', height: '42px', borderRadius: '50%', cursor: 'pointer',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 5
-                    }}
-                  >
-                    <ChevronRight size={20} />
-                  </button>
-                </div>
-
-                {/* Info Content Section */}
-                <div style={{
-                  flex: 1,
-                  backgroundColor: 'var(--wine)',
-                  color: '#ffffff',
-                  padding: '3rem 2.5rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  position: 'relative'
-                }}>
-                  <span style={{ color: 'var(--harvest-gold)', fontSize: '0.78rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '0.6rem' }}>
-                    {filteredItems[spotlightIdx]?.cat} • Shot {spotlightIdx + 1} of {filteredItems.length}
-                  </span>
-                  
-                  <h2 style={{ color: '#ffffff', fontFamily: 'serif', fontSize: '1.8rem', margin: '0 0 1.2rem 0', lineHeight: 1.25 }}>
-                    {filteredItems[spotlightIdx]?.title}
-                  </h2>
-                  
-                  <p style={{ opacity: 0.85, fontSize: '0.95rem', lineHeight: 1.8, fontWeight: 300, marginBottom: '2rem' }}>
-                    {getDescriptionForTitle(filteredItems[spotlightIdx]?.title || '')}
-                  </p>
-
-                  <button
-                    onClick={() => setSelectedIdx(spotlightIdx)}
-                    className="btn-luxury"
-                    style={{ alignSelf: 'flex-start', padding: '0.75rem 2rem', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
-                  >
-                    <Maximize2 size={15} />
-                    <span>View Fullscreen</span>
-                  </button>
-                </div>
-              </div>
-            )}
-
-            {/* Thumbnail Filmstrip Navigation Strip */}
-            <div style={{
-              display: 'flex',
-              gap: '1rem',
-              overflowX: 'auto',
-              paddingBottom: '0.8rem',
-              scrollBehavior: 'smooth'
-            }}>
-              {filteredItems.map((item, idx) => (
-                <div
+                flexDirection: 'column',
+                gap: '1.5rem',
+                flex: 1
+              }}
+            >
+              {colItems.map((item) => (
+                <TiltCard
                   key={item.id}
-                  onClick={() => setSpotlightIdx(idx)}
-                  style={{
-                    minWidth: '120px',
-                    height: '80px',
-                    borderRadius: '14px',
-                    overflow: 'hidden',
-                    cursor: 'pointer',
-                    border: spotlightIdx === idx ? '3px solid var(--harvest-gold)' : '2px solid transparent',
-                    opacity: spotlightIdx === idx ? 1 : 0.6,
-                    transform: spotlightIdx === idx ? 'scale(1.05)' : 'scale(1)',
-                    transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-                    flexShrink: 0
-                  }}
+                  onClick={() => setSelectedIdx(item.filteredIdx)}
+                  style={{ cursor: 'pointer', width: '100%' }}
                 >
-                  <img src={item.img} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                </div>
+                  <div style={{
+                    position: 'relative',
+                    borderRadius: '20px',
+                    overflow: 'hidden',
+                    backgroundColor: '#191718',
+                    boxShadow: '0 10px 30px rgba(94, 39, 53, 0.08)',
+                    border: '2px solid rgba(220, 160, 50, 0.2)',
+                    height: `${item.height}px`
+                  }}>
+                    <motion.img
+                      src={item.img}
+                      alt={item.title}
+                      whileHover={{ scale: 1.06 }}
+                      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                    
+                    {/* Category Badge Top Left */}
+                    <div style={{
+                      position: 'absolute',
+                      top: '1rem',
+                      left: '1rem',
+                      backgroundColor: 'rgba(94, 39, 53, 0.85)',
+                      backdropFilter: 'blur(8px)',
+                      color: 'var(--harvest-gold)',
+                      padding: '0.35rem 0.85rem',
+                      borderRadius: '20px',
+                      fontSize: '0.66rem',
+                      fontWeight: 700,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.1em',
+                      border: '1px solid rgba(220, 160, 50, 0.3)',
+                      zIndex: 2
+                    }}>
+                      {item.cat}
+                    </div>
+
+                    {/* Expand Eye Icon Top Right */}
+                    <div style={{
+                      position: 'absolute',
+                      top: '1rem',
+                      right: '1rem',
+                      backgroundColor: 'rgba(255, 255, 255, 0.25)',
+                      backdropFilter: 'blur(8px)',
+                      color: '#ffffff',
+                      width: '34px',
+                      height: '34px',
+                      borderRadius: '50%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      border: '1px solid rgba(255, 255, 255, 0.4)',
+                      zIndex: 2
+                    }}>
+                      <Eye size={16} />
+                    </div>
+
+                    {/* Hover Overlay Gradient */}
+                    <div style={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      padding: '3rem 1.4rem 1.2rem 1.4rem',
+                      background: 'linear-gradient(to top, rgba(25, 23, 24, 0.95) 0%, rgba(25, 23, 24, 0.6) 60%, rgba(25, 23, 24, 0) 100%)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'flex-end',
+                      zIndex: 2
+                    }}>
+                      <h3 style={{ color: '#ffffff', margin: 0, fontSize: '1.05rem', fontFamily: 'serif', fontWeight: 600, lineHeight: 1.3 }}>
+                        {item.title.split(' – ')[1] || item.title}
+                      </h3>
+                    </div>
+                  </div>
+                </TiltCard>
               ))}
             </div>
-          </motion.div>
-        )}
-
+          ))}
+        </motion.div>
       </section>
+
 
       {/* Experience CTA */}
       <section style={{ backgroundColor: 'var(--wine)', color: 'var(--isabelline)', padding: '4.5rem 5%', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>

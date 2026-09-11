@@ -339,7 +339,7 @@ export default function Spaces({ onNavigate }) {
       img: '/assets/residences/subhiksha.png'
     },
     { 
-      name: 'Suyoga Block', 
+      name: 'Samruddhi Block', 
       type: 'Elevated Canopy Suites', 
       desc: 'Upper floor rooms with tree canopy & river views.', 
       config: 'Executive Cottages',
@@ -773,13 +773,13 @@ export default function Spaces({ onNavigate }) {
                       </span>
                     </div>
 
-                    <span className="residence-card-type" style={{ fontSize: '0.75rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>
-                      {block.type}
-                    </span>
-
-                    <h3 className="residence-card-title" style={{color: 'var(--wine)', margin: '0 0 0.6rem 0'}}>
+                    <h3 className="residence-card-title" style={{ color: 'var(--redwood)', fontWeight: 800, margin: '0 0 0.25rem 0', fontSize: '1.25rem' }}>
                       {block.name}
                     </h3>
+
+                    <span className="residence-card-type" style={{ fontSize: '0.75rem', color: 'var(--wine)', opacity: 0.75, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', display: 'block', marginBottom: '0.6rem' }}>
+                      {block.type}
+                    </span>
 
                     <p className="residence-card-desc" style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.95, lineHeight: 1.6, margin: '0 0 1.2rem 0', fontWeight: 400 }}>
                       {block.desc}

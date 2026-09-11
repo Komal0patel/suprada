@@ -269,7 +269,7 @@ export default function Spaces({ onNavigate }) {
       img: '/assets/residences/samprada.png'
     },
     { 
-      name: 'Samruddhi / Supritha Block', 
+      name: 'Supritha Block', 
       type: 'Exclusive Private Enclaves', 
       desc: 'Elevated luxury & privacy for deep solitude.', 
       config: 'Premium Private Cottage',

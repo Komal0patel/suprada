@@ -155,11 +155,11 @@ export default function Stay({ onNavigate }) {
       ]
     },
     {
-      id: 'samrduddhi',
+      id: 'supritha',
       num: '02',
       roman: 'II',
-      name: 'Samrduddhi / Supritha Block',
-      titleName: 'Samrduddhi / Supritha',
+      name: 'Supritha Block',
+      titleName: 'Supritha',
       category: 'Exclusive Private Haven',
       catGroup: 'Secluded Enclaves',
       zone: 'Forest Seclusion',

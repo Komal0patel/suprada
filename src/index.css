@@ -3749,7 +3749,6 @@ html, body {
    ========================================================================== */
 
 /* 2-Column Grids (Mobile & Desktop): Single Odd Leftover Card Centering */
-.spaces-residences-grid > *:nth-child(odd):last-child,
 .sanctum-zones-grid > *:nth-child(odd):last-child,
 .detail-cards-mobile-2col > *:nth-child(odd):last-child,
 .amenities-unified-grid > *:nth-child(odd):last-child,

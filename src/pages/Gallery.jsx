@@ -1,27 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Pattern24, Pattern25, Pattern27 } from '../AnimatedPatterns';
-import { X } from 'lucide-react';
-
-// Premium camera lens focus reveal variant
-const focusEntrance = {
-  hidden: { opacity: 0, scale: 1.08, filter: "blur(16px)" },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    filter: "blur(0px)",
-    transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] }
-  }
-};
-
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
+import { X, LayoutGrid, Grid, Maximize2, ChevronLeft, ChevronRight, Eye, Sparkles } from 'lucide-react';
 
 // Custom interactive 3D Mouse Tilt Card Wrapper
 function TiltCard({ children, onClick, style, ...props }) {
@@ -34,9 +14,8 @@ function TiltCard({ children, onClick, style, ...props }) {
     const y = e.clientY - rect.top;
     const xc = rect.width / 2;
     const yc = rect.height / 2;
-    // Calculate rotation with max 12 degrees
-    const tiltX = (yc - y) / 8;
-    const tiltY = (x - xc) / 8;
+    const tiltX = (yc - y) / 10;
+    const tiltY = (x - xc) / 10;
     setRotation({ x: tiltX, y: tiltY });
   };
 
@@ -51,8 +30,6 @@ function TiltCard({ children, onClick, style, ...props }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
-      whileHover="hover"
-      initial="initial"
       style={{
         perspective: 1200,
         transformStyle: 'preserve-3d',
@@ -61,9 +38,9 @@ function TiltCard({ children, onClick, style, ...props }) {
       animate={{
         rotateX: rotation.x,
         rotateY: rotation.y,
-        scale: isHovered ? 1.03 : 1
+        scale: isHovered ? 1.025 : 1
       }}
-      transition={{ type: "spring", stiffness: 220, damping: 22 }}
+      transition={{ type: "spring", stiffness: 260, damping: 24 }}
       {...props}
     >
       {children}
@@ -71,117 +48,33 @@ function TiltCard({ children, onClick, style, ...props }) {
   );
 }
 
-// Helper to get luxury description for each gallery title
+// Luxury descriptions based on photo subject
 const getDescriptionForTitle = (title) => {
   const t = title.toLowerCase();
-  if (t.includes("yoga") || t.includes("asana")) return "Connect mind and body with the river breeze, centering your energy under gentle morning light.";
-  if (t.includes("meditation") || t.includes("reflection")) return "Rest in tranquil silence as the forest dusk guides you deep into mindful, restorative stillness.";
-  if (t.includes("walk") || t.includes("exploration") || t.includes("track")) return "Discover healing local flora and quiet pathways along the soothing sounds of the flowing river.";
-  if (t.includes("satsang") || t.includes("chanting")) return "Gather in sacred community, sharing ancient chants, spiritual songs, and warm wellness energy.";
-  if (t.includes("fire") || t.includes("agnihotra")) return "Experience the purifying power of Vedic fire ceremonies, cleansing the atmosphere and spirit.";
-  if (t.includes("breathwork")) return "Harness your life-force energy through guided deep breathing sessions under the green canopy.";
-  if (t.includes("massage") || t.includes("abhyanga")) return "Rejuvenate with synchronized warm herbal oil application, promoting lymphatic drainage and peace.";
-  if (t.includes("shirodhara")) return "Experience deep neurological rest as a continuous warm oil stream flows onto your forehead.";
-  if (t.includes("steam") || t.includes("swedana")) return "Sweat out impurities in our organic wood herbal steam chambers, opening your energy channels.";
-  if (t.includes("hydrotherapy") || t.includes("aqua")) return "Restore your elemental balance through traditional hydrotherapy and cleansing water suites.";
-  if (t.includes("consultation") || t.includes("suite") || t.includes("treatment")) return "Gain deep insights into your physical constitution and dosha balance through therapeutic consultations.";
-  if (t.includes("dining") || t.includes("satwik") || t.includes("meals")) return "Nourish your body with farm-fresh organic ingredients, curated according to Ayurvedic principles.";
-  if (t.includes("produce") || t.includes("herbs") || t.includes("botanical") || t.includes("decoctions")) return "Freshly harvested organic vegetables and herbs from our estate's clean forest garden.";
-  if (t.includes("cottage") || t.includes("residence") || t.includes("architecture") || t.includes("quarters")) return "Luxury timber and mud plaster architecture blending seamlessly with the riverbanks.";
-  if (t.includes("courtyard") || t.includes("interior")) return "Pristine stone pathways walking you through sacred geometric landscape courtyards.";
-  if (t.includes("amphitheatre")) return "An open-air stone theater for evening musical performances, kirtans, and community gatherings.";
-  if (t.includes("goshala") || t.includes("cow")) return "Caring for cows (Gograsa) promotes grounding, compassion, and emotional warmth.";
-  if (t.includes("clay") || t.includes("art")) return "Ground your touch by shaping raw, wet river clay into artistic, functional vessels.";
-  if (t.includes("planting") || t.includes("permaculture")) return "Learn organic permaculture techniques, planting seeds in rich forest soil.";
-  if (t.includes("sound") || t.includes("vibrational")) return "Harmonize your biological nervous system with healing sound bath frequencies.";
-  if (t.includes("landscape") || t.includes("panoramic") || t.includes("sanctuary")) return "Pristine forest views and riverfront solitude designed to calm your nervous system.";
-  return "Immerse yourself in our serene retreat, designed to balance your elements and restore your inner peace.";
+  if (t.includes("riverfront") || t.includes("sanctuary")) return "Pristine forest grounds along the soothing river breeze, offering peaceful solitude under ancient trees.";
+  if (t.includes("mud-plastered") || t.includes("heritage")) return "Hand-crafted eco-cottages constructed using traditional mud plaster and reclaimed timber for natural cooling.";
+  if (t.includes("teak") || t.includes("stone")) return "Timeless South Indian vernacular architecture blending carved stone pillars with reclaimed teak woodwork.";
+  if (t.includes("ayurvedic") || t.includes("treatment suite")) return "Serene sanctuary designed for traditional Panchakarma, synchronized oil therapies, and consultations.";
+  if (t.includes("sunset") || t.includes("panorama")) return "Sweeping vistas overlooking the flowing river waters as golden light washes across the forest canopy.";
+  if (t.includes("interior courtyard") || t.includes("natural light")) return "Open sky inner courtyards inviting gentle sunlight and ambient air flow into calm living quarters.";
+  if (t.includes("community") || t.includes("dialogue")) return "Shaded open-air seating areas for evening kirtans, philosophy discussions, and group reflections.";
+  if (t.includes("rejuvenation") || t.includes("therapy room")) return "A secluded, tranquil chamber equipped with warm copper vessel treatments and herbal steams.";
+  if (t.includes("satwik") || t.includes("dining")) return "Freshly prepared farm-to-table organic vegetarian meals cooked according to Ayurvedic dosha balance.";
+  if (t.includes("landscape") || t.includes("nature immersion")) return "Lush forest trails and botanical gardens filled with indigenous medicinal plants and flora.";
+  if (t.includes("sacred geometric") || t.includes("central courtyard")) return "Harmonious courtyards designed around traditional Vastu architecture and mandala layouts.";
+  if (t.includes("yoga") || t.includes("asana")) return "Morning circadian yoga and breathwork deck surrounded by soft mist and birdsong.";
+  if (t.includes("hydrotherapy") || t.includes("aqua")) return "Restorative water therapy suites and herbal baths to refresh circulation and vital energy.";
+  if (t.includes("deluxe living") || t.includes("balcony")) return "Refined suites featuring custom wood furnishings, natural linens, and private veranda views.";
+  if (t.includes("private cottage") || t.includes("exterior")) return "Rustic luxury residences nestled quietly within private garden clearings.";
+  if (t.includes("dusk") || t.includes("ambient rest")) return "Warm ambient lanterns and quiet starlight illuminating the serene retreat pathways.";
+  return "Immerse yourself in our serene retreat, designed to balance your elements and restore inner harmony.";
 };
-
-// Preset grid coordinates and dispersal directions for 8 items
-const collageLayouts = [
-  // Item 0 (Center Large) - Columns 2 & 3, Rows 1 & 2
-  { gridArea: '1 / 2 / 3 / 4', dirX: 0, dirY: -220 },
-  // Item 1 (Top Left) - Column 1, Row 1
-  { gridArea: '1 / 1 / 2 / 2', dirX: -450, dirY: -250 },
-  // Item 2 (Bottom Left) - Column 1, Row 2
-  { gridArea: '2 / 1 / 3 / 2', dirX: -450, dirY: 250 },
-  // Item 3 (Bottom Center Left) - Column 2, Row 3
-  { gridArea: '3 / 2 / 4 / 3', dirX: -200, dirY: 450 },
-  // Item 4 (Bottom Center Right) - Column 3, Row 3
-  { gridArea: '3 / 3 / 4 / 4', dirX: 200, dirY: 450 },
-  // Item 5 (Top Right) - Column 4, Row 1
-  { gridArea: '1 / 4 / 2 / 5', dirX: 450, dirY: -250 },
-  // Item 6 (Middle/Bottom Right) - Column 4, Rows 2 & 3
-  { gridArea: '2 / 4 / 4 / 5', dirX: 450, dirY: 250 },
-  // Item 7 (Fallback Left-Bottom) - Column 1, Row 3
-  { gridArea: '3 / 1 / 4 / 2', dirX: -450, dirY: 450 },
-];
-
-// Card variants for internal element hovers
-const cardImageVariants = {
-  initial: { scale: 1 },
-  hover: { scale: 1.06, transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } }
-};
-
-const cardTextVariants = {
-  initial: { y: 0, color: 'var(--wine)' },
-  hover: { y: -3, color: 'var(--redwood)', transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } }
-};
-
-const cardBgVariants = {
-  initial: { backgroundColor: '#ffffff' },
-  hover: { backgroundColor: '#fdfbfa', transition: { duration: 0.4 } }
-};
-
-function CardInner({ item, idx }) {
-  return (
-    <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }}>
-      <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', backgroundColor: '#191718' }}>
-        <motion.img
-          src={item.img}
-          alt={item.title}
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          variants={cardImageVariants}
-        />
-
-        {/* Hover Caption Overlay */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          variants={{
-            hover: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } }
-          }}
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
-            padding: '2.5rem 1.2rem 1.2rem 1.2rem',
-            background: 'linear-gradient(to top, rgba(94, 39, 53, 0.95) 0%, rgba(94, 39, 53, 0.6) 60%, rgba(94, 39, 53, 0) 100%)',
-            pointerEvents: 'none',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end',
-            zIndex: 3
-          }}
-        >
-          <span style={{ fontSize: '0.62rem', color: 'var(--tan)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', display: 'block', marginBottom: '0.2rem' }}>
-            {item.cat}
-          </span>
-          <h3
-            style={{color: '#ffffff', margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}
-          >
-            {item.title.split(' – ')[1] || item.title}
-          </h3>
-        </motion.div>
-      </div>
-    </div>
-  );
-}
 
 export default function Gallery({ onNavigate }) {
   const [activeTab, setActiveTab] = useState('All');
+  const [viewLayout, setViewLayout] = useState('masonry'); // 'masonry' | 'bento' | 'spotlight'
   const [selectedIdx, setSelectedIdx] = useState(null);
+  const [spotlightIdx, setSpotlightIdx] = useState(0);
   const [width, setWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
 
   useEffect(() => {
@@ -190,97 +83,157 @@ export default function Gallery({ onNavigate }) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const categories = ['All', 'Retreat', 'Therapies', 'Nutrition', 'Architecture', 'Activities'];
+  const categories = ['All', 'Retreat', 'Architecture', 'Therapies', 'Activities', 'Nutrition'];
 
-  // Exact gallery items mapped from authentic public/assets/gallery directory & retreat assets
+  // EXACT 16 gallery items mapped exclusively from public/assets/gallery directory
   const galleryItems = [
-    // Retreat
-    { title: "Retreat – Riverfront Sanctuary & Forest Grounds", cat: "Retreat", img: "/assets/gallery/IMG_0583.JPEG" },
-    { title: "Retreat – Panoramic River View & Sunset Rest", cat: "Retreat", img: "/assets/gallery/IMG_0587.JPEG" },
-    { title: "Retreat – Scenic Landscape & Nature Immersion", cat: "Retreat", img: "/assets/gallery/IMG_0592.JPEG" },
-    { title: "Retreat – Evening Ambient Rest & Tranquility", cat: "Retreat", img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.50 AM.jpeg" },
-    { title: "Retreat – Riverfront Meditation & Reflection", cat: "Retreat", img: "/assets/gallery/gallery_4056535.jpg" },
-    { title: "Retreat – Sunrise Yoga & Breathwork Deck", cat: "Retreat", img: "/assets/more_images/yoga-meditation.jpg" },
-    { title: "Retreat – Community Satsang & Vedic Chanting", cat: "Retreat", img: "/assets/more_images/satsang.png" },
-    { title: "Retreat – Sacred Agnihotra Fire Ritual", cat: "Retreat", img: "/assets/more_images/agnihotra.png" },
-
-    // Therapies
-    { title: "Therapies – Holistic Treatment Suite & Consultation", cat: "Therapies", img: "/assets/gallery/IMG_0586.JPEG" },
-    { title: "Therapies – Deep Rejuvenation Treatment Room", cat: "Therapies", img: "/assets/gallery/IMG_0590.JPEG" },
-    { title: "Therapies – Aqua Hydrotherapy & Cleansing Suite", cat: "Therapies", img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM (2).jpeg" },
-    { title: "Therapies – Abhyanga Warm Oil Application", cat: "Therapies", img: "/assets/gallery/gallery_3997991.jpg" },
-    { title: "Therapies – Herbal Steam & Swedana Detox", cat: "Therapies", img: "/assets/gallery/gallery_4021775.jpg" },
-    { title: "Therapies – Organic Botanical Spa Interior", cat: "Therapies", img: "/assets/more_images/spa-interior.jpg" },
-    { title: "Therapies – Sound Bath & Vibrational Healing", cat: "Therapies", img: "/assets/more_images/sound_healing.png" },
-
-    // Nutrition
-    { title: "Nutrition – Organic Satwik Dining & Farm Produce", cat: "Nutrition", img: "/assets/gallery/IMG_0591.JPEG" },
-    { title: "Nutrition – Mindful Farm-to-Table Meals", cat: "Nutrition", img: "/assets/more_images/nutrition.png" },
-    { title: "Nutrition – Seasonal Botanical Decoctions & Teas", cat: "Nutrition", img: "/assets/more_images/occasions.png" },
-
-    // Architecture
-    { title: "Architecture – Mud-Plastered Heritage Cottages", cat: "Architecture", img: "/assets/gallery/IMG_0584.JPEG" },
-    { title: "Architecture – Reclaimed Teak & Stone Architecture", cat: "Architecture", img: "/assets/gallery/IMG_0585.JPEG" },
-    { title: "Architecture – Natural Light Interior Courtyard", cat: "Architecture", img: "/assets/gallery/IMG_0588.JPEG" },
-    { title: "Architecture – Sacred Geometric Central Courtyard", cat: "Architecture", img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM.jpeg" },
-    { title: "Architecture – Deluxe Living Quarters & Balcony", cat: "Architecture", img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.48 AM.jpeg" },
-    { title: "Architecture – Private Cottage Exterior & Veranda", cat: "Architecture", img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.49 AM.jpeg" },
-    { title: "Architecture – Samprada Heritage Cottage Block", cat: "Architecture", img: "/assets/residences/samprada.png" },
-    { title: "Architecture – Suyoga Canopy Panorama Suite", cat: "Architecture", img: "/assets/residences/suyoga.png" },
-    { title: "Architecture – Samhita Grounded Earth Cottage", cat: "Architecture", img: "/assets/residences/samhita.png" },
-    { title: "Architecture – Subhiksha Private Treatment Residence", cat: "Architecture", img: "/assets/residences/subhiksha.png" },
-    { title: "Architecture – Open-Air Stone Amphitheatre", cat: "Architecture", img: "/assets/more_images/open-air-amphitheatre.png" },
-
-    // Activities
-    { title: "Activities – Community Gathering & Outdoor Dialogue", cat: "Activities", img: "/assets/gallery/IMG_0589.JPEG" },
-    { title: "Activities – Morning Circadian Yoga & Asana Flow", cat: "Activities", img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM (1).jpeg" },
-    { title: "Activities – Guided Forest Barefoot Walking Track", cat: "Activities", img: "/assets/more_images/walking_track.png" },
-    { title: "Activities – Art & Expressive Clay Therapy", cat: "Activities", img: "/assets/more_images/art_therapy.png" },
-    { title: "Activities – Gograsa Cow Care at Goshala", cat: "Activities", img: "/assets/more_images/gograsa.png" },
-    { title: "Activities – Medicinal Herb Planting & Permaculture", cat: "Activities", img: "/assets/more_images/planting_trees.png" }
+    {
+      id: 1,
+      title: "Retreat – Riverfront Sanctuary & Forest Grounds",
+      cat: "Retreat",
+      img: "/assets/gallery/IMG_0583.JPEG",
+      bentoSpan: "col-span-1 md:col-span-2 row-span-2",
+      height: 380,
+      featured: true
+    },
+    {
+      id: 2,
+      title: "Architecture – Mud-Plastered Heritage Cottages",
+      cat: "Architecture",
+      img: "/assets/gallery/IMG_0584.JPEG",
+      bentoSpan: "col-span-1 row-span-1",
+      height: 280
+    },
+    {
+      id: 3,
+      title: "Architecture – Reclaimed Teak & Stone Architecture",
+      cat: "Architecture",
+      img: "/assets/gallery/IMG_0585.JPEG",
+      bentoSpan: "col-span-1 row-span-1",
+      height: 320
+    },
+    {
+      id: 4,
+      title: "Therapies – Holistic Ayurvedic Treatment Suite",
+      cat: "Therapies",
+      img: "/assets/gallery/IMG_0586.JPEG",
+      bentoSpan: "col-span-1 md:col-span-2 row-span-1",
+      height: 340,
+      featured: true
+    },
+    {
+      id: 5,
+      title: "Retreat – Panoramic River View & Sunset Pavilion",
+      cat: "Retreat",
+      img: "/assets/gallery/IMG_0587.JPEG",
+      bentoSpan: "col-span-1 row-span-1",
+      height: 290
+    },
+    {
+      id: 6,
+      title: "Architecture – Natural Light Interior Courtyard",
+      cat: "Architecture",
+      img: "/assets/gallery/IMG_0588.JPEG",
+      bentoSpan: "col-span-1 row-span-1",
+      height: 310
+    },
+    {
+      id: 7,
+      title: "Activities – Outdoor Community Dialogue & Gathering",
+      cat: "Activities",
+      img: "/assets/gallery/IMG_0589.JPEG",
+      bentoSpan: "col-span-1 row-span-1",
+      height: 300
+    },
+    {
+      id: 8,
+      title: "Therapies – Deep Rejuvenation Treatment Room",
+      cat: "Therapies",
+      img: "/assets/gallery/IMG_0590.JPEG",
+      bentoSpan: "col-span-1 row-span-1",
+      height: 330
+    },
+    {
+      id: 9,
+      title: "Nutrition – Organic Satwik Dining & Farm Produce",
+      cat: "Nutrition",
+      img: "/assets/gallery/IMG_0591.JPEG",
+      bentoSpan: "col-span-1 md:col-span-2 row-span-1",
+      height: 350,
+      featured: true
+    },
+    {
+      id: 10,
+      title: "Retreat – Scenic Landscape & Nature Immersion",
+      cat: "Retreat",
+      img: "/assets/gallery/IMG_0592.JPEG",
+      bentoSpan: "col-span-1 row-span-1",
+      height: 300
+    },
+    {
+      id: 11,
+      title: "Architecture – Sacred Geometric Central Courtyard",
+      cat: "Architecture",
+      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM.jpeg",
+      bentoSpan: "col-span-1 md:col-span-2 row-span-2",
+      height: 370,
+      featured: true
+    },
+    {
+      id: 12,
+      title: "Activities – Morning Yoga & Asana Flow",
+      cat: "Activities",
+      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM (1).jpeg",
+      bentoSpan: "col-span-1 row-span-1",
+      height: 290
+    },
+    {
+      id: 13,
+      title: "Therapies – Aqua Hydrotherapy & Cleansing Suite",
+      cat: "Therapies",
+      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM (2).jpeg",
+      bentoSpan: "col-span-1 row-span-1",
+      height: 310
+    },
+    {
+      id: 14,
+      title: "Architecture – Deluxe Living Quarters & Balcony",
+      cat: "Architecture",
+      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.48 AM.jpeg",
+      bentoSpan: "col-span-1 row-span-1",
+      height: 280
+    },
+    {
+      id: 15,
+      title: "Architecture – Private Cottage Exterior & Veranda",
+      cat: "Architecture",
+      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.49 AM.jpeg",
+      bentoSpan: "col-span-1 row-span-1",
+      height: 320
+    },
+    {
+      id: 16,
+      title: "Retreat – Evening Ambient Rest & Sanctuary Dusk",
+      cat: "Retreat",
+      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.50 AM.jpeg",
+      bentoSpan: "col-span-1 row-span-1",
+      height: 290
+    }
   ];
 
   const filteredItems = activeTab === 'All'
     ? galleryItems
     : galleryItems.filter(item => item.cat === activeTab);
 
-  const filteredWithIndex = filteredItems.map((item, idx) => ({ ...item, filteredIdx: idx }));
-
-  const isMobile = width < 768;
-
-  // 3 columns on laptop/desktop, 2 columns on mobile
-  const numCols = width >= 768 ? 3 : 2;
-  const cols = Array.from({ length: numCols }, (_, colIdx) => {
-    const offsetItems = [];
-    const len = filteredWithIndex.length;
-    if (len === 0) return [];
-
-    for (let i = 0; i < len; i++) {
-      offsetItems.push(filteredWithIndex[(i + colIdx * 2) % len]);
-    }
-    return offsetItems;
-  });
-
-  const fillColumn = (columnItems) => {
-    if (!columnItems || columnItems.length === 0) return [];
-    let result = [...columnItems];
-    while (result.length < 10) {
-      result = [...result, ...columnItems];
-    }
-    return [...result, ...result];
+  const getCategoryCount = (cat) => {
+    if (cat === 'All') return galleryItems.length;
+    return galleryItems.filter(item => item.cat === cat).length;
   };
 
-  // Handle active items for layout pagination
-  const displayItems = filteredWithIndex;
-
-  // Distribute items into columns for dynamic masonry layout (mobile fallback)
-  const numColumns = width >= 768 ? 3 : 2;
+  const numColumns = width >= 1024 ? 3 : width >= 640 ? 2 : 1;
   const masonryColumns = Array.from({ length: numColumns }, () => []);
-  filteredWithIndex.forEach((item) => {
-    const shortestColIdx = masonryColumns
-      .map((col, idx) => ({ length: col.length, idx }))
-      .reduce((shortest, curr) => (curr.length < shortest.length ? curr : shortest), { length: Infinity, idx: 0 }).idx;
-    masonryColumns[shortestColIdx].push(item);
+  filteredItems.forEach((item, idx) => {
+    masonryColumns[idx % numColumns].push({ ...item, filteredIdx: idx });
   });
 
   const handlePrev = (e) => {
@@ -293,9 +246,9 @@ export default function Gallery({ onNavigate }) {
     if (selectedIdx < filteredItems.length - 1) setSelectedIdx(selectedIdx + 1);
   };
 
-  // Close selection on tab switch
   useEffect(() => {
     setSelectedIdx(null);
+    setSpotlightIdx(0);
   }, [activeTab]);
 
   useEffect(() => {
@@ -307,35 +260,20 @@ export default function Gallery({ onNavigate }) {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedIdx]);
-
-  // Staggered tab button animation variants
-  const tabButtonVariants = {
-    hidden: { opacity: 0, y: -15 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.05,
-        duration: 0.55,
-        ease: [0.16, 1, 0.3, 1]
-      }
-    })
-  };
+  }, [selectedIdx, filteredItems.length]);
 
   return (
-    <div style={{ backgroundColor: 'var(--isabelline)', minHeight: '100vh', paddingTop: 0, position: 'relative', overflowX: 'hidden' }}>
+    <div style={{ backgroundColor: 'var(--isabelline)', minHeight: '100vh', position: 'relative', overflowX: 'hidden' }}>
+      
+      {/* Leaf Vector Watermarks */}
+      <Pattern24 style={{ position: 'absolute', top: '18%', left: '-80px', width: '320px', height: 'auto', opacity: 0.07, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
+      <Pattern25 style={{ position: 'absolute', top: '55%', right: '-80px', width: '320px', height: 'auto', opacity: 0.07, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
 
-      {/* Botanical Leaf Vector Watermarks */}
-      <Pattern24 style={{ position: 'absolute', top: '25%', left: '-80px', width: '340px', height: 'auto', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
-      <Pattern25 style={{ position: 'absolute', top: '60%', right: '-80px', width: '340px', height: 'auto', opacity: 0.08, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
-
-      {/* Unified Typewriter Hero Section */}
+      {/* Hero Section */}
       <section
-        className="mobile-hero-compact"
         style={{
           boxSizing: 'border-box',
-          padding: '6rem 8% 3rem 8%',
+          padding: '6rem 8% 3.5rem 8%',
           background: 'linear-gradient(135deg, #c5cc9f 0%, #b3ba8e 60%, #9ea776 100%)',
           color: 'var(--wine)',
           textAlign: 'center',
@@ -345,27 +283,20 @@ export default function Gallery({ onNavigate }) {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          minHeight: '100vh',
-          marginBottom: '0'
+          minHeight: '45vh'
         }}
       >
-        {/* Leaf SVG Watermark Overlays */}
-        <Pattern24 className="pattern-side-left" style={{ position: 'absolute', top: '-20px', left: '-40px', width: '280px', opacity: 0.12, color: 'var(--wine)', pointerEvents: 'none' }} />
-        <Pattern25 className="pattern-side-right" style={{ position: 'absolute', bottom: '-20px', right: '-40px', width: '280px', opacity: 0.12, color: 'var(--wine)', pointerEvents: 'none' }} />
+        <Pattern24 style={{ position: 'absolute', top: '-20px', left: '-40px', width: '280px', opacity: 0.12, color: 'var(--wine)', pointerEvents: 'none' }} />
+        <Pattern25 style={{ position: 'absolute', bottom: '-20px', right: '-40px', width: '280px', opacity: 0.12, color: 'var(--wine)', pointerEvents: 'none' }} />
 
-        {/* Ambient Wine & Gold Bokeh Glow Effects */}
-        <div style={{ position: 'absolute', top: '-10%', left: '10%', maxWidth: '450px', width: '100%', height: '450px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(94,39,53,0.08) 0%, rgba(94,39,53,0) 70%)', filter: 'blur(70px)', zIndex: 0, pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: '-15%', right: '10%', maxWidth: '500px', width: '100%', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(220,160,50,0.12) 0%, rgba(220,160,50,0) 70%)', filter: 'blur(80px)', zIndex: 0, pointerEvents: 'none' }} />
-
-        {/* Background Rotating Mandala Watermark (Spaces Hero Animation) */}
         <motion.div
           animate={{ rotate: 360 }}
-          transition={{ duration: 90, repeat: Infinity, ease: 'linear' }}
+          transition={{ duration: 100, repeat: Infinity, ease: 'linear' }}
           style={{
             position: 'absolute',
             top: '50%', left: '50%',
-            x: '-50%', y: '-50%',
-            width: 'clamp(340px, 80vw, 540px)', height: 'clamp(340px, 80vw, 540px)',
+            transform: 'translate(-50%, -50%)',
+            width: 'clamp(320px, 75vw, 520px)', height: 'clamp(320px, 75vw, 520px)',
             opacity: 0.08,
             pointerEvents: 'none',
             zIndex: 0
@@ -374,230 +305,508 @@ export default function Gallery({ onNavigate }) {
           <Pattern27 style={{ width: '100%', height: '100%', color: 'var(--wine)' }} />
         </motion.div>
 
-        {/* ── BOTANICAL BLOOM (FINAL CHOSEN ANIMATION) ── */}
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', width: '100%', textAlign: 'center', marginTop: '-2.5rem' }}>
-          {/* Official Suprada Emblem Logo */}
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '820px', width: '100%', textAlign: 'center' }}>
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: 'easeOut' }}
-            style={{ marginBottom: '1.2rem', display: 'flex', justifyContent: 'center' }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+            style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}
           >
             <img 
               src="/assets/extracted/logo.svg" 
-              alt="Suprada Official Emblem Logo" 
-              style={{ height: '85px', width: 'auto', filter: 'drop-shadow(0 4px 12px rgba(94, 39, 53, 0.15))' }} 
+              alt="Suprada Official Emblem" 
+              style={{ height: '80px', width: 'auto', filter: 'drop-shadow(0 4px 12px rgba(94, 39, 53, 0.15))' }} 
             />
           </motion.div>
 
-          <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.8rem', fontWeight: 800, display: 'block', marginBottom: '1.2rem' }}>
-            Moments
+          <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.78rem', fontWeight: 800, display: 'block', marginBottom: '0.8rem' }}>
+            Authentic Visual Journal
           </span>
-          <motion.h1
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: 0.2 } }
-            }}
-            initial="hidden"
-            animate="visible"
-            style={{color: 'var(--wine)', 
-            margin: '0 0 0.9rem 0', 
-            lineHeight: 1.1, 
-            display: 'flex', 
-            justifyContent: 'center', 
-            gap: '0.7rem', 
-            flexWrap: 'wrap'}}
-          >
-            {["Our", "Gallery"].map((word, idx) => (
-              <motion.span
-                key={idx}
-                variants={{
-                  hidden: { scale: 0.4, rotate: -15, opacity: 0, filter: 'blur(8px)' },
-                  visible: { scale: [0.4, 1.05, 1], rotate: 0, opacity: 1, filter: 'blur(0px)', transition: { duration: 0.8, ease: 'easeOut' } }
-                }}
-                animate={{
-                  scale: [1, 1.015, 1],
-                  transition: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: idx * 0.5 + 1.2 }
-                }}
-                style={{ display: 'inline-block', transformOrigin: 'center bottom' }}
-              >
-                {word}
-              </motion.span>
-            ))}
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 0.85, scale: 1 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            style={{ color: 'var(--raisin-black)', maxWidth: '700px', margin: '1.8rem auto 0 auto', fontSize: 'var(--fs-body)', lineHeight: 1.85, fontWeight: 300 }}
-          >
-            Discover the serene beauty and transformative experiences that await you at Suprada Wellness. Explore our retreat spaces, therapeutic treatments, nutritious cuisine, and peaceful architecture.
-          </motion.p>
+          
+          <h1 style={{ color: 'var(--wine)', margin: '0 0 1rem 0', fontSize: 'clamp(2.2rem, 5vw, 3.4rem)', fontFamily: 'serif', fontWeight: 700, lineHeight: 1.15 }}>
+            Photo Gallery & Moments
+          </h1>
+          
+          <p style={{ color: 'var(--raisin-black)', maxWidth: '680px', margin: '0 auto', fontSize: '1rem', lineHeight: 1.8, fontWeight: 300, opacity: 0.9 }}>
+            Immerse yourself in authentic captures of our riverfront sanctuary, therapeutic suites, mud-plastered heritage architecture, and organic farm meals.
+          </p>
         </div>
       </section>
 
-      {/* Filter Tabs */}
-      <section style={{ padding: '1.5rem 5% 1.5rem 5%' }}>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '0.8rem', flexWrap: 'wrap', maxWidth: '800px', margin: '0 auto', position: 'relative' }}>
-          {categories.map((cat, idx) => {
-            const isActive = activeTab === cat;
-            return (
-              <motion.button
-                key={cat}
-                custom={idx}
-                initial="hidden"
-                animate="visible"
-                variants={tabButtonVariants}
-                onClick={() => setActiveTab(cat)}
-                style={{
-                  position: 'relative',
-                  padding: '0.6rem 1.5rem',
-                  borderRadius: '30px',
-                  border: '1.5px solid transparent',
-                  backgroundColor: 'transparent',
-                  color: isActive ? 'var(--wine)' : 'rgba(94, 39, 53, 0.7)',
-                  fontSize: '0.78rem',
-                  fontWeight: 600,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.05em',
-                  cursor: 'pointer',
-                  zIndex: 1,
-                  transition: 'color 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
-                }}
-              >
-                {isActive && (
-                  <motion.div
-                    layoutId="activeTabPillAesthetic"
-                    style={{
-                      position: 'absolute',
-                      top: 0, left: 0, right: 0, bottom: 0,
-                      backgroundColor: 'var(--sage)',
-                      borderRadius: '30px',
-                      zIndex: -1
-                    }}
-                    transition={{ type: "spring", stiffness: 350, damping: 28 }}
-                  />
-                )}
-                {!isActive && (
-                  <div
-                    style={{
-                      position: 'absolute',
-                      top: 0, left: 0, right: 0, bottom: 0,
-                      borderRadius: '30px',
-                      border: '1.5px solid rgba(94, 39, 53, 0.12)',
-                      pointerEvents: 'none'
-                    }}
-                  />
-                )}
-                <span>{cat}</span>
-              </motion.button>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* Main Grid Area */}
-      <section style={{ padding: '0 8% 3rem 8%', position: 'relative' }}>
-        <style dangerouslySetInnerHTML={{
-          __html: `
-          @keyframes scroll-up-aesthetic {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-50%); }
-          }
-          @keyframes scroll-down-aesthetic {
-            0% { transform: translateY(-50%); }
-            100% { transform: translateY(0); }
-          }
-          .scroll-col-up {
-            animation: scroll-up-aesthetic 130s linear infinite;
-          }
-          .scroll-col-down {
-            animation: scroll-down-aesthetic 130s linear infinite;
-          }
-          .scroll-col-up:hover, .scroll-col-down:hover {
-            animation-play-state: paused;
-          }
-        `}} />
-
+      {/* Control Bar: Categories & Layout Switcher */}
+      <section style={{ padding: '2.5rem 8% 1.5rem 8%', maxWidth: '1350px', margin: '0 auto' }}>
         <div style={{
           display: 'flex',
-          gap: isMobile ? '0.45rem' : '0.55rem',
-          height: isMobile ? '520px' : '680px',
-          overflow: 'hidden',
-          position: 'relative',
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '0.5rem',
+          flexDirection: width < 768 ? 'column' : 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '1.5rem',
+          backgroundColor: '#ffffff',
+          padding: '1.2rem 1.8rem',
           borderRadius: '24px',
-          backgroundColor: 'rgba(94, 39, 53, 0.015)',
-          border: '3px solid var(--harvest-gold)',
-          boxShadow: '0 20px 50px rgba(94, 39, 53, 0.12), inset 0 0 20px rgba(220, 160, 50, 0.05)'
+          boxShadow: '0 12px 35px rgba(94, 39, 53, 0.06)',
+          border: '1.5px solid rgba(220, 160, 50, 0.2)'
         }}>
-          {cols.map((colItems, colIdx) => {
-            const isUp = colIdx % 2 === 0;
-            const animationClass = isUp ? 'scroll-col-up' : 'scroll-col-down';
-            const filled = fillColumn(colItems);
+          
+          {/* Category Filter Pills */}
+          <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+            {categories.map((cat) => {
+              const isActive = activeTab === cat;
+              const count = getCategoryCount(cat);
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setActiveTab(cat)}
+                  style={{
+                    position: 'relative',
+                    padding: '0.55rem 1.1rem',
+                    borderRadius: '30px',
+                    border: 'none',
+                    backgroundColor: isActive ? 'var(--wine)' : 'rgba(94, 39, 53, 0.05)',
+                    color: isActive ? '#ffffff' : 'var(--wine)',
+                    fontSize: '0.8rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.03em',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.45rem',
+                    transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
+                  }}
+                >
+                  <span>{cat}</span>
+                  <span style={{
+                    backgroundColor: isActive ? 'rgba(255, 255, 255, 0.25)' : 'rgba(94, 39, 53, 0.12)',
+                    color: isActive ? '#ffffff' : 'var(--wine)',
+                    fontSize: '0.68rem',
+                    fontWeight: 700,
+                    padding: '0.15rem 0.45rem',
+                    borderRadius: '12px',
+                    lineHeight: 1
+                  }}>
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
 
-            return (
+          {/* View Mode Toggle Buttons */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', backgroundColor: 'var(--isabelline)', padding: '0.35rem', borderRadius: '16px', border: '1px solid rgba(94, 39, 53, 0.1)' }}>
+            <button
+              onClick={() => setViewLayout('masonry')}
+              title="Masonry Grid View"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                padding: '0.5rem 0.85rem',
+                borderRadius: '12px',
+                border: 'none',
+                backgroundColor: viewLayout === 'masonry' ? '#ffffff' : 'transparent',
+                color: viewLayout === 'masonry' ? 'var(--wine)' : 'rgba(94, 39, 53, 0.6)',
+                boxShadow: viewLayout === 'masonry' ? '0 4px 12px rgba(0,0,0,0.08)' : 'none',
+                fontWeight: 600,
+                fontSize: '0.76rem',
+                cursor: 'pointer',
+                transition: 'all 0.25s'
+              }}
+            >
+              <LayoutGrid size={15} />
+              <span>Masonry</span>
+            </button>
+
+            <button
+              onClick={() => setViewLayout('bento')}
+              title="Editorial Bento View"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                padding: '0.5rem 0.85rem',
+                borderRadius: '12px',
+                border: 'none',
+                backgroundColor: viewLayout === 'bento' ? '#ffffff' : 'transparent',
+                color: viewLayout === 'bento' ? 'var(--wine)' : 'rgba(94, 39, 53, 0.6)',
+                boxShadow: viewLayout === 'bento' ? '0 4px 12px rgba(0,0,0,0.08)' : 'none',
+                fontWeight: 600,
+                fontSize: '0.76rem',
+                cursor: 'pointer',
+                transition: 'all 0.25s'
+              }}
+            >
+              <Grid size={15} />
+              <span>Bento</span>
+            </button>
+
+            <button
+              onClick={() => setViewLayout('spotlight')}
+              title="Spotlight Showcase View"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                padding: '0.5rem 0.85rem',
+                borderRadius: '12px',
+                border: 'none',
+                backgroundColor: viewLayout === 'spotlight' ? '#ffffff' : 'transparent',
+                color: viewLayout === 'spotlight' ? 'var(--wine)' : 'rgba(94, 39, 53, 0.6)',
+                boxShadow: viewLayout === 'spotlight' ? '0 4px 12px rgba(0,0,0,0.08)' : 'none',
+                fontWeight: 600,
+                fontSize: '0.76rem',
+                cursor: 'pointer',
+                transition: 'all 0.25s'
+              }}
+            >
+              <Sparkles size={15} />
+              <span>Showcase</span>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Main Gallery Display Section */}
+      <section style={{ padding: '1rem 8% 5rem 8%', maxWidth: '1350px', margin: '0 auto' }}>
+        
+        {/* VIEW MODE 1: Dynamic Staggered Masonry Grid */}
+        {viewLayout === 'masonry' && (
+          <motion.div
+            key={`masonry-${activeTab}`}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            style={{
+              display: 'flex',
+              gap: '1.5rem',
+              width: '100%'
+            }}
+          >
+            {masonryColumns.map((colItems, colIdx) => (
               <div
-                key={`${colIdx}-${activeTab}`}
-                className={animationClass}
+                key={`col-${colIdx}`}
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: isMobile ? '0.45rem' : '0.55rem',
-                  flex: 1,
-                  height: 'max-content'
+                  gap: '1.5rem',
+                  flex: 1
                 }}
               >
-                {filled.map((item, itemIdx) => (
-                  <div
-                    key={`${item.title}-${itemIdx}`}
+                {colItems.map((item) => (
+                  <TiltCard
+                    key={item.id}
                     onClick={() => setSelectedIdx(item.filteredIdx)}
-                    style={{
-                      width: '100%',
-                      height: isMobile ? '165px' : '265px',
-                      backgroundColor: '#ffffff',
-                      borderRadius: '16px',
-                      overflow: 'hidden',
-                      boxShadow: '0 8px 24px rgba(94, 39, 53, 0.04)',
-                      border: '2px solid rgba(220, 160, 50, 0.25)',
-                      cursor: 'pointer',
-                      flexShrink: 0
-                    }}
+                    style={{ cursor: 'pointer', width: '100%' }}
                   >
-                    <TiltCard style={{ width: '100%', height: '100%' }}>
-                      <CardInner item={item} isSelected={false} idx={itemIdx} />
-                    </TiltCard>
-                  </div>
+                    <div style={{
+                      position: 'relative',
+                      borderRadius: '20px',
+                      overflow: 'hidden',
+                      backgroundColor: '#191718',
+                      boxShadow: '0 10px 30px rgba(94, 39, 53, 0.08)',
+                      border: '2px solid rgba(220, 160, 50, 0.2)',
+                      height: `${item.height}px`
+                    }}>
+                      <motion.img
+                        src={item.img}
+                        alt={item.title}
+                        whileHover={{ scale: 1.06 }}
+                        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                      
+                      {/* Category Badge Top Left */}
+                      <div style={{
+                        position: 'absolute',
+                        top: '1rem',
+                        left: '1rem',
+                        backgroundColor: 'rgba(94, 39, 53, 0.85)',
+                        backdropFilter: 'blur(8px)',
+                        color: 'var(--harvest-gold)',
+                        padding: '0.35rem 0.85rem',
+                        borderRadius: '20px',
+                        fontSize: '0.66rem',
+                        fontWeight: 700,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.1em',
+                        border: '1px solid rgba(220, 160, 50, 0.3)',
+                        zIndex: 2
+                      }}>
+                        {item.cat}
+                      </div>
+
+                      {/* Expand Eye Icon Top Right */}
+                      <div style={{
+                        position: 'absolute',
+                        top: '1rem',
+                        right: '1rem',
+                        backgroundColor: 'rgba(255, 255, 255, 0.25)',
+                        backdropFilter: 'blur(8px)',
+                        color: '#ffffff',
+                        width: '34px',
+                        height: '34px',
+                        borderRadius: '50%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        border: '1px solid rgba(255, 255, 255, 0.4)',
+                        zIndex: 2
+                      }}>
+                        <Eye size={16} />
+                      </div>
+
+                      {/* Hover Overlay Gradient */}
+                      <div style={{
+                        position: 'absolute',
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        padding: '3rem 1.4rem 1.2rem 1.4rem',
+                        background: 'linear-gradient(to top, rgba(25, 23, 24, 0.95) 0%, rgba(25, 23, 24, 0.6) 60%, rgba(25, 23, 24, 0) 100%)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'flex-end',
+                        zIndex: 2
+                      }}>
+                        <h3 style={{ color: '#ffffff', margin: 0, fontSize: '1.05rem', fontFamily: 'serif', fontWeight: 600, lineHeight: 1.3 }}>
+                          {item.title.split(' – ')[1] || item.title}
+                        </h3>
+                      </div>
+                    </div>
+                  </TiltCard>
                 ))}
               </div>
-            );
-          })}
-        </div>
+            ))}
+          </motion.div>
+        )}
+
+        {/* VIEW MODE 2: Editorial Bento Grid Layout */}
+        {viewLayout === 'bento' && (
+          <motion.div
+            key={`bento-${activeTab}`}
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            style={{
+              display: 'grid',
+              gridTemplateColumns: width >= 1024 ? 'repeat(3, 1fr)' : width >= 640 ? 'repeat(2, 1fr)' : '1fr',
+              gap: '1.5rem',
+              width: '100%'
+            }}
+          >
+            {filteredItems.map((item, idx) => (
+              <TiltCard
+                key={item.id}
+                onClick={() => setSelectedIdx(idx)}
+                style={{ cursor: 'pointer', gridColumn: item.featured && width >= 1024 ? 'span 2' : 'span 1' }}
+              >
+                <div style={{
+                  position: 'relative',
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  backgroundColor: '#191718',
+                  boxShadow: '0 12px 32px rgba(94, 39, 53, 0.09)',
+                  border: '2px solid rgba(220, 160, 50, 0.25)',
+                  height: item.featured ? '380px' : '300px'
+                }}>
+                  <motion.img
+                    src={item.img}
+                    alt={item.title}
+                    whileHover={{ scale: 1.06 }}
+                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+
+                  <div style={{
+                    position: 'absolute',
+                    top: '1.1rem',
+                    left: '1.1rem',
+                    backgroundColor: 'rgba(94, 39, 53, 0.85)',
+                    backdropFilter: 'blur(8px)',
+                    color: 'var(--harvest-gold)',
+                    padding: '0.35rem 0.85rem',
+                    borderRadius: '20px',
+                    fontSize: '0.68rem',
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.1em',
+                    border: '1px solid rgba(220, 160, 50, 0.3)',
+                    zIndex: 2
+                  }}>
+                    {item.cat}
+                  </div>
+
+                  <div style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    padding: '3rem 1.5rem 1.4rem 1.5rem',
+                    background: 'linear-gradient(to top, rgba(25, 23, 24, 0.95) 0%, rgba(25, 23, 24, 0.5) 60%, rgba(25, 23, 24, 0) 100%)',
+                    zIndex: 2
+                  }}>
+                    <h3 style={{ color: '#ffffff', margin: 0, fontSize: item.featured ? '1.25rem' : '1.05rem', fontFamily: 'serif', fontWeight: 600, lineHeight: 1.3 }}>
+                      {item.title.split(' – ')[1] || item.title}
+                    </h3>
+                  </div>
+                </div>
+              </TiltCard>
+            ))}
+          </motion.div>
+        )}
+
+        {/* VIEW MODE 3: Interactive Spotlight Showcase Slider */}
+        {viewLayout === 'spotlight' && (
+          <motion.div
+            key={`spotlight-${activeTab}`}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '2rem' }}
+          >
+            {/* Spotlight Main Showcase Tile */}
+            {filteredItems.length > 0 && (
+              <div style={{
+                position: 'relative',
+                borderRadius: '24px',
+                overflow: 'hidden',
+                backgroundColor: '#191718',
+                boxShadow: '0 20px 50px rgba(94, 39, 53, 0.15)',
+                border: '3px solid var(--harvest-gold)',
+                minHeight: '480px',
+                display: 'flex',
+                flexDirection: width < 768 ? 'column' : 'row'
+              }}>
+                {/* Image Section */}
+                <div style={{ flex: 1.3, position: 'relative', minHeight: '340px', overflow: 'hidden' }}>
+                  <motion.img
+                    key={spotlightIdx}
+                    src={filteredItems[spotlightIdx]?.img}
+                    alt={filteredItems[spotlightIdx]?.title}
+                    initial={{ opacity: 0, scale: 1.08 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6 }}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                  
+                  {/* Previous / Next Overlay Controls */}
+                  <button
+                    onClick={() => setSpotlightIdx((prev) => (prev > 0 ? prev - 1 : filteredItems.length - 1))}
+                    style={{
+                      position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)',
+                      backgroundColor: 'rgba(25, 23, 24, 0.65)', backdropFilter: 'blur(8px)',
+                      color: '#ffffff', border: '1px solid rgba(220,160,50,0.3)',
+                      width: '42px', height: '42px', borderRadius: '50%', cursor: 'pointer',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 5
+                    }}
+                  >
+                    <ChevronLeft size={20} />
+                  </button>
+
+                  <button
+                    onClick={() => setSpotlightIdx((prev) => (prev < filteredItems.length - 1 ? prev + 1 : 0))}
+                    style={{
+                      position: 'absolute', right: '1rem', top: '50%', transform: 'translateY(-50%)',
+                      backgroundColor: 'rgba(25, 23, 24, 0.65)', backdropFilter: 'blur(8px)',
+                      color: '#ffffff', border: '1px solid rgba(220,160,50,0.3)',
+                      width: '42px', height: '42px', borderRadius: '50%', cursor: 'pointer',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 5
+                    }}
+                  >
+                    <ChevronRight size={20} />
+                  </button>
+                </div>
+
+                {/* Info Content Section */}
+                <div style={{
+                  flex: 1,
+                  backgroundColor: 'var(--wine)',
+                  color: '#ffffff',
+                  padding: '3rem 2.5rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  position: 'relative'
+                }}>
+                  <span style={{ color: 'var(--harvest-gold)', fontSize: '0.78rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '0.6rem' }}>
+                    {filteredItems[spotlightIdx]?.cat} • Shot {spotlightIdx + 1} of {filteredItems.length}
+                  </span>
+                  
+                  <h2 style={{ color: '#ffffff', fontFamily: 'serif', fontSize: '1.8rem', margin: '0 0 1.2rem 0', lineHeight: 1.25 }}>
+                    {filteredItems[spotlightIdx]?.title}
+                  </h2>
+                  
+                  <p style={{ opacity: 0.85, fontSize: '0.95rem', lineHeight: 1.8, fontWeight: 300, marginBottom: '2rem' }}>
+                    {getDescriptionForTitle(filteredItems[spotlightIdx]?.title || '')}
+                  </p>
+
+                  <button
+                    onClick={() => setSelectedIdx(spotlightIdx)}
+                    className="btn-luxury"
+                    style={{ alignSelf: 'flex-start', padding: '0.75rem 2rem', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+                  >
+                    <Maximize2 size={15} />
+                    <span>View Fullscreen</span>
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Thumbnail Filmstrip Navigation Strip */}
+            <div style={{
+              display: 'flex',
+              gap: '1rem',
+              overflowX: 'auto',
+              paddingBottom: '0.8rem',
+              scrollBehavior: 'smooth'
+            }}>
+              {filteredItems.map((item, idx) => (
+                <div
+                  key={item.id}
+                  onClick={() => setSpotlightIdx(idx)}
+                  style={{
+                    minWidth: '120px',
+                    height: '80px',
+                    borderRadius: '14px',
+                    overflow: 'hidden',
+                    cursor: 'pointer',
+                    border: spotlightIdx === idx ? '3px solid var(--harvest-gold)' : '2px solid transparent',
+                    opacity: spotlightIdx === idx ? 1 : 0.6,
+                    transform: spotlightIdx === idx ? 'scale(1.05)' : 'scale(1)',
+                    transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                    flexShrink: 0
+                  }}
+                >
+                  <img src={item.img} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
       </section>
 
       {/* Experience CTA */}
-      <section style={{ backgroundColor: 'var(--wine)', color: 'var(--isabelline)', padding: '4rem 5%', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'radial-gradient(circle, rgba(220,160,50,0.03) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none' }} />
-        <h2 style={{color: 'var(--tan)', marginBottom: '1rem',}}>
+      <section style={{ backgroundColor: 'var(--wine)', color: 'var(--isabelline)', padding: '4.5rem 5%', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'radial-gradient(circle, rgba(220,160,50,0.04) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none' }} />
+        <h2 style={{ color: 'var(--tan)', marginBottom: '1rem', fontFamily: 'serif', fontSize: '2.2rem' }}>
           Experience Suprada in Person
         </h2>
-        <p style={{ opacity: 0.8, maxWidth: '550px', margin: '0 auto 2.5rem auto', fontSize: 'var(--fs-body)', lineHeight: 1.6 }}>
-          While photographs capture visual moments, nothing compares to the physical serenity of our forest retreat.
+        <p style={{ opacity: 0.85, maxWidth: '560px', margin: '0 auto 2.2rem auto', fontSize: '1rem', lineHeight: 1.7, fontWeight: 300 }}>
+          While photographs capture serene moments, nothing compares to the physical tranquility of our forest retreat along the flowing river.
         </p>
         <button
           onClick={() => onNavigate('contact')}
           className="btn-luxury"
-          style={{ padding: '0.8rem 2.5rem', fontSize: '0.78rem' }}
+          style={{ padding: '0.85rem 2.6rem', fontSize: '0.8rem' }}
         >
-          Schedule a Visit
+          Schedule a Private Visit
         </button>
       </section>
 
       {/* Lightbox Modal Overlay */}
       <AnimatePresence>
-        {selectedIdx !== null && (
+        {selectedIdx !== null && filteredItems[selectedIdx] && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -605,33 +814,35 @@ export default function Gallery({ onNavigate }) {
             onClick={() => setSelectedIdx(null)}
             style={{
               position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
-              backgroundColor: 'rgba(25, 23, 24, 0.95)', zIndex: 10000,
+              backgroundColor: 'rgba(15, 13, 14, 0.95)', zIndex: 10000,
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-              padding: '2rem', backdropFilter: 'blur(10px)'
+              padding: '1.5rem', backdropFilter: 'blur(12px)'
             }}
           >
             <motion.div
               initial={{ scale: 0.93, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.93, opacity: 0 }}
-              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
               style={{
-                backgroundColor: '#ffffff', borderRadius: '16px', overflow: 'hidden',
-                maxWidth: '900px', width: '100%', boxShadow: '0 30px 70px rgba(0,0,0,0.5)',
-                border: '1px solid rgba(220,160,50,0.2)', position: 'relative'
+                backgroundColor: '#ffffff', borderRadius: '20px', overflow: 'hidden',
+                maxWidth: '960px', width: '100%', boxShadow: '0 35px 80px rgba(0,0,0,0.6)',
+                border: '1.5px solid rgba(220,160,50,0.3)', position: 'relative'
               }}
             >
-              <div style={{ height: '420px', overflow: 'hidden', backgroundColor: '#000000', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                {/* Slide Count Indicator */}
+              {/* Photo Viewer Frame */}
+              <div style={{ height: width < 768 ? '320px' : '480px', overflow: 'hidden', backgroundColor: '#0a0909', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                
+                {/* Counter Badge */}
                 <div style={{
                   position: 'absolute',
                   top: '1.2rem',
                   right: '1.2rem',
-                  backgroundColor: 'rgba(25, 23, 24, 0.65)',
+                  backgroundColor: 'rgba(25, 23, 24, 0.75)',
                   backdropFilter: 'blur(8px)',
-                  border: '1.5px solid rgba(220, 160, 50, 0.25)',
-                  padding: '0.4rem 0.8rem',
+                  border: '1.5px solid rgba(220, 160, 50, 0.3)',
+                  padding: '0.4rem 0.9rem',
                   borderRadius: '30px',
                   color: 'var(--harvest-gold)',
                   fontSize: '0.78rem',
@@ -648,75 +859,108 @@ export default function Gallery({ onNavigate }) {
                     key={selectedIdx}
                     src={filteredItems[selectedIdx].img}
                     alt={filteredItems[selectedIdx].title}
-                    initial={{ opacity: 0, scale: 1.15, filter: "blur(18px)" }}
-                    animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                    exit={{ opacity: 0, scale: 0.95, filter: "blur(12px)" }}
-                    transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    initial={{ opacity: 0, scale: 1.08 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.96 }}
+                    transition={{ duration: 0.45 }}
+                    style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                   />
                 </AnimatePresence>
 
+                {/* Left Arrow Button */}
                 {selectedIdx > 0 && (
                   <button
                     onClick={handlePrev}
                     style={{
-                      position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)',
-                      backgroundColor: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(8px)',
+                      position: 'absolute', left: '1.2rem', top: '50%', transform: 'translateY(-50%)',
+                      backgroundColor: 'rgba(25, 23, 24, 0.7)', backdropFilter: 'blur(8px)',
                       border: '1px solid rgba(255,255,255,0.2)', color: '#ffffff',
-                      width: '36px', height: '36px', borderRadius: '50%', cursor: 'pointer',
-                      fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      transition: 'all 0.3s'
+                      width: '44px', height: '44px', borderRadius: '50%', cursor: 'pointer',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      transition: 'all 0.25s'
                     }}
                   >
-                    &larr;
+                    <ChevronLeft size={22} />
                   </button>
                 )}
 
+                {/* Right Arrow Button */}
                 {selectedIdx < filteredItems.length - 1 && (
                   <button
                     onClick={handleNext}
                     style={{
-                      position: 'absolute', right: '1rem', top: '50%', transform: 'translateY(-50%)',
-                      backgroundColor: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(8px)',
+                      position: 'absolute', right: '1.2rem', top: '50%', transform: 'translateY(-50%)',
+                      backgroundColor: 'rgba(25, 23, 24, 0.7)', backdropFilter: 'blur(8px)',
                       border: '1px solid rgba(255,255,255,0.2)', color: '#ffffff',
-                      width: '36px', height: '36px', borderRadius: '50%', cursor: 'pointer',
-                      fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      transition: 'all 0.3s'
+                      width: '44px', height: '44px', borderRadius: '50%', cursor: 'pointer',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      transition: 'all 0.25s'
                     }}
                   >
-                    &rarr;
+                    <ChevronRight size={22} />
                   </button>
                 )}
               </div>
 
-              <div style={{ padding: '1.8rem', backgroundColor: '#ffffff' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
+              {/* Bottom Caption & Details Bar */}
+              <div style={{ padding: '1.8rem 2.2rem 1.4rem 2.2rem', backgroundColor: '#ffffff' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.8rem' }}>
                   <div>
-                    <span style={{ fontSize: '0.65rem', color: 'var(--redwood)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '0.2rem' }}>{filteredItems[selectedIdx].cat}</span>
-                    <h3 style={{color: 'var(--wine)', margin: 0,}}>
-                      {filteredItems[selectedIdx].title.split(' – ')[1] || filteredItems[selectedIdx].title}
+                    <span style={{ fontSize: '0.68rem', color: 'var(--redwood)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '0.3rem' }}>
+                      {filteredItems[selectedIdx].cat}
+                    </span>
+                    <h3 style={{ color: 'var(--wine)', margin: 0, fontFamily: 'serif', fontSize: '1.35rem', fontWeight: 700 }}>
+                      {filteredItems[selectedIdx].title}
                     </h3>
                   </div>
+                  
                   <button
                     onClick={() => setSelectedIdx(null)}
                     style={{
                       border: 'none', background: 'var(--wine)', color: '#ffffff',
-                      width: '36px', height: '36px', borderRadius: '50%', cursor: 'pointer',
+                      width: '38px', height: '38px', borderRadius: '50%', cursor: 'pointer',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       flexShrink: 0, transition: 'all 0.2s'
                     }}
                   >
-                    <X size={16} />
+                    <X size={18} />
                   </button>
                 </div>
-                <p style={{ fontSize: 'var(--fs-body)', color: 'var(--raisin-black)', opacity: 0.8, lineHeight: 1.6, margin: 0, fontWeight: 300 }}>
+
+                <p style={{ fontSize: '0.92rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.7, margin: '0 0 1.4rem 0', fontWeight: 300 }}>
                   {getDescriptionForTitle(filteredItems[selectedIdx].title)}
                 </p>
+
+                {/* Bottom Lightbox Thumbnail Strip */}
+                <div style={{ display: 'flex', gap: '0.6rem', overflowX: 'auto', paddingTop: '0.5rem', borderTop: '1px solid rgba(94, 39, 53, 0.08)' }}>
+                  {filteredItems.map((item, thumbIdx) => (
+                    <div
+                      key={item.id}
+                      onClick={() => setSelectedIdx(thumbIdx)}
+                      style={{
+                        width: '56px',
+                        height: '42px',
+                        borderRadius: '8px',
+                        overflow: 'hidden',
+                        cursor: 'pointer',
+                        flexShrink: 0,
+                        border: selectedIdx === thumbIdx ? '2.5px solid var(--wine)' : '2px solid transparent',
+                        outline: selectedIdx === thumbIdx ? '2px solid var(--harvest-gold)' : 'none',
+                        opacity: selectedIdx === thumbIdx ? 1 : 0.5,
+                        transition: 'all 0.2s'
+                      }}
+                    >
+                      <img src={item.img} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    </div>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
+
     </div>
   );
 }
+

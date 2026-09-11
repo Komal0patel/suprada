@@ -215,7 +215,12 @@ export default function Gallery({ onNavigate }) {
   const numColumns = width >= 1024 ? 3 : width >= 640 ? 2 : 1;
   const masonryColumns = Array.from({ length: numColumns }, () => []);
   filteredItems.forEach((item, idx) => {
-    masonryColumns[idx % numColumns].push({ ...item, filteredIdx: idx });
+    let colIdx = idx % numColumns;
+    // When in 3-column desktop layout and there is a single trailing image at the end, place it in the middle column
+    if (numColumns === 3 && filteredItems.length % 3 === 1 && idx === filteredItems.length - 1) {
+      colIdx = 1;
+    }
+    masonryColumns[colIdx].push({ ...item, filteredIdx: idx });
   });
 
   const handlePrev = (e) => {

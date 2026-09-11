@@ -70,7 +70,6 @@ const getDescriptionForTitle = (title) => {
 };
 
 export default function Gallery({ onNavigate }) {
-  const [activeTab, setActiveTab] = useState('All');
   const [width, setWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
 
   useEffect(() => {
@@ -78,8 +77,6 @@ export default function Gallery({ onNavigate }) {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  const categories = ['All', 'Retreat', 'Architecture', 'Therapies', 'Activities', 'Nutrition'];
 
   // EXACT 16 gallery items mapped exclusively from public/assets/gallery directory
   const galleryItems = [
@@ -201,21 +198,12 @@ export default function Gallery({ onNavigate }) {
     }
   ];
 
-  const filteredItems = activeTab === 'All'
-    ? galleryItems
-    : galleryItems.filter(item => item.cat === activeTab);
-
-  const getCategoryCount = (cat) => {
-    if (cat === 'All') return galleryItems.length;
-    return galleryItems.filter(item => item.cat === cat).length;
-  };
-
   const numColumns = width >= 1024 ? 3 : width >= 640 ? 2 : 1;
   const masonryColumns = Array.from({ length: numColumns }, () => []);
-  filteredItems.forEach((item, idx) => {
+  galleryItems.forEach((item, idx) => {
     let colIdx = idx % numColumns;
     // When in 3-column desktop layout and there is a single trailing image at the end, place it in the middle column
-    if (numColumns === 3 && filteredItems.length % 3 === 1 && idx === filteredItems.length - 1) {
+    if (numColumns === 3 && galleryItems.length % 3 === 1 && idx === galleryItems.length - 1) {
       colIdx = 1;
     }
     masonryColumns[colIdx].push({ ...item, filteredIdx: idx });
@@ -334,70 +322,12 @@ export default function Gallery({ onNavigate }) {
         </div>
       </section>
 
-      {/* Category Filter Bar */}
-      <section style={{ padding: '2.5rem 8% 1.5rem 8%', maxWidth: '1350px', margin: '0 auto' }}>
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: '#ffffff',
-          padding: '1.2rem 1.8rem',
-          borderRadius: '24px',
-          boxShadow: '0 12px 35px rgba(94, 39, 53, 0.06)',
-          border: '1.5px solid rgba(220, 160, 50, 0.2)'
-        }}>
-          {/* Category Filter Pills */}
-          <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-            {categories.map((cat) => {
-              const isActive = activeTab === cat;
-              const count = getCategoryCount(cat);
-              return (
-                <button
-                  key={cat}
-                  onClick={() => setActiveTab(cat)}
-                  style={{
-                    position: 'relative',
-                    padding: '0.55rem 1.1rem',
-                    borderRadius: '30px',
-                    border: 'none',
-                    backgroundColor: isActive ? 'var(--wine)' : 'rgba(94, 39, 53, 0.05)',
-                    color: isActive ? '#ffffff' : 'var(--wine)',
-                    fontSize: '0.8rem',
-                    fontWeight: 600,
-                    letterSpacing: '0.03em',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.45rem',
-                    transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
-                  }}
-                >
-                  <span>{cat}</span>
-                  <span style={{
-                    backgroundColor: isActive ? 'rgba(255, 255, 255, 0.25)' : 'rgba(94, 39, 53, 0.12)',
-                    color: isActive ? '#ffffff' : 'var(--wine)',
-                    fontSize: '0.68rem',
-                    fontWeight: 700,
-                    padding: '0.15rem 0.45rem',
-                    borderRadius: '12px',
-                    lineHeight: 1
-                  }}>
-                    {count}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* Main Gallery Display Section - Staggered Masonry Grid */}
-      <section style={{ padding: '1rem 8% 5rem 8%', maxWidth: '1350px', margin: '0 auto' }}>
+      <section style={{ padding: '3.5rem 8% 5rem 8%', maxWidth: '1350px', margin: '0 auto' }}>
         <motion.div
-          key={`masonry-${activeTab}`}
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
           style={{
             display: 'flex',
             gap: '1.5rem',

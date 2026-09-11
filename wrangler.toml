@@ -1,8 +1,7 @@
 name = "suprada"
+main = "worker.js"
 compatibility_date = "2024-09-01"
+assets = { directory = "./dist" }
 
 [build]
 command = "npm run build"
-
-[site]
-bucket = "./dist"

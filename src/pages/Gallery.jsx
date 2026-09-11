@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Pattern24, Pattern25, Pattern27 } from '../AnimatedPatterns';
-import { X, ChevronLeft, ChevronRight, Eye } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Custom interactive 3D Mouse Tilt Card Wrapper
 function TiltCard({ children, onClick, style, ...props }) {
@@ -479,25 +479,7 @@ export default function Gallery({ onNavigate }) {
                       {item.cat}
                     </div>
 
-                    {/* Expand Eye Icon Top Right */}
-                    <div style={{
-                      position: 'absolute',
-                      top: '1rem',
-                      right: '1rem',
-                      backgroundColor: 'rgba(255, 255, 255, 0.25)',
-                      backdropFilter: 'blur(8px)',
-                      color: '#ffffff',
-                      width: '34px',
-                      height: '34px',
-                      borderRadius: '50%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      border: '1px solid rgba(255, 255, 255, 0.4)',
-                      zIndex: 2
-                    }}>
-                      <Eye size={16} />
-                    </div>
+
 
                     {/* Hover Overlay Gradient */}
                     <div style={{

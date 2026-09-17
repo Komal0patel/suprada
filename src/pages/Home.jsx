@@ -1205,7 +1205,7 @@ export default function Home({ onNavigate }) {
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem', flexWrap: 'wrap' }}>
                 <span style={{ fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.14em', fontWeight: 800, color: 'var(--redwood)', backgroundColor: 'rgba(181, 101, 29, 0.12)', padding: '0.15rem 0.55rem', borderRadius: '20px' }}>
-                  ✦ Sacred Sanctuary Tree
+                  Sacred Sanctuary Tree
                 </span>
                 <h5 style={{ margin: 0, color: 'var(--wine)', fontSize: '0.95rem', fontWeight: 700 }}>
                   The Sacred Maha Vilvam Tree (<em style={{ fontStyle: 'italic', fontWeight: 500 }}>Aegle marmelos</em>)
@@ -1216,9 +1216,9 @@ export default function Home({ onNavigate }) {
                 Suprada is home to a rare and sacred <strong>Maha Vilvam tree</strong>. While standard Bilva leaves feature three leaflets, this revered multi-leaf variety produces <strong>5 to 13 (or more) leaves on a single stalk</strong> (such as the 13-leaf <em>Trayodasha-patra</em>).
               </p>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '0.5rem' }}>
-                <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
-                  <span style={{ color: 'var(--redwood)', fontSize: '0.95rem', lineHeight: 1.2 }}>🛕</span>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '0.55rem' }}>
+                <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'flex-start' }}>
+                  <span style={{ color: 'var(--redwood)', fontSize: '1.2rem', lineHeight: 1, fontWeight: 700 }}>•</span>
                   <div>
                     <strong style={{ color: 'var(--wine)', fontSize: '0.78rem', display: 'block' }}>Spiritual Significance &amp; Energy</strong>
                     <span style={{ fontSize: '0.76rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.4, display: 'block' }}>
@@ -1227,8 +1227,8 @@ export default function Home({ onNavigate }) {
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
-                  <span style={{ color: 'var(--redwood)', fontSize: '0.95rem', lineHeight: 1.2 }}>🌿</span>
+                <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'flex-start' }}>
+                  <span style={{ color: 'var(--redwood)', fontSize: '1.2rem', lineHeight: 1, fontWeight: 700 }}>•</span>
                   <div>
                     <strong style={{ color: 'var(--wine)', fontSize: '0.78rem', display: 'block' }}>Ayurvedic &amp; Botanical Wisdom</strong>
                     <span style={{ fontSize: '0.76rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.4, display: 'block' }}>

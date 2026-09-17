@@ -1230,9 +1230,9 @@ export default function Home({ onNavigate }) {
                 <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'flex-start' }}>
                   <span style={{ color: 'var(--redwood)', fontSize: '1.2rem', lineHeight: 1, fontWeight: 700 }}>•</span>
                   <div>
-                    <strong style={{ color: 'var(--wine)', fontSize: '0.78rem', display: 'block' }}>Ayurvedic &amp; Botanical Wisdom</strong>
+                    <strong style={{ color: 'var(--wine)', fontSize: '0.78rem', display: 'block' }}>Holistic &amp; Botanical Wisdom</strong>
                     <span style={{ fontSize: '0.76rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.4, display: 'block' }}>
-                      Prized in Ayurveda; its leaves, bark, and fruit support digestive health, metabolic vitality, and natural immune defense.
+                      Prized in traditional wellness; its leaves, bark, and fruit support digestive health, metabolic vitality, and natural immune defense.
                     </span>
                   </div>
                 </div>

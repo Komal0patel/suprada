@@ -1260,10 +1260,16 @@ export default function Home({ onNavigate }) {
         <div style={{ maxWidth: '1280px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           {/* Section Header */}
           <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 1.5rem auto' }}>
-            <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.18em', fontSize: '0.68rem', fontWeight: 800, display: 'block', marginBottom: '0.2rem' }}>
+            <span 
+              onClick={() => onNavigate('programmes')}
+              style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.18em', fontSize: '0.68rem', fontWeight: 800, display: 'inline-block', marginBottom: '0.2rem', cursor: 'pointer' }}
+            >
               ✦ CORE MEDICAL MODALITIES
             </span>
-            <h2 style={{ color: 'var(--wine)', lineHeight: 1.18, margin: 0, fontSize: 'clamp(1.4rem, 2.2vw, 1.8rem)', fontWeight: 700 }}>
+            <h2 
+              onClick={() => onNavigate('programmes')}
+              style={{ color: 'var(--wine)', lineHeight: 1.18, margin: 0, fontSize: 'clamp(1.4rem, 2.2vw, 1.8rem)', fontWeight: 700, cursor: 'pointer' }}
+            >
               Naturopathy <em style={{ fontStyle: 'italic', color: 'var(--redwood)', fontWeight: 700 }}>&amp; Holistic Wellness</em>
             </h2>
           </div>
@@ -1332,7 +1338,7 @@ export default function Home({ onNavigate }) {
           {/* Secondary Modalities CTA Bar */}
           <div style={{ textAlign: 'center', marginTop: '1.8rem', display: 'flex', gap: '0.8rem', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
             <button
-              onClick={() => onNavigate('naturopathy')}
+              onClick={() => onNavigate('programmes')}
               style={{
                 backgroundColor: 'rgba(94, 39, 53, 0.06)',
                 border: '1.5px solid rgba(94, 39, 53, 0.2)',

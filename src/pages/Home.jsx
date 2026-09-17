@@ -1020,7 +1020,7 @@ export default function Home({ onNavigate }) {
           }
           .founders-grid {
             display: grid;
-            grid-template-columns: 240px 1fr;
+            grid-template-columns: 340px 1fr;
             gap: 3.5rem;
             align-items: center;
             max-width: 1200px;
@@ -1036,38 +1036,23 @@ export default function Home({ onNavigate }) {
             }
             .founders-grid {
               grid-template-columns: 1fr;
-              gap: 1.25rem;
+              gap: 1.5rem;
             }
             .founders-badge-col {
-              flex-direction: row !important;
-              justify-content: flex-start !important;
+              display: flex !important;
+              flex-direction: column !important;
               align-items: center !important;
-              gap: 0.75rem !important;
-              padding-bottom: 0.75rem;
-              border-bottom: 1px solid rgba(94, 39, 53, 0.15);
+              justify-content: center !important;
+              width: 100% !important;
             }
             .founders-badge-icon {
-              width: 44px !important;
-              height: 44px !important;
+              width: 100% !important;
+              max-width: 340px !important;
               margin-bottom: 0 !important;
             }
-            .founders-badge-icon img,
             .founders-badge-img {
-              width: 44px !important;
-              height: 44px !important;
-            }
-            .founders-badge-text {
-              text-align: left !important;
-            }
-            .founders-badge-text h3 {
-              font-size: 1.1rem !important;
-              letter-spacing: 0.08em !important;
-              text-align: left !important;
-            }
-            .founders-badge-text span {
-              font-size: 0.68rem !important;
-              text-align: left !important;
-              margin-top: 0 !important;
+              width: 100% !important;
+              height: auto !important;
             }
             .founders-title {
               font-size: clamp(1.5rem, 5.5vw, 1.95rem) !important;
@@ -1094,44 +1079,74 @@ export default function Home({ onNavigate }) {
           variants={foundersStaggerContainer}
           className="founders-grid"
         >
-          {/* Left Column */}
+          {/* Left Column - Sacred Maha Vilvam Tree Visual */}
           <motion.div 
             variants={foundersBadgeItem}
             className="founders-badge-col"
             style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
           >
             <motion.div 
-              animate={{ y: [0, -6, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              whileHover={{ scale: 1.08 }}
+              whileHover={{ scale: 1.02, y: -4 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
               className="founders-badge-icon"
               style={{
-                cursor: 'pointer',
-                marginBottom: '1rem',
+                position: 'relative',
+                borderRadius: '20px',
+                overflow: 'hidden',
+                boxShadow: '0 16px 40px rgba(94, 39, 53, 0.16)',
+                border: '1px solid rgba(181, 101, 29, 0.25)',
+                backgroundColor: '#fbf8f3',
+                width: '100%',
+                maxWidth: '340px',
                 display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
+                flexDirection: 'column',
+                alignItems: 'center'
               }}
             >
               <img 
-                src="/assets/extracted/logo.svg" 
-                alt="Suprada Logo" 
+                src="/assets/maha-bilva-tree.jpg" 
+                alt="Sacred Maha Vilvam Tree at Suprada" 
                 className="founders-badge-img"
                 style={{ 
-                  width: '120px', 
-                  height: '120px', 
-                  objectFit: 'contain',
-                  filter: 'drop-shadow(0 6px 20px rgba(94, 39, 53, 0.2))' 
+                  width: '100%', 
+                  height: 'auto',
+                  maxHeight: '400px',
+                  objectFit: 'cover',
+                  display: 'block'
                 }} 
               />
+              <div style={{
+                padding: '0.75rem 1rem',
+                backgroundColor: 'rgba(253, 248, 243, 0.96)',
+                width: '100%',
+                textAlign: 'center',
+                borderTop: '1px solid rgba(181, 101, 29, 0.15)'
+              }}>
+                <span style={{ 
+                  fontSize: '0.78rem', 
+                  fontWeight: 700, 
+                  color: 'var(--wine)', 
+                  letterSpacing: '0.06em', 
+                  display: 'block',
+                  textTransform: 'uppercase'
+                }}>
+                  Sacred Maha Vilvam Tree
+                </span>
+                <span style={{ 
+                  fontSize: '0.72rem', 
+                  color: 'var(--redwood)', 
+                  fontStyle: 'italic',
+                  display: 'block',
+                  marginTop: '2px'
+                }}>
+                  Aegle marmelos • Suprada Sanctuary
+                </span>
+              </div>
             </motion.div>
-            <div style={{ textAlign: 'center' }} className="founders-badge-text">
-              <h3 style={{color: 'var(--wine)', letterSpacing: '0.1em', margin: 0, fontWeight: 700}}>Suprada</h3>
-            </div>
           </motion.div>
 
           {/* Right Column */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
             <motion.div 
               variants={foundersMistFadeVariant}
               style={{ display: 'inline-block', position: 'relative', width: 'fit-content' }}
@@ -1157,7 +1172,7 @@ export default function Home({ onNavigate }) {
             </motion.h2>
             
             <motion.h4 variants={foundersMistFadeVariant} className="founders-subtitle" style={{color: 'var(--redwood)', letterSpacing: '0.02em', margin: 0, fontWeight: 600}}>
-              Where Global Expertise Meets Indian Heritage
+              Where Global Expertise Meets Indian Heritage &amp; Sacred Nature
             </motion.h4>
             
             <motion.p variants={foundersMistFadeVariant} className="founders-body" style={{ color: 'var(--raisin-black)', fontSize: 'var(--fs-body)', opacity: 0.88, lineHeight: 1.6, fontWeight: 400, margin: 0 }}>
@@ -1168,17 +1183,69 @@ export default function Home({ onNavigate }) {
               Mr. Sunil Jayaraj, known as a "Blue Planet Runner," brings the endurance and discipline of an elite athlete, while Dr. Premasudha, a US Board-certified physician, ensures our holistic integration is grounded in authenticity and clinical evidence.
             </motion.p>
             
-            <motion.p variants={foundersMistFadeVariant} className="founders-quote" style={{ color: 'var(--wine)', fontSize: 'var(--fs-body)', opacity: 0.95, lineHeight: 1.5, fontStyle: 'italic', marginTop: '0.2rem', margin: 0, fontWeight: 600 }}>
+            <motion.p variants={foundersMistFadeVariant} className="founders-quote" style={{ color: 'var(--wine)', fontSize: 'var(--fs-body)', opacity: 0.95, lineHeight: 1.5, fontStyle: 'italic', marginTop: '0.1rem', margin: 0, fontWeight: 600 }}>
               "In today's world, healing is often scattered—one place for the body, another for the mind. We created Suprada to bring these fragments together into one cohesive journey of restoration."
             </motion.p>
+
+            {/* Sacred Maha Vilvam Tree Feature Card */}
+            <motion.div 
+              variants={foundersMistFadeVariant}
+              style={{
+                marginTop: '0.4rem',
+                padding: '0.9rem 1.1rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.75)',
+                backdropFilter: 'blur(8px)',
+                borderRadius: '14px',
+                borderLeft: '4px solid var(--redwood)',
+                borderTop: '1px solid rgba(181, 101, 29, 0.18)',
+                borderRight: '1px solid rgba(181, 101, 29, 0.18)',
+                borderBottom: '1px solid rgba(181, 101, 29, 0.18)',
+                boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)'
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem', flexWrap: 'wrap' }}>
+                <span style={{ fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.14em', fontWeight: 800, color: 'var(--redwood)', backgroundColor: 'rgba(181, 101, 29, 0.12)', padding: '0.15rem 0.55rem', borderRadius: '20px' }}>
+                  ✦ Sacred Sanctuary Tree
+                </span>
+                <h5 style={{ margin: 0, color: 'var(--wine)', fontSize: '0.95rem', fontWeight: 700 }}>
+                  The Sacred Maha Vilvam Tree (<em style={{ fontStyle: 'italic', fontWeight: 500 }}>Aegle marmelos</em>)
+                </h5>
+              </div>
+              
+              <p style={{ color: 'var(--raisin-black)', fontSize: '0.85rem', lineHeight: 1.55, margin: '0 0 0.5rem 0', opacity: 0.9 }}>
+                Suprada is home to a rare and sacred <strong>Maha Vilvam tree</strong>. While standard Bilva leaves feature three leaflets, this revered multi-leaf variety produces <strong>5 to 13 (or more) leaves on a single stalk</strong> (such as the 13-leaf <em>Trayodasha-patra</em>).
+              </p>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '0.5rem' }}>
+                <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
+                  <span style={{ color: 'var(--redwood)', fontSize: '0.95rem', lineHeight: 1.2 }}>🛕</span>
+                  <div>
+                    <strong style={{ color: 'var(--wine)', fontSize: '0.78rem', display: 'block' }}>Spiritual Significance &amp; Energy</strong>
+                    <span style={{ fontSize: '0.76rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.4, display: 'block' }}>
+                      Represents the divine Rudras of Lord Shiva, radiating high-energy positive vibes that naturally purify the sanctuary environment.
+                    </span>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
+                  <span style={{ color: 'var(--redwood)', fontSize: '0.95rem', lineHeight: 1.2 }}>🌿</span>
+                  <div>
+                    <strong style={{ color: 'var(--wine)', fontSize: '0.78rem', display: 'block' }}>Ayurvedic &amp; Botanical Wisdom</strong>
+                    <span style={{ fontSize: '0.76rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.4, display: 'block' }}>
+                      Prized in Ayurveda; its leaves, bark, and fruit support digestive health, metabolic vitality, and natural immune defense.
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
             
-            <motion.div variants={foundersMistFadeVariant} style={{ marginTop: '0.3rem' }}>
+            <motion.div variants={foundersMistFadeVariant} style={{ marginTop: '0.2rem' }}>
               <motion.button 
                 whileHover={{ x: 8 }}
                 onClick={() => onNavigate('about')}
                 style={{ background: 'none', border: 'none', color: 'var(--wine)', cursor: 'pointer', textAlign: 'left', fontWeight: 700, fontSize: '0.88rem', display: 'flex', alignItems: 'center', gap: '0.5rem', padding: 0 }}
               >
-                Learn More About Our Journey &rarr;
+                Learn More About Our Journey &amp; Sanctuary &rarr;
               </motion.button>
             </motion.div>
           </div>

@@ -1277,8 +1277,8 @@ export default function Home({ onNavigate }) {
           {/* Ultra-Compact 8-Card Grid Layout (Only Title Displayed) */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
-            gap: '1rem',
+            gridTemplateColumns: isMobile ? 'repeat(3, 1fr)' : 'repeat(4, 1fr)',
+            gap: isMobile ? '0.5rem' : '1rem',
             alignItems: 'stretch'
           }}>
             {naturopathyCards.map((card) => (
@@ -1289,7 +1289,7 @@ export default function Home({ onNavigate }) {
                 onClick={() => setSelectedNaturopathyModal(card)}
                 style={{
                   backgroundColor: '#ffffff',
-                  borderRadius: '14px',
+                  borderRadius: isMobile ? '10px' : '14px',
                   border: '1.5px solid rgba(94, 39, 53, 0.12)',
                   boxShadow: '0 6px 18px rgba(94, 39, 53, 0.06)',
                   overflow: 'hidden',
@@ -1300,7 +1300,7 @@ export default function Home({ onNavigate }) {
                 }}
               >
                 {/* Compact Cover Image */}
-                <div style={{ height: isMobile ? '95px' : '115px', position: 'relative', overflow: 'hidden' }}>
+                <div style={{ height: isMobile ? '75px' : '115px', position: 'relative', overflow: 'hidden' }}>
                   <img 
                     src={card.image} 
                     alt={card.title}
@@ -1309,25 +1309,29 @@ export default function Home({ onNavigate }) {
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(28,20,16,0.65) 100%)' }} />
                   
                   <span style={{
-                    position: 'absolute', top: '8px', left: '8px',
-                    backgroundColor: 'rgba(28, 20, 16, 0.7)',
+                    position: 'absolute', top: isMobile ? '4px' : '8px', left: isMobile ? '4px' : '8px',
+                    backgroundColor: 'rgba(28, 20, 16, 0.75)',
                     color: 'var(--harvest-gold)',
-                    fontSize: '0.52rem',
+                    fontSize: isMobile ? '0.42rem' : '0.52rem',
                     fontWeight: 800,
-                    letterSpacing: '0.08em',
-                    padding: '0.15rem 0.45rem',
+                    letterSpacing: '0.04em',
+                    padding: isMobile ? '0.1rem 0.3rem' : '0.15rem 0.45rem',
                     borderRadius: '4px',
                     backdropFilter: 'blur(4px)',
                     textTransform: 'uppercase',
-                    border: '1px solid rgba(220,160,50,0.25)'
+                    border: '1px solid rgba(220,160,50,0.25)',
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    maxWidth: 'calc(100% - 8px)'
                   }}>
                     ✦ {card.category}
                   </span>
                 </div>
 
                 {/* Card Title Only */}
-                <div style={{ padding: '0.8rem 0.9rem', display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 1, backgroundColor: '#ffffff', textAlign: 'center' }}>
-                  <h3 style={{ color: 'var(--wine)', fontSize: '1.02rem', fontWeight: 700, margin: 0, lineHeight: 1.25 }}>
+                <div style={{ padding: isMobile ? '0.45rem 0.3rem' : '0.8rem 0.9rem', display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 1, backgroundColor: '#ffffff', textAlign: 'center' }}>
+                  <h3 style={{ color: 'var(--wine)', fontSize: isMobile ? '0.74rem' : '1.02rem', fontWeight: 700, margin: 0, lineHeight: 1.2 }}>
                     {card.title}
                   </h3>
                 </div>

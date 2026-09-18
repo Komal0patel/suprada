@@ -1281,7 +1281,7 @@ export default function Home({ onNavigate }) {
             gap: '1rem',
             alignItems: 'stretch'
           }}>
-            {naturopathyCards.slice(0, 4).map((card) => (
+            {naturopathyCards.map((card) => (
               <motion.div
                 key={card.id}
                 whileHover={{ y: -5, scale: 1.02 }}

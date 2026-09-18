@@ -1274,10 +1274,12 @@ export default function Home({ onNavigate }) {
             </h2>
           </div>
 
-          {/* Ultra-Compact 8-Card Grid Layout (Only Title Displayed) */}
+          {/* Ultra-Compact 8-Card Layout (3 per row on mobile with last 2 centered, 4 per row on desktop) */}
           <div style={{
-            display: 'grid',
-            gridTemplateColumns: isMobile ? 'repeat(3, 1fr)' : 'repeat(4, 1fr)',
+            display: isMobile ? 'flex' : 'grid',
+            flexWrap: isMobile ? 'wrap' : undefined,
+            justifyContent: isMobile ? 'center' : undefined,
+            gridTemplateColumns: isMobile ? undefined : 'repeat(4, 1fr)',
             gap: isMobile ? '0.5rem' : '1rem',
             alignItems: 'stretch'
           }}>
@@ -1288,6 +1290,7 @@ export default function Home({ onNavigate }) {
                 transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => setSelectedNaturopathyModal(card)}
                 style={{
+                  width: isMobile ? 'calc((100% - 1rem) / 3)' : 'auto',
                   backgroundColor: '#ffffff',
                   borderRadius: isMobile ? '10px' : '14px',
                   border: '1.5px solid rgba(94, 39, 53, 0.12)',

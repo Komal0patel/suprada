@@ -364,8 +364,8 @@ function App() {
         { id: 'programmes/ayurveda', label: 'Ayurveda' }
       ]
     },
-    { id: 'programmes/wellness', label: 'Wellness' },
-    { id: 'programmes/packages', label: 'Programs & Packages' },
+    { id: 'programmes/wellness', label: 'Wellness Programme' },
+    { id: 'programmes/packages', label: 'Programme' },
     { id: 'programmes/nutrition', label: 'Nutrition' },
     { id: 'programmes/activities', label: 'Activities' }
   ];

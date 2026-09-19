@@ -333,15 +333,15 @@ export default function Wellness({ onNavigate }) {
       </section>
 
       {/* ========================================================================= */}
-      {/* 2. OUR APPROACH SECTION (Clean Linen Theme) */}
+      {/* 1. OUR APPROACH & SHANTI MANTRA (Combined 1st Section) */}
       {/* ========================================================================= */}
       <section style={{
-        padding: 'clamp(2.5rem, 5vh, 3.2rem) 5%',
+        padding: 'clamp(2.8rem, 5vh, 3.8rem) 5%',
         backgroundColor: 'var(--isabelline)',
         position: 'relative',
         overflow: 'hidden'
       }}>
-        <div style={{ maxWidth: '1040px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+        <div style={{ maxWidth: '1140px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           
           {/* Section Header Badge */}
           <motion.div 
@@ -349,7 +349,7 @@ export default function Wellness({ onNavigate }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            style={{ textAlign: 'center', marginBottom: '1.8rem' }}
+            style={{ textAlign: 'center', marginBottom: '2rem' }}
           >
             <span style={{
               color: 'var(--redwood)',
@@ -360,7 +360,7 @@ export default function Wellness({ onNavigate }) {
               display: 'block',
               marginBottom: '0.45rem'
             }}>
-              ✦ OUR APPROACH
+              ✦ OUR PHILOSOPHY &amp; APPROACH
             </span>
 
             <h2 style={{
@@ -374,452 +374,192 @@ export default function Wellness({ onNavigate }) {
             </h2>
           </motion.div>
 
-          {/* 2-Column Content Layout with Sliding Animation */}
+          {/* 2-Column Combined Layout: Concise Copy Left, Shanti Mantra Right */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
-            gap: 'clamp(1.5rem, 3vw, 2.5rem)',
-            alignItems: 'center'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))',
+            gap: 'clamp(1.8rem, 3.5vw, 3rem)',
+            alignItems: 'stretch'
           }}>
             
-            {/* Left Column Text Content */}
+            {/* Concise Approach Text Box */}
             <motion.div
-              initial={{ opacity: 0, x: -40 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-30px' }}
-              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <p style={{
-                fontSize: 'var(--fs-body)',
-                lineHeight: 1.65,
-                color: 'var(--raisin-black)',
-                opacity: 0.9,
-                marginBottom: '0.8rem'
-              }}>
-                At Suprada, our journey begins by listening — understanding your story, health challenges, and emotional rhythms.
-              </p>
-
-              <p style={{
-                fontSize: 'var(--fs-body)',
-                lineHeight: 1.65,
-                color: 'var(--raisin-black)',
-                opacity: 0.9,
-                marginBottom: '1rem'
-              }}>
-                We observe, analyze, and connect the dots between your inner balance and the natural elements that surround you.
-              </p>
-
-              <h4 style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: 'var(--fs-h4)',
-                fontWeight: 700,
-                color: 'var(--wine)',
-                marginBottom: '0.25rem'
-              }}>
-                Our philosophy is simple yet profound:
-              </h4>
-
-              <p style={{
-                fontSize: 'var(--fs-body)',
-                fontStyle: 'italic',
-                color: 'var(--redwood)',
-                fontWeight: 600,
-                marginBottom: '1rem'
-              }}>
-                The same elements that shape nature — shape us.
-              </p>
-
-              <p style={{
-                fontSize: 'var(--fs-body)',
-                lineHeight: 1.65,
-                color: 'var(--raisin-black)',
-                opacity: 0.9,
-                marginBottom: '1.4rem'
-              }}>
-                By reconnecting with nature's intelligence, we craft your individualized <strong style={{ color: 'var(--wine)', fontWeight: 700 }}>WELLNESS FORMULA</strong> — a harmonious prescription for your body's unique needs.
-              </p>
-
-              <motion.button
-                onClick={() => onNavigate('contact')}
-                className="btn-luxury"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                style={{ padding: '0.52rem 1.2rem', fontSize: '0.74rem' }}
-              >
-                Begin Your Journey <ArrowRight size={13} />
-              </motion.button>
-            </motion.div>
-
-            {/* Right Column Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-30px' }}
-              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-              style={{ display: 'flex', justifyContent: 'center' }}
-            >
-              <motion.div 
-                whileHover={{ y: -3, scale: 1.01 }}
-                transition={{ duration: 0.3 }}
-                style={{
-                  position: 'relative',
-                  borderRadius: '16px',
-                  overflow: 'hidden',
-                  boxShadow: '0 10px 28px rgba(94, 39, 53, 0.08)',
-                  border: '1.5px solid rgba(94, 39, 53, 0.12)',
-                  width: '100%',
-                  maxHeight: '300px'
-                }}
-              >
-                <img
-                  src="/assets/wellness/private-courtyard.webp"
-                  alt="Nature-inspired wellness at Suprada"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    maxHeight: '300px',
-                    objectFit: 'cover',
-                    display: 'block'
-                  }}
-                />
-              </motion.div>
-            </motion.div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 3. SACRED SHANTI MANTRA SECTION (Warm Silk Linen Background & Pearl Card) */}
-      {/* ========================================================================= */}
-      <section style={{
-        padding: 'clamp(2rem, 4vh, 2.6rem) 5%',
-        background: 'linear-gradient(135deg, #f0e6d6 0%, #e8dcbe 100%)',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        <div style={{ maxWidth: '720px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96, y: 15 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true, margin: '-25px' }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            style={{
-              position: 'relative',
-              backgroundColor: '#FFFFFF',
-              borderRadius: '20px',
-              padding: 'clamp(1.5rem, 3vw, 2rem) clamp(1rem, 2.5vw, 1.8rem)',
-              textAlign: 'center',
-              overflow: 'hidden',
-              boxShadow: '0 10px 28px rgba(94, 39, 53, 0.07)',
-              border: '1.5px solid rgba(94, 39, 53, 0.12)'
-            }}
-          >
-            {/* Subtle Brand Watermarks in Wine */}
-            <Pattern24
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
               style={{
-                position: 'absolute',
-                top: '50%',
-                left: '-15px',
-                transform: 'translateY(-50%)',
-                width: 'clamp(80px, 15vw, 130px)',
-                height: 'auto',
-                color: 'var(--wine)',
-                opacity: 0.07,
-                pointerEvents: 'none'
+                backgroundColor: '#ffffff',
+                borderRadius: '20px',
+                padding: 'clamp(1.8rem, 3vw, 2.4rem)',
+                boxShadow: '0 10px 28px rgba(94, 39, 53, 0.06)',
+                border: '1.5px solid rgba(94, 39, 53, 0.12)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between'
               }}
-            />
+            >
+              <div>
+                <h3 style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '1.35rem',
+                  color: 'var(--wine)',
+                  fontWeight: 700,
+                  marginBottom: '0.8rem'
+                }}>
+                  Elemental Harmony
+                </h3>
 
-            <Pattern25
-              style={{
-                position: 'absolute',
-                top: '50%',
-                right: '-15px',
-                transform: 'translateY(-50%)',
-                width: 'clamp(80px, 15vw, 130px)',
-                height: 'auto',
-                color: 'var(--wine)',
-                opacity: 0.07,
-                pointerEvents: 'none'
-              }}
-            />
+                <p style={{
+                  fontSize: 'var(--fs-body)',
+                  lineHeight: 1.7,
+                  color: 'var(--raisin-black)',
+                  opacity: 0.9,
+                  marginBottom: '1rem'
+                }}>
+                  At Suprada, our journey begins by understanding your body's unique story and elemental rhythms. We connect the dots between your inner balance and nature's intelligence.
+                </p>
 
-            {/* Inner Content */}
-            <div style={{ position: 'relative', zIndex: 3, maxWidth: '580px', margin: '0 auto' }}>
-              
-              {/* Card Title */}
-              <h3 style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: 'clamp(1.05rem, 1.4vw, 1.22rem)',
-                color: 'var(--wine)',
-                fontWeight: 700,
-                marginBottom: '0.8rem',
-                letterSpacing: '0.02em'
-              }}>
-                The Mantra That Inspires Our Approach
-              </h3>
+                <p style={{
+                  fontSize: '0.98rem',
+                  fontStyle: 'italic',
+                  color: 'var(--redwood)',
+                  fontWeight: 600,
+                  marginBottom: '1.2rem',
+                  borderLeft: '3px solid var(--redwood)',
+                  paddingLeft: '0.8rem'
+                }}>
+                  "The same elements that shape nature — shape us."
+                </p>
 
-              {/* Sanskrit Text in Wine & Charcoal */}
-              <div style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: 'clamp(1.02rem, 3vw, 1.32rem)',
-                color: 'var(--raisin-black)',
-                lineHeight: 1.6,
-                fontWeight: 700,
-                marginBottom: '0.8rem'
-              }}>
-                ॐ पूर्णमदः पूर्णमिदम् पूर्णात् पूर्णमुदच्यते ।<br />
-                पूर्णस्य पूर्णमादाय पूर्णमेवावशिष्यते ॥<br />
-                ॐ शान्तिः शान्तिः शान्तिः ॥
+                <p style={{
+                  fontSize: 'var(--fs-body)',
+                  lineHeight: 1.7,
+                  color: 'var(--raisin-black)',
+                  opacity: 0.9,
+                  marginBottom: '1.5rem'
+                }}>
+                  By aligning with nature, we craft your customized <strong style={{ color: 'var(--wine)', fontWeight: 700 }}>Wellness Formula</strong> to awaken your body’s inherent self-healing power.
+                </p>
               </div>
 
-              {/* Transliteration */}
-              <p style={{
-                fontSize: 'clamp(0.74rem, 1.8vw, 0.8rem)',
-                fontStyle: 'italic',
-                color: 'var(--wine)',
-                opacity: 0.85,
-                lineHeight: 1.55,
-                marginBottom: '0.8rem'
-              }}>
-                om pūrṇamadaḥ pūrṇamidam pūrṇāt pūrṇamudacyate .<br />
-                pūrṇasya pūrṇamādāya pūrṇamevāvaśiṣyate .<br />
-                om śāntiḥ śāntiḥ śāntiḥ ..
-              </p>
-
-              {/* English Meaning */}
-              <p style={{
-                fontSize: 'clamp(0.72rem, 1.6vw, 0.78rem)',
-                lineHeight: 1.6,
-                color: 'var(--raisin-black)',
-                opacity: 0.8,
-                fontWeight: 400,
-                margin: '0 auto'
-              }}>
-                That is Whole and this is Whole, the perfect has come out of the perfect; having taken the perfect from the perfect, only the perfect remains. Let there be Peace, Peace, Peace. (This shanti-sloka of the Isavasyopanishad indicates the relation of the individual's soul to the divine supreme spirit).
-              </p>
-
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 4. DISCOVERY & WELLNESS FORMULA (Warm Linen Theme) */}
-      {/* ========================================================================= */}
-      <section style={{
-        padding: 'clamp(2.5rem, 5vh, 3.2rem) 5%',
-        backgroundColor: 'var(--isabelline)',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        <div style={{ maxWidth: '1040px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          
-          {/* Top Badge & Section Title */}
-          <motion.div
-            initial={{ opacity: 0, y: -12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45 }}
-            style={{ textAlign: 'center', marginBottom: '1.8rem' }}
-          >
-            <span style={{
-              color: 'var(--redwood)',
-              fontSize: 'var(--fs-small)',
-              fontWeight: 800,
-              letterSpacing: '0.24em',
-              textTransform: 'uppercase',
-              display: 'block',
-              marginBottom: '0.45rem'
-            }}>
-              ✦ DISCOVER
-            </span>
-
-            <h2 style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'var(--fs-h2)',
-              fontWeight: 700,
-              color: 'var(--wine)',
-              lineHeight: 1.2
-            }}>
-              Discover: <span style={{ color: 'var(--redwood)', fontStyle: 'italic' }}>Uncovering Your Inner Balance</span>
-            </h2>
-          </motion.div>
-
-          {/* Part 1: 2-Column Overview (Text Left, Image Right) */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
-            gap: 'clamp(1.5rem, 3vw, 2.5rem)',
-            alignItems: 'center',
-            marginBottom: '2.2rem'
-          }}>
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-30px' }}
-              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <p style={{
-                fontSize: 'var(--fs-body)',
-                lineHeight: 1.65,
-                color: 'var(--raisin-black)',
-                opacity: 0.9,
-                marginBottom: '0.8rem'
-              }}>
-                Our holistic discovery process delves deep into your physical and emotional health. Through consultations and diagnostics, we explore how your body, diet, activity, sleep, and stress interplay.
-              </p>
-
-              <p style={{
-                fontSize: 'var(--fs-body)',
-                lineHeight: 1.65,
-                color: 'var(--raisin-black)',
-                opacity: 0.9
-              }}>
-                Our multidisciplinary team — including doctors, nutritionists, counsellors, and therapists — collaboratively interprets these patterns to uncover the imbalances at the root of your concerns.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-30px' }}
-              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-              style={{ display: 'flex', justifyContent: 'center' }}
-            >
-              <motion.div 
-                whileHover={{ y: -3, scale: 1.01 }}
-                transition={{ duration: 0.3 }}
-                style={{
-                  position: 'relative',
-                  borderRadius: '16px',
-                  overflow: 'hidden',
-                  boxShadow: '0 10px 28px rgba(94, 39, 53, 0.08)',
-                  border: '1.5px solid rgba(94, 39, 53, 0.12)',
-                  width: '100%',
-                  maxHeight: '270px'
-                }}
-              >
-                <img
-                  src="/assets/more_images/wellness.png"
-                  alt="Suprada Discovery & Holistic Assessment"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    maxHeight: '270px',
-                    objectFit: 'cover',
-                    display: 'block'
-                  }}
-                />
-              </motion.div>
-            </motion.div>
-          </div>
-
-          {/* Part 2: Wellness Formula Badges & Deep Wine Quote Box */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
-            gap: 'clamp(1.4rem, 2.5vw, 2rem)',
-            alignItems: 'center'
-          }}>
-            {/* Left Column: Tan/Linen Badges (Hidden on mobile as requested) */}
-            <motion.div
-              className="hide-mobile-wellness-formula"
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <h4 style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: 'var(--fs-h4)',
-                fontWeight: 700,
-                color: 'var(--wine)',
-                lineHeight: 1.35,
-                marginBottom: '0.75rem'
-              }}>
-                From this, we create your personalized <span style={{ color: 'var(--redwood)', fontStyle: 'italic' }}>WELLNESS FORMULA</span>:
-              </h4>
-
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
-                {wellnessFormulaPills.map((item, idx) => (
-                  <motion.span
-                    key={idx}
-                    initial={{ opacity: 0, scale: 0.85 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.25, delay: idx * 0.03 }}
-                    whileHover={{ scale: 1.05, backgroundColor: 'var(--tan)' }}
-                    style={{
-                      display: 'inline-block',
-                      backgroundColor: '#FAF0E6',
-                      border: '1px solid rgba(94, 39, 53, 0.18)',
-                      color: 'var(--wine)',
-                      fontWeight: 700,
-                      fontSize: '0.72rem',
-                      padding: '0.32rem 0.85rem',
-                      borderRadius: '50px',
-                      cursor: 'default',
-                      boxShadow: '0 2px 5px rgba(94, 39, 53, 0.04)',
-                      transition: 'all 0.2s ease'
-                    }}
-                  >
-                    {item}
-                  </motion.span>
-                ))}
+              <div>
+                <motion.button
+                  onClick={() => onNavigate('contact')}
+                  className="btn-luxury"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  style={{ padding: '0.6rem 1.4rem', fontSize: '0.78rem' }}
+                >
+                  Begin Your Journey <ArrowRight size={13} />
+                </motion.button>
               </div>
             </motion.div>
 
-            {/* Right Column: Deep Royal Wine Quote Box */}
+            {/* Sacred Shanti Mantra Card */}
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div style={{
+              transition={{ duration: 0.6 }}
+              style={{
                 position: 'relative',
-                background: 'linear-gradient(145deg, #5E2735 0%, #3D1420 100%)',
-                borderRadius: '16px',
-                padding: 'clamp(1.4rem, 2.5vw, 1.8rem) clamp(1.2rem, 2vw, 1.5rem)',
-                border: '1.5px solid rgba(230, 211, 192, 0.25)',
-                boxShadow: '0 10px 28px rgba(94, 39, 53, 0.2)',
-                textAlign: 'center'
-              }}>
-                <span style={{
+                backgroundColor: '#ffffff',
+                borderRadius: '20px',
+                padding: 'clamp(1.8rem, 3vw, 2.4rem)',
+                textAlign: 'center',
+                overflow: 'hidden',
+                boxShadow: '0 10px 28px rgba(94, 39, 53, 0.06)',
+                border: '1.5px solid rgba(94, 39, 53, 0.12)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center'
+              }}
+            >
+              <Pattern24
+                style={{
                   position: 'absolute',
-                  top: '0.35rem',
-                  left: '0.85rem',
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '1.8rem',
-                  color: 'var(--tan)',
-                  opacity: 0.35,
-                  lineHeight: 1
-                }}>“</span>
-
-                <TypewriterQuote text="“Wellness is not the absence of illness, but the discovery of harmony.”" speed={35} />
-
-                <span style={{
+                  top: '50%',
+                  left: '-15px',
+                  transform: 'translateY(-50%)',
+                  width: '100px',
+                  height: 'auto',
+                  color: 'var(--wine)',
+                  opacity: 0.06,
+                  pointerEvents: 'none'
+                }}
+              />
+              <Pattern25
+                style={{
                   position: 'absolute',
-                  bottom: '0.15rem',
-                  right: '0.85rem',
+                  top: '50%',
+                  right: '-15px',
+                  transform: 'translateY(-50%)',
+                  width: '100px',
+                  height: 'auto',
+                  color: 'var(--wine)',
+                  opacity: 0.06,
+                  pointerEvents: 'none'
+                }}
+              />
+
+              <div style={{ position: 'relative', zIndex: 3 }}>
+                <span style={{ fontSize: '0.72rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', display: 'block', marginBottom: '0.4rem' }}>
+                  ✦ SACRED INSPIRATION
+                </span>
+                <h3 style={{
                   fontFamily: 'var(--font-heading)',
-                  fontSize: '1.8rem',
-                  color: 'var(--tan)',
-                  opacity: 0.35,
-                  lineHeight: 1
-                }}>”</span>
+                  fontSize: '1.25rem',
+                  color: 'var(--wine)',
+                  fontWeight: 700,
+                  marginBottom: '1rem'
+                }}>
+                  The Shanti Mantra
+                </h3>
+
+                <div style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '1.15rem',
+                  color: 'var(--raisin-black)',
+                  lineHeight: 1.7,
+                  fontWeight: 700,
+                  marginBottom: '0.8rem'
+                }}>
+                  ॐ पूर्णमदः पूर्णमिदम् पूर्णात् पूर्णमुदच्यते ।<br />
+                  पूर्णस्य पूर्णमादाय पूर्णमेवावशिष्यते ॥<br />
+                  ॐ शान्तिः शान्तिः शान्तिः ॥
+                </div>
+
+                <p style={{
+                  fontSize: '0.76rem',
+                  fontStyle: 'italic',
+                  color: 'var(--wine)',
+                  opacity: 0.85,
+                  lineHeight: 1.5,
+                  marginBottom: '0.8rem'
+                }}>
+                  om pūrṇamadaḥ pūrṇamidam pūrṇāt pūrṇamudacyate .<br />
+                  pūrṇasya pūrṇamādāya pūrṇamevāvaśiṣyate .<br />
+                  om śāntiḥ śāntiḥ śāntiḥ ..
+                </p>
+
+                <p style={{
+                  fontSize: '0.76rem',
+                  lineHeight: 1.55,
+                  color: 'var(--raisin-black)',
+                  opacity: 0.8,
+                  fontWeight: 400,
+                  margin: '0 auto'
+                }}>
+                  "That is Whole and this is Whole, the perfect has come out of the perfect; having taken the perfect from the perfect, only the perfect remains. Let there be Peace, Peace, Peace."
+                </p>
               </div>
             </motion.div>
+
           </div>
 
         </div>
       </section>
-
-      {/* ========================================================================= */}
-      {/* 5. 5-STEP PROCESS SLIDER (Touch & Drag Responsive Carousel) */}
-      {/* ========================================================================= */}
       <section style={{
         padding: 'clamp(2rem, 4vh, 2.5rem) 4%',
         backgroundColor: 'var(--antique-white)',
@@ -1344,7 +1084,7 @@ export default function Wellness({ onNavigate }) {
                   borderColor: 'var(--tan)'
                 }}
               >
-                View Programs & Packages
+                View Programmes
               </button>
             </motion.div>
           </div>

@@ -535,7 +535,7 @@ export default function Programmes({ onNavigate }) {
               gap: '0.7rem', 
               flexWrap: 'wrap'
             }}>
-              Programs &amp; <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Packages</em>
+              Retreat <em style={{ fontStyle: 'italic', color: 'var(--redwood)' }}>Programme</em>
             </h1>
 
             <p style={{

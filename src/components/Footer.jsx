@@ -132,7 +132,7 @@ export default function Footer({ onNavigate }) {
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                   <circle cx="12" cy="10" r="3"/>
                 </svg>
-                <span>Suprada Wellness Estate, By River Suvarnamukhi, Kanakapura Road, Bangalore, India</span>
+                <span>Suprada Wellness, By River Suvarnamukhi, Kanakapura Road, Bangalore, India</span>
               </li>
               <li style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--redwood)" strokeWidth="2" style={{ flexShrink: 0 }}>

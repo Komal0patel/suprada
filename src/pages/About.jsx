@@ -383,7 +383,7 @@ export default function About({ onNavigate }) {
             style={{ display: 'flex', gap: '0.8rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '1.5rem' }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(94, 39, 53, 0.18)', padding: '0.4rem 1.1rem', borderRadius: '24px', fontSize: '0.78rem', color: 'var(--wine)' }}>
-              <span><Leaf size={14} style={{ color: 'var(--redwood)' }} /></span> <span>Riverfront Haven Estate</span>
+              <span><Leaf size={14} style={{ color: 'var(--redwood)' }} /></span> <span>Riverfront Haven</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(94, 39, 53, 0.18)', padding: '0.4rem 1.1rem', borderRadius: '24px', fontSize: '0.78rem', color: 'var(--wine)' }}>
               <span><Stethoscope size={14} style={{ color: 'var(--redwood)' }} /></span> <span>Decades of Clinical Heritage</span>
@@ -1026,207 +1026,27 @@ export default function About({ onNavigate }) {
         </motion.div>
       </section>
 
-      {/* Sustainability Radar */}
+      {/* Sustainability Section */}
       <section style={{ padding: '5.5rem 8%', backgroundColor: 'var(--platinum)', position: 'relative' }}>
         <FloatingPetals count={6} color="var(--sage)" />
 
-        <div style={{ maxWidth: '1240px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem', alignItems: 'stretch' }}>
+        <div style={{ maxWidth: '850px', margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 2 }}>
           
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', position: 'relative', zIndex: 2 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.9rem', marginBottom: '0.4rem' }}>
-              <img src="/assets/extracted/logo.svg" alt="Suprada Logo" style={{ height: '38px', width: 'auto' }} />
-              <div>
-                <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.72rem', fontWeight: 700, display: 'block' }}>
-                  ✦ Sustainability
-                </span>
-                <h2 style={{color: 'var(--wine)', lineHeight: 1.15, margin: 0}}>
-                  Giving Back In Our Own Way
-                </h2>
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-              {Object.keys(hotspots).map((key) => (
-                <motion.div 
-                  key={key}
-                  onClick={() => setActiveHotspot(key)}
-                  whileHover={{ x: 4 }}
-                  style={{
-                    padding: '1.2rem 1.4rem',
-                    borderRadius: '16px',
-                    border: '1.5px solid',
-                    borderColor: activeHotspot === key ? 'var(--harvest-gold)' : 'rgba(94, 39, 53, 0.12)',
-                    backgroundColor: activeHotspot === key ? '#ffffff' : 'transparent',
-                    cursor: 'pointer',
-                    boxShadow: activeHotspot === key ? '0 10px 25px rgba(94, 39, 53, 0.06)' : 'none',
-                    transition: 'all 0.3s ease'
-                  }}
-                >
-                  <h4 style={{color: 'var(--wine)', marginBottom: '0.3rem', display: 'flex', alignItems: 'center', gap: '0.6rem',}}>
-                    <span>{key === 'solar' ? <Sun size={18} style={{ color: 'var(--harvest-gold)', display: 'inline-block', verticalAlign: 'middle' }} /> : key === 'water' ? <Droplet size={18} style={{ color: 'var(--redwood)', display: 'inline-block', verticalAlign: 'middle' }} /> : <Ban size={18} style={{ color: 'var(--wine)', display: 'inline-block', verticalAlign: 'middle' }} />}</span>
-                    {hotspots[key].title}
-                  </h4>
-                  <p style={{ fontSize: '0.82rem', color: 'var(--raisin-black)', opacity: 0.8, lineHeight: 1.5, margin: 0, fontWeight: 300 }}>
-                    {hotspots[key].desc}
-                  </p>
-                </motion.div>
-              ))}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.9rem', marginBottom: '1.2rem' }}>
+            <img src="/assets/extracted/logo.svg" alt="Suprada Logo" style={{ height: '38px', width: 'auto' }} />
+            <div>
+              <span style={{ color: 'var(--redwood)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.72rem', fontWeight: 700, display: 'block', marginBottom: '0.3rem' }}>
+                ✦ Sustainability
+              </span>
+              <h2 style={{color: 'var(--wine)', lineHeight: 1.15, margin: 0}}>
+                Giving Back In Our Own Way
+              </h2>
             </div>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', height: '100%', position: 'relative', zIndex: 2 }}>
-            <div style={{
-              width: '100%',
-              maxWidth: '460px',
-              height: '100%',
-              minHeight: '480px',
-              background: 'linear-gradient(135deg, #5e2735 0%, #471b26 60%, #301018 100%)',
-              borderRadius: '24px',
-              position: 'relative',
-              boxShadow: '0 20px 45px rgba(94, 39, 53, 0.22)',
-              border: '1.5px solid rgba(220, 160, 50, 0.3)',
-              overflow: 'hidden',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}>
-              {/* Radial Golden Ambient Aura Behind Floating Logo */}
-              <motion.div
-                animate={{ scale: [1, 1.18, 1], opacity: [0.35, 0.6, 0.35] }}
-                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                style={{
-                  position: 'absolute',
-                  width: '280px',
-                  height: '280px',
-                  borderRadius: '50%',
-                  background: 'radial-gradient(circle, rgba(220, 160, 50, 0.4) 0%, rgba(94, 39, 53, 0) 70%)',
-                  pointerEvents: 'none'
-                }}
-              />
-
-              {/* Floating Suprada Mandala Logo */}
-              <motion.div
-                animate={{ 
-                  y: [-12, 12, -12],
-                  rotate: [0, 360]
-                }}
-                transition={{ 
-                  y: { duration: 4.5, repeat: Infinity, ease: 'easeInOut' },
-                  rotate: { duration: 80, repeat: Infinity, ease: 'linear' }
-                }}
-                style={{
-                  width: '220px',
-                  height: '220px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  opacity: 0.85,
-                  filter: 'drop-shadow(0 10px 25px rgba(220, 160, 50, 0.35))'
-                }}
-              >
-                <img 
-                  src="/assets/extracted/logo-mandala.svg" 
-                  alt="Suprada Floating Emblem" 
-                  style={{ width: '100%', height: '100%', objectFit: 'contain' }} 
-                  onError={(e) => {
-                    e.target.src = "/assets/extracted/logo.svg";
-                  }}
-                />
-              </motion.div>
-
-              {/* Pulsing Botanical Ring Watermark */}
-              <div 
-                style={{ 
-                  position: 'absolute', 
-                  inset: 0, 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center',
-                  opacity: 0.12,
-                  pointerEvents: 'none'
-                }}
-              >
-                <Pattern25 style={{ width: '380px', height: '380px', color: 'var(--harvest-gold)' }} />
-              </div>
-              {Object.keys(hotspots).map((key) => {
-                const isActive = activeHotspot === key;
-                return (
-                  <div 
-                    key={key}
-                    onClick={() => setActiveHotspot(key)}
-                    style={{
-                      position: 'absolute',
-                      top: hotspots[key].coords.top,
-                      left: hotspots[key].coords.left,
-                      transform: 'translate(-50%, -50%)',
-                      cursor: 'pointer',
-                      zIndex: 10
-                    }}
-                  >
-                    <motion.div 
-                      animate={{ scale: isActive ? [1, 2.5] : [1, 1.6], opacity: [0.65, 0] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: 'easeOut' }}
-                      style={{
-                        position: 'absolute',
-                        top: '-15px',
-                        left: '-15px',
-                        width: '30px',
-                        height: '30px',
-                        borderRadius: '50%',
-                        backgroundColor: 'var(--harvest-gold)',
-                        pointerEvents: 'none'
-                      }}
-                    />
-                    
-                    <motion.div 
-                      animate={{ 
-                        scale: isActive ? 1.25 : 1.0,
-                        backgroundColor: isActive ? 'var(--harvest-gold)' : 'var(--wine)'
-                      }}
-                      style={{
-                        width: '18px',
-                        height: '18px',
-                        borderRadius: '50%',
-                        border: '2.5px solid #ffffff',
-                        boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
-                        transition: 'background-color 0.3s ease'
-                      }}
-                    />
-                  </div>
-                );
-              })}
-
-              <div style={{
-                position: 'absolute',
-                bottom: '18px',
-                left: '18px',
-                right: '18px',
-                backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                backdropFilter: 'blur(10px)',
-                WebkitBackdropFilter: 'blur(10px)',
-                padding: '1.1rem 1.3rem',
-                borderRadius: '16px',
-                boxShadow: '0 12px 30px rgba(0,0,0,0.12)',
-                border: '1.5px solid var(--harvest-gold)',
-                zIndex: 11
-              }}>
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeHotspot}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.25 }}
-                  >
-                    <span style={{ fontSize: '0.65rem', color: 'var(--redwood)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '0.15rem' }}>Eco Feature Active</span>
-                    <h5 style={{color: 'var(--wine)', margin: '0 0 0.25rem 0'}}>{hotspots[activeHotspot].title}</h5>
-                    <p style={{ fontSize: '0.78rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.45, margin: 0 }}>{hotspots[activeHotspot].desc}</p>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
-            </div>
-          </div>
+          <p style={{ fontSize: '1rem', color: 'var(--raisin-black)', opacity: 0.9, lineHeight: 1.8, fontWeight: 300, margin: '0 auto' }}>
+            We harness clean solar power to offset 70% of energy usage and heat running water across our retreat cabins. Our advanced purification system recycles greywater to nurture our extensive organic herbal gardens and fields, while maintaining a strict zero single-use plastics policy with mineral-rich natural drinking water served in traditional copper vessels for metabolic benefits.
+          </p>
 
         </div>
       </section>

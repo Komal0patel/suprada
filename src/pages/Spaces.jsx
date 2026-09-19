@@ -212,7 +212,7 @@ export default function Spaces({ onNavigate }) {
       ]
     },
     {
-      title: 'Therapeutic Sanctuaries',
+      title: 'Therapeutic Zones',
       icon: <Leaf size={20} />,
       subtitle: 'Gender-Dedicated Hydrotherapy & Detox Blocks',
       items: [
@@ -261,12 +261,12 @@ export default function Spaces({ onNavigate }) {
     { 
       name: 'Samprada Block', 
       type: 'Heritage Garden Cottages', 
-      desc: 'Rustic charm near herbal gardens and dining.', 
+      desc: 'Rustic heritage cottage offering quiet solitude and serene natural surroundings.', 
       config: 'Deluxe & Super Deluxe',
       bg: 'var(--tea-green)',
       borderColor: 'var(--sage)',
       tag: '✦ GARDEN HAVEN',
-      img: '/assets/residences/samprada.png'
+      img: '/assets/gallery/IMG_0584.JPEG'
     },
     { 
       name: 'Supritha Block', 
@@ -276,7 +276,7 @@ export default function Spaces({ onNavigate }) {
       bg: 'rgba(184, 94, 76, 0.1)',
       borderColor: 'var(--redwood)',
       tag: '✦ ELEVATED SOLITUDE',
-      img: '/assets/residences/samrduddhi.png'
+      img: '/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.49 AM.jpeg'
     },
     { 
       name: 'Spandana Block', 
@@ -286,7 +286,7 @@ export default function Spaces({ onNavigate }) {
       bg: 'rgba(220, 160, 50, 0.14)',
       borderColor: 'var(--harvest-gold)',
       tag: '✦ RIVER BREEZE',
-      img: '/assets/residences/spandana.png'
+      img: '/assets/gallery/IMG_0587.JPEG'
     },
     { 
       name: 'Samprapti Block', 
@@ -296,17 +296,17 @@ export default function Spaces({ onNavigate }) {
       bg: 'var(--tea-green)',
       borderColor: 'var(--sage)',
       tag: '✦ DEEP SLEEP HAVEN',
-      img: '/assets/residences/samprapti.png'
+      img: '/assets/gallery/IMG_0588.JPEG'
     },
     { 
       name: 'Sphatika Block', 
       type: 'Prismatic Nature Suites', 
-      desc: 'Airy suites with forest-facing veranda.', 
+      desc: 'Airy suites with private veranda.', 
       config: 'Deluxe & Super Deluxe',
       bg: 'rgba(184, 94, 76, 0.1)',
       borderColor: 'var(--redwood)',
-      tag: '✦ FOREST VERANDA',
-      img: '/assets/residences/sphatika.png'
+      tag: '✦ VERANDA SUITE',
+      img: '/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.48 AM.jpeg'
     },
     { 
       name: 'Sukruthi Block', 
@@ -316,7 +316,7 @@ export default function Spaces({ onNavigate }) {
       bg: 'rgba(220, 160, 50, 0.14)',
       borderColor: 'var(--harvest-gold)',
       tag: '✦ COURTYARD OASIS',
-      img: '/assets/residences/sukruthi.png'
+      img: '/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM.jpeg'
     },
     { 
       name: 'Samhita Block', 
@@ -326,7 +326,7 @@ export default function Spaces({ onNavigate }) {
       bg: 'var(--tea-green)',
       borderColor: 'var(--sage)',
       tag: '✦ GROUNDED EARTH',
-      img: '/assets/residences/samhita.png'
+      img: '/assets/gallery/IMG_0585.JPEG'
     },
     { 
       name: 'Subhiksha Block', 
@@ -336,7 +336,7 @@ export default function Spaces({ onNavigate }) {
       bg: 'rgba(184, 94, 76, 0.1)',
       borderColor: 'var(--redwood)',
       tag: '✦ IN-HOUSE THERAPY',
-      img: '/assets/residences/subhiksha.png'
+      img: '/assets/gallery/IMG_0586.JPEG'
     },
     { 
       name: 'Samruddhi Block', 
@@ -346,7 +346,7 @@ export default function Spaces({ onNavigate }) {
       bg: 'rgba(220, 160, 50, 0.14)',
       borderColor: 'var(--harvest-gold)',
       tag: '✦ CANOPY PANORAMA',
-      img: '/assets/residences/suyoga.png'
+      img: '/assets/gallery/IMG_0592.JPEG'
     }
   ];
 
@@ -466,7 +466,7 @@ export default function Spaces({ onNavigate }) {
 
           {/* Word-by-Word Revealed Paragraph */}
           <AnimatedParagraph
-            text="Crafted with sacred Indian spatial proportions, mud-plastered walls, and riverfront solitude — every corner of our riverfront estate is designed to restore your nervous system to its natural rhythm."
+            text="Crafted with sacred Indian spatial proportions, mud-plastered walls, and riverfront solitude — every corner of our riverfront sanctuary is designed to restore your nervous system to its natural rhythm."
             style={{
               color: 'rgba(94, 39, 53, 0.88)',
               maxWidth: '680px',
@@ -735,7 +735,7 @@ export default function Spaces({ onNavigate }) {
               Suprada Residences & Cottages
             </h2>
             <p style={{ color: 'var(--raisin-black)', opacity: 0.95, maxWidth: '640px', margin: '0.8rem auto 0 auto', fontSize: 'var(--fs-body)', lineHeight: 1.65, fontWeight: 400 }}>
-              8 distinct lodging blocks crafted with mud plaster, local granite, and reclaimed teakwood to support deep nervous system recovery.
+              Distinct lodging blocks crafted with mud plaster, local granite, and reclaimed teakwood to support deep nervous system recovery.
             </p>
           </div>
 
@@ -819,7 +819,7 @@ export default function Spaces({ onNavigate }) {
             A Retreat Designed to Heal as One
           </h2>
           <p style={{ color: 'var(--raisin-black)', opacity: 0.95, margin: '0 auto 2.5rem auto', fontSize: 'var(--fs-body)', lineHeight: 1.75, fontWeight: 400 }}>
-            Our caregivers, doctors, and specialists communicate directly under one roof across our 10-acre estate to coordinate your custom natural treatment paths.
+            It has our skilled specialists and doctors communicating directly under one roof to coordinate your custom natural treatment paths.
           </p>
           <div style={{ display: 'flex', gap: '1.2rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <button 

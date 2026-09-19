@@ -333,7 +333,166 @@ export default function Wellness({ onNavigate }) {
       </section>
 
       {/* ========================================================================= */}
-      {/* 1. OUR APPROACH & SHANTI MANTRA (Combined 1st Section) */}
+      {/* 2. CURATED PROGRAMMES SHOWCASE (Directly after Hero) */}
+      {/* ========================================================================= */}
+      <section style={{
+        padding: 'clamp(2.5rem, 5vh, 3.2rem) 5%',
+        backgroundColor: 'var(--isabelline)',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <div style={{ maxWidth: '1060px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+          
+          {/* Header Area */}
+          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 2rem' }}>
+            <span style={{
+              color: 'var(--redwood)',
+              fontSize: 'var(--fs-small)',
+              fontWeight: 800,
+              letterSpacing: '0.24em',
+              textTransform: 'uppercase',
+              display: 'block',
+              marginBottom: '0.45rem'
+            }}>
+              ✦ CURATED PROGRAMMES
+            </span>
+
+            <h2 style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'var(--fs-h2)',
+              fontWeight: 700,
+              color: 'var(--wine)',
+              lineHeight: 1.2,
+              marginBottom: '0.6rem'
+            }}>
+              Discover the Right Path <span style={{ color: 'var(--redwood)', fontStyle: 'italic' }}>for Your Well-Being</span>
+            </h2>
+
+            <p style={{
+              fontSize: 'var(--fs-body)',
+              lineHeight: 1.65,
+              color: 'var(--raisin-black)',
+              opacity: 0.88,
+              fontWeight: 500,
+              margin: '0 auto'
+            }}>
+              At Suprada, every journey begins with understanding your body, your imbalances, and your goals. Explore programs designed to support you at every stage of your wellness journey.
+            </p>
+          </div>
+
+          {/* Program Cards Grid */}
+          <div
+            className="program-cards-scroll-container"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 230px), 1fr))',
+              gap: 'clamp(1rem, 2vw, 1.3rem)'
+            }}
+          >
+            {featuredPrograms.map((prog, pIdx) => (
+              <motion.div
+                key={prog.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: pIdx * 0.06 }}
+                className="program-card-item"
+                style={{
+                  backgroundColor: '#ffffff',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  border: '1.5px solid rgba(94, 39, 53, 0.12)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  boxShadow: '0 8px 24px rgba(94, 39, 53, 0.05)'
+                }}
+                whileHover={{ y: -4, borderColor: 'var(--wine)', boxShadow: '0 12px 28px rgba(94, 39, 53, 0.1)' }}
+              >
+                {/* Card Top Image */}
+                <div style={{ position: 'relative', height: '145px', overflow: 'hidden' }}>
+                  <img
+                    src={prog.image}
+                    alt={prog.title}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      display: 'block'
+                    }}
+                  />
+                  {/* Duration Tag */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '0.6rem',
+                    left: '0.6rem',
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                    backdropFilter: 'blur(6px)',
+                    padding: '0.22rem 0.6rem',
+                    borderRadius: '50px',
+                    boxShadow: '0 2px 6px rgba(0,0,0,0.08)',
+                    border: '1px solid rgba(94, 39, 53, 0.15)'
+                  }}>
+                    <span style={{
+                      fontSize: '0.64rem',
+                      fontWeight: 800,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.04em',
+                      color: 'var(--wine)'
+                    }}>
+                      ✦ {prog.duration}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Card Body */}
+                <div style={{ padding: '1.1rem 1rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
+                  <div>
+                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'var(--fs-h3)', fontWeight: 700, marginBottom: '0.4rem', color: 'var(--wine)' }}>
+                      {prog.title}
+                    </h3>
+
+                    <p style={{ fontSize: '0.82rem', lineHeight: 1.55, marginBottom: '1rem', color: 'var(--raisin-black)', opacity: 0.8 }}>
+                      {prog.desc}
+                    </p>
+                  </div>
+
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', flexWrap: 'wrap', marginTop: 'auto', paddingTop: '0.65rem', borderTop: '1px solid rgba(94, 39, 53, 0.1)' }}>
+                    <button
+                      onClick={() => openBookingModal(prog.title)}
+                      className="btn-luxury"
+                      style={{ padding: '0.45rem 1rem', fontSize: '0.74rem' }}
+                    >
+                      Book Now
+                    </button>
+                    <button
+                      onClick={() => onNavigate(prog.path)}
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.25rem',
+                        fontSize: '0.76rem',
+                        fontWeight: 700,
+                        color: 'var(--wine)',
+                        background: 'none',
+                        border: 'none',
+                        cursor: 'pointer',
+                        padding: '0.3rem 0.2rem'
+                      }}
+                    >
+                      Explore Program <ArrowRight size={12} />
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 3. OUR APPROACH & SHANTI MANTRA */}
       {/* ========================================================================= */}
       <section style={{
         padding: 'clamp(2.8rem, 5vh, 3.8rem) 5%',
@@ -826,164 +985,7 @@ export default function Wellness({ onNavigate }) {
         </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* 6. CURATED PROGRAMS SHOWCASE */}
-      {/* ========================================================================= */}
-      <section style={{
-        padding: 'clamp(2.5rem, 5vh, 3.2rem) 5%',
-        backgroundColor: 'var(--isabelline)',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        <div style={{ maxWidth: '1060px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          
-          {/* Header Area */}
-          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 2rem' }}>
-            <span style={{
-              color: 'var(--redwood)',
-              fontSize: 'var(--fs-small)',
-              fontWeight: 800,
-              letterSpacing: '0.24em',
-              textTransform: 'uppercase',
-              display: 'block',
-              marginBottom: '0.45rem'
-            }}>
-              ✦ CURATED PROGRAMMES
-            </span>
 
-            <h2 style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'var(--fs-h2)',
-              fontWeight: 700,
-              color: 'var(--wine)',
-              lineHeight: 1.2,
-              marginBottom: '0.6rem'
-            }}>
-              Discover the Right Path <span style={{ color: 'var(--redwood)', fontStyle: 'italic' }}>for Your Well-Being</span>
-            </h2>
-
-            <p style={{
-              fontSize: 'var(--fs-body)',
-              lineHeight: 1.65,
-              color: 'var(--raisin-black)',
-              opacity: 0.88,
-              fontWeight: 500,
-              margin: '0 auto'
-            }}>
-              At Suprada, every journey begins with understanding your body, your imbalances, and your goals. Explore programs designed to support you at every stage of your wellness journey.
-            </p>
-          </div>
-
-          {/* Program Cards Grid */}
-          <div
-            className="program-cards-scroll-container"
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 230px), 1fr))',
-              gap: 'clamp(1rem, 2vw, 1.3rem)'
-            }}
-          >
-            {featuredPrograms.map((prog, pIdx) => (
-              <motion.div
-                key={prog.title}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: pIdx * 0.06 }}
-                className="program-card-item"
-                style={{
-                  backgroundColor: '#ffffff',
-                  borderRadius: '16px',
-                  overflow: 'hidden',
-                  border: '1.5px solid rgba(94, 39, 53, 0.12)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  boxShadow: '0 8px 24px rgba(94, 39, 53, 0.05)'
-                }}
-                whileHover={{ y: -4, borderColor: 'var(--wine)', boxShadow: '0 12px 28px rgba(94, 39, 53, 0.1)' }}
-              >
-                {/* Card Top Image */}
-                <div style={{ position: 'relative', height: '145px', overflow: 'hidden' }}>
-                  <img
-                    src={prog.image}
-                    alt={prog.title}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      display: 'block'
-                    }}
-                  />
-                  {/* Duration Tag */}
-                  <div style={{
-                    position: 'absolute',
-                    top: '0.6rem',
-                    left: '0.6rem',
-                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                    backdropFilter: 'blur(6px)',
-                    padding: '0.22rem 0.6rem',
-                    borderRadius: '50px',
-                    boxShadow: '0 2px 6px rgba(0,0,0,0.08)',
-                    border: '1px solid rgba(94, 39, 53, 0.15)'
-                  }}>
-                    <span style={{
-                      fontSize: '0.64rem',
-                      fontWeight: 800,
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.04em',
-                      color: 'var(--wine)'
-                    }}>
-                      ✦ {prog.duration}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Card Body */}
-                <div style={{ padding: '1.1rem 1rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
-                  <div>
-                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'var(--fs-h3)', fontWeight: 700, marginBottom: '0.4rem', color: 'var(--wine)' }}>
-                      {prog.title}
-                    </h3>
-
-                    <p style={{ fontSize: '0.82rem', lineHeight: 1.55, marginBottom: '1rem', color: 'var(--raisin-black)', opacity: 0.8 }}>
-                      {prog.desc}
-                    </p>
-                  </div>
-
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', flexWrap: 'wrap', marginTop: 'auto', paddingTop: '0.65rem', borderTop: '1px solid rgba(94, 39, 53, 0.1)' }}>
-                    <button
-                      onClick={() => openBookingModal(prog.title)}
-                      className="btn-luxury"
-                      style={{ padding: '0.45rem 1rem', fontSize: '0.74rem' }}
-                    >
-                      Book Now
-                    </button>
-                    <button
-                      onClick={() => onNavigate(prog.path)}
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '0.25rem',
-                        fontSize: '0.76rem',
-                        fontWeight: 700,
-                        color: 'var(--wine)',
-                        background: 'none',
-                        border: 'none',
-                        cursor: 'pointer',
-                        padding: '0.3rem 0.2rem'
-                      }}
-                    >
-                      Explore Program <ArrowRight size={12} />
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-        </div>
-      </section>
 
       {/* ========================================================================= */}
       {/* 7. SALUTE THE SUN FEATURE */}

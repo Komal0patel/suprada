@@ -286,7 +286,7 @@ export default function Spaces({ onNavigate }) {
       bg: 'rgba(220, 160, 50, 0.14)',
       borderColor: 'var(--harvest-gold)',
       tag: '✦ RIVER BREEZE',
-      img: 'https://images.pexels.com/photos/2096608/pexels-photo-2096608.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      img: '/assets/gallery/IMG_0583.JPEG'
     },
     { 
       name: 'Samprapti Block', 
@@ -336,7 +336,7 @@ export default function Spaces({ onNavigate }) {
       bg: 'rgba(184, 94, 76, 0.1)',
       borderColor: 'var(--redwood)',
       tag: '✦ IN-HOUSE THERAPY',
-      img: 'https://images.pexels.com/photos/2082090/pexels-photo-2082090.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      img: '/assets/gallery/IMG_0586.JPEG'
     },
     { 
       name: 'Samruddhi Block', 
@@ -346,7 +346,7 @@ export default function Spaces({ onNavigate }) {
       bg: 'rgba(220, 160, 50, 0.14)',
       borderColor: 'var(--harvest-gold)',
       tag: '✦ CANOPY PANORAMA',
-      img: 'https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      img: '/assets/gallery/IMG_0592.JPEG'
     }
   ];
 

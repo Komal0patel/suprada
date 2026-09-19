@@ -1342,26 +1342,6 @@ export default function Home({ onNavigate }) {
             ))}
           </div>
 
-          {/* Secondary Modalities CTA Bar */}
-          <div style={{ textAlign: 'center', marginTop: '1.8rem', display: 'flex', gap: '0.8rem', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
-            <button
-              onClick={() => onNavigate('programmes')}
-              style={{
-                backgroundColor: 'rgba(94, 39, 53, 0.06)',
-                border: '1.5px solid rgba(94, 39, 53, 0.2)',
-                color: 'var(--wine)',
-                padding: '0.55rem 1.4rem',
-                borderRadius: '50px',
-                fontWeight: 700,
-                fontSize: '0.8rem',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease'
-              }}
-              className="hover-gold"
-            >
-              Explore All Clinical Modalities &amp; Programmes →
-            </button>
-          </div>
         </div>
       </section>
 

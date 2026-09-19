@@ -487,7 +487,8 @@ export default function Naturopathy({ onNavigate }) {
               { id: 'traditional', label: 'Traditional' },
               { id: 'global', label: 'Global Techniques' },
               { id: 'specialized', label: 'Specialized Care' },
-              { id: 'sensory', label: 'Skin & Sensory' }
+              { id: 'sensory', label: 'Skin & Sensory' },
+              { id: 'herbal', label: 'Skin & Vitality' }
             ].map(tab => {
               const isActive = activeMassageTab === tab.id;
               return (
@@ -632,7 +633,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="https://images.pexels.com/photos/3764568/pexels-photo-3764568.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Swedish" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM.jpeg" alt="Swedish Massage" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ CLASSIC FLOW</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>GENTLE RELAXATION</span>
@@ -645,20 +646,33 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Thai Yoga" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                        <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ PASSIVE YOGA</span>
+                        <img src="/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM (1).jpeg" alt="Thai Lymphatic Drainage" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ PASSIVE STRETCH</span>
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>ASSISTED STRETCHING</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Thai Yoga Massage</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Combines passive stretching and rhythmic compression along Sen energy lines.</p>
+                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>SEN LINE FLUSH</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Thai Lymphatic Drainage</h3>
+                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Combines rhythmic compression along Sen energy lines with targeted lymphatic fluid clearing.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Joint mobility &amp; energy release</div>
+                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Joint mobility &amp; fluid balance</div>
                   </div>
 
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="https://images.pexels.com/photos/3865676/pexels-photo-3865676.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Lymphatic" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="/assets/gallery/IMG_0588.JPEG" alt="Balinese" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ BALINESE TOUCH</span>
+                      </div>
+                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>DEEP ACUPRESSURE</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Balinese</h3>
+                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Traditional Balinese technique combining gentle stretches, palm pressure, and essential oils.</p>
+                    </div>
+                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Deep tissue relief &amp; energy release</div>
+                  </div>
+
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                    <div>
+                      <div style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                        <img src="/assets/gallery/IMG_0591.JPEG" alt="Lymphatic" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ DETOX STROKES</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>SYSTEMIC FLUSH</span>
@@ -675,27 +689,53 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="https://images.pexels.com/photos/4506166/pexels-photo-4506166.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Spinal" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                        <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ VERTEBRAL</span>
+                        <img src="/assets/gallery/IMG_0591.JPEG" alt="Lymphatic" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ DETOX FLUSH</span>
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>POSTURAL REALIGNMENT</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Spine &amp; Joint Therapy</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Vertebral relaxation, soft traction, and targeted paraspinal muscle release.</p>
+                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>SYSTEMIC CLEARANCE</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Lymphatic</h3>
+                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Targeted lymphatic fluid clearing to remove toxins, reduce puffiness, and boost immunity.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Spinal decompression &amp; nerve health</div>
+                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Fluid balance &amp; immunity</div>
                   </div>
 
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Abdominal" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                        <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ VISCERAL</span>
+                        <img src="/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.49 AM.jpeg" alt="Pre & Postnatal" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ MATERNAL CARE</span>
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>GUT HEALTH RELEASE</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Abdominal Massage</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Solar plexus &amp; gut release promoting gastrointestinal motility and visceral tension relief.</p>
+                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>MOTHERHOOD WELLNESS</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Pre &amp; Postnatal</h3>
+                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Specialized therapy alleviating back tension, pelvic strain, and fatigue for expectant and new mothers.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Digestive harmony &amp; motility</div>
+                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Lumbar comfort &amp; emotional calm</div>
+                  </div>
+
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                    <div>
+                      <div style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                        <img src="/assets/gallery/IMG_0587.JPEG" alt="Hot Stone" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ THERMAL BASALT</span>
+                      </div>
+                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>HEAT DEEP RELEASE</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Hot Stone</h3>
+                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Smooth, heated volcanic basalt stones melt away deep muscular tightness and enhance circulation.</p>
+                    </div>
+                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Thermal relaxation &amp; tension melt</div>
+                  </div>
+
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                    <div>
+                      <div style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                        <img src="/assets/gallery/IMG_0592.JPEG" alt="Sports" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ MUSCLE CONDITIONING</span>
+                      </div>
+                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>DEEP RECOVERY</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Sports</h3>
+                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Targeted therapeutic pressure relieving lactic acid accumulation and restoring muscle flexibility.</p>
+                    </div>
+                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Athletic performance &amp; tissue repair</div>
                   </div>
                 </>
               )}
@@ -705,7 +745,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="https://images.pexels.com/photos/4021779/pexels-photo-4021779.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Herbal Scrub" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="/assets/gallery/IMG_0584.JPEG" alt="Herbal Scrub" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ BOTANICAL</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>SKIN POLISH</span>
@@ -718,7 +758,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="https://images.pexels.com/photos/6620935/pexels-photo-6620935.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Salt Glow" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM (2).jpeg" alt="Salt Glow" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ MINERAL RICH</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>MINERAL RENEWAL</span>
@@ -726,6 +766,75 @@ export default function Naturopathy({ onNavigate }) {
                       <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Mineral-rich salt crystals blended with therapeutic oils for deep skin glow.</p>
                     </div>
                     <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Mineral absorption &amp; glow</div>
+                  </div>
+
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                    <div>
+                      <div style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                        <img src="/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.50 AM.jpeg" alt="Fruit" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ NATURAL AHA</span>
+                      </div>
+                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>ORGANIC NOURISHMENT</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Fruit</h3>
+                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Fresh organic fruit pulp application rich in vitamins and fruit acids to illuminate skin texture.</p>
+                    </div>
+                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Vitamin hydration &amp; natural radiance</div>
+                  </div>
+
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                    <div>
+                      <div style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                        <img src="/assets/gallery/IMG_0583.JPEG" alt="Aroma" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ ESSENTIAL OILS</span>
+                      </div>
+                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>SENSORY HARMONY</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Aroma</h3>
+                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Infusion of pure botanical essential oils tailored to soothe mind and body through olfactory touch.</p>
+                    </div>
+                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Emotional grounding &amp; stress release</div>
+                  </div>
+                </>
+              )}
+
+              {activeMassageTab === 'herbal' && (
+                <>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                    <div>
+                      <div style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                        <img src="/assets/gallery/IMG_0586.JPEG" alt="Neem & Turmeric Vitality" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ BOTANICAL DETOX</span>
+                      </div>
+                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>ANTISEPTIC PURIFICATION</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Neem &amp; Turmeric Wrap</h3>
+                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Purifying herbal paste wrap promoting dermal immunity, anti-inflammatory defense, and clear complexion.</p>
+                    </div>
+                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Includes: Skin purification &amp; allergy relief</div>
+                  </div>
+
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                    <div>
+                      <div style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                        <img src="/assets/gallery/IMG_0588.JPEG" alt="Aloe & Cucumber Pack" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ HYDRATION GEL</span>
+                      </div>
+                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>COOLING DERMAL SOOTHING</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Aloe &amp; Cucumber Soothing Pack</h3>
+                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Deeply hydrating organic aloe vera and fresh cucumber pulp soothing sun damage and heat imbalance.</p>
+                    </div>
+                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Includes: Deep dermal cooling &amp; moisture replenishment</div>
+                  </div>
+
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                    <div>
+                      <div style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                        <img src="/assets/gallery/IMG_0585.JPEG" alt="Herbal Steam Bath" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ BOTANICAL VAPOR</span>
+                      </div>
+                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>PORE OPENING DETOX</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Herbal Steam Bath</h3>
+                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Medicinal herb vapor infusion opening skin pores, eliminating heavy metals, and boosting vitality.</p>
+                    </div>
+                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Includes: Pore cleansing &amp; vital force activation</div>
                   </div>
                 </>
               )}
@@ -979,6 +1088,12 @@ export default function Naturopathy({ onNavigate }) {
                     <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>DERMAL RECOVERY</span>
                     <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.5rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Herbal Steam Pack &amp; Clay Face Pack</h3>
                     <p style={{ fontSize: '0.94rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.6, margin: 0 }}>Botanical steam infusion and natural clay face pack for deep skin detoxification and radiance.</p>
+                  </div>
+
+                  <div style={{ backgroundColor: '#ffffff', padding: '1.8rem', borderRadius: '22px', border: '1.5px solid rgba(94, 39, 53, 0.12)', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.04)' }}>
+                    <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>JOINT &amp; ORGAN DETOX</span>
+                    <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.5rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Organs &amp; Joint Care</h3>
+                    <p style={{ fontSize: '0.94rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.6, margin: 0 }}>Specialized warm mineral mud and botanical pack applied to spinal, knee, and shoulder joints to soothe stiffness and stimulate internal organ healing.</p>
                   </div>
                 </>
               )}

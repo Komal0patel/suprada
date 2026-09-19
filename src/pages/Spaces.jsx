@@ -336,7 +336,7 @@ export default function Spaces({ onNavigate }) {
       bg: 'rgba(184, 94, 76, 0.1)',
       borderColor: 'var(--redwood)',
       tag: '✦ IN-HOUSE THERAPY',
-      img: '/assets/gallery/IMG_0586.JPEG'
+      img: '/assets/gallery/IMG_0590.JPEG'
     },
     { 
       name: 'Samruddhi Block', 
@@ -762,11 +762,11 @@ export default function Spaces({ onNavigate }) {
                 >
                   <div>
                     {/* Top Image Preview */}
-                    <div className="residence-card-img" style={{ borderRadius: '16px', overflow: 'hidden', height: '170px', marginBottom: '1.4rem', position: 'relative' }}>
+                    <div className="residence-card-img" style={{ borderRadius: '16px', overflow: 'hidden', height: '215px', marginBottom: '1.4rem', position: 'relative', backgroundColor: 'rgba(94, 39, 53, 0.04)' }}>
                       <img 
                         src={block.img} 
                         alt={block.name} 
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
                       />
                       <span className="residence-card-tag" style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'rgba(58, 21, 32, 0.9)', color: 'var(--harvest-gold)', fontSize: '0.72rem', fontWeight: 800, padding: '0.35rem 0.85rem', borderRadius: '15px', backdropFilter: 'blur(4px)' }}>
                         {block.tag}

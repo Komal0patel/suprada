@@ -5151,7 +5151,7 @@ html, body {
   border-radius: 18px !important;
 }
 
-.treatment-grid-4col > div > div > div:first-child {
+.treatment-grid-4col .treatment-card-img {
   height: 140px !important;
   margin-bottom: 0.85rem !important;
   border-radius: 12px !important;

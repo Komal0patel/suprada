@@ -370,23 +370,7 @@ export default function Gallery({ onNavigate }) {
 
 
 
-                    {/* Hover Overlay Gradient */}
-                    <div style={{
-                      position: 'absolute',
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      padding: '3rem 1.4rem 1.2rem 1.4rem',
-                      background: 'linear-gradient(to top, rgba(25, 23, 24, 0.95) 0%, rgba(25, 23, 24, 0.6) 60%, rgba(25, 23, 24, 0) 100%)',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'flex-end',
-                      zIndex: 2
-                    }}>
-                      <h3 style={{ color: '#ffffff', margin: 0, fontSize: '1.05rem', fontFamily: 'serif', fontWeight: 600, lineHeight: 1.3 }}>
-                        {item.title.split(' – ')[1] || item.title}
-                      </h3>
-                    </div>
+
                   </div>
                 </TiltCard>
               ))}

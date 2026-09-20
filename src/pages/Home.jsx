@@ -468,10 +468,11 @@ export default function Home({ onNavigate }) {
 
   const [selectedNaturopathyModal, setSelectedNaturopathyModal] = useState(null);
   const [selectedDiseaseModal, setSelectedDiseaseModal] = useState(null);
+  const [selectedFounderModal, setSelectedFounderModal] = useState(null);
 
   // Lock background body and html scroll when detail modal is open
   useEffect(() => {
-    if (selectedNaturopathyModal || selectedDiseaseModal) {
+    if (selectedNaturopathyModal || selectedDiseaseModal || selectedFounderModal) {
       const originalBodyOverflow = document.body.style.overflow;
       const originalDocOverflow = document.documentElement.style.overflow;
       document.body.style.overflow = 'hidden';
@@ -482,7 +483,7 @@ export default function Home({ onNavigate }) {
         document.documentElement.style.overflow = originalDocOverflow;
       };
     }
-  }, [selectedNaturopathyModal, selectedDiseaseModal]);
+  }, [selectedNaturopathyModal, selectedDiseaseModal, selectedFounderModal]);
 
   const naturopathyCards = [
     {
@@ -2843,12 +2844,58 @@ export default function Home({ onNavigate }) {
             {/* Row 1: First 4 Cards */}
             <div className="leadership-row-1" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.2rem', width: '100%' }}>
               {[
-                { name: 'Late Mrs. Renuka Nagaraju', role: 'Founder Inspiration', creds: 'Suprada Wellness', img: '/assets/Founders/nagaraju_lady.jpg', objectPosition: 'center 62.6%', transform: 'scale(1.12)' },
-                { name: 'Acharya Dr. M. Nagaraju', role: 'Chairperson', creds: 'Suprada Wellness', img: '/assets/Founders/nagaraju_man.jpg', objectPosition: 'center 84.5%' },
-                { name: 'Mr. Sunil Jayaraj', role: 'Founder', creds: 'Suprada Wellness', img: '/assets/Founders/sunil_jayaraj.jpg', objectPosition: 'center 51.9%' },
-                { name: 'Dr. Prema Ramadas, MD', role: 'Co-founder', creds: 'Suprada Wellness', img: '/assets/Founders/prema_ramadas.jpg', objectPosition: 'center 60.0%' }
+                { 
+                  name: 'Late Mrs. Renuka Nagaraju', 
+                  role: 'Founder Inspiration', 
+                  creds: 'Suprada Wellness', 
+                  img: '/assets/Founders/nagaraju_lady.jpg', 
+                  objectPosition: 'center 62.6%', 
+                  transform: 'scale(1.12)',
+                  badge: 'Foundational Inspiration',
+                  quote: 'Inspiring Suprada’s core vision of compassionate holistic living and sacred healing.',
+                  story: 'Late Mrs. Renuka Nagaraju is the foundational guiding inspiration behind Suprada Wellness and Suvarnamukhi Samskrithi Dhama. Her life embodied compassionate living, sacred healing, and selfless service.\n\nWe carry forward her legacy by combining Naturopathy, Yogic Science, and Ayurveda with a caregiver’s heart, ensuring there is seamless connection between the experts healing you in your journey.',
+                  highlights: ['Foundational Inspiration', 'Suvarnamukhi Samskrithi Dhama Legacy', 'Sacred Healing Philosophy', 'Compassionate Caregiver Ethos']
+                },
+                { 
+                  name: 'Acharya Dr. M. Nagaraju', 
+                  role: 'Chairperson', 
+                  creds: 'Suprada Wellness', 
+                  img: '/assets/Founders/nagaraju_man.jpg', 
+                  objectPosition: 'center 84.5%',
+                  badge: 'Vedic Visionary & Co-Founder',
+                  quote: 'Pioneering traditional Vedic wisdom and holistic health systems.',
+                  story: 'Acharya Dr. M. Nagaraju is the Chairperson and visionary leader of Suvarnamukhi Samskrithi Dhama and Suprada Wellness. He has dedicated his life to preserving and teaching traditional Vedic health systems, spiritual philosophy, and natural healing modalities.\n\nHis guiding light anchors Suprada in authentic Indian heritage, blending traditional scriptural wisdom with drugless naturopathic health management.',
+                  highlights: ['Chairperson & Visionary', 'Vedic Science & Philosophy', 'Suvarnamukhi Samskrithi Dhama Founder', 'Drugless Healing Pioneer']
+                },
+                { 
+                  name: 'Mr. Sunil Jayaraj', 
+                  role: 'Founder', 
+                  creds: 'Suprada Wellness', 
+                  img: '/assets/Founders/sunil_jayaraj.jpg', 
+                  objectPosition: 'center 51.9%',
+                  badge: 'Blue Planet Runner & PhD',
+                  quote: 'Athletic endurance and analytical systems engineering are the logic behind awakening biological resilience.',
+                  story: 'Suprada is the realization of a vision shared by Sunil Jayaraj and Dr. Premasudha Ramadas. After spending 16 years in the United States, they returned to India to bridge the gap between advanced science and ancient Indian wisdom.\n\nSunil Jayaraj holds a Doctorate in Mechanical Engineering from the US. His background brings a unique, analytical systems thinking to the way Suprada is structured.\n\nThe Endurance of a Global Runner: Known as a "Blue Planet Runner," Sunil is the only Indian to have run around the world. This extraordinary feat reflects his belief in the limitless potential of the human body and mind when they work as one.\n\nThe Vision — Ending the Scattered Journey: In our modern world, healing is often scattered — we go to one place for the body, another for the mind, and another for the soul. Sunil and Prema founded Suprada to bring these fragments together under one roof into The One Healing Journey.',
+                  highlights: ['Doctorate in Mechanical Engineering (USA)', 'Only Indian "Blue Planet Runner"', '16 Years US Systems Engineering', 'Founding Systems Architect']
+                },
+                { 
+                  name: 'Dr. Prema Ramadas, MD', 
+                  role: 'Co-founder', 
+                  creds: 'Suprada Wellness', 
+                  img: '/assets/Founders/prema_ramadas.jpg', 
+                  objectPosition: 'center 60.0%',
+                  badge: 'US Board-Certified MD',
+                  quote: 'Precision clinical science and ancient Indian heritage are not opposites — they are partners in restorative healing.',
+                  story: 'Dr. Premasudha Ramadas is a US Board-certified internal medicine physician with over 16 years of hospital and clinical experience in the United States. After 16 years in the US, she returned to India alongside Sunil Jayaraj to bridge advanced science and traditional Indian healing.\n\nDespite her strong foundation in Western medicine, her true fascination lies in the alternative medicine of our great Indian heritage. She guides Suprada’s medical integration, ensuring that holistic healing is both authentic and evidence-based.\n\nEnding the Scattered Journey: Sunil and Dr. Prema founded Suprada so guests no longer have to navigate separate stops for the body, mind, and soul, creating a unified medical framework where experts collaborate seamlessly.',
+                  highlights: ['US Board-Certified MD Internal Medicine', '16+ Years US Clinical Hospital Experience', 'Co-Founder & Integrative Medical Director', 'Vedic & Evidence-Based Integration']
+                }
               ].map((doc, idx) => (
-                <div key={idx} className="editorial-master-card" style={{ height: '330px', width: '100%', overflow: 'hidden' }}>
+                <div 
+                  key={idx} 
+                  className="editorial-master-card" 
+                  onClick={() => setSelectedFounderModal(doc)}
+                  style={{ height: '330px', width: '100%', overflow: 'hidden', cursor: 'pointer', position: 'relative' }}
+                >
                   <img 
                     src={doc.img} 
                     alt={doc.name} 
@@ -2868,8 +2915,23 @@ export default function Home({ onNavigate }) {
                     <h3 style={{ color: '#ffffff', margin: '0.1rem 0 0.15rem 0', fontSize: '1.1rem', lineHeight: 1.2 }}>
                       {doc.name}
                     </h3>
-                    <span style={{ fontSize: '0.78rem', color: 'var(--tan)', opacity: 0.9, fontWeight: 500 }}>
+                    <span style={{ fontSize: '0.78rem', color: 'var(--tan)', opacity: 0.9, fontWeight: 500, display: 'block', marginBottom: '0.35rem' }}>
                       {doc.role}
+                    </span>
+                    <span style={{
+                      fontSize: '0.62rem',
+                      backgroundColor: 'rgba(234, 169, 54, 0.22)',
+                      color: 'var(--harvest-gold)',
+                      fontWeight: 700,
+                      padding: '0.18rem 0.55rem',
+                      borderRadius: '10px',
+                      backdropFilter: 'blur(4px)',
+                      border: '1px solid rgba(234, 169, 54, 0.4)',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.25rem'
+                    }}>
+                      ✦ View Bio &amp; Story
                     </span>
                   </div>
                 </div>
@@ -2879,11 +2941,69 @@ export default function Home({ onNavigate }) {
             {/* Row 2: Remaining 3 Cards Centered */}
             <div className="leadership-row-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.2rem', width: '75%', margin: '0 auto' }}>
               {[
-                { name: 'Smt. Priya Amaresh', role: 'Chief Yoga and Wellness Advisor', creds: 'Suprada Wellness', img: '/assets/Founders/priya_amaresh.jpg', objectPosition: 'center 50.9%', transform: 'scale(1.05)' },
-                { name: 'Srinivas Ramadas', role: 'Director Operations', creds: 'Suprada Wellness', img: '/assets/Founders/srinivas_ramadas.jpg', objectPosition: 'center 69.5%' },
-                { name: 'Dr. Vinaya, B.N.Y.S', role: 'Chief Medical Officer', creds: 'Suprada Wellness', img: '/assets/Founders/vinaya.jpg', objectPosition: 'center 44.6%', transform: 'scale(1.20)' }
+                { 
+                  name: 'Smt. Priya Amaresh', 
+                  role: 'Chief Yoga and Wellness Advisor', 
+                  creds: 'Suprada Wellness', 
+                  img: '/assets/Founders/priya_amaresh.jpg', 
+                  objectPosition: 'center 50.9%', 
+                  transform: 'scale(1.05)',
+                  badge: 'Master Yoga Acharya',
+                  quote: 'Guiding classical yoga practices, pranayama, and holistic lifestyle integration.',
+                  story: 'Smt. Priya Amaresh serves as Chief Yoga and Wellness Advisor at Suprada Wellness. She crafts and leads our classical Hatha Yoga flows, restorative Asana sequences, Pranayama breath control, and mindfulness rest protocols, empowering guests to achieve mental tranquility and spinal flexibility.',
+                  highlights: ['Chief Yoga Advisor', 'Classical Hatha & Restorative Flow', 'Pranayama & Shatkarma Kriyas', 'Mind-Body Balance Expert']
+                },
+                { 
+                  name: 'Srinivas Ramadas', 
+                  role: 'Director Operations', 
+                  creds: 'Suprada Wellness', 
+                  img: '/assets/Founders/srinivas_ramadas.jpg', 
+                  objectPosition: 'center 69.5%',
+                  badge: 'Sanctum Operations Director',
+                  quote: 'Crafting the standard of luxury wellness operations and guest sanctuary experiences.',
+                  story: 'Srinivas Ramadas oversees the operational architecture and guest sanctuary journey at Suprada Wellness. He ensures that every retreat detail—from eco-cabin hospitality to seamless care coordination—reflects highest standards of tranquility, safety, and warmth.',
+                  highlights: ['Director Operations', 'Sanctum Hospitality & Operations', 'Caregiver Coordination', 'Guest Journey Architect']
+                },
+                { 
+                  name: 'Dr. Vinaya, B.N.Y.S', 
+                  role: 'Chief Medical Officer', 
+                  creds: 'Suprada Wellness', 
+                  img: '/assets/Founders/vinaya.jpg', 
+                  objectPosition: 'center 44.6%', 
+                  transform: 'scale(1.20)',
+                  badge: 'BNYS, DMT | 23+ Yrs Experience',
+                  contact: {
+                    email: 'niraamayas@gmail.com',
+                    phone: '+91 9676211112'
+                  },
+                  quote: 'Pioneering natural drugless therapies, Iris Diagnosis, and Music Therapy to heal body and mind.',
+                  story: 'Dr. Vinaya, BNYS, DMT (Music Therapy) is a well-experienced Yoga and Naturopathy physician as well as a Music Therapist, who also practices the ancient system of Iris Diagnosis and Acupuncture. She has been practicing and teaching the ancient science of Yoga and Naturopathy for more than 23 years.\n\nShe obtained her Bachelor’s degree in Naturopathy and Yogic Sciences from SDMCNYS, Ujire in the year 2000-2001 and holds a Diploma in Music Therapy from Delhi.\n\nFrom the past 24 years of her career, she has practiced in well-known Naturopathy hospitals, reputed wellness resorts, lifestyle clinics, beauty & spa industry, and as a professor across the country since 2001. She has conducted numerous workshops and seminars in Naturopathy and Music Therapy across multiple platforms.\n\nHer simple methods of administering drugless therapies and lifestyle corrections have made her the most sought-after Naturopath, helping more than 100,000 (1 Lakh+) people worldwide.\n\nDr. Vinaya also incorporates Indian raagas and percussion rhythms to heal various health conditions, practicing specialized techniques to understand the body-mind connection in tackling psychosomatic conditions, autoimmune diseases, lifestyle, and metabolic disorders.\n\nShe is a B-High graded vocalist in All India Radio (AIR), conducting research on the healing effects of music, exploring simple and sustainable healthy diet recipes, observing nature, and conducting talk shows and Music Therapy concerts globally.',
+                  competencies: [
+                    'Naturopathy & Drugless Therapies',
+                    'Pain Management & Spinal Alignment',
+                    'Energy Healing & Clinical Acupuncture',
+                    'Diet & Nutrition Consultations',
+                    'Iris Diagnosis Mapping',
+                    'Music Therapy (Indian Raaga Healing)',
+                    'Corporate Wellness & Hypnotherapy',
+                    'Health Campaigns & Wellness Publishing'
+                  ],
+                  highlights: [
+                    'BNYS (SDMCNYS, Ujire 2000-2001)',
+                    'Diploma in Music Therapy (Delhi)',
+                    '23+ Years Clinical & Teaching Experience',
+                    'Helped 100,000+ (1 Lakh+) Global Patients',
+                    'AIR B-High Graded Vocalist',
+                    'Iris Diagnosis & Acupuncture Specialist'
+                  ]
+                }
               ].map((doc, idx) => (
-                <div key={idx} className="editorial-master-card" style={{ height: '330px', width: '100%', overflow: 'hidden' }}>
+                <div 
+                  key={idx} 
+                  className="editorial-master-card" 
+                  onClick={() => setSelectedFounderModal(doc)}
+                  style={{ height: '330px', width: '100%', overflow: 'hidden', cursor: 'pointer', position: 'relative' }}
+                >
                   <img 
                     src={doc.img} 
                     alt={doc.name} 
@@ -2903,8 +3023,23 @@ export default function Home({ onNavigate }) {
                     <h3 style={{ color: '#ffffff', margin: '0.1rem 0 0.15rem 0', fontSize: '1.1rem', lineHeight: 1.2 }}>
                       {doc.name}
                     </h3>
-                    <span style={{ fontSize: '0.78rem', color: 'var(--tan)', opacity: 0.9, fontWeight: 500 }}>
+                    <span style={{ fontSize: '0.78rem', color: 'var(--tan)', opacity: 0.9, fontWeight: 500, display: 'block', marginBottom: '0.35rem' }}>
                       {doc.role}
+                    </span>
+                    <span style={{
+                      fontSize: '0.62rem',
+                      backgroundColor: 'rgba(234, 169, 54, 0.22)',
+                      color: 'var(--harvest-gold)',
+                      fontWeight: 700,
+                      padding: '0.18rem 0.55rem',
+                      borderRadius: '10px',
+                      backdropFilter: 'blur(4px)',
+                      border: '1px solid rgba(234, 169, 54, 0.4)',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.25rem'
+                    }}>
+                      ✦ View Bio &amp; Story
                     </span>
                   </div>
                 </div>
@@ -2912,6 +3047,219 @@ export default function Home({ onNavigate }) {
             </div>
 
           </div>
+
+      {/* Full Detailed Founder Info Modal */}
+      <AnimatePresence>
+        {selectedFounderModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            style={{
+              position: 'fixed',
+              inset: 0,
+              backgroundColor: 'rgba(15, 10, 8, 0.85)',
+              backdropFilter: 'blur(16px)',
+              zIndex: 9999999,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: isMobile ? '1rem' : '2rem',
+              overflow: 'hidden'
+            }}
+            onClick={() => setSelectedFounderModal(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.94, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.94, y: 20 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                width: '100%',
+                maxWidth: '840px',
+                maxHeight: '85vh',
+                backgroundColor: '#ffffff',
+                borderRadius: '24px',
+                boxShadow: '0 25px 70px rgba(0,0,0,0.5)',
+                position: 'relative',
+                display: 'flex',
+                flexDirection: 'column',
+                overflow: 'hidden',
+                border: '1.5px solid rgba(94, 39, 53, 0.15)'
+              }}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedFounderModal(null)}
+                style={{
+                  position: 'absolute', top: '18px', right: '18px', zIndex: 10,
+                  backgroundColor: 'rgba(94, 39, 53, 0.08)', color: 'var(--wine)',
+                  border: 'none', borderRadius: '50%', width: '38px', height: '38px',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  cursor: 'pointer', transition: 'all 0.25s ease'
+                }}
+                className="hover-gold"
+              >
+                <X size={20} />
+              </button>
+
+              {/* Modal Fixed Header */}
+              <div style={{
+                display: 'flex',
+                flexDirection: isMobile ? 'column' : 'row',
+                gap: '1.4rem',
+                alignItems: isMobile ? 'flex-start' : 'center',
+                padding: isMobile ? '1.4rem' : '1.8rem 2rem 1.4rem 2rem',
+                borderBottom: '1.5px solid rgba(94, 39, 53, 0.12)',
+                paddingRight: '3.5rem',
+                flexShrink: 0,
+                backgroundColor: 'var(--isabelline)'
+              }}>
+                {/* Founder Photo */}
+                <div style={{
+                  width: isMobile ? '90px' : '110px',
+                  height: isMobile ? '90px' : '110px',
+                  borderRadius: '50%',
+                  overflow: 'hidden',
+                  flexShrink: 0,
+                  boxShadow: '0 8px 24px rgba(94, 39, 53, 0.2)',
+                  border: '3px solid var(--harvest-gold)'
+                }}>
+                  <img 
+                    src={selectedFounderModal.img} 
+                    alt={selectedFounderModal.name}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      objectPosition: selectedFounderModal.objectPosition || 'center top',
+                      transform: selectedFounderModal.transform || 'none'
+                    }}
+                  />
+                </div>
+
+                {/* Header Information */}
+                <div style={{ flex: 1 }}>
+                  <span style={{
+                    color: 'var(--harvest-gold)',
+                    backgroundColor: 'var(--wine)',
+                    fontSize: '0.66rem',
+                    fontWeight: 800,
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    display: 'inline-block',
+                    padding: '0.2rem 0.65rem',
+                    borderRadius: '12px',
+                    marginBottom: '0.4rem'
+                  }}>
+                    ✦ {selectedFounderModal.badge || selectedFounderModal.creds}
+                  </span>
+                  <h2 style={{ fontSize: isMobile ? '1.4rem' : '1.8rem', margin: '0 0 0.2rem 0', fontWeight: 700, color: 'var(--wine)', lineHeight: 1.2 }}>
+                    {selectedFounderModal.name}
+                  </h2>
+                  <p style={{ color: 'var(--redwood)', fontSize: '0.88rem', fontWeight: 600, margin: 0 }}>
+                    {selectedFounderModal.role}
+                  </p>
+
+                  {/* Contact Info Row */}
+                  {selectedFounderModal.contact && (
+                    <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem', flexWrap: 'wrap', fontSize: '0.8rem' }}>
+                      <a href={`mailto:${selectedFounderModal.contact.email}`} style={{ textDecoration: 'none', color: 'var(--wine)', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                        ✉ {selectedFounderModal.contact.email}
+                      </a>
+                      <a href={`tel:${selectedFounderModal.contact.phone.replace(/\s+/g, '')}`} style={{ textDecoration: 'none', color: 'var(--wine)', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                        📞 {selectedFounderModal.contact.phone}
+                      </a>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Modal Internal Scrollable Body Area */}
+              <div 
+                className="hide-scrollbar"
+                style={{
+                  padding: isMobile ? '1.4rem' : '1.8rem 2rem',
+                  overflowY: 'auto',
+                  flex: 1,
+                  overscrollBehavior: 'contain',
+                  WebkitOverflowScrolling: 'touch',
+                  scrollbarWidth: 'none',
+                  msOverflowStyle: 'none'
+                }}
+              >
+                {/* Quote banner if available */}
+                {selectedFounderModal.quote && (
+                  <div style={{
+                    backgroundColor: 'rgba(94, 39, 53, 0.05)',
+                    borderLeft: '4px solid var(--harvest-gold)',
+                    padding: '1rem 1.2rem',
+                    borderRadius: '12px',
+                    marginBottom: '1.4rem'
+                  }}>
+                    <p style={{ fontStyle: 'italic', color: 'var(--wine)', fontSize: '0.92rem', fontWeight: 600, margin: 0, lineHeight: 1.5 }}>
+                      "{selectedFounderModal.quote}"
+                    </p>
+                  </div>
+                )}
+
+                {/* Main Story / Bio Paragraphs */}
+                <div style={{ marginBottom: '1.6rem' }}>
+                  <h3 style={{ color: 'var(--wine)', fontSize: '1.05rem', borderBottom: '2px solid var(--harvest-gold)', paddingBottom: '0.4rem', marginBottom: '0.9rem', fontWeight: 700 }}>
+                    Background &amp; Vision
+                  </h3>
+                  {selectedFounderModal.story ? (
+                    selectedFounderModal.story.split('\n\n').map((para, idx) => (
+                      <p key={idx} style={{ fontSize: '0.92rem', color: 'var(--raisin-black)', lineHeight: 1.65, marginBottom: '0.9rem' }}>
+                        {para}
+                      </p>
+                    ))
+                  ) : (
+                    <p style={{ fontSize: '0.92rem', color: 'var(--raisin-black)', lineHeight: 1.65 }}>
+                      {selectedFounderModal.quote}
+                    </p>
+                  )}
+                </div>
+
+                {/* Key Competencies & Clinical Focus */}
+                {selectedFounderModal.competencies && (
+                  <div style={{ marginBottom: '1.6rem' }}>
+                    <h3 style={{ color: 'var(--wine)', fontSize: '1.05rem', borderBottom: '2px solid var(--harvest-gold)', paddingBottom: '0.4rem', marginBottom: '0.9rem', fontWeight: 700 }}>
+                      Key Competencies &amp; Clinical Expertise
+                    </h3>
+                    <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '0.65rem' }}>
+                      {selectedFounderModal.competencies.map((comp, idx) => (
+                        <div key={idx} style={{ backgroundColor: 'var(--isabelline)', border: '1px solid rgba(94,39,53,0.1)', padding: '0.6rem 0.9rem', borderRadius: '10px', fontSize: '0.82rem', color: 'var(--wine)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                          <span style={{ color: 'var(--harvest-gold)' }}>✦</span> {comp}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Highlights Tags */}
+                {selectedFounderModal.highlights && (
+                  <div>
+                    <h3 style={{ color: 'var(--wine)', fontSize: '1.05rem', borderBottom: '2px solid var(--harvest-gold)', paddingBottom: '0.4rem', marginBottom: '0.9rem', fontWeight: 700 }}>
+                      Credentials &amp; Achievements
+                    </h3>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                      {selectedFounderModal.highlights.map((item, idx) => (
+                        <span key={idx} style={{ backgroundColor: 'rgba(94, 39, 53, 0.08)', color: 'var(--wine)', padding: '0.35rem 0.85rem', borderRadius: '20px', fontSize: '0.78rem', fontWeight: 700, border: '1px solid rgba(94, 39, 53, 0.12)' }}>
+                          ✦ {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
         </div>
       </section>

@@ -198,7 +198,7 @@ export default function Gallery({ onNavigate }) {
     }
   ];
 
-  const numColumns = width >= 1024 ? 3 : width >= 640 ? 2 : 1;
+  const numColumns = width >= 1024 ? 3 : 2;
   const masonryColumns = Array.from({ length: numColumns }, () => []);
   galleryItems.forEach((item, idx) => {
     let colIdx = idx % numColumns;
@@ -208,6 +208,8 @@ export default function Gallery({ onNavigate }) {
     }
     masonryColumns[colIdx].push({ ...item, filteredIdx: idx });
   });
+
+  const isMobileScreen = width <= 640;
 
   return (
     <div style={{ backgroundColor: 'var(--isabelline)', minHeight: '100vh', position: 'relative', overflowX: 'hidden' }}>
@@ -323,14 +325,14 @@ export default function Gallery({ onNavigate }) {
       </section>
 
       {/* Main Gallery Display Section - Staggered Masonry Grid */}
-      <section style={{ padding: '3.5rem 8% 5rem 8%', maxWidth: '1350px', margin: '0 auto' }}>
+      <section style={{ padding: isMobileScreen ? '2rem 3.5% 4rem 3.5%' : '3.5rem 8% 5rem 8%', maxWidth: '1350px', margin: '0 auto' }}>
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           style={{
             display: 'flex',
-            gap: '1.5rem',
+            gap: isMobileScreen ? '0.65rem' : '1.5rem',
             width: '100%'
           }}
         >
@@ -340,40 +342,37 @@ export default function Gallery({ onNavigate }) {
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '1.5rem',
+                gap: isMobileScreen ? '0.65rem' : '1.5rem',
                 flex: 1
               }}
             >
-              {colItems.map((item) => (
-                <TiltCard
-                  key={item.id}
-                  style={{ cursor: 'default', width: '100%' }}
-                >
-                  <div style={{
-                    position: 'relative',
-                    borderRadius: '20px',
-                    overflow: 'hidden',
-                    backgroundColor: '#191718',
-                    boxShadow: '0 10px 30px rgba(94, 39, 53, 0.08)',
-                    border: '2px solid rgba(220, 160, 50, 0.2)',
-                    height: `${item.height}px`
-                  }}>
-                    <motion.img
-                      src={item.img}
-                      alt={item.title}
-                      whileHover={{ scale: 1.06 }}
-                      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    />
-                    
-
-
-
-
-
-                  </div>
-                </TiltCard>
-              ))}
+              {colItems.map((item) => {
+                const cardHeight = isMobileScreen ? Math.max(140, Math.round(item.height * 0.58)) : item.height;
+                return (
+                  <TiltCard
+                    key={item.id}
+                    style={{ cursor: 'default', width: '100%' }}
+                  >
+                    <div style={{
+                      position: 'relative',
+                      borderRadius: isMobileScreen ? '12px' : '20px',
+                      overflow: 'hidden',
+                      backgroundColor: '#191718',
+                      boxShadow: '0 8px 24px rgba(94, 39, 53, 0.08)',
+                      border: isMobileScreen ? '1px solid rgba(220, 160, 50, 0.25)' : '2px solid rgba(220, 160, 50, 0.2)',
+                      height: `${cardHeight}px`
+                    }}>
+                      <motion.img
+                        src={item.img}
+                        alt={item.title}
+                        whileHover={{ scale: 1.06 }}
+                        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    </div>
+                  </TiltCard>
+                );
+              })}
             </div>
           ))}
         </motion.div>

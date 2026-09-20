@@ -5142,7 +5142,35 @@ html, body {
 .treatment-grid-4col {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.25rem;
+  gap: 1.15rem;
+}
+
+/* Compact Card Height & Padding for 4-in-a-row Cards */
+.treatment-grid-4col > div {
+  padding: 1.15rem 1.15rem 1rem 1.15rem !important;
+  border-radius: 18px !important;
+}
+
+.treatment-grid-4col > div > div > div:first-child {
+  height: 140px !important;
+  margin-bottom: 0.85rem !important;
+  border-radius: 12px !important;
+}
+
+.treatment-grid-4col h3 {
+  font-size: 1.25rem !important;
+  margin-bottom: 0.35rem !important;
+}
+
+.treatment-grid-4col p {
+  font-size: 0.85rem !important;
+  line-height: 1.48 !important;
+  margin-bottom: 0.65rem !important;
+}
+
+.treatment-grid-4col > div > div:last-child {
+  padding-top: 0.55rem !important;
+  font-size: 0.72rem !important;
 }
 
 @media (max-width: 1080px) {
@@ -5163,3 +5191,4 @@ html, body {
     gap: 1rem;
   }
 }
+

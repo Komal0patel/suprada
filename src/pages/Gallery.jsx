@@ -177,16 +177,16 @@ export default function Gallery({ onNavigate }) {
     },
     {
       id: 14,
-      title: "Architecture – Deluxe Living Quarters & Balcony",
+      title: "Architecture – Deluxe Eco-Residence & Veranda",
       cat: "Architecture",
-      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.48 AM.jpeg",
-      height: 280
+      img: "/assets/residences/samhita.png",
+      height: 310
     },
     {
       id: 15,
-      title: "Architecture – Private Cottage Exterior & Veranda",
-      cat: "Architecture",
-      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.49 AM.jpeg",
+      title: "Therapies – Open-Air Forest Rejuvenation Session",
+      cat: "Therapies",
+      img: "/assets/spa/outdoormassage.jpg",
       height: 320
     },
     {

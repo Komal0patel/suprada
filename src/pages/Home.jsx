@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from 'framer-motion';
 import { Pattern24, Pattern25, Pattern27, Pattern28 } from '../AnimatedPatterns';
 import { Stethoscope, Star, Leaf, Globe, Check, ArrowRight, X, Download } from 'lucide-react';
@@ -2845,7 +2846,7 @@ export default function Home({ onNavigate }) {
             <div className="leadership-row-1" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.2rem', width: '100%' }}>
               {[
                 { 
-                  name: 'Late Mrs. Renuka Nagaraju', 
+                  name: 'Late Renuka Nagaraju', 
                   role: 'Founder Inspiration', 
                   creds: 'Suprada Wellness', 
                   img: '/assets/Founders/nagaraju_lady.jpg', 
@@ -2853,7 +2854,7 @@ export default function Home({ onNavigate }) {
                   transform: 'scale(1.12)',
                   badge: 'Foundational Inspiration',
                   quote: 'Inspiring Suprada’s core vision of compassionate holistic living and sacred healing.',
-                  story: 'Late Mrs. Renuka Nagaraju is the foundational guiding inspiration behind Suprada Wellness and Suvarnamukhi Samskrithi Dhama. Her life embodied compassionate living, sacred healing, and selfless service.\n\nWe carry forward her legacy by combining Naturopathy, Yogic Science, and Ayurveda with a caregiver’s heart, ensuring there is seamless connection between the experts healing you in your journey.',
+                  story: 'Late Renuka Nagaraju is the foundational guiding inspiration behind Suprada Wellness and Suvarnamukhi Samskrithi Dhama. Her life embodied compassionate living, sacred healing, and selfless service.\n\nWe carry forward her legacy by combining Naturopathy, Yogic Science, and Ayurveda with a caregiver’s heart, ensuring there is seamless connection between the experts healing you in your journey.',
                   highlights: ['Foundational Inspiration', 'Suvarnamukhi Samskrithi Dhama Legacy', 'Sacred Healing Philosophy', 'Compassionate Caregiver Ethos']
                 },
                 { 
@@ -2917,21 +2918,6 @@ export default function Home({ onNavigate }) {
                     </h3>
                     <span style={{ fontSize: '0.78rem', color: 'var(--tan)', opacity: 0.9, fontWeight: 500, display: 'block', marginBottom: '0.35rem' }}>
                       {doc.role}
-                    </span>
-                    <span style={{
-                      fontSize: '0.62rem',
-                      backgroundColor: 'rgba(234, 169, 54, 0.22)',
-                      color: 'var(--harvest-gold)',
-                      fontWeight: 700,
-                      padding: '0.18rem 0.55rem',
-                      borderRadius: '10px',
-                      backdropFilter: 'blur(4px)',
-                      border: '1px solid rgba(234, 169, 54, 0.4)',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '0.25rem'
-                    }}>
-                      ✦ View Bio &amp; Story
                     </span>
                   </div>
                 </div>
@@ -3026,21 +3012,6 @@ export default function Home({ onNavigate }) {
                     <span style={{ fontSize: '0.78rem', color: 'var(--tan)', opacity: 0.9, fontWeight: 500, display: 'block', marginBottom: '0.35rem' }}>
                       {doc.role}
                     </span>
-                    <span style={{
-                      fontSize: '0.62rem',
-                      backgroundColor: 'rgba(234, 169, 54, 0.22)',
-                      color: 'var(--harvest-gold)',
-                      fontWeight: 700,
-                      padding: '0.18rem 0.55rem',
-                      borderRadius: '10px',
-                      backdropFilter: 'blur(4px)',
-                      border: '1px solid rgba(234, 169, 54, 0.4)',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '0.25rem'
-                    }}>
-                      ✦ View Bio &amp; Story
-                    </span>
                   </div>
                 </div>
               ))}
@@ -3048,25 +3019,34 @@ export default function Home({ onNavigate }) {
 
           </div>
 
-      {/* Full Detailed Founder Info Modal */}
-      <AnimatePresence>
-        {selectedFounderModal && (
+      {/* Full Detailed Founder Info Modal (Portal rendered directly to document.body for top z-index & scrollability) */}
+      {selectedFounderModal && createPortal(
+        <AnimatePresence mode="wait">
           <motion.div
+            key="founder-modal-backdrop"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
             style={{
               position: 'fixed',
-              inset: 0,
-              backgroundColor: 'rgba(15, 10, 8, 0.85)',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              width: '100vw',
+              height: '100vh',
+              backgroundColor: 'rgba(15, 10, 8, 0.88)',
               backdropFilter: 'blur(16px)',
-              zIndex: 9999999,
+              WebkitBackdropFilter: 'blur(16px)',
+              zIndex: 99999999,
               display: 'flex',
-              alignItems: 'center',
+              alignItems: isMobile ? 'flex-start' : 'center',
               justifyContent: 'center',
-              padding: isMobile ? '1rem' : '2rem',
-              overflow: 'hidden'
+              padding: isMobile ? '4.5rem 0.8rem 1.5rem 0.8rem' : '5rem 1.5rem 2rem 1.5rem',
+              boxSizing: 'border-box',
+              overflowY: 'auto',
+              overscrollBehavior: 'contain'
             }}
             onClick={() => setSelectedFounderModal(null)}
           >
@@ -3079,48 +3059,51 @@ export default function Home({ onNavigate }) {
               style={{
                 width: '100%',
                 maxWidth: '840px',
-                maxHeight: '85vh',
+                maxHeight: isMobile ? 'calc(100vh - 6rem)' : 'calc(100vh - 7rem)',
                 backgroundColor: '#ffffff',
                 borderRadius: '24px',
-                boxShadow: '0 25px 70px rgba(0,0,0,0.5)',
+                boxShadow: '0 30px 80px rgba(0,0,0,0.65)',
                 position: 'relative',
                 display: 'flex',
                 flexDirection: 'column',
                 overflow: 'hidden',
-                border: '1.5px solid rgba(94, 39, 53, 0.15)'
+                border: '1.5px solid rgba(94, 39, 53, 0.2)',
+                margin: 'auto 0'
               }}
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedFounderModal(null)}
                 style={{
-                  position: 'absolute', top: '18px', right: '18px', zIndex: 10,
-                  backgroundColor: 'rgba(94, 39, 53, 0.08)', color: 'var(--wine)',
-                  border: 'none', borderRadius: '50%', width: '38px', height: '38px',
+                  position: 'absolute', top: '16px', right: '16px', zIndex: 20,
+                  backgroundColor: 'rgba(94, 39, 53, 0.1)', color: 'var(--wine)',
+                  border: 'none', borderRadius: '50%', width: '40px', height: '40px',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  cursor: 'pointer', transition: 'all 0.25s ease'
+                  cursor: 'pointer', transition: 'all 0.25s ease',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
                 }}
+                aria-label="Close modal"
                 className="hover-gold"
               >
-                <X size={20} />
+                <X size={22} />
               </button>
 
               {/* Modal Fixed Header */}
               <div style={{
                 display: 'flex',
                 flexDirection: isMobile ? 'column' : 'row',
-                gap: '1.4rem',
+                gap: '1.2rem',
                 alignItems: isMobile ? 'flex-start' : 'center',
-                padding: isMobile ? '1.4rem' : '1.8rem 2rem 1.4rem 2rem',
+                padding: isMobile ? '1.2rem 1.2rem 1rem 1.2rem' : '1.6rem 2rem 1.2rem 2rem',
                 borderBottom: '1.5px solid rgba(94, 39, 53, 0.12)',
-                paddingRight: '3.5rem',
+                paddingRight: isMobile ? '3.2rem' : '4rem',
                 flexShrink: 0,
                 backgroundColor: 'var(--isabelline)'
               }}>
                 {/* Founder Photo */}
                 <div style={{
-                  width: isMobile ? '90px' : '110px',
-                  height: isMobile ? '90px' : '110px',
+                  width: isMobile ? '80px' : '105px',
+                  height: isMobile ? '80px' : '105px',
                   borderRadius: '50%',
                   overflow: 'hidden',
                   flexShrink: 0,
@@ -3156,7 +3139,7 @@ export default function Home({ onNavigate }) {
                   }}>
                     ✦ {selectedFounderModal.badge || selectedFounderModal.creds}
                   </span>
-                  <h2 style={{ fontSize: isMobile ? '1.4rem' : '1.8rem', margin: '0 0 0.2rem 0', fontWeight: 700, color: 'var(--wine)', lineHeight: 1.2 }}>
+                  <h2 style={{ fontSize: isMobile ? '1.35rem' : '1.75rem', margin: '0 0 0.2rem 0', fontWeight: 700, color: 'var(--wine)', lineHeight: 1.2 }}>
                     {selectedFounderModal.name}
                   </h2>
                   <p style={{ color: 'var(--redwood)', fontSize: '0.88rem', fontWeight: 600, margin: 0 }}>
@@ -3179,15 +3162,14 @@ export default function Home({ onNavigate }) {
 
               {/* Modal Internal Scrollable Body Area */}
               <div 
-                className="hide-scrollbar"
                 style={{
-                  padding: isMobile ? '1.4rem' : '1.8rem 2rem',
+                  padding: isMobile ? '1.2rem' : '1.6rem 2rem 2rem 2rem',
                   overflowY: 'auto',
                   flex: 1,
                   overscrollBehavior: 'contain',
                   WebkitOverflowScrolling: 'touch',
-                  scrollbarWidth: 'none',
-                  msOverflowStyle: 'none'
+                  scrollbarWidth: 'thin',
+                  scrollbarColor: 'var(--harvest-gold) rgba(94, 39, 53, 0.1)'
                 }}
               >
                 {/* Quote banner if available */}
@@ -3258,8 +3240,9 @@ export default function Home({ onNavigate }) {
               </div>
             </motion.div>
           </motion.div>
-        )}
-      </AnimatePresence>
+        </AnimatePresence>,
+        document.body
+      )}
 
         </div>
       </section>

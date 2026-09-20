@@ -115,9 +115,9 @@ const searchIndex = [
 
   // ================= FOUNDERS & LEADERSHIP =================
   { 
-    type: 'card', title: "Late Mrs. Renuka Nagaraju (Founder Inspiration)", cardName: "Late Mrs. Renuka Nagaraju", sectionName: "Founders & Leadership", pageName: "About Us", path: "about#founders-section", 
+    type: 'card', title: "Late Renuka Nagaraju (Founder Inspiration)", cardName: "Late Renuka Nagaraju", sectionName: "Founders & Leadership", pageName: "About Us", path: "about#founders-section", 
     desc: "Inspiring Suprada's core vision of compassionate holistic living and sacred healing",
-    keywords: ["renuka", "renuka nagaraju", "nagaraju", "late mrs renuka nagaraju", "founder inspiration", "inspiration", "founders", "leadership", "founder"]
+    keywords: ["renuka", "renuka nagaraju", "nagaraju", "late renuka nagaraju", "founder inspiration", "inspiration", "founders", "leadership", "founder"]
   },
   { 
     type: 'card', title: "Acharya Dr. M. Nagaraju (Chairperson)", cardName: "Acharya Dr. M. Nagaraju", sectionName: "Founders & Leadership", pageName: "About Us", path: "about#founders-section", 
@@ -168,7 +168,7 @@ const searchIndex = [
   },
   { 
     type: 'section', title: "Guided by Founders & Medical Visionaries", sectionName: "Founders & Leadership", pageName: "Home", path: "home#founders-section", 
-    desc: "Meet Late Mrs. Renuka Nagaraju, Acharya Dr. M. Nagaraju, Sunil Jayaraj & Dr. Prema Ramadas, MD",
+    desc: "Meet Late Renuka Nagaraju, Acharya Dr. M. Nagaraju, Sunil Jayaraj & Dr. Prema Ramadas, MD",
     keywords: ["guided by founders", "medical visionaries", "founders section", "leadership authority", "renuka", "sunil", "prema", "nagaraju"]
   },
   { 
@@ -213,7 +213,7 @@ const searchIndex = [
   },
   { 
     type: 'section', title: "Our Founders & Leadership Vision", sectionName: "Founders & Leadership", pageName: "About Us", path: "about#founders-section", 
-    desc: "Meet Late Mrs. Renuka Nagaraju, Acharya Dr. M. Nagaraju, Sunil Jayaraj & Dr. Prema Ramadas",
+    desc: "Meet Late Renuka Nagaraju, Acharya Dr. M. Nagaraju, Sunil Jayaraj & Dr. Prema Ramadas",
     keywords: ["founders section", "leadership vision", "our founders", "founders", "leadership team", "renuka", "sunil", "prema"]
   },
   { 

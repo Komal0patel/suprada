@@ -2,7 +2,7 @@ export const policiesData = {
   booking: {
     id: 'booking',
     title: 'Booking Policy',
-    category: 'RESORT POLICIES',
+    category: 'OUR POLICIES',
     points: [
       'The minimum stay at Suprada is 3 Days, as the retreat is committed to assisting individuals achieve specific healing and health goals.',
       'Wellness Retreat Policy – Check In: 9:00 AM Check Out: 8:00 AM.',
@@ -22,7 +22,7 @@ export const policiesData = {
   payment: {
     id: 'payment',
     title: 'Payment Policy',
-    category: 'RESORT POLICIES',
+    category: 'OUR POLICIES',
     points: [
       'The room tariff is applicable per room per night.',
       'Tariffs are subject to change without prior notice. Pricing rulings are applied at the time of the stay.',
@@ -38,7 +38,7 @@ export const policiesData = {
   privacy: {
     id: 'privacy',
     title: 'Privacy Policy',
-    category: 'RESORT POLICIES',
+    category: 'OUR POLICIES',
     points: [
       'Suprada Wellness maintains strict confidentiality of all guest medical consultations, iridology records, personal health assessments, and contact details.',
       'Personal and health information collected prior to or during your stay is used exclusively for crafting personalized wellness itineraries and medical care.',
@@ -51,7 +51,7 @@ export const policiesData = {
   cancellation: {
     id: 'cancellation',
     title: 'Cancellation and Refund Policies',
-    category: 'RESORT POLICIES',
+    category: 'OUR POLICIES',
     points: [
       '7 days or more prior to date of arrival – no penalty charge. Full refund of advance deposit paid as guarantee is applicable in case of such cancellation.',
       'A penalty of 50% of the advance deposit will be charged within 3-7 days of arrival, and the balance of the advance deposit will be refunded.',
@@ -65,7 +65,7 @@ export const policiesData = {
   terms: {
     id: 'terms',
     title: 'Terms & Conditions',
-    category: 'RESORT POLICIES',
+    category: 'OUR POLICIES',
     points: [
       'A postponement, advancement or cancellation notices must be given at least three clear days in advance of the date of confirmation.',
       'A reservation will be considered a No-Show if the guest does not arrive for the check-in and no prior notification is provided. A refund will not be issued in this case.',
@@ -80,7 +80,7 @@ export const policiesData = {
   nonresident: {
     id: 'nonresident',
     title: 'Non-Resident Guests Policy',
-    category: 'RESORT POLICIES',
+    category: 'OUR POLICIES',
     points: [
       'On the Suprada premise, non-residents are not permitted to conduct any kind of business.',
       'Outside visitors are not permitted in guest rooms during their stay. In case of emergency, guests can meet visitors only in the reception area.',
@@ -91,7 +91,7 @@ export const policiesData = {
   food: {
     id: 'food',
     title: 'Food, Beverage & Intoxicants Policy',
-    category: 'RESORT POLICIES',
+    category: 'OUR POLICIES',
     points: [
       'At Suprada, the consumption of outside food and drinks / alcohol & smoking is strictly prohibited.',
       'We strictly prohibit the consumption of alcoholic beverages, outside food, as well as the use of tobacco in any form while on our premises.',
@@ -103,7 +103,7 @@ export const policiesData = {
   refundCancellation: {
     id: 'refundCancellation',
     title: 'Refund & Cancellation Policy',
-    category: 'RESORT POLICIES',
+    category: 'OUR POLICIES',
     points: [
       'Advance Booking - Cancellation 7 Days Before Scheduled Arrival Date: 100% refund of the advance payment. Alternatively, the advance payment can be credited for a future stay within 1 year.',
       'Advance Booking - Cancellation 3 Days Before Scheduled Arrival Date: 50% refund of the advance payment.',
@@ -118,7 +118,7 @@ export const policiesData = {
   pricing: {
     id: 'pricing',
     title: 'Pricing Policy',
-    category: 'RESORT POLICIES',
+    category: 'OUR POLICIES',
     sections: [
       {
         heading: 'Our package includes:',

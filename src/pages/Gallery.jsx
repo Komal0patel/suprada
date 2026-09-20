@@ -366,25 +366,7 @@ export default function Gallery({ onNavigate }) {
                       style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />
                     
-                    {/* Category Badge Top Left */}
-                    <div style={{
-                      position: 'absolute',
-                      top: '1rem',
-                      left: '1rem',
-                      backgroundColor: 'rgba(94, 39, 53, 0.85)',
-                      backdropFilter: 'blur(8px)',
-                      color: 'var(--harvest-gold)',
-                      padding: '0.35rem 0.85rem',
-                      borderRadius: '20px',
-                      fontSize: '0.66rem',
-                      fontWeight: 700,
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.1em',
-                      border: '1px solid rgba(220, 160, 50, 0.3)',
-                      zIndex: 2
-                    }}>
-                      {item.cat}
-                    </div>
+
 
 
 

@@ -105,7 +105,7 @@ export default function PolicyModal({ policy, onClose }) {
                 fontFamily: 'var(--font-body)'
               }}
             >
-              ✦ {policy.category || 'RESORT POLICIES'}
+              ✦ {policy.category || 'OUR POLICIES'}
             </span>
             <h2
               style={{

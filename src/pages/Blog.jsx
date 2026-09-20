@@ -93,6 +93,78 @@ const localArticlesFallback = [
 
       Physiologically, sound therapy stimulates the vagus nerve, which slows down heart rate, lowers blood pressure, and shifts the body from a sympathetic (fight-or-flight) state to a parasympathetic (rest-and-digest) state. This is why sound healing is exceptionally powerful for chronic stress and sleep disorders.
     `
+  },
+  {
+    id: 'hydrotherapy-science',
+    category: 'Hydrotherapy',
+    title: 'Hydrotherapy Protocols: Thermal Water Applications for Detox & Vitality',
+    excerpt: 'Explore how contrast baths, hip baths, and spinal sprays revitalize circulation, relieve chronic pain, and stimulate immune recovery.',
+    date: 'August 14, 2026',
+    author: 'Dr. Ramesh Bhatt',
+    authorRole: 'Chief Naturopathy Physician',
+    readTime: '7 min read',
+    img: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80',
+    content: `
+      Hydrotherapy is one of the pillars of classic Naturopathy. By utilizing water at varying temperatures, pressures, and durations, hydrotherapy acts upon the nervous system, blood vessels, and lymphatic drainage.
+
+      Hot water applications dilute surface capillaries, relieving muscular spasm and joint stiffness. Cold applications tone blood vessels, reduce internal congestion, and invigorate sluggish organs. Alternating between hot and cold water (contrast therapy) acts like a vascular pump, driving oxygenated blood into tissues while flushing out metabolic waste.
+
+      At Suprada, customized spinal baths, arm baths, and hip baths are prescribed based on diagnostic evaluation to address digestive slowness, insomnia, and nervous exhaustion.
+    `
+  },
+  {
+    id: 'mud-therapy-healing',
+    category: 'Mud Therapy',
+    title: 'The Therapeutic Science of Mud Packs & Earth Treatments',
+    excerpt: 'Discover how mineral-rich clay applications cool internal organ inflammation, absorb toxins from the gut, and refresh the skin.',
+    date: 'August 02, 2026',
+    author: 'Dr. Lakshmi',
+    authorRole: 'Resident Consultant',
+    readTime: '6 min read',
+    img: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80',
+    content: `
+      Earth represents stability, mineral enrichment, and moisture retention in Naturopathic philosophy. Purified mud derived from clean, unpolluted soil depths contains vital minerals including silica, magnesium, and iron oxides.
+
+      When applied as abdominal mud packs, the clay retains cool moisture for extended periods, reducing internal heat (Pitta) and drawing excess congestion away from abdominal organs. This gentle cooling improves peristalsis, eases indigestion, and soothes chronic stomach acidity.
+
+      Full-body mud baths also draw impurities through skin pores while balancing thermal regulation, leaving the skin glowing and the nervous system deeply relaxed.
+    `
+  },
+  {
+    id: 'fasting-autophagy-reset',
+    category: 'Detoxification',
+    title: 'Therapeutic Fasting & Autophagy: Resetting Cellular Intelligence',
+    excerpt: 'Understand how short-term controlled fasting redirects energy from digestion to cellular repair, gut wall lining recovery, and metabolic reset.',
+    date: 'July 22, 2026',
+    author: 'Dr. Arjun Rao',
+    authorRole: 'Naturopathy Specialist',
+    readTime: '9 min read',
+    img: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80',
+    content: `
+      Fasting is described in ancient texts as "Langhana" — the supreme medicine. When food intake is temporarily paused under clinical supervision, energy previously spent processing heavy meals is redirected toward metabolic repair.
+
+      Modern science validates this process as Autophagy (cellular self-cleaning). During fasting, cells break down damaged proteins, dysfunctional mitochondria, and lingering metabolic residues. Blood glucose and insulin levels stabilize, allowing insulin sensitivity to recover.
+
+      Whether through intermittent fasting, fresh herbal juice cleanses, or monodiet resets, supervised fasting provides the gastrointestinal tract with essential rest and triggers deep systemic rejuvenation.
+    `
+  },
+  {
+    id: 'pranayama-breath-energy',
+    category: 'Yoga & Breath',
+    title: 'Pranayama & Breathwork: Oxygenating Blood Cells & Balancing Agni',
+    excerpt: 'Learn how conscious breath control regulates the autonomic nervous system, sharpens mental clarity, and boosts vital life force (Prana).',
+    date: 'July 18, 2026',
+    author: 'Ms. Kavya Nair',
+    authorRole: 'Dietary & Wellness Director',
+    readTime: '5 min read',
+    img: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80',
+    content: `
+      Breath is the bridge between the conscious mind and the autonomic nervous system. Through systematic Pranayama techniques such as Anulom Vilom (alternate nostril breathing), Kapalabhati, and Sheetali, we regulate oxygen-carbon dioxide ratios and calm the mind.
+
+      Deep diaphragmatic breathing increases vital lung capacity, promotes venous blood return to the heart, and massage-stimulates abdominal organs. From a Naturopathic view, Pranayama enhances "Agni" (digestive and cellular fire), facilitating efficient nutrient assimilation and metabolic waste clearance.
+
+      Practicing 15 to 20 minutes of daily conscious breathwork creates a resilient nervous system, reduces arterial stiffness, and fosters emotional equilibrium.
+    `
   }
 ];
 

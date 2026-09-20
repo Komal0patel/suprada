@@ -545,7 +545,7 @@ function App() {
           }
 
           const isScrolled = scrollYPos > 200;
-          const isDarkHeroPage = currentPage === 'home' || currentPage === 'contact' || currentPage === 'comprehensivecare' || currentPage === 'naturopathy';
+          const isDarkHeroPage = ['home', 'contact', 'comprehensivecare', 'naturopathy', 'activities', 'programmes/activities'].includes(currentPage);
           const isLightHeader = !isDarkHeroPage && !isScrolled;
 
           return (

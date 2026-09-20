@@ -183,34 +183,21 @@ const urlForSanityImage = (ref) => {
 function BlogCard({ art, colors, imageUrl, onSelect }) {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Get author initials for fallback avatar
-  const getInitials = (name) => {
-    if (!name) return 'SV';
-    return name
-      .replace(/^(Dr\.|Ms\.|Mr\.|Prof\.)\s*/i, '')
-      .split(' ')
-      .filter(Boolean)
-      .map(part => part[0])
-      .join('')
-      .substring(0, 2)
-      .toUpperCase() || 'SV';
-  };
-
   return (
     <motion.div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={onSelect}
-      whileHover={{ y: -8 }}
+      whileHover={{ y: -6 }}
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
       style={{
         backgroundColor: '#ffffff',
-        borderRadius: '24px',
+        borderRadius: '20px',
         overflow: 'hidden',
         border: isHovered ? '1.5px solid var(--harvest-gold)' : '1px solid rgba(94, 39, 53, 0.09)',
         boxShadow: isHovered 
-          ? '0 22px 50px rgba(94, 39, 53, 0.14), 0 0 0 1px rgba(184, 94, 76, 0.12)' 
-          : '0 8px 26px rgba(94, 39, 53, 0.05)',
+          ? '0 18px 40px rgba(94, 39, 53, 0.12), 0 0 0 1px rgba(184, 94, 76, 0.12)' 
+          : '0 6px 20px rgba(94, 39, 53, 0.05)',
         display: 'flex',
         flexDirection: 'column',
         cursor: 'pointer',
@@ -219,8 +206,8 @@ function BlogCard({ art, colors, imageUrl, onSelect }) {
         transition: 'border 0.35s ease, box-shadow 0.35s ease'
       }}
     >
-      {/* 1. Image Header Container with Smooth Zoom & Scrim */}
-      <div style={{ height: '210px', width: '100%', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+      {/* 1. Image Header Container with Smooth Zoom */}
+      <div style={{ height: '160px', width: '100%', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
         <motion.img
           src={imageUrl}
           alt={art.title}
@@ -228,45 +215,16 @@ function BlogCard({ art, colors, imageUrl, onSelect }) {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
-        {/* Soft dark gradient scrim overlay for contrast */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(to top, rgba(30, 10, 15, 0.45) 0%, transparent 60%)',
-          pointerEvents: 'none'
-        }} />
-
-        {/* Category Floating Glassmorphism Badge */}
-        <div style={{
-          position: 'absolute',
-          top: '1rem',
-          left: '1rem',
-          backgroundColor: 'rgba(58, 21, 32, 0.85)',
-          color: 'var(--harvest-gold)',
-          padding: '0.38rem 0.85rem',
-          borderRadius: '20px',
-          fontSize: '0.66rem',
-          fontWeight: 800,
-          textTransform: 'uppercase',
-          letterSpacing: '0.08em',
-          backdropFilter: 'blur(10px)',
-          WebkitBackdropFilter: 'blur(10px)',
-          border: '1px solid rgba(220, 160, 50, 0.3)',
-          boxShadow: '0 4px 14px rgba(0,0,0,0.18)',
-          zIndex: 2
-        }}>
-          {art.category}
-        </div>
       </div>
 
       {/* 2. Base Card Body Content */}
-      <div style={{ padding: '1.5rem 1.6rem 1.4rem 1.6rem', display: 'flex', flexDirection: 'column', flexGrow: 1, minWidth: 0 }}>
+      <div style={{ padding: '1.15rem 1.25rem 1.25rem 1.25rem', display: 'flex', flexDirection: 'column', flexGrow: 1, minWidth: 0 }}>
         {/* Article Title */}
         <h3 style={{
           color: isHovered ? 'var(--redwood)' : 'var(--wine)',
-          margin: '0 0 0.5rem 0',
+          margin: '0 0 0.45rem 0',
           lineHeight: 1.35,
-          fontSize: '1.2rem',
+          fontSize: '1.05rem',
           fontWeight: 700,
           fontFamily: 'var(--font-heading)',
           transition: 'color 0.3s ease',
@@ -280,72 +238,19 @@ function BlogCard({ art, colors, imageUrl, onSelect }) {
 
         {/* Article Excerpt */}
         <p style={{
-          fontSize: '0.86rem',
+          fontSize: '0.84rem',
           color: 'var(--raisin-black)',
           opacity: 0.82,
-          lineHeight: 1.55,
+          lineHeight: 1.5,
           fontWeight: 400,
-          margin: '0 0 1rem 0',
+          margin: 0,
           display: '-webkit-box',
-          WebkitLineClamp: 3,
+          WebkitLineClamp: 2,
           WebkitBoxOrient: 'vertical',
           overflow: 'hidden'
         }}>
           {art.excerpt}
         </p>
-
-        {/* Footer Row */}
-        <div style={{
-          marginTop: 'auto',
-          paddingTop: '0.9rem',
-          borderTop: '1px solid rgba(94, 39, 53, 0.08)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between'
-        }}>
-          {/* Author info */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem' }}>
-            <div style={{
-              width: '28px',
-              height: '28px',
-              borderRadius: '50%',
-              backgroundColor: 'rgba(184, 94, 76, 0.12)',
-              border: '1px solid rgba(184, 94, 76, 0.25)',
-              color: 'var(--redwood)',
-              fontSize: '0.68rem',
-              fontWeight: 800,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexShrink: 0
-            }}>
-              {getInitials(art.author)}
-            </div>
-            <span style={{ fontSize: '0.78rem', color: 'var(--wine)', fontWeight: 700 }}>
-              {art.author}
-            </span>
-          </div>
-
-          {/* Action Link */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.35rem',
-            fontSize: '0.78rem',
-            fontWeight: 800,
-            color: 'var(--redwood)',
-            transition: 'color 0.2s ease'
-          }}>
-            <span>Read Story</span>
-            <motion.span
-              animate={{ x: isHovered ? 4 : 0 }}
-              transition={{ duration: 0.2 }}
-              style={{ fontSize: '0.9rem', display: 'inline-block' }}
-            >
-              →
-            </motion.span>
-          </div>
-        </div>
       </div>
     </motion.div>
   );

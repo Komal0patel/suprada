@@ -365,7 +365,7 @@ function App() {
       ]
     },
     { id: 'programmes/wellness', label: 'Wellness Programme' },
-    { id: 'programmes/packages', label: 'Programme' },
+    { id: 'programmes/packages', label: 'Healing Packages' },
     { id: 'programmes/nutrition', label: 'Nutrition' },
     { id: 'programmes/activities', label: 'Activities' }
   ];

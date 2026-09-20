@@ -130,12 +130,9 @@ const diningSpacesList = [
   }
 ];
 
-// Wholesome Cuisines List (Exact Verbatim Copy)
+// Wholesome Cuisines List
 const cuisinesList = [
   "Regional Indian meals prepared fresh",
-  "Light Oriental-inspired dishes",
-  "Clean Western nourishment",
-  "Middle Eastern flavours",
   "Sprouts, fruits, and seasonal salads",
   "Herbal infusions and wellness beverages"
 ];
@@ -1335,8 +1332,8 @@ export default function Nutrition({ onNavigate }) {
             </p>
           </motion.div>
 
-          {/* 6 Grid Cards - Horizontally scrollable on mobile */}
-          <div className="nutrition-cuisines-grid no-scrollbar">
+          {/* 3 Grid Cards - 3 Columns Grid */}
+          <div className="nutrition-cuisines-grid treatment-grid-3col no-scrollbar" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.25rem', marginBottom: '2rem' }}>
             {cuisinesList.map((item, idx) => (
               <motion.div
                 key={idx}

@@ -27,7 +27,15 @@ const wordVariant = {
 
 export default function NutritionLifestyle({ onNavigate }) {
   const [activeTab, setActiveTab] = useState('healing');
+  const [isMobile, setIsMobile] = useState(false);
   const cardsRef = useRef(null);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const scrollCards = (direction) => {
     if (cardsRef && cardsRef.current) {
@@ -398,7 +406,7 @@ export default function NutritionLifestyle({ onNavigate }) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.4 }}
-                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.4rem' }}
+                style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.2rem', width: '100%' }}
               >
                 {healingDiets.map((item) => {
                   const IconComp = item.icon;
@@ -408,6 +416,7 @@ export default function NutritionLifestyle({ onNavigate }) {
                       whileHover={{ y: -5, boxShadow: '0 12px 30px rgba(94, 39, 53, 0.12)' }}
                       transition={{ type: "spring", stiffness: 220, damping: 20 }}
                       style={{
+                        width: isMobile ? 'calc(50% - 0.7rem)' : 'calc(33.333% - 1rem)',
                         backgroundColor: 'rgba(255, 255, 255, 0.95)',
                         borderRadius: '22px',
                         padding: '1.6rem 1.4rem',
@@ -416,7 +425,8 @@ export default function NutritionLifestyle({ onNavigate }) {
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'space-between',
-                        textAlign: 'left'
+                        textAlign: 'left',
+                        boxSizing: 'border-box'
                       }}
                     >
                       <div>
@@ -453,7 +463,7 @@ export default function NutritionLifestyle({ onNavigate }) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.4 }}
-                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.4rem' }}
+                style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.2rem', width: '100%' }}
               >
                 {detoxProtocols.map((item) => {
                   const IconComp = item.icon;
@@ -463,6 +473,7 @@ export default function NutritionLifestyle({ onNavigate }) {
                       whileHover={{ y: -5, boxShadow: '0 12px 30px rgba(94, 39, 53, 0.12)' }}
                       transition={{ type: "spring", stiffness: 220, damping: 20 }}
                       style={{
+                        width: isMobile ? 'calc(50% - 0.7rem)' : 'calc(33.333% - 1rem)',
                         backgroundColor: 'rgba(255, 255, 255, 0.95)',
                         borderRadius: '22px',
                         padding: '1.6rem 1.4rem',
@@ -471,7 +482,8 @@ export default function NutritionLifestyle({ onNavigate }) {
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'space-between',
-                        textAlign: 'left'
+                        textAlign: 'left',
+                        boxSizing: 'border-box'
                       }}
                     >
                       <div>

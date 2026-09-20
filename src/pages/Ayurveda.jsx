@@ -26,7 +26,15 @@ const wordVariant = {
 
 export default function Ayurveda({ onNavigate }) {
   const [activeTab, setActiveTab] = useState('dhara');
+  const [isMobile, setIsMobile] = useState(false);
   const cardsRef = useRef(null);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const scrollCards = (direction) => {
     if (cardsRef && cardsRef.current) {
@@ -431,7 +439,7 @@ export default function Ayurveda({ onNavigate }) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.4 }}
-                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '1.4rem' }}
+                style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.4rem', width: '100%' }}
               >
                 {dharaModalities.map((item) => {
                   const IconComp = item.icon;
@@ -441,6 +449,9 @@ export default function Ayurveda({ onNavigate }) {
                       whileHover={{ y: -5, boxShadow: '0 12px 30px rgba(94, 39, 53, 0.12)' }}
                       transition={{ type: "spring", stiffness: 220, damping: 20 }}
                       style={{
+                        width: isMobile ? 'calc(50% - 0.7rem)' : 'calc(33.333% - 1rem)',
+                        maxWidth: '360px',
+                        boxSizing: 'border-box',
                         backgroundColor: 'rgba(255, 255, 255, 0.95)',
                         borderRadius: '22px',
                         padding: '1.6rem 1.4rem',
@@ -488,7 +499,7 @@ export default function Ayurveda({ onNavigate }) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.4 }}
-                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '1.4rem' }}
+                style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.4rem', width: '100%' }}
               >
                 {massageModalities.map((item) => {
                   const IconComp = item.icon;
@@ -498,6 +509,9 @@ export default function Ayurveda({ onNavigate }) {
                       whileHover={{ y: -5, boxShadow: '0 12px 30px rgba(94, 39, 53, 0.12)' }}
                       transition={{ type: "spring", stiffness: 220, damping: 20 }}
                       style={{
+                        width: isMobile ? 'calc(50% - 0.7rem)' : 'calc(25% - 1.1rem)',
+                        maxWidth: '360px',
+                        boxSizing: 'border-box',
                         backgroundColor: 'rgba(255, 255, 255, 0.95)',
                         borderRadius: '22px',
                         padding: '1.6rem 1.4rem',
@@ -545,7 +559,7 @@ export default function Ayurveda({ onNavigate }) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.4 }}
-                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '1.4rem' }}
+                style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.4rem', width: '100%' }}
               >
                 {specializedModalities.map((item) => {
                   const IconComp = item.icon;
@@ -555,6 +569,9 @@ export default function Ayurveda({ onNavigate }) {
                       whileHover={{ y: -5, boxShadow: '0 12px 30px rgba(94, 39, 53, 0.12)' }}
                       transition={{ type: "spring", stiffness: 220, damping: 20 }}
                       style={{
+                        width: isMobile ? 'calc(50% - 0.7rem)' : 'calc(33.333% - 1rem)',
+                        maxWidth: '360px',
+                        boxSizing: 'border-box',
                         backgroundColor: 'rgba(255, 255, 255, 0.95)',
                         borderRadius: '22px',
                         padding: '1.6rem 1.4rem',

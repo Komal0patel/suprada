@@ -894,7 +894,7 @@ export default function Naturopathy({ onNavigate }) {
             </button>
           </div>
 
-          <div ref={hydroRef} className="hydro-horizontal-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.2rem' }}>
+          <div ref={hydroRef} className="hydro-horizontal-grid treatment-grid-4col">
             {[
               { title: 'Hip Bath', sub: '(Cold, Hot, Neutral, Graded, Alternative)' },
               { title: 'Immersion Bath', sub: '(Cold, Hot, Neutral, Graded, Turmeric & Neem, Epsom Salt, Asthma Bath)' },

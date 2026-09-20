@@ -2840,10 +2840,10 @@ export default function Home({ onNavigate }) {
             {/* Row 1: First 4 Cards */}
             <div className="leadership-row-1" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.2rem', width: '100%' }}>
               {[
-                { name: 'Late Mrs. Renuka Nagaraju', role: 'Founder Inspiration', creds: 'Suprada Wellness', img: '/assets/Founders/nagaraju_lady.jpg', objectPosition: 'center top' },
-                { name: 'Acharya Dr. M. Nagaraju', role: 'Chairperson', creds: 'Suprada Wellness', img: '/assets/Founders/nagaraju_man.jpg', objectPosition: 'center top' },
-                { name: 'Mr. Sunil Jayaraj', role: 'Founder', creds: 'Suprada Wellness', img: '/assets/Founders/sunil_jayaraj.jpg', objectPosition: 'center top' },
-                { name: 'Dr. Prema Ramadas, MD', role: 'Co-founder', creds: 'Suprada Wellness', img: '/assets/Founders/prema_ramadas.jpg', objectPosition: 'center top' }
+                { name: 'Late Mrs. Renuka Nagaraju', role: 'Founder Inspiration', creds: 'Suprada Wellness', img: '/assets/Founders/nagaraju_lady.jpg', objectPosition: 'center 62.6%', transform: 'scale(1.12)' },
+                { name: 'Acharya Dr. M. Nagaraju', role: 'Chairperson', creds: 'Suprada Wellness', img: '/assets/Founders/nagaraju_man.jpg', objectPosition: 'center 84.5%' },
+                { name: 'Mr. Sunil Jayaraj', role: 'Founder', creds: 'Suprada Wellness', img: '/assets/Founders/sunil_jayaraj.jpg', objectPosition: 'center 51.9%' },
+                { name: 'Dr. Prema Ramadas, MD', role: 'Co-founder', creds: 'Suprada Wellness', img: '/assets/Founders/prema_ramadas.jpg', objectPosition: 'center 60.0%' }
               ].map((doc, idx) => (
                 <div key={idx} className="editorial-master-card" style={{ height: '330px', width: '100%', overflow: 'hidden' }}>
                   <img 
@@ -2854,6 +2854,7 @@ export default function Home({ onNavigate }) {
                       height: '100%', 
                       objectFit: 'cover', 
                       objectPosition: doc.objectPosition || 'center top',
+                      transform: doc.transform || 'none',
                       transition: 'transform 0.5s ease'
                     }} 
                   />
@@ -2875,9 +2876,9 @@ export default function Home({ onNavigate }) {
             {/* Row 2: Remaining 3 Cards Centered */}
             <div className="leadership-row-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.2rem', width: '75%', margin: '0 auto' }}>
               {[
-                { name: 'Smt. Priya Amaresh', role: 'Chief Yoga and Wellness Advisor', creds: 'Suprada Wellness', img: '/assets/Founders/priya_amaresh.jpg', objectPosition: 'center top' },
-                { name: 'Srinivas Ramadas', role: 'Director Operations', creds: 'Suprada Wellness', img: '/assets/Founders/srinivas_ramadas.jpg', objectPosition: 'center top' },
-                { name: 'Dr. Vinaya, B.N.Y.S', role: 'Chief Medical Officer', creds: 'Suprada Wellness', img: '/assets/Founders/vinaya.jpg', objectPosition: 'center top' }
+                { name: 'Smt. Priya Amaresh', role: 'Chief Yoga and Wellness Advisor', creds: 'Suprada Wellness', img: '/assets/Founders/priya_amaresh.jpg', objectPosition: 'center 50.9%', transform: 'scale(1.05)' },
+                { name: 'Srinivas Ramadas', role: 'Director Operations', creds: 'Suprada Wellness', img: '/assets/Founders/srinivas_ramadas.jpg', objectPosition: 'center 69.5%' },
+                { name: 'Dr. Vinaya, B.N.Y.S', role: 'Chief Medical Officer', creds: 'Suprada Wellness', img: '/assets/Founders/vinaya.jpg', objectPosition: 'center 44.6%', transform: 'scale(1.20)' }
               ].map((doc, idx) => (
                 <div key={idx} className="editorial-master-card" style={{ height: '330px', width: '100%', overflow: 'hidden' }}>
                   <img 
@@ -2888,6 +2889,7 @@ export default function Home({ onNavigate }) {
                       height: '100%', 
                       objectFit: 'cover', 
                       objectPosition: doc.objectPosition || 'center top',
+                      transform: doc.transform || 'none',
                       transition: 'transform 0.5s ease'
                     }} 
                   />

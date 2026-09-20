@@ -1288,7 +1288,10 @@ export default function Home({ onNavigate }) {
                 key={card.id}
                 whileHover={{ y: -5, scale: 1.02 }}
                 transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                onClick={() => setSelectedNaturopathyModal(card)}
+                onClick={() => {
+                  const targetPath = card.path || (card.id === 'mental-wellbeing' ? 'programmes/mental-emotional' : `programmes/${card.id}`);
+                  onNavigate(targetPath);
+                }}
                 style={{
                   width: isMobile ? 'calc((100% - 1rem) / 3)' : 'auto',
                   backgroundColor: '#ffffff',

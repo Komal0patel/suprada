@@ -467,7 +467,7 @@ export default function Naturopathy({ onNavigate }) {
         position: 'relative',
         overflow: 'hidden'
       }}>
-        <div style={{ maxWidth: '1180px', width: '100%', margin: '0 auto' }}>
+        <div style={{ maxWidth: '1240px', width: '100%', margin: '0 auto' }}>
           
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
             <span style={{ color: 'var(--wine, #5E2735)', textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.8rem', fontWeight: 800, display: 'block', marginBottom: '0.4rem' }}>
@@ -543,9 +543,9 @@ export default function Naturopathy({ onNavigate }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.35 }}
-              className="massage-horizontal-grid"
-              style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))', gap: '1.5rem' }}
+              className={`massage-horizontal-grid ${activeMassageTab === 'traditional' || activeMassageTab === 'herbal' ? 'treatment-grid-3col' : 'treatment-grid-4col'}`}
             >
+
               {activeMassageTab === 'traditional' && (
                 <>
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
@@ -1035,8 +1035,7 @@ export default function Naturopathy({ onNavigate }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.35 }}
-              className="pillar-balanced-grid-2col earth-horizontal-grid"
-              style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))', gap: '1.5rem' }}
+              className={`earth-horizontal-grid ${activeEarthTab === 'mud' ? 'treatment-grid-4col' : 'treatment-grid-3col'}`}
             >
               {activeEarthTab === 'mud' ? (
                 <>

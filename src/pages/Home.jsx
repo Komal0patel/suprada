@@ -471,6 +471,10 @@ export default function Home({ onNavigate }) {
   const [selectedDiseaseModal, setSelectedDiseaseModal] = useState(null);
   const [selectedFounderModal, setSelectedFounderModal] = useState(null);
 
+  const founderModalBodyRef = useRef(null);
+  const naturopathyModalBodyRef = useRef(null);
+  const diseaseModalBodyRef = useRef(null);
+
   // Lock background body and html scroll when detail modal is open
   useEffect(() => {
     if (selectedNaturopathyModal || selectedDiseaseModal || selectedFounderModal) {
@@ -1910,26 +1914,40 @@ export default function Home({ onNavigate }) {
 
 
       {/* Full Detailed Modal Popup for Naturopathy Cards */}
-      <AnimatePresence>
-        {selectedNaturopathyModal && (
+      {selectedNaturopathyModal && createPortal(
+        <AnimatePresence mode="wait">
           <motion.div
+            key="naturopathy-modal-backdrop"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
             style={{
               position: 'fixed',
-              inset: 0,
-              backgroundColor: 'rgba(15, 10, 8, 0.85)',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              width: '100vw',
+              height: '100vh',
+              backgroundColor: 'rgba(15, 10, 8, 0.88)',
               backdropFilter: 'blur(16px)',
-              zIndex: 9999999,
+              WebkitBackdropFilter: 'blur(16px)',
+              zIndex: 99999999,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               padding: isMobile ? '1rem' : '2rem',
-              overflow: 'hidden'
+              boxSizing: 'border-box',
+              overflowY: 'auto',
+              overscrollBehavior: 'contain'
             }}
             onClick={() => setSelectedNaturopathyModal(null)}
+            onWheel={(e) => {
+              if (naturopathyModalBodyRef.current) {
+                naturopathyModalBodyRef.current.scrollTop += e.deltaY;
+              }
+            }}
           >
             <motion.div
               initial={{ scale: 0.94, y: 20 }}
@@ -1937,6 +1955,11 @@ export default function Home({ onNavigate }) {
               exit={{ scale: 0.94, y: 20 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
+              onWheel={(e) => {
+                if (naturopathyModalBodyRef.current) {
+                  naturopathyModalBodyRef.current.scrollTop += e.deltaY;
+                }
+              }}
               style={{
                 width: '100%',
                 maxWidth: '880px',
@@ -1947,7 +1970,8 @@ export default function Home({ onNavigate }) {
                 position: 'relative',
                 display: 'flex',
                 flexDirection: 'column',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                border: '1.5px solid rgba(94, 39, 53, 0.2)'
               }}
             >
               {/* Close Button */}
@@ -2018,19 +2042,21 @@ export default function Home({ onNavigate }) {
 
               {/* Modal Internal Scrollable Body Area */}
               <div 
-                className="hide-scrollbar"
+                ref={naturopathyModalBodyRef}
                 style={{
                   padding: isMobile ? '1.4rem' : '1.8rem 2rem',
                   overflowY: 'auto',
                   flex: 1,
                   overscrollBehavior: 'contain',
                   WebkitOverflowScrolling: 'touch',
-                  scrollbarWidth: 'none',
-                  msOverflowStyle: 'none',
+                  scrollbarWidth: 'thin',
+                  scrollbarColor: 'var(--harvest-gold) rgba(94, 39, 53, 0.1)',
                   pointerEvents: 'auto'
                 }}
                 onWheel={(e) => {
-                  e.stopPropagation();
+                  if (naturopathyModalBodyRef.current) {
+                    naturopathyModalBodyRef.current.scrollTop += e.deltaY;
+                  }
                 }}
               >
                 <p style={{ fontSize: '0.96rem', color: 'var(--raisin-black)', lineHeight: 1.65, marginBottom: '1.6rem' }}>
@@ -2077,30 +2103,45 @@ export default function Home({ onNavigate }) {
               </div>
             </motion.div>
           </motion.div>
-        )}
-      </AnimatePresence>
+        </AnimatePresence>,
+        document.body
+      )}
 
       {/* Full Detailed Modal Popup for Clinical Disease Cards */}
-      <AnimatePresence>
-        {selectedDiseaseModal && (
+      {selectedDiseaseModal && createPortal(
+        <AnimatePresence mode="wait">
           <motion.div
+            key="disease-modal-backdrop"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
             style={{
               position: 'fixed',
-              inset: 0,
-              backgroundColor: 'rgba(15, 10, 8, 0.85)',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              width: '100vw',
+              height: '100vh',
+              backgroundColor: 'rgba(15, 10, 8, 0.88)',
               backdropFilter: 'blur(16px)',
-              zIndex: 9999999,
+              WebkitBackdropFilter: 'blur(16px)',
+              zIndex: 99999999,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               padding: isMobile ? '1rem' : '2rem',
-              overflow: 'hidden'
+              boxSizing: 'border-box',
+              overflowY: 'auto',
+              overscrollBehavior: 'contain'
             }}
             onClick={() => setSelectedDiseaseModal(null)}
+            onWheel={(e) => {
+              if (diseaseModalBodyRef.current) {
+                diseaseModalBodyRef.current.scrollTop += e.deltaY;
+              }
+            }}
           >
             <motion.div
               initial={{ scale: 0.94, y: 20 }}
@@ -2108,6 +2149,11 @@ export default function Home({ onNavigate }) {
               exit={{ scale: 0.94, y: 20 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
+              onWheel={(e) => {
+                if (diseaseModalBodyRef.current) {
+                  diseaseModalBodyRef.current.scrollTop += e.deltaY;
+                }
+              }}
               style={{
                 width: '100%',
                 maxWidth: '880px',
@@ -2118,7 +2164,8 @@ export default function Home({ onNavigate }) {
                 position: 'relative',
                 display: 'flex',
                 flexDirection: 'column',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                border: '1.5px solid rgba(94, 39, 53, 0.2)'
               }}
             >
               {/* Close Button */}
@@ -2143,7 +2190,7 @@ export default function Home({ onNavigate }) {
                 gap: '1.4rem',
                 alignItems: isMobile ? 'flex-start' : 'center',
                 padding: isMobile ? '1.4rem' : '1.8rem 2rem 1.4rem 2rem',
-                borderBottom: '1.5.px solid rgba(94, 39, 53, 0.12)',
+                borderBottom: '1.5px solid rgba(94, 39, 53, 0.12)',
                 paddingRight: '3.5rem',
                 flexShrink: 0,
                 backgroundColor: '#ffffff'
@@ -2200,19 +2247,21 @@ export default function Home({ onNavigate }) {
 
               {/* Modal Internal Scrollable Body Area */}
               <div 
-                className="hide-scrollbar"
+                ref={diseaseModalBodyRef}
                 style={{
                   padding: isMobile ? '1.4rem' : '1.8rem 2rem',
                   overflowY: 'auto',
                   flex: 1,
                   overscrollBehavior: 'contain',
                   WebkitOverflowScrolling: 'touch',
-                  scrollbarWidth: 'none',
-                  msOverflowStyle: 'none',
+                  scrollbarWidth: 'thin',
+                  scrollbarColor: 'var(--harvest-gold) rgba(94, 39, 53, 0.1)',
                   pointerEvents: 'auto'
                 }}
                 onWheel={(e) => {
-                  e.stopPropagation();
+                  if (diseaseModalBodyRef.current) {
+                    diseaseModalBodyRef.current.scrollTop += e.deltaY;
+                  }
                 }}
               >
                 <p style={{ fontSize: '0.94rem', color: 'var(--raisin-black)', lineHeight: 1.65, marginBottom: '1.6rem' }}>
@@ -2271,8 +2320,9 @@ export default function Home({ onNavigate }) {
               </div>
             </motion.div>
           </motion.div>
-        )}
-      </AnimatePresence>
+        </AnimatePresence>,
+        document.body
+      )}
 
       {/* Floating Solid Cards Section (Slide 12: Path To Transformation Begins Within) */}
       <section style={{ 
@@ -3049,6 +3099,11 @@ export default function Home({ onNavigate }) {
               overscrollBehavior: 'contain'
             }}
             onClick={() => setSelectedFounderModal(null)}
+            onWheel={(e) => {
+              if (founderModalBodyRef.current) {
+                founderModalBodyRef.current.scrollTop += e.deltaY;
+              }
+            }}
           >
             <motion.div
               initial={{ scale: 0.94, y: 20 }}
@@ -3056,6 +3111,11 @@ export default function Home({ onNavigate }) {
               exit={{ scale: 0.94, y: 20 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
+              onWheel={(e) => {
+                if (founderModalBodyRef.current) {
+                  founderModalBodyRef.current.scrollTop += e.deltaY;
+                }
+              }}
               style={{
                 width: '100%',
                 maxWidth: '840px',
@@ -3162,6 +3222,7 @@ export default function Home({ onNavigate }) {
 
               {/* Modal Internal Scrollable Body Area */}
               <div 
+                ref={founderModalBodyRef}
                 style={{
                   padding: isMobile ? '1.2rem' : '1.6rem 2rem 2rem 2rem',
                   overflowY: 'auto',
@@ -3170,6 +3231,11 @@ export default function Home({ onNavigate }) {
                   WebkitOverflowScrolling: 'touch',
                   scrollbarWidth: 'thin',
                   scrollbarColor: 'var(--harvest-gold) rgba(94, 39, 53, 0.1)'
+                }}
+                onWheel={(e) => {
+                  if (founderModalBodyRef.current) {
+                    founderModalBodyRef.current.scrollTop += e.deltaY;
+                  }
                 }}
               >
                 {/* Quote banner if available */}

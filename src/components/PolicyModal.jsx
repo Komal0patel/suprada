@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Check } from 'lucide-react';
 
 export default function PolicyModal({ policy, onClose }) {
+  const policyModalBodyRef = useRef(null);
+
   useEffect(() => {
     if (policy) {
       document.body.style.overflow = 'hidden';
@@ -37,6 +39,11 @@ export default function PolicyModal({ policy, onClose }) {
           overflow: 'hidden'
         }}
         onClick={onClose}
+        onWheel={(e) => {
+          if (policyModalBodyRef.current) {
+            policyModalBodyRef.current.scrollTop += e.deltaY;
+          }
+        }}
       >
         <motion.div
           initial={{ scale: 0.96, y: 15 }}
@@ -44,6 +51,11 @@ export default function PolicyModal({ policy, onClose }) {
           exit={{ scale: 0.96, y: 15 }}
           transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           onClick={(e) => e.stopPropagation()}
+          onWheel={(e) => {
+            if (policyModalBodyRef.current) {
+              policyModalBodyRef.current.scrollTop += e.deltaY;
+            }
+          }}
           style={{
             width: '100%',
             maxWidth: '780px',
@@ -123,14 +135,21 @@ export default function PolicyModal({ policy, onClose }) {
 
           {/* Modal Scrollable Body — Clean Point-by-Point Alignment */}
           <div
+            ref={policyModalBodyRef}
             style={{
               padding: '1.6rem 2.2rem 2rem 2.2rem',
               overflowY: 'auto',
               flex: 1,
               overscrollBehavior: 'contain',
-              WebkitOverflowScrolling: 'touch'
+              WebkitOverflowScrolling: 'touch',
+              scrollbarWidth: 'thin',
+              scrollbarColor: 'var(--harvest-gold) rgba(94, 39, 53, 0.1)'
             }}
-            onWheel={(e) => e.stopPropagation()}
+            onWheel={(e) => {
+              if (policyModalBodyRef.current) {
+                policyModalBodyRef.current.scrollTop += e.deltaY;
+              }
+            }}
           >
             {/* Standard Point-by-Point List */}
             {policy.points && (

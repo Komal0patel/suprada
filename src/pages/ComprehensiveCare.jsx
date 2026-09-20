@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, X, ShieldCheck, Activity, HeartPulse } from 'lucide-react';
 import { Pattern24, Pattern25, Pattern28 } from '../AnimatedPatterns';
@@ -177,6 +178,7 @@ const clinicalDiseases = [
 export default function ComprehensiveCare({ onNavigate }) {
   const [isMobile, setIsMobile] = useState(false);
   const [selectedDiseaseModal, setSelectedDiseaseModal] = useState(null);
+  const diseaseModalBodyRef = useRef(null);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 960);
@@ -328,26 +330,40 @@ export default function ComprehensiveCare({ onNavigate }) {
       </section>
 
       {/* Full Detailed Modal Popup for Clinical Disease Cards */}
-      <AnimatePresence>
-        {selectedDiseaseModal && (
+      {selectedDiseaseModal && createPortal(
+        <AnimatePresence mode="wait">
           <motion.div
+            key="disease-modal-backdrop"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
             style={{
               position: 'fixed',
-              inset: 0,
-              backgroundColor: 'rgba(15, 10, 8, 0.85)',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              width: '100vw',
+              height: '100vh',
+              backgroundColor: 'rgba(15, 10, 8, 0.88)',
               backdropFilter: 'blur(16px)',
-              zIndex: 9999999,
+              WebkitBackdropFilter: 'blur(16px)',
+              zIndex: 99999999,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               padding: isMobile ? '1rem' : '2rem',
-              overflow: 'hidden'
+              boxSizing: 'border-box',
+              overflowY: 'auto',
+              overscrollBehavior: 'contain'
             }}
             onClick={() => setSelectedDiseaseModal(null)}
+            onWheel={(e) => {
+              if (diseaseModalBodyRef.current) {
+                diseaseModalBodyRef.current.scrollTop += e.deltaY;
+              }
+            }}
           >
             <motion.div
               initial={{ scale: 0.94, y: 20 }}
@@ -355,6 +371,11 @@ export default function ComprehensiveCare({ onNavigate }) {
               exit={{ scale: 0.94, y: 20 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
+              onWheel={(e) => {
+                if (diseaseModalBodyRef.current) {
+                  diseaseModalBodyRef.current.scrollTop += e.deltaY;
+                }
+              }}
               style={{
                 width: '100%',
                 maxWidth: '880px',
@@ -365,7 +386,8 @@ export default function ComprehensiveCare({ onNavigate }) {
                 position: 'relative',
                 display: 'flex',
                 flexDirection: 'column',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                border: '1.5px solid rgba(94, 39, 53, 0.2)'
               }}
             >
               {/* Close Button */}
@@ -447,19 +469,21 @@ export default function ComprehensiveCare({ onNavigate }) {
 
               {/* Modal Internal Scrollable Body Area */}
               <div 
-                className="hide-scrollbar"
+                ref={diseaseModalBodyRef}
                 style={{
                   padding: isMobile ? '1.4rem' : '1.8rem 2rem',
                   overflowY: 'auto',
                   flex: 1,
                   overscrollBehavior: 'contain',
                   WebkitOverflowScrolling: 'touch',
-                  scrollbarWidth: 'none',
-                  msOverflowStyle: 'none',
+                  scrollbarWidth: 'thin',
+                  scrollbarColor: 'var(--harvest-gold) rgba(94, 39, 53, 0.1)',
                   pointerEvents: 'auto'
                 }}
                 onWheel={(e) => {
-                  e.stopPropagation();
+                  if (diseaseModalBodyRef.current) {
+                    diseaseModalBodyRef.current.scrollTop += e.deltaY;
+                  }
                 }}
               >
                 <p style={{ fontSize: '0.94rem', color: 'var(--raisin-black)', lineHeight: 1.65, marginBottom: '1.6rem' }}>
@@ -518,8 +542,9 @@ export default function ComprehensiveCare({ onNavigate }) {
               </div>
             </motion.div>
           </motion.div>
-        )}
-      </AnimatePresence>
+        </AnimatePresence>,
+        document.body
+      )}
 
     </div>
   );

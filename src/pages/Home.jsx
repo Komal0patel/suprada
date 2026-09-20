@@ -475,17 +475,19 @@ export default function Home({ onNavigate }) {
   const naturopathyModalBodyRef = useRef(null);
   const diseaseModalBodyRef = useRef(null);
 
-  // Lock background body and html scroll when detail modal is open
+  // Lock background body and html scroll and pause Lenis when detail modal is open
   useEffect(() => {
     if (selectedNaturopathyModal || selectedDiseaseModal || selectedFounderModal) {
       const originalBodyOverflow = document.body.style.overflow;
       const originalDocOverflow = document.documentElement.style.overflow;
       document.body.style.overflow = 'hidden';
       document.documentElement.style.overflow = 'hidden';
+      if (window.lenis) window.lenis.stop();
 
       return () => {
         document.body.style.overflow = originalBodyOverflow;
         document.documentElement.style.overflow = originalDocOverflow;
+        if (window.lenis) window.lenis.start();
       };
     }
   }, [selectedNaturopathyModal, selectedDiseaseModal, selectedFounderModal]);
@@ -1918,6 +1920,7 @@ export default function Home({ onNavigate }) {
         <AnimatePresence mode="wait">
           <motion.div
             key="naturopathy-modal-backdrop"
+            data-lenis-prevent="true"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -1944,18 +1947,21 @@ export default function Home({ onNavigate }) {
             }}
             onClick={() => setSelectedNaturopathyModal(null)}
             onWheel={(e) => {
+              e.stopPropagation();
               if (naturopathyModalBodyRef.current) {
                 naturopathyModalBodyRef.current.scrollTop += e.deltaY;
               }
             }}
           >
             <motion.div
+              data-lenis-prevent="true"
               initial={{ scale: 0.94, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.94, y: 20 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
               onWheel={(e) => {
+                e.stopPropagation();
                 if (naturopathyModalBodyRef.current) {
                   naturopathyModalBodyRef.current.scrollTop += e.deltaY;
                 }
@@ -2043,6 +2049,7 @@ export default function Home({ onNavigate }) {
               {/* Modal Internal Scrollable Body Area */}
               <div 
                 ref={naturopathyModalBodyRef}
+                data-lenis-prevent="true"
                 style={{
                   padding: isMobile ? '1.4rem' : '1.8rem 2rem',
                   overflowY: 'auto',
@@ -2054,6 +2061,7 @@ export default function Home({ onNavigate }) {
                   pointerEvents: 'auto'
                 }}
                 onWheel={(e) => {
+                  e.stopPropagation();
                   if (naturopathyModalBodyRef.current) {
                     naturopathyModalBodyRef.current.scrollTop += e.deltaY;
                   }
@@ -2112,6 +2120,7 @@ export default function Home({ onNavigate }) {
         <AnimatePresence mode="wait">
           <motion.div
             key="disease-modal-backdrop"
+            data-lenis-prevent="true"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -2138,18 +2147,21 @@ export default function Home({ onNavigate }) {
             }}
             onClick={() => setSelectedDiseaseModal(null)}
             onWheel={(e) => {
+              e.stopPropagation();
               if (diseaseModalBodyRef.current) {
                 diseaseModalBodyRef.current.scrollTop += e.deltaY;
               }
             }}
           >
             <motion.div
+              data-lenis-prevent="true"
               initial={{ scale: 0.94, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.94, y: 20 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
               onWheel={(e) => {
+                e.stopPropagation();
                 if (diseaseModalBodyRef.current) {
                   diseaseModalBodyRef.current.scrollTop += e.deltaY;
                 }
@@ -2248,6 +2260,7 @@ export default function Home({ onNavigate }) {
               {/* Modal Internal Scrollable Body Area */}
               <div 
                 ref={diseaseModalBodyRef}
+                data-lenis-prevent="true"
                 style={{
                   padding: isMobile ? '1.4rem' : '1.8rem 2rem',
                   overflowY: 'auto',
@@ -2259,6 +2272,7 @@ export default function Home({ onNavigate }) {
                   pointerEvents: 'auto'
                 }}
                 onWheel={(e) => {
+                  e.stopPropagation();
                   if (diseaseModalBodyRef.current) {
                     diseaseModalBodyRef.current.scrollTop += e.deltaY;
                   }
@@ -3074,6 +3088,7 @@ export default function Home({ onNavigate }) {
         <AnimatePresence mode="wait">
           <motion.div
             key="founder-modal-backdrop"
+            data-lenis-prevent="true"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -3100,18 +3115,21 @@ export default function Home({ onNavigate }) {
             }}
             onClick={() => setSelectedFounderModal(null)}
             onWheel={(e) => {
+              e.stopPropagation();
               if (founderModalBodyRef.current) {
                 founderModalBodyRef.current.scrollTop += e.deltaY;
               }
             }}
           >
             <motion.div
+              data-lenis-prevent="true"
               initial={{ scale: 0.94, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.94, y: 20 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
               onWheel={(e) => {
+                e.stopPropagation();
                 if (founderModalBodyRef.current) {
                   founderModalBodyRef.current.scrollTop += e.deltaY;
                 }
@@ -3223,6 +3241,7 @@ export default function Home({ onNavigate }) {
               {/* Modal Internal Scrollable Body Area */}
               <div 
                 ref={founderModalBodyRef}
+                data-lenis-prevent="true"
                 style={{
                   padding: isMobile ? '1.2rem' : '1.6rem 2rem 2rem 2rem',
                   overflowY: 'auto',
@@ -3233,6 +3252,7 @@ export default function Home({ onNavigate }) {
                   scrollbarColor: 'var(--harvest-gold) rgba(94, 39, 53, 0.1)'
                 }}
                 onWheel={(e) => {
+                  e.stopPropagation();
                   if (founderModalBodyRef.current) {
                     founderModalBodyRef.current.scrollTop += e.deltaY;
                   }

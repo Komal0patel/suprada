@@ -9,9 +9,11 @@ export default function PolicyModal({ policy, onClose }) {
     if (policy) {
       document.body.style.overflow = 'hidden';
       document.documentElement.style.overflow = 'hidden';
+      if (window.lenis) window.lenis.stop();
       return () => {
         document.body.style.overflow = 'auto';
         document.documentElement.style.overflow = 'auto';
+        if (window.lenis) window.lenis.start();
       };
     }
   }, [policy]);
@@ -21,6 +23,7 @@ export default function PolicyModal({ policy, onClose }) {
   return (
     <AnimatePresence>
       <motion.div
+        data-lenis-prevent="true"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -40,18 +43,21 @@ export default function PolicyModal({ policy, onClose }) {
         }}
         onClick={onClose}
         onWheel={(e) => {
+          e.stopPropagation();
           if (policyModalBodyRef.current) {
             policyModalBodyRef.current.scrollTop += e.deltaY;
           }
         }}
       >
         <motion.div
+          data-lenis-prevent="true"
           initial={{ scale: 0.96, y: 15 }}
           animate={{ scale: 1, y: 0 }}
           exit={{ scale: 0.96, y: 15 }}
           transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           onClick={(e) => e.stopPropagation()}
           onWheel={(e) => {
+            e.stopPropagation();
             if (policyModalBodyRef.current) {
               policyModalBodyRef.current.scrollTop += e.deltaY;
             }
@@ -136,6 +142,7 @@ export default function PolicyModal({ policy, onClose }) {
           {/* Modal Scrollable Body — Clean Point-by-Point Alignment */}
           <div
             ref={policyModalBodyRef}
+            data-lenis-prevent="true"
             style={{
               padding: '1.6rem 2.2rem 2rem 2.2rem',
               overflowY: 'auto',
@@ -146,6 +153,7 @@ export default function PolicyModal({ policy, onClose }) {
               scrollbarColor: 'var(--harvest-gold) rgba(94, 39, 53, 0.1)'
             }}
             onWheel={(e) => {
+              e.stopPropagation();
               if (policyModalBodyRef.current) {
                 policyModalBodyRef.current.scrollTop += e.deltaY;
               }

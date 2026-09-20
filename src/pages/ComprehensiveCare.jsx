@@ -187,14 +187,16 @@ export default function ComprehensiveCare({ onNavigate }) {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Lock background scroll when modal is active
+  // Lock background scroll and pause Lenis smooth scroll when modal is active
   useEffect(() => {
     if (selectedDiseaseModal) {
       document.body.style.overflow = 'hidden';
       document.documentElement.style.overflow = 'hidden';
+      if (window.lenis) window.lenis.stop();
       return () => {
         document.body.style.overflow = 'auto';
         document.documentElement.style.overflow = 'auto';
+        if (window.lenis) window.lenis.start();
       };
     }
   }, [selectedDiseaseModal]);
@@ -334,6 +336,7 @@ export default function ComprehensiveCare({ onNavigate }) {
         <AnimatePresence mode="wait">
           <motion.div
             key="disease-modal-backdrop"
+            data-lenis-prevent="true"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -360,18 +363,21 @@ export default function ComprehensiveCare({ onNavigate }) {
             }}
             onClick={() => setSelectedDiseaseModal(null)}
             onWheel={(e) => {
+              e.stopPropagation();
               if (diseaseModalBodyRef.current) {
                 diseaseModalBodyRef.current.scrollTop += e.deltaY;
               }
             }}
           >
             <motion.div
+              data-lenis-prevent="true"
               initial={{ scale: 0.94, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.94, y: 20 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
               onWheel={(e) => {
+                e.stopPropagation();
                 if (diseaseModalBodyRef.current) {
                   diseaseModalBodyRef.current.scrollTop += e.deltaY;
                 }
@@ -470,6 +476,7 @@ export default function ComprehensiveCare({ onNavigate }) {
               {/* Modal Internal Scrollable Body Area */}
               <div 
                 ref={diseaseModalBodyRef}
+                data-lenis-prevent="true"
                 style={{
                   padding: isMobile ? '1.4rem' : '1.8rem 2rem',
                   overflowY: 'auto',
@@ -481,6 +488,7 @@ export default function ComprehensiveCare({ onNavigate }) {
                   pointerEvents: 'auto'
                 }}
                 onWheel={(e) => {
+                  e.stopPropagation();
                   if (diseaseModalBodyRef.current) {
                     diseaseModalBodyRef.current.scrollTop += e.deltaY;
                   }

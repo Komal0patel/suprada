@@ -179,14 +179,14 @@ export default function Gallery({ onNavigate }) {
       id: 14,
       title: "Architecture – Deluxe Eco-Residence & Veranda",
       cat: "Architecture",
-      img: "/assets/residences/samhita.png",
+      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.48 AM.jpeg",
       height: 310
     },
     {
       id: 15,
       title: "Therapies – Open-Air Forest Rejuvenation Session",
       cat: "Therapies",
-      img: "/assets/spa/outdoormassage.jpg",
+      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.49 AM.jpeg",
       height: 320
     },
     {

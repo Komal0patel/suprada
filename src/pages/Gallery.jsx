@@ -170,31 +170,31 @@ export default function Gallery({ onNavigate }) {
     },
     {
       id: 13,
-      title: "Architecture – Deluxe Eco-Residence & Garden Veranda",
-      cat: "Architecture",
-      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.48 AM.jpeg",
-      height: 310
-    },
-    {
-      id: 14,
       title: "Therapies – Aqua Hydrotherapy & Cleansing Suite",
       cat: "Therapies",
       img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM (2).jpeg",
       height: 310
     },
     {
-      id: 15,
+      id: 14,
       title: "Retreat – Heritage Guest Cottage & Suite",
       cat: "Retreat",
       img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.49 AM.jpeg",
       height: 320
     },
     {
-      id: 16,
+      id: 15,
       title: "Retreat – Evening Ambient Rest & Tranquil Dusk",
       cat: "Retreat",
       img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.50 AM.jpeg",
       height: 290
+    },
+    {
+      id: 16,
+      title: "Architecture – Deluxe Eco-Residence & Garden Veranda",
+      cat: "Architecture",
+      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.48 AM.jpeg",
+      height: 310
     }
   ];
 

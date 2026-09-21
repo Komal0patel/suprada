@@ -112,13 +112,6 @@ export default function Gallery({ onNavigate }) {
     },
     {
       id: 5,
-      title: "Architecture – Mud-Plastered Heritage Cottages",
-      cat: "Architecture",
-      img: "/assets/gallery/IMG_0584.JPEG",
-      height: 280
-    },
-    {
-      id: 6,
       title: "Architecture – Sacred Geometric Central Courtyard",
       cat: "Architecture",
       img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM.jpeg",
@@ -126,18 +119,25 @@ export default function Gallery({ onNavigate }) {
       featured: true
     },
     {
-      id: 7,
+      id: 6,
       title: "Architecture – Natural Light Interior Courtyard",
       cat: "Architecture",
       img: "/assets/gallery/IMG_0588.JPEG",
       height: 310
     },
     {
-      id: 8,
+      id: 7,
       title: "Retreat – Panoramic River View & Sunset Pavilion",
       cat: "Retreat",
       img: "/assets/gallery/IMG_0587.JPEG",
       height: 290
+    },
+    {
+      id: 8,
+      title: "Architecture – Mud-Plastered Heritage Cottages",
+      cat: "Architecture",
+      img: "/assets/gallery/IMG_0584.JPEG",
+      height: 280
     },
     {
       id: 9,

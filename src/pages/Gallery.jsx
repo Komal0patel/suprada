@@ -191,9 +191,9 @@ export default function Gallery({ onNavigate }) {
     },
     {
       id: 16,
-      title: "Architecture – Deluxe Eco-Residence & Garden Veranda",
+      title: "Architecture – Open-Air Amphitheatre & Forest Deck",
       cat: "Architecture",
-      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.48 AM.jpeg",
+      img: "/assets/more_images/open-air-amphitheatre.png",
       height: 310
     }
   ];

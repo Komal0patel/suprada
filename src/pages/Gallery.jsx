@@ -78,7 +78,7 @@ export default function Gallery({ onNavigate }) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // EXACT 16 gallery items mapped exclusively from public/assets/gallery directory
+  // EXACT 15 authentic gallery items mapped exclusively from user photos in public/assets/gallery directory
   const galleryItems = [
     {
       id: 1,
@@ -188,13 +188,6 @@ export default function Gallery({ onNavigate }) {
       cat: "Retreat",
       img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.50 AM.jpeg",
       height: 290
-    },
-    {
-      id: 16,
-      title: "Architecture – Open-Air Amphitheatre & Forest Deck",
-      cat: "Architecture",
-      img: "/assets/more_images/open-air-amphitheatre.png",
-      height: 310
     }
   ];
 
@@ -202,10 +195,6 @@ export default function Gallery({ onNavigate }) {
   const masonryColumns = Array.from({ length: numColumns }, () => []);
   galleryItems.forEach((item, idx) => {
     let colIdx = idx % numColumns;
-    // When in 3-column desktop layout and there is a single trailing image at the end, place it in the middle column
-    if (numColumns === 3 && galleryItems.length % 3 === 1 && idx === galleryItems.length - 1) {
-      colIdx = 1;
-    }
     masonryColumns[colIdx].push({ ...item, filteredIdx: idx });
   });
 

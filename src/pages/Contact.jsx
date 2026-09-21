@@ -29,7 +29,7 @@ const itemVariants = {
   }
 };
 
-// ── Hindu Calendar helpers ─────────────────────────────────────────────────
+// ── Traditional Calendar helpers ───────────────────────────────────────────
 const SAMVATSARA = [
   'Prabhava', 'Vibhava', 'Shukla', 'Pramodoota', 'Prajapati',
   'Aangirasa', 'Shrimukha', 'Bhava', 'Yuva', 'Dhatri',
@@ -59,16 +59,16 @@ const TITHI = [
 
 const VARA = ['Ravivar', 'Somvar', 'Mangalvar', 'Budhvar', 'Guruvar', 'Shukravar', 'Shanivar'];
 
-function getHinduCalendar() {
+function getTraditionalCalendar() {
   const now = new Date();
   const year = now.getFullYear();
   const month = now.getMonth(); // 0-indexed
   const day = now.getDate();
 
-  // Vikram Samvat: add 57 before Hindu new year (Chaitra, ~Apr 14), add 56 after
+  // Vikram Samvat: add 57 before new year (Chaitra, ~Apr 14), add 56 after
   // Chaitra Shukla Pratipada ≈ April 14 each year
-  const isBeforeHinduNewYear = month < 3 || (month === 3 && day < 14);
-  const vikramYear = isBeforeHinduNewYear ? year + 56 : year + 57;
+  const isBeforeNewYear = month < 3 || (month === 3 && day < 14);
+  const vikramYear = isBeforeNewYear ? year + 56 : year + 57;
 
   // Saka Samvat: subtract 78. Adjust if before Mar 22 (Ugadi)
   const isBeforeSakaNewYear = month < 2 || (month === 2 && day < 22);
@@ -77,7 +77,7 @@ function getHinduCalendar() {
   // Samvatsara: 60-year cycle. Index from VS year
   const samvatsaraIdx = (vikramYear - 1) % 60;
 
-  // Masa (Hindu lunar month) — approximate Gregorian boundaries:
+  // Masa (lunar month) — approximate Gregorian boundaries:
   // Chaitra: Mar 22–Apr 20 | Vaishakha: Apr 21–May 20 | Jyeshtha: May 21–Jun 20
   // Ashadha: Jun 21–Jul 21 | Shravana: Jul 22–Aug 21 | Bhadrapada: Aug 22–Sep 21
   // Ashvina: Sep 22–Oct 21 | Kartika: Oct 22–Nov 20 | Margashirsha: Nov 21–Dec 20
@@ -142,10 +142,10 @@ function getHinduCalendar() {
 }
 
 
-function HinduCalendarWidget() {
-  const [cal, setCal] = useState(getHinduCalendar);
+function TraditionalCalendarWidget() {
+  const [cal, setCal] = useState(getTraditionalCalendar);
   useEffect(() => {
-    const id = setInterval(() => setCal(getHinduCalendar()), 60000);
+    const id = setInterval(() => setCal(getTraditionalCalendar()), 60000);
     return () => clearInterval(id);
   }, []);
 
@@ -469,7 +469,7 @@ export default function Contact({ onNavigate }) {
           }}
         >
 
-          {/* ── NEW Box 1+2: Retreat Image LEFT + Commute & Hindu Calendar RIGHT ── */}
+          {/* ── NEW Box 1+2: Retreat Image LEFT + Commute & Calendar RIGHT ── */}
           <motion.div
             variants={itemVariants}
             style={{
@@ -551,7 +551,7 @@ export default function Contact({ onNavigate }) {
               </div>
             </div>
 
-            {/* RIGHT — Commute + Hindu Calendar */}
+            {/* RIGHT — Commute + Calendar */}
             <div style={{
               backgroundColor: 'var(--antique-white)',
               padding: '2.5rem 2.2rem',
@@ -585,8 +585,8 @@ export default function Contact({ onNavigate }) {
               {/* Divider */}
               <div style={{ height: '1px', backgroundColor: 'rgba(94, 39, 53, 0.1)' }} />
 
-              {/* Hindu Calendar + Date/Time Widget */}
-              <HinduCalendarWidget />
+              {/* Calendar + Date/Time Widget */}
+              <TraditionalCalendarWidget />
             </div>
           </motion.div>
 

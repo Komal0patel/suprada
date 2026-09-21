@@ -354,14 +354,14 @@ export default function Occasions({ onNavigate }) {
     { title: 'Special Occasions', desc: 'Birthdays, milestones, reunions — redefined the Suprada way with wellness at the core.', icon: <Award size={20} />, img: '/assets/more_images/spa-interior.jpg' }
   ];
 
-  const hinduCeremonies = [
-    { name: 'Shastipurti (60th Birthday)', desc: 'A sacred ceremony celebrating the 60th birthday, symbolizing rebirth, gratitude, and health blessings.', age: '60th Year' },
-    { name: 'Namakarana (Naming)', desc: 'A joyful ceremony where the newborn is formally named amidst traditional chants and family blessings.', age: 'Newborn' },
-    { name: 'Annaprashana (First Feeding)', desc: 'Marking the baby\'s first taste of solid food, celebrating growth and nourishment.', age: '6 Months' },
-    { name: 'Upanayanam (Thread Ceremony)', desc: 'A coming-of-age ritual where the sacred thread is bestowed, initiating the path of learning.', age: '8-12 Years' },
-    { name: 'Nischitartham (Engagement)', desc: 'A sacred commitment ceremony marking the union of two hearts and two families.', age: 'Pre-Wedding' },
-    { name: 'Ayushya Homam (Birthday Pooja)', desc: 'Homam performed on birthdays to invoke divine blessings for longevity and robust health.', age: 'Annual' },
-    { name: 'Seemantham (Baby Shower)', desc: 'A traditional blessing ceremony celebrating the expectant mother and the child.', age: 'Pregnancy' },
+  const traditionalCeremonies = [
+    { name: 'Milestone Birthdays (60th, etc.)', desc: 'A sacred ceremony celebrating milestone birthdays, symbolizing rebirth, gratitude, and health blessings.', age: 'Milestone Year' },
+    { name: 'Naming Ceremony (Namakarana)', desc: 'A joyful ceremony where the newborn is formally named amidst traditional blessings and family love.', age: 'Newborn' },
+    { name: 'First Feeding Ceremony (Annaprashana)', desc: 'Marking the baby\'s first taste of solid food, celebrating growth and nourishment.', age: '6 Months' },
+    { name: 'Coming-of-Age Ceremonies', desc: 'A coming-of-age ritual initiating spiritual learning, values, and individual growth.', age: 'Youth' },
+    { name: 'Engagement & Betrothal', desc: 'A sacred commitment ceremony marking the union of two hearts and two families.', age: 'Pre-Wedding' },
+    { name: 'Annual Birthday Blessings', desc: 'Special prayers and rituals performed on birthdays to invoke blessings for longevity and robust health.', age: 'Annual' },
+    { name: 'Baby Shower & Blessing (Seemantham)', desc: 'A traditional blessing ceremony celebrating the expectant mother and the child.', age: 'Pregnancy' },
     { name: 'Custom Rituals', desc: 'Ensuring your unique family customs and regional traditions are respected and executed perfectly.', age: 'Custom' }
   ];
 
@@ -799,21 +799,21 @@ export default function Occasions({ onNavigate }) {
         </div>
       </section>
 
-      {/* Traditional Hindu Ceremonies */}
+      {/* Traditional Ceremonies */}
       <section style={{ padding: '3.5rem 10%', background: 'linear-gradient(135deg, #c2d0ac 0%, #a8b891 100%)', color: 'var(--raisin-black)', position: 'relative', overflow: 'hidden' }}>
         <Pattern25 style={{ position: 'absolute', top: '10%', left: '-80px', maxWidth: '340px', width: '100%', height: 'auto', opacity: 0.12, color: 'var(--wine)', pointerEvents: 'none', zIndex: 0 }} />
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <h2 style={{ color: 'var(--wine)', }}>
-              Traditional Hindu Ceremonies
+              Traditional Ceremonies
             </h2>
             <AnimatedParagraph
-              text="We support families in celebrating sacred Hindu traditions with authenticity and care. From milestone birthdays to welcoming new beginnings, our team ensures every ritual is performed meaningfully and seamlessly. Our comprehensive services include venue decoration, pooja arrangements, priest coordination, catering, photography, guest management, and custom rituals based on your family traditions."
+              text="We support families in celebrating sacred traditions and milestones with authenticity and care. From milestone birthdays to welcoming new beginnings, our team ensures every ritual is performed meaningfully and seamlessly. Our comprehensive services include venue decoration, ceremonial arrangements, event coordination, catering, photography, guest management, and custom rituals based on your family traditions."
               style={{ color: 'var(--raisin-black)', opacity: 0.85, maxWidth: '780px', margin: '1rem auto 0 auto', fontSize: 'var(--fs-body)', lineHeight: 1.65, justifyContent: 'center' }}
             />
           </div>
 
-          {/* Responsive styles for Hindu Ceremonies showcase */}
+          {/* Responsive styles for Ceremonies showcase */}
           <style dangerouslySetInnerHTML={{
             __html: `
             @media (max-width: 868px) {
@@ -865,13 +865,13 @@ export default function Occasions({ onNavigate }) {
               }}
             >
               {[
-                { name: 'Shastipurti', subtitle: '60th Birthday Ritual', desc: 'A sacred milestone celebrating the 60th birthday, symbolizing rebirth, gratitude, and blessings for a healthy, long life.', age: '60th Year' },
-                { name: 'Namakarana', subtitle: 'Naming Ceremony', desc: 'A joyful moment where the newborn is bestowed with a meaningful name amid prayers and blessings.', age: 'Newborn' },
-                { name: 'Annaprashana', subtitle: 'First Feeding Ceremony', desc: 'Celebrating the baby\'s first taste of solid food, marking the beginning of a nourishing journey.', age: '6 Months' },
-                { name: 'Upanayanam', subtitle: 'Thread Ceremony', desc: 'A significant coming-of-age ceremony where the sacred thread is bestowed, initiating spiritual learning.', age: '8-12 Years' },
-                { name: 'Nischitartham', subtitle: 'Engagement', desc: 'A sacred commitment ceremony marking the formal betrothal and the union of two families.', age: 'Pre-Wedding' },
-                { name: 'Ayushya Homam', subtitle: 'Birthday Poojas', desc: 'Special prayers and rituals performed on birthdays to invoke divine blessings for health and longevity.', age: 'Annual' },
-                { name: 'Seemantham', subtitle: 'Baby Shower', desc: 'A traditional ceremony celebrating the expectant mother, showering her with blessings and good wishes.', age: 'Pregnancy' },
+                { name: 'Milestone Birthdays', subtitle: '60th Birthday & Milestones', desc: 'A sacred milestone celebrating major birthdays, symbolizing rebirth, gratitude, and blessings for a healthy, long life.', age: '60th Year' },
+                { name: 'Naming Ceremony', subtitle: 'Welcoming the Newborn', desc: 'A joyful moment where the newborn is bestowed with a meaningful name amid family prayers and blessings.', age: 'Newborn' },
+                { name: 'First Feeding Ceremony', subtitle: 'Solid Food Milestone', desc: 'Celebrating the baby\'s first taste of solid food, marking the beginning of a nourishing journey.', age: '6 Months' },
+                { name: 'Coming of Age', subtitle: 'Youth & Transition', desc: 'A significant coming-of-age ceremony initiating learning, personal growth, and traditional wisdom.', age: 'Youth' },
+                { name: 'Engagement & Betrothal', subtitle: 'Pre-Wedding Union', desc: 'A sacred commitment ceremony marking the formal betrothal and the union of two families.', age: 'Pre-Wedding' },
+                { name: 'Birthday Blessings', subtitle: 'Annual Health & Wellbeing', desc: 'Special prayers and rituals performed on birthdays to invoke peace, health, and longevity.', age: 'Annual' },
+                { name: 'Baby Shower', subtitle: 'Mother & Child Blessings', desc: 'A traditional ceremony celebrating the expectant mother, showering her with blessings and good wishes.', age: 'Pregnancy' },
                 { name: 'Custom Ceremonies', subtitle: 'Family Traditions', desc: 'We honor your unique family customs and traditions, ensuring every ritual reflects your heritage.', age: 'Custom' }
               ].map((ceremony, idx) => {
                 const isActive = activeCeremonyIdx === idx;
@@ -964,13 +964,13 @@ export default function Occasions({ onNavigate }) {
 
               {(() => {
                 const ceremoniesList = [
-                  { name: 'Shastipurti', subtitle: '60th Birthday Ritual', desc: 'A sacred milestone celebrating the 60th birthday, symbolizing rebirth, gratitude, and blessings for a healthy, long life.', age: '60th Year' },
-                  { name: 'Namakarana', subtitle: 'Naming Ceremony', desc: 'A joyful moment where the newborn is bestowed with a meaningful name amid prayers and blessings.', age: 'Newborn' },
-                  { name: 'Annaprashana', subtitle: 'First Feeding Ceremony', desc: 'Celebrating the baby\'s first taste of solid food, marking the beginning of a nourishing journey.', age: '6 Months' },
-                  { name: 'Upanayanam', subtitle: 'Thread Ceremony', desc: 'A significant coming-of-age ceremony where the sacred thread is bestowed, initiating spiritual learning.', age: '8-12 Years' },
-                  { name: 'Nischitartham', subtitle: 'Engagement', desc: 'A sacred commitment ceremony marking the formal betrothal and the union of two families.', age: 'Pre-Wedding' },
-                  { name: 'Ayushya Homam', subtitle: 'Birthday Poojas', desc: 'Special prayers and rituals performed on birthdays to invoke divine blessings for health and longevity.', age: 'Annual' },
-                  { name: 'Seemantham', subtitle: 'Baby Shower', desc: 'A traditional ceremony celebrating the expectant mother, showering her with blessings and good wishes.', age: 'Pregnancy' },
+                  { name: 'Milestone Birthdays', subtitle: '60th Birthday & Milestones', desc: 'A sacred milestone celebrating major birthdays, symbolizing rebirth, gratitude, and blessings for a healthy, long life.', age: '60th Year' },
+                  { name: 'Naming Ceremony', subtitle: 'Welcoming the Newborn', desc: 'A joyful moment where the newborn is bestowed with a meaningful name amid family prayers and blessings.', age: 'Newborn' },
+                  { name: 'First Feeding Ceremony', subtitle: 'Solid Food Milestone', desc: 'Celebrating the baby\'s first taste of solid food, marking the beginning of a nourishing journey.', age: '6 Months' },
+                  { name: 'Coming of Age', subtitle: 'Youth & Transition', desc: 'A significant coming-of-age ceremony initiating learning, personal growth, and traditional wisdom.', age: 'Youth' },
+                  { name: 'Engagement & Betrothal', subtitle: 'Pre-Wedding Union', desc: 'A sacred commitment ceremony marking the formal betrothal and the union of two families.', age: 'Pre-Wedding' },
+                  { name: 'Birthday Blessings', subtitle: 'Annual Health & Wellbeing', desc: 'Special prayers and rituals performed on birthdays to invoke peace, health, and longevity.', age: 'Annual' },
+                  { name: 'Baby Shower', subtitle: 'Mother & Child Blessings', desc: 'A traditional ceremony celebrating the expectant mother, showering her with blessings and good wishes.', age: 'Pregnancy' },
                   { name: 'Custom Ceremonies', subtitle: 'Family Traditions', desc: 'We honor your unique family customs and traditions, ensuring every ritual reflects your heritage.', age: 'Custom' }
                 ];
                 const activeCeremony = ceremoniesList[activeCeremonyIdx];
@@ -1037,12 +1037,12 @@ export default function Occasions({ onNavigate }) {
                         <span
                           onClick={() => {
                             document.getElementById('inquiry-form').scrollIntoView({ behavior: 'smooth' });
-                            setFormData({ ...formData, type: 'hindu-ceremony', message: `Inquiry regarding: ${activeCeremony.name}` });
+                            setFormData({ ...formData, type: 'traditional-ceremony', message: `Inquiry regarding: ${activeCeremony.name}` });
                             setFormStep(1);
                           }}
                           style={{ color: 'var(--wine)', fontSize: '0.86rem', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '0.4rem', cursor: 'pointer' }}
                         >
-                          Plan Ritual &rarr;
+                          Plan Ceremony &rarr;
                         </span>
                       </div>
                     </motion.div>
@@ -1153,8 +1153,8 @@ export default function Occasions({ onNavigate }) {
               >
                 {[
                   'Venue Decoration',
-                  'Pooja Arrangements',
-                  'Priest Coordination',
+                  'Ceremonial Arrangements',
+                  'Event & Officiant Coordination',
                   'Satwik Catering',
                   'Photography & Film',
                   'Guest Management',
@@ -1682,7 +1682,7 @@ export default function Occasions({ onNavigate }) {
                     <label htmlFor="type">Occasion Type</label>
                     <select id="type" name="type" value={formData.type} onChange={handleInputChange}>
                       <option value="corporate">Corporate Retreat</option>
-                      <option value="hindu-ceremony">Hindu Ceremony (Shastipurti, etc.)</option>
+                      <option value="traditional-ceremony">Traditional Ceremony (Milestone, Birthday, etc.)</option>
                       <option value="family-celebration">Family Gathering</option>
                       <option value="anniversary">Couple Anniversary</option>
                       <option value="wedding">Pre-Wedding / Haldi</option>

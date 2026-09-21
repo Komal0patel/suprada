@@ -134,10 +134,10 @@ export default function Gallery({ onNavigate }) {
     },
     {
       id: 8,
-      title: "Architecture – Mud-Plastered Heritage Cottages",
-      cat: "Architecture",
-      img: "/assets/gallery/IMG_0584.JPEG",
-      height: 280
+      title: "Retreat – Evening Ambient Rest & Tranquil Dusk",
+      cat: "Retreat",
+      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.50 AM.jpeg",
+      height: 290
     },
     {
       id: 9,
@@ -184,10 +184,10 @@ export default function Gallery({ onNavigate }) {
     },
     {
       id: 15,
-      title: "Retreat – Evening Ambient Rest & Tranquil Dusk",
-      cat: "Retreat",
-      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.50 AM.jpeg",
-      height: 290
+      title: "Architecture – Mud-Plastered Heritage Cottages",
+      cat: "Architecture",
+      img: "/assets/gallery/IMG_0584.JPEG",
+      height: 280
     }
   ];
 

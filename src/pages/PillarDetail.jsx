@@ -29,7 +29,7 @@ const pillarDataMap = {
     sanskritTranslation: '(Yoga is the cessation of the modifications of the mind.)',
     subtitle: 'Riverfront movement, pranayama, and meditative awareness',
     image: '/assets/programmes/yoga.jpg',
-    desc: 'Our riverfront yoga shala by the sacred Suvarnamukhi provides a tranquil sanctuary for breath-led movement, internal cleansing kriyas, and deep meditative stillness.',
+    desc: 'Our riverfront yoga shala by the sacred Suvarnamukhi provides a tranquil haven for breath-led movement, internal cleansing kriyas, and deep meditative stillness.',
     signatureTitle: 'Holistic Wellness Program',
     signatureDesc: 'A 7-day immersive journey anchoring daily Yoga and Meditation practices with comprehensive wellness therapies.',
     signatureChecks: ['Daily Guided Yoga & Meditation', 'Advanced Pranayama Sessions', 'Wellness Assessment', 'Satwik Nutrition Plan'],

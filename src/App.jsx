@@ -39,8 +39,8 @@ const searchIndex = [
   // ================= PAGES =================
   { 
     type: 'page', title: "Home Page", category: "Page", pageName: "Home", path: "home", 
-    desc: "Welcome to Suprada Sanctuary & Riverfront Wellness",
-    keywords: ["home", "homepage", "welcome", "suprada", "sanctuary", "suvarnamukhi", "river", "riverfront", "wellness", "natural", "healing", "drugless", "main"]
+    desc: "Welcome to Suprada Riverfront Wellness",
+    keywords: ["home", "homepage", "welcome", "suprada", "suvarnamukhi", "river", "riverfront", "wellness", "natural", "healing", "drugless", "main"]
   },
   { 
     type: 'page', title: "About Us & Founders", category: "Page", pageName: "About Us", path: "about", 
@@ -48,9 +48,9 @@ const searchIndex = [
     keywords: ["about", "about us", "founder", "founders", "renuka", "renuka nagaraju", "nagaraju", "sunil", "sunil jayaraj", "prema", "dr prema", "dr. prema ramadas", "ramadas", "md", "managing trustee", "medical director", "leadership", "team", "philosophy", "story", "mission"]
   },
   { 
-    type: 'page', title: "Spaces & Sanctuaries", category: "Page", pageName: "Spaces", path: "spaces", 
+    type: 'page', title: "Spaces & Retreats", category: "Page", pageName: "Spaces", path: "spaces", 
     desc: "Explore Swasthya, Sauhithya, Samiksha, Sukhada, Goshala & Cottages",
-    keywords: ["spaces", "sanctuary", "sanctuaries", "cottages", "residences", "blocks", "architecture", "swasthya", "sankalpa", "sauhithya", "suyoga", "prakruti", "salila"]
+    keywords: ["spaces", "retreats", "cottages", "residences", "blocks", "architecture", "swasthya", "sankalpa", "sauhithya", "suyoga", "prakruti", "salila"]
   },
   { 
     type: 'page', title: "Retreat Packages & Pricing", category: "Page", pageName: "Programmes/Packages", path: "programmes/packages", 
@@ -126,7 +126,7 @@ const searchIndex = [
   },
   { 
     type: 'card', title: "Mr. Sunil Jayaraj (Founder & Managing Trustee)", cardName: "Sunil Jayaraj", sectionName: "Founders & Leadership", pageName: "About Us", path: "about#founders-section", 
-    desc: "Visionary founder of Suprada Sanctuary, dedicating life to riverfront drugless healing & nature preservation",
+    desc: "Visionary founder of Suprada, dedicating life to riverfront drugless healing & nature preservation",
     keywords: ["sunil", "jayaraj", "sunil jayaraj", "mr sunil jayaraj", "founder", "managing trustee", "trustee", "leadership", "visionary", "creator", "owner"]
   },
   { 
@@ -1977,7 +1977,7 @@ function App() {
           {currentPage === 'programmes/advanced-healing'    && <ProgrammeDetail progId="advanced-healing" onNavigate={handlePageChange} />}
           {currentPage === 'advanced-healing'               && <ProgrammeDetail progId="advanced-healing" onNavigate={handlePageChange} />}
 
-          {/* Booking & Reservation Sanctuary Wizard */}
+          {/* Booking & Reservation Wizard */}
           {(currentPage === 'book' || currentPage === 'booking') && (
             <Book onNavigate={handlePageChange} preselectedProgramme={bookingProgramme} />
           )}

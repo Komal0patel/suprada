@@ -50,10 +50,10 @@ function TiltCard({ children, onClick, style, ...props }) {
 // Luxury descriptions based on photo subject
 const getDescriptionForTitle = (title) => {
   const t = title.toLowerCase();
-  if (t.includes("riverfront") || t.includes("sanctuary")) return "Pristine forest grounds along the soothing river breeze, offering peaceful solitude under ancient trees.";
+  if (t.includes("riverfront") || t.includes("grounds")) return "Pristine forest grounds along the soothing river breeze, offering peaceful solitude under ancient trees.";
   if (t.includes("mud-plastered") || t.includes("heritage")) return "Hand-crafted eco-cottages constructed using traditional mud plaster and reclaimed timber for natural cooling.";
   if (t.includes("teak") || t.includes("stone")) return "Timeless South Indian vernacular architecture blending carved stone pillars with reclaimed teak woodwork.";
-  if (t.includes("ayurvedic") || t.includes("treatment suite")) return "Serene sanctuary designed for traditional Panchakarma, synchronized oil therapies, and consultations.";
+  if (t.includes("ayurvedic") || t.includes("treatment suite")) return "Serene space designed for traditional Panchakarma, synchronized oil therapies, and consultations.";
   if (t.includes("sunset") || t.includes("panorama")) return "Sweeping vistas overlooking the flowing river waters as golden light washes across the forest canopy.";
   if (t.includes("interior courtyard") || t.includes("natural light")) return "Open sky inner courtyards inviting gentle sunlight and ambient air flow into calm living quarters.";
   if (t.includes("community") || t.includes("dialogue")) return "Shaded open-air seating areas for evening kirtans, philosophy discussions, and group reflections.";
@@ -82,7 +82,7 @@ export default function Gallery({ onNavigate }) {
   const galleryItems = [
     {
       id: 1,
-      title: "Retreat – Riverfront Sanctuary & Forest Grounds",
+      title: "Retreat – Riverfront Haven & Forest Grounds",
       cat: "Retreat",
       img: "/assets/gallery/IMG_0583.JPEG",
       height: 380,
@@ -191,7 +191,7 @@ export default function Gallery({ onNavigate }) {
     },
     {
       id: 16,
-      title: "Retreat – Evening Ambient Rest & Sanctuary Dusk",
+      title: "Retreat – Evening Ambient Rest & Tranquil Dusk",
       cat: "Retreat",
       img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.50 AM.jpeg",
       height: 290

@@ -276,7 +276,7 @@ export default function Wellness({ onNavigate }) {
               display: 'block',
               marginBottom: '0.4rem'
             }}>
-              ✦ Holistic Wellness Sanctuary ✦
+              ✦ Holistic Wellness Retreat ✦
             </span>
 
             <motion.h1
@@ -1249,7 +1249,7 @@ export default function Wellness({ onNavigate }) {
                         }}
                       >
                         <option value="Choose a room type" disabled>Choose a room type</option>
-                        <option value="Guha (Earth Sanctuary)">Guha (Earth Sanctuary)</option>
+                        <option value="Guha (Earth Cottage)">Guha (Earth Cottage)</option>
                         <option value="Samprapti (Serenity Suite)">Samprapti (Serenity Suite)</option>
                         <option value="Subhiksha (Heritage Cottage)">Subhiksha (Heritage Cottage)</option>
                       </select>

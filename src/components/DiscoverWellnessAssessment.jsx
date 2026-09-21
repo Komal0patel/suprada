@@ -274,7 +274,7 @@ const quizData = [
           badge: `Your Stress Score: ${totalScore}`,
           title: 'High Stress',
           subtitle: 'Deep stress relief suggestions',
-          desc: 'Your nervous system is in constant fight-or-flight mode. An intensive sanctuary retreat stay is recommended.',
+          desc: 'Your nervous system is in constant fight-or-flight mode. An intensive retreat stay is recommended.',
           recommendation: 'Deep restorative packages, sound healing, and holistic wellness retreat.',
           targetRoute: 'programmes/holistic-wellness'
         };

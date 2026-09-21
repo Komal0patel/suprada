@@ -1087,7 +1087,7 @@ export default function Home({ onNavigate }) {
           variants={foundersStaggerContainer}
           className="founders-grid"
         >
-          {/* Left Column - Sacred Maha Vilvam Tree Visual */}
+          {/* Left Column - Sacred Maha Bilva Tree Visual */}
           <motion.div 
             variants={foundersBadgeItem}
             className="founders-badge-col"
@@ -1113,7 +1113,7 @@ export default function Home({ onNavigate }) {
             >
               <img 
                 src="/assets/maha-bilva-tree.jpg" 
-                alt="Sacred Maha Vilvam Tree at Suprada" 
+                alt="Sacred Maha Bilva Tree at Suprada" 
                 className="founders-badge-img"
                 style={{ 
                   width: '100%', 
@@ -1138,7 +1138,7 @@ export default function Home({ onNavigate }) {
                   display: 'block',
                   textTransform: 'uppercase'
                 }}>
-                  Sacred Maha Vilvam Tree
+                  Sacred Maha Bilva Tree
                 </span>
                 <span style={{ 
                   fontSize: '0.72rem', 
@@ -1147,7 +1147,7 @@ export default function Home({ onNavigate }) {
                   display: 'block',
                   marginTop: '2px'
                 }}>
-                  Aegle marmelos • Suprada Sanctuary
+                  Aegle marmelos • Suprada
                 </span>
               </div>
             </motion.div>
@@ -1195,7 +1195,7 @@ export default function Home({ onNavigate }) {
               "In today's world, healing is often scattered—one place for the body, another for the mind. We created Suprada to bring these fragments together into one cohesive journey of restoration."
             </motion.p>
 
-            {/* Sacred Maha Vilvam Tree Feature Card */}
+            {/* Sacred Maha Bilva Tree Feature Card */}
             <motion.div 
               variants={foundersMistFadeVariant}
               style={{
@@ -1213,15 +1213,15 @@ export default function Home({ onNavigate }) {
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem', flexWrap: 'wrap' }}>
                 <span style={{ fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.14em', fontWeight: 800, color: 'var(--redwood)', backgroundColor: 'rgba(181, 101, 29, 0.12)', padding: '0.15rem 0.55rem', borderRadius: '20px' }}>
-                  Sacred Sanctuary Tree
+                  Sacred Tree
                 </span>
                 <h5 style={{ margin: 0, color: 'var(--wine)', fontSize: '0.95rem', fontWeight: 700 }}>
-                  The Sacred Maha Vilvam Tree (<em style={{ fontStyle: 'italic', fontWeight: 500 }}>Aegle marmelos</em>)
+                  The Sacred Maha Bilva Tree (<em style={{ fontStyle: 'italic', fontWeight: 500 }}>Aegle marmelos</em>)
                 </h5>
               </div>
               
               <p style={{ color: 'var(--raisin-black)', fontSize: '0.85rem', lineHeight: 1.55, margin: '0 0 0.5rem 0', opacity: 0.9 }}>
-                Suprada is home to a rare and sacred <strong>Maha Vilvam tree</strong>. While standard Bilva leaves feature three leaflets, this revered multi-leaf variety produces <strong>5 to 13 (or more) leaves on a single stalk</strong> (such as the 13-leaf <em>Trayodasha-patra</em>).
+                Suprada is home to a rare and sacred <strong>Maha Bilva tree</strong>. While standard Bilva leaves feature three leaflets, this revered multi-leaf variety produces <strong>5 to 13 (or more) leaves on a single stalk</strong> (such as the 13-leaf <em>Trayodasha-patra</em>).
               </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '0.55rem' }}>
@@ -1230,7 +1230,7 @@ export default function Home({ onNavigate }) {
                   <div>
                     <strong style={{ color: 'var(--wine)', fontSize: '0.78rem', display: 'block' }}>Spiritual Significance &amp; Energy</strong>
                     <span style={{ fontSize: '0.76rem', color: 'var(--raisin-black)', opacity: 0.85, lineHeight: 1.4, display: 'block' }}>
-                      Represents the divine Rudras of Lord Shiva, radiating high-energy positive vibes that naturally purify the sanctuary environment.
+                      Represents the divine Rudras of Lord Shiva, radiating high-energy positive vibes that naturally purify the environment.
                     </span>
                   </div>
                 </div>
@@ -1253,7 +1253,7 @@ export default function Home({ onNavigate }) {
                 onClick={() => onNavigate('about')}
                 style={{ background: 'none', border: 'none', color: 'var(--wine)', cursor: 'pointer', textAlign: 'left', fontWeight: 700, fontSize: '0.88rem', display: 'flex', alignItems: 'center', gap: '0.5rem', padding: 0 }}
               >
-                Learn More About Our Journey &amp; Sanctuary &rarr;
+                Learn More About Our Journey &rarr;
               </motion.button>
             </motion.div>
           </div>
@@ -2376,7 +2376,7 @@ export default function Home({ onNavigate }) {
             >
               <img 
                 src="/assets/transformation-retreat.jpg" 
-                alt="Suprada Wellness Retreat sanctuary surrounded by lush nature" 
+                alt="Suprada Wellness Retreat surrounded by lush nature" 
               />
             </motion.div>
 
@@ -3010,8 +3010,8 @@ export default function Home({ onNavigate }) {
                   img: '/assets/Founders/srinivas_ramadas.jpg', 
                   objectPosition: 'center 69.5%',
                   badge: 'Sanctum Operations Director',
-                  quote: 'Crafting the standard of luxury wellness operations and guest sanctuary experiences.',
-                  story: 'Srinivas Ramadas oversees the operational architecture and guest sanctuary journey at Suprada Wellness. He ensures that every retreat detail—from eco-cabin hospitality to seamless care coordination—reflects highest standards of tranquility, safety, and warmth.',
+                  quote: 'Crafting the standard of luxury wellness operations and guest experiences.',
+                  story: 'Srinivas Ramadas oversees the operational architecture and guest journey at Suprada Wellness. He ensures that every retreat detail—from eco-cabin hospitality to seamless care coordination—reflects highest standards of tranquility, safety, and warmth.',
                   highlights: ['Director Operations', 'Sanctum Hospitality & Operations', 'Caregiver Coordination', 'Guest Journey Architect']
                 },
                 { 

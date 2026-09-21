@@ -70,7 +70,7 @@ const mapPillarToProgramme = (slug) => {
 const accommodationsList = [
   {
     id: 'guha',
-    name: 'Guha Sanctuary Cottage',
+    name: 'Guha Cottage',
     type: 'Eco-Luxury Cottage',
     desc: 'Earth-sheltered private cottage with personal riverfront sit-out veranda and open sky rain shower.',
     image: '/assets/guha.png',
@@ -765,7 +765,7 @@ export default function Book({ onNavigate, preselectedProgramme }) {
                     2. Choose Your Stay &amp; Guest Details
                   </h3>
                   <p style={{ fontSize: '0.94rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.75, marginBottom: '2rem' }}>
-                    Select your preferred sanctuary accommodation by the riverbank.
+                    Select your preferred accommodation by the riverbank.
                   </p>
 
                   {/* Accommodation Cards */}
@@ -940,7 +940,7 @@ export default function Book({ onNavigate, preselectedProgramme }) {
                     </div>
 
                     <div style={{ backgroundColor: '#FAF6F0', borderRadius: '14px', padding: '1.2rem', border: '1px solid rgba(94, 39, 53, 0.1)' }}>
-                      <span style={{ fontSize: '0.72rem', fontWeight: 800, color: 'var(--redwood, #B85645)', textTransform: 'uppercase', display: 'block', marginBottom: '0.2rem' }}>Sanctuary Stay</span>
+                      <span style={{ fontSize: '0.72rem', fontWeight: 800, color: 'var(--redwood, #B85645)', textTransform: 'uppercase', display: 'block', marginBottom: '0.2rem' }}>Retreat Stay</span>
                       <h4 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.2rem', fontWeight: 700, margin: '0 0 0.2rem 0' }}>{currentAccObj.name}</h4>
                       <p style={{ fontSize: '0.85rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.8, margin: 0 }}>{guestsCount} {guestsCount === 1 ? 'Guest' : 'Guests'}</p>
                     </div>

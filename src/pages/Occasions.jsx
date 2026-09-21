@@ -1390,7 +1390,7 @@ export default function Occasions({ onNavigate }) {
             Discover Our Spaces
           </h2>
           <p style={{ color: 'var(--raisin-black)', opacity: 0.85, maxWidth: '640px', margin: '0 auto 2.2rem auto', fontSize: '1.02rem', lineHeight: 1.7 }}>
-            Our 10-acre forest sanctuary features versatile lotus pavilions, high-ceiling wooden halls, glass yoga sanctuaries, open-air amphitheatre, and private courtyards designed for mindful gatherings.
+            Our 10-acre forest retreat features versatile lotus pavilions, high-ceiling wooden halls, glass yoga pavilions, open-air amphitheatre, and private courtyards designed for mindful gatherings.
           </p>
           <button
             onClick={() => onNavigate ? onNavigate('spaces') : (window.location.href = '/spaces')}

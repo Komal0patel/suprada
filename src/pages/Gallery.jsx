@@ -90,17 +90,17 @@ export default function Gallery({ onNavigate }) {
     },
     {
       id: 2,
-      title: "Architecture – Mud-Plastered Heritage Cottages",
-      cat: "Architecture",
-      img: "/assets/gallery/IMG_0584.JPEG",
-      height: 280
-    },
-    {
-      id: 3,
       title: "Architecture – Reclaimed Teak & Stone Architecture",
       cat: "Architecture",
       img: "/assets/gallery/IMG_0585.JPEG",
       height: 320
+    },
+    {
+      id: 3,
+      title: "Activities – Morning Yoga & Movement Deck",
+      cat: "Activities",
+      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM (1).jpeg",
+      height: 290
     },
     {
       id: 4,
@@ -112,31 +112,32 @@ export default function Gallery({ onNavigate }) {
     },
     {
       id: 5,
-      title: "Retreat – Panoramic River View & Sunset Pavilion",
-      cat: "Retreat",
-      img: "/assets/gallery/IMG_0587.JPEG",
-      height: 290
+      title: "Architecture – Mud-Plastered Heritage Cottages",
+      cat: "Architecture",
+      img: "/assets/gallery/IMG_0584.JPEG",
+      height: 280
     },
     {
       id: 6,
+      title: "Architecture – Sacred Geometric Central Courtyard",
+      cat: "Architecture",
+      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM.jpeg",
+      height: 370,
+      featured: true
+    },
+    {
+      id: 7,
       title: "Architecture – Natural Light Interior Courtyard",
       cat: "Architecture",
       img: "/assets/gallery/IMG_0588.JPEG",
       height: 310
     },
     {
-      id: 7,
-      title: "Activities – Outdoor Community Dialogue & Gathering",
-      cat: "Activities",
-      img: "/assets/gallery/IMG_0589.JPEG",
-      height: 300
-    },
-    {
       id: 8,
-      title: "Therapies – Deep Rejuvenation Treatment Room",
-      cat: "Therapies",
-      img: "/assets/gallery/IMG_0590.JPEG",
-      height: 330
+      title: "Retreat – Panoramic River View & Sunset Pavilion",
+      cat: "Retreat",
+      img: "/assets/gallery/IMG_0587.JPEG",
+      height: 290
     },
     {
       id: 9,
@@ -148,44 +149,43 @@ export default function Gallery({ onNavigate }) {
     },
     {
       id: 10,
-      title: "Retreat – Scenic Landscape & Nature Immersion",
+      title: "Retreat – Scenic Suite & Nature Immersion",
       cat: "Retreat",
       img: "/assets/gallery/IMG_0592.JPEG",
       height: 300
     },
     {
       id: 11,
-      title: "Architecture – Sacred Geometric Central Courtyard",
-      cat: "Architecture",
-      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM.jpeg",
-      height: 370,
-      featured: true
+      title: "Activities – Outdoor Community Dialogue & Gathering",
+      cat: "Activities",
+      img: "/assets/gallery/IMG_0589.JPEG",
+      height: 300
     },
     {
       id: 12,
-      title: "Activities – Morning Yoga & Asana Flow",
-      cat: "Activities",
-      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM (1).jpeg",
-      height: 290
+      title: "Therapies – Deep Rejuvenation Treatment Room",
+      cat: "Therapies",
+      img: "/assets/gallery/IMG_0590.JPEG",
+      height: 330
     },
     {
       id: 13,
+      title: "Architecture – Deluxe Eco-Residence & Garden Veranda",
+      cat: "Architecture",
+      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.48 AM.jpeg",
+      height: 310
+    },
+    {
+      id: 14,
       title: "Therapies – Aqua Hydrotherapy & Cleansing Suite",
       cat: "Therapies",
       img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM (2).jpeg",
       height: 310
     },
     {
-      id: 14,
-      title: "Architecture – Deluxe Eco-Residence & Veranda",
-      cat: "Architecture",
-      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.48 AM.jpeg",
-      height: 310
-    },
-    {
       id: 15,
-      title: "Therapies – Open-Air Forest Rejuvenation Session",
-      cat: "Therapies",
+      title: "Retreat – Heritage Guest Cottage & Suite",
+      cat: "Retreat",
       img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.49 AM.jpeg",
       height: 320
     },

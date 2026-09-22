@@ -151,10 +151,10 @@ export default function YogaMeditation({ onNavigate }) {
       </section>
 
       {/* Main Content Area */}
-      <div className="pillar-main-container" style={{ maxWidth: '1220px', margin: '0 auto', padding: '4rem 6%' }}>
+      <div className="pillar-main-container" style={{ maxWidth: '1220px', margin: '0 auto', padding: '2rem 6%' }}>
         
         {/* 2. ABOUT YOGA & MEDITATION SECTION */}
-        <section style={{ marginBottom: '5rem' }}>
+        <section style={{ marginBottom: '2rem' }}>
           <div className="pillar-about-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '3rem', alignItems: 'center' }}>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -209,9 +209,9 @@ export default function YogaMeditation({ onNavigate }) {
             transition={{ duration: 0.8 }}
             style={{
               position: 'relative',
-              marginTop: '4rem',
+              marginTop: '1.8rem',
               borderRadius: '24px',
-              padding: '3rem 2rem',
+              padding: '1.5rem 1.8rem',
               textAlign: 'center',
               boxShadow: '0 10px 30px rgba(94, 39, 53, 0.06)',
               border: '1.5px solid rgba(94, 39, 53, 0.15)',
@@ -247,7 +247,7 @@ export default function YogaMeditation({ onNavigate }) {
 
       {/* 3. PATHWAYS TO INNER PEACE - MUTED SAGE GREEN TABBED SECTION (Exact /spaces Sanctum Zones Layout) */}
       <section id="pathways" style={{
-        padding: '4.5rem 6%',
+        padding: '2.2rem 6%',
         boxSizing: 'border-box',
         background: 'linear-gradient(135deg, #c8ceaa 0%, #b3ba8e 60%, #a3aa7e 100%)',
         color: 'var(--wine, #5E2735)',
@@ -407,7 +407,7 @@ export default function YogaMeditation({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
-                        <img src="/assets/more_images/agnihotra.png" alt="Kriya" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="/assets/generated/clinical_detoxification.png" alt="Kriya" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
                       <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>INTERNAL CLEANSING</span>
                       <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Kriya</h3>
@@ -419,7 +419,7 @@ export default function YogaMeditation({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
-                        <img src="/assets/generated/holistic_therapies.png" alt="Mudra" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="/assets/generated/yoga_meditation.png" alt="Mudra" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
                       <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>HAND SIGNALS</span>
                       <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Mudra</h3>
@@ -499,7 +499,7 @@ export default function YogaMeditation({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
-                        <img src="/assets/more_images/agnihotra.png" alt="Sunset Trataka" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="/assets/generated/mental_wellbeing.png" alt="Sunset Trataka" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
                       <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>OPTIC CONCENTRATION</span>
                       <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Sunset Trataka</h3>
@@ -564,11 +564,11 @@ export default function YogaMeditation({ onNavigate }) {
       </section>
 
       {/* Main Container Continued */}
-      <div style={{ maxWidth: '1220px', margin: '0 auto', padding: '4rem 6%' }}>
+      <div style={{ maxWidth: '1220px', margin: '0 auto', padding: '2rem 6%' }}>
         
         {/* 4. UNION OF BODY, MIND & SOUL SECTION */}
-        <section style={{ paddingTop: '3rem', borderTop: '1px solid rgba(94, 39, 53, 0.15)', marginBottom: '4rem' }}>
-          <div style={{ maxWidth: '850px', margin: '0 auto', textAlign: 'center', marginBottom: '3rem' }}>
+        <section style={{ paddingTop: '1.5rem', borderTop: '1px solid rgba(94, 39, 53, 0.15)', marginBottom: '2rem' }}>
+          <div style={{ maxWidth: '850px', margin: '0 auto', textAlign: 'center', marginBottom: '1.5rem' }}>
             <h2 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: 'clamp(2.2rem, 3.8vw, 3.4rem)', fontWeight: 700, margin: '0 0 1rem 0' }}>
               Union of Body, Mind &amp; Soul
             </h2>
@@ -586,8 +586,8 @@ export default function YogaMeditation({ onNavigate }) {
             className="pillar-signature-card"
             style={{
               backgroundColor: '#ffffff',
-              borderRadius: '28px',
-              padding: '2.5rem',
+              borderRadius: '24px',
+              padding: '1.5rem 1.8rem',
               border: '1.5px solid rgba(94, 39, 53, 0.15)',
               boxShadow: '0 14px 40px rgba(94, 39, 53, 0.08)'
             }}

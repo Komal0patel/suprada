@@ -191,10 +191,10 @@ export default function HolisticTherapies({ onNavigate }) {
       </section>
 
       {/* Main Content Area */}
-      <div className="pillar-main-container" style={{ maxWidth: '1220px', margin: '0 auto', padding: '4rem 6%' }}>
+      <div className="pillar-main-container" style={{ maxWidth: '1220px', margin: '0 auto', padding: '2rem 6%' }}>
         
         {/* 2. ABOUT HOLISTIC THERAPIES SECTION */}
-        <section style={{ marginBottom: '5rem' }}>
+        <section style={{ marginBottom: '2rem' }}>
           <div className="pillar-about-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '3.5rem', alignItems: 'center' }}>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -283,7 +283,7 @@ export default function HolisticTherapies({ onNavigate }) {
 
       {/* 4. HEALING MODALITIES - Muted Sage Green Interactive Tabbed Section with Professional Lucide Icons */}
       <section id="modalities" style={{
-        padding: '5rem 6%',
+        padding: '2.2rem 6%',
         boxSizing: 'border-box',
         background: 'linear-gradient(135deg, #c8ceaa 0%, #b3ba8e 60%, #a3aa7e 100%)',
         color: 'var(--wine, #5E2735)',
@@ -527,10 +527,10 @@ export default function HolisticTherapies({ onNavigate }) {
       </section>
 
       {/* Main Container Continued */}
-      <div style={{ maxWidth: '1220px', margin: '0 auto', padding: '4.5rem 6%' }}>
+      <div style={{ maxWidth: '1220px', margin: '0 auto', padding: '2rem 6%' }}>
         
-        {/* 5. COMPLETE MIND-BODY INTEGRATION & SIGNATURE EXPERIENCE - Exact reference content & image */}
-        <section style={{ marginBottom: '5rem' }}>
+        {/* 5. INTEGRATIVE HEALING & SIGNATURE FOCUS - Exact reference content & image */}
+        <section style={{ marginBottom: '2.2rem' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.8rem' }}>
             <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: 'clamp(2rem, 3.4vw, 2.8rem)', fontWeight: 700, margin: '0 0 0.8rem 0' }}>
               Complete Mind-Body Integration

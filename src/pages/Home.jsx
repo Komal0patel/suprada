@@ -1667,7 +1667,7 @@ export default function Home({ onNavigate }) {
                             top: 0, left: 0, right: 0, bottom: 0,
                             backgroundImage: `url(${[
                               '/assets/more_images/gograsa.png',
-                              '/assets/more_images/agnihotra.png',
+                              '/assets/generated/yoga_meditation.png',
                               '/assets/more_images/sound_healing.png',
                               '/assets/more_images/satsang.png',
                               '/assets/more_images/planting_trees.png',
@@ -1767,7 +1767,7 @@ export default function Home({ onNavigate }) {
                 },
                 { 
                   title: 'Agnihotra', 
-                  image: '/assets/more_images/agnihotra.png' 
+                  image: '/assets/generated/yoga_meditation.png' 
                 },
                 { 
                   title: 'Sound Healing', 

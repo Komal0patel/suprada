@@ -155,10 +155,10 @@ export default function HolisticWellness({ onNavigate }) {
       </section>
 
       {/* Main Content Area */}
-      <div className="pillar-main-container" style={{ maxWidth: '1220px', margin: '0 auto', padding: '4.5rem 6%' }}>
+      <div className="pillar-main-container" style={{ maxWidth: '1220px', margin: '0 auto', padding: '2rem 6%' }}>
         
         {/* 2. ABOUT HOLISTIC WELLNESS SECTION */}
-        <section style={{ marginBottom: '5rem' }}>
+        <section style={{ marginBottom: '2rem' }}>
           <div className="pillar-about-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '3.5rem', alignItems: 'center' }}>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -203,8 +203,8 @@ export default function HolisticWellness({ onNavigate }) {
           </div>
         </section>
 
-        {/* 3. INTEGRATIVE HEALING SECTION (Exact tabs and cards) */}
-        <section id="integrative-healing" style={{ marginBottom: '5.5rem', scrollMarginTop: '5rem' }}>
+        {/* 3. INTEGRATIVE THERAPIES & MODALITIES - Tabbed Cards */}
+        <section id="integrative-healing" style={{ marginBottom: '2rem', scrollMarginTop: '5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.8rem' }}>
             <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: 'clamp(2.2rem, 3.8vw, 3.4rem)', margin: '0 0 0.6rem 0', fontWeight: 700 }}>
               Integrative <span style={{ color: 'var(--harvest-gold, #B8860B)', fontStyle: 'italic' }}>Healing</span>
@@ -466,7 +466,7 @@ export default function HolisticWellness({ onNavigate }) {
         </section>
 
         {/* 4. YOUR JOURNEY TO WHOLENESS (Room & Price Tiers) */}
-        <section style={{ marginBottom: '5.5rem' }}>
+        <section style={{ marginBottom: '2rem' }}>
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

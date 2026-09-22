@@ -157,10 +157,10 @@ export default function Naturopathy({ onNavigate }) {
       </section>
 
       {/* Main Page Container */}
-      <div className="pillar-main-container" style={{ maxWidth: '1220px', margin: '0 auto', padding: '4rem 6%' }}>
+      <div className="pillar-main-container" style={{ maxWidth: '1220px', margin: '0 auto', padding: '2rem 6%' }}>
         
         {/* 2. ABOUT NATUROPATHY SECTION - Centered for both desktop and mobile */}
-        <section style={{ marginBottom: '5rem' }}>
+        <section style={{ marginBottom: '2rem' }}>
           <div className="pillar-about-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '3rem', alignItems: 'center' }}>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -215,9 +215,9 @@ export default function Naturopathy({ onNavigate }) {
             transition={{ duration: 0.8 }}
             style={{
               position: 'relative',
-              marginTop: '4rem',
+              marginTop: '1.8rem',
               borderRadius: '24px',
-              padding: '3rem 2rem',
+              padding: '1.5rem 1.8rem',
               textAlign: 'center',
               boxShadow: '0 10px 30px rgba(94, 39, 53, 0.06)',
               border: '1.5px solid rgba(94, 39, 53, 0.15)',
@@ -250,8 +250,8 @@ export default function Naturopathy({ onNavigate }) {
         </section>
 
         {/* 3. EXCLUSIVE TO SUPRADA WELLNESS - DIAGNOSIS SECTION (Matching Suprada Residences Cards in /spaces) */}
-        <section id="diagnostics" style={{ marginBottom: '5rem', scrollMarginTop: '5rem' }}>
-          <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+        <section id="diagnostics" style={{ marginBottom: '2rem', scrollMarginTop: '5rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
             <span style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -451,7 +451,7 @@ export default function Naturopathy({ onNavigate }) {
 
       {/* 4. MUTED SAGE GREEN TABBED SECTION - Therapeutic Massages (Exact /spaces Sanctum Zones Layout) */}
       <section style={{
-        padding: '4.5rem 6%',
+        padding: '2.2rem 6%',
         boxSizing: 'border-box',
         background: 'linear-gradient(135deg, #c8ceaa 0%, #b3ba8e 60%, #a3aa7e 100%)',
         color: 'var(--wine, #5E2735)',
@@ -814,10 +814,10 @@ export default function Naturopathy({ onNavigate }) {
       </section>
 
       {/* Main Container Continued */}
-      <div style={{ maxWidth: '1220px', margin: '0 auto', padding: '4rem 6%' }}>
+      <div style={{ maxWidth: '1220px', margin: '0 auto', padding: '2rem 6%' }}>
         
         {/* 5. HYDROTHERAPY SECTION */}
-        <section style={{ marginBottom: '5rem' }}>
+        <section style={{ marginBottom: '2rem' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
             <span style={{
               display: 'inline-flex',
@@ -907,7 +907,7 @@ export default function Naturopathy({ onNavigate }) {
         </section>
 
         {/* 6. EARTH THERAPIES SECTION */}
-        <section style={{ marginBottom: '5rem' }}>
+        <section style={{ marginBottom: '2rem' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
             <span style={{
               display: 'inline-flex',
@@ -1070,7 +1070,7 @@ export default function Naturopathy({ onNavigate }) {
         </section>
 
         {/* 7. SOLAR & THERMAL THERAPIES SECTION */}
-        <section style={{ marginBottom: '5rem' }}>
+        <section style={{ marginBottom: '2rem' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.8rem' }}>
             <span style={{
               display: 'inline-flex',

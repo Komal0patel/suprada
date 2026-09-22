@@ -258,10 +258,10 @@ export default function PillarDetail({ pillarId, onNavigate }) {
       </section>
 
       {/* Main Content Area */}
-      <div className="pillar-main-container" style={{ maxWidth: '1220px', margin: '0 auto', padding: '4rem 6%' }}>
+      <div className="pillar-main-container" style={{ maxWidth: '1220px', margin: '0 auto', padding: '2rem 6%' }}>
         
         {/* 2. ABOUT PILLAR SECTION */}
-        <section style={{ marginBottom: '5rem' }}>
+        <section style={{ marginBottom: '2rem' }}>
           <div className="pillar-about-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '3rem', alignItems: 'center' }}>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -353,7 +353,7 @@ export default function PillarDetail({ pillarId, onNavigate }) {
 
       {/* 3. MUTED SAGE GREEN TABBED SECTION - Modalities (Exact /spaces Sanctum Zones Layout) */}
       <section id="therapies" style={{
-        padding: '4.5rem 6%',
+        padding: '2.2rem 6%',
         boxSizing: 'border-box',
         background: 'linear-gradient(135deg, #c8ceaa 0%, #b3ba8e 60%, #a3aa7e 100%)',
         color: 'var(--wine, #5E2735)',
@@ -402,10 +402,10 @@ export default function PillarDetail({ pillarId, onNavigate }) {
       </section>
 
       {/* Main Container Continued */}
-      <div style={{ maxWidth: '1220px', margin: '0 auto', padding: '4rem 6%' }}>
+      <div style={{ maxWidth: '1220px', margin: '0 auto', padding: '2rem 6%' }}>
         
         {/* 4. SIGNATURE PROGRAMME CARD */}
-        <section style={{ marginBottom: '5rem' }}>
+        <section style={{ marginBottom: '2rem' }}>
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

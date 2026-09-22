@@ -542,7 +542,7 @@ export default function Occasions({ onNavigate }) {
             transition={{ delay: 0.6, duration: 0.8 }}
             style={{ color: 'rgba(40, 38, 37, 0.88)', maxWidth: '720px', margin: '1.8rem auto 0 auto', fontSize: 'var(--fs-body)', lineHeight: 1.8, fontWeight: 300 }}
           >
-            From intimate moments to grand gatherings, we curate healthcations that infuse every occasion with transformative wellness experiences. Our versatile spaces accommodate groups from two to fifty guests.
+            From special moments to grand gatherings, we curate healthcations that infuse every occasion with transformative wellness experiences. Our versatile spaces accommodate groups from two to fifty guests.
           </motion.p>
         </div>
       </section>

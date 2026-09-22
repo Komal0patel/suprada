@@ -383,7 +383,7 @@ export default function YogaMeditation({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
-                        <img src="/assets/generated/pranayama_yoga.png" alt="Pranayama" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="/assets/generated/body_mind_coordination.png" alt="Pranayama" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
                       <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>VITAL ENERGY CONTROL</span>
                       <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Pranayama</h3>
@@ -407,7 +407,7 @@ export default function YogaMeditation({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
-                        <img src="/assets/generated/clinical_detoxification.png" alt="Kriya" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="/assets/generated/pranayama_yoga.png" alt="Kriya" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
                       <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>INTERNAL CLEANSING</span>
                       <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Kriya</h3>

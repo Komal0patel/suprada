@@ -318,7 +318,7 @@ export default function Naturopathy({ onNavigate }) {
               <div>
                 <div style={{ borderRadius: '16px', overflow: 'hidden', height: '190px', marginBottom: '1.4rem', position: 'relative' }}>
                   <img 
-                    src="/assets/gallery/IMG_0586.JPEG" 
+                    src="https://images.pexels.com/photos/1545590/pexels-photo-1545590.jpeg?auto=compress&cs=tinysrgb&w=800" 
                     alt="Iris Diagnosis" 
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
@@ -364,7 +364,7 @@ export default function Naturopathy({ onNavigate }) {
               <div>
                 <div style={{ borderRadius: '16px', overflow: 'hidden', height: '190px', marginBottom: '1.4rem', position: 'relative' }}>
                   <img 
-                    src="/assets/gallery/IMG_0588.JPEG" 
+                    src="https://images.pexels.com/photos/3762879/pexels-photo-3762879.jpeg?auto=compress&cs=tinysrgb&w=800" 
                     alt="Facial Diagnosis" 
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
@@ -410,7 +410,7 @@ export default function Naturopathy({ onNavigate }) {
               <div>
                 <div style={{ borderRadius: '16px', overflow: 'hidden', height: '190px', marginBottom: '1.4rem', position: 'relative' }}>
                   <img 
-                    src="/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM (1).jpeg" 
+                    src="https://images.pexels.com/photos/4506109/pexels-photo-4506109.jpeg?auto=compress&cs=tinysrgb&w=800" 
                     alt="Body Mind Coordination" 
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
@@ -551,7 +551,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/gallery/IMG_0584.JPEG" alt="Powder Vibrio" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Powder Vibrio" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ MUD &amp; DRY</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>VIBRATIONAL DETOX</span>
@@ -564,7 +564,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.48 AM.jpeg" alt="Partial" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="https://images.pexels.com/photos/3997993/pexels-photo-3997993.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Partial" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ LOCALIZED</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>TARGETED RELIEF</span>
@@ -577,7 +577,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/gallery/IMG_0590.JPEG" alt="Deep Tissue" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Deep Tissue" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ INTENSIVE</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>MUSCLE RELEASE</span>
@@ -590,7 +590,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM (2).jpeg" alt="Reflexology" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="https://images.pexels.com/photos/3764567/pexels-photo-3764567.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Reflexology" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ REFLEX POINTS</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>FOOT &amp; PALM PRESSURE</span>
@@ -603,7 +603,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/gallery/IMG_0585.JPEG" alt="Acumassage" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="https://images.pexels.com/photos/3865676/pexels-photo-3865676.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Acumassage" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ MERIDIAN</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>ACUPRESSURE FLOW</span>
@@ -616,7 +616,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/gallery/IMG_0589.JPEG" alt="Shiatsu" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="https://images.pexels.com/photos/3757946/pexels-photo-3757946.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Shiatsu" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ JAPANESE ART</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>TRADITIONAL SHIATSU</span>
@@ -633,7 +633,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM.jpeg" alt="Swedish Massage" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="https://images.pexels.com/photos/3757941/pexels-photo-3757941.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Swedish Massage" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ CLASSIC FLOW</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>GENTLE RELAXATION</span>
@@ -646,7 +646,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM (1).jpeg" alt="Thai Lymphatic Drainage" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="https://images.pexels.com/photos/3757957/pexels-photo-3757957.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Thai Lymphatic Drainage" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ PASSIVE STRETCH</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>SEN LINE FLUSH</span>
@@ -659,7 +659,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/gallery/IMG_0588.JPEG" alt="Balinese" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="https://images.pexels.com/photos/3865712/pexels-photo-3865712.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Balinese" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ BALINESE TOUCH</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>DEEP ACUPRESSURE</span>
@@ -672,7 +672,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/gallery/IMG_0591.JPEG" alt="Lymphatic" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="https://images.pexels.com/photos/3764536/pexels-photo-3764536.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Lymphatic" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ DETOX STROKES</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>SYSTEMIC FLUSH</span>
@@ -689,7 +689,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/gallery/IMG_0591.JPEG" alt="Lymphatic" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="https://images.pexels.com/photos/3764536/pexels-photo-3764536.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Lymphatic" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ DETOX FLUSH</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>SYSTEMIC CLEARANCE</span>
@@ -702,7 +702,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.49 AM.jpeg" alt="Pre & Postnatal" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="https://images.pexels.com/photos/3985253/pexels-photo-3985253.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Pre & Postnatal" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ MATERNAL CARE</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>MOTHERHOOD WELLNESS</span>
@@ -715,7 +715,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/gallery/IMG_0587.JPEG" alt="Hot Stone" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="https://images.pexels.com/photos/939836/pexels-photo-939836.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Hot Stone" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ THERMAL BASALT</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>HEAT DEEP RELEASE</span>
@@ -728,7 +728,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/gallery/IMG_0592.JPEG" alt="Sports" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="https://images.pexels.com/photos/4506108/pexels-photo-4506108.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Sports" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ MUSCLE CONDITIONING</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>DEEP RECOVERY</span>
@@ -745,7 +745,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/gallery/IMG_0584.JPEG" alt="Herbal Scrub" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Herbal Scrub" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ BOTANICAL</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>SKIN POLISH</span>
@@ -758,7 +758,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/gallery/WhatsApp Image 2026-09-04 at 7.31.46 AM (2).jpeg" alt="Salt Glow" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="https://images.pexels.com/photos/3757954/pexels-photo-3757954.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Salt Glow" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ MINERAL RICH</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>MINERAL RENEWAL</span>
@@ -771,7 +771,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.50 AM.jpeg" alt="Fruit" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="https://images.pexels.com/photos/3762875/pexels-photo-3762875.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Fruit" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ NATURAL AHA</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>ORGANIC NOURISHMENT</span>
@@ -784,7 +784,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/gallery/IMG_0583.JPEG" alt="Aroma" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="https://images.pexels.com/photos/6621364/pexels-photo-6621364.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Aroma" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ ESSENTIAL OILS</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>SENSORY HARMONY</span>
@@ -801,7 +801,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/gallery/IMG_0586.JPEG" alt="Neem & Turmeric Vitality" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="https://images.pexels.com/photos/3757945/pexels-photo-3757945.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Neem & Turmeric Vitality" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ BOTANICAL DETOX</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>ANTISEPTIC PURIFICATION</span>
@@ -814,7 +814,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/gallery/IMG_0588.JPEG" alt="Aloe & Cucumber Pack" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="https://images.pexels.com/photos/3762871/pexels-photo-3762871.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Aloe & Cucumber Pack" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ HYDRATION GEL</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>COOLING DERMAL SOOTHING</span>
@@ -827,7 +827,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/gallery/IMG_0585.JPEG" alt="Herbal Steam Bath" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="https://images.pexels.com/photos/3757950/pexels-photo-3757950.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Herbal Steam Bath" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ BOTANICAL VAPOR</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>PORE OPENING DETOX</span>

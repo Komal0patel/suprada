@@ -134,13 +134,6 @@ export default function Gallery({ onNavigate }) {
     },
     {
       id: 8,
-      title: "Retreat – Evening Ambient Rest & Tranquil Dusk",
-      cat: "Retreat",
-      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.50 AM.jpeg",
-      height: 290
-    },
-    {
-      id: 9,
       title: "Nutrition – Organic Satwik Dining & Farm Produce",
       cat: "Nutrition",
       img: "/assets/gallery/IMG_0591.JPEG",
@@ -148,11 +141,18 @@ export default function Gallery({ onNavigate }) {
       featured: true
     },
     {
-      id: 10,
+      id: 9,
       title: "Retreat – Scenic Suite & Nature Immersion",
       cat: "Retreat",
       img: "/assets/gallery/IMG_0592.JPEG",
       height: 300
+    },
+    {
+      id: 10,
+      title: "Architecture – Mud-Plastered Heritage Cottages",
+      cat: "Architecture",
+      img: "/assets/gallery/IMG_0584.JPEG",
+      height: 280
     },
     {
       id: 11,
@@ -184,10 +184,10 @@ export default function Gallery({ onNavigate }) {
     },
     {
       id: 15,
-      title: "Architecture – Mud-Plastered Heritage Cottages",
-      cat: "Architecture",
-      img: "/assets/gallery/IMG_0584.JPEG",
-      height: 280
+      title: "Retreat – Evening Ambient Rest & Tranquil Dusk",
+      cat: "Retreat",
+      img: "/assets/gallery/WhatsApp Image 2026-09-04 at 7.33.50 AM.jpeg",
+      height: 290
     }
   ];
 

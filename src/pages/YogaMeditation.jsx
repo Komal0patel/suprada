@@ -368,192 +368,192 @@ export default function YogaMeditation({ onNavigate }) {
             >
               {activeTab === 'core' && (
                 <>
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/generated/asana_yoga.png" alt="Asana" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>PHYSICAL INTEGRATION</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Asana</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Physical postures for building core strength, alignment, and flexibility.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>PHYSICAL INTEGRATION</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Asana</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Physical postures for building core strength, alignment, and flexibility.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Posture &amp; muscular endurance</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Posture &amp; muscular endurance</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/generated/pranayama_yoga.png" alt="Pranayama" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>VITAL ENERGY CONTROL</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Pranayama</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Breath control techniques for regulating vital energy and calming the mind.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>VITAL ENERGY CONTROL</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Pranayama</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Breath control techniques for regulating vital energy and calming the mind.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Respiratory &amp; prana balance</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Respiratory &amp; prana balance</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/generated/mental_wellbeing.png" alt="Meditation" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>MENTAL CLARITY</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Meditation</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Guided mindfulness techniques for cultivating profound mental stillness.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>MENTAL CLARITY</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Meditation</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Guided mindfulness techniques for cultivating profound mental stillness.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Emotional equilibrium &amp; focus</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Emotional equilibrium &amp; focus</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/more_images/agnihotra.png" alt="Kriya" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>INTERNAL CLEANSING</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Kriya</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Cleansing techniques designed for internal bodily and energetic purification.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>INTERNAL CLEANSING</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Kriya</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Cleansing techniques designed for internal bodily and energetic purification.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Systemic detox &amp; vital force</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Systemic detox &amp; vital force</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/generated/holistic_therapies.png" alt="Mudra" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>HAND SIGNALS</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Mudra</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Sacred hand gestures to seal and channel pranic energy pathways.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>HAND SIGNALS</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Mudra</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Sacred hand gestures to seal and channel pranic energy pathways.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Subtle energy direction</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Subtle energy direction</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/wellness/salute-sun.jpg" alt="Bandha" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>INTERNAL POWER</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Bandha</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Internal energy locks for directing prana upward through the central channel.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>INTERNAL POWER</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Bandha</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Internal energy locks for directing prana upward through the central channel.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Core activation &amp; vital retention</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Core activation &amp; vital retention</div>
                   </div>
                 </>
               )}
 
               {activeTab === 'therapeutic' && (
                 <>
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/generated/neurological_cranial_rest.png" alt="Yoga Nidra" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>DEEP CONSCIOUS REST</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Yoga Nidra</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Psychic sleep for profound stress release.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>DEEP CONSCIOUS REST</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Yoga Nidra</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Psychic sleep for profound stress release.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Sleep restoration &amp; anxiety release</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Sleep restoration &amp; anxiety release</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/generated/sound_healing.png" alt="Sound Healing" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>VIBRATIONAL HARMONY</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Sound Healing</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Acoustic vibration resonance therapy.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>VIBRATIONAL HARMONY</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Sound Healing</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Acoustic vibration resonance therapy.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Cellular vibration &amp; brainwave entrainment</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Cellular vibration &amp; brainwave entrainment</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/generated/yoga_meditation.png" alt="Chakra Balancing" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>SUBTLE ENERGY NODES</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Chakra Balancing</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Energy center alignment through breath &amp; meditation.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>SUBTLE ENERGY NODES</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Chakra Balancing</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Energy center alignment through breath &amp; meditation.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Subtle body alignment</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Subtle body alignment</div>
                   </div>
                 </>
               )}
 
               {activeTab === 'specialized' && (
                 <>
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/wellness/salute-sun.jpg" alt="Sunrise Riverfront Asanas" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>EARLY MORNING PRACTICE</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Sunrise Riverfront Asanas</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Early morning practice by the sacred Suvarnamukhi river.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>EARLY MORNING PRACTICE</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Sunrise Riverfront Asanas</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Early morning practice by the sacred Suvarnamukhi river.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Prana absorption &amp; solar energy</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Prana absorption &amp; solar energy</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/more_images/agnihotra.png" alt="Sunset Trataka" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>OPTIC CONCENTRATION</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Sunset Trataka</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Candle meditation for focused gaze &amp; optic calm.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>OPTIC CONCENTRATION</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Sunset Trataka</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Candle meditation for focused gaze &amp; optic calm.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Concentration &amp; vision clarity</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Concentration &amp; vision clarity</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/generated/physiotherapy.png" alt="Customized Yoga Therapy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
+                        <img src="/assets/programmes/physiotherapy-about.jpg" alt="Customized Yoga Therapy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>THERAPEUTIC PRESCRIPTION</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Customized Yoga Therapy</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Personalized 1-on-1 yoga prescription for health conditions.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>THERAPEUTIC PRESCRIPTION</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Customized Yoga Therapy</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Personalized 1-on-1 yoga prescription for health conditions.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Individual medical alignment</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Individual medical alignment</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/programmes/rejuvenation.jpg" alt="Pre & Post Natal Yoga" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>PRENATAL &amp; POSTNATAL HARMONY</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Pre &amp; Post Natal Yoga</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Gentle, modified posture sequences and breathwork supporting pelvic health, lumbar ease, and emotional calm for expecting and new mothers.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>PRENATAL &amp; POSTNATAL HARMONY</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Pre &amp; Post Natal Yoga</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Gentle, modified posture sequences and breathwork supporting pelvic health, lumbar ease, and emotional calm for expecting and new mothers.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Maternal balance, lumbar ease &amp; calm</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Maternal balance, lumbar ease &amp; calm</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/generated/geriatric_yoga.png" alt="Geriatric Yoga" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>GENTLE MOBILITY &amp; VITALITY</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Geriatric Yoga</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Soft, joint-friendly movements and adapted asanas tailored for seniors to enhance flexibility, balance, joint comfort, and overall vitality.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>GENTLE MOBILITY &amp; VITALITY</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Geriatric Yoga</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Soft, joint-friendly movements and adapted asanas tailored for seniors to enhance flexibility, balance, joint comfort, and overall vitality.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Senior mobility, balance &amp; joint health</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Senior mobility, balance &amp; joint health</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/generated/asana_yoga.png" alt="Hatha Yoga" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>TRADITIONAL BODY-BREATH ALIGNMENT</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Hatha Yoga</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Classical system of static postures and pranayama balancing body energies (sun &amp; moon), building core stability, and deepening mind-body harmony.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>TRADITIONAL BODY-BREATH ALIGNMENT</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Hatha Yoga</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Classical system of static postures and pranayama balancing body energies (sun &amp; moon), building core stability, and deepening mind-body harmony.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Postural stability &amp; energy balance</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Postural stability &amp; energy balance</div>
                   </div>
                 </>
               )}

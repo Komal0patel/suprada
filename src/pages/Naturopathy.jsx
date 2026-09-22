@@ -297,18 +297,18 @@ export default function Naturopathy({ onNavigate }) {
           </div>
 
           {/* 3 Diagnostic Cards Horizontal Track */}
-          <div ref={diagnosisRef} className="diagnosis-horizontal-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))', gap: '2rem' }}>
+          <div ref={diagnosisRef} className="diagnosis-horizontal-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
             
             {/* Iris Diagnosis */}
             <motion.div 
-              whileHover={{ y: -8 }}
+              whileHover={{ y: -6 }}
               transition={{ type: "spring", stiffness: 180, damping: 20 }}
               style={{
                 backgroundColor: '#ffffff',
-                borderRadius: '24px',
+                borderRadius: '20px',
                 border: '1.5px solid rgba(94, 39, 53, 0.15)',
-                boxShadow: '0 12px 35px rgba(94, 39, 53, 0.05)',
-                padding: '2rem 1.8rem',
+                boxShadow: '0 8px 24px rgba(94, 39, 53, 0.05)',
+                padding: '1.2rem 1.3rem',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
@@ -316,7 +316,7 @@ export default function Naturopathy({ onNavigate }) {
               }}
             >
               <div>
-                <div style={{ borderRadius: '16px', overflow: 'hidden', height: '190px', marginBottom: '1.4rem', position: 'relative' }}>
+                <div style={{ borderRadius: '14px', overflow: 'hidden', height: '135px', marginBottom: '0.8rem', position: 'relative' }}>
                   <img 
                     src="/assets/generated/iris_diagnosis.png" 
                     alt="Iris Diagnosis" 
@@ -324,34 +324,34 @@ export default function Naturopathy({ onNavigate }) {
                   />
                 </div>
 
-                <span style={{ fontSize: '0.75rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>
+                <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>
                   OCULAR ASSESSMENT
                 </span>
 
-                <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.5rem', fontWeight: 700, margin: '0 0 0.6rem 0' }}>
+                <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.28rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>
                   Iris Diagnosis
                 </h3>
 
-                <p style={{ fontSize: '0.92rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.6, margin: '0 0 1.2rem 0' }}>
-                  The eyes are windows to your internal health. Our expert practitioners analyze the unique patterns, colors, and markings in your iris to identify organ strengths, weaknesses, and potential health imbalances long before symptoms appear.
+                <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.5, margin: '0 0 0.7rem 0' }}>
+                  The eyes are windows to your internal health. Our expert practitioners analyze patterns, colors, and markings in your iris to identify organ strengths and potential health imbalances.
                 </p>
               </div>
 
-              <div style={{ paddingTop: '0.8rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.78rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>
+              <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>
                 Key Focus: Organ mapping &amp; constitution mapping
               </div>
             </motion.div>
 
             {/* Facial Diagnosis */}
             <motion.div 
-              whileHover={{ y: -8 }}
+              whileHover={{ y: -6 }}
               transition={{ type: "spring", stiffness: 180, damping: 20 }}
               style={{
                 backgroundColor: '#ffffff',
-                borderRadius: '24px',
+                borderRadius: '20px',
                 border: '1.5px solid rgba(94, 39, 53, 0.15)',
-                boxShadow: '0 12px 35px rgba(94, 39, 53, 0.05)',
-                padding: '2rem 1.8rem',
+                boxShadow: '0 8px 24px rgba(94, 39, 53, 0.05)',
+                padding: '1.2rem 1.3rem',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
@@ -359,7 +359,7 @@ export default function Naturopathy({ onNavigate }) {
               }}
             >
               <div>
-                <div style={{ borderRadius: '16px', overflow: 'hidden', height: '190px', marginBottom: '1.4rem', position: 'relative' }}>
+                <div style={{ borderRadius: '14px', overflow: 'hidden', height: '135px', marginBottom: '0.8rem', position: 'relative' }}>
                   <img 
                     src="/assets/generated/facial_diagnosis.png" 
                     alt="Facial Diagnosis" 
@@ -367,34 +367,34 @@ export default function Naturopathy({ onNavigate }) {
                   />
                 </div>
 
-                <span style={{ fontSize: '0.75rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>
+                <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>
                   SKIN &amp; TISSUE REFLEXES
                 </span>
 
-                <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.5rem', fontWeight: 700, margin: '0 0 0.6rem 0' }}>
+                <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.28rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>
                   Facial Diagnosis
                 </h3>
 
-                <p style={{ fontSize: '0.92rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.6, margin: '0 0 1.2rem 0' }}>
-                  Your face reflects your body's constitution and current state. Through detailed facial mapping, we assess skin texture, color variations, and subtle markers that reveal digestive health, hormonal balance, and emotional well-being.
+                <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.5, margin: '0 0 0.7rem 0' }}>
+                  Your face reflects your body's constitution. Through detailed facial mapping, we assess skin texture, color variations, and subtle markers revealing digestive health and hormonal balance.
                 </p>
               </div>
 
-              <div style={{ paddingTop: '0.8rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.78rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>
+              <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>
                 Key Focus: Gut health &amp; metabolic evaluation
               </div>
             </motion.div>
 
             {/* Body Mind Co-ordination */}
             <motion.div 
-              whileHover={{ y: -8 }}
+              whileHover={{ y: -6 }}
               transition={{ type: "spring", stiffness: 180, damping: 20 }}
               style={{
                 backgroundColor: '#ffffff',
-                borderRadius: '24px',
+                borderRadius: '20px',
                 border: '1.5px solid rgba(94, 39, 53, 0.15)',
-                boxShadow: '0 12px 35px rgba(94, 39, 53, 0.05)',
-                padding: '2rem 1.8rem',
+                boxShadow: '0 8px 24px rgba(94, 39, 53, 0.05)',
+                padding: '1.2rem 1.3rem',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
@@ -402,7 +402,7 @@ export default function Naturopathy({ onNavigate }) {
               }}
             >
               <div>
-                <div style={{ borderRadius: '16px', overflow: 'hidden', height: '190px', marginBottom: '1.4rem', position: 'relative' }}>
+                <div style={{ borderRadius: '14px', overflow: 'hidden', height: '135px', marginBottom: '0.8rem', position: 'relative' }}>
                   <img 
                     src="/assets/generated/body_mind_coordination.png" 
                     alt="Body Mind Coordination" 
@@ -410,20 +410,20 @@ export default function Naturopathy({ onNavigate }) {
                   />
                 </div>
 
-                <span style={{ fontSize: '0.75rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>
+                <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>
                   NEUROMUSCULAR CLARITY
                 </span>
 
-                <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.5rem', fontWeight: 700, margin: '0 0 0.6rem 0' }}>
+                <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.28rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>
                   Body Mind Co-ordination
                 </h3>
 
-                <p style={{ fontSize: '0.92rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.6, margin: '0 0 1.2rem 0' }}>
-                  The connection between physical movements and mental clarity tells a powerful story. Through specialized assessments, we evaluate posture, balance, coordination, and reflex responses to understand the harmony between your body and mind.
+                <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.5, margin: '0 0 0.7rem 0' }}>
+                  Evaluating physical movements and mental clarity. Through specialized assessments, we evaluate posture, balance, coordination, and reflex responses for mind-body harmony.
                 </p>
               </div>
 
-              <div style={{ paddingTop: '0.8rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.78rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>
+              <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>
                 Key Focus: Nervous system &amp; postural balance
               </div>
             </motion.div>
@@ -536,275 +536,274 @@ export default function Naturopathy({ onNavigate }) {
               transition={{ duration: 0.35 }}
               className={`massage-horizontal-grid ${activeMassageTab === 'traditional' || activeMassageTab === 'herbal' ? 'treatment-grid-3col' : 'treatment-grid-4col'}`}
             >
-
               {activeMassageTab === 'traditional' && (
                 <>
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/generated/herbal_scrub.png" alt="Powder Vibrio" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>VIBRATIONAL DETOX</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Powder Vibrio</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Dry vibration therapy targeting deep lymphatic drainage and cellular stimulation.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>VIBRATIONAL DETOX</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Powder Vibrio</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Dry vibration therapy targeting deep lymphatic drainage and cellular stimulation.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Lymphatic flush &amp; skin revival</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Lymphatic flush &amp; skin revival</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/spa/shouldermassage.jpg" alt="Partial" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>TARGETED RELIEF</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Partial</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Localized healing focus for specific pain points, back, or joint stiffness.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>TARGETED RELIEF</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Partial</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Localized healing focus for specific pain points, back, or joint stiffness.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Pain management &amp; muscle knots</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Pain management &amp; muscle knots</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/spa/outdoormassage.jpg" alt="Deep Tissue" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
+                        <img src="/assets/wellness/step-4-therapies.jpg" alt="Deep Tissue" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>MUSCLE RELEASE</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Deep Tissue</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Releases chronic muscle tension through deep pressure along muscle fibers.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>MUSCLE RELEASE</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Deep Tissue</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Releases chronic muscle tension through deep pressure along muscle fibers.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Structural balance &amp; flexibility</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Structural balance &amp; flexibility</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/generated/reflexology.png" alt="Reflexology" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>FOOT &amp; PALM PRESSURE</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Reflexology</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Targeted foot and palm pressure points corresponding to major internal organs.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>FOOT &amp; PALM PRESSURE</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Reflexology</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Targeted foot and palm pressure points corresponding to major internal organs.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Organ stimulation &amp; nerve relaxation</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Organ stimulation &amp; nerve relaxation</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/spa/katibasti.jpg" alt="Acumassage" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
+                        <img src="/assets/programmes/acupuncture.jpg" alt="Acumassage" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>ACUPRESSURE FLOW</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Acumassage</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Harmonizes energy pathways by applying precise finger pressure to key acupoints.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>ACUPRESSURE FLOW</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Acumassage</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Harmonizes energy pathways by applying precise finger pressure to key acupoints.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Energy channel balance</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Energy channel balance</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/spa/headmassage.jpg" alt="Shiatsu" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>TRADITIONAL SHIATSU</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Shiatsu</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Japanese thumb and palm pressure technique restoring body equilibrium.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>TRADITIONAL SHIATSU</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Shiatsu</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Japanese thumb and palm pressure technique restoring body equilibrium.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Vital force balance &amp; flexibility</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Vital force balance &amp; flexibility</div>
                   </div>
                 </>
               )}
 
               {activeMassageTab === 'global' && (
                 <>
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/programmes/abhyanga-massage.jpg" alt="Swedish Massage" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
+                        <img src="/assets/spa/outdoormassage.jpg" alt="Swedish Massage" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>GENTLE RELAXATION</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Swedish Massage</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Gentle, long gliding strokes designed to enhance oxygen flow and calm nervous system.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>GENTLE RELAXATION</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Swedish Massage</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Gentle, long gliding strokes designed to enhance oxygen flow and calm nervous system.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Circulation &amp; stress reduction</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Circulation &amp; stress reduction</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/spa/outdoormassage.jpg" alt="Thai Lymphatic Drainage" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
+                        <img src="/assets/programmes/physiotherapy-sig.jpg" alt="Thai Lymphatic Drainage" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>SEN LINE FLUSH</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Thai Lymphatic Drainage</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Combines rhythmic compression along Sen energy lines with targeted lymphatic fluid clearing.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>SEN LINE FLUSH</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Thai Lymphatic Drainage</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Combines rhythmic compression along Sen energy lines with targeted lymphatic fluid clearing.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Joint mobility &amp; fluid balance</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Joint mobility &amp; fluid balance</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/spa/shirodhara.jpg" alt="Balinese" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
+                        <img src="/assets/programmes/ayurveda.jpg" alt="Balinese" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>DEEP ACUPRESSURE</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Balinese</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Traditional Balinese technique combining gentle stretches, palm pressure, and essential oils.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>DEEP ACUPRESSURE</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Balinese</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Traditional Balinese technique combining gentle stretches, palm pressure, and essential oils.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Deep tissue relief &amp; energy release</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Deep tissue relief &amp; energy release</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/generated/clinical_detoxification.png" alt="Lymphatic" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
+                        <img src="/assets/programmes/detox-prog.jpg" alt="Lymphatic" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>SYSTEMIC FLUSH</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Lymphatic Drainage</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Rhythmic, light strokes encouraging fluid drainage and metabolic waste clearance.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>SYSTEMIC FLUSH</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Lymphatic Drainage</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Rhythmic, light strokes encouraging fluid drainage and metabolic waste clearance.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Edema reduction &amp; immune support</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Edema reduction &amp; immune support</div>
                   </div>
                 </>
               )}
 
               {activeMassageTab === 'specialized' && (
                 <>
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/generated/detox_cleansing.png" alt="Lymphatic" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
+                        <img src="/assets/programmes/detox-prog.jpg" alt="Lymphatic" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>SYSTEMIC CLEARANCE</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Lymphatic</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Targeted lymphatic fluid clearing to remove toxins, reduce puffiness, and boost immunity.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>SYSTEMIC CLEARANCE</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Lymphatic</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Targeted lymphatic fluid clearing to remove toxins, reduce puffiness, and boost immunity.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Fluid balance &amp; immunity</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Fluid balance &amp; immunity</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/programmes/rejuvenation-prog.jpg" alt="Pre & Postnatal" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
+                        <img src="/assets/programmes/rejuvenation.jpg" alt="Pre & Postnatal" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>MOTHERHOOD WELLNESS</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Pre &amp; Postnatal</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Specialized therapy alleviating back tension, pelvic strain, and fatigue for expectant and new mothers.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>MOTHERHOOD WELLNESS</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Pre &amp; Postnatal</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Specialized therapy alleviating back tension, pelvic strain, and fatigue for expectant and new mothers.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Lumbar comfort &amp; emotional calm</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Lumbar comfort &amp; emotional calm</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/programmes/mud-bath.jpg" alt="Hot Stone" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
+                        <img src="/assets/spa/katibasti.jpg" alt="Hot Stone" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>HEAT DEEP RELEASE</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Hot Stone</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Smooth, heated volcanic basalt stones melt away deep muscular tightness and enhance circulation.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>HEAT DEEP RELEASE</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Hot Stone</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Smooth, heated volcanic basalt stones melt away deep muscular tightness and enhance circulation.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Thermal relaxation &amp; tension melt</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Thermal relaxation &amp; tension melt</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/generated/physiotherapy.png" alt="Sports" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
+                        <img src="/assets/programmes/physiotherapy.jpg" alt="Sports" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>DEEP RECOVERY</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Sports</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Targeted therapeutic pressure relieving lactic acid accumulation and restoring muscle flexibility.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>DEEP RECOVERY</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Sports</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Targeted therapeutic pressure relieving lactic acid accumulation and restoring muscle flexibility.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Athletic performance &amp; tissue repair</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Athletic performance &amp; tissue repair</div>
                   </div>
                 </>
               )}
 
               {activeMassageTab === 'sensory' && (
                 <>
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/generated/herbal_scrub.png" alt="Herbal Scrub" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>SKIN POLISH</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Herbal Body Scrub</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Exfoliating botanical polish removing dead skin cells and encouraging microcirculation.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>SKIN POLISH</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Herbal Body Scrub</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Exfoliating botanical polish removing dead skin cells and encouraging microcirculation.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Epidermal renewal &amp; softness</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Epidermal renewal &amp; softness</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/generated/herbal_scrub.png" alt="Salt Glow" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
+                        <img src="/assets/programmes/satwik-food.jpg" alt="Salt Glow" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>MINERAL RENEWAL</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Salt Glow</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Mineral-rich salt crystals blended with therapeutic oils for deep skin glow.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>MINERAL RENEWAL</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Salt Glow</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Mineral-rich salt crystals blended with therapeutic oils for deep skin glow.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Mineral absorption &amp; glow</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Mineral absorption &amp; glow</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/generated/facial_diagnosis.png" alt="Fruit" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>ORGANIC NOURISHMENT</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Fruit</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Fresh organic fruit pulp application rich in vitamins and fruit acids to illuminate skin texture.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>ORGANIC NOURISHMENT</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Fruit</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Fresh organic fruit pulp application rich in vitamins and fruit acids to illuminate skin texture.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Vitamin hydration &amp; natural radiance</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Vitamin hydration &amp; natural radiance</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/spa/shirodhara.jpg" alt="Aroma" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>SENSORY HARMONY</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Aroma</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Infusion of pure botanical essential oils tailored to soothe mind and body through olfactory touch.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>SENSORY HARMONY</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Aroma</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Infusion of pure botanical essential oils tailored to soothe mind and body through olfactory touch.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Emotional grounding &amp; stress release</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Key Focus: Emotional grounding &amp; stress release</div>
                   </div>
                 </>
               )}
 
               {activeMassageTab === 'herbal' && (
                 <>
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/programmes/mud-bath.jpg" alt="Neem & Turmeric Vitality" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
+                        <img src="/assets/programmes/ayurveda-sig.jpg" alt="Neem & Turmeric Vitality" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>ANTISEPTIC PURIFICATION</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Neem &amp; Turmeric Wrap</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Purifying herbal paste wrap promoting dermal immunity, anti-inflammatory defense, and clear complexion.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>ANTISEPTIC PURIFICATION</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Neem &amp; Turmeric Wrap</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Purifying herbal paste wrap promoting dermal immunity, anti-inflammatory defense, and clear complexion.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Includes: Skin purification &amp; allergy relief</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Includes: Skin purification &amp; allergy relief</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/generated/facial_diagnosis.png" alt="Aloe & Cucumber Pack" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>COOLING DERMAL SOOTHING</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Aloe &amp; Cucumber Soothing Pack</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Deeply hydrating organic aloe vera and fresh cucumber pulp soothing sun damage and heat imbalance.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>COOLING DERMAL SOOTHING</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Aloe &amp; Cucumber Soothing Pack</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Deeply hydrating organic aloe vera and fresh cucumber pulp soothing sun damage and heat imbalance.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Includes: Deep dermal cooling &amp; moisture replenishment</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Includes: Deep dermal cooling &amp; moisture replenishment</div>
                   </div>
 
-                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
+                  <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '20px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.1rem 1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 6px 20px rgba(94, 39, 53, 0.05)' }}>
                     <div>
-                      <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
+                      <div className="treatment-card-img" style={{ borderRadius: '12px', overflow: 'hidden', height: '130px', marginBottom: '0.7rem', position: 'relative' }}>
                         <img src="/assets/programmes/hydrotherapy.jpg" alt="Herbal Steam Bath" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>PORE OPENING DETOX</span>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 0.5rem 0' }}>Herbal Steam Bath</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.55, margin: '0 0 1rem 0' }}>Medicinal herb vapor infusion opening skin pores, eliminating heavy metals, and boosting vitality.</p>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.25rem' }}>PORE OPENING DETOX</span>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--wine, #5E2735)', fontSize: '1.25rem', fontWeight: 700, margin: '0 0 0.35rem 0' }}>Herbal Steam Bath</h3>
+                      <p style={{ fontSize: '0.88rem', color: 'var(--raisin-black, #2B1B17)', opacity: 0.85, lineHeight: 1.48, margin: '0 0 0.6rem 0' }}>Medicinal herb vapor infusion opening skin pores, eliminating heavy metals, and boosting vitality.</p>
                     </div>
-                    <div style={{ paddingTop: '0.7rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Includes: Pore cleansing &amp; vital force activation</div>
+                    <div style={{ paddingTop: '0.5rem', borderTop: '1px dashed rgba(94, 39, 53, 0.2)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--redwood, #B85645)' }}>Includes: Pore cleansing &amp; vital force activation</div>
                   </div>
                 </>
               )}

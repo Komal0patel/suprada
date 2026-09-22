@@ -672,7 +672,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/programmes/detox-cleanse.jpg" alt="Lymphatic" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="/assets/generated/clinical_detoxification.png" alt="Lymphatic" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ DETOX STROKES</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>SYSTEMIC FLUSH</span>
@@ -689,7 +689,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/programmes/detox-cleanse.jpg" alt="Lymphatic" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="/assets/generated/detox_cleansing.png" alt="Lymphatic" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ DETOX FLUSH</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>SYSTEMIC CLEARANCE</span>
@@ -728,7 +728,7 @@ export default function Naturopathy({ onNavigate }) {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', borderRadius: '22px', border: '1.5px solid rgba(255, 255, 255, 0.9)', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(94, 39, 53, 0.06)' }}>
                     <div>
                       <div className="treatment-card-img" style={{ borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.2rem', position: 'relative' }}>
-                        <img src="/assets/spa/shouldermassage.jpg" alt="Sports" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src="/assets/generated/physiotherapy.png" alt="Sports" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         <span style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'var(--wine, #5E2735)', color: '#f5ebd9', fontSize: '0.68rem', fontWeight: 800, padding: '0.3rem 0.75rem', borderRadius: '12px' }}>✦ MUSCLE CONDITIONING</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: 'var(--redwood, #B85645)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: '0.3rem' }}>DEEP RECOVERY</span>
